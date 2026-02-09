@@ -96,10 +96,12 @@ En tant que futur **technicien systèmes et réseaux**, vous serez amené à :
 - **Chipset** : Ensemble de puces gérant les communications entre composants
 - **Pile CMOS** : Pile bouton maintenant les paramètres du BIOS
 
-![Schéma carte mère](carte-mere.png)
+<p style="text-align:center;">
+  <img src="carte-mere.png" alt="Carte Mère" style="width:50%;">
+</p>
+
 *Légende : Schéma annoté d'une carte mère ATX standard montrant les principaux emplacements et connecteurs.*
 
----
 
 #### B. Le Processeur (CPU - Central Processing Unit)
 
