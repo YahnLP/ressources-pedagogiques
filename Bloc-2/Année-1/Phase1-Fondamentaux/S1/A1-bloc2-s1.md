@@ -311,7 +311,7 @@ En tant que futur **technicien systèmes et réseaux**, vous serez amené à :
 - **macOS** (pour les Mac)
 - **Android / iOS** (pour smartphones/tablettes)
 
-![OS Middleware](os.png)
+![OS Middleware](OS.png)
 *Légende : Le système d'exploitation agit comme un chef d'orchestre entre les applications (niveau supérieur) et le matériel (niveau inférieur). Il traduit les demandes des applications en instructions compréhensibles par le matériel.*
 
 ---
