@@ -96,7 +96,7 @@ En tant que futur **technicien systèmes et réseaux**, vous serez amené à :
 - **Chipset** : Ensemble de puces gérant les communications entre composants
 - **Pile CMOS** : Pile bouton maintenant les paramètres du BIOS
 
-![Schéma carte mère](carte_mere_schema.png)
+![Schéma carte mère](carte-mere.png)
 *Légende : Schéma annoté d'une carte mère ATX standard montrant les principaux emplacements et connecteurs.*
 
 ---
@@ -115,7 +115,7 @@ En tant que futur **technicien systèmes et réseaux**, vous serez amené à :
 - Généralement caché sous un **ventirad** (ventilateur + radiateur)
 - Format carré avec des centaines de petites broches (ou contacts plats selon le socket)
 
-![Processeur Intel](processeur_exemple.png)
+![Processeur Intel](i7.jpg)
 *Légende : Processeur Intel Core i7 avec vue du dessus (marquages) et du dessous (broches/contacts).*
 
 ⚠️ **Attention :** Le CPU est très fragile (broches) et sensible à la chaleur. Ne jamais le manipuler sans précautions !
@@ -138,7 +138,7 @@ En tant que futur **technicien systèmes et réseaux**, vous serez amené à :
 - Généralement **vertes, bleues ou noires**
 - Clips de maintien aux extrémités
 
-![Barrette RAM](ram_exemple.png)
+![Barrette RAM](ram.png)
 *Légende : Barrette de RAM DDR4 8Go installée dans un slot DIMM. Notez les clips de maintien blancs aux extrémités.*
 
 📌 **Particularité :** La RAM est **volatile** → toutes les données sont **perdues** à l'extinction du PC !
@@ -184,8 +184,8 @@ En tant que futur **technicien systèmes et réseaux**, vous serez amené à :
 - Format 2.5" (comme un petit HDD) ou M.2 (petite carte enfichée directement sur la carte mère)
 - Connectique : SATA ou M.2 (PCIe NVMe pour les plus rapides)
 
-![HDD vs SSD](hdd_vs_ssd.png)
-*Légende : Comparaison visuelle entre un disque dur HDD 3.5" (gauche) et un SSD 2.5" SATA (droite). Notez la différence de taille et l'absence de parties mobiles sur le SSD.*
+![HDD vs SSD](hdd.png)
+*Légende : Comparaison visuelle entre un disque dur HDD 3.5" (à droite), un SSD 2.5" SATA (au centre) et d'un NVME M2 (à gauche). Notez la différence de taille.*
 
 📊 **Tableau comparatif :**
 
@@ -220,8 +220,8 @@ En tant que futur **technicien systèmes et réseaux**, vous serez amené à :
   - Câbles SATA (disques, SSD)
   - Câbles Molex (anciens périphériques)
 
-![Alimentation PC](alimentation_schema.png)
-*Légende : Bloc d'alimentation 650W modulaire avec ses différents types de câbles : 24 broches (carte mère), 8 broches (CPU), 8 broches PCIe (GPU), SATA et Molex.*
+![Alimentation PC](alim.jpg)
+*Légende : Bloc d'alimentation 650W modulaire avec ses différents types de câbles : 24 broches (carte mère), 8 broches (CPU), 8 broches PCIe (GPU), Molex et SATA.*
 
 ⚠️ **Danger :** L'alimentation contient des condensateurs qui peuvent rester chargés même PC débranché. **Ne jamais ouvrir une alimentation !**
 
@@ -253,7 +253,7 @@ En tant que futur **technicien systèmes et réseaux**, vous serez amené à :
 - Sorties vidéo à l'arrière (HDMI, DisplayPort, DVI...)
 - Nécessite souvent une alimentation dédiée (câbles PCIe 6+2 broches)
 
-![Carte graphique](gpu_exemple.png)
+![Carte graphique](rtx.jpg)
 *Légende : Carte graphique NVIDIA GeForce RTX installée sur un slot PCIe x16. Notez les deux ventilateurs de refroidissement et les connecteurs d'alimentation PCIe sur le côté.*
 
 ---
@@ -273,7 +273,7 @@ En tant que futur **technicien systèmes et réseaux**, vous serez amené à :
 - **Ventilateurs** : Entrée d'air (avant) et extraction (arrière/haut)
 - **Panneaux latéraux** : Retirables par vis ou clips
 
-![Boîtier PC](boitier_interieur.png)
+![Boîtier PC](boitier.jpg)
 *Légende : Vue intérieure d'un boîtier ATX montrant l'emplacement de la carte mère, de l'alimentation (en bas), des emplacements de disques et des ventilateurs.*
 
 ---
@@ -311,7 +311,7 @@ En tant que futur **technicien systèmes et réseaux**, vous serez amené à :
 - **macOS** (pour les Mac)
 - **Android / iOS** (pour smartphones/tablettes)
 
-![OS Middleware](os_role_schema.png)
+![OS Middleware](os.png)
 *Légende : Le système d'exploitation agit comme un chef d'orchestre entre les applications (niveau supérieur) et le matériel (niveau inférieur). Il traduit les demandes des applications en instructions compréhensibles par le matériel.*
 
 ---
