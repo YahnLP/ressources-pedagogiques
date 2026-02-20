@@ -94,7 +94,7 @@ Sur breadboard :
 - mais si un fil est mal enfoncé ou si le montage est déplacé, une connexion peut se débrancher (panne “bête” mais fréquente).
 
 <p align="center">
-  <img src="./images/breadboard_connexions.png" alt="Breadboard : rails d'alimentation et rangées connectées (zones de connexions)" width="90%"><br>
+  <img src="./03-images/breadboard.png" alt="Breadboard : rails d'alimentation et rangées connectées (zones de connexions)" width="90%"><br>
   <em>Illustration attendue : schéma d’une breadboard avec rails +/– et zones de connexions (rangées).</em>
 </p>
 
@@ -117,7 +117,7 @@ La stripboard est solide, et on peut encore adapter le circuit (en coupant des b
 - si une coupure est oubliée, un courant peut passer où il ne faut pas → court-circuit ou fonctionnement étrange.
 
 <p align="center">
-  <img src="./images/stripboard_bandes_coupure.png" alt="Stripboard : bandes cuivre et exemple de coupure pour isoler deux zones" width="90%"><br>
+  <img src="./03-images/stripboard.jpg" alt="Stripboard : bandes cuivre et exemple de coupure pour isoler deux zones" width="60%"><br>
   <em>Illustration attendue : vue d’une stripboard + exemple de bande coupée pour isoler deux zones.</em>
 </p>
 
@@ -152,7 +152,7 @@ Le bon geste à retenir : **on chauffe la piste + la patte**, puis on dépose l�
 Un “cône” propre est souvent le signe d’une bonne liaison.
 
 <p align="center">
-  <img src="./images/soudure_bonne_mauvaise.png" alt="Soudure : bonne (brillante) vs soudure froide (mate/granuleuse) vs pont d'étain (court-circuit)" width="90%"><br>
+  <img src="./03-images/soudure.png" alt="Soudure : bonne (brillante) vs soudure froide (mate/granuleuse) vs pont d'étain (court-circuit)" width="90%"><br>
   <em>Illustration attendue : 3 photos/dessins : soudure brillante (OK), soudure mate/granuleuse (froide), pont d’étain (court-circuit).</em>
 </p>
 

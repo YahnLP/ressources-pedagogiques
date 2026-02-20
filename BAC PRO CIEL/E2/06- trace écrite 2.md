@@ -102,7 +102,7 @@ On cherche notamment :
 - **condensateur gonflé** (souvent à remplacer).
 
 <p align="center">
-  <img src="./images/condensateur_gonfle.png" alt="Condensateur gonflé sur carte : signe de vieillissement et risque de panne" width="70%"><br>
+  <img src="./03-images/condo.jpg" alt="Condensateur gonflé sur carte : signe de vieillissement et risque de panne" width="60%"><br>
   <em>Illustration attendue : photo d’un condensateur électrolytique bombé/abîmé sur une carte.</em>
 </p>
 
@@ -126,7 +126,7 @@ Exemple : un circuit avec des soudures froides peut générer des coupures inter
 - une bonne soudure : cône propre, brillante, pas de pont
 
 <p align="center">
-  <img src="./images/soudures_defauts.png" alt="Soudure correcte vs soudure froide vs pont d'étain : exemples fréquents" width="90%"><br>
+  <img src="./03-images/soudure2.png" alt="Soudure correcte vs soudure froide vs pont d'étain : exemples fréquents" width="60%"><br>
   <em>Illustration attendue : 3 exemples : soudure brillante (OK), soudure mate (froide), pont d’étain (court-circuit).</em>
 </p>
 

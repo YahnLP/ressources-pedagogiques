@@ -109,7 +109,7 @@ Causes possibles : interférences électromagnétiques, composants mal blindés,
 Un oscilloscope permet de vérifier si le signal est “sale” (bruit, distorsion).
 
 <p align="center">
-  <img src="./images/signal_propre_vs_bruit.png" alt="À l'oscilloscope : signal propre comparé à un signal bruité (parasites)" width="90%"><br>
+  <img src="./03-images/bruit.png" alt="À l'oscilloscope : signal propre comparé à un signal bruité (parasites)" width="60%"><br>
   <em>Illustration attendue : deux oscillogrammes : (1) signal propre, (2) signal avec bruit/parasites.</em>
 </p>
 

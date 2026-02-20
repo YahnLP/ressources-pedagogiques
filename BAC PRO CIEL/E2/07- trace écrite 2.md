@@ -1,5 +1,5 @@
 ---
-title: "E2 - Pack 07 - Fiche de cours élève - Microcontrôleurs & programmation basique (Arduino)"
+Titre: "E2 - Pack 07 - Fiche de cours élève - Microcontrôleurs & programmation basique (Arduino)"
 module: "BAC PRO CIEL - E2"
 version: "1.0"
 ---
@@ -29,8 +29,8 @@ Il exécute **un programme** et pilote des **broches (pins)** reliées à des **
 **lire → décider → agir** (en continu tant que la carte est alimentée).
 
 <p align="center">
-  <img src="./images/chaine_capteur_decision_actionneur.png" alt="Chaîne classique : capteur → lecture → décision → actionneur" width="90%"><br>
-  <em>Illustration attendue : capteur → microcontrôleur (lecture/décision) → actionneur.</em>
+  <img src="./03-images/chaines.png" alt="Chaîne classique : capteur → lecture → décision → actionneur" width="90%"><br>
+  <em>capteur → microcontrôleur (lecture/décision) → actionneur.</em>
 </p>
 
 ---
@@ -44,7 +44,7 @@ Ils combinent **un processeur**, **de la mémoire** et des **périphériques d�
 C’est pour cela qu’on le retrouve partout (objets du quotidien, robotique, automobile…).
 
 <p align="center">
-  <img src="./images/microcontroleur_blocs.png" alt="Blocs d’un microcontrôleur : CPU, mémoire, E/S, bus interne" width="90%"><br>
+  <img src="./03-images/arduino.jpg" alt="Blocs d’un microcontrôleur : CPU, mémoire, E/S, bus interne" width="90%"><br>
   <em>Illustration attendue : schéma en blocs CPU + mémoire + E/S + bus, reliés entre eux.</em>
 </p>
 
