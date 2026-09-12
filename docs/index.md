@@ -18,7 +18,7 @@ Le site est organisé **par bloc de compétences**, puis **par année**, puis **
 
 | Bloc | Contenu | Statut |
 |---|---|---|
-| **E31** | Réseaux informatiques | 🟢 En ligne (Année 1) |
+| **E31** | Réseaux informatiques | 🟢 En ligne (Années 1, 2 et 3) |
 | **E32** | À venir | ⏳ |
 | **E2** | À venir | ⏳ |
 | **E12** | À venir | ⏳ |
