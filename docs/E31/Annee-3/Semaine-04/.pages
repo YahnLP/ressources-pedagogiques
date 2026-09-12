@@ -1,0 +1,7 @@
+arrange:
+    - README.md
+    - 01-activite-decouverte.md
+    - 02-fiche-cours-sdn.md
+    - 03-tp-sdn-mininet.md
+    - 04-devoir-livrable-portfolio.md
+    - 05-aide-memoire-sdn.md
