@@ -1,0 +1,5 @@
+arrange:
+    - README.md
+    - 01-guide-dhcp-dns.md
+    - 02-guide-tests-reseau.md
+    - 03-guide-wireshark-validation.md
