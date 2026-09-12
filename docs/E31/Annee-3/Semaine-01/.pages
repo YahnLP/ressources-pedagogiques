@@ -1,0 +1,5 @@
+arrange:
+    - README.md
+    - 01-evaluation-diagnostique.md
+    - 02-fiche-cours-ospfv3.md
+    - 03-lab-ospf-td-ospfv3.md
