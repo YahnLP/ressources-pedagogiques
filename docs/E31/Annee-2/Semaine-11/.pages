@@ -1,0 +1,7 @@
+arrange:
+    - README.md
+    - 01-activite-decouverte.md
+    - 02-fiche-cours-syslog.md
+    - 03-tp-syslog-rsyslog.md
+    - 04-devoir-livrable-portfolio.md
+    - 05-aide-memoire-syslog.md
