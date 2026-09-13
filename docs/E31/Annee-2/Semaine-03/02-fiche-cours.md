@@ -73,7 +73,7 @@ OSPF : R1 ──LSA "mes liens sont : R2 (10.0.12.0/30), R4 (10.0.14.0/30)"─�
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Comparaison côte à côte RIP vs OSPF sur la même topologie à 4 routeurs. Côté RIP : chaque routeur n'a qu'une vue partielle (bulles de dialogue avec "X sauts vers réseau Y"), flèches graduelles montrant la propagation lente. Côté OSPF : chaque routeur tient une carte complète identique (LSDB), les LSA se propagent en flood simultané, l'algorithme SPF est représenté par un graphe de Dijkstra simplifié. Contraste visuel fort entre les deux philosophies.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-1.jpg)
 
 ---
 
@@ -139,7 +139,7 @@ Chaque routeur exécute **l'algorithme de Dijkstra** sur sa LSDB :
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Diagramme chronologique en 4 lignes horizontales (une par phase), avec des flèches bidirectionnelles entre les routeurs montrant les échanges de paquets à chaque phase. Phase 1 : paquets Hello verts. Phase 2 : paquets DBD/LSR/LSU oranges. Phase 3 : flood de LSA bleus se propageant en vague. Phase 4 : SPF représenté par un arbre de décision avec les costs annotés sur chaque branche.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-2.jpg)
 
 ---
 
@@ -182,7 +182,7 @@ R1# show ip ospf
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Diagramme de priorité du Router-ID sous forme de pyramide inversée à 3 niveaux. Niveau 1 (haut, vert, "Priorité maximale") : "router-id configuré manuellement". Niveau 2 (orange) : "adresse la plus haute sur Loopback active". Niveau 3 (rouge, "Priorité minimale") : "adresse la plus haute sur interface physique active". À droite, un exemple concret avec les 3 interfaces d'un routeur et le Router-ID résultant dans chaque cas. En dessous, la recommandation professionnelle en gras.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-3.jpg)
 
 ---
 
@@ -297,7 +297,7 @@ O    192.168.20.0/24 [110/2] via 10.0.13.2
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Topologie réseau avec 4 routeurs montrant deux chemins de R1 à R4, avec les costs annotés sur chaque lien. Chemin 1 via Serial (cost 64 sur un seul lien). Chemin 2 via deux liens GigabitEthernet (cost 1+1=2). Les deux chemins sont représentés par des couleurs différentes (rouge pour le mauvais, vert pour celui choisi par OSPF). En bas, la formule cost = 100/BW et le tableau des costs courants. La table de routage résultante est affichée à droite.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-4.jpg)
 
 ---
 
@@ -330,7 +330,7 @@ Total : ~43 secondes (contre des minutes pour RIP, ∞ pour le statique)
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Chronologie de convergence OSPF après une panne de lien. Axe horizontal = temps (0 à 45 secondes). 5 événements marqués : t=0 (lien coupe, croix rouge), t=40 (Dead Interval expiré, icône minuterie), t=40 (LSA de mise à jour envoyé, icône enveloppe), t=41 (flood LSA, onde bleue), t=43 (SPF recalcul + nouvelles routes, checkmark vert). La ligne de temps passe du rouge au vert. Comparaison avec une ligne secondaire montrant "routage statique : aucune convergence automatique".
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-5.jpg)
 
 ---
 
