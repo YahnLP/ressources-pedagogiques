@@ -242,12 +242,12 @@ Score cible au prochain QCM : _______ / 30
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Diagramme circulaire de la répartition du temps CCNA 200-301 en 3 zones colorées. Zone externe : le cercle représente 120 minutes totales. Trois secteurs : "QCM classiques" (50% du temps, bleu), "Simlets/Analyse" (25%, orange), "Simulations PT" (25%, vert). En dessous, un axe temporel de lab PT en 3 phases annotées : Passe 1 "Points faciles" / Passe 2 "Config complexe" / Passe 3 "Vérification".
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-methode-exam-1.jpg)
 
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Checklist visuelle "Vérification après config" en 4 blocs thématiques côte à côte : VLANs (show vlan brief + show interfaces trunk), OSPF (show ip ospf neighbor + show ip route), EtherChannel (show etherchannel summary + codes P/I/D), Tests finaux (ping E2E + traceroute). Chaque bloc est une carte avec fond coloré, la commande en monospace et l'état "OK" attendu.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-methode-exam-2.jpg)
 
 ---
 
