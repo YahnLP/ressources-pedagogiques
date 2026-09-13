@@ -39,13 +39,17 @@
 
 **Exemple :**
 
-```
-OU Commercial (S11)
-   ↓ GPO liée (S12)
-GPO "Mots de passe stricts"
-   ↓ Appliquée à
-TOUS users OU Commercial
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    OU Commercial (S11)
+       ↓ GPO liée (S12)
+    GPO "Mots de passe stricts"
+       ↓ Appliquée à
+    TOUS users OU Commercial
+    ```
+
 
 ---
 
