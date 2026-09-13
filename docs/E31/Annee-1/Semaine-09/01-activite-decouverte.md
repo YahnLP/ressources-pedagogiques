@@ -532,6 +532,6 @@ Cette activité prépare la compétence C3.4 pour le portfolio :
 ---
 
 **Document créé le :** 24/02/2026  
-**Auteur :** Équipe pédagogique CFA  
+**Auteur :** Yahn LE PRETTRE  
 **Version :** 1.0  
 **Durée de l'activité :** 20 minutes
