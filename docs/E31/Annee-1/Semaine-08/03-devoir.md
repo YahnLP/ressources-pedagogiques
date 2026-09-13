@@ -376,9 +376,9 @@ ___________________________________________________________________
 ---
 
 **📅 Devoir conçu le :** 25/02/2026  
-**✍️ Auteur :** Équipe pédagogique CFA  
+**✍️ Auteur :** Yahn LE PRETTRE  
 **🎯 Conformité :** Qualiopi + Référentiel RNCP BAC PRO CIEL  
-**📧 Questions :** formation@cfa-exemple.fr
+**📧 Questions :** yahn.leprettre@mfr.asso.fr
 
 ---
 

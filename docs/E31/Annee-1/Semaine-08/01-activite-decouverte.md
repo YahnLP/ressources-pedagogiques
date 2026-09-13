@@ -312,7 +312,7 @@ Le formateur dessine au tableau blanc le schéma suivant **pendant le débriefin
 ---
 
 **📅 Activité conçue le :** 25/02/2026  
-**✍️ Auteur :** Équipe pédagogique CFA  
+**✍️ Auteur :** Yahn LE PRETTRE  
 **🎮 Testée avec :** Promo 2024-2027 (retours très positifs !)  
 **🔄 Prochaine révision :** Juin 2026
 
