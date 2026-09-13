@@ -84,7 +84,7 @@ APPROCHE AUTOMATISÉE :
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Comparaison "Avant automation" vs "Avec automation". Gauche : administrateur stressé devant 5 terminaux SSH ouverts simultanément, chacun avec un routeur différent, horloge montrant 45 min, points rouges pour les erreurs potentielles. Droite : administrateur serein qui tape `ansible-playbook` dans un seul terminal, les 5 routeurs se configurent en parallèle représentés par des flèches vertes, horloge montrant 2 min, icône Git pour le versionnage. En bas : tableau 5 bénéfices.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-ansible-netmiko-1.jpg)
 
 ---
 
@@ -177,7 +177,7 @@ ansible_become_password=Cisco123!
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Anatomie d'un playbook Ansible YAML avec 8 flèches colorées annotant chaque section. La structure YAML est affichée avec une indentation mise en évidence. Les flèches pointent vers : `---` (début de fichier YAML), `name:` (description du play), `hosts:` (groupe cible), `vars:` (variables), `tasks:` (liste de tâches), `cisco.ios.ios_config:` (module Ansible), `lines:` (commandes IOS), `register:` (capturer le résultat). À droite, le flux d'exécution : playbook → Ansible → SSH → routeur → résultat.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-ansible-netmiko-2.jpg)
 
 ---
 
@@ -293,7 +293,7 @@ ansible_become_password=Cisco123!
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Schéma d'exécution d'un playbook Ansible sur 3 switches simultanément. En haut, la machine de contrôle avec le playbook YAML. Des flèches SSH partent vers 3 switches (SW1, SW2, SW3) en parallèle. Chaque switch montre les 5 tâches s'exécutant dans l'ordre (barres de progression). La sortie Ansible dans le terminal montre "PLAY RECAP" avec les statuts ok/changed/failed pour chaque hôte. Un chronomètre compare "3 switches en parallèle = même temps que 1 switch".
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-ansible-netmiko-3.jpg)
 
 ---
 
@@ -412,7 +412,7 @@ for nom, infos in resultats.items():
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Comparaison côte à côte Ansible vs Netmiko pour la même tâche (configurer un hostname sur 3 routeurs). Colonne Ansible : 8 lignes de YAML, label "Déclaratif, Idempotent". Colonne Netmiko : 20 lignes de Python, label "Impératif, Flexible". Tableau de comparaison en dessous : Syntaxe/Idempotence/Flexibilité/Courbe apprentissage/Cas d'usage idéal. Des icônes représentent: YAML=document, Python=serpent logo.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-ansible-netmiko-4.jpg)
 
 ---
 
@@ -475,7 +475,7 @@ ansible-playbook playbooks/configure_acl.yml  # Re-déployer l'ancienne version
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Cycle de vie "Configuration Réseau as Code" sous forme de roue. Les 5 étapes en cercle : 1-Coder (écrire le playbook/script), 2-Tester (dry-run, tests unitaires), 3-Versionner (git commit), 4-Déployer (ansible-playbook), 5-Vérifier (playbook de vérification + assert). Au centre : "Configuration de référence". Une flèche externe représente la "dérive" et une flèche de retour montre la "remédiation". En bas, les outils : Ansible, Netmiko, Git, Python.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-ansible-netmiko-5.jpg)
 
 ---
 
