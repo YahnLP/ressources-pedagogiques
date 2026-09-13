@@ -32,27 +32,35 @@
 
 ### RFC 5424 — Anatomie d'un message Syslog
 
-```
-<34>1 2024-01-15T03:12:44Z web-server sshd 1234 - Failed password for root from 185.220.101.45
- │   │         │               │         │   │  │          │
- │   │         │               │         │   │  │          └─ Message
- │   │         │               │         │   │  └─ Structured Data (- = vide)
- │   │         │               │         │   └─ ProcID (PID du processus)
- │   │         │               │         └─ AppName (programme)
- │   │         │               └─ Hostname (machine source)
- │   │         └─ Timestamp ISO 8601
- │   └─ Version Syslog (1)
- └─ Priority = (Facility × 8) + Severity = (4 × 8) + 2 = 34
-              auth (4) + crit (2)
-```
+![Illustration pédagogique](img/02-fiche-cours-syslog-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    <34>1 2024-01-15T03:12:44Z web-server sshd 1234 - Failed password for root from 185.220.101.45
+     │   │         │               │         │   │  │          │
+     │   │         │               │         │   │  │          └─ Message
+     │   │         │               │         │   │  └─ Structured Data (- = vide)
+     │   │         │               │         │   └─ ProcID (PID du processus)
+     │   │         │               │         └─ AppName (programme)
+     │   │         │               └─ Hostname (machine source)
+     │   │         └─ Timestamp ISO 8601
+     │   └─ Version Syslog (1)
+     └─ Priority = (Facility × 8) + Severity = (4 × 8) + 2 = 34
+                  auth (4) + crit (2)
+    ```
+
 
 ### Format traditionnel BSD (le plus courant dans /var/log)
 
-```
-Jan 15 03:12:44 web-server sshd[1234]: Failed password for root from 185.220.101.45 port 52341
-   │                │          │                         │
-   └─ Date/heure    └─ Hostname └─ Programme[PID]        └─ Message libre
-```
+![Illustration pédagogique](img/02-fiche-cours-syslog-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Jan 15 03:12:44 web-server sshd[1234]: Failed password for root from 185.220.101.45 port 52341
+       │                │          │                         │
+       └─ Date/heure    └─ Hostname └─ Programme[PID]        └─ Message libre
+    ```
+
 
 ### Calcul de la priorité (PRI)
 
@@ -73,37 +81,45 @@ Jan 15 03:12:44 web-server sshd[1234]: Failed password for root from 185.220.101
 
 ### Pourquoi centraliser ?
 
-```
-SANS centralisation :               AVEC centralisation :
-  Chaque serveur garde ses logs       Tous les logs → 1 serveur central
-  └─ Si compromise → logs effacés     └─ Logs préservés même si la source est compromise
-  └─ Pas de vue globale               └─ Détection de patterns multi-machines
-  └─ Consultation machine par machine └─ Recherche unifiée
-  └─ Pas d'alerte en temps réel       └─ Alertes SIEM automatiques
-```
+![Illustration pédagogique](img/02-fiche-cours-syslog-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    SANS centralisation :               AVEC centralisation :
+      Chaque serveur garde ses logs       Tous les logs → 1 serveur central
+      └─ Si compromise → logs effacés     └─ Logs préservés même si la source est compromise
+      └─ Pas de vue globale               └─ Détection de patterns multi-machines
+      └─ Consultation machine par machine └─ Recherche unifiée
+      └─ Pas d'alerte en temps réel       └─ Alertes SIEM automatiques
+    ```
+
 
 ### Architecture type
 
-```
-  ┌─────────────────┐   Syslog UDP/TCP 514   ┌─────────────────────┐
-  │  Client 1       ├──────────────────────► │                     │
-  │  (web-server)   │                        │  SERVEUR RSYSLOG    │
-  ├─────────────────┤                        │  (log-server)       │
-  │  Client 2       ├──────────────────────► │                     │
-  │  (db-server)    │                        │  /var/log/distant/  │
-  ├─────────────────┤                        │    web-server.log   │
-  │  Client 3       ├──────────────────────► │    db-server.log    │
-  │  (mail-server)  │                        │    mail-server.log  │
-  └─────────────────┘                        └──────────┬──────────┘
-  Équipements réseau                                    │
-  (routeurs, switches, AP)                              │ Forwarding
-     └───────────────────────────────────────────────►  │
-                                                        ▼
-                                               ┌─────────────────┐
-                                               │    SIEM         │
-                                               │  (Wazuh/Splunk) │
-                                               └─────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-syslog-txt-4.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+      ┌─────────────────┐   Syslog UDP/TCP 514   ┌─────────────────────┐
+      │  Client 1       ├──────────────────────► │                     │
+      │  (web-server)   │                        │  SERVEUR RSYSLOG    │
+      ├─────────────────┤                        │  (log-server)       │
+      │  Client 2       ├──────────────────────► │                     │
+      │  (db-server)    │                        │  /var/log/distant/  │
+      ├─────────────────┤                        │    web-server.log   │
+      │  Client 3       ├──────────────────────► │    db-server.log    │
+      │  (mail-server)  │                        │    mail-server.log  │
+      └─────────────────┘                        └──────────┬──────────┘
+      Équipements réseau                                    │
+      (routeurs, switches, AP)                              │ Forwarding
+         └───────────────────────────────────────────────►  │
+                                                            ▼
+                                                   ┌─────────────────┐
+                                                   │    SIEM         │
+                                                   │  (Wazuh/Splunk) │
+                                                   └─────────────────┘
+    ```
+
 
 ---
 
@@ -284,22 +300,26 @@ cat /var/lib/logrotate/status
 
 ### Comment rsyslog alimente le SIEM
 
-```
-Machine source
-    │
-    │ rsyslog client (forwarding)
-    ▼
-Serveur rsyslog central
-    │
-    │ Forwarding vers SIEM (TCP/UDP ou Beats/Filebeat)
-    ▼
-SIEM (Wazuh / Splunk / ELK)
-    │
-    ├── Parsing des champs (facility, severity, hostname, programme, message)
-    ├── Enrichissement (géolocalisation IP, réputation, MITRE ATT&CK)
-    ├── Corrélation (N échecs depuis la même IP en X secondes → alerte)
-    └── Tableau de bord → alertes → incidents
-```
+![Illustration pédagogique](img/02-fiche-cours-syslog-txt-5.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Machine source
+        │
+        │ rsyslog client (forwarding)
+        ▼
+    Serveur rsyslog central
+        │
+        │ Forwarding vers SIEM (TCP/UDP ou Beats/Filebeat)
+        ▼
+    SIEM (Wazuh / Splunk / ELK)
+        │
+        ├── Parsing des champs (facility, severity, hostname, programme, message)
+        ├── Enrichissement (géolocalisation IP, réputation, MITRE ATT&CK)
+        ├── Corrélation (N échecs depuis la même IP en X secondes → alerte)
+        └── Tableau de bord → alertes → incidents
+    ```
+
 
 ### Ce que le SIEM peut détecter grâce aux logs rsyslog
 
