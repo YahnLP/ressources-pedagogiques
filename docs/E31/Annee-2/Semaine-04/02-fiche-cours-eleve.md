@@ -90,8 +90,7 @@ R1(config-router)# passive-interface GigabitEthernet0/0
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma d'un routeur R1 avec trois interfaces. Interface Gi0/0 vers un LAN utilisateurs (icône PC), marquée "passive-interface" avec une icône de cadenas — les paquets hello OSPF ne sont pas envoyés dans cette direction. Interfaces Gi0/1 et Gi0/2 vers d'autres routeurs R2 et R3, marquées "OSPF actif" avec des flèches bidirectionnelles représentant les échanges de hello. Annotation : "Le réseau Gi0/0 est quand même annoncé dans OSPF, mais aucun voisin n'est cherché sur ce segment." Style diagramme réseau technique propre, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-1.jpg)
 
 > **Légende :** La directive `passive-interface` empêche OSPF d'envoyer des paquets Hello sur l'interface LAN (inutile — aucun routeur OSPF n'est présent de ce côté), tout en continuant à annoncer ce réseau dans la LSDB. Cela économise de la bande passante et évite les attentes de voisins fantômes.
 
@@ -140,16 +139,15 @@ R1# show ip ospf
     DOWN ──→ INIT ──→ 2-WAY ──→ EXSTART ──→ EXCHANGE ──→ LOADING ──→ FULL
      │                  │                                              │
      │                  │ (DROthers s'arrêtent ici                    │
-     │                  │  entre eux — c'est NORMAL)                  │
-     │                                                                 │
+     │                   │  entre eux — c'est NORMAL)                  │
+     │                                                                │
      └─ Aucun hello reçu               Adjacence complète, LSDB sync ─┘
     ```
 
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Diagramme de flux horizontal montrant les 7 états OSPF comme des cases rectangulaires reliées par des flèches numérotées. Chaque case colorée : DOWN (gris), INIT (jaune), 2-WAY (orange), EXSTART (bleu clair), EXCHANGE (bleu), LOADING (violet), FULL (vert). Sous chaque case, une courte description : DOWN = "Aucun hello reçu" ; INIT = "Hello reçu, pas encore vu en retour" ; 2-WAY = "Mutuellement visibles, élection DR/BDR" ; EXSTART = "Négociation master/slave" ; EXCHANGE = "Échange résumés LSDB (DBD)" ; LOADING = "Demande LSA manquants" ; FULL = "LSDB synchronisée". Une flèche rouge pointillée depuis 2-WAY vers lui-même avec l'annotation "État final normal entre DROthers". Style diagramme d'états FSM technique, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-2.jpg)
 
 > **Légende :** Séquence des états d'adjacence OSPF. Sur un lien point-à-point, les deux routeurs progressent directement jusqu'à l'état Full. Sur un segment multi-accès (LAN), les routeurs DROther restent en état 2-Way entre eux (normal), tandis qu'ils atteignent l'état Full uniquement avec le DR et le BDR.
 
@@ -174,7 +172,7 @@ R1# show ip ospf
 
 ---
 
-## 4️⃣ DR, BDR ET DROTHER
+## 🏷️⃣ DR, BDR ET DROTHER
 
 ### Le problème des LAN multi-accès
 
@@ -194,8 +192,7 @@ R1# show ip ospf
 
 ---
 
-📷 **[ILLUSTRATION 3]**
-*Schéma d'un segment LAN avec un switch central. Cinq routeurs (R1, R2, R3, R4, R5) connectés au switch. R1 est annoté "DR" (rectangle vert), R2 est "BDR" (rectangle bleu), R3/R4/R5 sont "DROther" (rectangles gris). Des lignes épaisses vertes relient chaque routeur au DR (adjacence Full). Des lignes bleues relient chaque routeur au BDR (adjacence Full). Des lignes pointillées orange relient les DROthers entre eux avec l'annotation "2-Way (normal)". Un nuage d'annotations "224.0.0.6" (multicast DR+BDR) et "224.0.0.5" (tous les routeurs OSPF). Style diagramme réseau technique, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-3.jpg)
 
 > **Légende :** Organisation DR/BDR sur un segment LAN. Le DR (R1, vert) et le BDR (R2, bleu) maintiennent une adjacence Full avec tous les routeurs du segment. Les DROthers (R3, R4, R5) n'ont une adjacence Full qu'avec DR et BDR — entre eux, l'état 2-Way est normal et attendu. Quand un DROther a un nouveau LSA, il l'envoie au DR/BDR via l'adresse multicast 224.0.0.6, puis le DR redistribue à tous via 224.0.0.5.
 
@@ -280,7 +277,7 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
 
 ### Interprétation des états de la sortie `show ip ospf neighbor`
 
-| **État affiché** | **Signification** | **Normal ?** |
+| *"État affiché** | **Signification** | **Normal ?** |
 |---|---|---|
 | `FULL/DR` | Voisin adjacent complet, c'est le DR du segment | ✅ Attendu |
 | `FULL/BDR` | Voisin adjacent complet, c'est le BDR | ✅ Attendu |
@@ -434,7 +431,7 @@ O  192.168.3.0/24 [110/2] via 10.0.23.2, 00:02:15, Gi0/1
 | **État 2-Way** | Voisinage bidirectionnel visible mais sans échange de LSDB (normal entre DROthers) |
 | **Passive-interface** | Empêche l'envoi de hello sur une interface tout en annonçant son réseau |
 | **224.0.0.5** | Adresse multicast AllSPFRouters — hello envoyés à TOUS les routeurs OSPF |
-| **224.0.0.6** | Adresse multicast AllDRouters — LSA envoyés au DR+BDR uniquement par les DROthers |
+| *"224.0.0.6** | Adresse multicast AllDRouters — LSA envoyés au DR+BDR uniquement par les DROthers |
 | **Non-préemptif** | Une fois élu, le DR garde son rôle sans être remis en cause automatiquement |
 
 ---
