@@ -258,15 +258,19 @@ $$\boxed{\text{ACL Standard} \rightarrow \text{Proche de la DESTINATION}}$$
 
 **Mémo visuel :**
 
-```
-PC ──────► [Gi0/0 ROUTEUR Gi0/1] ──────► Serveur
-                ↑ in           ↑ out
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
 
-Si l'ACL est sur Gi0/0 in : elle filtre ce que le PC envoie au routeur
-Si l'ACL est sur Gi0/1 out : elle filtre ce que le routeur envoie vers le serveur
+??? note "🔤 Schéma texte original"
+    ```
+    PC ──────► [Gi0/0 ROUTEUR Gi0/1] ──────► Serveur
+                    ↑ in           ↑ out
 
-→ Pour bloquer le trafic DU PC, choisir : Gi0/0 direction in ✅
-```
+    Si l'ACL est sur Gi0/0 in : elle filtre ce que le PC envoie au routeur
+    Si l'ACL est sur Gi0/1 out : elle filtre ce que le routeur envoie vers le serveur
+
+    → Pour bloquer le trafic DU PC, choisir : Gi0/0 direction in ✅
+    ```
+
 
 ---
 
@@ -274,9 +278,13 @@ Si l'ACL est sur Gi0/1 out : elle filtre ce que le routeur envoie vers le serveu
 
 **Topologie :**
 
-```
-[LAN 192.168.1.0/24] ── Gi0/0 ── [R1] ── Gi0/1 ── [Serveur 10.0.1.10]
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    [LAN 192.168.1.0/24] ── Gi0/0 ── [R1] ── Gi0/1 ── [Serveur 10.0.1.10]
+    ```
+
 
 **Objectif :** Bloquer SSH depuis le LAN vers le serveur.
 
