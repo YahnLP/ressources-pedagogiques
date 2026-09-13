@@ -54,9 +54,7 @@ Le **DNS** (Domain Name System = Système de Noms de Domaine) est un service ré
 3. Le DNS répond : *"C'est 52.84.255.10"*
 4. Mon navigateur se connecte à `52.84.255.10` et affiche Netflix
 
-![Illustration : Schéma simple montrant un utilisateur tapant "www.google.com" dans un navigateur, une flèche vers un serveur DNS (représenté par un annuaire), puis une flèche de retour avec l'adresse IP "142.250.178.78". Style : diagramme pédagogique simple, couleurs : bleu et vert, fond blanc.]
-
-> 🖼️ **Illustration à venir** — schéma en cours de production.
+![Illustration pédagogique](img/02-fiche-cours-eleve-1.jpg)
 
 ---
 
@@ -108,9 +106,7 @@ www   .  amazon  .  fr  .
 3. `amazon` = Domaine principal (entreprise Amazon)
 4. `www` = Sous-domaine (serveur web)
 
-![Illustration : Arbre DNS inversé montrant la hiérarchie de www.amazon.fr. En haut : racine (point), dessous : 3 branches (.fr, .com, .org), sous .fr : plusieurs domaines dont 'amazon', sous amazon : plusieurs sous-domaines dont 'www'. Chaque niveau est coloré différemment (racine en rouge, TLD en bleu, domaine en vert, sous-domaine en orange). Style : organigramme clair et coloré.]
-
-> 🖼️ **Illustration à venir** — schéma en cours de production.
+![Illustration pédagogique](img/02-fiche-cours-eleve-2.jpg)
 
 ---
 
