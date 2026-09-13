@@ -168,15 +168,19 @@ Switch# show vlan brief
 
 **Principe :** Ajouter étiquette VLAN ID dans trame Ethernet
 
-```
-Trame normale :
-[En-tête Ethernet][Données]
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
 
-Trame 802.1Q :
-[En-tête][TAG 802.1Q: VLAN 10][Données]
-           ↑
-        4 octets
-```
+??? note "🔤 Schéma texte original"
+    ```
+    Trame normale :
+    [En-tête Ethernet][Données]
+
+    Trame 802.1Q :
+    [En-tête][TAG 802.1Q: VLAN 10][Données]
+               ↑
+            4 octets
+    ```
+
 
 ---
 
