@@ -43,21 +43,25 @@
 
 ### Structure d'un VPC : Subnets Publics et Privés
 
-```
-VPC : 10.0.0.0/16 (région eu-west-3 — Paris)
-│
-├── Availability Zone A (AZ-A)
-│   ├── Subnet Public A   : 10.0.1.0/24  → route 0.0.0.0/0 → IGW (Internet)
-│   └── Subnet Privé A    : 10.0.11.0/24 → route 0.0.0.0/0 → NAT GW (sortant)
-│
-├── Availability Zone B (AZ-B)
-│   ├── Subnet Public B   : 10.0.2.0/24  → route 0.0.0.0/0 → IGW
-│   └── Subnet Privé B    : 10.0.12.0/24 → route 0.0.0.0/0 → NAT GW
-│
-└── DB Subnet (aucun accès Internet)
-    ├── Subnet DB A       : 10.0.21.0/24
-    └── Subnet DB B       : 10.0.22.0/24
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    VPC : 10.0.0.0/16 (région eu-west-3 — Paris)
+    │
+    ├── Availability Zone A (AZ-A)
+    │   ├── Subnet Public A   : 10.0.1.0/24  → route 0.0.0.0/0 → IGW (Internet)
+    │   └── Subnet Privé A    : 10.0.11.0/24 → route 0.0.0.0/0 → NAT GW (sortant)
+    │
+    ├── Availability Zone B (AZ-B)
+    │   ├── Subnet Public B   : 10.0.2.0/24  → route 0.0.0.0/0 → IGW
+    │   └── Subnet Privé B    : 10.0.12.0/24 → route 0.0.0.0/0 → NAT GW
+    │
+    └── DB Subnet (aucun accès Internet)
+        ├── Subnet DB A       : 10.0.21.0/24
+        └── Subnet DB B       : 10.0.22.0/24
+    ```
+
 
 | **Type de subnet** | **Caractéristique** | **Exemples d'usage** |
 |---|---|---|
@@ -112,19 +116,23 @@ Route table subnet privé :
 
 > Un SG est **stateful** : si une règle inbound permet TCP port 443, la réponse sortante est automatiquement autorisée — sans règle outbound explicite. C'est le même comportement qu'une ACL stateful (comme en WPA2-Enterprise S8-A2 ou comme le suivi de connexion d'un firewall).
 
-```
-Security Group SG-WEB :
-  ┌─────────────────────────────────────────────────────────┐
-  │ INBOUND (trafic entrant vers les instances)              │
-  │  Type     Protocol  Port  Source          Description    │
-  │  HTTP      TCP       80   0.0.0.0/0       Web public     │
-  │  HTTPS     TCP       443  0.0.0.0/0       Web HTTPS      │
-  │  SSH       TCP       22   10.0.0.0/8      Admin VPN only │
-  │                                                          │
-  │ OUTBOUND (trafic sortant des instances)                  │
-  │  All traffic  All  All   0.0.0.0/0        (défaut)       │
-  └─────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Security Group SG-WEB :
+      ┌─────────────────────────────────────────────────────────┐
+      │ INBOUND (trafic entrant vers les instances)              │
+      │  Type     Protocol  Port  Source          Description    │
+      │  HTTP      TCP       80   0.0.0.0/0       Web public     │
+      │  HTTPS     TCP       443  0.0.0.0/0       Web HTTPS      │
+      │  SSH       TCP       22   10.0.0.0/8      Admin VPN only │
+      │                                                          │
+      │ OUTBOUND (trafic sortant des instances)                  │
+      │  All traffic  All  All   0.0.0.0/0        (défaut)       │
+      └─────────────────────────────────────────────────────────┘
+    ```
+
 
 **Règle par défaut :** par défaut, tout le trafic entrant est **bloqué** et tout le trafic sortant est **autorisé** dans un Security Group.
 
@@ -173,13 +181,17 @@ NACL Subnet Public :
 
 > Un **vNET** (Virtual Network) est l'équivalent Azure du VPC AWS. Il est défini par un **address space** (ex: `10.0.0.0/16`) subdivisé en **subnets**.
 
-```
-vNET : 10.0.0.0/16 (région France Central)
-├── Subnet Frontend   : 10.0.1.0/24   (NSG-WEB associé)
-├── Subnet Backend    : 10.0.2.0/24   (NSG-APP associé)
-├── Subnet Database   : 10.0.3.0/24   (NSG-DB associé)
-└── GatewaySubnet     : 10.0.255.0/27 (réservé pour la VPN Gateway)
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    vNET : 10.0.0.0/16 (région France Central)
+    ├── Subnet Frontend   : 10.0.1.0/24   (NSG-WEB associé)
+    ├── Subnet Backend    : 10.0.2.0/24   (NSG-APP associé)
+    ├── Subnet Database   : 10.0.3.0/24   (NSG-DB associé)
+    └── GatewaySubnet     : 10.0.255.0/27 (réservé pour la VPN Gateway)
+    ```
+
 
 > **GatewaySubnet** : Azure exige un subnet spécifiquement nommé `GatewaySubnet` pour y déployer la VPN Gateway. Il doit faire au minimum /29 (Azure recommande /27).
 
@@ -257,21 +269,25 @@ UDR Frontend-RT associée au Subnet Frontend :
 
 ### Architecture VPN AWS
 
-```
-ON-PREMISES                              AWS
-━━━━━━━━━━━━━━━━━━━━━                    ━━━━━━━━━━━━━━━━━━━━━━━━
-[Routeur Cisco R-PARIS]                  [Virtual Private Gateway]
- IP WAN: 203.0.113.1                      (attaché au VPC)
- LAN: 192.168.1.0/24                          │
-        │                                      │
-        └────── Tunnel IPsec ──────────────────┘
-                (AES-256, SHA-256, DH14)
-                
-Customer Gateway = objet AWS décrivant le routeur Cisco
-  → IP: 203.0.113.1
-  → Type: Static routing
-  → Routes annoncées vers AWS: 192.168.1.0/24
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-4.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ON-PREMISES                              AWS
+    ━━━━━━━━━━━━━━━━━━━━━                    ━━━━━━━━━━━━━━━━━━━━━━━━
+    [Routeur Cisco R-PARIS]                  [Virtual Private Gateway]
+     IP WAN: 203.0.113.1                      (attaché au VPC)
+     LAN: 192.168.1.0/24                          │
+            │                                      │
+            └────── Tunnel IPsec ──────────────────┘
+                    (AES-256, SHA-256, DH14)
+
+    Customer Gateway = objet AWS décrivant le routeur Cisco
+      → IP: 203.0.113.1
+      → Type: Static routing
+      → Routes annoncées vers AWS: 192.168.1.0/24
+    ```
+
 
 ### Correspondance S7-A2 → AWS
 
@@ -288,23 +304,27 @@ Customer Gateway = objet AWS décrivant le routeur Cisco
 
 ### Architecture VPN Azure
 
-```
-ON-PREMISES                              AZURE
-━━━━━━━━━━━━━━━━━━━━━                    ━━━━━━━━━━━━━━━━━━━━━━━
-[Routeur Cisco R-PARIS]                  [VPN Gateway dans GatewaySubnet]
- IP WAN: 203.0.113.1                          │
- LAN: 192.168.1.0/24                          │
-        │                                      │
-        └────── Tunnel IPsec BGP ou Static ────┘
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-5.jpg)
 
-Local Network Gateway = objet Azure décrivant le routeur Cisco
-  → IP: 203.0.113.1
-  → Address Space: 192.168.1.0/24
+??? note "🔤 Schéma texte original"
+    ```
+    ON-PREMISES                              AZURE
+    ━━━━━━━━━━━━━━━━━━━━━                    ━━━━━━━━━━━━━━━━━━━━━━━
+    [Routeur Cisco R-PARIS]                  [VPN Gateway dans GatewaySubnet]
+     IP WAN: 203.0.113.1                          │
+     LAN: 192.168.1.0/24                          │
+            │                                      │
+            └────── Tunnel IPsec BGP ou Static ────┘
 
-Connection = lie VPN Gateway + Local Network Gateway
-  → Shared Key (PSK): identique des deux côtés
-  → Type: IPsec/IKE
-```
+    Local Network Gateway = objet Azure décrivant le routeur Cisco
+      → IP: 203.0.113.1
+      → Address Space: 192.168.1.0/24
+
+    Connection = lie VPN Gateway + Local Network Gateway
+      → Shared Key (PSK): identique des deux côtés
+      → Type: IPsec/IKE
+    ```
+
 
 ---
 
