@@ -66,7 +66,7 @@ Inconvénients :
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Comparaison côte à côte WPA2-PSK vs WPA2-Enterprise. Gauche (PSK) : tous les appareils partagent la même clé, une croix rouge montre qu'en cas de départ d'Alice il faut tout changer. Droite (Enterprise) : chaque appareil a sa propre identité, une seule icône Alice est révoquée sans impacter les autres. En dessous, tableau 4 critères (Simplicité, Traçabilité, Révocation, Sécurité) avec rouge/vert.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-wifi-802-1x-1.jpg)
 
 ---
 
@@ -109,7 +109,7 @@ Inconvénients :
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Diagramme de séquence à 3 colonnes (Supplicant / Authenticator / Serveur RADIUS). Les échanges sont représentés par des flèches horizontales numérotées : 1-EAPOL-Start, 2-EAP-Request/Identity, 3-EAP-Response/Identity, 4-RADIUS Access-Request, 5-RADIUS Access-Challenge (EAP), 6-EAP-Request (retransmis), 7-EAP-Response (credentials), 8-RADIUS Access-Request (credentials), 9-RADIUS Access-Accept + VLAN, 10-EAP-Success, 11-Trafic réseau autorisé. Protocoles annotés sur les flèches : EAPOL à gauche, RADIUS à droite.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-wifi-802-1x-2.jpg)
 
 ---
 
@@ -202,7 +202,7 @@ Limitation : si l'utilisateur accepte un faux certificat serveur → attaque MIT
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Schéma comparatif EAP-TLS vs PEAP en deux colonnes. Colonne EAP-TLS : deux cadenas (un vert pour serveur, un vert pour client) reliés par une double flèche "authentification mutuelle", mention "Certif client requis (PKI complète)". Colonne PEAP : un cadenas vert (serveur seulement) et une flèche unidirectionnelle depuis le client avec "login/mdp dans tunnel TLS", mention "Certif client non requis". En bas, comparaison sécurité/complexité.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-wifi-802-1x-3.jpg)
 
 ---
 
@@ -305,14 +305,14 @@ INTERNET
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Schéma d'architecture WLAN d'entreprise complet et annoté. Les éléments sont : Internet (nuage), pare-feu, WLC central, 3 AP, serveur RADIUS, CA/PKI, Active Directory. Les VLANs sont représentés par des zones colorées distinctes (bleu = VLAN 10 Corp, vert = VLAN 20 Guest, orange = VLAN 100 Mgmt). Les flux 802.1X sont indiqués par des flèches pointillées violettes. Le flux de trafic autorisé est en vert. Les noms des protocoles sont annotés sur chaque lien.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-wifi-802-1x-4.jpg)
 
 ---
 
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Comparatif des 3 méthodes EAP sous forme de tableau visuel avec des colonnes colorées. Pour chaque méthode (EAP-TLS, PEAP, EAP-TTLS) : icône de certificat (présent=vert, absent=rouge) côté client et côté serveur, indicateur de niveau de sécurité en étoiles, indication de l'infrastructure requise, cas d'usage typique. En bas, une ligne "Recommandation BAC PRO CIEL" pointant vers PEAP (le plus courant en TP) avec note EAP-TLS pour les environnements haute sécurité.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-wifi-802-1x-5.jpg)
 
 ---
 
