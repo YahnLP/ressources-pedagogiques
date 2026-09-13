@@ -133,14 +133,18 @@ PC4 --- SWITCH --- PC2
 
 **Schéma :**
 
-```
-   PC1 ---- PC2
-    | \    / |
-    |   X   |
-    | /    \ |
-   PC3 ---- PC4
-   (Tout est relié)
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+       PC1 ---- PC2
+        | \    / |
+        |   X   |
+        | /    \ |
+       PC3 ---- PC4
+       (Tout est relié)
+    ```
+
 
 **Avantages :**
 - ✅ **Très fiable** (plusieurs chemins possibles)
@@ -216,21 +220,25 @@ PC4 --- SWITCH --- PC2
 
 ### 🔄 Schéma client-serveur
 
-```
-┌──────────┐                    ┌──────────┐
-│  CLIENT  │                    │ SERVEUR  │
-│          │                    │          │
-│ PC, Tel  │  1. Requête        │ Machine  │
-│          │ ───────────────>   │ puissante│
-│          │                    │          │
-│          │  2. Réponse        │ Toujours │
-│          │ <───────────────   │ allumé   │
-└──────────┘                    └──────────┘
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
 
-Exemple :
-1. "Donne-moi www.google.com"
-2. Voici la page HTML
-```
+??? note "🔤 Schéma texte original"
+    ```
+    ┌──────────┐                    ┌──────────┐
+    │  CLIENT  │                    │ SERVEUR  │
+    │          │                    │          │
+    │ PC, Tel  │  1. Requête        │ Machine  │
+    │          │ ───────────────>   │ puissante│
+    │          │                    │          │
+    │          │  2. Réponse        │ Toujours │
+    │          │ <───────────────   │ allumé   │
+    └──────────┘                    └──────────┘
+
+    Exemple :
+    1. "Donne-moi www.google.com"
+    2. Voici la page HTML
+    ```
+
 
 ---
 
