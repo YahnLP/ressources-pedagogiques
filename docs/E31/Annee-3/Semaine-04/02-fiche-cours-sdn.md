@@ -67,7 +67,7 @@ et on le centralisait dans un logiciel ?"
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Comparaison côte à côte "Réseau traditionnel" vs "Réseau SDN". Gauche : 6 switches Cisco avec à l'intérieur de chaque switch deux couches (contrôle en orange dessus, données en bleu dessous). Chaque switch a une petite bulle "OSPF", "STP", "table MAC" — intelligence distribuée. Droite : 6 switches "stupides" (seulement la couche bleue "données") reliés par des flèches vertes à un serveur central "Contrôleur SDN" qui contient toute l'intelligence. OpenFlow est indiqué sur les flèches. Une application REST est au-dessus du contrôleur.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-sdn-1.jpg)
 
 ---
 
@@ -162,7 +162,7 @@ Instructions (actions) :
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Diagramme de séquence OpenFlow. Trois acteurs verticaux : H1 (hôte), S1 (switch SDN), Contrôleur. Séquence : H1 envoie un paquet → S1 (Table Miss, flèche rouge "aucune règle") → S1 envoie Packet-In au contrôleur → Contrôleur analyse → Contrôleur envoie Flow-Mod à S1 → S1 confirme et forwarde vers H2. Deuxième paquet de H1 : S1 consulte la flow table (flèche verte "règle trouvée") → forwarde directement sans passer par le contrôleur. Timeline annotée avec "délai" sur le premier paquet et "rapide" sur les suivants.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-sdn-2.jpg)
 
 ---
 
@@ -231,7 +231,7 @@ Entreprises :
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Infographie "Avant NFV vs Avec NFV" côte à côte. Gauche : rack physique avec 6 boîtiers dédiés empilés (pare-feu, LB, IDS, etc.) avec étiquettes de coût et délai. Droite : 1 serveur avec l'icône hyperviseur, et 6 VMs représentées par de petits rectangles colorés (Cisco CSRv, F5 VE, Snort, etc.). Flèches vers le bas montrant les économies : "- 70% coût matériel", "déploiement en heures vs semaines", "élasticité (scale up/down)".
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-sdn-3.jpg)
 
 ---
 
@@ -319,14 +319,14 @@ Cas d'usage         Tout réseau            Datacenter, cloud, campus moderne
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Vue d'ensemble complète d'une architecture SDN/NFV dans un datacenter. De haut en bas : couche Application (monitoring, orchestrateur, ERP) avec des icônes d'apps ; flèche "Northbound REST API" ; couche Contrôleur SDN (ONOS/OpenDaylight) avec mention "Vue globale du réseau" ; flèche "Southbound OpenFlow" ; couche Infrastructure avec des switches OVS, reliés à des VMs hébergeant des VNFs (pare-feu VM, LB VM, IDS VM). Un utilisateur final à gauche et Internet à droite complètent le tableau.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-sdn-4.jpg)
 
 ---
 
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Schéma de la flow table OpenFlow avec une entrée de flux typique, chaque champ annoté. Au-dessus, le cycle complet Packet-In / Flow-Mod expliqué avec des icônes. En dessous, un mini-tableau des actions OpenFlow les plus courantes (output, drop, flood, modify, controller) avec leur signification en français.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-sdn-5.jpg)
 
 ---
 
