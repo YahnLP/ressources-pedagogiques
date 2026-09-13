@@ -65,7 +65,7 @@ BGP  = Panneau autoroutier entre pays (indique "France → Espagne → Portugal"
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Carte stylisée de trois "pays" (AS100, AS200, AS300) séparés par des frontières. À l'intérieur de chaque AS : des routeurs reliés entre eux par OSPF (liens verts). Aux frontières entre AS : des routeurs de bordure reliés par BGP (liens rouges épais). Un "paquet" fait un trajet de AS100 à AS300 en traversant AS200 via les sessions eBGP. En bas, deux boîtes comparatives : OSPF = "GPS interne, recalcule en 40s" vs BGP = "Routage inter-pays, stable, politique".
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-bgp-1.jpg)
 
 ---
 
@@ -149,7 +149,7 @@ Configuration :
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Schéma en deux parties côte à côte. Gauche "eBGP" : R1 (AS100) et R2 (AS200) reliés, le message BGP UPDATE montre l'AS-path "100" ajouté par R1. La flèche eBGP est rouge/épaisse. Droite "iBGP" : R1 et R3 dans le même AS100, reliés par une flèche bleue pointillée "iBGP". R1 reçoit un préfixe 203.0.113.0/24 de R2 (eBGP) et l'annonce à R3 via iBGP sans modifier l'AS-path. R3 voit l'AS-path "200" (pas "100"). Une note "next-hop non changé → problème potentiel" pointe vers la session iBGP.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-bgp-2.jpg)
 
 ---
 
@@ -243,7 +243,7 @@ EXEMPLE :
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Schéma en 3 blocs représentant les 3 attributs. Bloc 1 "AS-path" : deux routes vers 203.0.113.0/24 avec des longueurs d'AS-path différentes (1 AS vs 2 AS), flèche verte sur le chemin le plus court. Bloc 2 "Local-Pref" : un AS avec deux routeurs de bordure R1 (LocPrf=150, flèche verte) et R2 (LocPrf=100, flèche orange), flèche plus épaisse sur R1 montrant que tout le trafic sortant préfère R1. Bloc 3 "MED" : notre AS avec deux liens vers l'AS voisin, MED 10 sur le lien principal (flèche verte entrante) et MED 100 sur le backup (flèche orange).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-bgp-3.jpg)
 
 ---
 
@@ -330,7 +330,7 @@ Codes :
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Sortie `show bgp summary` annotée avec 10 flèches colorées pointant sur chaque colonne. En dessous, un tableau "États BGP" avec 6 états (Idle, Connect, Active, OpenSent, OpenConfirm, Established) représentés en diagramme d'états avec les transitions. L'état "Established" est mis en vert avec "PfxRcd = nombre de préfixes". L'état "Active" est en orange avec "TCP en tentative".
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-bgp-4.jpg)
 
 ---
 
@@ -357,7 +357,7 @@ RÈGLE SIMPLE :
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Vue d'ensemble du réseau Internet stylisé avec plusieurs AS (numérotés avec de vrais ASN : AS12322 Free, AS3215 Orange, AS15169 Google, AS13335 Cloudflare). Les sessions eBGP sont représentées par des liens rouges entre les AS. À l'intérieur de chaque AS, les liens OSPF sont verts. Un paquet fait le trajet d'un PC chez Free vers Google, en traversant les sessions eBGP. L'AS-path du trajet est affiché : "12322 → 3215 → 15169". En bas, la table BGP simplifiée d'un routeur Free montrant une route vers Google avec AS-path "3215 15169".
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-bgp-5.jpg)
 
 ---
 
