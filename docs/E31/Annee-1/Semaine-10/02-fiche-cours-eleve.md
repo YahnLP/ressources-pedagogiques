@@ -66,9 +66,7 @@ Un **partage de fichiers** est un dossier situé sur un ordinateur qui est rendu
 - Dans la barre d'adresse, taper : `\\NOM-ORDINATEUR\NOM-PARTAGE`
 - Appuyer sur Entrée
 
-![Illustration : Capture d'écran d'un explorateur Windows montrant la barre d'adresse avec "\\SERVEUR\Partage" tapé dedans, et en dessous une fenêtre affichant des dossiers partagés. Style : capture d'écran réaliste annotée avec des flèches.]
-
-> 🖼️ **Illustration à venir** — schéma en cours de production.
+![Illustration pédagogique](img/02-fiche-cours-eleve-1.jpg)
 
 ---
 
