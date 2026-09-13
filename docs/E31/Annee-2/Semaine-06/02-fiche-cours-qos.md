@@ -66,7 +66,7 @@ Sans QoS, tous les paquets attendent dans la MÊME file (FIFO) :
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Schéma côte à côte. Gauche "Sans QoS (FIFO)" : une seule file unique mélangeant paquets VoIP (téléphone), ZIP (archive), Web (globe), update (flèche). Le routeur envoie dans l'ordre d'arrivée. Indicateurs rouges : latence VoIP 300 ms, gigue élevée, appel dégradé. Droite "Avec QoS (LLQ)" : trois files séparées. File rouge VoIP traitée en priorité stricte. File orange données critiques avec WFQ. File bleue trafic ordinaire. Paquets VoIP passent immédiatement. Indicateurs verts : latence 45 ms, gigue faible, appel fluide.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-qos-1.jpg)
 
 ---
 
@@ -125,7 +125,7 @@ RÈGLE DE CONFIANCE (trust boundary) :
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Schéma réseau avec Trust Boundary. À gauche : téléphone IP envoyant des paquets avec label DSCP EF=46, flèche verte "Confiance accordée" passant le trust boundary. PC envoyant des paquets avec label DSCP EF=46 malicieux, flèche rouge "Re-marqué en BE=0" à la trust boundary. Le switch ou routeur en entrée constitue la trust boundary (ligne pointillée). Les valeurs DSCP dans l'en-tête IP sont représentées comme des étiquettes colorées sur les paquets.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-qos-2.jpg)
 
 ---
 
@@ -175,7 +175,7 @@ CBWFQ + une file strictement prioritaire (priority queue) pour la voix.
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Diagramme comparatif vertical de 5 mécanismes de files d'attente. Pour chaque mécanisme, une représentation visuelle des files (rectangle) avec des paquets de couleurs différentes (rouge=VoIP, bleu=web, gris=bulk) et une flèche de sortie. LLQ est mis en avant (encadré vert, étoile). Les avantages et inconvénients sont notés en vert/rouge sous chaque mécanisme. La progression de FIFO à LLQ illustre l'évolution de la sophistication.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-qos-3.jpg)
 
 ---
 
@@ -259,7 +259,7 @@ interface Serial0/0/0
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Schéma en 3 blocs verticaux représentant les 3 étapes MQC. Bloc 1 "class-map" (bleu) : entonnoir triant les paquets par couleur (DSCP). Bloc 2 "policy-map" (orange) : boîte avec des règles d'action pour chaque classe (priorité, bande passante garantie, fair-queue). Bloc 3 "service-policy" (vert) : interface réseau avec la flèche de sortie. Des flèches relient les 3 blocs. Le code IOS correspondant est affiché sous chaque bloc en police monospace sombre.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-qos-4.jpg)
 
 ---
 
@@ -307,7 +307,7 @@ Serial0/0/0
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Diagramme de topologie réseau complet VoIP + Data avec les marquages DSCP annotés sur chaque flux. Téléphone IP → paquets RTP marqués EF=46 (rouge). PC → paquets HTTP marqués BE=0 (gris). Les deux convergent vers le routeur R1 qui applique la policy-map QOS-WAN. Sur le lien WAN (lien le plus étroit), les 3 files d'attente LLQ sont visibles avec les paquets priorisés. R2 reçoit les paquets et les délivre. Côté droit : phone IP2 et PC_Serveur. Les labels de bande passante (256 kbps VoIP, 300 kbps data, reste WFQ) sont indiqués sur les files.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-qos-5.jpg)
 
 ---
 
