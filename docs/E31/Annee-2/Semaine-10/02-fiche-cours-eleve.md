@@ -124,19 +124,23 @@ echo $?    # Affiche 0 (OK), 1 (WARNING), 2 (CRITICAL), 3 (UNKNOWN)
 
 ### Organisation des fichiers de configuration
 
-```
-/etc/nagios/
-├── nagios.cfg                    ← Config principale (pointeurs vers les autres)
-├── objects/
-│   ├── hosts.cfg                 ← Définition des équipements supervisés
-│   ├── services.cfg              ← Définition des services à vérifier
-│   ├── contacts.cfg              ← Définition des contacts (admins à alerter)
-│   ├── commands.cfg              ← Définition des commandes/plugins
-│   └── templates.cfg             ← Templates réutilisables (linux-server, etc.)
-└── conf.d/
-    ├── mon-routeur.cfg           ← Config spécifique d'un équipement
-    └── pi-iot.cfg                ← Config du Raspberry Pi IoT
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    /etc/nagios/
+    ├── nagios.cfg                    ← Config principale (pointeurs vers les autres)
+    ├── objects/
+    │   ├── hosts.cfg                 ← Définition des équipements supervisés
+    │   ├── services.cfg              ← Définition des services à vérifier
+    │   ├── contacts.cfg              ← Définition des contacts (admins à alerter)
+    │   ├── commands.cfg              ← Définition des commandes/plugins
+    │   └── templates.cfg             ← Templates réutilisables (linux-server, etc.)
+    └── conf.d/
+        ├── mon-routeur.cfg           ← Config spécifique d'un équipement
+        └── pi-iot.cfg                ← Config du Raspberry Pi IoT
+    ```
+
 
 ---
 
@@ -396,28 +400,32 @@ exit 0
 
 ## 6️⃣ WORKFLOW NAGIOS — DU CHECK À L'ALERTE
 
-```
-Nagios Core
-    │
-    │ [Toutes les check_interval minutes]
-    ▼
-Plugin exécuté ────────────────────────► Équipement testé
-    │
-    │ Code retour : 0/1/2/3 + message
-    ▼
-État actuel comparé à l'état précédent
-    │
-    ├─ Même état → Mise à jour du dernier check OK
-    │
-    └─ Changement d'état → Soft State (compteur)
-              │
-              │ [après max_check_attempts]
-              ▼
-           Hard State → NOTIFICATION envoyée
-              │
-              ├─ notify-by-email → mail à l'admin
-              └─ notify-by-sms   → SMS à l'admin
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Nagios Core
+        │
+        │ [Toutes les check_interval minutes]
+        ▼
+    Plugin exécuté ────────────────────────► Équipement testé
+        │
+        │ Code retour : 0/1/2/3 + message
+        ▼
+    État actuel comparé à l'état précédent
+        │
+        ├─ Même état → Mise à jour du dernier check OK
+        │
+        └─ Changement d'état → Soft State (compteur)
+                  │
+                  │ [après max_check_attempts]
+                  ▼
+               Hard State → NOTIFICATION envoyée
+                  │
+                  ├─ notify-by-email → mail à l'admin
+                  └─ notify-by-sms   → SMS à l'admin
+    ```
+
 
 ### États Soft vs Hard
 
