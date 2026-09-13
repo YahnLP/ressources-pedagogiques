@@ -140,15 +140,19 @@ Groupes explicites : 2001, db8, 1 → 3 groupes
 
 ### Vue d'ensemble
 
-```
-Espace d'adressage IPv6 (2¹²⁸)
-│
-├── :: et ::1         → Non-spécifiée et Loopback
-├── fe80::/10         → Link-Local (LLA)
-├── fc00::/7          → Unique Local (ULA)
-├── ff00::/8          → Multicast
-└── 2000::/3          → Global Unicast (GUA) — Internet
-```
+![Illustration pédagogique](img/02-fiche-cours-ipv6-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Espace d'adressage IPv6 (2¹²⁸)
+    │
+    ├── :: et ::1         → Non-spécifiée et Loopback
+    ├── fe80::/10         → Link-Local (LLA)
+    ├── fc00::/7          → Unique Local (ULA)
+    ├── ff00::/8          → Multicast
+    └── 2000::/3          → Global Unicast (GUA) — Internet
+    ```
+
 
 ---
 
@@ -270,9 +274,13 @@ Router# show ipv6 route
 
 ### Exemple complet : deux routeurs connectés en IPv6
 
-```
-[R1] Gi0/0 : 2001:db8:cafe:1::1/64 ──── [R2] Gi0/0 : 2001:db8:cafe:1::2/64
-```
+![Illustration pédagogique](img/02-fiche-cours-ipv6-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    [R1] Gi0/0 : 2001:db8:cafe:1::1/64 ──── [R2] Gi0/0 : 2001:db8:cafe:1::2/64
+    ```
+
 
 **Configuration R1 :**
 
