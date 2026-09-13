@@ -133,14 +133,18 @@ R1# show ip ospf
 
 ### La séquence d'établissement d'adjacence
 
-```
-DOWN ──→ INIT ──→ 2-WAY ──→ EXSTART ──→ EXCHANGE ──→ LOADING ──→ FULL
- │                  │                                              │
- │                  │ (DROthers s'arrêtent ici                    │
- │                  │  entre eux — c'est NORMAL)                  │
- │                                                                 │
- └─ Aucun hello reçu               Adjacence complète, LSDB sync ─┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    DOWN ──→ INIT ──→ 2-WAY ──→ EXSTART ──→ EXCHANGE ──→ LOADING ──→ FULL
+     │                  │                                              │
+     │                  │ (DROthers s'arrêtent ici                    │
+     │                  │  entre eux — c'est NORMAL)                  │
+     │                                                                 │
+     └─ Aucun hello reçu               Adjacence complète, LSDB sync ─┘
+    ```
+
 
 ---
 
@@ -345,13 +349,17 @@ Reset ALL OSPF processes? [no]: yes
 
 ### Topologie
 
-```
-[LAN 192.168.1.0/24]           [LAN 192.168.3.0/24]
-        │                                │
-      R1 Gi0/0                     R3 Gi0/0
-      R1 Gi0/1 ─── 10.0.12.0/30 ─── R2 Gi0/0
-                                    R2 Gi0/1 ─── 10.0.23.0/30 ─── R3 Gi0/1
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    [LAN 192.168.1.0/24]           [LAN 192.168.3.0/24]
+            │                                │
+          R1 Gi0/0                     R3 Gi0/0
+          R1 Gi0/1 ─── 10.0.12.0/30 ─── R2 Gi0/0
+                                        R2 Gi0/1 ─── 10.0.23.0/30 ─── R3 Gi0/1
+    ```
+
 
 ### Configuration R1
 
