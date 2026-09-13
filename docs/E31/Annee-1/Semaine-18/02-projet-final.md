@@ -740,4 +740,4 @@ DOSSIER TECHNIQUE - [NOM DU PROJET]
 
 **Date de création :** 24/02/2026  
 **Version :** 1.0  
-**Auteur :** Équipe pédagogique CFA
+**Auteur :** Yahn LE PRETTRE
