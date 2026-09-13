@@ -429,7 +429,7 @@ PC Source (192.168.1.10) ──► R1 ──► R2 ──► PC Destination (192
 ---
 
 **📅 Activité conçue le :** 25/02/2026  
-**✍️ Auteur :** Équipe pédagogique CFA  
+**✍️ Auteur :** Yahn LE PRETTRE  
 **🎮 Testée avec :** Promo 2023-2026 (retours très positifs !)  
 **🔄 Prochaine révision :** Juin 2026
 
