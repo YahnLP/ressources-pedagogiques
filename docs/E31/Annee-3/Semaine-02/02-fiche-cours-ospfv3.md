@@ -56,7 +56,7 @@ APPROCHE 2 — OSPFv3 Multi-AF (approche moderne, recommandée)
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Comparaison en 3 colonnes : OSPFv2 seul (une seule table IPv4), OSPFv3 classique (une seule table IPv6), OSPFv3 Multi-AF (deux tables IPv4 et IPv6 dans un seul processus). Chaque colonne montre le process OSPF, les LSDBs, les tables de routage résultantes et les commandes de configuration. La colonne Multi-AF est mise en valeur avec un cadre vert "Approche recommandée".
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-ospfv3-1.jpg)
 
 ---
 
@@ -163,7 +163,7 @@ router ospfv3 1
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Schéma d'interface dual stack avec les deux couches d'adressage visibles. Une interface GigabitEthernet est représentée avec trois adresses IPv6 (link-local FE80::1, global 2001:DB8:1::1/64) et une adresse IPv4 (192.168.1.1/24). Les flèches montrent que les paquets OSPFv3 IPv4 (AF ipv4) et OSPFv3 IPv6 (AF ipv6) sont tous deux envoyés via cette interface. L'adresse FE80 est mise en évidence comme "next-hop OSPFv3". En dessous, les deux commandes ospfv3 avec leurs annotations.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-ospfv3-2.jpg)
 
 ---
 
@@ -219,7 +219,7 @@ show ipv6 ospf interface Gi0/0  → Coût, area, hello interval, next-hello
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Sortie `show ipv6 ospf neighbor` annotée avec 7 flèches pointant vers chaque champ : Neighbor ID (format IPv4 obligatoire), Pri (priorité DR), State (FULL=OK), Dead Time (40s countdown), Interface ID (interne), Interface (locale), le symbole `-` après le slash indiquant "pas de DR/BDR sur lien P2P". En dessous, un tableau des états possibles (DOWN/INIT/2-WAY/FULL) avec leur signification, similaire à OSPFv2.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-ospfv3-3.jpg)
 
 ---
 
@@ -304,7 +304,7 @@ EXEMPLE  : Accès depuis un mobile 5G (IPv6 natif) vers un vieux serveur IPv4
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Schéma en trois bandes horizontales illustrant les 3 mécanismes de transition. Bande 1 "Double Stack" : équipements avec les deux logos IPv4+IPv6, communication directe. Bande 2 "Tunneling" : deux îlots IPv6 (bleu) avec un nuage IPv4 (orange) entre eux, un tunnel pointillé traverse le nuage avec "IPv6 encapsulé dans IPv4". Bande 3 "NAT64/Translation" : côté gauche IPv6 (hôte 5G), au centre boîte NAT64 avec des flèches de conversion, côté droit IPv4 (vieux serveur). Chaque bande indique "Quand utiliser" et "Limitation".
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-ospfv3-4.jpg)
 
 ---
 
@@ -339,7 +339,7 @@ Convention lisible pour les examens :
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Topologie complète à 3 routeurs avec double stack. R1-R2-R3 en ligne, avec LAN1 sur R1 et LAN3 sur R3. Chaque interface montre ses deux adresses (IPv4 dessus, IPv6 dessous). Les liens WAN affichent les réseaux IPv4 /30 et IPv6 /64. Les adjacences OSPFv3 sont représentées par des arcs verts avec le Router-ID (format IPv4) indiqué. Les tables de routage simplifiées de R2 sont affichées à côté (show ip route + show ipv6 route).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-ospfv3-5.jpg)
 
 ---
 
