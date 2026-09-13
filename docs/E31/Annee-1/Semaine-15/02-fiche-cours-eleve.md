@@ -34,18 +34,22 @@
 
 ### **3 Zones principales**
 
-```
-┌────────────────────────────────────┐
-│ 1. LISTE PAQUETS                   │
-│ (tous paquets capturés)            │
-├────────────────────────────────────┤
-│ 2. DÉTAILS PAQUET                  │
-│ (arbre OSI : Eth → IP → TCP → HTTP)│
-├────────────────────────────────────┤
-│ 3. DONNÉES BRUTES                  │
-│ (hexadécimal + ASCII)              │
-└────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌────────────────────────────────────┐
+    │ 1. LISTE PAQUETS                   │
+    │ (tous paquets capturés)            │
+    ├────────────────────────────────────┤
+    │ 2. DÉTAILS PAQUET                  │
+    │ (arbre OSI : Eth → IP → TCP → HTTP)│
+    ├────────────────────────────────────┤
+    │ 3. DONNÉES BRUTES                  │
+    │ (hexadécimal + ASCII)              │
+    └────────────────────────────────────┘
+    ```
+
 
 ---
 
@@ -238,13 +242,17 @@ Content-Type: text/html
 
 **Exemple paquet HTTP :**
 
-```
-└─ Frame (Couche 1 Physique)
-   └─ Ethernet II (Couche 2 Liaison)
-      └─ Internet Protocol (Couche 3 Réseau)
-         └─ Transmission Control Protocol (Couche 4 Transport)
-            └─ Hypertext Transfer Protocol (Couche 7 Application)
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    └─ Frame (Couche 1 Physique)
+       └─ Ethernet II (Couche 2 Liaison)
+          └─ Internet Protocol (Couche 3 Réseau)
+             └─ Transmission Control Protocol (Couche 4 Transport)
+                └─ Hypertext Transfer Protocol (Couche 7 Application)
+    ```
+
 
 **⭐ LIEN S3 :** C'est l'**encapsulation** vue en S3 !
 
