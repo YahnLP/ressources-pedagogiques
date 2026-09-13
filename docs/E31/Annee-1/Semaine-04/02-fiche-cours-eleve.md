@@ -25,11 +25,15 @@
 **Format :** 4 octets (32 bits)
 
 **Notation décimale pointée :**
-```
-192.168.1.10
- │   │   │  │
- └───┴───┴──┴─ 4 octets (0-255)
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    192.168.1.10
+     │   │   │  │
+     └───┴───┴──┴─ 4 octets (0-255)
+    ```
+
 
 **Exemple :**
 - Ordinateur : 192.168.1.50
@@ -50,12 +54,16 @@
 
 **Composants :**
 
-```
-192.168.1.10
- └─┬──┘ └┬─┘
-   │     │
-Réseau  Hôte
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    192.168.1.10
+     └─┬──┘ └┬─┘
+       │     │
+    Réseau  Hôte
+    ```
+
 
 - **Partie Réseau** : Identifie le réseau (ex: 192.168.1)
 - **Partie Hôte** : Identifie l'équipement dans le réseau (ex: 10)
@@ -208,15 +216,19 @@ Réseau  Hôte
 
 **Exemple :** 192.168.1.50 / 255.255.255.0
 
-```
-IP :     192.168.1.50
-Masque : 255.255.255.0
-         └──┬───┘ └┬┘
-         Réseau  Hôte
-         
-Réseau = 192.168.1.0
-Hôte = 50
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    IP :     192.168.1.50
+    Masque : 255.255.255.0
+             └──┬───┘ └┬┘
+             Réseau  Hôte
+
+    Réseau = 192.168.1.0
+    Hôte = 50
+    ```
+
 
 ---
 
