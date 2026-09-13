@@ -65,7 +65,7 @@ Jan 15 03:12:44 web-server sshd[1234]: Failed password for root from 185.220.101
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Schéma d'anatomie d'une ligne de log syslog avec 6 flèches annotées pointant vers chaque champ. La ligne exemple est colorée par champ : timestamp en bleu, hostname en vert, programme en orange, PID en violet, message en blanc. En dessous, le tableau Facility (kern=0, user=1, mail=2, daemon=3, auth=4…) et Severity (emerg=0, alert=1, crit=2, err=3, warning=4, notice=5, info=6, debug=7) avec code couleur de gravité (rouge→orange→jaune→vert→gris).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-syslog-1.jpg)
 
 ---
 
@@ -219,7 +219,7 @@ if $hostname == "web-server" then {
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Schéma de flux rsyslog avec 3 zones. Zone gauche "Sources" : 4 machines (web, db, router, AP) avec des flèches UDP/TCP vers la zone centrale. Zone centrale "Serveur rsyslog" : boîte rsyslogd avec à l'intérieur un organigramme de filtrage (Selector → si match → Action, sinon → suivant). Zone droite "Destinations" : 3 sorties (fichiers /var/log/distant/*.log, SIEM via forwarding, alerte email). Les règles if/then sont visibles dans la zone centrale.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-syslog-2.jpg)
 
 ---
 
@@ -276,7 +276,7 @@ cat /var/lib/logrotate/status
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Schéma de rotation logrotate sous forme de frise chronologique. À l'extrême droite : fichier `.log` actuel (en rouge vif, en cours d'écriture). À sa gauche : `.log.1` (hier, non compressé). Plus à gauche : `.log.2.gz` à `.log.30.gz` en gris croissant (compressés, archivés). Une flèche indique "rotation quotidienne → décalage vers la gauche". En bas, les paramètres logrotate correspondants (daily/rotate 30/compress/delaycompress) sont annotés sur chaque zone.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-syslog-3.jpg)
 
 ---
 
@@ -333,14 +333,14 @@ template(name="JSONFormat" type="list") {
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Schéma de la chaîne complète de surveillance : machine source → rsyslog local → serveur rsyslog central → SIEM. Au niveau SIEM : 4 étapes visuelles (Collecte → Parsing → Corrélation → Alerte). Des exemples concrets de corrélation sont montrés : un graphe de timeline avec des événements sshd[Failed x5] → [Accepted] → [sudo] → [useradd UID=0] reliés par une flèche rouge "Attaque détectée". En bas, le tableau bord SIEM avec les alertes colorées.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-syslog-4.jpg)
 
 ---
 
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Infographie comparative "Sans centralisation vs Avec centralisation". Scénario identique des deux côtés : serveur compromis, logs supprimés, attaquant repart. Colonne gauche (rouge) : logs locaux effacés, enquête impossible, timeline vide "Aucune preuve". Colonne droite (verte) : logs préservés sur le serveur central, timeline complète de l'attaque reconstituée, analyse forensique possible, attaquant identifié par son IP et ses actions. En bas : 3 avantages de la centralisation listés.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-syslog-5.jpg)
 
 ---
 
