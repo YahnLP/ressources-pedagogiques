@@ -24,17 +24,21 @@
 
 > **Overlay** : le réseau logique construit au-dessus de l'underlay. Il encapsule le trafic dans des tunnels et applique des politiques de routage, de sécurité et de qualité de service. Il est indépendant de la technologie physique sous-jacente.
 
-```
-┌───────────────────────────────────────────────────────────────────┐
-│  OVERLAY                                                          │
-│  Tunnels IPsec/GRE, politiques QoS, segmentation, sélection path │
-│  → Géré par le contrôleur SD-WAN ou l'admin réseau               │
-├───────────────────────────────────────────────────────────────────┤
-│  UNDERLAY                                                         │
-│  Internet,  MPLS,  4G/5G LTE,  Fibre dédiée                      │
-│  → Géré par les opérateurs télécom                                │
-└───────────────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌───────────────────────────────────────────────────────────────────┐
+    │  OVERLAY                                                          │
+    │  Tunnels IPsec/GRE, politiques QoS, segmentation, sélection path │
+    │  → Géré par le contrôleur SD-WAN ou l'admin réseau               │
+    ├───────────────────────────────────────────────────────────────────┤
+    │  UNDERLAY                                                         │
+    │  Internet,  MPLS,  4G/5G LTE,  Fibre dédiée                      │
+    │  → Géré par les opérateurs télécom                                │
+    └───────────────────────────────────────────────────────────────────┘
+    ```
+
 
 ### Pourquoi dissocier ?
 
@@ -56,24 +60,28 @@
 
 ### Architecture Cisco SD-WAN (Viptela)
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                    PLAN DE CONTRÔLE                          │
-│                                                              │
-│  vManage  ── Console web, dashboard, provisioning Zero Touch │
-│  vBond    ── Orchestrateur : établit les connexions initiales │
-│  vSmart   ── Contrôleur : distribue les politiques via OMP   │
-└───────────────────────────┬──────────────────────────────────┘
-                            │ OMP (Overlay Management Protocol)
-                            │ (Canal TLS sécurisé)
-┌───────────────────────────▼──────────────────────────────────┐
-│                    PLAN DE DONNÉES                           │
-│                                                              │
-│  WAN Edge  ── Routeurs des agences/datacenters/cloud         │
-│              Établissent des tunnels IPsec entre eux         │
-│              Mesurent la qualité des liens (BFD)             │
-└──────────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌──────────────────────────────────────────────────────────────┐
+    │                    PLAN DE CONTRÔLE                          │
+    │                                                              │
+    │  vManage  ── Console web, dashboard, provisioning Zero Touch │
+    │  vBond    ── Orchestrateur : établit les connexions initiales │
+    │  vSmart   ── Contrôleur : distribue les politiques via OMP   │
+    └───────────────────────────┬──────────────────────────────────┘
+                                │ OMP (Overlay Management Protocol)
+                                │ (Canal TLS sécurisé)
+    ┌───────────────────────────▼──────────────────────────────────┐
+    │                    PLAN DE DONNÉES                           │
+    │                                                              │
+    │  WAN Edge  ── Routeurs des agences/datacenters/cloud         │
+    │              Établissent des tunnels IPsec entre eux         │
+    │              Mesurent la qualité des liens (BFD)             │
+    └──────────────────────────────────────────────────────────────┘
+    ```
+
 
 | **Composant** | **Rôle** | **Analogie réseau classique** |
 |---|---|---|
@@ -157,22 +165,26 @@ Application : Sauvegarde (backup S3, OneDrive)
 
 ### Structure d'encapsulation VXLAN
 
-```
-Trame originale (du client) :
-┌────────────────────────────────────────────────────────┐
-│ Dst MAC │ Src MAC │ 802.1Q │ Type │       Payload      │
-└────────────────────────────────────────────────────────┘
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
 
-Après encapsulation VXLAN :
-┌──────────────────────────────────────────────────────────────────────┐
-│ Outer Eth │ Outer IP       │ Outer UDP  │ VXLAN Hdr │ Inner Ethernet │
-│           │ (VTEP src→dst) │ port 4789  │ VNI 24bits│ Frame (original│
-│           │                │            │            │ du client)     │
-└──────────────────────────────────────────────────────────────────────┘
-         ↑                        ↑              ↑
-    Visible sur l'underlay    Port standard    Identifiant réseau virtuel
-    (réseau IP physique)      VXLAN            (16 millions possibles)
-```
+??? note "🔤 Schéma texte original"
+    ```
+    Trame originale (du client) :
+    ┌────────────────────────────────────────────────────────┐
+    │ Dst MAC │ Src MAC │ 802.1Q │ Type │       Payload      │
+    └────────────────────────────────────────────────────────┘
+
+    Après encapsulation VXLAN :
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │ Outer Eth │ Outer IP       │ Outer UDP  │ VXLAN Hdr │ Inner Ethernet │
+    │           │ (VTEP src→dst) │ port 4789  │ VNI 24bits│ Frame (original│
+    │           │                │            │            │ du client)     │
+    └──────────────────────────────────────────────────────────────────────┘
+             ↑                        ↑              ↑
+        Visible sur l'underlay    Port standard    Identifiant réseau virtuel
+        (réseau IP physique)      VXLAN            (16 millions possibles)
+    ```
+
 
 ### Composants VXLAN
 
