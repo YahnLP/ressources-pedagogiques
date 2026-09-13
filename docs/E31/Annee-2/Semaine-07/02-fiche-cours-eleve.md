@@ -46,12 +46,16 @@
 
 > Le **mode transport** chiffre uniquement le **payload** (données de couche 4 et au-dessus). L'en-tête IP original est conservé en clair.
 
-```
-┌─────────────────────────────────────────────────┐
-│  IP Original  │  ESP Header  │  [Payload chiffré]│
-│  (en clair)   │              │                   │
-└─────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────────────────┐
+    │  IP Original  │  ESP Header  │  [Payload chiffré]│
+    │  (en clair)   │              │                   │
+    └─────────────────────────────────────────────────┘
+    ```
+
 
 **Usage :** communication sécurisée entre deux **hôtes** qui se connaissent directement (end-to-end). Exemple : poste de travail → serveur dans le même réseau avec besoin de sécurité.
 
@@ -61,14 +65,18 @@
 
 > Le **mode tunnel** encapsule **l'intégralité du paquet IP original** dans un nouveau paquet IP avec un nouvel en-tête. L'adresse de destination visible est le routeur distant, pas l'hôte final.
 
-```
-┌───────────────────────────────────────────────────────────────────┐
-│  Nouvel IP   │  ESP Header  │  [IP Original + Payload — chiffré]  │
-│  (passerelle │              │                                      │
-│   distante)  │              │                                      │
-└───────────────────────────────────────────────────────────────────┘
-  ↑ Visible sur Internet        ↑ Invisible — dans le tunnel chiffré
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌───────────────────────────────────────────────────────────────────┐
+    │  Nouvel IP   │  ESP Header  │  [IP Original + Payload — chiffré]  │
+    │  (passerelle │              │                                      │
+    │   distante)  │              │                                      │
+    └───────────────────────────────────────────────────────────────────┘
+      ↑ Visible sur Internet        ↑ Invisible — dans le tunnel chiffré
+    ```
+
 
 **Usage :** VPN **site-à-site** entre deux routeurs (cas le plus courant). Le trafic des LANs distants semble passer par un lien direct sécurisé.
 
@@ -133,19 +141,23 @@
 
 **Ce qui se passe :**
 
-```
-R-PARIS                                      R-LYON
-   │                                            │
-   │── IKE_SA_INIT (proposals DH) ──────────►  │
-   │◄── IKE_SA_INIT (chosen algo + DH pub) ──  │
-   │                                            │
-   │  [Les deux calculent le secret DH]         │
-   │                                            │
-   │── IKE_AUTH (identité + PSK) ─(chiffré)►   │
-   │◄── IKE_AUTH (identité + PSK) ─(chiffré) ─ │
-   │                                            │
-   └── IKE_SA établie ! ──────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    R-PARIS                                      R-LYON
+       │                                            │
+       │── IKE_SA_INIT (proposals DH) ──────────►  │
+       │◄── IKE_SA_INIT (chosen algo + DH pub) ──  │
+       │                                            │
+       │  [Les deux calculent le secret DH]         │
+       │                                            │
+       │── IKE_AUTH (identité + PSK) ─(chiffré)►   │
+       │◄── IKE_AUTH (identité + PSK) ─(chiffré) ─ │
+       │                                            │
+       └── IKE_SA établie ! ──────────────────────┘
+    ```
+
 
 **Paramètres négociés en Phase 1 :**
 
@@ -165,15 +177,19 @@ R-PARIS                                      R-LYON
 
 **Ce qui se passe :**
 
-```
-R-PARIS                                      R-LYON
-   │  [Canal IKE Phase 1 déjà établi]           │
-   │── CREATE_CHILD_SA (transform proposals) ►  │
-   │◄── CREATE_CHILD_SA (accepted params) ────  │
-   │                                            │
-   └── CHILD_SA (= IPsec SA) établie ! ────────┘
-       ✅ Tunnel opérationnel
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-4.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    R-PARIS                                      R-LYON
+       │  [Canal IKE Phase 1 déjà établi]           │
+       │── CREATE_CHILD_SA (transform proposals) ►  │
+       │◄── CREATE_CHILD_SA (accepted params) ────  │
+       │                                            │
+       └── CHILD_SA (= IPsec SA) établie ! ────────┘
+           ✅ Tunnel opérationnel
+    ```
+
 
 **Paramètres négociés en Phase 2 :**
 
@@ -190,19 +206,23 @@ R-PARIS                                      R-LYON
 
 ### Résumé des deux phases
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  PHASE 1 (IKE_SA)                   │  PHASE 2 (CHILD_SA)           │
-│                                     │                                │
-│  But : canal sécurisé pour négocier │  But : tunnel pour les données │
-│  Durée de vie : 24 h (86 400 s)     │  Durée de vie : 1 h (3 600 s)  │
-│  Protocole : IKEv2                  │  Protocole : ESP (IPsec)        │
-│  Auth : PSK ou certificat           │  Chiffrement : AES              │
-│                                     │  Intégrité : HMAC-SHA           │
-│  show crypto isakmp sa              │  show crypto ipsec sa           │
-│  État OK : QM_IDLE                  │  État OK : pkts encrypt > 0    │
-└─────────────────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-5.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────────────────────────────────────┐
+    │  PHASE 1 (IKE_SA)                   │  PHASE 2 (CHILD_SA)           │
+    │                                     │                                │
+    │  But : canal sécurisé pour négocier │  But : tunnel pour les données │
+    │  Durée de vie : 24 h (86 400 s)     │  Durée de vie : 1 h (3 600 s)  │
+    │  Protocole : IKEv2                  │  Protocole : ESP (IPsec)        │
+    │  Auth : PSK ou certificat           │  Chiffrement : AES              │
+    │                                     │  Intégrité : HMAC-SHA           │
+    │  show crypto isakmp sa              │  show crypto ipsec sa           │
+    │  État OK : QM_IDLE                  │  État OK : pkts encrypt > 0    │
+    └─────────────────────────────────────────────────────────────────────┘
+    ```
+
 
 ---
 
@@ -248,12 +268,16 @@ R-PARIS                                      R-LYON
 
 ### Topologie de référence
 
-```
-[LAN-A: 192.168.1.0/24]                    [LAN-B: 192.168.2.0/24]
-         │                                           │
-     R-PARIS ── 203.0.113.1 ─ Internet ─ 203.0.113.2 ── R-LYON
-     (IP WAN)                                      (IP WAN)
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-6.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    [LAN-A: 192.168.1.0/24]                    [LAN-B: 192.168.2.0/24]
+             │                                           │
+         R-PARIS ── 203.0.113.1 ─ Internet ─ 203.0.113.2 ── R-LYON
+         (IP WAN)                                      (IP WAN)
+    ```
+
 
 ---
 
