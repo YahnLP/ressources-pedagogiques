@@ -41,18 +41,22 @@
 
 ### 1.2 Architecture client-serveur
 
-```
-┌──────────────┐         ┌──────────────┐
-│  NAVIGATEUR  │         │  SERVEUR WEB │
-│   (Client)   │         │   (Apache)   │
-├──────────────┤         ├──────────────┤
-│              │  HTTP   │              │
-│  Firefox     │ ──────> │   Apache2    │
-│  Chrome      │ <────── │              │
-│  Safari      │         │   Port 80    │
-└──────────────┘         └──────────────┘
-    Requête                  Réponse
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌──────────────┐         ┌──────────────┐
+    │  NAVIGATEUR  │         │  SERVEUR WEB │
+    │   (Client)   │         │   (Apache)   │
+    ├──────────────┤         ├──────────────┤
+    │              │  HTTP   │              │
+    │  Firefox     │ ──────> │   Apache2    │
+    │  Chrome      │ <────── │              │
+    │  Safari      │         │   Port 80    │
+    └──────────────┘         └──────────────┘
+        Requête                  Réponse
+    ```
+
 
 **Fonctionnement :**
 
@@ -318,15 +322,19 @@ Apache fait une **correspondance directe** entre l'URL demandée et le chemin du
 
 **Exemple :**
 
-```
-URL demandée : http://192.168.50.15/index.html
-                                     └─────────┘
-                                     Chemin relatif
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
 
-Fichier cherché : /var/www/html/index.html
-                  └──────────────┘
-                  DocumentRoot
-```
+??? note "🔤 Schéma texte original"
+    ```
+    URL demandée : http://192.168.50.15/index.html
+                                         └─────────┘
+                                         Chemin relatif
+
+    Fichier cherché : /var/www/html/index.html
+                      └──────────────┘
+                      DocumentRoot
+    ```
+
 
 ---
 
@@ -345,25 +353,29 @@ Fichier cherché : /var/www/html/index.html
 
 ### 3.3 Arborescence typique d'un site web
 
-```
-/var/www/html/
-├── index.html          ← Page d'accueil
-├── about.html          ← Page "À propos"
-├── contact.html        ← Page "Contact"
-├── css/
-│   ├── style.css       ← Feuille de style principale
-│   └── mobile.css      ← Styles responsive
-├── js/
-│   ├── script.js       ← JavaScript principal
-│   └── menu.js         ← Script menu
-├── images/
-│   ├── logo.png
-│   ├── banner.jpg
-│   └── favicon.ico
-└── documents/
-    ├── brochure.pdf
-    └── cv.pdf
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    /var/www/html/
+    ├── index.html          ← Page d'accueil
+    ├── about.html          ← Page "À propos"
+    ├── contact.html        ← Page "Contact"
+    ├── css/
+    │   ├── style.css       ← Feuille de style principale
+    │   └── mobile.css      ← Styles responsive
+    ├── js/
+    │   ├── script.js       ← JavaScript principal
+    │   └── menu.js         ← Script menu
+    ├── images/
+    │   ├── logo.png
+    │   ├── banner.jpg
+    │   └── favicon.ico
+    └── documents/
+        ├── brochure.pdf
+        └── cv.pdf
+    ```
+
 
 ---
 
