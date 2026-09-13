@@ -46,18 +46,22 @@
 
 **Hiérarchie des clés WPA2 :**
 
-```
-Mot de passe (PSK)
-       ↓ PBKDF2 (dérivation)
-     PMK (Pairwise Master Key)
-       ↓ 4-way handshake (ANonce + SNonce)
-     PTK (Pairwise Transient Key) ← clé de session unique
-       ├── KCK (Key Confirmation Key) : intégrité du handshake
-       ├── KEK (Key Encryption Key)   : chiffrement des clés GTK
-       └── TK  (Temporal Key)         : chiffrement des données
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
 
-     GTK (Group Temporal Key) ← chiffrement du trafic broadcast/multicast
-```
+??? note "🔤 Schéma texte original"
+    ```
+    Mot de passe (PSK)
+           ↓ PBKDF2 (dérivation)
+         PMK (Pairwise Master Key)
+           ↓ 4-way handshake (ANonce + SNonce)
+         PTK (Pairwise Transient Key) ← clé de session unique
+           ├── KCK (Key Confirmation Key) : intégrité du handshake
+           ├── KEK (Key Encryption Key)   : chiffrement des clés GTK
+           └── TK  (Temporal Key)         : chiffrement des données
+
+         GTK (Group Temporal Key) ← chiffrement du trafic broadcast/multicast
+    ```
+
 
 > 💡 **PMK** = dérivée du mot de passe (statique, la même pour tous avec le même PSK)  
 > **PTK** = unique par connexion (change à chaque association) — c'est la vraie clé de session
@@ -152,20 +156,24 @@ Mot de passe (PSK)
 
 ### Flux d'authentification 802.1X
 
-```
-Client (Supplicant)      AP (Authenticator)      Serveur RADIUS
-       │                        │                        │
-       │── EAPOL-Start ────────►│                        │
-       │◄── EAP-Request/ID ─────│                        │
-       │── EAP-Response/ID ────►│── RADIUS Access-Req ──►│
-       │                        │◄── RADIUS Access-Ch ───│  (challenge)
-       │◄── EAP-Request/Ch ─────│                        │
-       │── EAP-Response/Ch ────►│── RADIUS Access-Req ──►│  (réponse)
-       │                        │◄── RADIUS Access-Acc ──│  ✅
-       │◄── EAP-Success ─────────│                        │
-       │                        │                        │
-       └── Port ouvert, 4-way handshake WPA2 ────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Client (Supplicant)      AP (Authenticator)      Serveur RADIUS
+           │                        │                        │
+           │── EAPOL-Start ────────►│                        │
+           │◄── EAP-Request/ID ─────│                        │
+           │── EAP-Response/ID ────►│── RADIUS Access-Req ──►│
+           │                        │◄── RADIUS Access-Ch ───│  (challenge)
+           │◄── EAP-Request/Ch ─────│                        │
+           │── EAP-Response/Ch ────►│── RADIUS Access-Req ──►│  (réponse)
+           │                        │◄── RADIUS Access-Acc ──│  ✅
+           │◄── EAP-Success ─────────│                        │
+           │                        │                        │
+           └── Port ouvert, 4-way handshake WPA2 ────────────┘
+    ```
+
 
 ---
 
