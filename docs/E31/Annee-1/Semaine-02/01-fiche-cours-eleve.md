@@ -26,21 +26,25 @@
 
 **Composants :**
 
-```
-┌─────────────────────────────────────┐
-│  Gaine externe (PVC)                │
-│  ┌─────────────────────────────┐   │
-│  │ 4 paires torsadées (8 fils) │   │
-│  │ - Paire 1: Bleu             │   │
-│  │ - Paire 2: Orange           │   │
-│  │ - Paire 3: Vert             │   │
-│  │ - Paire 4: Brun             │   │
-│  └─────────────────────────────┘   │
-└─────────────────────────────────────┘
-         ↓
-    Connecteur RJ45
-    (8 broches cuivre)
-```
+![Illustration pédagogique](img/01-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────┐
+    │  Gaine externe (PVC)                │
+    │  ┌─────────────────────────────┐   │
+    │  │ 4 paires torsadées (8 fils) │   │
+    │  │ - Paire 1: Bleu             │   │
+    │  │ - Paire 2: Orange           │   │
+    │  │ - Paire 3: Vert             │   │
+    │  │ - Paire 4: Brun             │   │
+    │  └─────────────────────────────┘   │
+    └─────────────────────────────────────┘
+             ↓
+        Connecteur RJ45
+        (8 broches cuivre)
+    ```
+
 
 **UTP** = **U**nshielded **T**wisted **P**air (paire torsadée non blindée)
 
@@ -81,23 +85,27 @@ Il existe **2 normes** pour ordonner les 8 fils dans le connecteur RJ45 :
 
 **Schéma visuel :**
 
-```
-RJ45 vu de face (languette en haut)
-┌─┬─┬─┬─┬─┬─┬─┬─┐
-│1│2│3│4│5│6│7│8│
-└─┴─┴─┴─┴─┴─┴─┴─┘
- │ │ │ │ │ │ │ │
- BO O BV B BB V BBr Br
+![Illustration pédagogique](img/01-fiche-cours-eleve-txt-2.jpg)
 
-BO = Blanc-Orange
-O  = Orange
-BV = Blanc-Vert
-B  = Bleu
-BB = Blanc-Bleu
-V  = Vert
-BBr= Blanc-Brun
-Br = Brun
-```
+??? note "🔤 Schéma texte original"
+    ```
+    RJ45 vu de face (languette en haut)
+    ┌─┬─┬─┬─┬─┬─┬─┬─┐
+    │1│2│3│4│5│6│7│8│
+    └─┴─┴─┴─┴─┴─┴─┴─┘
+     │ │ │ │ │ │ │ │
+     BO O BV B BB V BBr Br
+
+    BO = Blanc-Orange
+    O  = Orange
+    BV = Blanc-Vert
+    B  = Bleu
+    BB = Blanc-Bleu
+    V  = Vert
+    BBr= Blanc-Brun
+    Br = Brun
+    ```
+
 
 ---
 
@@ -181,12 +189,16 @@ Longueur voulue : 0,5m / 1m / 2m...
 
 **Astuce :** Tourner légèrement le cutter autour du câble, puis tirer la gaine.
 
-```
-Avant :  ═══════════════════
-Après :  ═══════════╗
-                    ║ 3-4 cm
-         Fils visibles
-```
+![Illustration pédagogique](img/01-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Avant :  ═══════════════════
+    Après :  ═══════════╗
+                        ║ 3-4 cm
+             Fils visibles
+    ```
+
 
 ---
 
@@ -212,10 +224,14 @@ Placer les 8 fils dans l'ordre T568B (de gauche à droite) :
 
 Fils côte à côte, bien alignés (tous à la même hauteur).
 
-```
-Incorrect :  ╱ ╲ ╱ ╲ ╱ ╲  (fils désalignés)
-Correct :    ║ ║ ║ ║ ║ ║  (fils alignés)
-```
+![Illustration pédagogique](img/01-fiche-cours-eleve-txt-4.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Incorrect :  ╱ ╲ ╱ ╲ ╱ ╲  (fils désalignés)
+    Correct :    ║ ║ ║ ║ ║ ║  (fils alignés)
+    ```
+
 
 ---
 
@@ -237,13 +253,17 @@ Correct :    ║ ║ ║ ║ ║ ║  (fils alignés)
 - Les fils touchent le **fond** du connecteur
 - La gaine externe entre **dans** le RJ45
 
-```
-     ┌────────┐
-     │RJ45    │
-     │ ╔╔╔╔╔╔ │ ← Fils au fond
-     │ ║ Gaine│ ← Gaine rentrée
-     └────────┘
-```
+![Illustration pédagogique](img/01-fiche-cours-eleve-txt-5.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+         ┌────────┐
+         │RJ45    │
+         │ ╔╔╔╔╔╔ │ ← Fils au fond
+         │ ║ Gaine│ ← Gaine rentrée
+         └────────┘
+    ```
+
 
 ---
 
