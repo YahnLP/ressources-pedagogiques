@@ -65,7 +65,7 @@ Sans EtherChannel :           Avec EtherChannel :
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Comparaison côte à côte en deux colonnes. Gauche "Sans EtherChannel" : SW1 et SW2 reliés par 2 câbles, Gi0/1 en vert (actif), Gi0/2 en orange avec l'icône STP Block, débit "1 Gbps". Droite "Avec EtherChannel" : SW1 et SW2 reliés par le même câble doublé mais fusionné en une bande large légendée "Po1 = 2 Gbps", les deux interfaces en vert, STP voit un seul port. En dessous, 3 avantages listés.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-etherchannel-1.jpg)
 
 ---
 
@@ -116,7 +116,7 @@ SW2(config-if)# channel-group 1 mode on
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Tableau de compatibilité LACP/PAgP sous forme de matrice colorée : cases vertes = EC formé, cases rouges = EC non formé. Les lignes sont les modes de SW1, les colonnes les modes de SW2. En dessous, deux schémas de flux LACP : un avec active+active (flèches bidirectionnelles LACPDU, EC formé en vert) et un avec passive+passive (flèches bloquées, EC non formé en rouge).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-etherchannel-2.jpg)
 
 ---
 
@@ -220,7 +220,7 @@ EtherChannel Load-Balancing Method: src-dst-ip
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Schéma de load balancing EtherChannel avec 4 liens membres (Gi0/1 à Gi0/4). Côté gauche : 4 flux de données différents (représentés par des flèches colorées) avec leurs paires src-dst IP. Au centre : la boîte "Hash EtherChannel" avec la formule hash = f(src-IP XOR dst-IP). Côté droit : les 4 liens avec les flux distribués dessus. Un encadré montre qu'un flux identique src-dst prend toujours le même lien (cohérence pour la session TCP).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-etherchannel-3.jpg)
 
 ---
 
@@ -313,7 +313,7 @@ PANNE 5 — Config sur les membres physiques au lieu du port-channel
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Tableau de dépannage EtherChannel en 5 lignes, chacune avec : icône de symptôme (éclair rouge), description du symptôme dans `show etherchannel summary`, cause technique, commande de correction. Chaque ligne a une couleur de fond différente. En haut, la sortie `show etherchannel summary` type avec les codes annotés.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-etherchannel-4.jpg)
 
 ---
 
@@ -348,7 +348,7 @@ Après : Po1 (Gi0/2 active seulement) → 1 Gbps
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Timeline de basculement EtherChannel en cas de panne. À gauche : état normal (Po1 = Gi0/1 + Gi0/2, 2 Gbps). Au milieu : instant de la panne de Gi0/1 (croix rouge, flèche indiquant "t=0 : panne Gi0/1"). À droite : nouvel état (Po1 = Gi0/2 seulement, 1 Gbps, mais service continu). En dessous, comparaison avec une panne STP classique (temps de reconvergence 30s vs EtherChannel quelques ms). Barre de temps horizontale avec les délais annotés.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-etherchannel-5.jpg)
 
 ---
 
