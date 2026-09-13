@@ -41,11 +41,15 @@
 
 **Hub (ancien, obsolète) :**
 
-```
-         HUB
-        / | \
-      PC1 PC2 PC3
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+             HUB
+            / | \
+          PC1 PC2 PC3
+    ```
+
 
 - Couche 1 (physique) : Simple **répéteur**
 - Envoie **tous les paquets à tous les ports**
@@ -56,11 +60,15 @@
 
 **Switch (moderne) :**
 
-```
-       SWITCH
-        / | \
-      PC1 PC2 PC3
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+           SWITCH
+            / | \
+          PC1 PC2 PC3
+    ```
+
 
 - Couche 2 (liaison) : **Intelligence** basée sur les adresses MAC
 - Envoie les paquets **uniquement au bon port**
@@ -235,13 +243,17 @@ Un **domaine de collision** est une zone du réseau où deux trames peuvent **en
 
 **Avec un HUB :**
 
-```
-       HUB
-      / | \
-    PC1 PC2 PC3
-  └────────────┘
-  1 seul domaine
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+           HUB
+          / | \
+        PC1 PC2 PC3
+      └────────────┘
+      1 seul domaine
+    ```
+
 
 - **1 seul domaine de collision** pour tous les ports
 - Si PC1 et PC2 envoient en même temps → **Collision** → Retransmission
@@ -250,14 +262,18 @@ Un **domaine de collision** est une zone du réseau où deux trames peuvent **en
 
 **Avec un SWITCH :**
 
-```
-     SWITCH
-      / | \
-    PC1 PC2 PC3
-    │   │   │
-    └───┴───┘
-  3 domaines
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-4.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+         SWITCH
+          / | \
+        PC1 PC2 PC3
+        │   │   │
+        └───┴───┘
+      3 domaines
+    ```
+
 
 - **1 domaine de collision par port**
 - PC1 et PC2 peuvent envoyer **simultanément** sans collision
@@ -279,14 +295,18 @@ Un **domaine de broadcast** est une zone du réseau où une trame de **broadcast
 
 **Avec un switch SANS VLAN :**
 
-```
-       SWITCH
-        /|\
-       / | \
-     PC1 PC2 PC3
-    └──────────┘
-   1 domaine broadcast
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-5.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+           SWITCH
+            /|\
+           / | \
+         PC1 PC2 PC3
+        └──────────┘
+       1 domaine broadcast
+    ```
+
 
 - **1 seul domaine de broadcast** (tous les ports)
 - Un broadcast envoyé par PC1 est reçu par PC2 et PC3
@@ -295,15 +315,19 @@ Un **domaine de broadcast** est une zone du réseau où une trame de **broadcast
 
 **Avec un switch AVEC VLANs :**
 
-```
-      SWITCH
-       / | \
-   VLAN 10  VLAN 20
-     / \      |
-   PC1 PC2   PC3
-   └──┘      └─┘
-  Domaine 1  Domaine 2
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-6.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+          SWITCH
+           / | \
+       VLAN 10  VLAN 20
+         / \      |
+       PC1 PC2   PC3
+       └──┘      └─┘
+      Domaine 1  Domaine 2
+    ```
+
 
 - **1 domaine de broadcast par VLAN**
 - Un broadcast dans VLAN 10 ne traverse **pas** vers VLAN 20
@@ -355,18 +379,22 @@ Imagine un immeuble de bureaux :
 
 **Schéma conceptuel :**
 
-```
-         SWITCH PHYSIQUE
-         (1 seul switch)
-              │
-      ┌───────┴───────┐
-      │               │
-   VLAN 10         VLAN 20
-  (Logique)       (Logique)
-      │               │
-   Ports 1-5       Ports 6-10
-   Comptabilité    Production
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-7.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+             SWITCH PHYSIQUE
+             (1 seul switch)
+                  │
+          ┌───────┴───────┐
+          │               │
+       VLAN 10         VLAN 20
+      (Logique)       (Logique)
+          │               │
+       Ports 1-5       Ports 6-10
+       Comptabilité    Production
+    ```
+
 
 **Résultat :** C'est comme si tu avais **2 switches séparés**, mais physiquement il n'y en a qu'un seul !
 
@@ -385,21 +413,25 @@ Imagine un immeuble de bureaux :
 
 **Exemple concret : École**
 
-```
-VLAN 10 - Administration
-  ├─ Direction
-  ├─ Secrétariat
-  └─ Comptabilité
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-8.jpg)
 
-VLAN 20 - Enseignants
-  ├─ Salle des profs
-  ├─ CDI
-  └─ Laboratoires
+??? note "🔤 Schéma texte original"
+    ```
+    VLAN 10 - Administration
+      ├─ Direction
+      ├─ Secrétariat
+      └─ Comptabilité
 
-VLAN 30 - Élèves
-  ├─ Salles informatiques
-  └─ CDI élèves
-```
+    VLAN 20 - Enseignants
+      ├─ Salle des profs
+      ├─ CDI
+      └─ Laboratoires
+
+    VLAN 30 - Élèves
+      ├─ Salles informatiques
+      └─ CDI élèves
+    ```
+
 
 → Un élève ne peut **pas** accéder aux fichiers de l'administration (isolation VLAN)
 
@@ -440,13 +472,17 @@ Le **VLAN natif** est le VLAN utilisé pour le trafic **non taggé** (sans étiq
 
 **Exemple :**
 
-```
-Switch A ────TRUNK────> Switch B
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-9.jpg)
 
-Trafic VLAN 10 : Tagged (802.1Q tag = 10)
-Trafic VLAN 20 : Tagged (802.1Q tag = 20)
-Trafic VLAN 1 (natif) : Non-tagged (pas de tag)
-```
+??? note "🔤 Schéma texte original"
+    ```
+    Switch A ────TRUNK────> Switch B
+
+    Trafic VLAN 10 : Tagged (802.1Q tag = 10)
+    Trafic VLAN 20 : Tagged (802.1Q tag = 20)
+    Trafic VLAN 1 (natif) : Non-tagged (pas de tag)
+    ```
+
 
 **⚠️ Risque de sécurité :**
 
@@ -468,10 +504,14 @@ Le VLAN natif peut être exploité pour des attaques **VLAN hopping**. Il est re
 
 **Schéma :**
 
-```
-   PC ───────> [Port Fa0/5 (Access)]
-                   VLAN 10
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-10.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+       PC ───────> [Port Fa0/5 (Access)]
+                       VLAN 10
+    ```
+
 
 Le PC est dans le **VLAN 10** uniquement.
 
