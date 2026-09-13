@@ -34,16 +34,20 @@
 
 ### **SANS VLANs (1 seul réseau)**
 
-```
-Switch unique
-   │
-   ├─ PC1 (Direction)
-   ├─ PC2 (Admin)
-   ├─ PC3 (IT)
-   └─ PC4 (Direction)
-   
-Problème : TOUS dans même broadcast domaine
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Switch unique
+       │
+       ├─ PC1 (Direction)
+       ├─ PC2 (Admin)
+       ├─ PC3 (IT)
+       └─ PC4 (Direction)
+
+    Problème : TOUS dans même broadcast domaine
+    ```
+
 
 **Inconvénients :**
 - ❌ Aucune isolation
@@ -54,15 +58,19 @@ Problème : TOUS dans même broadcast domaine
 
 ### **AVEC VLANs (3 réseaux isolés)**
 
-```
-Switch physique
-   │
-   ├─ VLAN 10 : Direction (PC1, PC4)
-   ├─ VLAN 20 : Admin (PC2)
-   └─ VLAN 30 : IT (PC3)
-   
-Isolation : Communication intra-VLAN OK, inter-VLAN bloquée
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Switch physique
+       │
+       ├─ VLAN 10 : Direction (PC1, PC4)
+       ├─ VLAN 20 : Admin (PC2)
+       └─ VLAN 30 : IT (PC3)
+
+    Isolation : Communication intra-VLAN OK, inter-VLAN bloquée
+    ```
+
 
 **Avantages :**
 - ✅ Isolation services
