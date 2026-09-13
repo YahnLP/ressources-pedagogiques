@@ -64,20 +64,24 @@ Le **DNS** (Domain Name System = Système de Noms de Domaine) est un service ré
 
 Le DNS est organisé comme un **arbre inversé** avec plusieurs niveaux :
 
-```
-                    . (RACINE)
-                      |
-        ┌─────────────┼─────────────┐
-        │             │             │
-       .fr          .com          .org
-        │             │             │
-    ────┼────     ────┼────     ────┼────
-    │        │    │        │    │        │
- amazon  orange google  netflix wikipedia unicef
-    │        │    │        │    │        │
-  ──┼──    ──┼──  ──┼──  ──┼──  ──┼──  ──┼──
-  www  api  www  mail www  www  www  fr.
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+                        . (RACINE)
+                          |
+            ┌─────────────┼─────────────┐
+            │             │             │
+           .fr          .com          .org
+            │             │             │
+        ────┼────     ────┼────     ────┼────
+        │        │    │        │    │        │
+     amazon  orange google  netflix wikipedia unicef
+        │        │    │        │    │        │
+      ──┼──    ──┼──  ──┼──  ──┼──  ──┼──  ──┼──
+      www  api  www  mail www  www  www  fr.
+    ```
+
 
 ### 📊 Les niveaux de la hiérarchie DNS
 
@@ -92,13 +96,17 @@ Le DNS est organisé comme un **arbre inversé** avec plusieurs niveaux :
 
 Prenons l'exemple : **www.amazon.fr.**
 
-```
-www   .  amazon  .  fr  .
- │        │         │    └─── Racine (implicite)
- │        │         └──────── TLD (Top Level Domain)
- │        └────────────────── Domaine principal
- └─────────────────────────── Sous-domaine
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    www   .  amazon  .  fr  .
+     │        │         │    └─── Racine (implicite)
+     │        │         └──────── TLD (Top Level Domain)
+     │        └────────────────── Domaine principal
+     └─────────────────────────── Sous-domaine
+    ```
+
 
 **Lecture de droite à gauche :**
 1. `.` = Racine DNS (invisible mais toujours là)
@@ -118,37 +126,41 @@ Quand vous tapez `www.amazon.fr` dans votre navigateur, voici ce qui se passe **
 
 #### Étapes de la résolution :
 
-```
-┌─────────────┐
-│  1. VOUS    │  "Je veux accéder à www.amazon.fr"
-└──────┬──────┘
-       │
-       ▼
-┌─────────────────────┐
-│ 2. DNS RÉSOLVEUR    │  "Je vérifie mon cache... Non, je ne l'ai pas."
-│    (Fournisseur)    │
-└──────┬──────────────┘
-       │
-       ▼
-┌─────────────────────┐
-│ 3. DNS RACINE       │  "Je ne connais pas l'IP, mais va voir le DNS .fr"
-└──────┬──────────────┘
-       │
-       ▼
-┌─────────────────────┐
-│ 4. DNS TLD (.fr)    │  "Oui ! L'IP de www.amazon.fr est 52.95.220.10"
-└──────┬──────────────┘
-       │
-       ▼
-┌─────────────────────┐
-│ 5. DNS RÉSOLVEUR    │  "Merci ! Je note dans mon cache et je réponds"
-└──────┬──────────────┘
-       │
-       ▼
-┌─────────────────────┐
-│ 6. VOUS             │  "Super ! Je peux afficher la page"
-└─────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────┐
+    │  1. VOUS    │  "Je veux accéder à www.amazon.fr"
+    └──────┬──────┘
+           │
+           ▼
+    ┌─────────────────────┐
+    │ 2. DNS RÉSOLVEUR    │  "Je vérifie mon cache... Non, je ne l'ai pas."
+    │    (Fournisseur)    │
+    └──────┬──────────────┘
+           │
+           ▼
+    ┌─────────────────────┐
+    │ 3. DNS RACINE       │  "Je ne connais pas l'IP, mais va voir le DNS .fr"
+    └──────┬──────────────┘
+           │
+           ▼
+    ┌─────────────────────┐
+    │ 4. DNS TLD (.fr)    │  "Oui ! L'IP de www.amazon.fr est 52.95.220.10"
+    └──────┬──────────────┘
+           │
+           ▼
+    ┌─────────────────────┐
+    │ 5. DNS RÉSOLVEUR    │  "Merci ! Je note dans mon cache et je réponds"
+    └──────┬──────────────┘
+           │
+           ▼
+    ┌─────────────────────┐
+    │ 6. VOUS             │  "Super ! Je peux afficher la page"
+    └─────────────────────┘
+    ```
+
 
 **⏱️ Temps total :** Environ 20-100 millisecondes (très rapide !)
 
