@@ -62,16 +62,20 @@ RÈGLE 5 — Documenter chaque intervention (qui, quoi, quand, résultat)
 
 ### Les 4 types de mémoire
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│ RAM           → running-config (volatile — perdue au redémarrage)       │
-│ NVRAM         → startup-config (non volatile — survit au redémarrage)   │
-│ Flash         → IOS + fichiers de config archivés (non volatile)        │
-│ ROM           → Bootstrap / ROM Monitor (non modifiable)                │
-└─────────────────────────────────────────────────────────────────────────┘
+![Illustration pédagogique](img/02-fiche-cours-procedures-txt-1.jpg)
 
-Au démarrage : ROM → charge l'IOS depuis Flash → charge startup-config en RAM
-```
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────────────────────────────────────────┐
+    │ RAM           → running-config (volatile — perdue au redémarrage)       │
+    │ NVRAM         → startup-config (non volatile — survit au redémarrage)   │
+    │ Flash         → IOS + fichiers de config archivés (non volatile)        │
+    │ ROM           → Bootstrap / ROM Monitor (non modifiable)                │
+    └─────────────────────────────────────────────────────────────────────────┘
+
+    Au démarrage : ROM → charge l'IOS depuis Flash → charge startup-config en RAM
+    ```
+
 
 ### La différence critique
 
@@ -168,21 +172,25 @@ Pour les MàJ IOS :
 
 ### Organisation des archives sur le serveur TFTP
 
-```
-/sauvegardes/
-├── quotidiennes/
-│   ├── 2024-03-15/
-│   │   ├── R_SIEGE_running_2024-03-15_2300.cfg
-│   │   ├── SW_CORE_A_running_2024-03-15_2300.cfg
-│   │   └── R_AGENCE_B_running_2024-03-15_2300.cfg
-│   └── 2024-03-16/
-│       └── ...
-├── avant_intervention/
-│   └── R_SIEGE_avant_upgrade_IOS_2024-03-15.cfg
-└── mensuelles/
-    └── 2024-03-01/
-        └── ...
-```
+![Illustration pédagogique](img/02-fiche-cours-procedures-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    /sauvegardes/
+    ├── quotidiennes/
+    │   ├── 2024-03-15/
+    │   │   ├── R_SIEGE_running_2024-03-15_2300.cfg
+    │   │   ├── SW_CORE_A_running_2024-03-15_2300.cfg
+    │   │   └── R_AGENCE_B_running_2024-03-15_2300.cfg
+    │   └── 2024-03-16/
+    │       └── ...
+    ├── avant_intervention/
+    │   └── R_SIEGE_avant_upgrade_IOS_2024-03-15.cfg
+    └── mensuelles/
+        └── 2024-03-01/
+            └── ...
+    ```
+
 
 > 💡 **Rétention recommandée** : 30 sauvegardes quotidiennes + 12 mensuelles = 1 an de couverture.
 
@@ -341,33 +349,37 @@ RTO CIBLE : 30 minutes
 
 ### Structure standard
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  EN-TÊTE                                                        │
-│  Titre : [Procédure de ...]                                     │
-│  Auteur : [Nom]    Date création : [JJ/MM/AAAA]                 │
-│  Version : [X.Y]   Dernière MàJ : [JJ/MM/AAAA]                 │
-│  Validé par : [Responsable réseau]                              │
-├─────────────────────────────────────────────────────────────────┤
-│  CONDITIONS PRÉALABLES                                          │
-│  → Qui est autorisé à exécuter cette procédure                  │
-│  → Fenêtre de maintenance requise (oui/non)                     │
-│  → Équipements nécessaires                                      │
-│  → Actions préalables obligatoires (sauvegardes...)             │
-├─────────────────────────────────────────────────────────────────┤
-│  ÉTAPES D'EXÉCUTION                                             │
-│  [Numérotées, avec commandes exactes et résultat attendu]       │
-├─────────────────────────────────────────────────────────────────┤
-│  VALIDATION                                                     │
-│  [Tests à effectuer + résultats attendus]                       │
-├─────────────────────────────────────────────────────────────────┤
-│  ROLLBACK                                                       │
-│  [Étapes pour revenir à l'état précédent si KO]                 │
-├─────────────────────────────────────────────────────────────────┤
-│  HISTORIQUE DES MODIFICATIONS                                   │
-│  [Journal des versions de la procédure elle-même]               │
-└─────────────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-procedures-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────────────────────────────────┐
+    │  EN-TÊTE                                                        │
+    │  Titre : [Procédure de ...]                                     │
+    │  Auteur : [Nom]    Date création : [JJ/MM/AAAA]                 │
+    │  Version : [X.Y]   Dernière MàJ : [JJ/MM/AAAA]                 │
+    │  Validé par : [Responsable réseau]                              │
+    ├─────────────────────────────────────────────────────────────────┤
+    │  CONDITIONS PRÉALABLES                                          │
+    │  → Qui est autorisé à exécuter cette procédure                  │
+    │  → Fenêtre de maintenance requise (oui/non)                     │
+    │  → Équipements nécessaires                                      │
+    │  → Actions préalables obligatoires (sauvegardes...)             │
+    ├─────────────────────────────────────────────────────────────────┤
+    │  ÉTAPES D'EXÉCUTION                                             │
+    │  [Numérotées, avec commandes exactes et résultat attendu]       │
+    ├─────────────────────────────────────────────────────────────────┤
+    │  VALIDATION                                                     │
+    │  [Tests à effectuer + résultats attendus]                       │
+    ├─────────────────────────────────────────────────────────────────┤
+    │  ROLLBACK                                                       │
+    │  [Étapes pour revenir à l'état précédent si KO]                 │
+    ├─────────────────────────────────────────────────────────────────┤
+    │  HISTORIQUE DES MODIFICATIONS                                   │
+    │  [Journal des versions de la procédure elle-même]               │
+    └─────────────────────────────────────────────────────────────────┘
+    ```
+
 
 ---
 
