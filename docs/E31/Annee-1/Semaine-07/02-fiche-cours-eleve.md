@@ -71,10 +71,7 @@ Le serveur DHCP se charge automatiquement de :
 - 🎯 **Gestion centralisée** (un seul serveur pour tout le réseau)
 - ♻️ **Récupération automatique** des adresses non utilisées
 
-![Illustration comparaison manuel vs DHCP]
-*Légende : Schéma comparatif en deux colonnes. À gauche "Sans DHCP" : administrateur assis devant chaque PC configurant manuellement les paramètres IP, chronomètre montrant 5 minutes, icône d'erreur rouge. À droite "Avec DHCP" : serveur central distribuant automatiquement des adresses IP à tous les PC connectés en étoile, chronomètre montrant 5 secondes, icône de validation verte.*
-
-> 🖼️ **Illustration à venir** — schéma en cours de production.
+![Illustration pédagogique](img/02-fiche-cours-eleve-1.jpg)
 
 ---
 
@@ -118,10 +115,7 @@ Le processus d'obtention d'une adresse IP se déroule en **4 étapes** :
    CLIENT est maintenant 192.168.1.100
 ```
 
-![Illustration processus DORA]
-*Légende : Diagramme de séquence montrant les échanges entre un ordinateur client (à gauche) et un serveur DHCP (à droite). Flèches numérotées 1 à 4 avec : 1) flèche en pointillés large (broadcast) vers la droite "DISCOVER", 2) flèche pleine étroite (unicast) vers la gauche "OFFER avec IP 192.168.1.100", 3) flèche en pointillés large vers la droite "REQUEST", 4) flèche pleine étroite vers la gauche "ACK". Les flèches broadcast sont rouge vif, les unicast sont bleues.*
-
-> 🖼️ **Illustration à venir** — schéma en cours de production.
+![Illustration pédagogique](img/02-fiche-cours-eleve-2.jpg)
 
 ---
 
@@ -558,10 +552,7 @@ Carte Ethernet Ethernet0:
 - **Pas de passerelle** par défaut
 - **Pas de connexion Internet** ❌
 
-![Illustration APIPA]
-*Légende : Diagramme montrant un ordinateur tentant de contacter un serveur DHCP représenté par un point d'interrogation rouge barré. Flèches rouges en pointillés avec des croix rouges indiquant l'échec de communication. L'ordinateur affiche sur son écran "169.254.x.x" en rouge. Icône d'avertissement triangulaire jaune avec point d'exclamation.*
-
-> 🖼️ **Illustration à venir** — schéma en cours de production.
+![Illustration pédagogique](img/02-fiche-cours-eleve-3.jpg)
 
 ---
 
