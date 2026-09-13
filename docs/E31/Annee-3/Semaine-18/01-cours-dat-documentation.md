@@ -222,7 +222,7 @@ Structure recommandée (vue en rack) :
 **🖼️ ILLUSTRATION 1 — Schéma logique type**
 > *Légende* : Exemple de schéma logique professionnel pour une infrastructure 2 sites. R_LYON et R_MARSEILLE reliés par un lien WAN. Côté Lyon : SW_CORE et SW_ACC avec EtherChannel représenté par un double lien épais. Les VLANs sont représentés par des zones colorées (bleu VLAN 100, rouge VLAN 300, vert VLAN 400). Chaque interface est annotée avec son IP. Les areas OSPF sont délimitées par des contours pointillés (Area 0 englobe Lyon, Area 1 englobe le WAN + Marseille). Légende en bas à gauche.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/01-cours-dat-documentation-1.jpg)
 
 ---
 
