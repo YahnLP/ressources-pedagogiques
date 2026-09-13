@@ -100,7 +100,7 @@ show ip ospf database
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Schéma d'architecture OSPF du projet A2 en 3 zones colorées. Zone centrale bleue "Area 0 / Backbone" : R_SIEGE (avec sa Loopback 1.1.1.1), R_DC (Loopback 4.4.4.4), R_SIEGE_BACKUP. Les réseaux WAN et VLANs du siège sont annotés. Zone verte droite "Area 1" : R_AGENCE_B (Loopback 2.2.2.2), réseau 192.168.50.0/24. R_SIEGE est marqué "ABR" à la frontière entre Area 0 et Area 1. Les liens WAN sont nommés avec leurs réseaux /30. Les codes O vs O IA sont indiqués dans les mini-tables de routage de chaque routeur.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-guide-technique-projet-a2-1.jpg)
 
 ---
 
@@ -273,7 +273,7 @@ show policy-map
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Schéma de flux QoS sur le lien WAN entre R_SIEGE et R_AGENCE_B. À gauche, 3 types de trafic entrants (VoIP DSCP EF en rouge, signalisation SIP en orange, données HTTP/FTP en bleu). Au centre, la boîte "Policy-map QOS_WAN" avec 3 files distinctes : file prioritaire "VOIX 30%" (en rouge, sort en premier), file "SIGNALISATION 5%", file "class-default fair-queue". À droite, le lien série avec les flux sortants dans l'ordre de priorité. Les pourcentages de bande passante sont annotés.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-guide-technique-projet-a2-2.jpg)
 
 ---
 
