@@ -163,14 +163,18 @@ ipv6 router ospf 1
 
 ### Topologie
 
-```
-[LAN-A: 2001:db8:a::/64]                    [LAN-B: 2001:db8:b::/64]
-         │                                            │
-     Gi0/0                                        Gi0/0
-  [  R1  ]──── Gi0/1 ─── 2001:db8:ab::/64 ───── Gi0/1 ─[  R2  ]
-  R-ID:1.1.1.1                                          R-ID:2.2.2.2
-  fe80::1 (LLA auto)                                    fe80::2 (LLA auto)
-```
+![Illustration pédagogique](img/02-fiche-cours-ospfv3-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    [LAN-A: 2001:db8:a::/64]                    [LAN-B: 2001:db8:b::/64]
+             │                                            │
+         Gi0/0                                        Gi0/0
+      [  R1  ]──── Gi0/1 ─── 2001:db8:ab::/64 ───── Gi0/1 ─[  R2  ]
+      R-ID:1.1.1.1                                          R-ID:2.2.2.2
+      fe80::1 (LLA auto)                                    fe80::2 (LLA auto)
+    ```
+
 
 ### Configuration R1
 
