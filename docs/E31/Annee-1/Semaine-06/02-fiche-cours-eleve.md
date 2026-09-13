@@ -61,9 +61,7 @@ Vous êtes à Paris et vous voulez envoyer un email à quelqu'un à Tokyo.
 
 **⏱️ Temps total :** Environ 150-300 millisecondes pour traverser le monde !
 
-![Illustration : Schéma montrant un ordinateur à Paris envoyant un paquet email vers Tokyo. Le paquet traverse 4-5 routeurs représentés par des carrés bleus interconnectés. Chaque routeur est étiqueté (Box Internet, FAI, International, Asie, Tokyo). Des flèches indiquent le chemin du paquet. Style : diagramme pédagogique, couleurs vives sur fond blanc.]
-
-> 🖼️ **Illustration à venir** — schéma en cours de production.
+![Illustration pédagogique](img/02-fiche-cours-eleve-1.jpg)
 
 ---
 
@@ -99,9 +97,7 @@ Un **routeur** est un équipement réseau qui **interconnecte plusieurs réseaux
 | **Adressage** | Utilise les adresses **IP** | Utilise les adresses **MAC** |
 | **Exemple** | Box Internet | Switch de bureau 8 ports |
 
-![Illustration : Deux schémas côte à côte. À gauche : un switch (boîte verte) connectant 4 ordinateurs dans le même nuage "Réseau 192.168.1.0". À droite : un routeur (boîte bleue) avec deux côtés, chaque côté connecté à un nuage différent "Réseau A 192.168.1.0" et "Réseau B 192.168.2.0". Style : schéma réseau simple et clair.]
-
-> 🖼️ **Illustration à venir** — schéma en cours de production.
+![Illustration pédagogique](img/02-fiche-cours-eleve-2.jpg)
 
 ---
 
