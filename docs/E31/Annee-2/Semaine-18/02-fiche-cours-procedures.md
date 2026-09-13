@@ -95,7 +95,7 @@ copy running-config tftp:
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Schéma des 4 types de mémoire d'un routeur Cisco avec des boîtes colorées. RAM (bleu) contient "running-config" avec mention "volatile — perdu au reload". NVRAM (vert) contient "startup-config" avec mention "chargé au boot". Flash (orange) contient "IOS + archives" avec mention "non volatile". ROM (gris) contient "Bootstrap". Des flèches montrent les flux : copy run start (RAM→NVRAM), copy run tftp: (RAM→TFTP externe), copy startup run (NVRAM→RAM), et le flux de démarrage (ROM→Flash IOS→RAM startup-config). Un serveur TFTP externe est représenté à droite relié par UDP 69.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-procedures-1.jpg)
 
 ---
 
@@ -191,7 +191,7 @@ Pour les MàJ IOS :
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Schéma d'arborescence du serveur TFTP avec les 3 dossiers (quotidiennes/avant_intervention/mensuelles) et des exemples de fichiers. À gauche, un routeur Cisco avec la commande `copy run tftp:` et une flèche UDP 69 vers le serveur. À droite, le serveur TFTP avec l'arborescence développée. Une timeline en bas montre la rétention (30 jours quotidien, 12 mois mensuel).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-procedures-2.jpg)
 
 ---
 
@@ -254,7 +254,7 @@ ROLLBACK (si validation KO) :
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Organigramme vertical de la procédure de MàJ IOS en 6 boîtes colorées numérotées. Étape 0 (gris) Planification. Étape 1 (rouge) Sauvegarde obligatoire. Étape 2 (orange) Transfert IOS. Étape 3 (jaune) Registre de boot. Étape 4 (bleu) Reload. Étape 5 (vert) Validation. À droite de l'étape 5 : un losange de décision "Tests OK ?" → Oui : terminer · Non : flèche rouge vers Rollback box. Le chemin de rollback remonte vers l'étape 4 (reload avec ancien IOS).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-procedures-3.jpg)
 
 ---
 
@@ -333,7 +333,7 @@ RTO CIBLE : 30 minutes
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Diagramme RTO/RPO sous forme de timeline horizontale. Sur la frise : point "Dernière sauvegarde" → flèche bleue "RPO = 24h max" → point "Incident" → flèche rouge "RTO = 2h max" → point "Retour au service". En dessous, un second scénario avec des données plus récentes. À droite, un tableau de correspondance DIGITEC : RTO = 2h WAN / 30min switch · RPO = 24h. En bas, le cycle de sauvegarde (quotidien 23h → mensuel 1er du mois).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-procedures-4.jpg)
 
 ---
 
@@ -374,7 +374,7 @@ RTO CIBLE : 30 minutes
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Comparaison visuelle "Avant procédures vs Après procédures" sous forme de deux colonnes. Colonne gauche rouge : chronologie chaotique d'une semaine (mardi 14h = panne incident 1, jeudi 9h = incident 2, vendredi 17h = personne ne sait qui a changé quoi). Colonne droite verte : même semaine avec procédures (sauvegarde automatique chaque nuit à 23h, modification samedi 22h en fenêtre de maintenance, rollback en 15 min lors d'un problème, rapport d'incident documenté). En bas : tableau chiffré "Coût sans procédures vs avec procédures" (temps de restauration, traçabilité, satisfaction utilisateurs).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-procedures-5.jpg)
 
 ---
 
