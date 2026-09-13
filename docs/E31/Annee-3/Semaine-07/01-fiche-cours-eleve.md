@@ -21,19 +21,23 @@
 
 > Avant de demander une adresse, un hôte IPv6 envoie un **Router Solicitation (RS)** multicast. Le routeur répond avec un **Router Advertisement (RA)** qui contient des instructions d'auto-configuration. Les RA sont aussi envoyés périodiquement sans sollicitation.
 
-```
-PC (nouvellement connecté)          Routeur
-       │                               │
-       │── Router Solicitation ───────►│  (ff02::2 — tous les routeurs)
-       │◄── Router Advertisement ──────│  (ff02::1 — tous les nœuds)
-       │                               │
-       │  Contenu du RA :              │
-       │    - Préfixe : 2001:db8:1::/64│
-       │    - M flag : 0 ou 1          │
-       │    - O flag : 0 ou 1          │
-       │    - A flag : 1               │
-       │    - Lifetime, MTU...         │
-```
+![Illustration pédagogique](img/01-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    PC (nouvellement connecté)          Routeur
+           │                               │
+           │── Router Solicitation ───────►│  (ff02::2 — tous les routeurs)
+           │◄── Router Advertisement ──────│  (ff02::1 — tous les nœuds)
+           │                               │
+           │  Contenu du RA :              │
+           │    - Préfixe : 2001:db8:1::/64│
+           │    - M flag : 0 ou 1          │
+           │    - O flag : 0 ou 1          │
+           │    - A flag : 1               │
+           │    - Lifetime, MTU...         │
+    ```
+
 
 ---
 
@@ -196,15 +200,19 @@ interface GigabitEthernet0/0
 
 > Un **ABR** (Area Border Router) est un routeur qui appartient à **l'area 0 (backbone) ET à au moins une autre area**. Il redistribue les informations de routage entre les areas sous forme de **Type-3 LSA** (routes sommaires).
 
-```
-                Area 1                  Area 0                  Area 2
-        ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-        │  R1 ── R2 ── ABR│────│ ABR ── R5 ── ABR │────│ ABR ── R7 ── R8 │
-        │  LAN-A  LAN-B   │    │       backbone    │    │  LAN-C  LAN-D  │
-        └─────────────────┘    └──────────────────┘    └─────────────────┘
-        Routes connues ici     Type-3 LSA traverse     Reçoit résumé Area 1
-        restent dans Area 1    l'area 0                depuis ABR
-```
+![Illustration pédagogique](img/01-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+                    Area 1                  Area 0                  Area 2
+            ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+            │  R1 ── R2 ── ABR│────│ ABR ── R5 ── ABR │────│ ABR ── R7 ── R8 │
+            │  LAN-A  LAN-B   │    │       backbone    │    │  LAN-C  LAN-D  │
+            └─────────────────┘    └──────────────────┘    └─────────────────┘
+            Routes connues ici     Type-3 LSA traverse     Reçoit résumé Area 1
+            restent dans Area 1    l'area 0                depuis ABR
+    ```
+
 
 ### Configuration OSPFv3 multi-area
 
@@ -328,10 +336,14 @@ PC dual-stack → ping google.com
 
 > Quand deux îlots IPv6 sont séparés par un réseau IPv4, on encapsule les paquets IPv6 dans des paquets IPv4 (**6in4**, RFC 4213).
 
-```
-[Site A IPv6] ──IPv6── [R1]───6in4 tunnel (IPv4)───[R2] ──IPv6── [Site B IPv6]
-             R1 IP WAN: 203.0.113.1                 R2 IP WAN: 203.0.113.5
-```
+![Illustration pédagogique](img/01-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    [Site A IPv6] ──IPv6── [R1]───6in4 tunnel (IPv4)───[R2] ──IPv6── [Site B IPv6]
+                 R1 IP WAN: 203.0.113.1                 R2 IP WAN: 203.0.113.5
+    ```
+
 
 ```ios
 ! Configuration tunnel 6in4 sur R1 :
