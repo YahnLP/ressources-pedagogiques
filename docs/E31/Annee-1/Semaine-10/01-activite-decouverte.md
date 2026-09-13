@@ -391,7 +391,7 @@ Voici une matrice de référence pour guider les groupes si besoin :
 ---
 
 **📅 Activité conçue le :** 26/02/2026  
-**✍️ Auteur :** Équipe pédagogique CFA  
+**✍️ Auteur :** Yahn LE PRETTRE  
 **🎮 Testée avec :** Promo 2024-2027 (retours excellents !)  
 **🔄 Prochaine révision :** Juin 2026
 

@@ -482,8 +482,8 @@ icacls C:\Dossier /grant Groupe_Marketing:(M)
 ---
 
 **📅 Fiche rédigée le :** 26/02/2026  
-**✍️ Auteur :** Équipe pédagogique CFA  
-**📧 Questions :** formation@cfa-exemple.fr  
+**✍️ Auteur :** Yahn LE PRETTRE  
+**📧 Questions :** yahn.leprettre@mfr.asso.fr  
 **🔄 Prochaine mise à jour :** Juin 2026
 
 ---
