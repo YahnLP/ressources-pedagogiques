@@ -105,7 +105,7 @@ WLC gère (Plan de contrôle) :        AP gère (Plan de données radio) :
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Architecture WLAN enterprise avec WLC. À droite du schéma, le WLC avec ses 3 plans (gestion, contrôle, données). Les APs sont représentés dans les 3 bâtiments reliés au WLC par des flèches bleues (CAPWAP control) et oranges (CAPWAP data). Les clients WiFi (laptops, smartphones, IoT) sont autour des APs. En haut, le switch cœur connecte le WLC. Un tableau "Split MAC" montre ce que gère le WLC vs les APs. Un AP en mode Monitor est indiqué en orange avec une antenne omnidirectionnelle.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-wifi-avance-1.jpg)
 
 ---
 
@@ -177,7 +177,7 @@ Pour les appareils IoT à batterie :
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Comparaison visuelle OFDMA WiFi 5 vs WiFi 6. Gauche "WiFi 5 OFDMA non" : un canal avec 5 clients en attente, un seul transmet à la fois (FIFO). Droite "WiFi 6 OFDMA" : le même canal subdivisé en 5 Resource Units de tailles différentes, 5 clients transmettent simultanément. En dessous, les 4 technologies WiFi 6 sous forme d'icônes : OFDMA, MU-MIMO 8×8, BSS Coloring (APs avec couleurs distinctes), TWT (réveil programmé IoT).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-wifi-avance-2.jpg)
 
 ---
 
@@ -276,7 +276,7 @@ Solution 802.11v : le WLC peut "suggérer" à un client de changer d'AP
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Timeline de roaming comparant "Sans fast roaming" et "Avec 802.11r+k+v". Gauche : 5 étapes successives avec durées (scan 2-8s, désasso 100ms, asso 200ms, réauth RADIUS 500ms-2s, DHCP 1-3s) = total 4-14 secondes. Droite : même client se déplaçant, AP2 déjà prêt grâce au cache 802.11r, scan réduit grâce à 802.11k, = total < 50ms. Les flèches VoIP montrent coupure à gauche et continuité à droite.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-wifi-avance-3.jpg)
 
 ---
 
@@ -380,7 +380,7 @@ Pour les SSIDs sans mot de passe (cafés, aéroports) :
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Comparaison WPA2 vs WPA3 en 3 scénarios. Scénario 1 "Personal/PSK" : WPA2 avec un attaquant capturant le handshake et faisant du brute force offline (icône ordinateur → crâne) ; WPA3 SAE avec Dragonfly, icône cadenas vert "Brute force offline impossible". Scénario 2 "Trames de gestion" : WPA2 avec une trame Deauth non chiffrée envoyée par un attaquant qui chasse un client ; WPA3 PMF avec une trame chiffrée, l'attaquant échoue. Scénario 3 "Réseau ouvert" : WPA2 ouvert avec des ondes lisibles par un espion ; WPA3 OWE avec des ondes chiffrées même sans mot de passe.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-wifi-avance-4.jpg)
 
 ---
 
@@ -417,7 +417,7 @@ SSIDs :
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Schéma d'architecture WLAN enterprise complète annoté. Les 3 couches (application : RADIUS/PKI ; contrôle : WLC avec RRM et détection ; données : APs en 3 modes). Les 3 SSIDs sont représentés par des ondes colorées distinctes (bleu Corp, vert Guest, orange IoT). Les clients (laptop, smartphone, capteur IoT) sont placés près des APs avec leurs VLAN. Le roaming 802.11r est représenté par une flèche entre deux APs avec "< 50ms". WPA3 est indiqué sur les 3 SSIDs avec des icônes de cadenas.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-cours-wifi-avance-5.jpg)
 
 ---
 
