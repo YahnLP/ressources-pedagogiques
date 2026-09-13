@@ -38,12 +38,16 @@ RIP (Routing Information Protocol) fonctionne comme une rumeur :
 - Les voisins répercutent l'information à leurs propres voisins
 - Résultat : lent, inexact, limité à 15 sauts, **convergence lente**
 
-```
-RIP :  R1 ──"Je suis à 1 saut de 10.0.0.0"──► R2
-                                                R2 ──"Je suis à 2 sauts de 10.0.0.0"──► R3
-       → chaque routeur NE CONNAÎT PAS la topologie réelle
-       → il fait CONFIANCE aux dires de ses voisins
-```
+![Illustration pédagogique](img/02-fiche-cours-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    RIP :  R1 ──"Je suis à 1 saut de 10.0.0.0"──► R2
+                                                    R2 ──"Je suis à 2 sauts de 10.0.0.0"──► R3
+           → chaque routeur NE CONNAÎT PAS la topologie réelle
+           → il fait CONFIANCE aux dires de ses voisins
+    ```
+
 
 ### La philosophie OSPF : état de lien
 
@@ -52,12 +56,16 @@ OSPF fonctionne comme une **carte partagée** :
 - Tout le monde reçoit la carte complète de tout le monde (LSDB)
 - Chaque routeur calcule **lui-même** le meilleur chemin (SPF)
 
-```
-OSPF : R1 ──LSA "mes liens sont : R2 (10.0.12.0/30), R4 (10.0.14.0/30)"──► tous
-       R2 ──LSA "mes liens sont : R1, R3"──► tous
-       → chaque routeur a la MÊME carte complète (LSDB identique)
-       → il calcule LUI-MÊME le meilleur chemin (SPF / Dijkstra)
-```
+![Illustration pédagogique](img/02-fiche-cours-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    OSPF : R1 ──LSA "mes liens sont : R2 (10.0.12.0/30), R4 (10.0.14.0/30)"──► tous
+           R2 ──LSA "mes liens sont : R1, R3"──► tous
+           → chaque routeur a la MÊME carte complète (LSDB identique)
+           → il calcule LUI-MÊME le meilleur chemin (SPF / Dijkstra)
+    ```
+
 
 | Critère | RIP | OSPF |
 |---|---|---|
@@ -204,20 +212,24 @@ AVEC aires  : 5 aires × 20 routeurs → chaque routeur ne stocke que les LSA de
 
 ### Structure des aires
 
-```
-                    ┌─────────────────┐
-                    │    Area 0       │
-                    │   (Backbone)    │
-                    │   ABR1   ABR2  │
-                    └────┬───────┬───┘
-                         │       │
-               ┌─────────┘       └─────────┐
-               │                           │
-          ┌────┴────┐                 ┌────┴────┐
-          │  Area 1 │                 │  Area 2 │
-          │ Agence  │                 │Datacenter│
-          └─────────┘                 └─────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+                        ┌─────────────────┐
+                        │    Area 0       │
+                        │   (Backbone)    │
+                        │   ABR1   ABR2  │
+                        └────┬───────┬───┘
+                             │       │
+                   ┌─────────┘       └─────────┐
+                   │                           │
+              ┌────┴────┐                 ┌────┴────┐
+              │  Area 1 │                 │  Area 2 │
+              │ Agence  │                 │Datacenter│
+              └─────────┘                 └─────────┘
+    ```
+
 
 ### Règles des aires
 
@@ -271,26 +283,34 @@ AVEC aires  : 5 aires × 20 routeurs → chaque routeur ne stocke que les LSA de
 
 **Exemple :**
 
-```
-Topologie :
-  R1 ─(Serial T1, cost 64)─ R2 (chemin direct)
-  R1 ─(GE, cost 1)─ R3 ─(GE, cost 1)─ R2 (chemin via R3)
+![Illustration pédagogique](img/02-fiche-cours-txt-4.jpg)
 
-Cost chemin direct    : 64
-Cost chemin via R3    : 1 + 1 = 2
+??? note "🔤 Schéma texte original"
+    ```
+    Topologie :
+      R1 ─(Serial T1, cost 64)─ R2 (chemin direct)
+      R1 ─(GE, cost 1)─ R3 ─(GE, cost 1)─ R2 (chemin via R3)
 
-OSPF installe : O 192.168.20.0/24 [110/2] via R3 ✓
-                (distance admin OSPF = 110, métrique = 2)
-```
+    Cost chemin direct    : 64
+    Cost chemin via R3    : 1 + 1 = 2
+
+    OSPF installe : O 192.168.20.0/24 [110/2] via R3 ✓
+                    (distance admin OSPF = 110, métrique = 2)
+    ```
+
 
 **À retenir dans `show ip route` :**
 
-```
-O    192.168.20.0/24 [110/2] via 10.0.13.2
-                      │   │
-                      │   └─ Cost (métrique OSPF) = 2
-                      └───── Distance admin OSPF = 110
-```
+![Illustration pédagogique](img/02-fiche-cours-txt-5.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    O    192.168.20.0/24 [110/2] via 10.0.13.2
+                          │   │
+                          │   └─ Cost (métrique OSPF) = 2
+                          └───── Distance admin OSPF = 110
+    ```
+
 
 ---
 
