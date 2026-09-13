@@ -74,16 +74,20 @@ Inconvénients :
 
 ### Architecture fondamentale
 
-```
-                  EAP over LAN (EAPOL)           RADIUS (UDP 1812)
-  ┌────────────┐ ◄─────────────────────► ┌────────────┐ ◄──────────────────► ┌──────────────┐
-  │ SUPPLICANT │                         │AUTHENTICATOR│                      │   SERVEUR    │
-  │  (Laptop)  │                         │ (Borne WiFi)│                      │   RADIUS     │
-  └────────────┘                         └────────────┘                      └──────────────┘
-  Demande l'accès                        Filtre le trafic                    Décide : OUI / NON
-  Prouve son identité                    Relaie les messages                 Vérifie les credentials
-  Reçoit l'accès (ou non)               N'accorde pas lui-même l'accès      Assigne VLAN / droits
-```
+![Illustration pédagogique](img/02-fiche-cours-wifi-802-1x-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+                      EAP over LAN (EAPOL)           RADIUS (UDP 1812)
+      ┌────────────┐ ◄─────────────────────► ┌────────────┐ ◄──────────────────► ┌──────────────┐
+      │ SUPPLICANT │                         │AUTHENTICATOR│                      │   SERVEUR    │
+      │  (Laptop)  │                         │ (Borne WiFi)│                      │   RADIUS     │
+      └────────────┘                         └────────────┘                      └──────────────┘
+      Demande l'accès                        Filtre le trafic                    Décide : OUI / NON
+      Prouve son identité                    Relaie les messages                 Vérifie les credentials
+      Reçoit l'accès (ou non)               N'accorde pas lui-même l'accès      Assigne VLAN / droits
+    ```
+
 
 ### Rôle détaillé de chaque acteur
 
@@ -214,22 +218,26 @@ Pour que EAP-TLS fonctionne, chaque utilisateur doit posséder un **certificat n
 
 ### Les composants d'une PKI
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                     PKI de l'entreprise                  │
-│                                                          │
-│  ┌──────────────┐   signe   ┌──────────────────────┐    │
-│  │ Root CA      │ ────────► │ Certificats émis :   │    │
-│  │ (autorité    │           │  - Serveur RADIUS    │    │
-│  │  racine)     │           │  - Alice (certif.    │    │
-│  └──────────────┘           │    client EAP-TLS)   │    │
-│         │                   │  - Bob (certif.      │    │
-│  confiance                  │    client EAP-TLS)   │    │
-│  installée                  └──────────────────────┘    │
-│  sur tous                                               │
-│  les appareils                                          │
-└─────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-wifi-802-1x-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────────────────────────┐
+    │                     PKI de l'entreprise                  │
+    │                                                          │
+    │  ┌──────────────┐   signe   ┌──────────────────────┐    │
+    │  │ Root CA      │ ────────► │ Certificats émis :   │    │
+    │  │ (autorité    │           │  - Serveur RADIUS    │    │
+    │  │  racine)     │           │  - Alice (certif.    │    │
+    │  └──────────────┘           │    client EAP-TLS)   │    │
+    │         │                   │  - Bob (certif.      │    │
+    │  confiance                  │    client EAP-TLS)   │    │
+    │  installée                  └──────────────────────┘    │
+    │  sur tous                                               │
+    │  les appareils                                          │
+    └─────────────────────────────────────────────────────────┘
+    ```
+
 
 ### Structure d'un certificat X.509
 
@@ -254,29 +262,33 @@ Pour que EAP-TLS fonctionne, chaque utilisateur doit posséder un **certificat n
 
 ### Les composants de l'architecture
 
-```
-INTERNET
-    │
-[Pare-feu / UTM]
-    │
-    ├──────────────────────────────────────────────────────────┐
-    │                    CŒUR DE RÉSEAU                        │
-    │                                                          │
-    │   [WLC]──────────────── [AP1] [AP2] [AP3]               │
-    │  (Contrôleur           (Points d'accès                  │
-    │   WiFi centralisé)      gérés centralement)             │
-    │       │                     │                           │
-    │       │              SSID "Corp-Secure" → VLAN 10       │
-    │       │              SSID "Guest"        → VLAN 20      │
-    │       │                                                  │
-    │   [Serveur RADIUS] ←→ [Active Directory / LDAP]         │
-    │   [Serveur PKI / CA]                                    │
-    │                                                          │
-    │   VLAN 10 : Utilisateurs Corp (192.168.10.0/24)        │
-    │   VLAN 20 : Invités (192.168.20.0/24) — accès Internet  │
-    │   VLAN 100 : Serveurs / Administration                  │
-    └──────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-wifi-802-1x-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    INTERNET
+        │
+    [Pare-feu / UTM]
+        │
+        ├──────────────────────────────────────────────────────────┐
+        │                    CŒUR DE RÉSEAU                        │
+        │                                                          │
+        │   [WLC]──────────────── [AP1] [AP2] [AP3]               │
+        │  (Contrôleur           (Points d'accès                  │
+        │   WiFi centralisé)      gérés centralement)             │
+        │       │                     │                           │
+        │       │              SSID "Corp-Secure" → VLAN 10       │
+        │       │              SSID "Guest"        → VLAN 20      │
+        │       │                                                  │
+        │   [Serveur RADIUS] ←→ [Active Directory / LDAP]         │
+        │   [Serveur PKI / CA]                                    │
+        │                                                          │
+        │   VLAN 10 : Utilisateurs Corp (192.168.10.0/24)        │
+        │   VLAN 20 : Invités (192.168.20.0/24) — accès Internet  │
+        │   VLAN 100 : Serveurs / Administration                  │
+        └──────────────────────────────────────────────────────────┘
+    ```
+
 
 ### Rôle du WLC (Wireless LAN Controller)
 
