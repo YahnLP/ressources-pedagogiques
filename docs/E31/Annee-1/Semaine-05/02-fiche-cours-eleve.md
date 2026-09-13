@@ -189,10 +189,7 @@ Switch envoie sur TOUS les ports (sauf port d'origine)
 
 **Schéma récapitulatif des 4 processus :**
 
-![Illustration processus switch]
-*Légende : Diagramme montrant un switch central avec 4 processus. Flèche 1 "Learning" : trame entrante, switch note MAC source dans table. Flèche 2 "Forwarding" : switch consulte table, envoie vers port unique. Flèche 3 "Flooding" : switch ne trouve pas MAC, diffuse vers tous ports. Flèche 4 "Filtering" : source et destination même port, trame ignorée.*
-
-> 🖼️ **Illustration à venir** — schéma en cours de production.
+![Illustration pédagogique](img/02-fiche-cours-eleve-1.jpg)
 
 ---
 
