@@ -80,7 +80,7 @@ S*    0.0.0.0/0 [1/0] via 10.1.2.2
 **🖼️ ILLUSTRATION 1**
 > *Légende* : Schéma annoté d'une ligne de table de routage IOS avec 7 flèches pointant vers chaque champ : code (S), réseau destination, masque préfixe, distance administrative, métrique, next-hop, interface de sortie. Chaque flèche est accompagnée d'une explication en français. En dessous, un tableau récapitulatif des codes C/S/S*/O/R avec leur couleur distinctive et leur distance administrative.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-methode-routage-1.jpg)
 
 ---
 
@@ -139,7 +139,7 @@ Router(config)# no ip route 192.168.40.0 255.255.255.0 10.1.2.2
 **🖼️ ILLUSTRATION 2**
 > *Légende* : Topologie réseau avec 3 routeurs (R1, R2, R3) et 2 LANs (LAN1 en bleu, LAN4 en orange). Les routes statiques de R1 vers LAN4 et de R3 vers LAN1 sont représentées par des flèches pointillées traversant R2. À côté de chaque routeur, une mini-table de routage simplifiée montre les routes nécessaires. La commande ip route correspondante est affichée sous chaque flèche.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-methode-routage-2.jpg)
 
 ---
 
@@ -189,7 +189,7 @@ Router(config)# no ip route 192.168.40.0 255.255.255.0 10.1.2.2
 **🖼️ ILLUSTRATION 3**
 > *Légende* : Diagramme de flux "Méthode de dépannage routage" en 5 boîtes verticales numérotées et colorées, reliées par des flèches descendantes. Chaque boîte contient le nom de l'étape, la commande IOS associée, et un exemple de ce qu'on cherche. Des branches de décision apparaissent aux étapes 2 et 4 (OK → continuer / KO → retourner à l'étape précédente). Fond sombre, style terminal.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-methode-routage-3.jpg)
 
 ---
 
@@ -214,14 +214,14 @@ Router(config)# no ip route 192.168.40.0 255.255.255.0 10.1.2.2
 **🖼️ ILLUSTRATION 4**
 > *Légende* : Comparaison côte à côte de deux topologies identiques (R1-R2-R3, LAN1, LAN4). Colonne gauche "Routage statique" : le lien R1-R2 est barré d'une croix rouge, les routes statiques restent affichées (erreur), PC1 ne peut plus joindre PC4, icône X rouge. Colonne droite "OSPF" : même lien coupé mais une flèche pointillée montre un chemin de reroutage R1→R3→LAN4, icône checkmark vert. Texte comparatif en dessous.
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-methode-routage-4.jpg)
 
 ---
 
 **🖼️ ILLUSTRATION 5**
 > *Légende* : Tableau de synthèse comparant Statique vs OSPF sur 5 critères : Configuration (manuel vs automatique), Adaptation aux pannes (non vs oui), Scalabilité (difficile vs bonne), Convergence (aucune vs rapide), Utilisation recommandée (réseaux simples / stables vs réseaux complexes / dynamiques). Chaque critère a une icône et un code couleur (rouge = mauvais, vert = bon, orange = moyen).
 >
-> > 🖼️ **Illustration à venir** — schéma en cours de production.
+> ![Illustration pédagogique](img/02-fiche-methode-routage-5.jpg)
 
 ---
 
