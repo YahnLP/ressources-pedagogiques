@@ -142,32 +142,36 @@
 
 ### **Schéma encapsulation**
 
-```
-ÉMETTEUR (↓ Descente couches)
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
 
-C7 : Message "Salut Bob"
-       ↓ Ajoute en-tête HTTP
-C6 : [HTTP][Message]
-       ↓ Ajoute SSL
-C5 : [SSL][HTTP][Message]
-       ↓ ...
-C4 : [TCP][...][Message]
-       ↓ Ajoute ports
-C3 : [IP][TCP][...][Message]
-       ↓ Ajoute adresses IP
-C2 : [Ethernet][IP][TCP][...][Message]
-       ↓ Ajoute adresses MAC
-C1 : 010101... (bits sur câble RJ45)
+??? note "🔤 Schéma texte original"
+    ```
+    ÉMETTEUR (↓ Descente couches)
 
-────── TRANSMISSION ──────
+    C7 : Message "Salut Bob"
+           ↓ Ajoute en-tête HTTP
+    C6 : [HTTP][Message]
+           ↓ Ajoute SSL
+    C5 : [SSL][HTTP][Message]
+           ↓ ...
+    C4 : [TCP][...][Message]
+           ↓ Ajoute ports
+    C3 : [IP][TCP][...][Message]
+           ↓ Ajoute adresses IP
+    C2 : [Ethernet][IP][TCP][...][Message]
+           ↓ Ajoute adresses MAC
+    C1 : 010101... (bits sur câble RJ45)
 
-RÉCEPTEUR (↑ Montée couches)
+    ────── TRANSMISSION ──────
 
-C1 → C2 → C3 → C4 → C5 → C6 → C7
+    RÉCEPTEUR (↑ Montée couches)
 
-Chaque couche RETIRE son en-tête
-= DÉSENCAPSULATION
-```
+    C1 → C2 → C3 → C4 → C5 → C6 → C7
+
+    Chaque couche RETIRE son en-tête
+    = DÉSENCAPSULATION
+    ```
+
 
 ---
 
