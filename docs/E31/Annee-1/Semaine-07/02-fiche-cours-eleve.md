@@ -92,28 +92,32 @@ Le processus d'obtention d'une adresse IP se déroule en **4 étapes** :
 
 ### 2.2 Schéma du processus DORA
 
-```
-     CLIENT                          SERVEUR DHCP
-  (192.168.1.?)                      (192.168.1.1)
-       │                                   │
-       │  1️⃣ DHCP DISCOVER (broadcast)    │
-       │ ──────────────────────────────>  │
-       │    "Y a-t-il un serveur DHCP ?"  │
-       │                                   │
-       │  2️⃣ DHCP OFFER (unicast)         │
-       │ <──────────────────────────────  │
-       │    "Voici l'IP 192.168.1.100"    │
-       │                                   │
-       │  3️⃣ DHCP REQUEST (broadcast)     │
-       │ ──────────────────────────────>  │
-       │    "J'accepte l'IP .100"         │
-       │                                   │
-       │  4️⃣ DHCP ACK (unicast)           │
-       │ <──────────────────────────────  │
-       │    "OK, c'est validé !"          │
-       │                                   │
-   CLIENT est maintenant 192.168.1.100
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+         CLIENT                          SERVEUR DHCP
+      (192.168.1.?)                      (192.168.1.1)
+           │                                   │
+           │  1️⃣ DHCP DISCOVER (broadcast)    │
+           │ ──────────────────────────────>  │
+           │    "Y a-t-il un serveur DHCP ?"  │
+           │                                   │
+           │  2️⃣ DHCP OFFER (unicast)         │
+           │ <──────────────────────────────  │
+           │    "Voici l'IP 192.168.1.100"    │
+           │                                   │
+           │  3️⃣ DHCP REQUEST (broadcast)     │
+           │ ──────────────────────────────>  │
+           │    "J'accepte l'IP .100"         │
+           │                                   │
+           │  4️⃣ DHCP ACK (unicast)           │
+           │ <──────────────────────────────  │
+           │    "OK, c'est validé !"          │
+           │                                   │
+       CLIENT est maintenant 192.168.1.100
+    ```
+
 
 ![Illustration pédagogique](img/02-fiche-cours-eleve-2.jpg)
 
@@ -266,14 +270,18 @@ Le client ne garde pas l'adresse jusqu'à expiration. Il tente de **renouveler**
 
 **Exemple avec un bail de 8 heures :**
 
-```
-Heure 0   ─────────────────────────────────────> Heure 8
-│         │                  │                   │
-Début     T1 (50%)           T2 (87,5%)          Expiration
-          4h                 7h                  8h
-          Renouvellement     Renouvellement      Perte IP
-          automatique        de secours          → Nouveau DORA
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Heure 0   ─────────────────────────────────────> Heure 8
+    │         │                  │                   │
+    Début     T1 (50%)           T2 (87,5%)          Expiration
+              4h                 7h                  8h
+              Renouvellement     Renouvellement      Perte IP
+              automatique        de secours          → Nouveau DORA
+    ```
+
 
 **💡 En pratique :**
 Tu ne vois jamais ça ! Le renouvellement se fait **en arrière-plan**, de manière transparente.
@@ -282,18 +290,22 @@ Tu ne vois jamais ça ! Le renouvellement se fait **en arrière-plan**, de mani�
 
 ### 3.4 Afficher la durée du bail (Windows)
 
-```cmd
-C:\> ipconfig /all
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
 
-Carte Ethernet Ethernet0:
+??? note "🔤 Schéma texte original"
+    ```
+    C:\> ipconfig /all
 
-   DHCP activé. . . . . . . . . . . . . . : Oui
-   Adresse IPv4. . . . . . . . . . . . . .: 192.168.1.100
-   Serveur DHCP . . . . . . . . . . . . . : 192.168.1.1
-   Bail obtenu. . . . . . . . . . . . . . : mercredi 24 février 2026 14:30:00
-   Bail expirant. . . . . . . . . . . . . : jeudi 25 février 2026 14:30:00
-                                            └─> Dans 24 heures
-```
+    Carte Ethernet Ethernet0:
+
+       DHCP activé. . . . . . . . . . . . . . : Oui
+       Adresse IPv4. . . . . . . . . . . . . .: 192.168.1.100
+       Serveur DHCP . . . . . . . . . . . . . : 192.168.1.1
+       Bail obtenu. . . . . . . . . . . . . . : mercredi 24 février 2026 14:30:00
+       Bail expirant. . . . . . . . . . . . . : jeudi 25 février 2026 14:30:00
+                                                └─> Dans 24 heures
+    ```
+
 
 **Calcul du renouvellement :**
 - Bail de 24h
@@ -488,20 +500,24 @@ Le serveur DHCP ne fournit **pas seulement l'adresse IP**, mais aussi **d'autres
 
 Quand un client fait une demande DHCP, il reçoit un **package complet** :
 
-```
-┌──────────────────────────────────────────┐
-│   CONFIGURATION FOURNIE PAR DHCP         │
-├──────────────────────────────────────────┤
-│ Adresse IP : 192.168.1.100               │
-│ Masque : 255.255.255.0                   │
-│ Passerelle : 192.168.1.1                 │
-│ DNS primaire : 8.8.8.8                   │
-│ DNS secondaire : 8.8.4.4                 │
-│ Nom de domaine : entreprise.local        │
-│ Serveur NTP : time.windows.com           │
-│ Durée de bail : 86400 sec (24 heures)    │
-└──────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-4.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌──────────────────────────────────────────┐
+    │   CONFIGURATION FOURNIE PAR DHCP         │
+    ├──────────────────────────────────────────┤
+    │ Adresse IP : 192.168.1.100               │
+    │ Masque : 255.255.255.0                   │
+    │ Passerelle : 192.168.1.1                 │
+    │ DNS primaire : 8.8.8.8                   │
+    │ DNS secondaire : 8.8.4.4                 │
+    │ Nom de domaine : entreprise.local        │
+    │ Serveur NTP : time.windows.com           │
+    │ Durée de bail : 86400 sec (24 heures)    │
+    └──────────────────────────────────────────┘
+    ```
+
 
 **Résultat :** Le client est **prêt à communiquer** sur le réseau et sur Internet **sans aucune configuration manuelle** !
 
@@ -630,22 +646,26 @@ Le protocole DHCP utilise **UDP** (User Datagram Protocol) pour la rapidité.
 
 ### 7.2 Schéma des ports
 
-```
-     CLIENT                          SERVEUR DHCP
-   Port UDP 68                        Port UDP 67
-       │                                   │
-       │  DISCOVER (68 → 67)              │
-       │ ──────────────────────────────>  │
-       │                                   │
-       │  OFFER (67 → 68)                 │
-       │ <──────────────────────────────  │
-       │                                   │
-       │  REQUEST (68 → 67)               │
-       │ ──────────────────────────────>  │
-       │                                   │
-       │  ACK (67 → 68)                   │
-       │ <──────────────────────────────  │
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-5.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+         CLIENT                          SERVEUR DHCP
+       Port UDP 68                        Port UDP 67
+           │                                   │
+           │  DISCOVER (68 → 67)              │
+           │ ──────────────────────────────>  │
+           │                                   │
+           │  OFFER (67 → 68)                 │
+           │ <──────────────────────────────  │
+           │                                   │
+           │  REQUEST (68 → 67)               │
+           │ ──────────────────────────────>  │
+           │                                   │
+           │  ACK (67 → 68)                   │
+           │ <──────────────────────────────  │
+    ```
+
 
 ---
 
