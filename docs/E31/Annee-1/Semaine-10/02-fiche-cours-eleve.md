@@ -76,26 +76,30 @@ Un **partage de fichiers** est un dossier situé sur un ordinateur qui est rendu
 
 **Il existe DEUX niveaux de sécurité sur Windows :**
 
-```
-┌─────────────────────────────────────────┐
-│         UTILISATEUR DISTANT             │
-│                  │                      │
-│                  ▼                      │
-│     ┌────────────────────────┐         │
-│     │  1. PERMISSIONS DE     │         │
-│     │     PARTAGE (SMB)      │  ◄───── Première barrière
-│     └────────────────────────┘         │
-│                  │                      │
-│                  ▼                      │
-│     ┌────────────────────────┐         │
-│     │  2. PERMISSIONS NTFS   │  ◄───── Deuxième barrière
-│     │     (Système fichiers) │         │
-│     └────────────────────────┘         │
-│                  │                      │
-│                  ▼                      │
-│            📁 FICHIERS                  │
-└─────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────────┐
+    │         UTILISATEUR DISTANT             │
+    │                  │                      │
+    │                  ▼                      │
+    │     ┌────────────────────────┐         │
+    │     │  1. PERMISSIONS DE     │         │
+    │     │     PARTAGE (SMB)      │  ◄───── Première barrière
+    │     └────────────────────────┘         │
+    │                  │                      │
+    │                  ▼                      │
+    │     ┌────────────────────────┐         │
+    │     │  2. PERMISSIONS NTFS   │  ◄───── Deuxième barrière
+    │     │     (Système fichiers) │         │
+    │     └────────────────────────┘         │
+    │                  │                      │
+    │                  ▼                      │
+    │            📁 FICHIERS                  │
+    └─────────────────────────────────────────┘
+    ```
+
 
 ### 📊 Comparaison détaillée
 
@@ -198,26 +202,34 @@ Un **groupe utilisateurs** est un ensemble d'utilisateurs regroupés pour facili
 ### 🎯 Pourquoi utiliser des groupes ?
 
 **Sans groupes (mauvaise pratique) :**
-```
-Dossier_Projet
-  ├─ Permission : Alice → Modification
-  ├─ Permission : Bob → Modification
-  ├─ Permission : Charlie → Modification
-  ├─ Permission : David → Modification
-  └─ Permission : Eve → Modification
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Dossier_Projet
+      ├─ Permission : Alice → Modification
+      ├─ Permission : Bob → Modification
+      ├─ Permission : Charlie → Modification
+      ├─ Permission : David → Modification
+      └─ Permission : Eve → Modification
+    ```
+
 ➡️ **5 permissions à gérer individuellement** (ingérable si 50 utilisateurs !)
 
 **Avec groupes (bonne pratique) :**
-```
-Dossier_Projet
-  └─ Permission : Groupe_Equipe_Projet → Modification
-       ├─ Membre : Alice
-       ├─ Membre : Bob
-       ├─ Membre : Charlie
-       ├─ Membre : David
-       └─ Membre : Eve
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Dossier_Projet
+      └─ Permission : Groupe_Equipe_Projet → Modification
+           ├─ Membre : Alice
+           ├─ Membre : Bob
+           ├─ Membre : Charlie
+           ├─ Membre : David
+           └─ Membre : Eve
+    ```
+
 ➡️ **1 seule permission à gérer** (beaucoup plus simple !)
 
 ### 📊 Groupes Windows par défaut
@@ -319,43 +331,47 @@ Le **principe du moindre privilège** consiste à donner à chaque utilisateur u
 
 **Méthodologie de diagnostic :**
 
-```
-┌─────────────────────────────────────┐
-│ ÉTAPE 1 : Le partage existe-t-il ? │
-└─────────────────────────────────────┘
-         │
-         ▼
-    Vérifier sur le serveur :
-    Propriétés → Partage
-         │
-         ▼
-┌─────────────────────────────────────┐
-│ ÉTAPE 2 : Permissions de partage ?  │
-└─────────────────────────────────────┘
-         │
-         ▼
-    Jean ou son groupe est-il autorisé ?
-    Partage avancé → Autorisations
-         │
-         ▼
-┌─────────────────────────────────────┐
-│ ÉTAPE 3 : Permissions NTFS ?        │
-└─────────────────────────────────────┘
-         │
-         ▼
-    Jean ou son groupe est-il autorisé ?
-    Sécurité → Modifier
-         │
-         ▼
-┌─────────────────────────────────────┐
-│ ÉTAPE 4 : Jean est-il dans le       │
-│          bon groupe ?                │
-└─────────────────────────────────────┘
-         │
-         ▼
-    lusrmgr.msc → Groupes
-    Vérifier l'appartenance
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-4.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────┐
+    │ ÉTAPE 1 : Le partage existe-t-il ? │
+    └─────────────────────────────────────┘
+             │
+             ▼
+        Vérifier sur le serveur :
+        Propriétés → Partage
+             │
+             ▼
+    ┌─────────────────────────────────────┐
+    │ ÉTAPE 2 : Permissions de partage ?  │
+    └─────────────────────────────────────┘
+             │
+             ▼
+        Jean ou son groupe est-il autorisé ?
+        Partage avancé → Autorisations
+             │
+             ▼
+    ┌─────────────────────────────────────┐
+    │ ÉTAPE 3 : Permissions NTFS ?        │
+    └─────────────────────────────────────┘
+             │
+             ▼
+        Jean ou son groupe est-il autorisé ?
+        Sécurité → Modifier
+             │
+             ▼
+    ┌─────────────────────────────────────┐
+    │ ÉTAPE 4 : Jean est-il dans le       │
+    │          bon groupe ?                │
+    └─────────────────────────────────────┘
+             │
+             ▼
+        lusrmgr.msc → Groupes
+        Vérifier l'appartenance
+    ```
+
 
 **Causes fréquentes :**
 
