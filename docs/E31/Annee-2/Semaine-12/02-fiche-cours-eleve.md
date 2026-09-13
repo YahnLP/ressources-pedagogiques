@@ -19,33 +19,41 @@
 
 > Tous les hôtes d'un LAN utilisent la même **passerelle par défaut** pour atteindre les réseaux externes. Si ce routeur unique tombe, **tout le LAN est coupé d'Internet** — aucune reconfiguration automatique n'est possible.
 
-```
-Situation problématique :
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-INTERNET
-    │
-[R-UNIQUE] ← Tombe en panne → 💀 Tout le LAN est isolé
-    │
-[SWITCH]
-  / | \
-PC1  PC2  PC3     ← Tous configurés : GW = 192.168.1.1
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Situation problématique :
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    INTERNET
+        │
+    [R-UNIQUE] ← Tombe en panne → 💀 Tout le LAN est isolé
+        │
+    [SWITCH]
+      / | \
+    PC1  PC2  PC3     ← Tous configurés : GW = 192.168.1.1
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    ```
+
 
 **Solution HSRP/VRRP :**
 
-```
-INTERNET
-   / \
-[R1]  [R2]   ← Deux routeurs physiques
-  \   /
-   \ /
-[IP VIRTUELLE : 192.168.1.254] ← Une seule IP pour tous les PCs
-    │
-[SWITCH]
-  / | \
-PC1 PC2 PC3   ← GW = 192.168.1.254 (toujours la même)
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    INTERNET
+       / \
+    [R1]  [R2]   ← Deux routeurs physiques
+      \   /
+       \ /
+    [IP VIRTUELLE : 192.168.1.254] ← Une seule IP pour tous les PCs
+        │
+    [SWITCH]
+      / | \
+    PC1 PC2 PC3   ← GW = 192.168.1.254 (toujours la même)
+    ```
+
 
 > Si R1 tombe → R2 prend l'IP virtuelle automatiquement → transparence totale pour les PCs.
 
