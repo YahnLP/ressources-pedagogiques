@@ -34,15 +34,19 @@
 
 Sans EtherChannel, si tu relies deux switches avec 2 câbles, **STP détecte une boucle et bloque l'un des liens**.
 
-```
-Sans EtherChannel :           Avec EtherChannel :
-  SW1 ─── Gi0/1 ─── SW2         SW1 ═══ Po1 (Gi0/1+Gi0/2) ═══ SW2
-  SW1 ─── Gi0/2 ─── SW2              (2 liens actifs simultanément)
-            ↑
-    STP bloque Gi0/2
-    → 1 Gbps seulement
-    → Gi0/2 inutile jusqu'à panne de Gi0/1
-```
+![Illustration pédagogique](img/02-fiche-cours-etherchannel-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Sans EtherChannel :           Avec EtherChannel :
+      SW1 ─── Gi0/1 ─── SW2         SW1 ═══ Po1 (Gi0/1+Gi0/2) ═══ SW2
+      SW1 ─── Gi0/2 ─── SW2              (2 liens actifs simultanément)
+                ↑
+        STP bloque Gi0/2
+        → 1 Gbps seulement
+        → Gi0/2 inutile jusqu'à panne de Gi0/1
+    ```
+
 
 ### Les 3 bénéfices d'EtherChannel
 
@@ -251,22 +255,26 @@ SW1# show lacp 1 neighbor
 
 ### Décoder `show etherchannel summary`
 
-```
-SW1# show etherchannel summary
-Flags:  D - down        P - bundled in port-channel
-        I - stand-alone s - suspended
-        H - Hot-standby (LACP only)
-        R - Layer3      S - Layer2
-        U - in-use      M - not in use, minimum links not met
+![Illustration pédagogique](img/02-fiche-cours-etherchannel-txt-2.jpg)
 
-Group  Port-channel  Protocol    Ports
-------+-------------+-----------+----------------------------
-1      Po1(SU)       LACP        Gi0/1(P)  Gi0/2(P)  Gi0/3(D)  Gi0/4(I)
-        │  ││                      │          │         │          │
-        │  │└─ U = actif           │          │         │          └─ stand-alone (hors bundle)
-        │  └── S = Layer2          └──────────┘         └─ down physique
-        └─ numéro du groupe   (P) = bundled actifs
-```
+??? note "🔤 Schéma texte original"
+    ```
+    SW1# show etherchannel summary
+    Flags:  D - down        P - bundled in port-channel
+            I - stand-alone s - suspended
+            H - Hot-standby (LACP only)
+            R - Layer3      S - Layer2
+            U - in-use      M - not in use, minimum links not met
+
+    Group  Port-channel  Protocol    Ports
+    ------+-------------+-----------+----------------------------
+    1      Po1(SU)       LACP        Gi0/1(P)  Gi0/2(P)  Gi0/3(D)  Gi0/4(I)
+            │  ││                      │          │         │          │
+            │  │└─ U = actif           │          │         │          └─ stand-alone (hors bundle)
+            │  └── S = Layer2          └──────────┘         └─ down physique
+            └─ numéro du groupe   (P) = bundled actifs
+    ```
+
 
 ### Les 4 codes d'état à mémoriser
 
