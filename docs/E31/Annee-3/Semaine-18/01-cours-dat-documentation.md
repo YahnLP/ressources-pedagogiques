@@ -75,27 +75,31 @@ SECTION 8 — Plan de Reprise d'Activité (PRA)
 
 ### Section 1 — Page de garde
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                                                         │
-│          DOCUMENT D'ARCHITECTURE TECHNIQUE              │
-│                                                         │
-│    Projet : Infrastructure NEXALINK Multi-sites         │
-│                                                         │
-│    Client  : NEXALINK SA                                │
-│    Version : 1.0                                        │
-│    Date    : [JJ/MM/AAAA]                               │
-│    Auteur  : [Nom Prénom]                               │
-│    Statut  : ☐ Brouillon  ☐ En révision  ☑ Validé      │
-│                                                         │
-│    Référence : DAT-NEXALINK-001-v1.0                    │
-│                                                         │
-│    Historique des révisions :                           │
-│    v1.0 [date] : Création initiale                      │
-│    v1.1 [date] : Ajout procédure PRA                    │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/01-cours-dat-documentation-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────────────────────────┐
+    │                                                         │
+    │          DOCUMENT D'ARCHITECTURE TECHNIQUE              │
+    │                                                         │
+    │    Projet : Infrastructure NEXALINK Multi-sites         │
+    │                                                         │
+    │    Client  : NEXALINK SA                                │
+    │    Version : 1.0                                        │
+    │    Date    : [JJ/MM/AAAA]                               │
+    │    Auteur  : [Nom Prénom]                               │
+    │    Statut  : ☐ Brouillon  ☐ En révision  ☑ Validé      │
+    │                                                         │
+    │    Référence : DAT-NEXALINK-001-v1.0                    │
+    │                                                         │
+    │    Historique des révisions :                           │
+    │    v1.0 [date] : Création initiale                      │
+    │    v1.1 [date] : Ajout procédure PRA                    │
+    │                                                         │
+    └─────────────────────────────────────────────────────────┘
+    ```
+
 
 ### Section 2 — Contexte et objectifs (exemple rédigé)
 
@@ -199,23 +203,27 @@ router ospf 1
 
 ### Schéma physique — ce qu'il doit contenir
 
-```
-Éléments OBLIGATOIRES :
-  ✓ Équipements avec modèle (ex: Cisco 2960, Cisco 2901)
-  ✓ Numéros de ports (Gi0/0, Gi0/1...)
-  ✓ Types de câbles (cuivre, fibre, série)
-  ✓ Emplacement physique (salle, rack, étage)
+![Illustration pédagogique](img/01-cours-dat-documentation-txt-2.jpg)
 
-Structure recommandée (vue en rack) :
-  ┌─────────────────────────────────────────────┐
-  │  RACK LYON — Salle Informatique R.D.C       │
-  │  U1  [Patch Panel 24 ports]                 │
-  │  U2  [SW_CORE_LYON — Cisco Catalyst 3560]   │
-  │  U3  [SW_ACC_LYON — Cisco Catalyst 2960]    │
-  │  U4  [R_LYON — Cisco ISR 2901]              │
-  │  U5  [Serveur NAS — Backup]                 │
-  └─────────────────────────────────────────────┘
-```
+??? note "🔤 Schéma texte original"
+    ```
+    Éléments OBLIGATOIRES :
+      ✓ Équipements avec modèle (ex: Cisco 2960, Cisco 2901)
+      ✓ Numéros de ports (Gi0/0, Gi0/1...)
+      ✓ Types de câbles (cuivre, fibre, série)
+      ✓ Emplacement physique (salle, rack, étage)
+
+    Structure recommandée (vue en rack) :
+      ┌─────────────────────────────────────────────┐
+      │  RACK LYON — Salle Informatique R.D.C       │
+      │  U1  [Patch Panel 24 ports]                 │
+      │  U2  [SW_CORE_LYON — Cisco Catalyst 3560]   │
+      │  U3  [SW_ACC_LYON — Cisco Catalyst 2960]    │
+      │  U4  [R_LYON — Cisco ISR 2901]              │
+      │  U5  [Serveur NAS — Backup]                 │
+      └─────────────────────────────────────────────┘
+    ```
+
 
 ---
 
@@ -230,32 +238,36 @@ Structure recommandée (vue en rack) :
 
 ### Structure d'une procédure (rappel S18-2A)
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│  TITRE : Procédure de [action]                               │
-│  Référence : PROC-[CODE]-[NUMÉRO]                            │
-│  Version : X.Y · Date : JJ/MM/AAAA · Auteur : [Nom]         │
-│  Validé par : [Responsable]                                  │
-├──────────────────────────────────────────────────────────────┤
-│  1. OBJECTIF                                                 │
-│     Décrire en 2-3 lignes ce que fait la procédure           │
-├──────────────────────────────────────────────────────────────┤
-│  2. PRÉREQUIS                                                │
-│     → Qui peut l'exécuter                                   │
-│     → Outils nécessaires                                    │
-│     → Fenêtre de maintenance requise (oui/non)              │
-│     → Sauvegardes préalables (OBLIGATOIRE si config)        │
-├──────────────────────────────────────────────────────────────┤
-│  3. ÉTAPES D'EXÉCUTION                                       │
-│     Chaque étape = 1 action précise + commande + résultat    │
-├──────────────────────────────────────────────────────────────┤
-│  4. VALIDATION                                               │
-│     Tests à effectuer + résultats attendus                   │
-├──────────────────────────────────────────────────────────────┤
-│  5. ROLLBACK                                                 │
-│     Que faire si ça ne fonctionne pas                        │
-└──────────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/01-cours-dat-documentation-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌──────────────────────────────────────────────────────────────┐
+    │  TITRE : Procédure de [action]                               │
+    │  Référence : PROC-[CODE]-[NUMÉRO]                            │
+    │  Version : X.Y · Date : JJ/MM/AAAA · Auteur : [Nom]         │
+    │  Validé par : [Responsable]                                  │
+    ├──────────────────────────────────────────────────────────────┤
+    │  1. OBJECTIF                                                 │
+    │     Décrire en 2-3 lignes ce que fait la procédure           │
+    ├──────────────────────────────────────────────────────────────┤
+    │  2. PRÉREQUIS                                                │
+    │     → Qui peut l'exécuter                                   │
+    │     → Outils nécessaires                                    │
+    │     → Fenêtre de maintenance requise (oui/non)              │
+    │     → Sauvegardes préalables (OBLIGATOIRE si config)        │
+    ├──────────────────────────────────────────────────────────────┤
+    │  3. ÉTAPES D'EXÉCUTION                                       │
+    │     Chaque étape = 1 action précise + commande + résultat    │
+    ├──────────────────────────────────────────────────────────────┤
+    │  4. VALIDATION                                               │
+    │     Tests à effectuer + résultats attendus                   │
+    ├──────────────────────────────────────────────────────────────┤
+    │  5. ROLLBACK                                                 │
+    │     Que faire si ça ne fonctionne pas                        │
+    └──────────────────────────────────────────────────────────────┘
+    ```
+
 
 ---
 
