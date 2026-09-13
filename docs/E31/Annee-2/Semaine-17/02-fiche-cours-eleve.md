@@ -58,26 +58,30 @@ Durée de coupure ≈ Hold Timer = 3 secondes
 
 ### Structure d'un paquet HSRP Hello (simplifié)
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  Ethernet II                                                    │
-│    Src MAC : 0000.0C07.XXXX (MAC virtuelle si Active envoie)   │
-│    Dst MAC : 0100.5E00.0002 (multicast 224.0.0.2)              │
-│  IP                                                             │
-│    Src IP  : 192.168.1.1 (IP réelle du routeur)                │
-│    Dst IP  : 224.0.0.2                                          │
-│  UDP Port  : 1985                                               │
-│  HSRP                                                           │
-│    Version : 0 (v1) ou 1 (v2)                                  │
-│    Op Code : 0 (Hello) ← le champ le plus important            │
-│    State   : 32 (Active) ou 16 (Standby) ← état du routeur    │
-│    Hello Time : 3 s                                             │
-│    Hold Time  : 10 s                                            │
-│    Priority   : 110 (priorité configurée)                       │
-│    Group      : 1 (numéro de groupe HSRP)                      │
-│    Virtual IP : 192.168.1.254 (l'IP virtuelle)                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────────────────────────────────┐
+    │  Ethernet II                                                    │
+    │    Src MAC : 0000.0C07.XXXX (MAC virtuelle si Active envoie)   │
+    │    Dst MAC : 0100.5E00.0002 (multicast 224.0.0.2)              │
+    │  IP                                                             │
+    │    Src IP  : 192.168.1.1 (IP réelle du routeur)                │
+    │    Dst IP  : 224.0.0.2                                          │
+    │  UDP Port  : 1985                                               │
+    │  HSRP                                                           │
+    │    Version : 0 (v1) ou 1 (v2)                                  │
+    │    Op Code : 0 (Hello) ← le champ le plus important            │
+    │    State   : 32 (Active) ou 16 (Standby) ← état du routeur    │
+    │    Hello Time : 3 s                                             │
+    │    Hold Time  : 10 s                                            │
+    │    Priority   : 110 (priorité configurée)                       │
+    │    Group      : 1 (numéro de groupe HSRP)                      │
+    │    Virtual IP : 192.168.1.254 (l'IP virtuelle)                 │
+    └─────────────────────────────────────────────────────────────────┘
+    ```
+
 
 ---
 
@@ -130,28 +134,32 @@ ARP
 
 ### Vue d'ensemble
 
-```
-                            ┌──── INTERNET ────┐
-                            │                  │
-                      [R-PARIS-1]        [R-PARIS-2]
-                        (HSRP Active)    (HSRP Standby)
-                           \               /
-                            [SW-PARIS-CORE]
-                           /     |      \
-                       [VLAN10] [VLAN20] [VLAN30]
-                    (Direction)(Atelier)(Informatique)
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-2.jpg)
 
-                       WAN1 (R-PARIS-1 → R-LYON-1)
-                       WAN2 (R-PARIS-2 → R-LYON-2)
+??? note "🔤 Schéma texte original"
+    ```
+                                ┌──── INTERNET ────┐
+                                │                  │
+                          [R-PARIS-1]        [R-PARIS-2]
+                            (HSRP Active)    (HSRP Standby)
+                               \               /
+                                [SW-PARIS-CORE]
+                               /     |      \
+                           [VLAN10] [VLAN20] [VLAN30]
+                        (Direction)(Atelier)(Informatique)
 
-                    [R-LYON-1]         [R-LYON-2]
-                    (HSRP Active)      (HSRP Standby)
-                           \               /
-                            [SW-LYON-CORE]
-                                  │
-                              [VLAN50]
-                            (Production)
-```
+                           WAN1 (R-PARIS-1 → R-LYON-1)
+                           WAN2 (R-PARIS-2 → R-LYON-2)
+
+                        [R-LYON-1]         [R-LYON-2]
+                        (HSRP Active)      (HSRP Standby)
+                               \               /
+                                [SW-LYON-CORE]
+                                      │
+                                  [VLAN50]
+                                (Production)
+    ```
+
 
 ### Tableau des composants HSRP par site
 
@@ -282,17 +290,21 @@ Quand la bascule HSRP **ne se produit pas** (Standby ne prend pas Active) :
 
 ### Le cas multi-sites : deux couches de redondance
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  Couche 3 (réseau) : OSPF reconverge les routes WAN             │
-│    → Si lien WAN Paris-Lyon tombe, OSPF trouve une autre route  │
-│    → Temps de convergence OSPF : 30-60s (sans optimisation)     │
-│                                                                 │
-│  Couche 3 (LAN) : HSRP bascule la passerelle locale            │
-│    → Si R-PARIS-1 tombe, R-PARIS-2 prend la passerelle          │
-│    → Temps de bascule HSRP : 3-10s (selon timers)              │
-└─────────────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────────────────────────────────┐
+    │  Couche 3 (réseau) : OSPF reconverge les routes WAN             │
+    │    → Si lien WAN Paris-Lyon tombe, OSPF trouve une autre route  │
+    │    → Temps de convergence OSPF : 30-60s (sans optimisation)     │
+    │                                                                 │
+    │  Couche 3 (LAN) : HSRP bascule la passerelle locale            │
+    │    → Si R-PARIS-1 tombe, R-PARIS-2 prend la passerelle          │
+    │    → Temps de bascule HSRP : 3-10s (selon timers)              │
+    └─────────────────────────────────────────────────────────────────┘
+    ```
+
 
 ### Important : HSRP et OSPF sont indépendants
 
