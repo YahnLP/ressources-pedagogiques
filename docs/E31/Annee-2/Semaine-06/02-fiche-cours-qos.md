@@ -52,14 +52,18 @@ Ces trafics ont des exigences très différentes :
 
 ### Le problème de la congestion
 
-```
-Sans QoS, tous les paquets attendent dans la MÊME file (FIFO) :
+![Illustration pédagogique](img/02-fiche-cours-qos-txt-1.jpg)
 
-  [VoIP] [ZIP] [VoIP] [WEB] [UPDATE] [VoIP] [VoIP] [ZIP] [ZIP]
-  ─────────────────────────────────────────────────────► Sortie (1 Mbps)
+??? note "🔤 Schéma texte original"
+    ```
+    Sans QoS, tous les paquets attendent dans la MÊME file (FIFO) :
 
-  Un paquet VoIP peut attendre derrière 5 paquets ZIP → latence excessive → appel haché
-```
+      [VoIP] [ZIP] [VoIP] [WEB] [UPDATE] [VoIP] [VoIP] [ZIP] [ZIP]
+      ─────────────────────────────────────────────────────► Sortie (1 Mbps)
+
+      Un paquet VoIP peut attendre derrière 5 paquets ZIP → latence excessive → appel haché
+    ```
+
 
 ---
 
@@ -77,16 +81,20 @@ Sans QoS, tous les paquets attendent dans la MÊME file (FIFO) :
 Le champ DSCP est dans l'**en-tête IP** (couche 3), dans le byte ToS (Type of Service).
 Il occupe **6 bits** → 64 valeurs possibles (0 à 63).
 
-```
-En-tête IP :
-┌─────────┬──────────┬────────────────────────────────┐
-│ Version │  ToS/DS  │  ... reste de l'en-tête ...    │
-│  4 bits │  8 bits  │                                 │
-└─────────┴──────────┴────────────────────────────────┘
-              │
-              └── DSCP : 6 premiers bits
-                  CU   : 2 bits réservés
-```
+![Illustration pédagogique](img/02-fiche-cours-qos-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    En-tête IP :
+    ┌─────────┬──────────┬────────────────────────────────┐
+    │ Version │  ToS/DS  │  ... reste de l'en-tête ...    │
+    │  4 bits │  8 bits  │                                 │
+    └─────────┴──────────┴────────────────────────────────┘
+                  │
+                  └── DSCP : 6 premiers bits
+                      CU   : 2 bits réservés
+    ```
+
 
 ### Classes DSCP à connaître
 
