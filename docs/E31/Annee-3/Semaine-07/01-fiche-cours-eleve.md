@@ -365,9 +365,13 @@ ipv6 route 2001:db8:siteB::/48 Tunnel0
 
 > Dans les réseaux modernes (FAI mobiles notamment), certains segments sont **IPv6-only**. Le **464XLAT** (RFC 6877) permet à des applications qui ne supportent que l'IPv4 de communiquer via un réseau IPv6-only.
 
-```
-[App IPv4-only] → [CLAT: traduit IPv4→IPv6] → [Réseau IPv6] → [PLAT: IPv6→IPv4] → [Serveur IPv4]
-```
+![Illustration pédagogique](img/01-fiche-cours-eleve-txt-4.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    [App IPv4-only] → [CLAT: traduit IPv4→IPv6] → [Réseau IPv6] → [PLAT: IPv6→IPv4] → [Serveur IPv4]
+    ```
+
 
 > **Exemple réel :** votre smartphone peut n'avoir qu'une adresse IPv6 sur le réseau mobile (FAI mobile souvent en IPv6-only). Les apps qui ne connaissent que l'IPv4 fonctionnent grâce à 464XLAT embarqué dans l'OS Android/iOS.
 
