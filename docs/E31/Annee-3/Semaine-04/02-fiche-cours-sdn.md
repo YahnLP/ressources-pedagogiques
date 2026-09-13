@@ -36,15 +36,19 @@
 
 Dans un réseau traditionnel, chaque équipement est **autonome** : il contient son propre plan de contrôle (OSPF, STP, tables MAC…) ET son propre plan de données.
 
-```
-Switch Cisco traditionnel :
-┌─────────────────────────────────────┐
-│  PLAN DE CONTRÔLE                   │
-│  (STP, OSPF, table MAC, ACL...)     │  ← Intelligence locale
-│  PLAN DE DONNÉES                    │
-│  (ASIC de forwarding, ports)        │  ← Transmission physique
-└─────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-sdn-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    Switch Cisco traditionnel :
+    ┌─────────────────────────────────────┐
+    │  PLAN DE CONTRÔLE                   │
+    │  (STP, OSPF, table MAC, ACL...)     │  ← Intelligence locale
+    │  PLAN DE DONNÉES                    │
+    │  (ASIC de forwarding, ports)        │  ← Transmission physique
+    └─────────────────────────────────────┘
+    ```
+
 
 **Conséquences** :
 - Configurer 500 switches = 500 sessions SSH ou SNMP
@@ -75,33 +79,37 @@ et on le centralisait dans un logiciel ?"
 
 ### Les 3 plans (ou couches)
 
-```
-┌──────────────────────────────────────────────────────────┐
-│  PLAN D'APPLICATION (Application Layer)                  │
-│  Applications métier, orchestrateurs, scripts Python     │
-│  ERP réseau, monitoring, détection d'intrusion, SD-WAN   │
-└───────────────────────┬──────────────────────────────────┘
-                        │
-              ◄ Northbound API ►
-              (REST/JSON, OpenStack...)
-                        │
-┌───────────────────────▼──────────────────────────────────┐
-│  PLAN DE CONTRÔLE (Control Layer) = CONTRÔLEUR SDN      │
-│  Vue globale du réseau · Calcul des chemins              │
-│  Politiques de sécurité · Gestion des flux              │
-│  Exemples : OpenDaylight, ONOS, Ryu, Cisco ACI          │
-└───────────────────────┬──────────────────────────────────┘
-                        │
-              ◄ Southbound API ►
-              (OpenFlow, NETCONF, gRPC...)
-                        │
-┌───────────────────────▼──────────────────────────────────┐
-│  PLAN DE DONNÉES (Data/Infrastructure Layer)             │
-│  Switches et routeurs SDN · Open vSwitch                 │
-│  Transmettent les paquets selon les règles reçues        │
-│  Pas d'intelligence locale (ou minimale)                 │
-└──────────────────────────────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-sdn-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌──────────────────────────────────────────────────────────┐
+    │  PLAN D'APPLICATION (Application Layer)                  │
+    │  Applications métier, orchestrateurs, scripts Python     │
+    │  ERP réseau, monitoring, détection d'intrusion, SD-WAN   │
+    └───────────────────────┬──────────────────────────────────┘
+                            │
+                  ◄ Northbound API ►
+                  (REST/JSON, OpenStack...)
+                            │
+    ┌───────────────────────▼──────────────────────────────────┐
+    │  PLAN DE CONTRÔLE (Control Layer) = CONTRÔLEUR SDN      │
+    │  Vue globale du réseau · Calcul des chemins              │
+    │  Politiques de sécurité · Gestion des flux              │
+    │  Exemples : OpenDaylight, ONOS, Ryu, Cisco ACI          │
+    └───────────────────────┬──────────────────────────────────┘
+                            │
+                  ◄ Southbound API ►
+                  (OpenFlow, NETCONF, gRPC...)
+                            │
+    ┌───────────────────────▼──────────────────────────────────┐
+    │  PLAN DE DONNÉES (Data/Infrastructure Layer)             │
+    │  Switches et routeurs SDN · Open vSwitch                 │
+    │  Transmettent les paquets selon les règles reçues        │
+    │  Pas d'intelligence locale (ou minimale)                 │
+    └──────────────────────────────────────────────────────────┘
+    ```
+
 
 ### Les 2 interfaces clés
 
@@ -120,23 +128,27 @@ et on le centralisait dans un logiciel ?"
 
 Chaque switch SDN possède une ou plusieurs **flow tables** (tables de flux). Une entrée dans la flow table est appelée une **flow entry** et contient :
 
-```
-┌──────────────┬──────────────┬──────────────┬──────────────┐
-│ Match Fields │   Priority   │   Counters   │  Instructions│
-│ (qui ?)      │ (ordre eval) │ (stats)      │ (quoi faire?)│
-└──────────────┴──────────────┴──────────────┴──────────────┘
+![Illustration pédagogique](img/02-fiche-cours-sdn-txt-3.jpg)
 
-Match Fields = critères de correspondance :
-  Adresse MAC src/dst · IP src/dst · Port TCP/UDP
-  VLAN ID · Type de protocole · Interface d'entrée...
+??? note "🔤 Schéma texte original"
+    ```
+    ┌──────────────┬──────────────┬──────────────┬──────────────┐
+    │ Match Fields │   Priority   │   Counters   │  Instructions│
+    │ (qui ?)      │ (ordre eval) │ (stats)      │ (quoi faire?)│
+    └──────────────┴──────────────┴──────────────┴──────────────┘
 
-Instructions (actions) :
-  FORWARD     → envoyer sur un port spécifique
-  DROP        → jeter le paquet
-  FLOOD       → envoyer sur tous les ports
-  CONTROLLER  → envoyer au contrôleur pour décision
-  MODIFY      → modifier un champ de l'en-tête (ex: VLAN tag)
-```
+    Match Fields = critères de correspondance :
+      Adresse MAC src/dst · IP src/dst · Port TCP/UDP
+      VLAN ID · Type de protocole · Interface d'entrée...
+
+    Instructions (actions) :
+      FORWARD     → envoyer sur un port spécifique
+      DROP        → jeter le paquet
+      FLOOD       → envoyer sur tous les ports
+      CONTROLLER  → envoyer au contrôleur pour décision
+      MODIFY      → modifier un champ de l'en-tête (ex: VLAN tag)
+    ```
+
 
 ### Cycle de vie d'un flux OpenFlow
 
@@ -170,45 +182,53 @@ Instructions (actions) :
 
 ### Appliance physique vs VNF
 
-```
-AVANT NFV (réseau physique) :
-  Pare-feu Cisco ASA  → boîtier dédié 4U
-  Load Balancer F5    → boîtier dédié 2U
-  IDS Sourcefire      → boîtier dédié 2U
-  Optimiseur WAN      → boîtier dédié 1U
-  ─────────────────────────────────────────
-  Total : 9U de rack · 25 000€ · 3 semaines de délai
+![Illustration pédagogique](img/02-fiche-cours-sdn-txt-4.jpg)
 
-AVEC NFV (virtualisation) :
-  Serveur standard x86 (2U, 5 000€)
-  + Hyperviseur (VMware ESXi ou KVM)
-  + VMs :
-    Cisco CSRv (pare-feu virtuel)
-    F5 BIG-IP VE (load balancer virtuel)
-    Suricata VM (IDS virtuel)
-    Cisco vWAAS (optimiseur WAN virtuel)
-  ─────────────────────────────────────────
-  Total : 2U · ~8 000€ tout compris · 2h de déploiement
-```
+??? note "🔤 Schéma texte original"
+    ```
+    AVANT NFV (réseau physique) :
+      Pare-feu Cisco ASA  → boîtier dédié 4U
+      Load Balancer F5    → boîtier dédié 2U
+      IDS Sourcefire      → boîtier dédié 2U
+      Optimiseur WAN      → boîtier dédié 1U
+      ─────────────────────────────────────────
+      Total : 9U de rack · 25 000€ · 3 semaines de délai
+
+    AVEC NFV (virtualisation) :
+      Serveur standard x86 (2U, 5 000€)
+      + Hyperviseur (VMware ESXi ou KVM)
+      + VMs :
+        Cisco CSRv (pare-feu virtuel)
+        F5 BIG-IP VE (load balancer virtuel)
+        Suricata VM (IDS virtuel)
+        Cisco vWAAS (optimiseur WAN virtuel)
+      ─────────────────────────────────────────
+      Total : 2U · ~8 000€ tout compris · 2h de déploiement
+    ```
+
 
 ### Architecture NFV selon l'ETSI
 
-```
-┌─────────────────────────────────────────────────────────┐
-│  OSS/BSS  (systèmes d'exploitation et de gestion)      │
-└─────────────────────────────────────────────────────────┘
-              ↕ API                    ↕ API
-┌─────────────────────┐  ┌───────────────────────────────┐
-│    MANO             │  │   VNF 1    VNF 2    VNF 3      │
-│ (Management and    │  │ (Pare-feu)(LB)   (IDS)         │
-│  Orchestration)    │  └───────────────────────────────┘
-└─────────────────────┘              ↕
-                        ┌──────────────────────────────────┐
-                        │  NFVI (NFV Infrastructure)       │
-                        │  Compute · Storage · Network     │
-                        │  (serveurs x86 + SDN)            │
-                        └──────────────────────────────────┘
-```
+![Illustration pédagogique](img/02-fiche-cours-sdn-txt-5.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    ┌─────────────────────────────────────────────────────────┐
+    │  OSS/BSS  (systèmes d'exploitation et de gestion)      │
+    └─────────────────────────────────────────────────────────┘
+                  ↕ API                    ↕ API
+    ┌─────────────────────┐  ┌───────────────────────────────┐
+    │    MANO             │  │   VNF 1    VNF 2    VNF 3      │
+    │ (Management and    │  │ (Pare-feu)(LB)   (IDS)         │
+    │  Orchestration)    │  └───────────────────────────────┘
+    └─────────────────────┘              ↕
+                            ┌──────────────────────────────────┐
+                            │  NFVI (NFV Infrastructure)       │
+                            │  Compute · Storage · Network     │
+                            │  (serveurs x86 + SDN)            │
+                            └──────────────────────────────────┘
+    ```
+
 
 ### Cas d'usage NFV réels
 
