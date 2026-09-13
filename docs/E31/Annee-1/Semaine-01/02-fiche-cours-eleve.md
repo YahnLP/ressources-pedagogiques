@@ -55,11 +55,15 @@
 
 **Schéma :**
 
-```
-PC1 ---- PC2 ---- PC3 ---- PC4
-         |
-      (Bus unique)
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-3.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    PC1 ---- PC2 ---- PC3 ---- PC4
+             |
+          (Bus unique)
+    ```
+
 
 **Avantages :**
 - ✅ Simple
@@ -79,13 +83,17 @@ PC1 ---- PC2 ---- PC3 ---- PC4
 
 **Schéma :**
 
-```
-        PC1
-         |
-PC4 --- SWITCH --- PC2
-         |
-        PC3
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-4.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+            PC1
+             |
+    PC4 --- SWITCH --- PC2
+             |
+            PC3
+    ```
+
 
 **Avantages :**
 - ✅ Si un PC tombe, **les autres continuent**
@@ -108,12 +116,16 @@ PC4 --- SWITCH --- PC2
 
 **Schéma :**
 
-```
-   PC1 ---- PC2
-    |        |
-   PC4 ---- PC3
-   (Cercle fermé)
-```
+![Illustration pédagogique](img/02-fiche-cours-eleve-txt-5.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+       PC1 ---- PC2
+        |        |
+       PC4 ---- PC3
+       (Cercle fermé)
+    ```
+
 
 **Avantages :**
 - ✅ Équitable (chacun son tour)
