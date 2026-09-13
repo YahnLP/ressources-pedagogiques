@@ -65,18 +65,22 @@ GÉNÉRATION 3 — WLC Cloud (en émergence)
 
 CAPWAP crée deux tunnels UDP entre le WLC et chaque AP lightweight :
 
-```
-              WLC                              AP Lightweight
-               │                                    │
-               │─── CAPWAP Control (UDP 5246) ────►│
-               │    (configuration, gestion,        │
-               │     statistiques, firmware...)     │
-               │                                    │
-               │◄── CAPWAP Data (UDP 5247) ─────────│
-               │    (trafic des clients WiFi         │
-               │     encapsulé dans le tunnel)       │
-               │                                    │
-```
+![Illustration pédagogique](img/02-fiche-cours-wifi-avance-txt-1.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+                  WLC                              AP Lightweight
+                   │                                    │
+                   │─── CAPWAP Control (UDP 5246) ────►│
+                   │    (configuration, gestion,        │
+                   │     statistiques, firmware...)     │
+                   │                                    │
+                   │◄── CAPWAP Data (UDP 5247) ─────────│
+                   │    (trafic des clients WiFi         │
+                   │     encapsulé dans le tunnel)       │
+                   │                                    │
+    ```
+
 
 ### Split MAC : qui fait quoi ?
 
@@ -187,13 +191,17 @@ Pour les appareils IoT à batterie :
 
 Dans un réseau mesh, les APs n'ont pas tous besoin d'un câble Ethernet. Ils se connectent **entre eux par radio** pour relayer le trafic jusqu'à l'AP racine (root AP) qui est câblé.
 
-```
-[Switch] ── [Root AP] ────── Radio Backhaul ──────► [Mesh AP 1]
-                    └─────── Radio Backhaul ──────► [Mesh AP 2]
-                                                           │
-                                                     (sous-réseau
-                                                      sans câblage)
-```
+![Illustration pédagogique](img/02-fiche-cours-wifi-avance-txt-2.jpg)
+
+??? note "🔤 Schéma texte original"
+    ```
+    [Switch] ── [Root AP] ────── Radio Backhaul ──────► [Mesh AP 1]
+                        └─────── Radio Backhaul ──────► [Mesh AP 2]
+                                                               │
+                                                         (sous-réseau
+                                                          sans câblage)
+    ```
+
 
 ### Types de liens mesh
 
@@ -388,29 +396,33 @@ Pour les SSIDs sans mot de passe (cafés, aéroports) :
 
 ### Schéma de référence
 
-```
-INTERNET
-    │
-[Firewall UTM] ── [RADIUS + PKI] (auth 802.1X, certifs WPA3-Enterprise)
-    │
-[Switch Cœur]
-    │─────────────── [WLC] (Wireless LAN Controller)
-    │                  │── RRM (Radio Resource Management auto)
-    │                  │── Détection Rogue AP
-    │                  │── Fast Roaming domain (802.11r/k/v)
-    │
-[Switch Distribution]
-    │
-[Switch Accès 1]──[AP1]  [AP2]  [AP3]   ←── Mode Local
-[Switch Accès 2]──[AP4]  [AP5]  [AP6]   ←── Mode Local
-[WAN Agence]  ───[AP7]  [AP8]           ←── Mode FlexConnect
-[Extérieur]   ───[Root AP]──[Mesh AP1]──[Mesh AP2]  ←── Mode Mesh
+![Illustration pédagogique](img/02-fiche-cours-wifi-avance-txt-3.jpg)
 
-SSIDs :
-  "Corp-WiFi6"   → VLAN 10 · WPA3-Enterprise (802.1X) · WMM Voice + Video
-  "Guest-WiFi"   → VLAN 20 · WPA3-Personal (SAE) · Portail captif · Internet only
-  "IoT-Network"  → VLAN 30 · WPA2-PSK isolé · Débit limité · OFDMA optimisé
-```
+??? note "🔤 Schéma texte original"
+    ```
+    INTERNET
+        │
+    [Firewall UTM] ── [RADIUS + PKI] (auth 802.1X, certifs WPA3-Enterprise)
+        │
+    [Switch Cœur]
+        │─────────────── [WLC] (Wireless LAN Controller)
+        │                  │── RRM (Radio Resource Management auto)
+        │                  │── Détection Rogue AP
+        │                  │── Fast Roaming domain (802.11r/k/v)
+        │
+    [Switch Distribution]
+        │
+    [Switch Accès 1]──[AP1]  [AP2]  [AP3]   ←── Mode Local
+    [Switch Accès 2]──[AP4]  [AP5]  [AP6]   ←── Mode Local
+    [WAN Agence]  ───[AP7]  [AP8]           ←── Mode FlexConnect
+    [Extérieur]   ───[Root AP]──[Mesh AP1]──[Mesh AP2]  ←── Mode Mesh
+
+    SSIDs :
+      "Corp-WiFi6"   → VLAN 10 · WPA3-Enterprise (802.1X) · WMM Voice + Video
+      "Guest-WiFi"   → VLAN 20 · WPA3-Personal (SAE) · Portail captif · Internet only
+      "IoT-Network"  → VLAN 30 · WPA2-PSK isolé · Débit limité · OFDMA optimisé
+    ```
+
 
 ---
 
