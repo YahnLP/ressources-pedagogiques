@@ -82,8 +82,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma comparatif côte à côte des deux modes IPsec. À gauche : Mode Transport — un paquet représenté par 3 couches empilées : "IP Header (clair)" en gris, "ESP Header" en orange, "Payload chiffré" en rouge. À droite : Mode Tunnel — 4 couches : "Nouveau IP Header (passerelle)" en bleu clair, "ESP Header" en orange, "IP Header Original" en rouge foncé, "Payload original" en rouge. Une légende indique les parties visibles vs chiffrées dans chaque mode. Un réseau Internet est dessiné entre deux routeurs en bas. Style schéma de structure de paquet réseau, fond blanc, couleurs distinctes.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-1.jpg)
 
 > **Légende :** Comparaison mode transport et mode tunnel IPsec. En mode transport, l'adresse IP source et destination originales restent visibles — un observateur sur Internet sait qui parle à qui. En mode tunnel (site-à-site), le paquet original est entièrement encapsulé : un observateur ne voit que la communication entre les deux routeurs passerelles, pas les machines internes.
 
@@ -124,8 +123,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Schéma de deux routeurs (R-PARIS à gauche, R-LYON à droite) reliés par Internet. Deux flèches en sens opposés représentent les deux SA. Flèche 1 (rouge, gauche vers droite) : "SA #1 — AES-256, HMAC-SHA256 — Paris→Lyon". Flèche 2 (bleue, droite vers gauche) : "SA #2 — AES-256, HMAC-SHA256 — Lyon→Paris". Entre les deux flèches, une boîte annotée "Internet — trafic chiffré". En dessous : les LANs internes non visibles depuis Internet. Style diagramme réseau pédagogique, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-2.jpg)
 
 > **Légende :** Les SA sont unidirectionnelles. Un VPN IPsec opérationnel entre deux sites nécessite deux SA distinctes — une pour chaque sens de communication. Elles peuvent avoir des paramètres identiques ou différents selon la politique de sécurité.
 
@@ -226,8 +224,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 3]**
-*Diagramme séquentiel (swimlane) avec R-PARIS à gauche et R-LYON à droite. En haut : Phase 1 annotée "IKE_SA — Canal de négociation sécurisé", avec des flèches échangées représentant IKE_SA_INIT et IKE_AUTH. Un rectangle bleu encadre cette phase avec l'annotation "Lifetime : 24h". En bas : Phase 2 annotée "CHILD_SA — Tunnel de données IPsec", avec une flèche représentant CREATE_CHILD_SA. Un rectangle vert encadre cette phase avec l'annotation "Lifetime : 1h". Une double flèche épaisse verte entre les routeurs représente le tunnel final opérationnel "Trafic chiffré LAN-A ↔ LAN-B". Style diagramme de séquence réseau, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-3.jpg)
 
 > **Légende :** IKEv2 opère en deux phases distinctes. La Phase 1 établit un canal IKE sécurisé et authentifié (IKE_SA, durée de vie 24h) qui est utilisé pour la Phase 2. La Phase 2 négocie les SA IPsec réelles (CHILD_SA, durée de vie 1h) qui protègeront le trafic des LANs. La Phase 1 est renégociée moins souvent que la Phase 2.
 
@@ -380,8 +377,7 @@ interface GigabitEthernet0/1     ! Interface WAN de R-LYON
 
 ---
 
-📷 **[ILLUSTRATION 4]**
-*Schéma récapitulatif des 5 étapes de configuration VPN IPsec. À gauche : R-PARIS avec ses 5 blocs de configuration numérotés (1-ACL crypto, 2-isakmp policy, 3-transform-set, 4-crypto map, 5-interface). À droite : R-LYON avec les mêmes 5 blocs. Des accolades ou flèches indiquent : "ACL = miroir" entre les deux ACL ; "PSK identique" entre les deux clés ; "transform-set identique" entre les deux transform-sets. Style schéma de configuration réseau technique propre, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-4.jpg)
 
 > **Légende :** Les 5 étapes de configuration d'un VPN IPsec site-à-site sur Cisco IOS. Les éléments en vert doivent être identiques des deux côtés (PSK, transform-set). L'ACL crypto doit être un miroir (source et destination inversées). Seul le nom de la crypto map peut différer — c'est un nom local.
 
