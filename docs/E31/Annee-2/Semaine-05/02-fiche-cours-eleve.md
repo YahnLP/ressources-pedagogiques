@@ -73,8 +73,7 @@ access-list 110  deny   tcp   192.168.1.0 0.0.0.255   any   eq 22
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma d'un paquet IP traversant un routeur. Le paquet est représenté comme une enveloppe annotée avec ses champs : adresse IP source (en vert), adresse IP destination (en bleu), protocole (TCP/UDP/ICMP, en orange), port destination (en rouge). Une loupe représentant l'ACL étendue examine simultanément les 4 champs. À côté, une ACL standard avec une loupe plus petite qui ne regarde que le champ source IP. Style infographie pédagogique, fond blanc, couleurs distinctes par champ.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-1.jpg)
 
 > **Légende :** Une ACL étendue examine quatre champs du paquet : l'adresse source, l'adresse destination, le protocole de couche 4 et le numéro de port. L'ACL standard n'examine que l'adresse source. Plus l'ACL est précise, plus le placement près de la source est justifié — le trafic indésirable est arrêté avant de voyager inutilement dans le réseau.
 
@@ -189,8 +188,7 @@ ip access-list extended POLITIQUE_SORTIE
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Diagramme de flux d'une ACL IOS. Un paquet arrive à gauche. Une séquence de boîtes numérotées de haut en bas représente les règles ACL dans l'ordre : Règle 1 (permit Admin), Règle 2 (permit HTTP), Règle 3 (permit HTTPS), Règle 4 (deny Telnet), Règle 5 (permit ip any any), Règle implicite (deny any any). Pour chaque règle, une branche "Match ?" : si OUI → action (permit=vert/deny=rouge) ; si NON → descendre à la règle suivante. Tout paquet atteignant la règle implicite est bloqué. Style organigramme de traitement réseau, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-2.jpg)
 
 > **Légende :** Traitement d'un paquet par une ACL IOS. Les règles sont évaluées de haut en bas. Dès qu'une règle correspond (match), l'action est appliquée et l'évaluation s'arrête. Si aucune règle ne correspond, la règle implicite `deny any any` s'applique — c'est pourquoi il faut toujours terminer par `permit ip any any` si on ne veut pas bloquer tout le trafic non explicitement traité.
 
@@ -240,8 +238,7 @@ $$\boxed{\text{ACL Standard} \rightarrow \text{Proche de la DESTINATION}}$$
 
 ---
 
-📷 **[ILLUSTRATION 3]**
-*Topologie réseau avec deux sites : Site-A (gauche) contenant un PC utilisateur et R1 ; Site-B (droite) contenant R2 et un Serveur. Deux scénarios côte à côte. Scénario 1 : ACL étendue placée sur R1 Gi0/0 in (proche source) — le paquet bloqué est stoppé dès R1, ne traverse pas le WAN. Texte : "Trafic bloqué ici : économise la bande passante WAN". Scénario 2 : ACL étendue placée sur R2 Gi0/1 in (proche destination) — le paquet voyage tout le long du réseau avant d'être bloqué. Texte : "Trafic inutile traverse le WAN". Style diagramme réseau comparatif, fond blanc, flèches rouges pour trafic bloqué.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-3.jpg)
 
 > **Légende :** Illustration du principe de placement des ACL étendues. En plaçant l'ACL près de la source (R1), le trafic à bloquer est rejeté immédiatement, sans consommer de bande passante sur les liaisons intermédiaires. Un placement près de la destination gaspille de la bande passante et augmente la charge des routeurs intermédiaires.
 
