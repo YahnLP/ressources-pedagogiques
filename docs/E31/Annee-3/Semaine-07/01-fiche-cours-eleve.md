@@ -296,8 +296,7 @@ show ipv6 rip database           ! Table RIPng complète
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Schéma comparatif RIPng vs OSPFv3. Deux réseaux côte à côte. À gauche : réseau simple de 4 routeurs linéaires avec RIPng — flèches de mise à jour toutes les 30s, annotation "max 15 sauts, convergence 180s". À droite : réseau d'entreprise de 12 routeurs organisés en 3 areas (0, 1, 2) avec OSPFv3 — un ABR au centre, annotation "convergence < 10s, scalable". Encadrés verts/rouges pour indiquer où chaque protocole est adapté. Style diagramme réseau comparatif, fond blanc.*
+![Illustration pédagogique](img/01-fiche-cours-eleve-ill-2.jpg)
 
 > **Légende :** RIPng et OSPFv3 couvrent des besoins différents. RIPng est idéal pour les petits réseaux (< 5-6 routeurs) où sa simplicité est un avantage. OSPFv3 est indispensable pour les réseaux d'entreprise avec plus de 10 routeurs ou des exigences de convergence rapide.
 
