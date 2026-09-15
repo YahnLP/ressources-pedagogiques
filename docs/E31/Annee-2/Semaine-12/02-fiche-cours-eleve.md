@@ -81,8 +81,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma réseau avec deux routeurs R1 (gauche, annoté "ACTIVE" en vert) et R2 (droite, annoté "STANDBY" en orange). Les deux sont connectés à un switch central. En bas du switch, des PCs avec une flèche vers l'IP virtuelle 192.168.1.254 (rectangle violet au milieu du lien entre R1/R2 et le switch). R1 a une flèche épaisse verte vers Internet ; R2 a une flèche en pointillés vers Internet (prêt). Annotations : R1 "IP réelle: 192.168.1.1 / Priorité: 110" ; R2 "IP réelle: 192.168.1.2 / Priorité: 90" ; IP virtuelle "0000.0C07.AC01 (groupe 1)". Style diagramme réseau technique propre, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-1.jpg)
 
 > **Légende :** Architecture HSRP avec deux routeurs. R1 est Active (priorité 110 > 90) et gère tout le trafic via l'IP virtuelle 192.168.1.254. R2 est Standby et surveille R1 via les messages Hello. Les PCs ne savent pas qu'il y a deux routeurs — ils voient uniquement la passerelle virtuelle.
 
@@ -206,8 +205,7 @@ Séquence :
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Diagramme de séquence temporelle en 6 étapes. Axe horizontal = temps. Ligne R1 (verte) et ligne R2 (orange). Étape 1 : R1=Active, R2=Standby (normal). Étape 2 : R1 tombe (X rouge sur R1). Étape 3 : Hold timer expire (10s ou 3s selon config), R2 passe Active. Étape 4 : R1 revient (flèche verte). Étape 5a (sans preempt) : R1 reste Standby, R2 garde Active. Étape 5b (avec preempt) : R1 reprend Active car prio plus haute. Deux chemins parallèles "avec preempt" et "sans preempt". Style diagramme timeline pédagogique, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-2.jpg)
 
 > **Légende :** Impact de la préemption sur la récupération après panne. Sans `preempt`, même si R1 (priorité 110) revient, R2 garde le rôle Active — le réseau fonctionne mais n'est plus dans sa configuration optimale. Avec `preempt`, R1 reprend automatiquement Active dès qu'il détecte sa priorité supérieure à R2.
 
@@ -301,8 +299,7 @@ Exemple :
 
 ---
 
-📷 **[ILLUSTRATION 3]**
-*Schéma réseau en deux parties (avant/après panne WAN). Gauche (avant) : R1 connecté à Internet via WAN (ligne verte), R1=Active (flèches de trafic passent par R1). R2=Standby. Droite (après) : WAN de R1 coupé (croix rouge sur le lien WAN), priorité R1 tombe à 80 (annotation rouge "110-30=80"), R2 (prio 90) prend le rôle Active (flèche verte vers R2 et son WAN). Annotation "Object Tracking déclenche la bascule". Style diagramme réseau avant/après pédagogique, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-3.jpg)
 
 > **Légende :** Sans object tracking, la panne du lien WAN de R1 ne déclenche pas de bascule HSRP — R1 reste Active mais ne peut plus router. Avec `standby 1 track Gi0/1 30`, la priorité de R1 chute de 30 points dès que son interface WAN tombe, permettant à R2 (prio 90 > prio 80 de R1) de prendre le rôle Active.
 
