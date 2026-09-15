@@ -68,8 +68,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma du 4-way handshake WPA2. Deux colonnes : Client (gauche) et AP (droite). Quatre échanges numérotés avec flèches bidirectionnelles. Message 1 (AP → Client) : "ANonce". Message 2 (Client → AP) : "SNonce + MIC". Message 3 (AP → Client) : "GTK chiffré + MIC". Message 4 (Client → AP) : "ACK". Entre les colonnes : une boîte verte annotée "PTK = f(PMK, ANonce, SNonce, MAC_client, MAC_AP)". Une note en bas : "Capture du messages 2 → attaque dictionnaire offline possible (WPA2-Personal)". Style diagramme de séquence réseau, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-1.jpg)
 
 > **Légende :** Le 4-way handshake WPA2 dérive une clé de session PTK unique à partir de la PMK (elle-même issue du mot de passe), des nonces aléatoires et des adresses MAC. La capture du message 2 permet une attaque dictionnaire offline sur le PSK en WPA2-Personal — c'est la principale faiblesse de WPA2-Personal avec des mots de passe faibles.
 
@@ -126,8 +125,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Comparaison visuelle Personal vs Enterprise. Deux colonnes. Gauche (Personal) : un AP avec une clé unique en centre, entouré de 5 PC tous reliés à la même clé. Annotation "1 clé = tout le monde". Droite (Enterprise) : un AP relié à un serveur RADIUS, chaque PC ayant son propre badge d'identifiant (user1, user2, user3...). Annotation "1 identifiant par personne". Style infographie pédagogique, fond blanc, couleur verte pour Enterprise (plus sécurisé).*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-2.jpg)
 
 > **Légende :** WPA2-Personal utilise une clé partagée par tous — si un utilisateur quitte, il faut changer le mot de passe pour tout le monde. WPA2-Enterprise associe un identifiant unique à chaque utilisateur via un serveur RADIUS — on peut révoquer un accès individuel sans perturber les autres.
 
@@ -147,8 +145,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 3]**
-*Schéma 802.1X avec trois entités disposées horizontalement. À gauche : le Supplicant (laptop avec icône "EAP"). Au centre : l'Authenticator (AP Wi-Fi avec double rôle annoté "relai EAP" et "porte bloquée avant auth"). À droite : l'Authentication Server (serveur RADIUS avec icône base de données). Protocoles annotés sur les flèches : "EAPOL (EAP over LAN)" entre Supplicant et Authenticator ; "RADIUS" entre Authenticator et Authentication Server. Une porte de couleur rouge en dessous de l'AP qui devient verte après "Access-Accept". Style diagramme réseau technique, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-3.jpg)
 
 > **Légende :** Architecture 802.1X. Le Supplicant envoie ses credentials via EAP (encapsulé dans EAPOL sur le lien sans fil). L'Authenticator (AP) relaie ces échanges au serveur RADIUS via le protocole RADIUS/UDP. Si RADIUS répond "Access-Accept", l'AP débloque le port et le client accède au réseau ; sinon "Access-Reject" maintient le port bloqué.
 
@@ -205,8 +202,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 4]**
-*Schéma de l'attaque Evil Twin. À gauche : un AP légitime (vert) nommé "CaféWiFi" relié à Internet. À droite : un attaquant avec un laptop émettant un signal plus puissant (ondes rouges plus larges) avec le même SSID "CaféWiFi". Un smartphone client initialement connecté à l'AP légitime bascule vers l'AP pirate (flèche de connexion rouge vers le laptop attaquant). Une icône "MITM" au-dessus du laptop. Annotation : "Même SSID, signal plus fort = votre appareil bascule automatiquement". Style infographie sécurité réseau, fond blanc, rouge pour les éléments malveillants.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-4.jpg)
 
 > **Légende :** L'attaque Evil Twin exploite le comportement des appareils qui se reconnectent automatiquement aux SSID connus. L'attaquant crée un AP avec le même SSID et une puissance supérieure — les clients basculent automatiquement et leur trafic transite par le laptop pirate (Man-in-the-Middle). WPA3 avec MFP et l'authentification 802.1X avec vérification du certificat serveur sont les contre-mesures les plus efficaces.
 
