@@ -73,8 +73,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma d'architecture VPC AWS 3-tier. Un rectangle vert étiqueté "VPC 10.0.0.0/16" contient deux colonnes (AZ-A et AZ-B). Dans chaque colonne : un rectangle bleu clair "Subnet Public" (avec une flèche vers une icône Internet Gateway), un rectangle orange "Subnet Privé" (avec une flèche vers une icône NAT Gateway), et un rectangle rouge "Subnet DB" (sans flèche vers Internet). À droite du VPC : une icône Internet et une icône "On-Premises" reliée par un tunnel VPN à un symbole "Virtual Private Gateway". Style schéma d'architecture cloud AWS propre, fond blanc, icônes AWS simplifiées.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-1.jpg)
 
 > **Légende :** Architecture VPC 3-tier typique sur AWS. Les subnets publics hébergent les services exposés à Internet (via l'Internet Gateway). Les subnets privés accèdent à Internet uniquement en sortie (via la NAT Gateway). Les subnets DB sont totalement isolés. La déployée sur deux Availability Zones assure la haute disponibilité.
 
@@ -168,8 +167,7 @@ NACL Subnet Public :
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Schéma de filtrage AWS montrant deux couches de sécurité. Un subnet contenant deux instances EC2. Au niveau du subnet : un rectangle annoté "NACL (Stateless)" avec des flèches en entrée et en sortie. Au niveau de chaque instance : un rectangle vert annoté "Security Group (Stateful)" avec uniquement des flèches d'entrée annotées "règle inbound". Une annotation compare : "NACL = garde de l'immeuble (vérifie dans les deux sens)" et "SG = verrou de l'appartement (retour automatique)". Style schéma de sécurité réseau AWS pédagogique, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-2.jpg)
 
 > **Légende :** Deux couches de sécurité complémentaires dans AWS. La NACL (stateless) protège l'ensemble du subnet — toute règle doit être bidirectionnelle. Le Security Group (stateful) protège chaque instance individuellement — la réponse au trafic autorisé en entrée sort automatiquement. En pratique, la NACL sert à bloquer des IP ou des ports pour tout un subnet, le SG sert au filtrage précis par instance et par rôle.
 
