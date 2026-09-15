@@ -252,8 +252,7 @@ Spoke-A veut joindre Spoke-B (10.0.0.3) :
 
 ---
 
-📷 **[ILLUSTRATION 3]**
-*Schéma DMVPN comparatif en trois colonnes : Phase 1, Phase 2, Phase 3. Phase 1 : toutes les flèches de trafic passent par un hub central (étoile). Phase 2 : flèches initiales via hub puis lignes directes spoke-to-spoke après résolution NHRP. Phase 3 : mêmes connexions directes mais avec route summary au hub. Sous chaque schéma : annotation "Config : X tunnels sur le hub". Style diagramme réseau évolution en 3 étapes, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-3.jpg)
 
 > **Légende :** Évolution des phases DMVPN. En Phase 1, tout le trafic transite par le hub (simple mais sous-optimal). En Phase 2, les spokes créent des tunnels directs après résolution NHRP, évitant le hub pour les communications suivantes. La Phase 3 améliore Phase 2 avec la summarization des routes pour les grands réseaux.
 
