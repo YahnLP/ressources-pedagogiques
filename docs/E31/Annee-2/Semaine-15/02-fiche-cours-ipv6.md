@@ -83,8 +83,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma en deux étapes montrant la simplification d'une adresse IPv6. Adresse complète : `2001:0db8:0000:0000:0000:0000:0000:0001`. Étape 1 (application règle 1) : `2001:db8:0:0:0:0:0:1` (zéros non-significatifs supprimés, groupes tout-zéro notés "0"). Étape 2 (application règle 2) : `2001:db8::1` (les 5 groupes de zéros consécutifs remplacés par `::`). Annotation ":: = 5 groupes de :0000: supprimés". Style schéma didactique étapes numérotées, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-ipv6-ill-1.jpg)
 
 > **Légende :** Application des deux règles de simplification IPv6. La règle 1 supprime les zéros non significatifs dans chaque groupe (0db8 → db8 ; 0000 → 0). La règle 2 remplace la séquence de groupes nuls consécutifs la plus longue par `::`. La notation finale `2001:db8::1` est lisible et non ambiguë — `::` représente exactement 5 groupes de `0000`.
 
@@ -156,8 +155,7 @@ Groupes explicites : 2001, db8, 1 → 3 groupes
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Diagramme circulaire ou en barres représentant l'espace d'adressage IPv6. Zones colorées : une zone verte étiquetée "GUA 2000::/3 (Internet)", une zone bleue "LLA fe80::/10 (lien local)", une zone orange "ULA fc00::/7 (privé)", une zone violette "Multicast ff00::/8", une très petite zone grise "Loopback ::1 et Non-spécifié ::". Les tailles relatives des zones sont approximativement proportionnelles (GUA est la plus grande). Style diagramme infographique type camembert ou barres proportionnelles, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-ipv6-ill-2.jpg)
 
 > **Légende :** Répartition de l'espace d'adressage IPv6. La Global Unicast Address (GUA) occupe la majeure partie de l'espace utilisable (3/8 de l'espace total). Les Link-Local Addresses (LLA) et Unique Local Addresses (ULA) sont des espaces privés non routés sur Internet.
 
