@@ -93,8 +93,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma d'architecture SD-WAN Cisco à deux niveaux. En haut : les trois composants de contrôle (vManage, vBond, vSmart) dans un cloud annoté "Plan de contrôle" avec des flèches OMP vers le bas. En bas : trois WAN Edge (Siège, Agence A, Agence B) connectés à différents underlay (MPLS en bleu, Internet en orange, 4G en vert). Des tunnels IPsec relient les WAN Edge entre eux (overlay). Une annotation compare : "L'underlay voit des paquets UDP anonymes ; l'overlay voit les politiques métier". Style schéma réseau architecture deux plans, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-1.jpg)
 
 > **Légende :** Architecture SD-WAN à deux plans. Le plan de contrôle (vSmart, vManage, vBond) orchestre les politiques de routage via OMP. Le plan de données (WAN Edge + tunnels IPsec) transporte le trafic réel selon ces politiques, sur n'importe quelle combinaison d'underlay disponible.
 
@@ -144,8 +143,7 @@ Application : Sauvegarde (backup S3, OneDrive)
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Schéma de sélection de chemin SD-WAN. Un WAN Edge (Agence) à gauche relié par trois liens : MPLS (bleu, étiqueté "Latence 15ms, 0% perte"), Internet (orange, "Latence 40ms, 0,5% perte"), 4G (vert, "Latence 80ms, 2% perte"). À droite : tableau de politiques avec trois lignes (VoIP → MPLS ✅, Vidéo → Internet ✅, Backup → 4G ✅). Une zone entre les deux annotée "BFD mesure en temps réel toutes les 100ms". Style infographie décision-réseau, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-2.jpg)
 
 > **Légende :** Le SD-WAN mesure en permanence la qualité de chaque lien via BFD et route chaque type de trafic vers le lien le mieux adapté selon les contraintes SLA définies par l'administrateur. La VoIP (temps réel, sensible à la latence/jitter) prend le MPLS ; la vidéo et le backup utilisent les liens moins coûteux.
 
