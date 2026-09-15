@@ -89,8 +89,7 @@ interface GigabitEthernet0/1
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Comparaison visuelle côte à côte de la configuration OSPFv2 vs OSPFv3. À gauche : un routeur avec un seul bloc de configuration "router ospf 1" entouré de plusieurs flèches pointant vers les interfaces, avec l'annotation "Les interfaces sont déclarées dans le processus". À droite : le même routeur avec chaque interface ayant son propre bloc de configuration `ipv6 ospf 1 area 0`, avec l'annotation "Chaque interface déclare elle-même sa participation". Style schéma de configuration réseau pédagogique, fond blanc, mise en valeur de la différence en rouge/vert.*
+![Illustration pédagogique](img/02-fiche-cours-ospfv3-ill-1.jpg)
 
 > **Légende :** En OSPFv2, les réseaux sont déclarés dans le bloc `router ospf` via des commandes `network`. En OSPFv3, la logique est inversée : on active OSPFv3 directement sur chaque interface avec `ipv6 ospf <pid> area <n>`. Cette inversion simplifie la lecture de la config (on voit directement quelle interface participe à OSPF) mais oblige à ne pas oublier une interface.
 
@@ -297,8 +296,7 @@ O   2001:DB8:B::/64 [110/2]
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Diagramme de séquence OSPFv3 entre R1 et R2. Deux colonnes (R1 gauche, R2 droite). Messages échangés annotés avec leurs adresses : hello de R1 "Source: fe80::1 → Dst: ff02::5" ; hello de R2 "Source: fe80::2 → Dst: ff02::5". Après l'établissement de l'adjacence (FULL), une route O apparaît dans la table de routage de R1 : "2001:db8:b::/64 via FE80::2 Gi0/1". Annotation encadrée : "Les hellos utilisent les LLA ; les routes pointent aussi vers les LLA comme next-hop". Style diagramme de séquence réseau, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-ospfv3-ill-2.jpg)
 
 > **Légende :** Échanges OSPFv3 entre R1 et R2. Les messages hello sont émis depuis les adresses LLA (fe80::1, fe80::2) vers l'adresse multicast ff02::5. Une fois l'adjacence Full établie, les routes apprises pointent vers l'adresse LLA du voisin comme next-hop.
 
