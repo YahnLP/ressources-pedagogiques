@@ -183,8 +183,7 @@ interface GigabitEthernet0/0
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Diagramme comparatif en trois colonnes montrant les 3 modes d'auto-configuration IPv6. Colonne gauche "SLAAC pur" : PC calcule EUI-64 depuis MAC + préfixe RA, DNS dans le RA (RDNSS). Colonne centrale "DHCPv6 Stateless" : même EUI-64 mais flèche vers serveur DHCPv6 pour DNS uniquement. Colonne droite "DHCPv6 Stateful" : flèche vers serveur DHCPv6 pour l'adresse ET le DNS, le RA a M=1. Sous chaque colonne : les flags M/O correspondants (0/0, 0/1, 1/0). Style tableau comparatif infographique, fond blanc, couleurs distinctes par mode.*
+![Illustration pédagogique](img/01-fiche-cours-eleve-ill-1.jpg)
 
 > **Légende :** Les trois modes d'auto-configuration IPv6. SLAAC pur : autonome et simple, sans serveur. DHCPv6 Stateless : autonomie pour l'adresse, mais les options (DNS, nom de domaine) sont gérées centralement. DHCPv6 Stateful : contrôle total des attributions d'adresses, nécessaire pour la traçabilité réglementaire.
 
