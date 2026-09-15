@@ -33,8 +33,7 @@
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma d'architecture Nagios. Au centre : le serveur Nagios (rectangle bleu avec l'engrenage Nagios). Autour, des équipements supervisés reliés par des flèches : un routeur (check_ping), un serveur web (check_http), un serveur Linux avec NRPE (check_disk, check_load via NRPE), un Raspberry Pi IoT (check_custom_iot). À droite du serveur Nagios : interface web (navigateur) et notifications (icônes mail + SMS). Style diagramme réseau technique, fond blanc, couleurs distinctes par composant.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-1.jpg)
 
 > **Légende :** Le serveur Nagios exécute périodiquement des plugins pour vérifier chaque équipement. Pour les équipements locaux (réseau), les plugins s'exécutent directement sur le serveur Nagios. Pour les équipements Linux distants, NRPE permet d'exécuter les plugins localement sur la machine distante et de renvoyer le résultat à Nagios.
 
@@ -113,8 +112,7 @@ echo $?    # Affiche 0 (OK), 1 (WARNING), 2 (CRITICAL), 3 (UNKNOWN)
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Schéma montrant un plugin Nagios comme une "boîte noire" avec des entrées et sorties. Entrée : paramètres de la ligne de commande (-H, -w, -c, -p). À l'intérieur : le test (flèche vers l'équipement et retour). Sortie : un message texte sur stdout ("OK - Ping to 192.168.1.1: 12ms") et un code retour (0). Exemple concret avec check_disk : partitions mesurées, seuils comparés, résultat affiché. Style diagramme boîte noire pédagogique, fond blanc.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-2.jpg)
 
 > **Légende :** Tous les plugins Nagios suivent le même modèle : ils reçoivent des paramètres (hôte à tester, seuils), effectuent le test, affichent un message lisible par un humain sur stdout, et retournent un code 0/1/2/3. Ce format standardisé permet à Nagios d'interpréter n'importe quel plugin de la même façon.
 
