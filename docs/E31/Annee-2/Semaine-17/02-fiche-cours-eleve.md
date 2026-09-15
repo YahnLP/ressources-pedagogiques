@@ -85,8 +85,7 @@ Durée de coupure ≈ Hold Timer = 3 secondes
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Capture Wireshark annotée montrant une séquence de bascule HSRP. Timeline horizontale avec 3 zones : Zone verte (normal - hellos périodiques de R1 Active), Zone rouge (bascule - plus de hellos R1, attente Hold Timer, coup de R2), Zone verte (nouveau normal - hellos de R2 Active). Sur la ligne du temps, les paquets sont représentés par des icônes colorées : bleu pour les hellos HSRP, rouge pour le coup, jaune pour les Gratuitous ARP, gris pour les paquets ICMP (avec une interruption correspondant à la coupure). Style capture Wireshark annotée pédagogique, fond sombre type Wireshark.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-1.jpg)
 
 > **Légende :** Chronologie d'une bascule HSRP observée dans Wireshark. Les hellos HSRP (bleu) sont émis toutes les 1 seconde par R1 (Active). Après la panne de R1, R2 attend l'expiration du Hold Timer (3 s) puis envoie un message Coup (rouge) pour prendre le rôle Active. Les Gratuitous ARP (jaune) suivent immédiatement. Le trafic ICMP (gris) est interrompu pendant la durée de la bascule.
 
@@ -105,8 +104,7 @@ Durée de coupure ≈ Hold Timer = 3 secondes
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Schéma en 3 étapes montrant l'impact du Gratuitous ARP. Étape 1 (avant panne) : PC avec cache ARP pointant vers MAC-R1, flèche de trafic vers R1. Étape 2 (pendant bascule, avant GARP) : R1 mort, PC envoie encore vers MAC-R1, trafic perdu (flèche rouge barrée). Étape 3 (après GARP) : R2 a envoyé le GARP, cache ARP du PC mis à jour avec MAC-R2, trafic reprend via R2 (flèche verte). Style diagramme réseau en 3 états, fond blanc, couleurs distinctes.*
+![Illustration pédagogique](img/02-fiche-cours-eleve-ill-2.jpg)
 
 > **Légende :** Le Gratuitous ARP (GARP) est le mécanisme qui permet au trafic de reprendre immédiatement après une bascule HSRP. Sans GARP, les hôtes du LAN continueraient à envoyer leurs paquets vers le MAC de l'ancien Active (désormais mort), perdant tous les paquets jusqu'à l'expiration naturelle du cache ARP.
 
