@@ -235,17 +235,16 @@ Exemple : Même LM7805, Pdiss=3W, Tamb=40°C
 
 ### Calcul d'autonomie
 
-```
-Autonomie brute :
-  t (heures) = Capacité batterie (mAh) / Courant moyen système (mA)
+Autonomie brute :  
+t (heures) = Capacité batterie (mAh) / Courant moyen système (mA)  
 
-Autonomie réelle (facteur de dégradation) :
-  t_réelle = t_brute × 0,80   (80% de la capacité est utilisable en pratique)
-  → Raisons : décharge non linéaire · vieillissement · température
+Autonomie réelle (facteur de dégradation) :  
+t_réelle = t_brute × 0,80   (80% de la capacité est utilisable en pratique)  
+→ Raisons : décharge non linéaire · vieillissement · température  
 
-Courant moyen si le système a plusieurs modes :
-  I_moy = (I_mode1 × t1 + I_mode2 × t2 + ...) / (t1 + t2 + ...)
-```
+Courant moyen si le système a plusieurs modes :  
+
+$$I_{\mathrm{moy}} = \dfrac{I_mode1 \times t1 + I_mode2 \times t2 + ...}{t1 + t2 + ...}$$
 
 ### Exemple : ESP32 en mode intermittent
 

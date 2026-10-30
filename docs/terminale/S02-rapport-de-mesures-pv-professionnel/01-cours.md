@@ -135,6 +135,7 @@ Ce que contient un certificat d'étalonnage :
 
 ---
 
+![Chaîne de traçabilité métrologique du BIPM jusqu'au PV de mesure.](images/tracabilite-metrologique.png)
 
 ---
 
@@ -160,7 +161,7 @@ Mesures : 4 701 Ω / 4 698 Ω / 4 705 Ω / 4 702 Ω / 4 699 Ω
 Moyenne x̄ = 4 701 Ω  
 Écart-type s = 2,7 Ω  
 
-$$u_{\mathrm{A}} = 2{,}7 / \sqrt5 = 1{,}2\,\mathrm{\Omega }$$
+$$u_{\mathrm{A}} = 2{,}7 / \sqrt{5} = 1{,}2\,\mathrm{\Omega }$$
 
 ---
 
@@ -198,11 +199,11 @@ $$\boxed{U = k \cdot u_c \quad \text{avec } k=2 \text{ pour 95\% de confiance}}$
 
 $$u_{\mathrm{A}} = 1{,}2\,\mathrm{\Omega }$$
 
-$$u_{\mathrm{B}},rés = 0{,}3\,\mathrm{\Omega }$$
+$$u_{\mathrm{B,rés}} = 0{,}3\,\mathrm{\Omega }$$
 
-u_B,classe  = 13,6 Ω  
+$$u_{\mathrm{B,classe}} = 13{,}6\,\mathrm{\Omega }$$
 
-$$u_{\mathrm{c}} = \sqrt(1{,}2^2 + 0{,}3^2 + 13{,}6^2) = \sqrt(1{,}44 + 0{,}09 + 184{,}96) = \sqrt186{,}49 = 13{,}7\,\mathrm{\Omega }$$
+$$u_{\mathrm{c}} = \sqrt{1{,}2^2 + 0{,}3^2 + 13{,}6^2} = \sqrt{1{,}44 + 0{,}09 + 184{,}96} = \sqrt{186{,}49} = 13{,}7\,\mathrm{\Omega }$$
 
 U = 2 × 13,7 = 27,4 Ω  → arrondi à 30 Ω (règle : 1 chiffre significatif sur U)  
 
@@ -212,6 +213,7 @@ Résultat : R = (4 703 ± 30) Ω  [niveau de confiance 95%]
 
 ---
 
+![Composition de l'incertitude : la classe de l'instrument domine.](images/incertitude-composition.png)
 
 ---
 

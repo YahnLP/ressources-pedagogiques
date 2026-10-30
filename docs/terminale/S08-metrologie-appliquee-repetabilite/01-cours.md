@@ -46,7 +46,7 @@ CAUSES de la non-répétabilité :
 CALCUL :  
 Effectuer n mesures → calculer σ_EV (écart-type des n mesures)  
 
-$$σ_EV = \sqrt(Σ(xi - x̄)^2 / (n-1))$$
+$$σ_EV = \sqrt{Σ(xi - x̄)^2 / (n-1)}$$
 
 Ou méthode des étendues (plus rapide) :  
 
@@ -127,7 +127,7 @@ Simplification fréquente si 1 seule pièce (p=1) :
 
 ÉTAPE 4 — GRR total :  
 
-$$σ_GRR = \sqrt(σ_EV^2 + σ_AV^2)$$
+$$σ_GRR = \sqrt{σ_EV^2 + σ_AV^2}$$
 
 ÉTAPE 5 — %GRR :  
 %GRR = (5,15 × σ_GRR / Tolérance) × 100  
@@ -136,22 +136,22 @@ Le facteur 5,15 = 2 × 2,575 = couvre 99% de la distribution normale
 
 ### Interprétation du %GRR
 
-```
-%GRR < 10%       → ✓✓ EXCELLENT
-                    Le système de mesure est accepté sans restriction.
+%GRR < 10%       → ✓✓ EXCELLENT  
+Le système de mesure est accepté sans restriction.  
 
-10% ≤ %GRR ≤ 30% → ✓ ACCEPTABLE (conditionnel)
-                    Accepté selon l'importance de l'application.
-                    Action possible : former les opérateurs, améliorer la procédure.
+10% ≤ %GRR ≤ 30% → ✓ ACCEPTABLE (conditionnel)  
+Accepté selon l'importance de l'application.  
+Action possible : former les opérateurs, améliorer la procédure.  
 
-%GRR > 30%       → ✗ INACCEPTABLE
-                    Le système de mesure doit être amélioré ou remplacé.
-                    On "gaspille" plus de 30% de la tolérance juste en incertitude de mesure.
+%GRR > 30%       → ✗ INACCEPTABLE  
+Le système de mesure doit être amélioré ou remplacé.  
+On "gaspille" plus de 30% de la tolérance juste en incertitude de mesure.  
 
-NDC (Number of Distinct Categories) :
-  NDC = 1,41 × (σ_pièce / σ_GRR)
-  NDC ≥ 5 → instrument capable de distinguer les pièces conformes des non-conformes.
-```
+NDC (Number of Distinct Categories) :  
+
+$$NDC = 1{,}41 \times (σ_pièce / σ_GRR)$$
+
+NDC ≥ 5 → instrument capable de distinguer les pièces conformes des non-conformes.  
 
 ---
 
@@ -181,11 +181,15 @@ LA LIMITE DE DÉTECTION :
 À PARTIR DU BRUIT DE FOND σ_bruit = σ_répétabilité (quand on mesure une valeur fixe) :  
 
 LDD (Limite de Décision de Détection) :  
-LDD = 1,65 × σ_bruit  
+
+$$LDD = 1{,}65 \times σ_bruit$$
+
 → Signal au-dessus de LDD : 95% de chance que ce soit un vrai signal  
 
 LD (Limite de Détection) :  
-LD  = 3,3 × σ_bruit  
+
+$$LD = 3{,}3 \times σ_bruit$$
+
 → Signal au-dessus de LD : erreur < 5% sur la décision de détection  
 
 RÈGLE PRATIQUE SIMPLIFIÉE :  

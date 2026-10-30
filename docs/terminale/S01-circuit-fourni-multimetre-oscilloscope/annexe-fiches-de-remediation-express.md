@@ -117,8 +117,11 @@ c) Système : [DHT22 (R=0,84)] en série avec [ESP32 (R=0,92)] :
 $$Rs = \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
 d) Même système mais DHT22 en double (2 capteurs parallèle) :  
-R_capt// = 1 − (1−0,84)² = 1 − _______ = _______  
-Rs_nouveau = _______ × 0,92 = _______ = _______ %  
+
+$$R_{\mathrm{capt}}// = 1 - (1-0{,}84)^2 = 1 - \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}}$$
+
+$$Rs_nouveau = \underline{\hspace{2.5em}} \times 0{,}92 = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+
 Gain : _______ points  
 
 Réponses : a)2×10⁻⁵ b)0,1752/0,839/83,9% c)0,773/77,3% d)0,0256/0,974 · 0,896 · 89,6% · +12,3pts  
@@ -184,9 +187,9 @@ $$Σei = \underline{\hspace{2.5em}} Σei^2 = \underline{\hspace{2.5em}}$$
 
 Biais = _______ / 5 = _______ °C  
 
-$$σ = \sqrt(\underline{\hspace{2.5em}} / 4) = \underline{\hspace{2.5em}} °C$$
+$$σ = \sqrt{\underline{\hspace{2.5em}} / 4} = \underline{\hspace{2.5em}} °C$$
 
-$$u = \underline{\hspace{2.5em}} / \sqrt5 = \underline{\hspace{2.5em}} °C$$
+$$u = \underline{\hspace{2.5em}} / \sqrt{5} = \underline{\hspace{2.5em}} °C$$
 
 $$U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
 

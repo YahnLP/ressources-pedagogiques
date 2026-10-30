@@ -244,13 +244,13 @@ def s01_extra():
 
 
 HRULES = [  # (année, séance, fichier, n°, figure ou None = capture à réaliser, alt)
-    ('premiere', 'S01', '01-cours', 1, None, ''), ('premiere', 'S01', '01-cours', 2, None, ''),
+    ('premiere', 'S01', '01-cours', 1, 'kicad_editeur_schema', "Éditeur de schéma KiCad : zone de dessin et barre d'outils de droite"), ('premiere', 'S01', '01-cours', 2, 'kicad_schema_led', 'Schéma de la LED dans KiCad, broches annotées'),
     ('premiere', 'S03', '01-cours', 1, 'flux_schema_pcb', 'Du schéma au PCB en 8 étapes'), ('premiere', 'S03', '01-cours', 2, 'pistes_vias_clearance', 'Pistes, via et clearance'),
-    ('premiere', 'S03', '01-cours', 3, None, ''), ('premiere', 'S03', '01-cours', 4, None, ''),
+    ('premiere', 'S03', '01-cours', 3, 'kicad_drc', 'Fenêtre DRC et erreurs correspondantes sur le PCB'), ('premiere', 'S03', '01-cours', 4, 'kicad_vue_3d', 'Vue 3D KiCad du petit PCB'),
     ('premiere', 'S04', '01-cours', 1, 'coupe_pcb_double_face', "Coupe d'un PCB double face"), ('premiere', 'S04', '01-cours', 2, 'cms_traversant', 'Composant traversant (THT) et composant CMS (SMD)'),
-    ('premiere', 'S04', '01-cours', 3, None, ''), ('premiere', 'S04', '01-cours', 4, 'gerber_couches', 'Des calques Gerber au PCB réel'),
+    ('premiere', 'S04', '01-cours', 3, 'kicad_export_gerber', "Fenêtre d'export Gerber et fichiers générés"), ('premiere', 'S04', '01-cours', 4, 'gerber_couches', 'Des calques Gerber au PCB réel'),
     ('premiere', 'S06', '01-cours', 1, 'wifi_sta', 'ESP32 en mode STA'), ('premiere', 'S06', '01-cours', 2, 'wifi_modes', 'Modes Wi-Fi de l\'ESP32 : STA, AP et STA + AP'), ('premiere', 'S06', '01-cours', 3, 'mqtt_esp32', 'Architecture MQTT avec un ESP32'),
-    ('premiere', 'S08', '01-cours', 1, None, ''), ('premiere', 'S08', '01-cours', 2, None, ''), ('premiere', 'S08', '01-cours', 3, None, ''),
+    ('premiere', 'S08', '01-cours', 1, 'nodered_flow_simple', 'Flow Node-RED simple à 5 nœuds'), ('premiere', 'S08', '01-cours', 2, 'nodered_dashboard', 'Dashboard Node-RED : jauge et graphe'), ('premiere', 'S08', '01-cours', 3, 'nodered_flow_complet', 'Flow IoT complet ESP32 → MQTT → Node-RED → InfluxDB'),
     ('premiere', 'S11', '01-cours', 1, 'chronologie_mtbf', 'Chronologie MTBF / MTTR'), ('premiere', 'S11', '01-cours', 2, 'courbe_fiabilite', 'Courbe de fiabilité R(t) = e^(−λt)'), ('premiere', 'S11', '01-cours', 3, 'serie_parallele_fiabilite', 'Fiabilité en série et en parallèle'),
     ('premiere', 'S13', '01-cours', 1, 'couplages_cem', 'Les quatre types de couplage CEM'), ('premiere', 'S13', '01-cours', 2, 'blindage_fente', 'Blindage efficace et effet de fente'), ('premiere', 'S13', '01-cours', 3, 'decouplage_pcb', 'Condensateurs de découplage sur un PCB'),
     ('premiere', 'S17', '01-cours', 1, 'hysteresis_alerte', "Hystérésis d'une alerte de température"), ('premiere', 'S17', '01-cours', 2, 'exactitude_fidelite', 'Exactitude et fidélité'),
@@ -300,6 +300,21 @@ CAM = {  # figures réutilisées pour les placeholders 📷 : (année, séance, 
     ('premiere', 'S05', 2): ('chrono_spi', "Transaction SPI : CS bas, huit coups d'horloge SCLK, données sur MOSI et MISO."),
     ('premiere', 'S07', 1): ('mqtt_broker', "Architecture MQTT : le broker est l'unique point de contact entre publishers et subscribers."),
     ('premiere', 'S09', 1): ('tls_mtls', "Authentification TLS standard et mutuelle (mTLS) avec AWS IoT Core."),
+    ('premiere', 'S14', 1): ('deca_entonnoir', "La démarche DECA : chaque étape réduit le champ des possibles jusqu'à l'action corrective."),
+    ('premiere', 'S14', 2): ('logigramme_esp32', "Logigramme de diagnostic d'un ESP32 qui ne publie plus : le code mqtt.state() oriente la recherche."),
+    ('premiere', 'S07', 2): ('chaine_iot_mqtt', "Chaîne IoT de la séance : ESP32 et DHT22, JSON, topic, broker Mosquitto, puis deux subscribers."),
+    ('premiere', 'S18', 1): ('cablage_professionnel', "Schéma de câblage professionnel : fils repérés aux deux extrémités, couleurs CEI 60446, cartouche."),
+    ('premiere', 'S18', 2): ('dat_amateur_pro', "Dossier technique amateur et professionnel."),
+    ('premiere', 'S09', 2): ('cloudwatch_dashboard', "Tableau de bord CloudWatch d'un projet IoT ESP32."),
+    ('premiere', 'S02', 1): ('eeschema_vue', "Schéma en cours de saisie : VCC et GND sont des nœuds globaux."),
+    ('premiere', 'S02', 2): ('pwr_flag', "Le PWR_FLAG supprime les fausses alertes ERC sur les nœuds d'alimentation."),
+    ('premiere', 'S12', 1): ('boitiers_quatre', "Quatre approches de boîtier pour un projet IoT ESP32."),
+    ('premiere', 'S12', 2): ('plan_tests_exemple', "Plan de tests après exécution : TC-003 échoue, TC-005 est à la limite."),
+    ('terminale', 'S04', 2): ('chaine_s4', "Chaîne complète de la séance : capteur, KPI, alarme, courbe, fiche de mise en service."),
+    ('terminale', 'S07', 1): ('pv_validation', "Structure d'un PV de validation fonctionnelle professionnel."),
+    ('terminale', 'S07', 2): ('dossier_livraison', "Dossier de livraison : DAT, PV de validation et fiche MES."),
+    ('terminale', 'S02', 1): ('tracabilite_metrologique', "Chaîne de traçabilité métrologique du BIPM jusqu'au PV de mesure."),
+    ('terminale', 'S02', 2): ('incertitude_composition', "Composition de l'incertitude : la classe de l'instrument domine."),
     ('terminale', 'S04', 1): ('hysteresis_alerte', "Alarme avec hystérésis : seuil haut 30 °C, seuil bas 28 °C, plus de clignotement autour du seuil.")}
 
 
@@ -332,11 +347,92 @@ def camera_placeholders():
     return n, len(todo)
 
 
+SMAN = {  # Seconde : figures des emplacements vides (séance -> [(début de titre, figure, texte alternatif)])
+    'S02': [('### 1.2', 'diode_led', 'Symbole IEC et aspect réel d\'une LED'), ('### 2.2', 'loi_ohm_cercle', 'Cercle de la loi d\'Ohm : U en haut, R à gauche, I à droite'), ('### 3.1', 'circuit_led_9v', 'Circuit LED : pile 9 V, résistance et LED en série'), ('### 4.1', 'led_serie', 'Deux LED en série avec une résistance'), ('### 4.2', 'led_parallele', 'Deux LED en parallèle avec une résistance commune'), ('## 6.', 'multimetre', 'Multimètre numérique annoté')],
+    'S03': [('### 1.1', 'breadboard', 'Structure interne d\'une breadboard'), ('### 1.3', 'cablage_ok_ko', 'Câblage correct et câblage incorrect sur breadboard'), ('### 2.2', 'symboles_de_base', 'Symboles IEC à maîtriser'), ('### 2.4', 'schema_parallele_iec', 'Schéma normé IEC : deux LED en parallèle'), ('### 3.2', 'schema_vs_montage', 'Du schéma au montage sur breadboard'), ('### 4.1', 'continuite_multimetre', 'Test de continuité : fil intact et fil coupé'), ('### 4.3', 'arbre_continuite', 'Arbre de diagnostic par test de continuité')],
+    'S04': [('### 1.1', 'station_soudure', 'Station de soudure annotée'), ('### 1.2', 'materiaux_soudure', 'Fil d\'étain, flux et tresse à dessouder'), ('## 2.', 'etapes_soudure', 'Les 5 étapes de la soudure'), ('### 3.1', 'pyramide_ipc', 'Les trois classes IPC'), ('### 3.2', 'brasure_coupe', 'Brasure traversante IPC classe 2 acceptable'), ('### 3.3', 'defauts_brasures', 'Les 7 défauts de brasure les plus courants'), ('## 4.', 'sequence_insertion', 'Ordre d\'insertion des composants traversants')],
+    'S05': [('### 1.1', 'pyramide_maintenance', 'Les niveaux de maintenance N1 à N4'), ('### 1.2', 'preventive_corrective', 'Maintenance préventive et corrective'), ('### 2.2', 'outils_nettoyage', 'Produits et outils de nettoyage'), ('### 3.1', 'grille_diagnostic_visuel', 'Les 9 critères du diagnostic visuel'), ('### 4.1', 'esd_phenomene', 'Le phénomène de décharge électrostatique'), ('### 4.2', 'esd_dommage', 'Dommage immédiat et dommage latent'), ('### 4.3', 'poste_esd', 'Poste de travail protégé contre les décharges'), ('### 5.1', 'outils_technicien', 'Outillage du technicien')],
+    'S06': [('### 1.2', 'symboles_avances', 'Symboles IEC avancés'), ('### 1.3', 'schema_bp_led', 'Schéma normé : bouton-poussoir et LED'), ('### 2.1', 'tinkercad_interface', 'Interface de Tinkercad Circuits (maquette)'), ('### 2.4', 'tinkercad_multimetre', 'Multimètre virtuel : voltmètre en parallèle, ampèremètre en série'), ('### 3.1', 'datasheet_annotee', 'Première page d\'une datasheet annotée'), ('### 3.2', 'ratings_bc547', 'Absolute Maximum Ratings du BC547'), ('### 4.1', 'schema_transistor_led', 'LED commandée par un transistor BC547')],
+    'S07': [('## 1.', 'arduino_uno_annote', 'Anatomie de la carte Arduino Uno'), ('### 2.1', 'arduino_ide', 'Interface de l\'IDE Arduino (maquette)'), ('### 3.1', 'setup_loop', 'Fonctionnement de setup() et loop()'), ('### 4.2', ['schema_led_d13', 'cablage_uno_breadboard'], ['Schéma normé : LED sur la broche D13', 'Câblage de la LED sur breadboard']), ('### 5.3', 'serial_monitor_ide', 'Moniteur série de l\'IDE Arduino (maquette)')],
+    'S08': [('### 1.1', 'niveaux_logiques', 'Niveaux logiques d\'une entrée numérique Arduino'), ('### 1.3', 'flottant_pulldown', 'Entrée flottante et résistance pull-down'), ('### 2.1', 'pulldown_etats', 'Pull-down : bouton relâché et bouton appuyé'), ('### 3.2', 'pulldown_pullup', 'Pull-down externe et INPUT_PULLUP'), ('### 5.2', 'pyramide_debug', 'Les 4 niveaux de débogage série'), ('### 5.6', 'tableau_bugs', 'Les 5 bugs les plus fréquents')],
+    'S11': [('### 1.1', 'pcb_coupe_couches', 'Coupe d\'un PCB simple face'), ('### 2.1', 'flux_fabrication_pcb', 'Les 8 étapes de fabrication d\'un PCB'), ('#### Réaction', 'gravure_mecanisme', 'Mécanisme de la gravure au perchlorure de fer'), ('#### Anomalies', 'gravure_defauts', 'Sous-gravure, gravure correcte et sur-gravure'), ('### 3.1', 'perceuse_colonne', 'Perceuse à colonne annotée'), ('### 4.2', 'criteres_ipc_a600', 'Critères visuels IPC-A-600'), ('#### Critère 3', 'anneau_cuivre', 'Mesure de l\'anneau de cuivre'), ('### 5.1', 'test_multimetre_pcb', 'Tests au multimètre sur un PCB')],
+    'S13': [('### 1.1', 'uart_tx_rx', 'Liaison UART : TX et RX croisés'), ('### 1.2', 'trame_uart', 'Trame UART 8N1 : lettre A'), ('### 3.1', 'serial_monitor_params', 'Paramètres du moniteur série'), ('### 4.1', 'hc05_brochage', 'Module HC-05 et brochage'), ('### 4.2', 'diviseur_tension', 'Diviseur de tension 5 V vers 3,3 V'), ('### 4.5', 'cablage_arduino_hc05', 'Câblage complet Arduino et HC-05')],
+}
+
+
+def seconde_manquantes():
+    n = 0
+    for sess, rules in SMAN.items():
+        d = D('seconde', sess); f = d / '01-cours.md'; L = f.read_text(encoding='utf-8').split('\n')
+        for pref, fig, alt in rules:
+            figs = fig if isinstance(fig, list) else [fig]; alts = alt if isinstance(alt, list) else [alt]
+            idx = next((i for i, l in enumerate(L) if l.startswith(pref + ' ') or l.startswith(pref)), None)
+            if idx is None: print('titre introuvable', sess, pref); continue
+            j = idx + 1
+            while j < len(L) and L[j].strip() == '': j += 1
+            if j < len(L) and L[j].startswith('!['): continue
+            ins = ['']
+            for fg, al in zip(figs, alts):
+                q(FIG / f'{fg}.png', d / 'images' / (fg.replace('_', '-') + '.png')); ins += [f'![{al}](images/{fg.replace("_", "-")}.png)', '']
+            L[idx + 1:idx + 1] = ins; n += len(figs)
+        f.write_text('\n'.join(L), encoding='utf-8')
+    return n
+
+
+ASCII = [  # (année, séance, marqueur dans le bloc, figure ou texte de remplacement, alt)
+    ('seconde', 'S01', '╔═══', '=$$U = R \\times I$$', ''),
+    ('seconde', 'S09', 'LM35DZ (TO-92)', 'lm35_brochage', 'Brochage du LM35 en boîtier TO-92, vu de face'),
+    ('seconde', 'S09', '│ LM35│', '=', ''),
+    ('seconde', 'S09', 'LM35                    Arduino Uno', 'cablage_lm35', 'Câblage du LM35 sur l\'Arduino Uno'),
+    ('seconde', 'S09', '5V ─────────┬────── LM35 broche 1', '=| Arduino | LM35 |\n|---|---|\n| 5V | broche 1 (VCC) |\n| A0 | broche 2 (OUT) |\n| GND | broche 3 (GND) |', ''),
+    ('seconde', 'S10', 'L293D (Vue de dessus)', 'brochage_l293d', 'Brochage du L293D vu de dessus'),
+    ('seconde', 'S10', 'Arduino                 L293D', 'cablage_l293d', 'Câblage Arduino, L293D et moteur'),
+    ('premiere', 'S01', 'Fenêtre principale de KiCad', 'kicad_fenetre_principale', 'Fenêtre principale de KiCad : gestionnaire de projet et outils'),
+    ('premiere', 'S01', "Barre d'outils horizontale", 'kicad_editeur_schema', "Interface de l'éditeur de schéma KiCad"),
+    ('premiere', 'S02', 'KiCad Project Manager', 'kicad_fenetre_principale', 'Gestionnaire de projet KiCad'),
+    ('premiere', 'S02', 'BARRE DE MENUS', 'kicad_editeur_schema', "Interface d'Eeschema"),
+    ('premiere', 'S09', 'AWS IoT Core', 'chaine_aws', 'Architecture AWS IoT Core'),
+]
+LANGS = ('cpp', 'c', 'python', 'bash', 'javascript', 'json', 'arduino', 'ino', 'yaml', 'sql', 'js', 'sh', 'flux', 'csv')
+
+
+def ascii_remplacements():
+    n = 0
+    for y, sess, marker, rep, alt in ASCII:
+        d = D(y, sess); f = d / '01-cours.md'; L = f.read_text(encoding='utf-8').split('\n'); i = 0; done = False
+        while i < len(L):
+            m = re.match(r'^(\s*)```(\w*)\s*$', L[i])
+            if m and m.group(2) not in LANGS:
+                j = i + 1
+                while j < len(L) and not re.match(r'^\s*```\s*$', L[j]): j += 1
+                if any(marker in l for l in L[i + 1:j]):
+                    if rep.startswith('='): new = rep[1:].split('\n') if rep[1:] else []
+                    else:
+                        q(FIG / f'{rep}.png', d / 'images' / (rep.replace('_', '-') + '.png')); new = [f'![{alt}](images/{rep.replace("_", "-")}.png)']
+                    L[i:j + 1] = new; n += 1; done = True; break
+                i = j
+            i += 1
+        if not done: print('bloc introuvable', y, sess, marker)
+        f.write_text('\n'.join(L), encoding='utf-8')
+    # Seconde S03, exercice 1 : schéma en texte non encadré
+    f = D('seconde', 'S03') / '01-cours.md'; L = f.read_text(encoding='utf-8').split('\n')
+    a = next((i for i, l in enumerate(L) if l.strip().startswith('+ 9V')), None)
+    if a is not None:
+        b = next(i for i in range(a, len(L)) if L[i].strip() == 'GND')
+        if L[a - 1].strip().startswith('```') and b + 1 < len(L) and L[b + 1].strip() == '```': a -= 1; b += 1
+        q(FIG / 'schema_exercice_lire.png', f.parent / 'images' / 'schema-exercice-lire.png')
+        L[a:b + 1] = ['![Schéma de l\'exercice 1 : source 9 V, R1 = 470 Ω, deux LED en parallèle](images/schema-exercice-lire.png)']; n += 1
+    f.write_text('\n'.join(L), encoding='utf-8')
+    return n
+
+
 def main():
     print('Placeholders (figures, captures)', heading_placeholders())
     print('Placeholders 📷', camera_placeholders())
     print('Seconde extra', s01_extra())
+    print('Seconde manquantes', seconde_manquantes())
     print('Première', premiere())
+    print('ASCII remplacés', ascii_remplacements())
     unfenced('S16', '01-cours.md', 5, 'schema_complet_domotique', 'Schéma électronique complet du système domotique A1')
     print('S01', s01(), '| symboles', symboles(), '| figures', seconde_figures())
     nb = 0

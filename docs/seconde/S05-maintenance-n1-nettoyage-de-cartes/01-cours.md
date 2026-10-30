@@ -31,6 +31,9 @@
 
 ### 1.1 Les 4 niveaux définis
 
+![Les niveaux de maintenance N1 à N4](images/pyramide-maintenance.png)
+
+
 
 | Niveau | Désignation | Nature des opérations | Intervenant |
 |---|---|---|---|
@@ -42,6 +45,9 @@
 > 📌 **Positionnement BAC Pro CIEL** : En sortie de formation, vous êtes qualifié pour les interventions **N1 et partiellement N2**. Les niveaux N3 et N4 nécessitent une expérience et une spécialisation supplémentaires.
 
 ### 1.2 Maintenance préventive vs corrective
+
+![Maintenance préventive et corrective](images/preventive-corrective.png)
+
 
 
 | Type | Déclencheur | Avantage | Inconvénient | Exemple en électronique |
@@ -66,6 +72,9 @@ La poussière, les résidus de flux et les dépôts conducteurs sont des causes 
 | **Graisse de doigts** | Manipulation sans gants | Corrosion, mauvaise conduction thermique |
 
 ### 2.2 Les produits et outils de nettoyage
+
+![Produits et outils de nettoyage](images/outils-nettoyage.png)
+
 
 
 | Outil / Produit | Usage | Précautions |
@@ -95,6 +104,9 @@ La poussière, les résidus de flux et les dépôts conducteurs sont des causes 
 
 ### 3.1 Principe du diagnostic visuel
 
+![Les 9 critères du diagnostic visuel](images/grille-diagnostic-visuel.png)
+
+
 Le diagnostic visuel est la **première étape de tout intervention de maintenance** électronique. Il permet souvent de localiser la panne ou de prévenir une défaillance sans aucun outil de mesure. Il se réalise **systématiquement** avec une loupe et un éclairage rasant.
 
 
@@ -122,6 +134,9 @@ Le diagnostic visuel est la **première étape de tout intervention de maintenan
 
 ### 4.1 Le phénomène ESD
 
+![Le phénomène de décharge électrostatique](images/esd-phenomene.png)
+
+
 
 | Paramètre | Valeur |
 |---|---|
@@ -135,12 +150,18 @@ Le diagnostic visuel est la **première étape de tout intervention de maintenan
 
 ### 4.2 Le dommage latent — Le plus dangereux
 
+![Dommage immédiat et dommage latent](images/esd-dommage.png)
+
+
 Le dommage **immédiat** (destruction instantanée) est visible : le composant ne fonctionne plus. Le diagnostic est simple.
 
 Le dommage **latent** (dégradation partielle) est **invisible** : le composant fonctionne encore, mais ses performances se dégradent progressivement. Il tombera en panne de façon prématurée, dans des semaines ou des mois, de façon aléatoire et difficile à diagnostiquer.
 
 
 ### 4.3 Les équipements de protection ESD
+
+![Poste de travail protégé contre les décharges](images/poste-esd.png)
+
 
 
 | Équipement ESD | Rôle | Obligatoire en atelier |
@@ -170,6 +191,9 @@ Le dommage **latent** (dégradation partielle) est **invisible** : le composant 
 ## 5. L'outillage de base du technicien CIEL
 
 ### 5.1 Inventaire et usage
+
+![Outillage du technicien](images/outils-technicien.png)
+
 
 
 | N° | Outil | Usage principal | Précaution |

@@ -48,12 +48,13 @@ I_batterie = I_moy / η (si buck-boost)
 
 ## 🔋 Autonomie — Ordre de calcul
 
-```
-I_moy_ESP32 = (I_actif×t1 + I_sleep×t2) / (t1+t2)
-I_moy_total = I_moy_ESP32 + I_DHT22 + I_LED + I_charge
-I_batterie  = I_moy_total / η_convertisseur
-Autonomie   = Capacité(mAh) / I_batterie(mA) × 0,80
-```
+$$I_moy_ESP32 = \dfrac{I_{\mathrm{actif}} \times t1 + I_{\mathrm{sleep}} \times t2}{t1+t2}$$
+
+$$I_moy_total = I_moy_ESP32 + I_DHT22 + I_{\mathrm{LED}} + I_{\mathrm{charge}}$$
+
+$$I_{\mathrm{batterie}} = I_moy_total / η_convertisseur$$
+
+Autonomie   = Capacité(mAh) / I_batterie(mA) × 0,80  
 
 ---
 
@@ -63,7 +64,7 @@ $$x̄ = Σ\dfrac{T°}{n}$$
 
 e̅ = Σei/n     (ei = T°i − T°_réf)  
 
-$$σ = \sqrt(Σ\dfrac{ei^2}{n-1})$$
+$$σ = \sqrt{Σ\dfrac{ei^2}{n-1}}$$
 
 u = σ/√n  
 

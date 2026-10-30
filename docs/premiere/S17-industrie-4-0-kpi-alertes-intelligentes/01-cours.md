@@ -258,7 +258,7 @@ n   = nombre de mesures
 
 INCERTITUDE COMBINÉE :  
 
-$$u_{\mathrm{c}} = \sqrt(u_A^2 + u_B^2)$$
+$$u_{\mathrm{c}} = \sqrt{u_A^2 + u_B^2}$$
 
 INCERTITUDE ÉLARGIE (pour probabilité de couverture P ≈ 95%) :  
 U = k × u_c     avec k = 2 (facteur d'élargissement)  

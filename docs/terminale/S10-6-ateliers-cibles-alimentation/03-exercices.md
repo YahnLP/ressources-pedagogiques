@@ -96,11 +96,12 @@ Application 3 : Amplificateur audio précision ±15V → ±12V, 100mA
 σ_EV = (σ_A + σ_B) / 2          (répétabilité)  
 σ_AV ≈ |x̄_A − x̄_B| / √n        (reproductibilité)  
 
-$$σ_GRR = \sqrt(σ_EV^2 + σ_AV^2)$$
+$$σ_GRR = \sqrt{σ_EV^2 + σ_AV^2}$$
 
 %GRR = 5,15 × σ_GRR / Tolérance × 100  
 < 10% = excellent · 10-30% = acceptable · > 30% = inacceptable  
-LD ≈ 3 × σ_bruit  
+
+$$LD \approx 3 \times σ_bruit$$
 
 ### Exercice B1 — R&R complet (50 min)
 

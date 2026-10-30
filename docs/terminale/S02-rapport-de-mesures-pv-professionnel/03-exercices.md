@@ -99,9 +99,9 @@ Conclusion : ☐ Conforme   ☐ Non conforme
 
 **A2.1 *(2 pts)*** — Sans répétition possible (u_A = 0), calculez l'incertitude élargie de R2 avec seulement u_B résolution et u_B classe :
 
-$$u_{\mathrm{B}},rés = \underline{\hspace{2.5em}} \Omega$$
+$$u_{\mathrm{B,rés}} = \underline{\hspace{2.5em}} \Omega$$
 
-u_B,classe = _____ Ω  
+$$u_{\mathrm{B,classe}} = \underline{\hspace{2.5em}} \Omega$$
 
 $$u_{\mathrm{c}} = \underline{\hspace{2.5em}} \Omega$$
 
@@ -127,11 +127,12 @@ Conclusion : ☐ Conforme   ☐ Non conforme   ☐ Sous réserve
 
 **B1 *(2 pts)*** — Calculez l'incertitude élargie sur cette mesure de tension :
 
-$$u_{\mathrm{B}},rés = \dfrac{0{,}001}{2 \times \sqrt3} = \underline{\hspace{2.5em}} V$$
+$$u_{\mathrm{B,rés}} = \dfrac{0{,}001}{2 \times \sqrt{3}} = \underline{\hspace{2.5em}} V$$
 
-u_B,classe = 0,5 × 3,287 / (100 × √3) = _____ V  
+$$u_{\mathrm{B,classe}} = 0{,}5 \times \dfrac{3{,}287}{100 \times \sqrt{3}} = \underline{\hspace{2.5em}} V$$
 
-u_c = √(u_B,rés² + u_B,classe²) = _____ V  
+$$u_{\mathrm{c}} = \sqrt{u_{\mathrm{B,rés}}^2 + u_{\mathrm{B,classe}}^2} = \underline{\hspace{2.5em}} V$$
+
 U = 2 × _____ = _____ V → arrondi → _____ V  
 
 $$V = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$$

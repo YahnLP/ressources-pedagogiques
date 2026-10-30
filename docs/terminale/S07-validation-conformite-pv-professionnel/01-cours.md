@@ -184,6 +184,7 @@
 
 ---
 
+![Structure d'un PV de validation fonctionnelle professionnel.](images/pv-validation.png)
 
 ---
 
@@ -269,6 +270,7 @@ SECTION 10 — ANNEXES
 
 ---
 
+![Dossier de livraison : DAT, PV de validation et fiche MES.](images/dossier-livraison.png)
 
 ---
 

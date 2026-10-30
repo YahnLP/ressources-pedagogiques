@@ -7,7 +7,9 @@
 
 Pdiss = (Vin−Vout) × Iout  
 Tj = Tamb + Pdiss × Rθja  
-Tj_max_exploitable = 105°C  
+
+$$Tj_max_exploitable = 105\,\mathrm{°C}$$
+
 Autonomie = Capacité(mAh) / I_moy × 0,80  
 
 $$I_{\mathrm{moy}} = \dfrac{I_{1} \times t1 + I_{2} \times t2}{t1+t2}$$
@@ -23,7 +25,7 @@ $$σ_EV = \dfrac{σ_A + σ_B}{2}$$
 
 σ_AV ≈ |x̄_A − x̄_B| / √n  
 
-$$σ_GRR = \sqrt(σ_EV^2 + σ_AV^2)$$
+$$σ_GRR = \sqrt{σ_EV^2 + σ_AV^2}$$
 
 %GRR = 5,15 × σ_GRR / Tolérance × 100  
 

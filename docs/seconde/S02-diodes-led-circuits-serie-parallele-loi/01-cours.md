@@ -35,6 +35,9 @@ Une LED est un composant **semiconducteur** qui transforme l'énergie électriqu
 
 ### 1.2 Symbole et identification physique
 
+![Symbole IEC et aspect réel d'une LED](images/diode-led.png)
+
+
 
 | Caractéristique | Rouge | Vert | Bleu | Blanc |
 |---|---|---|---|---|
@@ -58,6 +61,9 @@ $$U = R \times I$$
 
 ### 2.2 Le triangle mnémotechnique
 
+![Cercle de la loi d'Ohm : U en haut, R à gauche, I à droite](images/loi-ohm-cercle.png)
+
+
 
 ### 2.3 Les trois formules à retenir
 
@@ -75,6 +81,9 @@ $$U = R \times I$$
 ## 3. Calcul de la résistance de limitation d'une LED
 
 ### 3.1 La logique du calcul
+
+![Circuit LED : pile 9 V, résistance et LED en série](images/circuit-led-9v.png)
+
 
 Quand on branche une LED sur une alimentation, il faut "absorber" la tension en surplus avec une résistance.
 
@@ -116,6 +125,9 @@ Où :
 
 ### 4.1 Le circuit série
 
+![Deux LED en série avec une résistance](images/led-serie.png)
+
+
 
 **Règles du circuit série :**
 
@@ -133,6 +145,9 @@ Où :
 ---
 
 ### 4.2 Le circuit parallèle
+
+![Deux LED en parallèle avec une résistance commune](images/led-parallele.png)
+
 
 
 **Règles du circuit parallèle :**
@@ -183,6 +198,9 @@ Une **datasheet** est le document officiel du fabricant. Elle contient toutes le
 ---
 
 ## 6. Utilisation du multimètre
+
+![Multimètre numérique annoté](images/multimetre.png)
+
 
 
 | Mesure | Position sélecteur | Branchement | Unité lue |

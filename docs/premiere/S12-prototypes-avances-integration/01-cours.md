@@ -112,6 +112,7 @@ Vue de dessus du boîtier (exemple) :
 
 ---
 
+![Quatre approches de boîtier pour un projet IoT ESP32.](images/boitiers-quatre.png)
 
 ---
 
@@ -266,6 +267,7 @@ $$\Delta T \approx \frac{P_{totale}}{k \cdot S}$$
 
 ---
 
+![Plan de tests après exécution : TC-003 échoue, TC-005 est à la limite.](images/plan-tests-exemple.png)
 
 ---
 

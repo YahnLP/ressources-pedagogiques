@@ -168,6 +168,7 @@ Sur le schéma :
 
 ---
 
+![Schéma de câblage professionnel : fils repérés aux deux extrémités, couleurs CEI 60446, cartouche.](images/cablage-professionnel.png)
 
 ---
 
@@ -382,6 +383,7 @@ Symptôme couvert : ESP32 ne publie plus sur MQTT
 
 ---
 
+![Dossier technique amateur et professionnel.](images/dat-amateur-pro.png)
 
 ---
 

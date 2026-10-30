@@ -190,19 +190,7 @@ Le **L293D** est un circuit intégré (CI) contenant **deux ponts H** :
 
 ### 📌 Brochage du L293D
 
-```
-        L293D (Vue de dessus)
-        ┌─────────────┐
- EN1  1 │●            │ 16  VCC1 (5V Arduino)
- IN1  2 │             │ 15  IN4
-OUT1  3 │             │ 14  OUT4
- GND  4 │             │ 13  GND
- GND  5 │             │ 12  GND
-OUT2  6 │             │ 11  OUT3
- IN2  7 │             │ 10  IN3
-VCC2  8 │             │  9  EN2
-        └─────────────┘
-```
+![Brochage du L293D vu de dessus](images/brochage-l293d.png)
 
 **Description des broches :**
 
@@ -221,22 +209,7 @@ VCC2  8 │             │  9  EN2
 
 **Connexions pour 1 moteur DC :**
 
-```
-Arduino                 L293D                  Moteur + Pile
-                                              
-Pin 7  ──────────────► IN1 (2)               
-Pin 6  ──────────────► IN2 (7)               
-Pin 9 (PWM) ─────────► EN1 (1)               
-                                              
-5V ───────────────────► VCC1 (16)            
-GND ──────────────────► GND (4,5,12,13)      
-                                              
-                       OUT1 (3) ──────────────► Moteur fil 1
-                       OUT2 (6) ──────────────► Moteur fil 2
-                                              
-Pile 9V (+) ──────────► VCC2 (8)             
-Pile 9V (-) ──────────► GND (commun)         
-```
+![Câblage Arduino, L293D et moteur](images/cablage-l293d.png)
 
 **⚠️ IMPORTANT :** Les GND doivent être **communs** (Arduino GND et Pile GND reliés ensemble).
 

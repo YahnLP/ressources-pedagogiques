@@ -43,7 +43,7 @@ $$\mathrm{MTBF} = \dfrac{87\,600}{3} = 29\,200\ \text{heures} \approx 3{,}3\ \te
 - MTBF = 500 000 h → panne probable dans 57 ans (quasi immortel !)
 
 > [!WARNING] MTBF ≠ durée de vie garantie
-> C'est un indicateur **statistique** : 50 % des composants tomberont en panne **avant** le MTBF, et 50 % **après**.
+> C'est un indicateur **statistique** : avec une loi exponentielle, environ **63 %** des composants ($1 - e^{-1}$) sont déjà en panne au bout d'un temps égal au MTBF, et seulement **37 %** ($e^{-1}$) le dépassent.
 
 ### MTTR : Mean Time To Repair
 

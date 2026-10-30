@@ -341,6 +341,7 @@ Astuce : lancer le DRC régulièrement pendant le routage,
 
 ---
 
+![Fenêtre DRC et erreurs correspondantes sur le PCB](images/kicad-drc.png)
 
 ---
 
@@ -384,6 +385,7 @@ Utilité de la vue 3D :
 
 ---
 
+![Vue 3D KiCad du petit PCB](images/kicad-vue-3d.png)
 
 ---
 

@@ -352,6 +352,7 @@ void loop() {
 
 ---
 
+![Chaîne IoT de la séance : ESP32 et DHT22, JSON, topic, broker Mosquitto, puis deux subscribers.](images/chaine-iot-mqtt.png)
 
 ---
 

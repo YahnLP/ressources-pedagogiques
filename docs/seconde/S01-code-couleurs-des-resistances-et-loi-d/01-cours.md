@@ -63,15 +63,7 @@
 
 La **loi d'Ohm** est la relation mathématique fondamentale qui lie tension, intensité et résistance :
 
-```
-╔═══════════════════╗
-║   U = R × I       ║
-╚═══════════════════╝
-
-U = Tension (Volt)
-R = Résistance (Ohm)
-I = Intensité (Ampère)
-```
+$$U = R \times I$$
 
 ### 🔺 Le triangle mnémotechnique
 

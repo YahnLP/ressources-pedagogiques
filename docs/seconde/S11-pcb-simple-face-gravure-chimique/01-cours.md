@@ -38,6 +38,9 @@
 
 ### 1.1 Les couches
 
+![Coupe d'un PCB simple face](images/pcb-coupe-couches.png)
+
+
 
 | Couche | Matériau | Épaisseur standard | Rôle |
 |---|---|---|---|
@@ -61,6 +64,9 @@ $$R = ρ \times \dfrac{L}{l \times e} = 1{,}72 \times 10⁻⁸ \times \dfrac{0{,
 ## 2. Procédé de fabrication — Gravure chimique
 
 ### 2.1 Vue d'ensemble du procédé
+
+![Les 8 étapes de fabrication d'un PCB](images/flux-fabrication-pcb.png)
+
 
 
 ### 2.2 Méthode 1 : Transfert toner (fer à repasser)
@@ -94,6 +100,9 @@ Méthode plus précise, nécessite un poste insolateur.
 ### 2.4 La gravure au perchlorure de fer (FeCl₃)
 
 #### Réaction chimique
+
+![Mécanisme de la gravure au perchlorure de fer](images/gravure-mecanisme.png)
+
 
 ```
 2 FeCl₃  +  Cu  →  2 FeCl₂  +  CuCl₂
@@ -135,6 +144,9 @@ Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bai
 
 #### Anomalies de gravure — Causes et prévention
 
+![Sous-gravure, gravure correcte et sur-gravure](images/gravure-defauts.png)
+
+
 
 | Anomalie | Cause | Conséquence | Prévention |
 |---|---|---|---|
@@ -148,6 +160,9 @@ Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bai
 ## 3. Le perçage des PCB
 
 ### 3.1 Outillage et paramètres
+
+![Perceuse à colonne annotée](images/perceuse-colonne.png)
+
 
 
 | Paramètre | Valeur | Raison |
@@ -204,6 +219,9 @@ La norme **IPC-A-600** (Acceptability of Printed Boards) définit les critères 
 
 ### 4.2 Les 5 critères visuels principaux IPC-A-600 Classe 2
 
+![Critères visuels IPC-A-600](images/criteres-ipc-a600.png)
+
+
 
 #### Critère 1 — Largeur de piste
 
@@ -226,6 +244,9 @@ La norme **IPC-A-600** (Acceptability of Printed Boards) définit les critères 
 > 📌 **Règle pratique en atelier** : Concevoir avec 0,5 mm d'espacement minimum. La précision du toner/UV artisanal ne garantit pas moins que 0,3 mm.
 
 #### Critère 3 — Anneau de cuivre (annular ring)
+
+![Mesure de l'anneau de cuivre](images/anneau-cuivre.png)
+
 
 L'anneau de cuivre est la couronne de cuivre qui entoure le trou de perçage. Il doit rester suffisamment large après perçage pour assurer une bonne soudure.
 
@@ -261,6 +282,9 @@ L'anneau de cuivre est la couronne de cuivre qui entoure le trou de perçage. Il
 ## 5. Vérification multimètre du PCB
 
 ### 5.1 Protocole de test en 3 étapes
+
+![Tests au multimètre sur un PCB](images/test-multimetre-pcb.png)
+
 
 
 **Étape 1 — Test de continuité des pistes :**

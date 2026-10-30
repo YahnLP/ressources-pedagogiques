@@ -23,20 +23,7 @@
 
 ### Architecture de KiCad
 
-```
-┌──────────────────────────────────────────────────────────────────┐
-│  KiCad Project Manager  (gestionnaire de projet, fichier .kicad_pro)
-│                                                                  │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐   │
-│  │   Eeschema   │  │   PCBnew     │  │  Footprint Editor    │   │
-│  │ (schéma .kicad_sch)│ (PCB .kicad_pcb) │ (empreintes)         │   │
-│  └──────────────┘  └──────────────┘  └──────────────────────┘   │
-│  ┌──────────────┐  ┌──────────────┐                             │
-│  │ Symbol Editor│  │Gerber Viewer │                             │
-│  │(bibliothèques)│  │ (fabrication)│                             │
-│  └──────────────┘  └──────────────┘                             │
-└──────────────────────────────────────────────────────────────────┘
-```
+![Gestionnaire de projet KiCad](images/kicad-fenetre-principale.png)
 
 > **Dans cette séance, nous travaillons uniquement dans Eeschema.**
 
@@ -62,27 +49,7 @@
 
 ### Zones de l'interface
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  BARRE DE MENUS  File / Edit / View / Place / Inspect / Tools   │
-├──────┬──────────────────────────────────────────────────────────┤
-│      │                                                          │
-│ B    │         Z O N E   D E   T R A V A I L                   │
-│ A    │              (plan de schéma A4/A3)                      │
-│ R    │                                                          │
-│ R    │                                                          │
-│ E    │                                                          │
-│      │                                                          │
-│ O    │                                                          │
-│ U    │                                                          │
-│ T    │                                                          │
-│ I    │                                                          │
-│ L    │                                                          │
-│      │                                                          │
-├──────┴──────────────────────────────────────────────────────────┤
-│  BARRE DE STATUT : coordonnées, grille, zoom                    │
-└─────────────────────────────────────────────────────────────────┘
-```
+![Interface d'Eeschema](images/kicad-editeur-schema.png)
 
 ### Navigation de base
 
@@ -151,6 +118,7 @@
 
 ---
 
+![Schéma en cours de saisie : VCC et GND sont des nœuds globaux.](images/eeschema-vue.png)
 
 ---
 
@@ -204,6 +172,7 @@ Règle :  1 PWR_FLAG sur le nœud +5V (ou VCC)
 
 ---
 
+![Le PWR_FLAG supprime les fausses alertes ERC sur les nœuds d'alimentation.](images/pwr-flag.png)
 
 ---
 
