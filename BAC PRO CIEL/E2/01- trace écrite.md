@@ -18,7 +18,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - Beaucoup d’erreurs viennent d’un **mauvais sens** (diode/LED) ou d’une **mauvaise valeur** (résistance trop faible → LED grillée).
 
 <p align="center">
-  <img src="./01-images/01-ouvert_ferme.png" alt="Schéma circuit ouvert et circuit fermé" width="50%"><br>
+  <img src="../01-images/01-ouvert_ferme.png" alt="Schéma circuit ouvert et circuit fermé" width="50%"><br>
   <em>Comparaison d’un circuit ouvert (lampe éteinte) et d’un circuit fermé (lampe allumée).</em>
 </p>
 
@@ -35,7 +35,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
   - “tirer” un signal logique (pull-up / pull-down, selon les montages)
 
 <p align="center">
-  <img src="./01-images/couleurs.png" alt="Résistance et code couleur" width="50%"><br>
+  <img src="../01-images/couleurs.png" alt="Résistance et code couleur" width="50%"><br>
   <em>Photo d’une résistance + exemple de lecture du code couleur vers une valeur en ohms.</em>
 </p>
 
@@ -56,7 +56,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - **Piège important :** certains condensateurs (électrolytiques) ont une **polarité** (+ et –). Inverser peut les abîmer.
 
 <p align="center">
-  <img src="./01-images/C-polarite.png" alt="Condensateur électrolytique et polarité" width="25%"><br>
+  <img src="../01-images/C-polarite.png" alt="Condensateur électrolytique et polarité" width="25%"><br>
   <em>condensateur électrolytique avec bande “–” + rappel du sens de montage.</em>
 </p>
 
@@ -76,7 +76,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
   - filtres audio (séparation graves/aigus)
 
 <p align="center">
-  <img src="./01-images/inductance.png" alt="Inductance (bobine) sur circuit" width="40%"><br>
+  <img src="../01-images/inductance.png" alt="Inductance (bobine) sur circuit" width="40%"><br>
   <em>photo d’une bobine/inductance (composant traversant ou CMS) et symbole sur schéma.</em>
 </p>
 
@@ -95,7 +95,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - **Piège majeur :** une LED sans résistance de limitation peut griller (trop de courant).
 
 <p align="center">
-  <img src="./01-images/diode.png" alt="Diode : sens et symbole" width="80%"><br>
+  <img src="../01-images/diode.png" alt="Diode : sens et symbole" width="80%"><br>
   <em>symbole diode + symbole LED + repérage anode/cathode et sens du courant.</em>
 </p>
 
@@ -117,7 +117,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - En diagnostic : si un transistor est mal câblé, la charge ne s’allume pas ou reste toujours allumée.
 
 <p align="center">
-  <img src="./01-images/transistors.png" alt="divers transistors" width="40%"><br>
+  <img src="../01-images/transistors.png" alt="divers transistors" width="40%"><br>
   <em>transistors</em>
 </p>
 
@@ -145,7 +145,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - Un **circuit intégré (CI)** est souvent une “boîte” qui contient beaucoup de transistors.
 
 <p align="center">
-  <img src="./01-images/composants.png" alt="Actifs vs passifs" width="40%"><br>
+  <img src="../01-images/composants.png" alt="Actifs vs passifs" width="40%"><br>
   <em>tableau comparatif passif/actif avec exemples et rôles.</em>
 </p>
 
@@ -169,7 +169,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - Exemple concret : lampes d’une guirlande (selon modèle), circuits domestiques (plutôt parallèle).
 
 <p align="center">
-  <img src="./01-images/serie.png" alt="Montage série et parallèle" width="40%"><br>
+  <img src="../01-images/serie.png" alt="Montage série et parallèle" width="40%"><br>
   <em>deux schémas : série (même courant) et parallèle (même tension).</em>
 </p>
 
@@ -185,7 +185,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - Application typique CIEL : transformer un capteur résistif (LDR, NTC) en tension mesurable.
 
 <p align="center">
-  <img src="./01-images/diviseur.png" alt="Diviseur de tension à deux résistances" width="45%"><br>
+  <img src="../01-images/diviseur.png" alt="Diviseur de tension à deux résistances" width="45%"><br>
   <em>schéma diviseur avec Ue, R1, R2, Us + flèche de mesure au multimètre.</em>
 </p>
 
@@ -201,7 +201,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - “Passe-bas” = lisse / adoucit les variations rapides.
 
 <p align="center">
-  <img src="./01-images/gabarit.png" alt="Filtres RC" width="40%"><br>
+  <img src="../01-images/gabarit.png" alt="Filtres RC" width="40%"><br>
   <em>schéma RC (R en série, C à la masse) + courbe simple montrant atténuation des hautes fréquences.</em>
 </p>
 
@@ -241,7 +241,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - En E2 : on attend souvent “identifier le composant + rôle global”, pas la micro-électronique interne.
 
 <p align="center">
-  <img src="./images/circuit_integre_boitiers.png" alt="Exemples de boîtiers de circuits intégrés" width="85%"><br>
+  <img src="../images/circuit_integre_boitiers.png" alt="Exemples de boîtiers de circuits intégrés" width="85%"><br>
   <em>Illustration attendue : photo DIP/SOIC + repère du détrompeur (encoche) + notion de broche 1.</em>
 </p>
 
@@ -266,7 +266,7 @@ Les capteurs et actionneurs sont des composants permettant à un circuit électr
 - Ex : piloter un moteur directement avec une sortie logique → impossible / dangereux.
 
 <p align="center">
-  <img src="./images/capteur_actionneur_exemples.png" alt="Capteur et actionneur : exemples" width="90%"><br>
+  <img src="../images/capteur_actionneur_exemples.png" alt="Capteur et actionneur : exemples" width="90%"><br>
   <em>Illustration attendue : schéma bloc “capteur → traitement → actionneur” (ex : LDR → microcontrôleur → moteur/LED).</em>
 </p>
 
@@ -289,7 +289,7 @@ Les capteurs et actionneurs sont des composants permettant à un circuit électr
 - En maintenance : réparation plus délicate (outillage fin).
 
 <p align="center">
-  <img src="./images/cms_vs_traversant.png" alt="CMS vs traversant" width="90%"><br>
+  <img src="../images/cms_vs_traversant.png" alt="CMS vs traversant" width="90%"><br>
   <em>Illustration attendue : photo comparative : composant traversant vs composant CMS + indication de taille.</em>
 </p>
 

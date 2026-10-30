@@ -26,7 +26,7 @@ Un schéma électronique, c’est comme un **plan** : il sert à **comprendre**,
 C’est une représentation **logique** : elle montre surtout **qui est relié à qui** (les connexions), pas l’apparence réelle du montage.
 
 <p align="center">
-  <img src="./images/schema_vs_photo.png" alt="Comparaison entre un schéma électronique (symboles) et un montage réel sur breadboard" width="85%"><br>
+  <img src="../images/schema_vs_photo.png" alt="Comparaison entre un schéma électronique (symboles) et un montage réel sur breadboard" width="85%"><br>
   <em>Illustration attendue : comparaison visuelle entre un schéma simple (symboles) et un montage réel sur breadboard.</em>
 </p>
 
@@ -48,7 +48,7 @@ Les composants sont représentés par des **symboles standardisés**. Ces symbol
 Parfois, un même composant peut avoir deux symboles selon les conventions (par exemple une résistance en “zigzag” ou en “rectangle”) : l’idée reste strictement la même.
 
 <p align="center">
-  <img src="./images/symboles_de_base.png" alt="Tableau de symboles électroniques de base : R, C, diode, LED, transistor, GND, Vcc" width="90%"><br>
+  <img src="../images/symboles_de_base.png" alt="Tableau de symboles électroniques de base : R, C, diode, LED, transistor, GND, Vcc" width="90%"><br>
   <em>Illustration attendue : tableau de symboles (R, C, diode, LED, transistor, GND, Vcc).</em>
 </p>
 
@@ -92,7 +92,7 @@ C’est une des erreurs les plus courantes :
 - Si un **point** est dessiné, c’est une **connexion électrique**.
 
 <p align="center">
-  <img src="./03-images/jonction.png" alt="Différence entre un croisement sans point (pas connecté) et une jonction avec point (connecté)" width="80%"><br>
+  <img src="../03-images/jonction.png" alt="Différence entre un croisement sans point (pas connecté) et une jonction avec point (connecté)" width="80%"><br>
   <em>Illustration attendue : 2 schémas : (1) croisement sans point (pas connecté), (2) croisement avec point (connecté).</em>
 </p>
 
@@ -144,7 +144,7 @@ En maintenance, il est très utile : il permet de repérer où mesurer et où ch
 C’est une version simplifiée où les parties complexes du circuit sont représentées par des blocs, indiquant seulement la fonction générale sans entrer dans les détails des composants internes.
 
 <p align="center">
-  <img src="./01-images/capteur.png" alt="Schéma de bloc : capteur → traitement → actionneur" width="90%"><br>
+  <img src="../01-images/capteur.png" alt="Schéma de bloc : capteur → traitement → actionneur" width="90%"><br>
   <em>Illustration attendue : schéma bloc simple : “capteur” → “traitement” → “actionneur”.</em>
 </p>
 
@@ -180,7 +180,7 @@ Une LED inversée ne s’allumera pas.
 Un condensateur polarisé inversé peut s’abîmer et provoquer une panne (voire un court-circuit).
 
 <p align="center">
-  <img src="./03-images/polarite.png" alt="Polarité LED et condensateur : anode/cathode et repère + / bande -" width="60%"><br>
+  <img src="../03-images/polarite.png" alt="Polarité LED et condensateur : anode/cathode et repère + / bande -" width="60%"><br>
   <em>Illustration attendue : LED avec anode/cathode + condensateur avec bande “-” et repère +.</em>
 </p>
 

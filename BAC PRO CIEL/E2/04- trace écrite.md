@@ -21,7 +21,7 @@ Les mesures électriques reposent sur des grandeurs de base qui permettent de co
 - En diagnostic, la première mesure est souvent : **U_alimentation** (est-ce que j’ai bien 5V ?).
 
 <p align="center">
-  <img src="./images/dc_ac_exemples.png" alt="Tension DC vs AC" width="85%"><br>
+  <img src="../images/dc_ac_exemples.png" alt="Tension DC vs AC" width="85%"><br>
   <em>Illustration attendue : schéma simple montrant une pile (DC) et une sinusoïde (AC).</em>
 </p>
 
@@ -68,7 +68,7 @@ Différents outils sont utilisés pour mesurer les grandeurs électriques, chacu
 - Une erreur fréquente : rester branché sur “A” et mesurer une tension → risque.
 
 <p align="center">
-  <img src="./images/multimetre_modes_bornes.png" alt="Multimètre : modes et bornes" width="85%"><br>
+  <img src="../images/multimetre_modes_bornes.png" alt="Multimètre : modes et bornes" width="85%"><br>
   <em>Illustration attendue : photo/diagramme d’un multimètre avec repères COM, VΩ, mA/A et modes DC/AC.</em>
 </p>
 
@@ -115,7 +115,7 @@ La façon de mesurer chaque grandeur dépend des propriétés du circuit et de l
 - Pour une alimentation : rouge sur Vcc, noir sur GND.
 
 <p align="center">
-  <img src="./images/mesure_tension_parallele.png" alt="Mesure de tension en parallèle" width="85%"><br>
+  <img src="../images/mesure_tension_parallele.png" alt="Mesure de tension en parallèle" width="85%"><br>
   <em>Illustration attendue : schéma d’un composant avec voltmètre branché en parallèle.</em>
 </p>
 
@@ -128,7 +128,7 @@ La façon de mesurer chaque grandeur dépend des propriétés du circuit et de l
 - C’est la mesure la plus “à risque” : validation enseignant avant branchement.
 
 <p align="center">
-  <img src="./images/mesure_courant_serie.png" alt="Mesure de courant en série" width="85%"><br>
+  <img src="../images/mesure_courant_serie.png" alt="Mesure de courant en série" width="85%"><br>
   <em>Illustration attendue : schéma lampe + ampèremètre inséré en série.</em>
 </p>
 

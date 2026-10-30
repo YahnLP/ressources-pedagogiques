@@ -15,7 +15,7 @@ Les microcontrôleurs sont des circuits intégrés programmables qui contrôlent
 - Il exécute **un programme** et pilote des broches (pins) reliées à des capteurs/actionneurs. :contentReference[oaicite:5]{index=5}
 
 <p align="center">
-  <img src="./images/microcontroleur_blocs.png" alt="Blocs d’un microcontrôleur" width="90%"><br>
+  <img src="../images/microcontroleur_blocs.png" alt="Blocs d’un microcontrôleur" width="90%"><br>
   <em>Illustration attendue : schéma en blocs CPU + mémoire + E/S + bus, reliés entre eux.</em>
 </p>
 
@@ -128,7 +128,7 @@ La configuration des broches du microcontrôleur est cruciale pour interagir ave
 - Une entrée analogique sert à lire une valeur “progressive” (potentiomètre, LDR…).
 
 <p align="center">
-  <img src="./images/analog_read_0_1023.png" alt="analogRead : 0 à 1023" width="90%"><br>
+  <img src="../images/analog_read_0_1023.png" alt="analogRead : 0 à 1023" width="90%"><br>
   <em>Illustration attendue : jauge 0→1023 associée à une tension 0V→5V.</em>
 </p>
 
@@ -197,7 +197,7 @@ Les programmes pour microcontrôleur suivent une structure spécifique, organis�
 - Sur la fiche (page 4), l’exemple montre bien la structure setup/loop. :contentReference[oaicite:6]{index=6}
 
 <p align="center">
-  <img src="./images/exemple_blink_setup_loop.png" alt="Exemple Blink : setup/loop" width="90%"><br>
+  <img src="../images/exemple_blink_setup_loop.png" alt="Exemple Blink : setup/loop" width="90%"><br>
   <em>Illustration attendue : capture d’écran du code Blink montrant setup() et loop().</em>
 </p>
 
@@ -242,7 +242,7 @@ Exemples pratiques de programmes pour microcontrôleur
 - Sur la fiche (page 6), l’exemple illustre analogRead + map + analogWrite. :contentReference[oaicite:7]{index=7}
 
 <p align="center">
-  <img src="./images/potentiometre_map_pwm.png" alt="Potentiomètre : analogRead + map + PWM" width="90%"><br>
+  <img src="../images/potentiometre_map_pwm.png" alt="Potentiomètre : analogRead + map + PWM" width="90%"><br>
   <em>Illustration attendue : capture du code montrant analogRead, map, analogWrite.</em>
 </p>
 

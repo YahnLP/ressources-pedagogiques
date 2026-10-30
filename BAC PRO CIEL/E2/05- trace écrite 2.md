@@ -45,7 +45,7 @@ Exemples très concrets :
 - “Le moteur doit tourner quand la commande est à 1.”
 
 <p align="center">
-  <img src="./images/diagnostic_schema_attendu.png" alt="Schéma simple annoté : où doit-on trouver 5V, où doit-on trouver 0V (GND)" width="90%"><br>
+  <img src="../images/diagnostic_schema_attendu.png" alt="Schéma simple annoté : où doit-on trouver 5V, où doit-on trouver 0V (GND)" width="90%"><br>
   <em>Illustration attendue : schéma simple annoté (où doit-on trouver 5V ? où doit-on trouver 0V ?).</em>
 </p>
 
@@ -109,7 +109,7 @@ Causes possibles : interférences électromagnétiques, composants mal blindés,
 Un oscilloscope permet de vérifier si le signal est “sale” (bruit, distorsion).
 
 <p align="center">
-  <img src="./03-images/bruit.png" alt="À l'oscilloscope : signal propre comparé à un signal bruité (parasites)" width="60%"><br>
+  <img src="../03-images/bruit.png" alt="À l'oscilloscope : signal propre comparé à un signal bruité (parasites)" width="60%"><br>
   <em>Illustration attendue : deux oscillogrammes : (1) signal propre, (2) signal avec bruit/parasites.</em>
 </p>
 

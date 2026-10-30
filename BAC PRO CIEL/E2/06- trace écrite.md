@@ -70,7 +70,7 @@ La maintenance préventive consiste à effectuer régulièrement des tâches pou
 - Condensateur “gonflé” = composant à remplacer (risque de panne).
 
 <p align="center">
-  <img src="./images/condensateur_gonfle.png" alt="Condensateur gonflé sur carte" width="70%"><br>
+  <img src="../images/condensateur_gonfle.png" alt="Condensateur gonflé sur carte" width="70%"><br>
   <em>Illustration attendue : photo d’un condensateur électrolytique bombé/abîmé sur une carte.</em>
 </p>
 
@@ -91,7 +91,7 @@ La maintenance préventive consiste à effectuer régulièrement des tâches pou
 - Une bonne soudure : cône propre, pas de pont.
 
 <p align="center">
-  <img src="./images/soudures_defauts.png" alt="Soudure correcte vs soudure froide vs pont" width="90%"><br>
+  <img src="../images/soudures_defauts.png" alt="Soudure correcte vs soudure froide vs pont" width="90%"><br>
   <em>Illustration attendue : 3 exemples : soudure brillante (OK), soudure mate (froide), pont d’étain (court-circuit).</em>
 </p>
 

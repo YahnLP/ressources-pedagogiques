@@ -29,7 +29,7 @@ Il exécute **un programme** et pilote des **broches (pins)** reliées à des **
 **lire → décider → agir** (en continu tant que la carte est alimentée).
 
 <p align="center">
-  <img src="./03-images/chaines.png" alt="Chaîne classique : capteur → lecture → décision → actionneur" width="90%"><br>
+  <img src="../03-images/chaines.png" alt="Chaîne classique : capteur → lecture → décision → actionneur" width="90%"><br>
   <em>capteur → microcontrôleur (lecture/décision) → actionneur.</em>
 </p>
 
@@ -44,7 +44,7 @@ Ils combinent **un processeur**, **de la mémoire** et des **périphériques d�
 C’est pour cela qu’on le retrouve partout (objets du quotidien, robotique, automobile…).
 
 <p align="center">
-  <img src="./03-images/arduino.jpg" alt="Blocs d’un microcontrôleur : CPU, mémoire, E/S, bus interne" width="90%"><br>
+  <img src="../03-images/arduino.jpg" alt="Blocs d’un microcontrôleur : CPU, mémoire, E/S, bus interne" width="90%"><br>
   <em>Illustration attendue : schéma en blocs CPU + mémoire + E/S + bus, reliés entre eux.</em>
 </p>
 
@@ -141,7 +141,7 @@ Sur Arduino (cas le plus courant), `analogRead(A0)` renvoie un nombre **entre 0 
 Cela correspond à une tension comprise entre 0V et la tension de référence (souvent 5V sur Arduino UNO).
 
 <p align="center">
-  <img src="./images/analog_read_0_1023.png" alt="analogRead : 0 à 1023 correspond à une tension 0V à 5V" width="90%"><br>
+  <img src="../images/analog_read_0_1023.png" alt="analogRead : 0 à 1023 correspond à une tension 0V à 5V" width="90%"><br>
   <em>Illustration attendue : jauge 0→1023 associée à une tension 0V→5V.</em>
 </p>
 
@@ -205,7 +205,7 @@ S’exécute **en boucle** tant que l’Arduino est alimenté :
 lire → décider → agir → recommencer.
 
 <p align="center">
-  <img src="./images/exemple_blink_setup_loop.png" alt="Exemple Blink : structure setup() et loop()" width="90%"><br>
+  <img src="../images/exemple_blink_setup_loop.png" alt="Exemple Blink : structure setup() et loop()" width="90%"><br>
   <em>Illustration attendue : capture d’écran du code Blink montrant setup() et loop().</em>
 </p>
 

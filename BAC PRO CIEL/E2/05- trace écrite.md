@@ -21,7 +21,7 @@ L’analyse et le diagnostic des pannes consistent à identifier et localiser le
 - Exemple : “LED doit s’allumer” / “sortie doit basculer de 0 à 5V”.
 
 <p align="center">
-  <img src="./images/diagnostic_schema_attendu.png" alt="Schéma + fonctionnement attendu" width="90%"><br>
+  <img src="../images/diagnostic_schema_attendu.png" alt="Schéma + fonctionnement attendu" width="90%"><br>
   <em>Illustration attendue : schéma simple annoté (où doit-on trouver 5V ? où doit-on trouver 0V ?).</em>
 </p>
 
@@ -76,7 +76,7 @@ Les pannes peuvent se manifester de plusieurs façons, et certains signes permet
 - Un oscilloscope permet de voir si le signal est “sale” (bruit, distorsion).
 
 <p align="center">
-  <img src="./images/signal_propre_vs_bruit.png" alt="Signal propre vs bruité à l'oscilloscope" width="90%"><br>
+  <img src="../images/signal_propre_vs_bruit.png" alt="Signal propre vs bruité à l'oscilloscope" width="90%"><br>
   <em>Illustration attendue : deux oscillogrammes : (1) signal propre, (2) signal avec bruit/parasites.</em>
 </p>
 

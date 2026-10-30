@@ -26,7 +26,7 @@ Avant de commencer, il est essentiel de :
 4) vérifier les **polarités** (LED, diodes, condensateurs polarisés)
 
 <p align="center">
-  <img src="./images/methode_lecture_schema.png" alt="Méthode de lecture d'un schéma avant montage" width="85%"><br>
+  <img src="../images/methode_lecture_schema.png" alt="Méthode de lecture d'un schéma avant montage" width="85%"><br>
   <em>Illustration attendue : checklist visuelle en 4 étapes (Vcc/GND → connexions → jonctions → polarités).</em>
 </p>
 
@@ -67,7 +67,7 @@ Les composants peuvent être assemblés sur plusieurs types de supports selon le
 - Limite : moins fiable si ça bouge (fils qui se débranchent).
 
 <p align="center">
-  <img src="./images/breadboard_connexions.png" alt="Breadboard : rails d'alimentation et rangées connectées" width="90%"><br>
+  <img src="../images/breadboard_connexions.png" alt="Breadboard : rails d'alimentation et rangées connectées" width="90%"><br>
   <em>Illustration attendue : schéma d’une breadboard avec rails +/– et zones de connexions (rangées).</em>
 </p>
 
@@ -90,7 +90,7 @@ Les composants peuvent être assemblés sur plusieurs types de supports selon le
 - Limite : il faut penser aux bandes (risque de court-circuit si coupure oubliée).
 
 <p align="center">
-  <img src="./images/stripboard_bandes_coupure.png" alt="Stripboard : bandes cuivre et coupure" width="90%"><br>
+  <img src="../images/stripboard_bandes_coupure.png" alt="Stripboard : bandes cuivre et coupure" width="90%"><br>
   <em>Illustration attendue : vue d’une stripboard + exemple de bande coupée pour isoler deux zones.</em>
 </p>
 
@@ -125,7 +125,7 @@ La soudure est une étape essentielle dans le montage des circuits permanents. E
 - “Cône propre” = signe de bonne liaison.
 
 <p align="center">
-  <img src="./images/soudure_bonne_mauvaise.png" alt="Soudure : bonne vs soudure froide vs pont d'étain" width="90%"><br>
+  <img src="../images/soudure_bonne_mauvaise.png" alt="Soudure : bonne vs soudure froide vs pont d'étain" width="90%"><br>
   <em>Illustration attendue : 3 photos/dessins : soudure brillante (OK), soudure mate/granuleuse (froide), pont d’étain (court-circuit).</em>
 </p>
 
