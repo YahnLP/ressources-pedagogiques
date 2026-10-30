@@ -32,6 +32,26 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install mkdocs mkdocs-material; fi
 
+
+      - name: Prepare E2 documentation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+
+          source = Path("BAC PRO CIEL/E2")
+          destination = Path("docs/E2")
+
+          if not source.is_dir():
+              raise SystemExit("Dossier source E2 introuvable")
+
+          if destination.exists():
+              shutil.rmtree(destination)
+
+          shutil.copytree(source, destination)
+          PY
+
+
       - name: Build site
         run: mkdocs build
 
