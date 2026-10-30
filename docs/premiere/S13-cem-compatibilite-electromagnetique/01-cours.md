@@ -94,6 +94,22 @@ CLASSES D'ÉMISSIONS :
   Classe B : Usage résidentiel (limites plus strictes, car voisinage sensible)
 ```
 
+
+> [!TIP] 💡 En clair : la CEM, c'est « bien vivre ensemble »
+> Un appareil électronique **émet** toujours un peu de bruit électrique (il peut gêner la radio d'à côté) et **reçoit** celui des autres (il peut se tromper). La **CEM** (compatibilité électromagnétique) vise deux objectifs : **ne pas trop perturber** les autres et **ne pas être trop perturbable**. Pour comprendre une perturbation, on cherche toujours **trois éléments** : une **source**, un **chemin de couplage** et une **victime**. On agit sur **l'un des trois** pour résoudre le problème.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quels sont les trois éléments d'un problème de CEM ?
+
+??? success "Réponse"
+    La **source** de perturbation, le **couplage** (chemin) et la **victime**.
+
+**Q2.** Pourquoi le marquage CE est-il obligatoire ?
+
+??? success "Réponse"
+    Il atteste la **conformité** du produit aux directives européennes, dont la **CEM**, pour pouvoir le commercialiser.
+
 ---
 
 ## 2️⃣ — Les types de couplages et d'émissions
@@ -142,6 +158,27 @@ Pourquoi 30 MHz est la frontière ?
   Au-dessus de 30 MHz, les longueurs d'onde deviennent comparables
   aux dimensions des équipements → rayonnement efficace
 ```
+
+
+> [!TIP] 💡 En clair : reconnaître le couplage
+> - **Résistif** : **un fil commun** (la masse) partagé → le courant de l'un crée une tension chez l'autre.
+> - **Capacitif** : deux conducteurs **proches** → ils échangent des **tensions** (comme un condensateur).
+> - **Inductif** : un courant variable crée un **champ magnétique** qui induit un courant dans le conducteur voisin.
+> - **Rayonné** : l'énergie voyage **dans l'air** (ondes radio).
+>
+> **Astuce** : on casse un couplage en **éloignant**, en **blindant**, en **filtrant** ou en **séparant les retours de masse**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Un moteur et un capteur analogique partagent le même fil de masse. Quel couplage ?
+
+??? success "Réponse"
+    Un couplage **résistif** (impédance commune).
+
+**Q2.** Deux pistes parallèles très proches se perturbent. Quel couplage ?
+
+??? success "Réponse"
+    Un couplage **capacitif** (et éventuellement inductif sur de grandes longueurs).
 
 ---
 
@@ -205,6 +242,10 @@ Règle pratique :
   Toutes les ouvertures (ventilation, connecteurs) doivent être < λ/20 à la fréquence d'intérêt
   Ou munies d'une grille conductrice (honeycomb)
 ```
+
+
+> [!TIP] 💡 En clair : blinder
+> Un **blindage** est une **enveloppe métallique reliée à la masse** qui **arrête** ou **dévie** les champs. Il ne marche que s'il est **continu** (pas de trous ni de fentes longues) et **bien relié** à la masse. Une **fente** même étroite peut laisser passer des hautes fréquences si elle est **longue**.
 
 ---
 
@@ -277,6 +318,24 @@ $$= 50\,360\,\mathrm{\mathrm{Hz}} \approx 50\,\mathrm{\mathrm{kHz}}$$
 
 → Tout ce qui est > 50 kHz est fortement atténué.  
 
+
+> [!TIP] 💡 En clair : le condensateur de découplage
+> Un circuit numérique **appelle du courant par à-coups** à chaque commutation. Un petit condensateur (100 nF) **juste à côté de la broche d'alimentation** fournit ce courant **localement** au lieu de le demander à toute la carte : l'alimentation reste **propre** et la carte **rayonne moins**. **Il doit être placé le plus près possible de la broche**, avec des pistes **courtes**.
+>
+> Une **ferrite** laisse passer le courant continu mais **freine les hautes fréquences** (le bruit).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Où place-t-on le condensateur de découplage ?
+
+??? success "Réponse"
+    **Au plus près** de la broche d'alimentation du circuit intégré, avec des pistes **très courtes**.
+
+**Q2.** Quel est le rôle d'une perle de ferrite ?
+
+??? success "Réponse"
+    **Atténuer le bruit haute fréquence** sur une ligne, sans gêner le courant continu.
+
 ---
 
 ![Condensateurs de découplage sur un PCB](images/decouplage-pcb.png)
@@ -338,6 +397,13 @@ BONNES PRATIQUES :
 3. **Masses séparées** : les masses analogique et numérique se rejoignent en un point de jonction unique vers la terre.
 4. **Pas de boucle de masse** : deux chemins différents entre deux points de masse forment une antenne.
 
+
+> [!TIP] 💡 En clair : un plan de masse continu
+> Le courant **revient toujours** à sa source par le chemin le plus facile. Un **plan de masse continu** offre un **retour direct sous la piste du signal** : la boucle est **petite**, donc **peu d'antenne** et **peu de bruit**. Une **fente** dans le plan **force le courant à contourner** : la boucle grandit.
+
+> [!WARNING] ⚠️ Erreur fréquente
+> Faire passer une piste rapide **au-dessus d'une coupure** du plan de masse.
+
 ---
 
 ## 6️⃣ — Règles CEM pour la conception de PCB
@@ -374,6 +440,10 @@ BONNES PRATIQUES :
   → Ferrites sur les câbles d'alimentation et les câbles d'interface
   → Garder les câbles courts
 ```
+
+
+> [!TIP] 💡 En clair : trois réflexes à toujours appliquer sur ton PCB
+> **1** Un **condensateur de découplage** par circuit intégré, au plus près de l'alimentation. **2** Un **plan de masse** continu sur une face. **3** Des pistes **courtes** pour les signaux **rapides**, éloignées des signaux sensibles.
 
 ---
 

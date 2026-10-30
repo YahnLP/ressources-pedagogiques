@@ -31,6 +31,23 @@
 
 ## 1️⃣ — MTBF, MTTR et disponibilité
 
+### 🧱 Ce qu'il faut savoir avant de commencer
+
+| Notion | En simple |
+|---|---|
+| **Panne** | Le moment où un équipement **cesse de remplir sa fonction**. |
+| **Probabilité** | Un nombre entre **0** (impossible) et **1** (certain) : 0,9 = 90 % de chances. |
+| **Exponentielle** `e^x` | Une fonction de la calculatrice (touche `eˣ` ou `exp`). `e⁰ = 1`, et `e` à une puissance négative donne une valeur **entre 0 et 1**, qui diminue quand l'exposant devient plus négatif. |
+| **Moyenne** | Total divisé par le nombre : le MTBF est une **moyenne**, pas une garantie. |
+
+> [!TIP] 💡 En clair : trois questions, trois indicateurs
+> - **Combien de temps ça tient ?** → **MTBF** (temps moyen entre deux pannes).
+> - **Combien de temps pour réparer ?** → **MTTR**.
+> - **Quelle part du temps ça marche ?** → **Disponibilité** D = MTBF / (MTBF + MTTR).
+>
+> **Piège** : un MTBF de 50 000 h **ne veut pas dire** que **chaque** composant dure 50 000 h. C'est une **moyenne** sur un grand nombre de composants : certains tombent en panne **bien avant**.
+
+
 ### MTBF : Mean Time Between Failures
 
 $$\mathrm{MTBF} = \dfrac{T_O}{n}$$
@@ -86,6 +103,34 @@ $$D = \dfrac{2\,500}{2\,500 + 3{,}6} = \dfrac{2\,500}{2\,503{,}6} = 0{,}9986 = 9
 | 99,9 % | 8,76 heures | « three nines » |
 | 99,99 % | 52,6 minutes | « four nines » |
 | 99,999 % | 5,26 minutes | « five nines » (datacenter Tier IV) |
+
+
+**Exemple pas à pas** : un capteur a un MTBF de 2 000 h et un MTTR de 4 h. Quelle est sa disponibilité ?
+
+1. On écrit la formule : $D = \dfrac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}}$.
+2. On remplace : $D = \dfrac{2000}{2000 + 4} = \dfrac{2000}{2004}$.
+3. On calcule : $D \approx 0{,}998$, soit **99,8 %**.
+4. On interprète : sur 1 an (8 760 h), l'arrêt est d'environ $0{,}002 \times 8760 \approx 17{,}5$ heures.
+
+> [!NOTE] 🔎 Pourquoi le MTTR compte autant
+> Réduire de moitié le **MTTR** (pièces en stock, procédure claire) améliore la disponibilité **autant** que doubler le MTBF, souvent à **moindre coût**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** MTBF = 1 000 h, MTTR = 10 h. Calcule la disponibilité.
+
+??? success "Réponse"
+    D = 1000 / (1000 + 10) = 1000 / 1010 ≈ **0,990 = 99,0 %**.
+
+**Q2.** Un fabricant annonce un MTBF de 50 000 h. Le composant tiendra-t-il 50 000 h ?
+
+??? success "Réponse"
+    **Pas forcément** : c'est une **moyenne statistique**. D'après la loi exponentielle, environ **63 %** des composants sont tombés en panne au bout d'un temps égal au MTBF.
+
+**Q3.** Que fait-on pour **réduire le MTTR** ?
+
+??? success "Réponse"
+    Stock de **pièces de rechange**, **procédures** claires, **diagnostic automatique**, modules **remplaçables rapidement**.
 
 ---
 
@@ -157,6 +202,26 @@ Autrement dit : 63,2% des composants sont tombés en panne avant d'atteindre le 
 C'est pourquoi MTBF ≠ durée de vie garantie !
 ```
 
+
+> [!TIP] 💡 En clair : lire R(t) = e^(−λt)
+> **R(t)** est la **probabilité** que le composant fonctionne **encore** au bout du temps *t*. Au démarrage (t = 0), R = 1 (100 %). Puis R **diminue** : plus *t* est grand ou plus λ est grand (composant fragile), plus R est faible.
+>
+> **Méthode de calcul en 4 étapes** : **1** λ = 1 / MTBF · **2** calculer l'exposant −λ × t · **3** appuyer sur `eˣ` · **4** conclure en %.
+>
+> **Attention aux unités** : λ en pannes **par heure** impose *t* en **heures** (1 an = 8 760 h).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** MTBF = 10 000 h. Quelle est la fiabilité au bout de 1 000 h ?
+
+??? success "Réponse"
+    λ = 1/10 000 = 10⁻⁴ h⁻¹ ; R = e^(−10⁻⁴ × 1000) = e^(−0,1) ≈ **0,905 = 90,5 %**.
+
+**Q2.** Pourquoi R(t) diminue-t-elle toujours ?
+
+??? success "Réponse"
+    Parce que plus le temps passe, plus la **probabilité d'une panne** augmente : l'exposant devient **plus négatif**.
+
 ---
 
 ![Courbe de fiabilité R(t) = e^(−λt)](images/courbe-fiabilite.png)
@@ -172,6 +237,10 @@ C'est pourquoi MTBF ≠ durée de vie garantie !
 **Phase 2 — Vie utile** ($\lambda$ constant) : pannes aléatoires, indépendantes du temps. La loi exponentielle s'applique ici : c'est la phase normale de fonctionnement, où le MTBF est valable.
 
 **Phase 3 — Vieillissement** ($\lambda$ croissant) : usure normale des matériaux. Les condensateurs électrolytiques vieillissent (l'ESR augmente), les LED perdent de la luminosité.
+
+
+> [!TIP] 💡 En clair : la courbe en baignoire
+> Un composant vit **trois périodes** : la **jeunesse** (défauts de fabrication : beaucoup de pannes au début, qui **diminuent**), la **vie utile** (pannes rares et **aléatoires**, taux **constant**) et l'**usure** (le taux **remonte**). La formule exponentielle ne vaut **que** pour la **vie utile**.
 
 ---
 
@@ -217,6 +286,24 @@ $$Rs(8760) = 0{,}916 \times 0{,}839 \times 0{,}896 \times 0{,}864 = 0{,}594$$
 
 Observation : en série, plus on ajoute de composants, PLUS le système est fragile.  
 
+
+> [!TIP] 💡 En clair : série = maillon le plus faible
+> En **série**, si **un seul** composant tombe en panne, **tout s'arrête** (comme une guirlande de Noël ancienne). Le système est **moins fiable** que son composant le plus faible : on **multiplie** les fiabilités (des nombres inférieurs à 1 : le produit est plus petit) et on **additionne** les taux de panne.
+>
+> **Méthode** : **1** repérer les composants en série · **2** calculer chaque λ = 1/MTBF · **3** additionner · **4** MTBF du système = 1 / λ système.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Deux composants en série ont une fiabilité de 0,9 chacun. Quelle est la fiabilité du système ?
+
+??? success "Réponse"
+    0,9 × 0,9 = **0,81**.
+
+**Q2.** Pourquoi le système série est-il moins fiable que chaque composant ?
+
+??? success "Réponse"
+    Parce qu'il **suffit d'une seule panne** pour l'arrêter : les risques **s'accumulent**.
+
 ---
 
 ![Fiabilité en série et en parallèle](images/serie-parallele-fiabilite.png)
@@ -256,6 +343,22 @@ Comparaison :
 2 alimentations en parallèle → R = 98,9%  
 Gain en fiabilité : +9,3 points !  
 
+
+> [!TIP] 💡 En clair : parallèle = redondance
+> En **parallèle**, le système fonctionne tant qu'**au moins un** composant marche (deux alimentations, l'une secourt l'autre). Il est **plus fiable** que chaque composant. Au lieu de calculer la probabilité que **ça marche**, on calcule celle que **tout tombe en panne** : $R_p = 1 - (1-R_1)(1-R_2)$.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Deux alimentations de fiabilité 0,9 en parallèle : fiabilité du système ?
+
+??? success "Réponse"
+    R = 1 − (1 − 0,9)(1 − 0,9) = 1 − 0,01 = **0,99**.
+
+**Q2.** Quel est le prix de la redondance ?
+
+??? success "Réponse"
+    Un **coût** et un **encombrement** supplémentaires (deux composants au lieu d'un).
+
 ---
 
 ## 6️⃣ — Systèmes complexes (série + parallèle)
@@ -281,6 +384,10 @@ $$R_{\text{capteurs}} = 1 - (1 - 0{,}90)(1 - 0{,}90) = 1 - 0{,}10 \times 0{,}10 
 **Étape 3 : fiabilité totale**
 
 $$R_{s} = 0{,}99 \times 0{,}95 \times 0{,}98 \times 0{,}99 \approx 0{,}912 = 91{,}2\ \%$$
+
+
+> [!TIP] 💡 En clair : la méthode des blocs
+> Pour un système mixte, on **simplifie par étapes** : on calcule d'abord la fiabilité **équivalente de chaque groupe parallèle**, on le remplace par **un seul bloc**, puis on traite le tout **comme une série**.
 
 ---
 

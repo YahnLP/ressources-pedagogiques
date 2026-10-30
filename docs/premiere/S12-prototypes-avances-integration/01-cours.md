@@ -44,6 +44,10 @@
 > 3. ENVIRONNEMENTALES : IP (eau, poussière), UV, chimique  
 > 4. ERGONOMIQUES : accès opérateur, étiquetage, connecteurs  
 
+
+> [!TIP] 💡 En clair : « ça marche sur la table » ne suffit pas
+> Un prototype de labo fonctionne **bras ouverts**, posé sur un bureau, alimenté par USB. Un **produit** doit résister à la **poussière**, aux **chocs**, à la **chaleur**, aux **vibrations**, et être **utilisable** par quelqu'un d'autre. On répond à quatre questions : **où** est-il placé ? **comment** est-il fixé et alimenté ? **qu'est-ce qui le menace** ? **comment le teste-t-on** ?
+
 ---
 
 ## 2️⃣ INDICES DE PROTECTION IP
@@ -66,6 +70,22 @@
 | **IP68** | Poussière totale | Immersion > 1m (définie) | Équipements sous-marins |
 
 > **En IoT terrain** : une station météo extérieure demande au minimum **IP55** ; un compteur d'eau enterré demande **IP68**.
+
+
+> [!TIP] 💡 En clair : lire un indice IP
+> **IP** + **deux chiffres**. Le **1ᵉʳ** mesure la protection contre les **solides** (poussières, doigts) de 0 à 6 ; le **2ᵉ** contre les **liquides** (eau) de 0 à 8. **IP65** = **totalement étanche à la poussière** (6) et protégé des **jets d'eau** (5). Plus les chiffres sont hauts, plus c'est protégé, mais plus le boîtier est difficile à ouvrir et à ventiler.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que signifie IP54 ?
+
+??? success "Réponse"
+    Protection **poussière limitée** (5) et **projections d'eau** (4).
+
+**Q2.** Pour une station placée dehors sous la pluie, quel indice minimum viser ?
+
+??? success "Réponse"
+    Au moins **IP44**, plutôt **IP65** pour des jets d'eau et la poussière.
 
 ---
 
@@ -104,6 +124,10 @@ Volume intérieur minimal : dimensions maxi × 1,2 (marge 20%)
 | **Découpe laser** | Rapide (< 30 min), précision 0,1mm, matières variées | Formes 2D uniquement (assemblage requis) | Boîtiers plats (rack, panneau) |
 | **Découpe vinyle** | Façades, étiquettes, marquage | Pas structurel | Étiquetage, sérigraphie |
 | **Boîtier standard modifié** | Économique, certifié IP, disponible immédiatement | Peu personnalisable | Projets avec contraintes IP/CE |
+
+
+> [!TIP] 💡 En clair : dessiner le boîtier avant de l'imprimer
+> **1** lister **tous** les éléments (carte, connecteurs, câbles, capteur, bouton) avec leurs **dimensions** ; **2** faire un **plan de montage** (vue en coupe) pour savoir **où** va chaque chose ; **3** prévoir des **marges** (câbles qui plient, accès au connecteur USB, aération). Oublier un câble dans le plan est l'erreur la plus fréquente.
 
 ---
 
@@ -150,6 +174,13 @@ Emboîtement press-fit (snap) :
 □ Épaisseur de paroi ≥ 2 mm (rigidité)
 ```
 
+
+> [!TIP] 💡 En clair : imprimer en 3D, sans mauvaise surprise
+> Le **slicer** transforme le modèle 3D en **trajet de buse** couche par couche. Retiens : **remplissage** (plus il est élevé, plus la pièce est solide et lourde), **hauteur de couche** (plus elle est fine, plus c'est joli et **long**), **tolérance** (la pièce imprimée est **un peu plus grande/petite** que prévu : on ajoute un **jeu** de 0,2 à 0,3 mm aux emboîtements).
+
+> [!WARNING] ⚠️ Erreur fréquente
+> Dessiner un trou **au diamètre exact** d'une vis : après impression, la vis **ne passe pas**. Il faut **ajouter un jeu**.
+
 ---
 
 ## 5️⃣ INTÉGRATION ÉLECTRONIQUE DANS LE BOÎTIER
@@ -184,6 +215,10 @@ Règles de câblage dans un boîtier :
      directement sur le PCB (facilite le démontage)
   6. Séparer haute tension (230V AC) de basse tension (5V/3,3V) si applicable
 ```
+
+
+> [!TIP] 💡 En clair
+> La carte doit être **fixée** (entretoises vissées, pas simplement posée) et le **câblage interne** doit être **rangé et repéré** : un câble qui tire sur un connecteur finira par **se débrancher** (soulagement de traction).
 
 ---
 
@@ -224,6 +259,24 @@ $$\Delta T \approx \frac{P_{totale}}{k \cdot S}$$
    Buck converter → 85–95% d'efficacité, génère très peu de chaleur
 ```
 
+
+> [!TIP] 💡 En clair : pourquoi la chaleur compte
+> La **puissance perdue** se transforme en **chaleur**. Dans un boîtier **fermé**, cette chaleur ne s'évacue pas : la température **monte** jusqu'à ce que les échanges avec l'extérieur compensent la production.
+>
+> **Exemple** : régulateur 9 V → 5 V qui fournit 0,5 A : $P = (9 - 5) \times 0{,}5 = 2\,\mathrm{W}$. Dans un boîtier de 100 cm² : $\Delta T \approx \dfrac{2}{5 \times 0{,}01} = 40\,°\mathrm{C}$, soit 65 °C si l'air extérieur est à 25 °C : **proche des limites** de certains composants. **Remède** : réduire les pertes (régulateur à découpage), aérer ou ajouter un radiateur.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Un régulateur linéaire 12 V → 5 V fournit 200 mA. Quelle puissance dissipe-t-il ?
+
+??? success "Réponse"
+    P = (12 − 5) × 0,2 = **1,4 W**.
+
+**Q2.** Quelle solution réduit le plus la chaleur à la source ?
+
+??? success "Réponse"
+    Remplacer le régulateur linéaire par un **convertisseur à découpage** (rendement 85–95 %).
+
 ---
 
 ## 7️⃣ PLAN DE TESTS EN CONDITIONS RÉELLES
@@ -259,6 +312,22 @@ $$\Delta T \approx \frac{P_{totale}}{k \cdot S}$$
 | **Alimentation** | Durée de batterie, comportement en décharge | Multimètre, timer |
 | **Mécanique** | Résistance choc léger, vibration, ouverture/fermeture boîtier | Manipulation manuelle |
 | **Étanchéité** | Test IP (projection eau si IP44+) | Bouteille spray, papier absorbant |
+
+
+> [!TIP] 💡 En clair : un test se prépare
+> Un **plan de tests** décrit, **avant** de tester, **quoi** vérifier, **comment**, **avec quels critères** de réussite et **qui** note le résultat. Sans critère chiffré (« la température reste sous 60 °C »), un test ne prouve rien.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que doit contenir un cas de test ?
+
+??? success "Réponse"
+    Un **objectif**, des **conditions**, des **étapes**, un **résultat attendu** (critère) et un **résultat obtenu** avec verdict.
+
+**Q2.** Pourquoi tester dans des conditions réelles ?
+
+??? success "Réponse"
+    Parce que le comportement **diffère** du labo : chaleur, humidité, vibrations, alimentation réelle.
 
 ---
 
