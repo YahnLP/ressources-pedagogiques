@@ -76,8 +76,6 @@ Alternatives commerciales (pour info) :
 
 ---
 
-![Éditeur de schéma KiCad : zone de dessin et barre d'outils de droite](images/kicad-editeur-schema.png)
-
 ---
 
 ## 3️⃣ — Les bibliothèques de symboles
