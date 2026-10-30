@@ -458,6 +458,16 @@ def node(x, y, label=None):
     return o
 
 
+def _fl(x1, y1, x2, y2, c, w=2.4, h=8):
+    """Flèche fine avec pointe pleine (symboles de rayonnement)."""
+    import math
+    a = math.atan2(y2 - y1, x2 - x1)
+    bx, by = x2 - h * math.cos(a), y2 - h * math.sin(a)
+    px, py = -math.sin(a) * h * 0.45, math.cos(a) * h * 0.45
+    return (f'<path d="M{x1},{y1} L{bx:.1f},{by:.1f}" stroke="{c}" stroke-width="{w}" stroke-linecap="round"/>'
+            f'<path d="M{x2},{y2} L{bx+px:.1f},{by+py:.1f} L{bx-px:.1f},{by-py:.1f} Z" fill="{c}"/>')
+
+
 def sym(kind, x=0, y=0, rot=0, color=INK, s=1.0, **kw):
     w = SW
     c = color
@@ -482,8 +492,8 @@ def sym(kind, x=0, y=0, rot=0, color=INK, s=1.0, **kw):
     elif kind == "LED":
         o = (f'<path d="M-40,0 H-14 M14,0 H40" stroke="{c}" stroke-width="{w}"/>'
              f'<path d="M-14,-17 L14,0 L-14,17 Z" fill="#fff" stroke="{c}" stroke-width="{w}" stroke-linejoin="round"/>'
-             f'<path d="M14,-17 V17" stroke="{c}" stroke-width="{w+0.6}"/>'
-             f'<path d="M-4,-26 L8,-42 M8,-26 L20,-42" stroke="{c}" stroke-width="2.6" marker-end="url(#arr)"/>')
+             f'<path d="M14,-17 V17" stroke="{c}" stroke-width="{w+0.6}"/>' +
+             _fl(-6,-24,6,-40,c) + _fl(6,-24,18,-40,c))
     elif kind == "BAT":  # pile : + à gauche
         o = (f'<path d="M-40,0 H-8 M8,0 H40" stroke="{c}" stroke-width="{w}"/>'
              f'<path d="M-8,-22 V22" stroke="{c}" stroke-width="{w+0.8}"/><path d="M8,-12 V12" stroke="{c}" stroke-width="{w+3}"/>'
@@ -509,8 +519,8 @@ def sym(kind, x=0, y=0, rot=0, color=INK, s=1.0, **kw):
              f'<path d="M0,-40 V-12" stroke="{c}" stroke-width="{w}" marker-end="url(#arr)"/>')
     elif kind == "LDR":
         o = (f'<path d="M-40,0 H-26 M26,0 H40" stroke="{c}" stroke-width="{w}"/>'
-             f'<rect x="-26" y="-11" width="52" height="22" fill="#fff" stroke="{c}" stroke-width="{w}"/>'
-             f'<path d="M-30,-40 L-14,-24 M-16,-44 L0,-28" stroke="{c}" stroke-width="2.6" marker-end="url(#arr)"/>')
+             f'<rect x="-26" y="-11" width="52" height="22" fill="#fff" stroke="{c}" stroke-width="{w}"/>' +
+             _fl(-32,-42,-18,-26,c) + _fl(-18,-46,-4,-30,c))
     elif kind == "MOTOR":
         o = (f'<path d="M-40,0 H-18 M18,0 H40" stroke="{c}" stroke-width="{w}"/>'
              f'<circle cx="0" cy="0" r="18" fill="#fff" stroke="{c}" stroke-width="{w}"/>'
