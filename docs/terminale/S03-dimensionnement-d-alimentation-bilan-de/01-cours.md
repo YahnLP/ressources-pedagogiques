@@ -269,18 +269,9 @@ t_réelle ≈ 238 × 0,80 = 190 heures ≈ 8 jours
 
 ## 5️⃣ — Schéma d'alimentation type pour un projet ESP32
 
-```
-Source (batterie LiPo ou 5V USB)
-   │
-   ├── [Condensateur d'entrée 10µF (céramique)] ← filtre les transitoires d'entrée
-   │
-   ├── [Régulateur 3,3V (LDO AMS1117 ou buck MP2315)]
-   │       │
-   │       ├── [Condensateur sortie 10µF] ← stabilité du régulateur
-   │       └── [Condensateur sortie 100nF] ← filtrage HF
-   │
-   └── [Alimentation 3,3V vers ESP32, capteurs...]
+![Chaîne d'alimentation et découplage](images/chaine-alimentation-decouplage.png)
 
+```
 Protection optionnelle :
    [Diode Schottky SS14] en série en entrée → protection anti-inversion polarité
    [Fusible réarmable (PTC)] en série → protection surintensité

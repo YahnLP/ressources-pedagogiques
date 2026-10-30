@@ -255,26 +255,21 @@ CODE :
 
 ### Filtre LC passe-bas (filtre CEM actif)
 
-```
-PRINCIPE :
-  L (inductance) en série + C (condensateur) en parallèle vers la masse
+![Filtre LC](images/filtre-lc.png)
 
-  Signal ──[L]──┬── Signal filtré
-                │
-               [C]
-                │
-               GND
+Fréquence de coupure : fc = 1 / (2π√LC)  
 
-Fréquence de coupure : fc = 1 / (2π√LC)
+Exemple : L = 100µH · C = 100nF  
 
-Exemple : L = 100µH · C = 100nF
-  fc = 1 / (2π × √(100×10⁻⁶ × 100×10⁻⁹))
-     = 1 / (2π × √(10⁻¹¹))
-     = 1 / (2π × 3,16×10⁻⁶)
-     = 50 360 Hz ≈ 50 kHz
-  
-  → Tout ce qui est > 50 kHz est fortement atténué.
-```
+$$fc = \dfrac{1}{2π \times \sqrt{100 \times 10⁻⁶ \times 100 \times 10⁻⁹}}$$
+
+$$= \dfrac{1}{2π \times \sqrt{10⁻¹¹}}$$
+
+$$= \dfrac{1}{2π \times 3{,}16 \times 10⁻⁶}$$
+
+$$= 50\,360\,\mathrm{Hz} \approx 50\,\mathrm{kHz}$$
+
+→ Tout ce qui est > 50 kHz est fortement atténué.  
 
 ---
 
@@ -323,46 +318,19 @@ BONNES PRATIQUES :
 
 ### Plan de masse fendu vs continu
 
-```
-PLAN CONTINU (recommandé) :
-  F.Cu : [piste signal →  ←  ← piste retour courant dans le plan de masse]
-  B.Cu : [███████████████████████████████ Plan GND continu]
-  
-  → Le courant de retour emprunte le chemin de MOINDRE IMPÉDANCE
-  → À haute fréquence, ce chemin est JUSTE EN DESSOUS de la piste de signal
-  → Boucle minimale → rayonnement minimal ✓
+![Plan de masse continu et plan de masse fendu](images/plan-masse-continu-fendu.png)
 
-PLAN FENDU (à éviter) :
-  B.Cu : [███████ │ ████████████ Plan GND avec fente]
-  
-  → La fente FORCE le courant de retour à faire un long détour
-  → Grande boucle → grande antenne → fort rayonnement ✗
-  → Couplage entre les deux parties du plan (diaphonie)
-```
+- **Plan continu** : le courant de retour emprunte le chemin de moindre impédance, juste sous la piste. La boucle est minimale, donc le rayonnement aussi.
+- **Plan fendu** : la fente force le courant de retour à faire un long détour. La boucle devient une grande antenne et les deux parties du plan se couplent.
 
 ### Règles de mise à la terre
 
-```
-RÈGLE 1 — Point de masse unique (étoile) :
-  Toutes les masses reviennent à UN seul point
-  → Pas de courants parasites dans les fils communs
-  → Idéal pour les circuits analogiques basse fréquence
+![Les quatre règles de mise à la masse](images/regles-masse.png)
 
-RÈGLE 2 — Plan de masse (réseau) :
-  Toutes les masses sont reliées à un plan continu
-  → Faible impédance en tous points
-  → Idéal pour les circuits numériques et haute fréquence
-
-RÈGLE 3 — Séparer les masses (si circuits mixtes) :
-  Masse analogique ──┐
-                      ├── Point de jonction unique → Terre
-  Masse numérique ───┘
-  → Évite que les courants numériques perturbent les circuits analogiques
-
-RÈGLE 4 — Pas de boucle de masse :
-  Ne jamais relier deux points de masse par deux chemins différents
-  → Une boucle de masse = antenne → capte les champs extérieurs
-```
+1. **Point de masse unique (étoile)** : toutes les masses reviennent à un seul point, idéal pour l'analogique basse fréquence.
+2. **Plan de masse (réseau)** : toutes les masses sont reliées à un plan continu, idéal pour le numérique et la haute fréquence.
+3. **Masses séparées** : les masses analogique et numérique se rejoignent en un point de jonction unique vers la terre.
+4. **Pas de boucle de masse** : deux chemins différents entre deux points de masse forment une antenne.
 
 ---
 

@@ -223,21 +223,16 @@ Observation : en série, plus on ajoute de composants, PLUS le système est frag
 
 ### Schéma parallèle : un seul composant suffit
 
-```
-     ┌── [C1] ──┐
-     │           │
-────►├── [C2] ──┼────►
-     │           │
-     └── [C3] ──┘
+![Système parallèle](images/rbd-parallele.png)
 
-Le système tombe en panne seulement si TOUS les composants tombent en panne
+Le système tombe en panne seulement si TOUS les composants tombent en panne  
 
-Fiabilité du système parallèle :
-Rs = 1 − (1−R1) × (1−R2) × (1−R3) × ... × (1−Rn)
+Fiabilité du système parallèle :  
 
-MTBF approximatif pour 2 composants identiques (R1 = R2 = R) :
-  MTBFs ≈ MTBF × (1 + 1/2) = 1,5 × MTBF  (approximation)
-```
+$$Rs = 1 - (1-R_{1}) \times (1-R_{2}) \times (1-R_{3}) \times ... \times (1-Rn)$$
+
+MTBF approximatif pour 2 composants identiques (R1 = R2 = R) :  
+MTBFs ≈ MTBF × (1 + 1/2) = 1,5 × MTBF  (approximation)  
 
 ### Exemple : deux alimentations redondantes
 

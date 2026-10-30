@@ -86,20 +86,7 @@ Volume intérieur minimal : dimensions maxi × 1,2 (marge 20%)
 
 > Dessinez un plan simplifié (vue de dessus et vue latérale) montrant l'emplacement de chaque composant. Les composants qui génèrent de la chaleur (régulateurs, ESP32 en charge) sont placés **en haut** (convection naturelle ascendante).
 
-```
-Vue de dessus du boîtier (exemple) :
-
-┌─────────────────────────────────────┐
-│  Antenne ↑          [LED]  [RESET]  │
-│                                     │
-│   ┌───────────────────┐             │
-│   │     ESP32 PCB     │  [Batterie] │
-│   │                   │             │
-│   └───────────────────┘             │
-│            [DHT22]      [USB-C]     │
-└─────────────────────────────────────┘
-                              ← Côté accès câble USB
-```
+![Vue de dessus du boîtier](images/boitier-vue-dessus.png)
 
 ### Étape 3 — Choix de la technologie de fabrication
 

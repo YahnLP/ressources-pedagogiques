@@ -31,27 +31,7 @@
 
 ### Les 3 familles de normes électroniques
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│  FAMILLE 1 : Conception et fabrication PCB                          │
-│  IPC-2221 : Standard générique de conception PCB                   │
-│    → Largeurs de pistes, isolements, percages, empilements         │
-│  IPC-A-610 : Acceptabilité des assemblages électroniques           │
-│    → Brasures, placement composants, propreté (Classes 1/2/3)     │
-├──────────────────────────────────────────────────────────────────────┤
-│  FAMILLE 2 : Sécurité et fiabilité des équipements                 │
-│  CEI 61010-1 : Sécurité des équipements électriques                │
-│    → Distances d'isolement, tensions maximales, marquage           │
-│  CEI 60068-2 : Tests environnementaux                              │
-│    → Chaleur sèche (85°C/2h), froid (−40°C), humidité 85%HR     │
-├──────────────────────────────────────────────────────────────────────┤
-│  FAMILLE 3 : Management de la qualité                              │
-│  ISO 9001:2015 : Système de management qualité                     │
-│    → Processus de validation documentée et traçable               │
-│  ISO/CEI 17025 : Laboratoires d'essais et d'étalonnage            │
-│    → Accréditation, incertitudes, traçabilité métrologique        │
-└──────────────────────────────────────────────────────────────────────┘
-```
+![Les trois familles de normes](images/familles-normes.png)
 
 ---
 

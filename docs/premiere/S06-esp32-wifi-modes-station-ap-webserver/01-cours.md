@@ -35,19 +35,9 @@
 
 ### Architecture et capacités
 
-```
-ESP32 DevKit v1 :
-  ┌─────────────────────────────────────────────┐
-  │  Xtensa LX6 Dual Core @ 240 MHz            │
-  │  520 KB RAM · 4 MB Flash SPI                │
-  ├─────────────────────────────────────────────┤
-  │  WiFi 802.11 b/g/n 2,4 GHz                 │
-  │  Bluetooth 4.2 BLE + Classic                │
-  ├─────────────────────────────────────────────┤
-  │  34 GPIO · 18 ADC · 2 DAC                  │
-  │  UART · SPI · I²C · PWM · Touch sensors     │
-  └─────────────────────────────────────────────┘
+![Caractéristiques de l'ESP32 DevKit v1](images/esp32-caracteristiques.png)
 
+```
 Alimentation : 3,3 V (GPIO) — 5 V (USB)
 ⚠️ Les GPIO ESP32 sont en 3,3 V — incompatibles 5 V direct !
 ```

@@ -185,14 +185,9 @@ Eeschema → Tools → Generate BOM
 
 ### NE555 — Brochage DIP-8
 
-```
-            ┌──────────┐
-  GND    1 ─┤          ├─ 8  VCC
- TRIG    2 ─┤  NE555   ├─ 7  DISCHARGE
- OUTPUT  3 ─┤          ├─ 6  THRESHOLD
- RESET   4 ─┤          ├─ 5  CONTROL VOLTAGE
-            └──────────┘
+![Brochage du NE555](images/brochage-ne555.png)
 
+```
 Mode astable :
   Pin 4 (RESET) → VCC (toujours actif)
   Pin 5 (CTRL)  → condensateur 100nF → GND (découplage)
@@ -204,13 +199,9 @@ Mode astable :
 
 ### 7805 — Brochage TO-220
 
-```
-         ┌─────┐
-         │ 7805│
-    ─────┤     ├─────
-   Vin  (1) (2) (3) Vout
-          GND (tab)
+![Brochage du régulateur 7805](images/brochage-7805.png)
 
+```
 (1) Input  : tension non régulée (12V)
 (2) Ground : masse (le tab métallique est aussi le GND)
 (3) Output : tension régulée (5V)
