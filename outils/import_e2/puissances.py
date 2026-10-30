@@ -19,6 +19,7 @@ def conv(l):
         s = re.sub(r'(\d+(?:,\d+)?)\s*[×x]\s*10([' + SUPS + r']+)', lambda m: '$' + m.group(1).replace(',', '{,}') + r'\times 10^{' + sup(m.group(2)) + '}$', s)
         s = re.sub(r'(?<![\w$])10([' + SUPS + r']+)', lambda m: '$10^{' + sup(m.group(1)) + '}$', s)
         s = re.sub(r'\b([a-zA-Zλ])([' + SUPS + r']+)', lambda m: '$\\mathrm{' + m.group(1) + '}^{' + sup(m.group(2)) + '}$' if m.group(1) in 'h' else m.group(0), s)
+        s = re.sub(r'(?<![\w$])e([' + SUPS + r']+)(?:·([' + SUPS + r']+))?', lambda m: '$e^{' + sup(m.group(1)) + ('{,}' + sup(m.group(2)) if m.group(2) else '') + '}$', s)
         s = re.sub(r'\be\^\(([^)]*)\)', lambda m: '$e^{' + inner(m.group(1)) + '}$', s)
         s = re.sub(r'\b(e|\d+)\^([A-Za-z0-9])\b', lambda m: '$' + m.group(1) + '^{' + m.group(2) + '}$', s)
         parts[k] = s

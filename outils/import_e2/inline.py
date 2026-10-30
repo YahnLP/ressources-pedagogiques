@@ -15,6 +15,9 @@ GREEK = {'π': r'\pi ', 'σ': r'\sigma ', 'λ': r'\lambda ', 'Δ': r'\Delta ', '
 
 
 def fixmath_plain(s):
+    s = re.sub(r'\^\{(-?\d)\}\s*\\cdot\s*\^\{?(\d)\}?', r'^{\1{,}\2}', s)
+    s = re.sub(r'(= 0\{,\}\d+)\s+(e\^)', r'\1 \\quad \2', s)
+    s = re.sub('([' + SUPS + ']+)\\s*\\\\cdot\\s*([' + SUPS + ']+)', lambda x: '^{' + ''.join(SUPD[c] for c in x.group(1)) + '{,}' + ''.join(SUPD[c] for c in x.group(2)) + '}', s)
     s = re.sub('([' + SUPS + ']+)·([' + SUPS + ']+)', lambda x: '^{' + ''.join(SUPD[c] for c in x.group(1)) + '{,}' + ''.join(SUPD[c] for c in x.group(2)) + '}', s)
     s = re.sub(r'\^\(([^()]*)\)', r'^{\1}', s)
     s = re.sub('([' + SUPS + ']+)', lambda x: '^{' + ''.join(SUPD[c] for c in x.group(1)) + '}', s)

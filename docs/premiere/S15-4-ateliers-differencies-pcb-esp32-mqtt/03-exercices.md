@@ -189,12 +189,12 @@ Q.B.2c — Pour afficher 3 courbes (température, humidité, CO₂) sur UN SEUL 
 λ = 1/MTBF               MTBF = TO/n           MTTR = TA/n  
 D = MTBF/(MTBF+MTTR)     R(t) = $e^{-\lambda t}$        F(t) = 1 − R(t)  
 
-À t = MTBF : R = e⁻¹ = 0,368 (36,8% encore OK)  
+À t = MTBF : R = $e^{-1}$ = 0,368 (36,8% encore OK)  
 
 Série    : Rs = R1 × R2 × R3  
 Parallèle: Rs = 1 − (1−R1)(1−R2)(1−R3)  
 
-$$e^{-0} \cdot ^{1}=0{,}905 e^{-0} \cdot ^2=0{,}819 e^{-0} \cdot ^3=0{,}741 e^{-0} \cdot ^{5}=0{,}607 e^{-1}=0{,}368$$
+$$e^{-0{,}1}=0{,}905 e^{-0} \cdot ^2=0{,}819 e^{-0} \cdot ^3=0{,}741 e^{-0{,}5}=0{,}607 e^{-1}=0{,}368$$
 
 ### Exercice C1 — MTBF/MTTR/D (10 min)
 
