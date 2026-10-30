@@ -35,6 +35,20 @@
 
 ## 1️⃣ — L'Industrie 4.0 : du capteur à la décision
 
+### 🧱 Ce qu'il faut savoir avant de commencer
+
+| Notion | En simple |
+|---|---|
+| **Industrie 4.0** | Des usines et des équipements **connectés** : les machines mesurent, envoient leurs données et on **décide** avec ces données. |
+| **KPI** | *Key Performance Indicator* : un **chiffre clé** qui résume l'état d'un système (ex. « disponibilité : 99,8 % »). |
+| **Alerte** | Une **notification** envoyée quand une valeur sort de la plage normale. |
+| **Seuil** | La valeur à partir de laquelle on considère qu'il y a un problème. |
+| **Étalonnage** | Comparer un instrument à une **référence** pour connaître son écart. |
+
+> [!TIP] 💡 En clair : de la mesure à la décision
+> Un capteur mesure, le microcontrôleur transmet, le dashboard **affiche**, mais c'est le **KPI** et l'**alerte** qui permettent d'**agir** sans regarder l'écran en permanence. Un bon système sait aussi **dire s'il faut faire confiance à la mesure** : c'est la **métrologie** (partie 4).
+
+
 ### La pyramide de l'information industrielle
 
 ![Niveaux d'une architecture industrielle : de la décision au terrain](images/niveaux-isa.png)
@@ -55,6 +69,25 @@ Affichage dans Node-RED :
   Nœud "gauge" pour les % (uptime, batterie)
   Nœud "ui_table" pour les listes d'alertes
 ```
+
+
+**Exemple de calcul d'un KPI.** La station est restée hors service **1 h** sur **30 jours** (720 h).
+
+1. Temps de fonctionnement : 720 − 1 = **719 h**.
+2. Disponibilité : 719 / 720 ≈ **0,9986**, soit **99,86 %**.
+3. Comparaison à la cible (99,5 %) : **objectif atteint**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quel KPI mesure le délai entre la mesure du capteur et son affichage ?
+
+??? success "Réponse"
+    La **fraîcheur des données**.
+
+**Q2.** Une station a été arrêtée 6 h sur 30 jours. Quelle est sa disponibilité ?
+
+??? success "Réponse"
+    (720 − 6) / 720 = 714/720 ≈ **99,17 %** : sous la cible de 99,5 %.
 
 ---
 
@@ -144,6 +177,39 @@ return msg;
 // → Vers nœud ui_table qui affiche le tableau dans le dashboard
 ```
 
+
+> [!TIP] 💡 En clair : pourquoi l'hystérésis ?
+> Imagine un thermostat qui allume le chauffage à 19,0 °C et l'éteint à 19,0 °C : il **claquerait** sans arrêt dès que la température flotte autour de 19,0. On sépare donc le seuil de **déclenchement** (30 °C) de celui de **retour à la normale** (28 °C) : entre les deux, **l'état ne change pas**.
+>
+> **Suivons le code** avec des mesures successives (état initial : pas d'alerte) :
+>
+> | Mesure | Alerte avant | Que fait le code ? | Message envoyé |
+> |---|---|---|---|
+> | 29,8 °C | non | 29,8 < 30 → rien | aucun |
+> | 30,1 °C | non | ≥ 30 → **déclenche** | « ALERTE » |
+> | 29,7 °C | oui | 29,7 > 28 → rien | aucun |
+> | 30,2 °C | oui | déjà active → rien | aucun |
+> | 27,9 °C | oui | ≤ 28 → **annule** | « OK » |
+>
+> `context.get / context.set` **mémorisent l'état** entre deux messages : sans cela, la fonction oublierait si l'alerte est active.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Avec seuils de 30 °C et 28 °C, la température passe de 31 °C à 29 °C. L'alerte est-elle annulée ?
+
+??? success "Réponse"
+    **Non** : elle ne s'annule qu'à **28 °C ou moins**.
+
+**Q2.** À quoi sert `return null` à la fin de la fonction ?
+
+??? success "Réponse"
+    À **ne rien envoyer** quand l'état ne change pas : pas de message en double.
+
+**Q3.** Cite un avantage de l'alerte sur la dérivée.
+
+??? success "Réponse"
+    Elle détecte une **montée rapide avant d'atteindre le seuil** (maintenance prédictive).
+
 ---
 
 ![Hystérésis d'une alerte de température](images/hysteresis-alerte.png)
@@ -208,6 +274,26 @@ from(bucket: "iot_salle")
   // Si dérivée > 2°C/min → alerte montée rapide
 ```
 
+
+> [!TIP] 💡 En clair : lire une requête Flux
+> Chaque ligne de Flux **transforme** les données de la ligne précédente (`|>` = « puis »). Modèle à retenir : **`from`** (où ?) → **`range`** (quand ?) → **`filter`** (quoi ?) → **opération** (que calculer : `mean`, `count`, `derivative`…).
+>
+> - **Moyenne par fenêtre** (`aggregateWindow`) : un point **toutes les 5 min** = la moyenne de chaque bloc. **Courbe plus lisse, moins de points.**
+> - **Dérivée** : **vitesse de variation** (°C par minute). **Positive** = ça monte.
+> - **`count`** après un filtre `> 30` : **combien de mesures** ont dépassé le seuil.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle étape de Flux permet de ne garder que la dernière heure ?
+
+??? success "Réponse"
+    `range(start: -1h)`.
+
+**Q2.** Que représente une dérivée de +3 °C/min ?
+
+??? success "Réponse"
+    La température **monte de 3 °C par minute** (montée rapide).
+
 ---
 
 ## 4️⃣ — Métrologie industrielle
@@ -271,6 +357,41 @@ EXPRESSION DU RÉSULTAT :
 T = (valeur mesurée) ± U  [°C]  (P = 95%)  
 Exemple : T = 23,4 ± 0,6 °C  (P = 95%)  
 
+
+> [!TIP] 💡 En clair : la cible et les flèches
+> Imagine des fléchettes sur une cible. **Exactitude** : elles sont **centrées sur le milieu**. **Fidélité** : elles sont **groupées** entre elles (même si loin du centre). Un capteur peut être **fidèle mais pas exact** (groupées au mauvais endroit : un **biais** qu'on peut corriger) ou **exact mais pas fidèle** (dispersées autour du centre).
+
+**Exemple complet de calcul d'incertitude** : 5 mesures d'un DHT22 (précision ± 0,5 °C) : 23,1 · 23,4 · 23,3 · 23,5 · 23,2 °C.
+
+1. **Moyenne** : $\bar{T} = \dfrac{23{,}1 + 23{,}4 + 23{,}3 + 23{,}5 + 23{,}2}{5} = 23{,}3\,°\mathrm{C}$.
+2. **Écart-type** : les écarts à la moyenne sont −0,2 ; 0,1 ; 0 ; 0,2 ; −0,1. La somme des carrés vaut 0,10, donc $s = \sqrt{\dfrac{0{,}10}{4}} \approx 0{,}16\,°\mathrm{C}$.
+3. **Type A** : $u_A = \dfrac{s}{\sqrt{n}} = \dfrac{0{,}16}{\sqrt{5}} \approx 0{,}07\,°\mathrm{C}$.
+4. **Type B** (constructeur ± 0,5 °C) : $u_B = \dfrac{0{,}5}{\sqrt{3}} \approx 0{,}29\,°\mathrm{C}$.
+5. **Combinée** : $u_c = \sqrt{0{,}07^2 + 0{,}29^2} \approx 0{,}30\,°\mathrm{C}$.
+6. **Élargie** : $U = 2 \times 0{,}30 = 0{,}6\,°\mathrm{C}$.
+
+**Résultat** : $T = (23{,}3 \pm 0{,}6)\,°\mathrm{C}$ (probabilité 95 %).
+
+> [!NOTE] 🔎 Ce qu'on retient
+> Ici, la précision du **constructeur** (type B) **domine** : répéter la mesure ne change presque rien. Pour mieux faire, il faut un **meilleur capteur** ou un **étalonnage**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Des mesures groupées mais décalées de 2 °C par rapport à l'étalon : exactitude ou fidélité en défaut ?
+
+??? success "Réponse"
+    L'**exactitude** (biais de 2 °C) ; la **fidélité** est bonne.
+
+**Q2.** Pourquoi multiplie-t-on par k = 2 ?
+
+??? success "Réponse"
+    Pour obtenir un niveau de confiance d'environ **95 %**.
+
+**Q3.** Quelle incertitude s'applique quand on n'a qu'une seule mesure ?
+
+??? success "Réponse"
+    L'incertitude de **type B** (spécification du constructeur).
+
 ---
 
 ![Exactitude et fidélité](images/exactitude-fidelite.png)
@@ -326,6 +447,22 @@ Pour le BAC PRO : le PV constitue la preuve de C3.1 et S8.1.
 9. SIGNATURES :
    Opérateur · Responsable métrologie
 ```
+
+
+> [!TIP] 💡 En clair : un PV de métrologie répond à quatre questions
+> **Qu'a-t-on mesuré** et avec quoi (matériel, étalonnage) ? **Dans quelles conditions** ? **Qu'a-t-on trouvé** (valeurs, écarts, incertitude) ? **Que conclut-on** (conforme ou non, avec quel critère) ? Un PV **sans signature** ou **sans critère de conformité** n'est pas exploitable.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi indiquer la date d'étalonnage de l'instrument ?
+
+??? success "Réponse"
+    Pour prouver que l'instrument était **valide** au moment de la mesure.
+
+**Q2.** Quelle règle de conclusion applique-t-on avec l'incertitude ?
+
+??? success "Réponse"
+    On compare **la plage valeur ± U** à la tolérance : tout dedans = conforme ; en partie dehors = non garanti.
 
 ---
 

@@ -26,6 +26,10 @@
 | Évolution du système | "Qu'est-ce qui existe déjà ?" | DAT-E décrit l'existant |
 | Audit qualité / certification | Pas de preuve du travail réalisé | Preuves datées, versionnées, signées |
 
+
+> [!TIP] 💡 En clair : écrire pour quelqu'un d'autre
+> La documentation n'est pas écrite pour **toi aujourd'hui**, mais pour **quelqu'un d'autre** (ou toi dans un an) qui n'a **pas assisté** à la conception. La règle : **si cette personne doit te téléphoner pour comprendre, la documentation est incomplète.**
+
 ---
 
 ## 2️⃣ LE DAT — DOSSIER DES ARCHITECTURES TECHNIQUES
@@ -42,6 +46,22 @@
 | **DAT-I** (Instruit) | Architecture cible APRÈS l'intervention ou évolution | Nouveau déploiement, migration |
 
 > En BAC PRO CIEL, votre projet A2 est un **DAT-I** : vous documentez ce que vous venez de construire — c'est aussi appelé **as-built** ("tel que construit").
+
+
+> [!TIP] 💡 En clair : DAT, mode d'emploi du système
+> Le DAT est à un système ce que **la notice et le plan** sont à un meuble : il explique **de quoi il est fait, comment les parties sont reliées et comment l'installer, le configurer et le dépanner**. **DAT-E** = ce qui **existe déjà** (photographie de départ) ; **DAT-I** = ce qu'on **a construit** (photographie d'arrivée).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Un technicien reprend une installation inconnue. Quel DAT demande-t-il ?
+
+??? success "Réponse"
+    Le **DAT-E** (l'existant).
+
+**Q2.** Ton projet de BAC est documenté après réalisation. DAT-E ou DAT-I ?
+
+??? success "Réponse"
+    Un **DAT-I** (architecture construite).
 
 ---
 
@@ -111,6 +131,10 @@ HISTORIQUE DES RÉVISIONS
 | 0.1 | 2026-03-15 | A. DUPONT | Création initiale |
 | 1.0 | 2026-03-20 | A. DUPONT | Version complète validée |
 
+
+> [!NOTE] 🔎 Comment s'y prendre
+> **Ne pas écrire dans l'ordre à la fin du projet** : on **rédige au fur et à mesure** (schéma après le câblage, BOM dès les achats, procédures après les tests). Chaque section répond à une **question précise** d'un lecteur : *Qu'est-ce que c'est ? Comment c'est organisé ? Quoi commander ? Comment l'installer ? Que faire en cas de panne ?*
+
 ---
 
 ## 4️⃣ SCHÉMAS DE CÂBLAGE
@@ -162,6 +186,22 @@ Sur le schéma :
   │                     [ROUGE, 20cm]                       │
   └─────────────────────────────────────────────────────────┘
 ```
+
+
+> [!TIP] 💡 En clair : un schéma de câblage lisible
+> Chaque fil est **repéré aux deux extrémités**, chaque connecteur est **nommé**, les **couleurs** suivent une **convention** (rouge = +, noir = masse), et une **légende** explique les symboles. Un schéma sans repères est **illisible** pour un tiers, même s'il est correct.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi repérer un fil aux deux extrémités ?
+
+??? success "Réponse"
+    Pour pouvoir le **retrouver** et le **rebrancher** sans suivre tout le trajet.
+
+**Q2.** Quelles couleurs usuelles pour +5 V et GND ?
+
+??? success "Réponse"
+    **Rouge** pour le +, **noir** pour la masse.
 
 ---
 
@@ -218,6 +258,24 @@ Sur le schéma :
 | — | Câbles Dupont | 20 cm, mixtes | 20 | Kit | — | ~0,50 € |
 | | | | | **TOTAL** | | **22,69 €** |
 
+
+> [!TIP] 💡 En clair : la BOM
+> La BOM est la **liste de courses exacte** du système : avec elle, quelqu'un peut **commander et reconstruire** sans te poser de question. **Chaque ligne** doit être **commandable** : désignation, **référence précise**, quantité, fournisseur, prix.
+>
+> **Vérifier un total** : somme des lignes = total annoncé. Exemple du cours : 7,99 + 4,99 + 3,49 + 0,35 + 0,10 + 0,32 + 3,95 + 1,00 + 0,50 = **22,69 €**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle information rend une ligne de BOM « commandable » ?
+
+??? success "Réponse"
+    La **référence précise** du fournisseur (ou du fabricant).
+
+**Q2.** 4 condensateurs à 0,08 € l'unité : quel total de ligne ?
+
+??? success "Réponse"
+    4 × 0,08 = **0,32 €**.
+
 ---
 
 ## 6️⃣ LA SECTION CONFIGURATION
@@ -264,6 +322,10 @@ SECTION 8 — CONFIGURATION
   Dashboard        : Dashboard-IoT-CIEL-Machine01
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
+
+
+> [!TIP] 💡 En clair : la section configuration
+> Tout ce qu'il faut **régler** pour que le système marche : **adresses IP**, **topics**, **identifiants** (sans les mots de passe en clair), **versions** des logiciels, **seuils**. « Voir le post-it sur le boîtier » **n'est pas** une documentation.
 
 ---
 
@@ -352,6 +414,31 @@ Symptôme couvert : ESP32 ne publie plus sur MQTT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
+
+> [!TIP] 💡 En clair : écrire une procédure que n'importe qui peut suivre
+> 1. **Un verbe d'action par étape** : « Brancher… », « Vérifier… ».
+> 2. **Une seule action par étape**.
+> 3. **Préciser le résultat attendu** après l'étape : « la LED verte s'allume ».
+> 4. **Terminer par un test de validation** : « Publier un message et le voir sur le dashboard ».
+> 5. **Faire tester** par un binôme qui n'a pas participé à la rédaction.
+>
+> | ❌ À éviter | ✅ À écrire |
+> |---|---|
+> | « Configurer le Wi-Fi. » | « Dans `config.h`, saisir le SSID et le mot de passe, puis téléverser. La LED bleue clignote 3 fois. » |
+> | « Ça doit marcher. » | « Vérifier que le moniteur série affiche `MQTT connecté ! rc=0`. » |
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi faire tester une procédure par un binôme ?
+
+??? success "Réponse"
+    Parce que l'auteur **comble sans s'en rendre compte** les manques ; un autre lecteur **révèle les étapes floues**.
+
+**Q2.** Pourquoi indiquer le résultat attendu à chaque étape ?
+
+??? success "Réponse"
+    Pour que le lecteur **sache si l'étape a réussi** avant de passer à la suivante.
+
 ---
 
 ## 8️⃣ QUALITÉ DE LA DOCUMENTATION
@@ -377,6 +464,10 @@ Symptôme couvert : ESP32 ne publie plus sur MQTT
 ❌ Procédure sans test de validation  → On ne sait pas si ça a fonctionné
 ❌ Un seul fichier Word sans sommaire ni version  → Non professionnel
 ```
+
+
+> [!TIP] 💡 En clair : relire avec les cinq critères
+> Avant de rendre un dossier, **parcours-le comme un inconnu** : *est-il complet ? exact (conforme à ce qui est installé) ? clair ? versionné ? mis à jour facilement ?* Un seul « non » = une correction à faire.
 
 ---
 
