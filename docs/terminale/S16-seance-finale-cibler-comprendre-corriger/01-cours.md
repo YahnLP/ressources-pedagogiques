@@ -47,6 +47,15 @@ Lacune 3 : ___________________________________________________________
 > - Synthèse/PV fragile → **Parcours 3**
 > - Score global < 50% → Commencer par P1 puis aller en P3
 
+
+> [!TIP] 💡 En clair : comment trouver ses lacunes
+> Une lacune se repère à la **catégorie d'erreur**, pas au nombre de points perdus. Dans tes copies, **classe chaque erreur** : **oubli** (unité, tolérance, signature), **calcul** (formule, arrondi), **méthode** (mauvais ordre, mauvaise valeur utilisée), **connaissance** (notion non comprise). Les **oublis** se corrigent par des **réflexes** ; les **connaissances** par une **relecture** puis un exercice.
+
+??? tip "💡 Aide : comment remplir ton bilan"
+    - Si ton score est **inférieur à 50 %** dans une catégorie, c'est une **priorité**.
+    - **Une tendance en baisse** entre les deux copies indique souvent un **oubli de méthode** plutôt qu'un manque de connaissance.
+    - Choisis **trois lacunes seulement** : les corriger vaut mieux qu'en lister dix.
+
 ---
 
 ## ÉTAPE 2 — ANALYSE DES ERREURS TYPES (15 min, collectif)
@@ -99,6 +108,14 @@ Les 3 formulations acceptées :
   3. La carte est _________________________________________________
 ```
 
+
+??? tip "💡 Aides pour les cinq erreurs types (sans les réponses)"
+    - **Erreur n° 1 (classe de l'instrument)** : dans ce cours, la classe s'applique à la **valeur mesurée** $\bar{x}$, **pas à la pleine échelle** de l'instrument. Vérifie quelle grandeur figure au numérateur de ta formule.
+    - **Erreur n° 2 (hystérésis)** : repère **quel seuil** s'applique quand l'alarme est **active** et quand elle est **inactive**. Entre les deux seuils, l'état **ne change pas**.
+    - **Erreur n° 3 (broche 4 du NE555)** : c'est l'entrée de **remise à zéro** (RESET) : elle est **active à l'état bas**. Elle doit donc être **forcée au niveau haut** pour que le circuit oscille.
+    - **Erreur n° 4 (IPC)** : les seuils sont des **pourcentages** : un **décalage maximum** pour les CMS et un **remplissage minimum** pour les trous métallisés. Retrouve les valeurs de ton cours.
+    - **Erreur n° 5 (conclusion du PV)** : la conclusion a **trois formes** possibles ; chacune doit reposer sur un **chiffre** (intervalle de mesure, tolérance).
+
 ---
 
 # ═══════════════════════════════════════════
@@ -137,6 +154,17 @@ $$\boxed{V = (\_\_\_\_ \pm \_\_\_\_) \text{ V} \quad [95\%]}$$
 ```
 Intervalle : [_____ ; _____] V  vs  [3,234 ; 3,366] V → _______________
 ```
+
+
+> [!TIP] 💡 En clair : la méthode en sept lignes
+> **1** Moyenne · **2** écart-type · **3** $u_A$ · **4** $u_{B,rés}$ · **5** $u_{B,cl}$ calculée avec la **moyenne** · **6** $u_c$ en racine carrée de la somme des carrés · **7** $U = 2u_c$, **arrondi par excès**, puis la valeur centrale **arrondie au même rang**.
+
+??? tip "💡 Aide : ordres de grandeur pour vérifier ton calcul"
+    - Pour cinq mesures d'un régulateur 3,3 V qui varient de **quelques centièmes de volt**, l'écart-type est de l'ordre de **0,01 à 0,03 V**.
+    - $u_A$ est **plus petit** que l'écart-type (on divise par $\sqrt{5}$).
+    - $u_{B,rés}$ est de l'ordre de **quelques millivolts** (au plus **0,003 V** pour une résolution de 0,01 V).
+    - La **classe 0,5 %** donne, pour 3,3 V, une composante de l'ordre de **0,01 V**.
+    - $U$ est de l'ordre de **0,02 à 0,05 V** : si tu trouves **plusieurs volts**, tu as oublié une division ou une racine.
 
 ---
 
@@ -177,6 +205,12 @@ $$U_{\mathrm{arrondi}} = \underline{\hspace{2.5em}} V$$
 
 Valeur centrale arrondie au même rang : \_\_\_\_\_ V  
 
+
+??? tip "💡 Aide : les trois cas limites"
+    - **Mesure unique** : $u_A = 0$, mais les deux composantes de **type B** restent. Ne conclus pas « incertitude nulle ».
+    - **$U$ plus grand que la marge** : si la plage « mesure ± U » **dépasse** la tolérance, même d'un seul côté, la conformité n'est **pas garantie** : choisis la conclusion **sous réserve** ou **non conforme** et **justifie** avec les chiffres.
+    - **Arrondi** : on garde **un chiffre significatif** pour $U$ (par excès) puis on arrondit la valeur centrale **au même rang**. Exemple d'arrondi par excès : 0,0286 → **0,03**.
+
 ---
 
 ## P1.3 — Rédiger un PV partiel de qualité (25 min)
@@ -207,6 +241,13 @@ Mesureur : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  Date : \_\_\_\_\_\_\_\_\_\_\_\_\_\_
 **P1.3.1** — Pourquoi la conclusion est-elle NON CONFORME et pas CONFORME AVEC RÉSERVE ?
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+
+??? tip "💡 Aide : rédiger le PV"
+    - Écris **d'abord** le tableau (exigence, résultat ± U, conformité), **puis** la décision.
+    - La décision doit rester **cohérente** avec les lignes du tableau : **un seul non-conforme** suffit à **refuser** la carte.
+    - Le **motif** compte **au moins deux lignes**, avec des **valeurs chiffrées**.
+    - N'oublie pas **instrument** (classe, résolution, numéro, certificat) et **signature**.
 
 ---
 
@@ -251,6 +292,10 @@ Règle 7 : Empreinte NE555 traversant = _____________________
 Règle 8 : Pour annoter : Tools → ___________________
 ```
 
+
+> [!TIP] 💡 En clair : une règle, une raison
+> Pour **mémoriser** les huit règles, associe chacune à la **conséquence** de son oubli : *« si j'oublie X, l'ERC me dit Y »*. C'est plus efficace que d'apprendre une liste.
+
 ---
 
 ## P2.2 — Corriger un schéma NE555 en 12 min (15 min)
@@ -280,6 +325,10 @@ Composants et câblage :
 | 2 | | | |
 | 3 | | | |
 | 4 | | | |
+
+
+??? tip "💡 Aide : où chercher les quatre erreurs du schéma NE555"
+    Parcours le schéma **broche par broche** (1 à 8) en te demandant : *à quoi est-elle reliée ? est-ce attendu ?* Les erreurs se trouvent généralement dans la **liste suivante** : une broche de **commande** (RESET, CONTROL) laissée **flottante**, une **alimentation** non repérée, un **condensateur de découplage** manquant, une **polarité** de composant inversée.
 
 ---
 
@@ -332,6 +381,10 @@ Composants et câblage :
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
+
+> [!TIP] 💡 En clair : lire une netlist
+> Un **net** est un **ensemble de broches reliées** (par exemple tout ce qui est à +5 V). Pour compter ce qui est relié à un net, **compte les broches** listées dans ce net, puis regroupe par **composant**. Deux broches dans le **même net** sont **au même potentiel**.
+
 ---
 
 ## P2.5 — DRC et routage (30 min)
@@ -359,6 +412,12 @@ Composants et câblage :
 | Edge.Cuts | |
 | F.Paste | |
 | PTH.drl | |
+
+
+??? tip "💡 Aide : DRC, routage et Gerber"
+    - **Erreurs DRC courantes** : **espacement insuffisant** (*clearance*), **piste trop étroite**, **pastille/piste non reliée**, **court-circuit** entre deux nets.
+    - **Ratsnest non routés** : ce sont des **connexions oubliées** ; pour le GND en simple face, **réorganise le placement** ou ajoute un **strap** ; en double face, utilise un **via** ou un **plan de masse**.
+    - **Couches Gerber** : pense à **cuivre**, **masque de soudure**, **sérigraphie**, **contour** (pour un simple face, le cuivre et le contour sont **indispensables**) + le fichier de **perçage**.
 
 ---
 
@@ -410,6 +469,13 @@ ISO 9001   →  Domaine : ___________________________
 | 9 | Composant CMS décalé 60% (hors pastille) | |
 | 10 | Condensateur électrolytique inversé | |
 
+
+??? tip "💡 Aide : classer un cas IPC rapidement"
+    1. Un **court-circuit**, une **polarité inversée** ou une **brasure absente** sont **toujours non conformes**.
+    2. Compare ensuite les **pourcentages** aux seuils du cours (décalage CMS, remplissage PTH).
+    3. Un **résidu non conducteur** ou un défaut **esthétique** est en général **acceptable**.
+    4. En cas de doute, **nomme le critère** que tu utilises : c'est ce qui rapporte des points.
+
 ---
 
 ## P3.3 — DAT : sections clés à rédiger en 25 min (30 min)
@@ -444,6 +510,12 @@ $$LED I_{\mathrm{F}} max = \underline{\hspace{2.5em}} mA$$
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+
+??? tip "💡 Aide : rédiger les sections du DAT"
+    - Chaque section répond à **une question** : *qu'est-ce que c'est ? comment c'est configuré ? comment l'installer ? que faire en panne ? quelles sont les limites ?*
+    - Pour la **section des limites de responsabilité**, indique **ce qui est garanti** (plage de température, tension d'entrée) et **ce qui ne l'est pas**.
+    - **Vin = 12 V, serre de 0 à 60 °C** : cite ces valeurs **chiffrées** dans tes réponses.
 
 ---
 
@@ -482,6 +554,12 @@ Actions requises : _____________________________________________________
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+
+??? tip "💡 Aide : le cas intégrateur"
+    - Remplis d'abord le **tableau** (test, exigence, résultat, verdict) **sans interpréter**.
+    - Ensuite, déduis la **décision globale** : **un test non conforme** suffit à **refuser** (ou à accepter **sous réserve** si le cahier des charges le permet et que tu le **justifies**).
+    - Face à une **urgence client**, reste **factuel** : propose une **solution** (retouche et re-test) et **n'accepte pas** de modifier le verdict.
 
 ---
 

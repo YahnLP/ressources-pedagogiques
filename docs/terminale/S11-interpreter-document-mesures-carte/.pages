@@ -1,5 +1,6 @@
 title: "S11 · Interpréter Document + Mesures : Carte NE555 / 7805 agritech"
 nav:
   - README.md
+  - "📖 Rappel essentiel": 01-rappel.md
   - "🛠️ TP": 02-tp.md
   - "📎 Dossier technique — TP S11 année 3 – E2": annexe-dossier-technique-tp-s11-annee-3-e2.md

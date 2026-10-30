@@ -1,5 +1,6 @@
 title: "S05 · Procédures · Timing · PV · Calculs · BAC PRO ciel · E2 · 3ᵉ année S5"
 nav:
   - README.md
+  - "📖 Rappel essentiel": 01-rappel.md
   - "🛠️ TP": 02-tp.md
   - "📎 Dossier ressources — TP chronométré E2": annexe-dossier-ressources-tp-chronometre-e2.md
