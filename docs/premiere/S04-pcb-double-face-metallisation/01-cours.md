@@ -253,6 +253,7 @@ Enfin : créer un ZIP de tous les fichiers du dossier "gerber/"
 
 ---
 
+![Fenêtre d'export Gerber et fichiers générés](images/kicad-export-gerber.png)
 
 ---
 

@@ -35,28 +35,7 @@
 
 ### Vue d'ensemble
 
-```
-┌────────────────────────────────────────────────────────────────────┐
-│                        AWS IoT Core                                │
-│                                                                    │
-│  ┌──────────────┐    ┌───────────────┐    ┌─────────────────────┐  │
-│  │   REGISTRY   │    │  MESSAGE      │    │    RULES ENGINE     │  │
-│  │   (Things)   │    │  BROKER       │    │  (SQL-like routing) │  │
-│  │              │    │  (MQTT, WSS)  │    └──────────┬──────────┘  │
-│  │   Policy     │    │               │               │              │
-│  │   Certificat │    │   Topics      │               ▼              │
-│  └──────────────┘    └───────────────┘    ┌─────────────────────┐  │
-│                                           │   Services AWS       │  │
-│                                           │   CloudWatch         │  │
-│                                           │   DynamoDB / S3      │  │
-│                                           │   Lambda / SNS       │  │
-│                                           └─────────────────────┘  │
-└────────────────────────────────────────────────────────────────────┘
-         ▲
-         │ MQTT/TLS port 8883
-         │
-   [ESP32 avec certificats X.509]
-```
+![Architecture AWS IoT Core](images/chaine-aws.png)
 
 ### Les 4 composants fondamentaux
 
@@ -356,6 +335,7 @@ Ajouter un 2ème widget :
 
 ---
 
+![Tableau de bord CloudWatch d'un projet IoT ESP32.](images/cloudwatch-dashboard.png)
 
 ---
 

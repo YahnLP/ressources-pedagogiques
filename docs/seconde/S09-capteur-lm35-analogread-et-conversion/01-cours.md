@@ -193,16 +193,7 @@ Le **LM35** est un capteur de température analogique de précision.
 
 **Photo et boîtier :**
 
-```
-   LM35DZ (TO-92)
-   Vue de face (face plate vers toi)
-
-      ┌─────┐
-      │ LM35│
-      │     │
-      └──┬──┘
-    1  2  3
-```
+![Brochage du LM35 en boîtier TO-92, vu de face](images/lm35-brochage.png)
 
 ---
 
@@ -225,17 +216,6 @@ Le **LM35** est un capteur de température analogique de précision.
 
 **Vue de face (face plate vers soi) :**
 
-```
-      ┌─────┐
-      │ LM35│
-      │     │
-      └──┬──┘
-    1  2  3
-    │  │  │
-    │  │  └──── 3. OUT (Signal analogique)
-    │  └──────── 2. GND (Masse / 0V)
-    └──────────── 1. VCC (Alimentation +5V)
-```
 
 **⚠️ IMPORTANT :**
 
@@ -280,26 +260,15 @@ Tension_OUT (V) = Température (°C) × 0.01 V/°C
 
 **Schéma de connexion :**
 
-```
-      LM35                    Arduino Uno
-    (TO-92)
-    1  2  3
-    │  │  │
-    │  │  └───────────────> A0 (Lecture analogique)
-    │  └──────────────────> GND
-    └─────────────────────> 5V
-```
+![Câblage du LM35 sur l'Arduino Uno](images/cablage-lm35.png)
 
 **Sur breadboard :**
 
-```
-   Arduino              Breadboard
-     5V ─────────┬────── LM35 broche 1 (VCC)
-                 │
-    GND ─────────┼────── LM35 broche 2 (GND)
-                 │
-     A0 ─────────┘────── LM35 broche 3 (OUT)
-```
+| Arduino | LM35 |
+|---|---|
+| 5V | broche 1 (VCC) |
+| A0 | broche 2 (OUT) |
+| GND | broche 3 (GND) |
 
 ---
 

@@ -38,10 +38,12 @@ La LED clignote à __________ fois par seconde.
 
 **Q1.2** — Si on remplace C1 par 10µF (valeur ×10 plus petite), que devient la fréquence ?
 
-```
-T_nouveau = T_ancien / 10 = __________ s
-f_nouvelle = __________ Hz
-```
+$$
+\begin{aligned}
+T_{\mathrm{nouveau}} &= \dfrac{T_{\mathrm{ancien}}}{10} = \underline{\hspace{2.5em}} s \\
+f_{\mathrm{nouvelle}} &= \underline{\hspace{2.5em}} Hz
+\end{aligned}
+$$
 
 **Q1.3** — Calcule le rapport cyclique pour R1=10kΩ, R2=47kΩ :
 

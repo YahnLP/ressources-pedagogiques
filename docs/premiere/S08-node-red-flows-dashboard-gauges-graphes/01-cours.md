@@ -122,6 +122,7 @@ slider      → Curseur de valeur
 
 ---
 
+![Flow Node-RED simple à 5 nœuds](images/nodered-flow-simple.png)
 
 ---
 
@@ -217,6 +218,7 @@ Pour plusieurs séries sur le même graphe :
 
 ---
 
+![Dashboard Node-RED : jauge et graphe](images/nodered-dashboard.png)
 
 ---
 
@@ -322,6 +324,7 @@ return msg;
 
 ---
 
+![Flow IoT complet ESP32 → MQTT → Node-RED → InfluxDB](images/nodered-flow-complet.png)
 
 ---
 

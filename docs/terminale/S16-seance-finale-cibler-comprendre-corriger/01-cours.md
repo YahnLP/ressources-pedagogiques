@@ -159,7 +159,9 @@ Justification : _________________________________________________
 $$U = 2 \times 0{,}0143 = 0{,}0286\,\mathrm{V}$$
 
 1er chiffre significatif de U = ___  → règle : arrondir par excès à 1 chiffre sig  
-U_arrondi = _____ V  
+
+$$U_{\mathrm{arrondi}} = \underline{\hspace{2.5em}} V$$
+
 Valeur centrale arrondie au même rang : _____ V  
 
 ---
@@ -202,7 +204,7 @@ _________________________________________________________________________
 
 Calc 1 : classe 1,0%, valeur = 12,3V, résolution = 0,1V  
 
-$$u_{\mathrm{B}},cl = \underline{\hspace{2.5em}} u_{\mathrm{B}},rés = \underline{\hspace{2.5em}}$$
+$$u_{\mathrm{B,cl}} = \underline{\hspace{2.5em}} u_{\mathrm{B,rés}} = \underline{\hspace{2.5em}}$$
 
 Calc 2 : 3 mesures : 22,3 / 22,7 / 22,5°C, classe 0,5%, rés. 0,1°C  
 

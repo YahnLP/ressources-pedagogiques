@@ -226,18 +226,19 @@ $$
 
 **Q3.1.b** — Calcule la fiabilité globale du système (série) :
 
-Rs = R_capteur × R_CPU × R_sortie  
-
-$$= \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}$$
-
-$$= \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+$$
+\begin{aligned}
+Rs &= R_{\mathrm{capteur}} \times R_{\mathrm{CPU}} \times R_{\mathrm{sortie}} \\
+&= \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \\
+&= \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %
+\end{aligned}
+$$
 
 **Q3.1.c** — Si les CPU n'étaient PAS redondants (1 seul CPU B, R=0,90), quelle serait la fiabilité ?
 
-```
-Rs_sans_redondance = _______ × _______ × _______ = _______ = _______ %
-Gain de la redondance CPU : _______ % − _______ % = _______ points
-```
+$$Rs_sans_redondance = \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+
+Gain de la redondance CPU : _______ % − _______ % = _______ points  
 
 ---
 
@@ -251,19 +252,23 @@ Note : les deux capteurs sont en **parallèle fonctionnel** (un seul suffit pour
 
 **Q3.2.a** — Calcule la fiabilité du bloc capteurs en parallèle :
 
-R_capteurs = 1 − (1 − _______) × (1 − _______)  
-
-$$= 1 - \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}$$
-
-$$= \underline{\hspace{2.5em}}$$
+$$
+\begin{aligned}
+R_{\mathrm{capteurs}} &= 1 - (1 - \underline{\hspace{2.5em}}) \times (1 - \underline{\hspace{2.5em}}) \\
+&= 1 - \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \\
+&= \underline{\hspace{2.5em}}
+\end{aligned}
+$$
 
 **Q3.2.b** — Calcule la fiabilité globale :
 
-Rs = R_capteurs × R_ESP32 × R_WiFi × R_NodeRED  
-
-$$= \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}$$
-
-$$= \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+$$
+\begin{aligned}
+Rs &= R_{\mathrm{capteurs}} \times R_ESP32 \times R_{\mathrm{WiFi}} \times R_{\mathrm{NodeRED}} \\
+&= \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \\
+&= \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %
+\end{aligned}
+$$
 
 **Q3.2.c** — Le maillon le plus faible de la chaîne est le capteur MQ-2 (R=0,85). Comment améliorer le système sans changer les composants ?
 

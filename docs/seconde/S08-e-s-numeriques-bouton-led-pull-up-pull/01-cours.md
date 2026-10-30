@@ -33,6 +33,9 @@
 
 ### 1.1 Niveaux logiques
 
+![Niveaux logiques d'une entrée numérique Arduino](images/niveaux-logiques.png)
+
+
 L'Arduino Uno fonctionne en logique **5V TTL compatible**. Une broche en entrée interprète :
 
 
@@ -56,6 +59,9 @@ int etatBouton = digitalRead(4);
 
 ### 1.3 Le problème de l'entrée flottante
 
+![Entrée flottante et résistance pull-down](images/flottant-pulldown.png)
+
+
 
 **Pourquoi une broche flottante est-elle imprévisible ?**
 
@@ -66,6 +72,9 @@ Une broche en `INPUT` sans résistance de rappel présente une impédance très 
 ## 2. La résistance pull-down
 
 ### 2.1 Principe et schéma
+
+![Pull-down : bouton relâché et bouton appuyé](images/pulldown-etats.png)
+
 
 La résistance pull-down est connectée entre la **broche Arduino** et **GND**. Elle "tire" en permanence la broche vers 0V avec un courant faible.
 
@@ -105,6 +114,9 @@ La résistance pull-up est connectée entre la **broche Arduino** et **VCC (5V)*
 > ⚠️ **Logique inversée** : avec un pull-up, appuyer donne 0 et relâcher donne 1. C'est l'inverse du pull-down. Ajuster le `if()` en conséquence.
 
 ### 3.2 `INPUT_PULLUP` — La résistance intégrée Arduino
+
+![Pull-down externe et INPUT_PULLUP](images/pulldown-pullup.png)
+
 
 Arduino possède une résistance pull-up **interne** de 20 à 50 kΩ sur chaque broche numérique. Elle s'active en une ligne de code :
 
@@ -231,6 +243,9 @@ L'Arduino n'a pas d'écran ni de fenêtre d'inspection. Sans Serial Monitor :
 
 ### 5.2 Les 4 niveaux de débogage Serial
 
+![Les 4 niveaux de débogage série](images/pyramide-debug.png)
+
+
 
 ### 5.3 Niveau 1 — Affichage brut (pour démarrer)
 
@@ -290,6 +305,9 @@ void loop() {
 *On peut ainsi mesurer la durée d'appui : 389 − 345 = 44 ms*
 
 ### 5.6 Les 5 bugs les plus fréquents en S8 et comment les détecter
+
+![Les 5 bugs les plus fréquents](images/tableau-bugs.png)
+
 
 
 | Bug | Symptôme Serial Monitor | Correction |

@@ -45,6 +45,9 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ### 1.2 Symboles avancés à maîtriser en S6
 
+![Symboles IEC avancés](images/symboles-avances.png)
+
+
 
 | Composant | Symbole IEC | Repère | Usage typique |
 |---|---|---|---|
@@ -58,12 +61,18 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ### 1.3 Exemple de schéma normé complet avec les nouvelles conventions
 
+![Schéma normé : bouton-poussoir et LED](images/schema-bp-led.png)
+
+
 
 ---
 
 ## 2. Tinkercad Circuits — Prise en main
 
 ### 2.1 Présentation de Tinkercad
+
+![Interface de Tinkercad Circuits (maquette)](images/tinkercad-interface.png)
+
 
 **Tinkercad Circuits** est un simulateur de circuit électronique **gratuit, en ligne et sans installation**, développé par Autodesk. Il permet de :
 - Dessiner des circuits avec des composants virtuels
@@ -108,6 +117,9 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ### 2.4 Les instruments de mesure virtuels
 
+![Multimètre virtuel : voltmètre en parallèle, ampèremètre en série](images/tinkercad-multimetre.png)
+
+
 
 | Mode | Symbole sur la face | Branchement | Ce qu'il affiche |
 |---|---|---|---|
@@ -119,6 +131,9 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 ## 3. Lecture d'une datasheet — Méthode professionnelle
 
 ### 3.1 Structure type d'une datasheet
+
+![Première page d'une datasheet annotée](images/datasheet-annotee.png)
+
 
 Une datasheet de composant électronique suit toujours une structure similaire :
 
@@ -134,6 +149,9 @@ Une datasheet de composant électronique suit toujours une structure similaire :
 | **Courbes** | Characteristic Curves | Graphiques comportement selon conditions |
 
 ### 3.2 La section "Absolute Maximum Ratings" — La plus importante
+
+![Absolute Maximum Ratings du BC547](images/ratings-bc547.png)
+
 
 > ⚠️ **Règle absolue** : Ces valeurs sont des **seuils de destruction irréversible**. Les dépasser, même une fraction de seconde, peut détruire le composant instantanément. On ne travaille **jamais** à ces valeurs — on les utilise pour vérifier qu'on en est bien loin.
 
@@ -174,6 +192,9 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 ## 4. Application : Dimensionner un circuit avec la datasheet
 
 ### 4.1 Exemple guidé — LED commandée par transistor BC547
+
+![LED commandée par un transistor BC547](images/schema-transistor-led.png)
+
 
 **Problème** : On veut commander une LED rouge (V_F = 2V, I_F = 20mA) avec un transistor BC547 piloté par une sortie Arduino (V_out = 5V, I_out max = 40mA).
 

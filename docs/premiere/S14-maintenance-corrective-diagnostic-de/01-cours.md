@@ -88,6 +88,7 @@ Causes possibles :
 
 ---
 
+![La démarche DECA : chaque étape réduit le champ des possibles jusqu'à l'action corrective.](images/deca-entonnoir.png)
 
 ---
 
@@ -244,6 +245,7 @@ Problème AWS IoT / certificats → CONSOLE AWS CLOUDWATCH
 
 ---
 
+![Logigramme de diagnostic d'un ESP32 qui ne publie plus : le code mqtt.state() oriente la recherche.](images/logigramme-esp32.png)
 
 ---
 

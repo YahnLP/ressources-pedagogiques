@@ -33,6 +33,9 @@ def conv_atoms(s, store):
 
 
 def basic(s):
+    s = re.sub(r'√\s*\(((?:[^()]|\([^()]*\))*)\)', lambda m: '«R»' + m.group(1) + '«E»', s)
+    s = re.sub(r'√\s*(\d[\d,\.]*)', lambda m: '«R»' + m.group(1) + '«E»', s)
+    s = re.sub(r'\b([A-Za-z])_([A-Za-z]+),([A-Za-zÀ-ÿ]+)', r'\1_{\\mathrm{\2,\3}}', s)
     s = re.sub(r'_{3,}', '§B§', s)
     s = re.sub(rf'({NUM})\s*({UN})(?![A-Za-zΩµ])', lambda m: m.group(1).replace(' ', r'\,') + r'\,\mathrm{' + m.group(2).replace('Ω', r'\Omega ').replace('µ', r'\mu ').replace('%', r'\%') + '}', s)
     s = re.sub(r'(?<=\d) (?=\d{3}\b)', r'\\,', s)
@@ -49,13 +52,14 @@ def tex(line):
     s = line.strip()
     if not re.search(r'[=≈]', s): return None
     # trop de mots : c'est du texte
-    words = re.findall(r'[A-Za-zÀ-ÿ]{4,}', re.sub(rf'\b({"|".join(NAMED)})\b', '', s))
+    words = re.findall(r'[A-Za-zÀ-ÿ]{4,}', re.sub(r'_[A-Za-z]+(,[A-Za-zÀ-ÿ]+)?', '', re.sub(rf'\b({"|".join(NAMED)})\b', '', s)))
     words = [w for w in words if w not in ('Vcc', 'VCC', 'Rled', 'Iled')]
     if len(words) > 0 or len(s) > 90 or ':' in s or '|' in s: return None
     store = []
     s2 = conv_atoms(s, store)
     s2 = basic(s2)
     s2 = re.sub(r'§(\d+)§', lambda m: store[int(m.group(1))], s2)
+    s2 = s2.replace('«R»', r'\sqrt{').replace('«E»', '}')
     s2 = s2.replace('§B§', r'\underline{\hspace{2.5em}}')
     s2 = re.sub(r'\s+', ' ', s2).strip()
     return s2

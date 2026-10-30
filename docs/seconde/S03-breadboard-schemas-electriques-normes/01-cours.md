@@ -31,6 +31,9 @@
 
 ### 1.1 Structure interne
 
+![Structure interne d'une breadboard](images/breadboard.png)
+
+
 La breadboard est divisée en **3 zones fonctionnelles** :
 
 
@@ -54,6 +57,9 @@ La breadboard est divisée en **3 zones fonctionnelles** :
 
 ### 1.3 Exemple de câblage correct vs incorrect
 
+![Câblage correct et câblage incorrect sur breadboard](images/cablage-ok-ko.png)
+
+
 
 ---
 
@@ -64,6 +70,9 @@ La breadboard est divisée en **3 zones fonctionnelles** :
 Un schéma électrique est un **langage universel**. Un technicien en France et un technicien au Japon lisent le même schéma s'il respecte la norme **IEC 60617** (norme internationale). Sans normes, chaque dessin serait différent et impossible à partager.
 
 ### 2.2 Les symboles IEC à maîtriser
+
+![Symboles IEC à maîtriser](images/symboles-de-base.png)
+
 
 
 | Composant | Symbole IEC | Remarque |
@@ -93,6 +102,9 @@ Un bon schéma est **lisible, logique et normé**. Voici les règles à respecte
 
 ### 2.4 Exemple de schéma normé complet
 
+![Schéma normé IEC : deux LED en parallèle](images/schema-parallele-iec.png)
+
+
 
 ---
 
@@ -109,6 +121,9 @@ Un bon schéma est **lisible, logique et normé**. Voici les règles à respecte
 | **5 — Vérifier la cohérence** | Les flèches de diodes sont-elles dans le bon sens ? | La LED est-elle orientée correctement (anode vers +) ? |
 
 ### 3.2 La méthode de transposition schéma → breadboard
+
+![Du schéma au montage sur breadboard](images/schema-vs-montage.png)
+
 
 
 **Procédure de transposition — 5 étapes pratiques :**
@@ -135,6 +150,9 @@ Un bon schéma est **lisible, logique et normé**. Voici les règles à respecte
 
 ### 4.1 Principe physique
 
+![Test de continuité : fil intact et fil coupé](images/continuite-multimetre.png)
+
+
 Le test de continuité envoie un **très faible courant** entre les deux sondes du multimètre. Si le courant peut circuler librement (résistance quasi nulle), le multimètre émet un **signal sonore (bip)**. Si le courant est bloqué (circuit ouvert, fil coupé), il n'y a **pas de bip**.
 
 
@@ -152,6 +170,9 @@ Le test de continuité envoie un **très faible courant** entre les deux sondes 
 > ⚠️ **Important** : Le test de continuité doit toujours être réalisé **hors tension**. Sinon, les résultats sont faussés et on risque d'endommager le multimètre.
 
 ### 4.3 Méthode de diagnostic par continuité — Approche systématique
+
+![Arbre de diagnostic par test de continuité](images/arbre-continuite.png)
+
 
 Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichotomie** (on divise le problème en deux à chaque fois) :
 
@@ -176,20 +197,7 @@ Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichoto
 
 *Répondre aux questions à partir du schéma suivant :*
 
-+ 9V  
-|  
-
-$$[R_{1} = 470\,\mathrm{\Omega }]$$
-
-|  
------•-----  
-|         |  
-[D1]      [D2]  
-(rouge)   (verte)  
-|         |  
------•-----  
-|  
-GND  
+![Schéma de l'exercice 1 : source 9 V, R1 = 470 Ω, deux LED en parallèle](images/schema-exercice-lire.png)
 
 1. D1 et D2 sont-elles en **série** ou en **parallèle** ?
 2. Quelle est la tension aux bornes de R1 ? *(V_alim − V_F = ?)* 

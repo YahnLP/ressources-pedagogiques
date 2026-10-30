@@ -395,6 +395,7 @@ void enregistrerPoint(float valeur, float moy_mobile, NiveauAlarme alarme) {
 
 ---
 
+![Chaîne complète de la séance : capteur, KPI, alarme, courbe, fiche de mise en service.](images/chaine-s4.png)
 
 ---
 

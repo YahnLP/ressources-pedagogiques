@@ -32,6 +32,9 @@
 
 ## 1. L'Arduino Uno — Anatomie de la carte
 
+![Anatomie de la carte Arduino Uno](images/arduino-uno-annote.png)
+
+
 
 | Zone | Broches / Éléments | Rôle |
 |---|---|---|
@@ -47,6 +50,9 @@
 ## 2. L'Arduino IDE — Interface et configuration
 
 ### 2.1 Interface de l'IDE 2.x
+
+![Interface de l'IDE Arduino (maquette)](images/arduino-ide.png)
+
 
 
 | Élément de l'interface | Rôle |
@@ -76,6 +82,9 @@
 ## 3. Structure d'un sketch Arduino
 
 ### 3.1 Les deux fonctions obligatoires
+
+![Fonctionnement de setup() et loop()](images/setup-loop.png)
+
 
 Tout sketch Arduino doit contenir exactement ces deux fonctions :
 
@@ -171,7 +180,7 @@ TABLE DE CORRESPONDANCE delay() :
 
 L'Arduino Uno fournit **5 V** sur ses broches numériques. La LED externe (V_F = 2V, I_F nominal = 20 mA) nécessite une résistance de limitation comme en S2 :
 
-R = (V_alim − V_F) / I_F  
+$$R = \dfrac{V_{\mathrm{alim}} - V_{\mathrm{F}}}{I_{\mathrm{F}}}$$
 
 $$R = \dfrac{5 - 2{,}0}{0{,}020} = \dfrac{3}{0{,}020} = 150\,\mathrm{\Omega }$$
 
@@ -181,6 +190,11 @@ ou 220 Ω (si on veut une LED moins brillante — I_F = 13,6 mA)
 > 📌 Sur l'Arduino, on utilise souvent **220 Ω** par convention car c'est la valeur E24 la plus proche couramment disponible dans les kits, et elle offre une bonne marge de sécurité pour la broche.
 
 ### 4.2 Schéma de câblage
+
+![Schéma normé : LED sur la broche D13](images/schema-led-d13.png)
+
+![Câblage de la LED sur breadboard](images/cablage-uno-breadboard.png)
+
 
 
 ### 4.3 Règles de câblage LED + Arduino
@@ -225,6 +239,9 @@ void loop() {
 | `Serial.println(valeur)` | OUI | `42` ou `3.14` puis ligne suivante |
 
 ### 5.3 Vitesse de communication (bauds)
+
+![Moniteur série de l'IDE Arduino (maquette)](images/serial-monitor-ide.png)
+
 
 La vitesse doit être **identique** dans le code (`Serial.begin()`) ET dans le menu déroulant du Serial Monitor. Si les vitesses diffèrent → caractères illisibles (charabia).
 

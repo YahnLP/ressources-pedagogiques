@@ -33,6 +33,9 @@
 
 ### 1.1 Le fer à souder à température réglable
 
+![Station de soudure annotée](images/station-soudure.png)
+
+
 
 | Paramètre | Valeur recommandée | Pourquoi |
 |---|---|---|
@@ -44,6 +47,9 @@
 > ⚠️ **Règle d'or** : Le fer ne soude pas — il **transfère de la chaleur**. C'est la chaleur transférée qui fait fondre l'étain, pas le contact de l'étain avec le fer.
 
 ### 1.2 Les matériaux de soudure
+
+![Fil d'étain, flux et tresse à dessouder](images/materiaux-soudure.png)
+
 
 
 | Matériau | Composition / Type | Rôle | Utilisation |
@@ -58,6 +64,9 @@
 ---
 
 ## 2. Technique de soudure — Les 5 étapes
+
+![Les 5 étapes de la soudure](images/etapes-soudure.png)
+
 
 
 ### Les 5 étapes dans le détail
@@ -80,6 +89,9 @@
 
 ### 3.1 Les 3 classes IPC
 
+![Les trois classes IPC](images/pyramide-ipc.png)
+
+
 
 | Classe | Domaine | Niveau d'exigence | Exemples |
 |---|---|---|---|
@@ -90,6 +102,9 @@
 > 📌 **En BAC Pro CIEL, on vise la Classe 2.** C'est le standard de l'industrie électronique professionnelle.
 
 ### 3.2 Caractéristiques d'une brasure IPC Classe 2 acceptable
+
+![Brasure traversante IPC classe 2 acceptable](images/brasure-coupe.png)
+
 
 
 | Critère IPC Classe 2 | Condition ACCEPTABLE | Condition REFUSÉE |
@@ -103,6 +118,9 @@
 | **Pont** | Aucun pont entre pads voisins | Tout pont = refus immédiat |
 
 ### 3.3 Les 7 défauts IPC les plus courants
+
+![Les 7 défauts de brasure les plus courants](images/defauts-brasures.png)
+
 
 
 | Défaut IPC | Aspect visuel | Cause principale | Gravité |
@@ -118,6 +136,9 @@
 ---
 
 ## 4. Séquence d'insertion des composants traversants
+
+![Ordre d'insertion des composants traversants](images/sequence-insertion.png)
+
 
 L'ordre d'insertion est crucial pour la qualité et la facilité du montage :
 

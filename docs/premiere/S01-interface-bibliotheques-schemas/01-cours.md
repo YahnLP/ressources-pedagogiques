@@ -68,60 +68,15 @@ Alternatives commerciales (pour info) :
 
 ### Le gestionnaire de projet (Project Manager)
 
-```
-Fenêtre principale de KiCad :
-  ┌─────────────────────────────────────────────────────────┐
-  │  File   View   Tools   Help                             │
-  ├─────────────────────────────────────────────────────────┤
-  │                    FICHIERS DU PROJET                    │
-  │  ▶ mon_projet.kicad_pro      ← Fichier projet           │
-  │  ▶ mon_schéma.kicad_sch      ← Schéma électronique      │
-  │  ▶ mon_pcb.kicad_pcb         ← Circuit imprimé          │
-  │  ▶ mon_symbole.kicad_sym     ← Symboles personnalisés   │
-  ├─────────────────────────────────────────────────────────┤
-  │  [Schematic Editor]  [PCB Editor]  [Symbol Editor]      │
-  └─────────────────────────────────────────────────────────┘
-
-WORKFLOW KiCad :
-  1. Créer un projet (.kicad_pro)
-  2. Dessiner le schéma (.kicad_sch) ← On commence ici en S1
-  3. Associer les empreintes aux composants
-  4. Mettre à jour le PCB
-  5. Router les pistes sur le PCB
-  6. Générer les fichiers Gerber pour fabrication
-```
+![Fenêtre principale de KiCad : gestionnaire de projet et outils](images/kicad-fenetre-principale.png)
 
 ### Le Schematic Editor — zones clés
 
-```
-┌─────┬───────────────────────────────────────┬──────────┐
-│     │  Barre d'outils horizontale             │          │
-│  B  │─────────────────────────────────────────│  Barre  │
-│  a  │                                         │  verti- │
-│  r  │                                         │  cale   │
-│  r  │         ZONE DE DESSIN                  │  (Pas-  │
-│  e  │                                         │  ser)   │
-│     │                                         │          │
-│  g. │                                         │          │
-└─────┴───────────────────────────────────────┴──────────┘
-
-Raccourcis clavier essentiels :
-  A → Ajouter un composant (Add Symbol)
-  W → Ajouter un fil (Wire)
-  P → Ajouter un symbole d'alimentation (Power)
-  E → Éditer les propriétés d'un composant
-  R → Faire pivoter
-  X → Copier
-  DEL → Supprimer
-  Esc → Annuler l'outil en cours
-  Ctrl+Z → Annuler
-  Ctrl+S → Sauvegarder
-  Molette → Zoom avant/arrière
-  Clic droit → Menu contextuel
-```
+![Interface de l'éditeur de schéma KiCad](images/kicad-editeur-schema.png)
 
 ---
 
+![Éditeur de schéma KiCad : zone de dessin et barre d'outils de droite](images/kicad-editeur-schema.png)
 
 ---
 
@@ -237,6 +192,7 @@ VÉRIFICATION :
 
 ---
 
+![Schéma de la LED dans KiCad, broches annotées](images/kicad-schema-led.png)
 
 ---
 

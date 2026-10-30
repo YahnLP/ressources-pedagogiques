@@ -49,7 +49,9 @@ I_LDO = ___________________________________________ (liste les composants)
 η = ___________ (approximation) = _____ % pour 3,3V depuis 5V  
 
 5. Autonomie sur batterie avec convertisseur (η_conv = 88%) :  
-I_batterie = ___________________________  
+
+$$I_{\mathrm{batterie}} = \underline{\hspace{2.5em}}$$
+
 t_réelle   = ___________________________  
 
 Réponses :  

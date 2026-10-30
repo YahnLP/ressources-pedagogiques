@@ -17,12 +17,14 @@ AV_brut = |x̄_A − x̄_B|
 
 GRR TOTAL :  
 
-$$σ_GRR = \sqrt(σ_EV^2 + σ_AV^2)$$
+$$σ_GRR = \sqrt{σ_EV^2 + σ_AV^2}$$
 
 %GRR = (5,15 × σ_GRR / Tolérance) × 100  
 
 LIMITE DE DÉTECTION :  
-LDD = 1,65 × σ_bruit   (95%)  
+
+$$LDD = 1{,}65 \times σ_bruit (95\,\mathrm{\%})$$
+
 LD  = 3,3 × σ_bruit    (pratique)  
 LD ≈ 3 × σ_bruit       (règle 3-sigma)  
 
@@ -90,7 +92,7 @@ $$4. σ_EV = \dfrac{σ_A + σ_B}{2}$$
 
 5. σ_AV ≈ |x̄_A − x̄_B| / √n  
 
-$$6. σ_GRR = \sqrt(EV^2 + AV^2)$$
+$$6. σ_GRR = \sqrt{EV^2 + AV^2}$$
 
 7. %GRR = 5,15 × σ_GRR / Tolérance × 100  
 

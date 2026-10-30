@@ -220,7 +220,7 @@ Interprétation : le DHT22 surestime / sous-estime (entourer) la vraie valeur de
 
 Formule : σ = √( Σ(écart²) / (n−1) )  
 
-$$σ = \sqrt( \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} ) = \sqrt( \underline{\hspace{2.5em}} ) = \underline{\hspace{2.5em}} °C$$
+$$σ = \sqrt{ \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} } = \sqrt{ \underline{\hspace{2.5em}} } = \underline{\hspace{2.5em}} °C$$
 
 **Q4.d** — Calcule l'**incertitude type** u et l'**incertitude élargie** U (k=2, confiance 95%) :
 
