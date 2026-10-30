@@ -259,21 +259,22 @@ Courant moyen si le système a plusieurs modes :
 
 ### Exemple : ESP32 en mode intermittent
 
-```
-Cycle : 5s de mesure WiFi + 55s de deep sleep, répété indéfiniment
+Cycle : 5s de mesure WiFi + 55s de deep sleep, répété indéfiniment  
 
-Mode actif WiFi (5s) : I = 150 mA
-Mode deep sleep (55s): I = 0,1 mA
+Mode actif WiFi (5s) : I = 150 mA  
+Mode deep sleep (55s): I = 0,1 mA  
 
-I_moy = (150 × 5 + 0,1 × 55) / (5 + 55)
-      = (750 + 5,5) / 60
-      = 755,5 / 60
-      = 12,6 mA
+$$I_{\mathrm{moy}} = \dfrac{150 \times 5 + 0{,}1 \times 55}{5 + 55}$$
 
-Batterie Li-ion 18650 (3000 mAh) :
-  t = 3000 / 12,6 = 238 heures = 9,9 jours
-  t_réelle ≈ 238 × 0,80 = 190 heures ≈ 8 jours
-```
+$$= \dfrac{750 + 5{,}5}{60}$$
+
+$$= \dfrac{755{,}5}{60}$$
+
+$$= 12{,}6\,\mathrm{mA}$$
+
+Batterie Li-ion 18650 (3000 mAh) :  
+t = 3000 / 12,6 = 238 heures = 9,9 jours  
+t_réelle ≈ 238 × 0,80 = 190 heures ≈ 8 jours  
 
 ---
 

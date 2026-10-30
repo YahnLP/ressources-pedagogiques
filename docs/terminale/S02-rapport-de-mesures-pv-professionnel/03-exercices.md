@@ -99,14 +99,15 @@ Conclusion : ☐ Conforme   ☐ Non conforme
 
 **A2.1 *(2 pts)*** — Sans répétition possible (u_A = 0), calculez l'incertitude élargie de R2 avec seulement u_B résolution et u_B classe :
 
-```
-u_B,rés  = _____ Ω
-u_B,classe = _____ Ω
-u_c = _____ Ω
-U = _____ Ω → arrondi → _____ Ω
+$$u_{\mathrm{B}},rés = \underline{\hspace{2.5em}} \Omega$$
 
-R₂ = (_____ ± _____) Ω [95%]
-```
+u_B,classe = _____ Ω  
+
+$$u_{\mathrm{c}} = \underline{\hspace{2.5em}} \Omega$$
+
+U = _____ Ω → arrondi → _____ Ω  
+
+$$R₂ = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) \Omega [95\,\mathrm{\%}]$$
 
 **A2.2 *(1 pt)*** — Même spécification ±5%. R2 est-elle conforme ?
 
@@ -126,15 +127,14 @@ Conclusion : ☐ Conforme   ☐ Non conforme   ☐ Sous réserve
 
 **B1 *(2 pts)*** — Calculez l'incertitude élargie sur cette mesure de tension :
 
-```
-u_B,rés  = 0,001 / (2 × √3) = _____ V
-u_B,classe = 0,5 × 3,287 / (100 × √3) = _____ V
+$$u_{\mathrm{B}},rés = \dfrac{0{,}001}{2 \times \sqrt3} = \underline{\hspace{2.5em}} V$$
 
-u_c = √(u_B,rés² + u_B,classe²) = _____ V
-U = 2 × _____ = _____ V → arrondi → _____ V
+u_B,classe = 0,5 × 3,287 / (100 × √3) = _____ V  
 
-V = (_____ ± _____) V [95%]
-```
+u_c = √(u_B,rés² + u_B,classe²) = _____ V  
+U = 2 × _____ = _____ V → arrondi → _____ V  
+
+$$V = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$$
 
 **B2 *(1 pt)*** — Avec l'incertitude, l'intervalle de confiance couvre-t-il la valeur nominale de 3,3V ?
 

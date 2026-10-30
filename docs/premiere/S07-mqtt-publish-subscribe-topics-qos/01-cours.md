@@ -128,6 +128,7 @@ Souscription : maison/#
 ### Les 3 niveaux
 
 $$\boxed{QoS 0 < QoS 1 < QoS 2}$$
+
 $$\text{fiabilité croissante, overhead croissant}$$
 
 ---

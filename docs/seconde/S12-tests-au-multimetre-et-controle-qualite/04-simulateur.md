@@ -19,7 +19,7 @@ Sur la paillasse : une résistance, une diode 1N4007, une LED, un transistor NPN
 ### 🛠️ Marche à suivre
 
 1. Mesurez R1 à l'ohmmètre. Est-elle dans sa tolérance ?
-2. Mode « Test diode » : placez le « + » (V/Ω/A) sur l'anode de D1, le COM sur la cathode : relevez V<sub>F</sub>. Inversez : que lit-on (« OL » = circuit ouvert) ?
+2. Mode « Test diode » : placez le « + » (V/Ω/A) sur l'anode de D1, le COM sur la cathode : relevez $V_{F}$. Inversez : que lit-on (« OL » = circuit ouvert) ?
 3. Même test pour la LED D2 : la LED s'allume-t-elle faiblement ?
 4. Contrôlez le fusible F1 en continuité : bip ou pas de bip ?
 5. Transistor Q1 : testez les jonctions B–E et B–C (comme deux diodes) puis C–E (bloqué dans les deux sens).
@@ -32,7 +32,7 @@ Sur la paillasse : une résistance, une diode 1N4007, une LED, un transistor NPN
 4. Le fusible F1 est…  
     - ☐ En bon état  
     - ☐ Grillé (coupé)
-5. Tension V<sub>BE</sub> du transistor au testeur de diode (B vers E, en V)
+5. Tension $V_{BE}$ du transistor au testeur de diode (B vers E, en V)
 6. Au testeur de diode, une diode saine dans le sens bloqué affiche…  
     - ☐ 0,6 V  
     - ☐ 0 V  

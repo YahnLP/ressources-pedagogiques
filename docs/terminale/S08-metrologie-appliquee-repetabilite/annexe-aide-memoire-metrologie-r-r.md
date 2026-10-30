@@ -5,25 +5,26 @@
 
 ## 📐 Formules essentielles
 
-```
-RÉPÉTABILITÉ (EV — même opérateur) :
-  σ_EV = (σ_A + σ_B) / 2
-  → Bruit de l'instrument
+RÉPÉTABILITÉ (EV — même opérateur) :  
 
-REPRODUCTIBILITÉ (AV — entre opérateurs) :
-  AV_brut = |x̄_A − x̄_B|
-  σ_AV ≈ AV_brut / √n
+$$σ_EV = \dfrac{σ_A + σ_B}{2}$$
 
-GRR TOTAL :
-  σ_GRR = √(σ_EV² + σ_AV²)
+→ Bruit de l'instrument  
 
-%GRR = (5,15 × σ_GRR / Tolérance) × 100
+REPRODUCTIBILITÉ (AV — entre opérateurs) :  
+AV_brut = |x̄_A − x̄_B|  
+σ_AV ≈ AV_brut / √n  
 
-LIMITE DE DÉTECTION :
-  LDD = 1,65 × σ_bruit   (95%)
-  LD  = 3,3 × σ_bruit    (pratique)
-  LD ≈ 3 × σ_bruit       (règle 3-sigma)
-```
+GRR TOTAL :  
+
+$$σ_GRR = \sqrt(σ_EV^2 + σ_AV^2)$$
+
+%GRR = (5,15 × σ_GRR / Tolérance) × 100  
+
+LIMITE DE DÉTECTION :  
+LDD = 1,65 × σ_bruit   (95%)  
+LD  = 3,3 × σ_bruit    (pratique)  
+LD ≈ 3 × σ_bruit       (règle 3-sigma)  
 
 ---
 
@@ -81,15 +82,17 @@ LD         = plus petite VARIATION détectable
 
 ## 📋 Protocole R&R simplifié
 
-```
-1. k=2 opérateurs · n=8-10 mesures chacun
-2. Même objet, même instrument, séparément
-3. Calculer x̄ et σ de chaque opérateur
-4. σ_EV = (σ_A + σ_B) / 2
-5. σ_AV ≈ |x̄_A − x̄_B| / √n
-6. σ_GRR = √(EV² + AV²)
-7. %GRR = 5,15 × σ_GRR / Tolérance × 100
-```
+1. k=2 opérateurs · n=8-10 mesures chacun  
+2. Même objet, même instrument, séparément  
+3. Calculer x̄ et σ de chaque opérateur  
+
+$$4. σ_EV = \dfrac{σ_A + σ_B}{2}$$
+
+5. σ_AV ≈ |x̄_A − x̄_B| / √n  
+
+$$6. σ_GRR = \sqrt(EV^2 + AV^2)$$
+
+7. %GRR = 5,15 × σ_GRR / Tolérance × 100  
 
 ---
 

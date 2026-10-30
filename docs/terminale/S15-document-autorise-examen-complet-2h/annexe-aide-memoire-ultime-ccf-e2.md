@@ -34,15 +34,15 @@
 
 ## ⚡ Bilan puissance — 6 étapes
 
-```
-① I de chaque composant (inclure R_charge !)
-② I_LDO = Σ courants
-③ Pdiss = (Vin − Vout) × I_LDO = 1,7 × I_LDO
-④ Tj = Tamb + Pdiss × 44 · Marge = 105 − Tj
-⑤ η = Vout/Vin = 3,3/5 = 66%
-⑥ Autonomie = Capacité/I_batterie × 0,80
-   I_batterie = I_moy / η (si buck-boost)
-```
+① I de chaque composant (inclure R_charge !)  
+② I_LDO = Σ courants  
+③ Pdiss = (Vin − Vout) × I_LDO = 1,7 × I_LDO  
+④ Tj = Tamb + Pdiss × 44 · Marge = 105 − Tj  
+
+$$⑤ η = \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
+
+⑥ Autonomie = Capacité/I_batterie × 0,80  
+I_batterie = I_moy / η (si buck-boost)  
 
 ---
 
@@ -59,14 +59,17 @@ Autonomie   = Capacité(mAh) / I_batterie(mA) × 0,80
 
 ## 📐 Métrologie (6 mesures)
 
-```
-x̄ = Σ(T°)/n
-e̅ = Σei/n     (ei = T°i − T°_réf)
-σ = √(Σei²/(n−1))
-u = σ/√n
-U = 2u
-Conformité : |e̅|+U ≤ 0,5°C
-```
+$$x̄ = Σ\dfrac{T°}{n}$$
+
+e̅ = Σei/n     (ei = T°i − T°_réf)  
+
+$$σ = \sqrt(Σ\dfrac{ei^2}{n-1})$$
+
+u = σ/√n  
+
+$$U = 2u$$
+
+Conformité : |e̅|+U ≤ 0,5°C  
 
 ---
 

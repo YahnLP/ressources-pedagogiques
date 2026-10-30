@@ -136,17 +136,16 @@ Interprétation :
 
 ### 4.2 Écart-type expérimental (fidélité)
 
-```
-Formule : σ = √[ Σei² / (n−1) ]
+Formule : σ = √[ Σei² / (n−1) ]  
 
-σ = √[ _______ / _______ ]
-  = √[ _______ ]
-  = _______ °C
+σ = √[ _______ / _______ ]  
+= √[ _______ ]  
 
-Interprétation :
-  → σ représente la dispersion aléatoire des mesures du DHT22
-  → 68% des mesures sont dans l'intervalle [e̅ − σ ; e̅ + σ]
-```
+$$= \underline{\hspace{2.5em}} °C$$
+
+Interprétation :  
+→ σ représente la dispersion aléatoire des mesures du DHT22  
+→ 68% des mesures sont dans l'intervalle [e̅ − σ ; e̅ + σ]  
 
 ### 4.3 Incertitude de répétabilité
 
@@ -160,15 +159,13 @@ Cette incertitude reflète l'instabilité résiduelle sur la moyenne.
 
 ### 4.4 Incertitude élargie (intervalle de confiance 95%)
 
-```
-Formule : U = k × u    avec k = 2 (facteur d'élargissement, loi normale, 95%)
+Formule : U = k × u    avec k = 2 (facteur d'élargissement, loi normale, 95%)  
 
-U = 2 × _______ = _______ °C
+$$U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
 
-RÉSULTAT FINAL DE LA MESURE :
+RÉSULTAT FINAL DE LA MESURE :  
 
-T_DHT22 = _______ ± _______ °C     (k = 2, intervalle de confiance 95%)
-```
+T_DHT22 = _______ ± _______ °C     (k = 2, intervalle de confiance 95%)  
 
 ---
 

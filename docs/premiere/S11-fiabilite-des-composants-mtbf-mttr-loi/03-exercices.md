@@ -11,13 +11,13 @@
 
 ## 📌 Données utiles
 
-```
-e⁻⁰·¹ = 0,905    e⁻⁰·² = 0,819    e⁻⁰·³ = 0,741
-e⁻⁰·⁴ = 0,670    e⁻⁰·⁵ = 0,607    e⁻¹   = 0,368
-e⁻¹·⁵ = 0,223    e⁻²   = 0,135    e⁻³   = 0,050
+$$e⁻⁰ \cdot ¹ = 0{,}905 e⁻⁰ \cdot ^2 = 0{,}819 e⁻⁰ \cdot ^3 = 0{,}741$$
 
-1 an = 8 760 heures · 1 mois ≈ 730 heures · 1 semaine = 168 heures
-```
+$$e⁻⁰ \cdot ⁴ = 0{,}670 e⁻⁰ \cdot ⁵ = 0{,}607 e⁻¹ = 0{,}368$$
+
+e⁻¹·⁵ = 0,223    e⁻²   = 0,135    e⁻³   = 0,050  
+
+1 an = 8 760 heures · 1 mois ≈ 730 heures · 1 semaine = 168 heures  
 
 ---
 
@@ -146,12 +146,11 @@ En notation scientifique : λ = _______ × 10⁻⁵ pannes/heure
 
 **Q2.1.c** — Interprète le résultat à t = 1 an :
 
-```
-R(8760) = _______ %
-Signification : sur 1000 capteurs DHT22 mis en service simultanément,
-après 1 an il en reste _______ encore fonctionnels.
-Et _______ sont tombés en panne.
-```
+$$R(8760) = \underline{\hspace{2.5em}} %$$
+
+Signification : sur 1000 capteurs DHT22 mis en service simultanément,  
+après 1 an il en reste _______ encore fonctionnels.  
+Et _______ sont tombés en panne.  
 
 **Q2.1.d** — Quelle durée t garantit que R(t) ≥ 90% ?
 
@@ -175,10 +174,12 @@ t ≤ −ln(0,90) / λ = 0,105 / (2×10⁻⁵) = _______ heures = _______ mois
 
 **Q2.2.a** — Calcule les taux de panne :
 
-```
-λA = 1 / 10 000 = _______ h⁻¹
-λB = 1 / 100 000 = _______ h⁻¹
-```
+$$
+\begin{aligned}
+λA &= \dfrac{1}{10\,000} = \underline{\hspace{2.5em}} h⁻¹ \\
+λB &= \dfrac{1}{100\,000} = \underline{\hspace{2.5em}} h⁻¹
+\end{aligned}
+$$
 
 **Q2.2.b** — Complète le tableau de fiabilité et conclus :
 
@@ -192,13 +193,13 @@ t ≤ −ln(0,90) / λ = 0,105 / (2×10⁻⁵) = _______ heures = _______ mois
 **Q2.2.c** — Pour une application qui doit fonctionner 2 ans sans maintenance,
 lequel des deux composants est indispensable ? Justifie avec les calculs :
 
-```
-Durée : 2 ans = _______ h
-R_A(17520) = e^(−0,0001 × 17520) = e^(_______) = _______ → _______ %
-R_B(17520) = e^(−0,00001 × 17520) = e^(_______) = _______ → _______ %
+Durée : 2 ans = _______ h  
 
-Conclusion : _________________________________________________________________
-```
+$$R_{\mathrm{A}}(17520) = e^(-0{,}0001 \times 17520) = e^(\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
+
+$$R_{\mathrm{B}}(17520) = e^(-0{,}00001 \times 17520) = e^(\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
+
+Conclusion : _________________________________________________________________  
 
 ---
 
@@ -215,19 +216,21 @@ Entrée → [Capteur (R=0,95)] → ┌─[CPU A (R=0,90)]─┐
 
 **Q3.1.a** — Calcule la fiabilité du bloc CPU (parallèle) :
 
-```
-R_CPU = 1 − (1 − ______) × (1 − ______)
-      = 1 − _______ × _______
-      = _______
-```
+$$
+\begin{aligned}
+R_{\mathrm{CPU}} &= 1 - (1 - \underline{\hspace{2.5em}}) \times (1 - \underline{\hspace{2.5em}}) \\
+&= 1 - \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \\
+&= \underline{\hspace{2.5em}}
+\end{aligned}
+$$
 
 **Q3.1.b** — Calcule la fiabilité globale du système (série) :
 
-```
-Rs = R_capteur × R_CPU × R_sortie
-   = _______ × _______ × _______
-   = _______  = _______ %
-```
+Rs = R_capteur × R_CPU × R_sortie  
+
+$$= \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}$$
+
+$$= \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
 **Q3.1.c** — Si les CPU n'étaient PAS redondants (1 seul CPU B, R=0,90), quelle serait la fiabilité ?
 
@@ -252,19 +255,19 @@ Note : les deux capteurs sont en **parallèle fonctionnel** (un seul suffit pour
 
 **Q3.2.a** — Calcule la fiabilité du bloc capteurs en parallèle :
 
-```
-R_capteurs = 1 − (1 − _______) × (1 − _______)
-           = 1 − _______ × _______
-           = _______
-```
+R_capteurs = 1 − (1 − _______) × (1 − _______)  
+
+$$= 1 - \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}$$
+
+$$= \underline{\hspace{2.5em}}$$
 
 **Q3.2.b** — Calcule la fiabilité globale :
 
-```
-Rs = R_capteurs × R_ESP32 × R_WiFi × R_NodeRED
-   = _______ × _______ × _______ × _______
-   = _______  = _______ %
-```
+Rs = R_capteurs × R_ESP32 × R_WiFi × R_NodeRED  
+
+$$= \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}$$
+
+$$= \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
 **Q3.2.c** — Le maillon le plus faible de la chaîne est le capteur MQ-2 (R=0,85). Comment améliorer le système sans changer les composants ?
 

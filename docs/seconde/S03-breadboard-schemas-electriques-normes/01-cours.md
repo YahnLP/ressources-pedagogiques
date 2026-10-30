@@ -176,20 +176,20 @@ Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichoto
 
 *Répondre aux questions à partir du schéma suivant :*
 
-```
-         + 9V
-          |
-         [R1 = 470 Ω]
-          |
-     -----•-----
-     |         |
-    [D1]      [D2]
-   (rouge)   (verte)
-     |         |
-     -----•-----
-          |
-         GND
-```
++ 9V  
+|  
+
+$$[R_{1} = 470\,\mathrm{\Omega }]$$
+
+|  
+-----•-----  
+|         |  
+[D1]      [D2]  
+(rouge)   (verte)  
+|         |  
+-----•-----  
+|  
+GND  
 
 1. D1 et D2 sont-elles en **série** ou en **parallèle** ?
 2. Quelle est la tension aux bornes de R1 ? *(V_alim − V_F = ?)* 

@@ -236,13 +236,12 @@ Conforme à [0,9 ; 1,1] Hz ? ☐ Oui  ☐ Non
 
 **B3 *(2 pts)*** — Sans répétition, calculez u_B uniquement. Spécification : If ≤ 25 mA.
 
-```
-Valeur  : 19,3 mA  |  Résolution : 0,1 mA  |  Classe Fluke : 0,5%
-u_B,rés = _____  |  u_B,cl = _____  |  u_c = _____  |  U = _____
+Valeur  : 19,3 mA  |  Résolution : 0,1 mA  |  Classe Fluke : 0,5%  
+u_B,rés = _____  |  u_B,cl = _____  |  u_c = _____  |  U = _____  
 
-I_LED = (_____ ± _____) mA [95%]
-Conforme (≤ 25 mA) ? ☐ Oui  ☐ Non
-```
+$$I_{\mathrm{LED}} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) mA [95\,\mathrm{\%}]$$
+
+Conforme (≤ 25 mA) ? ☐ Oui  ☐ Non  
 
 ---
 

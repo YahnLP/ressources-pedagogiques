@@ -65,11 +65,10 @@ Exemple : SH=35, SB=33 → à 34°C, l'alarme est ☐ Active ☐ Inactive
 
 ### Erreur #3 — NE555 pin 4
 
-```
-Pin 4 = _______________
-Doit être connectée à : _______________
-Si non connectée : _______________________________________________
-```
+$$Pin 4 = \underline{\hspace{2.5em}}$$
+
+Doit être connectée à : _______________  
+Si non connectée : _______________________________________________  
 
 ### Erreur #4 — Seuil IPC Classe 2
 
@@ -136,12 +135,11 @@ Intervalle : [_____ ; _____] V  vs  [3,234 ; 3,366] V → _______________
 
 > Une seule mesure : 4,97V (classe 0,5%, résolution 0,001V). Calculez U.
 
-```
-u_A = 0  (pas de répétition → u_A est nul)
-u_B,rés = _____  |  u_B,cl = _____
-u_c = _____  |  U = _____  |  U_arrondi = _____
-V = (_____ ± _____) V [95%]
-```
+u_A = 0  (pas de répétition → u_A est nul)  
+u_B,rés = _____  |  u_B,cl = _____  
+u_c = _____  |  U = _____  |  U_arrondi = _____  
+
+$$V = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$$
 
 **Cas 2 — Quand U vaut plus que la tolérance**
 
@@ -158,12 +156,11 @@ Justification : _________________________________________________
 
 > u_c = 0,0143 V. Quel est $U_{arrondi}$ ?
 
-```
-U = 2 × 0,0143 = 0,0286 V
-1er chiffre significatif de U = ___  → règle : arrondir par excès à 1 chiffre sig
-U_arrondi = _____ V
-Valeur centrale arrondie au même rang : _____ V
-```
+$$U = 2 \times 0{,}0143 = 0{,}0286\,\mathrm{V}$$
+
+1er chiffre significatif de U = ___  → règle : arrondir par excès à 1 chiffre sig  
+U_arrondi = _____ V  
+Valeur centrale arrondie au même rang : _____ V  
 
 ---
 
@@ -207,18 +204,18 @@ _________________________________________________________________________
 
 > 4 mini-calculs rapides (3 min chacun, sans détail) :
 
-```
-Calc 1 : classe 1,0%, valeur = 12,3V, résolution = 0,1V
-         u_B,cl = _____  u_B,rés = _____
+Calc 1 : classe 1,0%, valeur = 12,3V, résolution = 0,1V  
 
-Calc 2 : 3 mesures : 22,3 / 22,7 / 22,5°C, classe 0,5%, rés. 0,1°C
-         x̄ = _____  s = _____  u_A = _____
+$$u_{\mathrm{B}},cl = \underline{\hspace{2.5em}} u_{\mathrm{B}},rés = \underline{\hspace{2.5em}}$$
 
-Calc 3 : u_c = √(0,0124² + 0,0058² + 0,0289²) = _____
+Calc 2 : 3 mesures : 22,3 / 22,7 / 22,5°C, classe 0,5%, rés. 0,1°C  
 
-Calc 4 : U = 2 × 0,0314 = _____ → U_arrondi = _____
-         si x̄ = 22,53°C : T = (_____ ± _____) °C [95%]
-```
+$$x̄ = \underline{\hspace{2.5em}} s = \underline{\hspace{2.5em}} u_{\mathrm{A}} = \underline{\hspace{2.5em}}$$
+
+Calc 3 : u_c = √(0,0124² + 0,0058² + 0,0289²) = _____  
+
+Calc 4 : U = 2 × 0,0314 = _____ → U_arrondi = _____  
+si x̄ = 22,53°C : T = (_____ ± _____) °C [95%]  
 
 ---
 
@@ -411,26 +408,27 @@ _________________________________________________________________________
 
 **Section 7 complète (Contraintes de fonctionnement) :**
 
-```
-7.1 Alimentation :
-    Vin nominale  = _____V DC
-    Vin minimum   = _____V (sous ce seuil : __________________________)
-    Vin maximum absolu = _____V (au-delà : __________________________)
-    Polarité inversée : ☐ Protégée   ☐ Non protégée
+7.1 Alimentation :  
+Vin nominale  = _____V DC  
+Vin minimum   = _____V (sous ce seuil : __________________________)  
+Vin maximum absolu = _____V (au-delà : __________________________)  
+Polarité inversée : ☐ Protégée   ☐ Non protégée  
 
-7.2 Températures :
-    Opérationnelle = _____°C à _____°C
-    Stockage       = _____°C à _____°C
-    Composant limitant : _________________ (Tmax = _____°C)
+7.2 Températures :  
+Opérationnelle = _____°C à _____°C  
+Stockage       = _____°C à _____°C  
+Composant limitant : _________________ (Tmax = _____°C)  
 
-7.3 IP carte nue : IP_____
-    Recommandation boîtier : IP_____
+7.3 IP carte nue : IP_____  
+Recommandation boîtier : IP_____  
 
-7.4 Tensions absolues max :
-    NE555 VCC max = _____V
-    7805 Vin max  = _____V
-    LED If max    = _____ mA
-```
+7.4 Tensions absolues max :  
+
+$$NE555 V_{cc} max = \underline{\hspace{2.5em}}V$$
+
+$$7805 V_{in} max = \underline{\hspace{2.5em}}V$$
+
+$$LED I_{\mathrm{F}} max = \underline{\hspace{2.5em}} mA$$
 
 **P3.3.1** — Pourquoi la section 7 est-elle juridiquement cruciale dans un DAT livré au client ?
 

@@ -5,33 +5,33 @@
 
 ## ⚡ Alimentation
 
-```
-Pdiss = (Vin−Vout) × Iout
-Tj = Tamb + Pdiss × Rθja
-Tj_max_exploitable = 105°C
-Autonomie = Capacité(mAh) / I_moy × 0,80
-I_moy = (I1×t1 + I2×t2) / (t1+t2)
+Pdiss = (Vin−Vout) × Iout  
+Tj = Tamb + Pdiss × Rθja  
+Tj_max_exploitable = 105°C  
+Autonomie = Capacité(mAh) / I_moy × 0,80  
 
-Linéaire : simple, bruit faible, Vdrop faible → OK
-Buck     : η=85-95%, sur batterie, Vin-Vout ≥ 2V → OK
-```
+$$I_{\mathrm{moy}} = \dfrac{I_{1} \times t1 + I_{2} \times t2}{t1+t2}$$
+
+Linéaire : simple, bruit faible, Vdrop faible → OK  
+Buck     : η=85-95%, sur batterie, Vin-Vout ≥ 2V → OK  
 
 ---
 
 ## 📐 Métrologie R&R
 
-```
-σ_EV = (σ_A + σ_B) / 2
-σ_AV ≈ |x̄_A − x̄_B| / √n
-σ_GRR = √(σ_EV² + σ_AV²)
-%GRR = 5,15 × σ_GRR / Tolérance × 100
+$$σ_EV = \dfrac{σ_A + σ_B}{2}$$
 
-< 10% = EXCELLENT ✓✓
-10-30% = ACCEPTABLE ✓
-> 30% = INACCEPTABLE ✗
+σ_AV ≈ |x̄_A − x̄_B| / √n  
 
-LD ≈ 3 × σ_bruit  (signal détectable si > LD)
-```
+$$σ_GRR = \sqrt(σ_EV^2 + σ_AV^2)$$
+
+%GRR = 5,15 × σ_GRR / Tolérance × 100  
+
+< 10% = EXCELLENT ✓✓  
+10-30% = ACCEPTABLE ✓  
+> 30% = INACCEPTABLE ✗  
+
+LD ≈ 3 × σ_bruit  (signal détectable si > LD)  
 
 ---
 

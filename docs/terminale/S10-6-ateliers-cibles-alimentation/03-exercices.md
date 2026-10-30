@@ -26,33 +26,37 @@ Autonomie = Capacité(mAh) / I_moy × 0,80
 
 ### Exercice A1 — Bilan complet (40 min)
 
-```
-Système : traceur GPS IoT outdoor, batterie LiPo 3,7V/2000mAh
+Système : traceur GPS IoT outdoor, batterie LiPo 3,7V/2000mAh  
 
-Composants :
-  ESP32 actif GPS     : 200 mA @ 3,3V (30s toutes les 10 min)
-  ESP32 deep sleep    : 0,02 mA @ 3,3V (reste du temps)
-  GPS NEO-6M          : 50 mA @ 3,3V (actif en même temps que l'ESP32)
-  LED statut          : 5 mA @ 3,3V (50% duty, toujours)
-  Régulateur LDO      : Vin=3,7V, Vout=3,3V, Rθja=44°C/W, Tamb=30°C
+Composants :  
+ESP32 actif GPS     : 200 mA @ 3,3V (30s toutes les 10 min)  
+ESP32 deep sleep    : 0,02 mA @ 3,3V (reste du temps)  
+GPS NEO-6M          : 50 mA @ 3,3V (actif en même temps que l'ESP32)  
+LED statut          : 5 mA @ 3,3V (50% duty, toujours)  
+Régulateur LDO      : Vin=3,7V, Vout=3,3V, Rθja=44°C/W, Tamb=30°C  
 
-a) Calcule I_moy ESP32 sur un cycle de 10 min (600s) :
-   I_moy = (200×30 + 0,02×570) / 600 = _______ mA
+a) Calcule I_moy ESP32 sur un cycle de 10 min (600s) :  
 
-b) Calcule I_moy total @ 3,3V :
-   I_moy total = I_ESP32_moy + I_GPS_moy + I_LED_moy
-   I_GPS_moy = 50 × 30/600 = _______ mA
-   I_LED_moy = 5 × 0,5 = _______ mA
-   I_moy total = _______ mA
+$$I_{\mathrm{moy}} = \dfrac{200 \times 30 + 0{,}02 \times 570}{600} = \underline{\hspace{2.5em}} mA$$
 
-c) Calcule Pdiss LDO et Tj :
-   Pdiss = (3,7−3,3) × _______ = _______ W
-   Tj = 30 + _______ × 44 = _______ °C
-   ☐ OK ☐ Radiateur nécessaire
+b) Calcule I_moy total @ 3,3V :  
+I_moy total = I_ESP32_moy + I_GPS_moy + I_LED_moy  
 
-d) Autonomie batterie :
-   t = 2000 / _______ × 0,80 = _______ h = _______ jours
-```
+$$I_GPS_moy = 50 \times \dfrac{30}{600} = \underline{\hspace{2.5em}} mA$$
+
+$$I_LED_moy = 5 \times 0{,}5 = \underline{\hspace{2.5em}} mA$$
+
+I_moy total = _______ mA  
+
+c) Calcule Pdiss LDO et Tj :  
+Pdiss = (3,7−3,3) × _______ = _______ W  
+
+$$Tj = 30 + \underline{\hspace{2.5em}} \times 44 = \underline{\hspace{2.5em}} °C$$
+
+☐ OK ☐ Radiateur nécessaire  
+
+d) Autonomie batterie :  
+t = 2000 / _______ × 0,80 = _______ h = _______ jours  
 
 ### Exercice A2 — Choisir le bon régulateur (20 min)
 
@@ -89,48 +93,51 @@ Application 3 : Amplificateur audio précision ±15V → ±12V, 100mA
 
 ### Rappel express (5 min)
 
-```
-σ_EV = (σ_A + σ_B) / 2          (répétabilité)
-σ_AV ≈ |x̄_A − x̄_B| / √n        (reproductibilité)
-σ_GRR = √(σ_EV² + σ_AV²)
-%GRR = 5,15 × σ_GRR / Tolérance × 100
-< 10% = excellent · 10-30% = acceptable · > 30% = inacceptable
-LD ≈ 3 × σ_bruit
-```
+σ_EV = (σ_A + σ_B) / 2          (répétabilité)  
+σ_AV ≈ |x̄_A − x̄_B| / √n        (reproductibilité)  
+
+$$σ_GRR = \sqrt(σ_EV^2 + σ_AV^2)$$
+
+%GRR = 5,15 × σ_GRR / Tolérance × 100  
+< 10% = excellent · 10-30% = acceptable · > 30% = inacceptable  
+LD ≈ 3 × σ_bruit  
 
 ### Exercice B1 — R&R complet (50 min)
 
 > Deux opérateurs mesurent la pression d'un compresseur (consigne 4,0 bar ±0,3 bar).
 
-```
-         Capteur 1 (bar) | Capteur 2 (bar)
-Mesure 1 :    3,98       |    4,05
-Mesure 2 :    4,02       |    4,08
-Mesure 3 :    3,97       |    4,03
-Mesure 4 :    4,01       |    4,07
-Mesure 5 :    4,00       |    4,06
-Mesure 6 :    3,99       |    4,04
+Capteur 1 (bar) | Capteur 2 (bar)  
+Mesure 1 :    3,98       |    4,05  
+Mesure 2 :    4,02       |    4,08  
+Mesure 3 :    3,97       |    4,03  
+Mesure 4 :    4,01       |    4,07  
+Mesure 5 :    4,00       |    4,06  
+Mesure 6 :    3,99       |    4,04  
 
-Référence : 4,00 bar · Tolérance totale : 0,6 bar
+Référence : 4,00 bar · Tolérance totale : 0,6 bar  
 
-a) Calcule x̄ et σ de chaque capteur :
-   x̄_1 = _______ bar · σ_1 = _______ bar
-   x̄_2 = _______ bar · σ_2 = _______ bar
+a) Calcule x̄ et σ de chaque capteur :  
 
-b) Biais de chaque capteur :
-   Biais_1 = _______ · Biais_2 = _______
+$$x̄_1 = \underline{\hspace{2.5em}} bar \cdot σ_1 = \underline{\hspace{2.5em}} bar$$
 
-c) σ_EV, σ_AV, σ_GRR, %GRR :
-   σ_EV = _______ · σ_AV = _______ · σ_GRR = _______ · %GRR = _______ %
+$$x̄_2 = \underline{\hspace{2.5em}} bar \cdot σ_2 = \underline{\hspace{2.5em}} bar$$
 
-d) Verdict et recommandation :
-   ☐ Excellent ☐ Acceptable ☐ Inacceptable
-   Recommandation : _______________________________________________
+b) Biais de chaque capteur :  
+Biais_1 = _______ · Biais_2 = _______  
 
-e) LD du capteur 1 :
-   LD ≈ 3 × σ_1 = _______ bar
-   Peut-il détecter une variation de 0,02 bar ? ☐ Oui ☐ Non
-```
+c) σ_EV, σ_AV, σ_GRR, %GRR :  
+
+$$σ_EV = \underline{\hspace{2.5em}} \cdot σ_AV = \underline{\hspace{2.5em}} \cdot σ_GRR = \underline{\hspace{2.5em}} \cdot %GRR = \underline{\hspace{2.5em}} %$$
+
+d) Verdict et recommandation :  
+☐ Excellent ☐ Acceptable ☐ Inacceptable  
+Recommandation : _______________________________________________  
+
+e) LD du capteur 1 :  
+
+$$LD \approx 3 \times σ_1 = \underline{\hspace{2.5em}} bar$$
+
+Peut-il détecter une variation de 0,02 bar ? ☐ Oui ☐ Non  
 
 ### Mini-quiz B (10 min)
 
@@ -180,16 +187,16 @@ Violation 5 : _______________ · Problème : _______________ · Correction : ___
 
 ### Exercice C2 — Calcul fréquence antenne (15 min)
 
-```
-a) Piste de 18cm : à partir de quelle fréquence se comporte-t-elle comme une antenne ?
-   L=0,18m · L > λ/20 → λ < 20×0,18=3,6m · f > 3×10⁸/3,6 = _______ MHz
+a) Piste de 18cm : à partir de quelle fréquence se comporte-t-elle comme une antenne ?  
 
-b) Pour le WiFi ESP32 (2,4GHz), λ/20 = _______ mm
-   Toute piste > _______ mm peut rayonner → règle : pistes courtes !
+$$L=0{,}18\,\mathrm{m} \cdot L > λ/20 \to λ < 20 \times 0{,}18=3{,}6\,\mathrm{m} \cdot f > 3 \times 10⁸/3{,}6 = \underline{\hspace{2.5em}} MHz$$
 
-c) Fente dans un boîtier blindant à 2,4GHz : taille max ?
-   λ=0,125m → λ/20 = _______ mm
-```
+b) Pour le WiFi ESP32 (2,4GHz), λ/20 = _______ mm  
+Toute piste > _______ mm peut rayonner → règle : pistes courtes !  
+
+c) Fente dans un boîtier blindant à 2,4GHz : taille max ?  
+
+$$λ=0{,}125\,\mathrm{m} \to λ/20 = \underline{\hspace{2.5em}} mm$$
 
 ### Mini-quiz C (10 min)
 
@@ -380,35 +387,35 @@ Scénario 3 : Câble d'alimentation 5V (2A) cheminant sur 30cm à côté d'un c�
 
 ### Exercice F2 — Calculs (25 min)
 
-```
-a) Boîtier blindant un ESP32 WiFi (2,4GHz) : taille max des fentes ?
-   λ = 3×10⁸/2,4×10⁹ = _______ m · λ/20 = _______ mm
+a) Boîtier blindant un ESP32 WiFi (2,4GHz) : taille max des fentes ?  
 
-b) Filtre RC pour ADC (signal utile max 20Hz, fc cible 100Hz, R=22kΩ) :
-   C = 1/(2π×100×22000) = _______ F = _______ nF
+$$λ = 3 \times 10⁸/2{,}4 \times 10⁹ = \underline{\hspace{2.5em}} m \cdot λ/20 = \underline{\hspace{2.5em}} mm$$
 
-c) Piste PCB de 22cm : fréquence à partir de laquelle elle devient une antenne ?
-   λ < 20×0,22 = _______ m · f > 3×10⁸/_______ = _______ MHz
+b) Filtre RC pour ADC (signal utile max 20Hz, fc cible 100Hz, R=22kΩ) :  
 
-d) 8 affirmations : VRAI ou FAUX
-   ___ Plan de masse continu : courant de retour direct sous la piste
-   ___ Ferrite : réfléchit les signaux HF (≠ les absorbe)
-   ___ Condensateur découplage à 15mm du CI : efficacité optimale
-   ___ Conduites < 30MHz : se propagent par l'air
-   ___ Plan fendu : grande boucle → fort rayonnement
-   ___ Blindage relié à la masse en 2 points : recommandé
-   ___ LDO : génère moins de bruit HF qu'un buck → meilleur pour CEM signal
-   ___ fc = 1/(2πRC) : formule filtre passe-bas
-```
+$$C = \dfrac{1}{2π \times 100 \times 22000} = \underline{\hspace{2.5em}} F = \underline{\hspace{2.5em}} nF$$
+
+c) Piste PCB de 22cm : fréquence à partir de laquelle elle devient une antenne ?  
+
+$$λ < 20 \times 0{,}22 = \underline{\hspace{2.5em}} m \cdot f > 3 \times 10⁸/\underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} MHz$$
+
+d) 8 affirmations : VRAI ou FAUX  
+___ Plan de masse continu : courant de retour direct sous la piste  
+___ Ferrite : réfléchit les signaux HF (≠ les absorbe)  
+___ Condensateur découplage à 15mm du CI : efficacité optimale  
+___ Conduites < 30MHz : se propagent par l'air  
+___ Plan fendu : grande boucle → fort rayonnement  
+___ Blindage relié à la masse en 2 points : recommandé  
+___ LDO : génère moins de bruit HF qu'un buck → meilleur pour CEM signal  
+___ fc = 1/(2πRC) : formule filtre passe-bas  
 
 ### Mini-quiz F (10 min)
 
-```
-1. 4 types de couplage : _______ · _______ · _______ · _______
-2. Conduites = < _______ MHz · Rayonnées = > _______ MHz
-3. Fente dans blindage WiFi (2,4GHz) < _______ mm
-4. Plan fendu → courant de retour _______ → grande _______ → fort _______
-5. fc = 1/(2π × _______ × _______)
-```
+1. 4 types de couplage : _______ · _______ · _______ · _______  
+2. Conduites = < _______ MHz · Rayonnées = > _______ MHz  
+3. Fente dans blindage WiFi (2,4GHz) < _______ mm  
+4. Plan fendu → courant de retour _______ → grande _______ → fort _______  
+
+$$5. fc = \dfrac{1}{2π \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$$
 
 ---

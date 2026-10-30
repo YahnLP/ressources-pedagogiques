@@ -12,20 +12,20 @@ Une LED doit être alimentée en 5 V. Une LED n'est pas une résistance : sans l
 ### 🎯 Objectifs
 
 - Relever la tension de seuil d'une LED
-- Calculer R = (E − V<sub>F</sub>) / I<sub>F</sub> avec la loi des mailles
+- Calculer R = (E − $V_{F}$) / $I_{F}$ : la résistance reçoit la tension qui reste (E − $V_{F}$), puis on applique la loi d'Ohm
 - Choisir une valeur de la série E12 et vérifier le courant
 
 ### 🛠️ Marche à suivre
 
-1. Avec MM1 (mode V⎓) mesurez la tension V<sub>F</sub> aux bornes de la LED. La résistance R1 est pour l'instant de 1 kΩ : relevez le courant avec MM2 (mA, en série). La LED brille-t-elle fort ?
-2. On veut I<sub>F</sub> = 15 mA. Calculez R avec la loi des mailles E = R·I + V<sub>F</sub>. Choisissez la valeur E12 la plus proche.
-3. Modifiez R1 (inspecteur), vérifiez I<sub>F</sub> et la puissance dissipée par R1.
+1. Avec MM1 (mode V⎓) mesurez la tension $V_{F}$ aux bornes de la LED. La résistance R1 est pour l'instant de 1 kΩ : relevez le courant avec MM2 (mA, en série). La LED brille-t-elle fort ?
+2. On veut $I_{F}$ = 15 mA. Calculez R : la tension aux bornes de R est $U_{R}$ = E − $V_{F}$, puis R = $U_{R}$ / $I_{F}$ (loi d'Ohm). Choisissez la valeur E12 la plus proche.
+3. Modifiez R1 (inspecteur), vérifiez $I_{F}$ et la puissance dissipée par R1.
 4. <i>Pour réfléchir :</i> que se passerait-il avec R1 = 0 Ω ? (ne le faites pas : la LED serait détruite !)
 
 ### ❓ Questions
 
-1. Tension V<sub>F</sub> mesurée aux bornes de la LED (en V)
-2. Résistance théorique pour I<sub>F</sub> = 15 mA : R = (5 − V<sub>F</sub>)/I<sub>F</sub> (en Ω)
+1. Tension $V_{F}$ mesurée aux bornes de la LED (en V)
+2. Résistance théorique pour $I_{F}$ = 15 mA : R = (5 − $V_{F}$)/$I_{F}$ (en Ω)
 3. Valeur normalisée E12 la plus proche (en Ω)
 4. Courant mesuré avec cette résistance (en mA)
 5. Puissance dissipée par R1 (en mW)
@@ -53,7 +53,7 @@ Trois résistances forment un montage mixte : R1 en série avec R2 ∥ R3. Mesur
 
 - Calculer et mesurer une résistance équivalente
 - Constater qu'une mesure « en circuit » mesure l'ensemble du réseau
-- Appliquer la loi des nœuds (I = I2 + I3)
+- Vérifier que le courant total est la somme des courants des branches (I = I2 + I3)
 
 ### 🛠️ Marche à suivre
 

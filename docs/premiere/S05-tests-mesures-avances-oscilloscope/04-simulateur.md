@@ -3,7 +3,7 @@
 > [!NOTE]
 > **Comment faire ?** 1) Télécharge le fichier `.json` (clic droit → *Enregistrer le lien sous*). 2) Dans ElectroLab, clique sur **Ouvrir** et choisis ce fichier. 3) Réponds aux questions sur ta feuille ou dans ton portfolio. Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
 
-## Lire un signal à l'oscilloscope : régler, mesurer T, f, U<sub>max</sub>, U<sub>pp</sub>… (6 signaux)
+## Lire un signal à l'oscilloscope : régler, mesurer T, f, $U_{max}$, $U_{pp}$… (6 signaux)
 
 *Bac Pro CIEL (seconde / première) · durée indicative : 1 h 15*
 
@@ -14,14 +14,14 @@ Un générateur délivre un signal <b>inconnu</b> (réglages masqués), de fréq
 - Régler V/div pour que le signal occupe au moins la moitié de l'écran sans sortir
 - Régler s/div pour voir quelques périodes (2 à 10)
 - Lire T, en déduire f = 1/T
-- Lire U<sub>max</sub>, U<sub>min</sub>, U<sub>pp</sub>, en déduire amplitude et valeur moyenne
+- Lire $U_{max}$, $U_{min}$, $U_{pp}$, en déduire amplitude et valeur moyenne
 - Distinguer valeur moyenne (V⎓) et efficace (V∿) et les comparer au calcul
 
 ### 🛠️ Marche à suivre
 
 1. Câblez <b>CH1 → sortie du GBF</b> (R1 côté GBF) et <b>GND → masse</b>. Ouvrez l'oscilloscope.
 2. Le signal est invisible ou écrasé : appuyez sur <b>Auto</b> puis affinez. <b>Règle</b> : ≈ 2 à 10 périodes à l'écran (s/div) ; signal sur 4 à 6 divisions de haut (V/div) sans sortir de l'écran.
-3. Comptez les divisions : <b>T = nombre de divisions × s/div</b> ; <b>U<sub>pp</sub> = nombre de divisions × V/div</b>. Utilisez aussi les mesures affichées sous l'écran pour vérifier.
+3. Comptez les divisions : <b>T = nombre de divisions × s/div</b> ; <b>$U_{pp}$ = nombre de divisions × V/div</b>. Utilisez aussi les mesures affichées sous l'écran pour vérifier.
 4. Câblez MM1 (V⎓) et MM2 (V∿) aux bornes de R1 : valeur moyenne et valeur efficace de la partie alternative.
 5. Identifiez la forme et répondez aux questions.
 
@@ -33,23 +33,23 @@ Un générateur délivre un signal <b>inconnu</b> (réglages masqués), de fréq
     - ☐ Triangulaire
 2. Période T (en ms)
 3. Fréquence f (en Hz)
-4. Tension maximale U<sub>max</sub> (en V)
-5. Tension minimale U<sub>min</sub> (en V)
-6. Tension crête à crête U<sub>pp</sub> (en V)
+4. Tension maximale $U_{max}$ (en V)
+5. Tension minimale $U_{min}$ (en V)
+6. Tension crête à crête $U_{pp}$ (en V)
 7. Valeur moyenne (composante continue), lue en V⎓ (en V)
 8. Valeur efficace de la partie alternative, lue en V∿ (en V)
 9. Pour un signal alternatif <b>sinusoïdal</b> sans composante continue, la valeur efficace vaut…  
-    - ☐ U<sub>max</sub> / √2 ≈ 0,707·U<sub>max</sub>  
-    - ☐ U<sub>max</sub> / 2  
-    - ☐ U<sub>pp</sub>  
-    - ☐ U<sub>max</sub> × √2
+    - ☐ $U_{max}$ / √2 ≈ 0,707·$U_{max}$  
+    - ☐ $U_{max}$ / 2  
+    - ☐ $U_{pp}$  
+    - ☐ $U_{max}$ × √2
 
 ### 📥 Fichiers à ouvrir dans ElectroLab
 
 - [`osc_lect-v1.json`](tp/osc_lect-v1.json) — Autre signal n° 1
 - [`osc_lect-v2.json`](tp/osc_lect-v2.json) — Autre signal n° 2
 
-> **Version avec correction automatique :** dans ElectroLab, menu **TP ▾** → *Lire un signal à l'oscilloscope : régler, mesurer T, f, U<sub>max</sub>, U<sub>pp</sub>… (6 signaux)*.
+> **Version avec correction automatique :** dans ElectroLab, menu **TP ▾** → *Lire un signal à l'oscilloscope : régler, mesurer T, f, $U_{max}$, $U_{pp}$… (6 signaux)*.
 
 ## Prise en main de l'analyseur logique (chronogrammes d'un compteur)
 
@@ -111,7 +111,7 @@ Un maître I²C communique avec un esclave sur deux lignes : <b>SCL</b> (horloge
 
 ### 🛠️ Marche à suivre
 
-1. Câblez <b>D0 → SCL</b>, <b>D1 → SDA</b>, <b>GND → masse</b>. Si le bus est « à plat » (aucun signal haut), il manque des <b>résistances de rappel</b> : reliez SCL et SDA au +3,3 V par R<sub>P1</sub>, R<sub>P2</sub> (4,7 kΩ).
+1. Câblez <b>D0 → SCL</b>, <b>D1 → SDA</b>, <b>GND → masse</b>. Si le bus est « à plat » (aucun signal haut), il manque des <b>résistances de rappel</b> : reliez SCL et SDA au +3,3 V par $R_{P1}$, $R_{P2}$ (4,7 kΩ).
 2. Décodeur <b>I²C</b> : SCL = D0, SDA = D1. Seuil 1,65 V.
 3. Lisez : adresse 7 bits, bit R/W, ACK de l'esclave, octets de données.
 4. Mesurez la période de SCL pour en déduire la fréquence du bus.

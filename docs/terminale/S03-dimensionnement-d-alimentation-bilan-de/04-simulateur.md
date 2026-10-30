@@ -13,22 +13,22 @@ Un transformateur 230 V / 12 V est alimenté par le secteur à vide. Mesurez les
 
 - Mesurer une tension alternative (valeur efficace) au multimètre en mode V∿
 - Relever la valeur maximale et la période à l'oscilloscope
-- Calculer le rapport de transformation m = U<sub>s</sub>/U<sub>p</sub>
-- Distinguer valeur efficace et valeur maximale : U<sub>max</sub> = U<sub>eff</sub>·√2
+- Calculer le rapport de transformation m = $U_{s}$/$U_{p}$
+- Distinguer valeur efficace et valeur maximale : $U_{max}$ = $U_{eff}$·√2
 
 ### 🛠️ Marche à suivre
 
-1. Placez MM1 (mode <b>V∿</b>) aux bornes du primaire (P1–P2) et relevez U<sub>p</sub>.
-2. Déplacez MM1 aux bornes du secondaire (S1–S2) et relevez U<sub>s</sub> (à vide, le secondaire délivre un peu plus que 12 V).
-3. Câblez l'oscilloscope : CH1 sur S1, GND sur S2 (<i>le secondaire est isolé du secteur</i>). Mesurez U<sub>max</sub> et la période T.
-4. Calculez m, U<sub>max</sub>/U<sub>eff</sub> et la fréquence.
+1. Placez MM1 (mode <b>V∿</b>) aux bornes du primaire (P1–P2) et relevez $U_{p}$.
+2. Déplacez MM1 aux bornes du secondaire (S1–S2) et relevez $U_{s}$ (à vide, le secondaire délivre un peu plus que 12 V).
+3. Câblez l'oscilloscope : CH1 sur S1, GND sur S2 (<i>le secondaire est isolé du secteur</i>). Mesurez $U_{max}$ et la période T.
+4. Calculez m, $U_{max}$/$U_{eff}$ et la fréquence.
 
 ### ❓ Questions
 
-1. Tension efficace primaire U<sub>p</sub> (en V)
-2. Tension efficace secondaire à vide U<sub>s</sub> (en V)
-3. Rapport de transformation m = U<sub>s</sub> / U<sub>p</sub> (sans unité, 3 décimales)
-4. Valeur maximale du secondaire U<sub>max</sub> relevée à l'oscilloscope (en V)
+1. Tension efficace primaire $U_{p}$ (en V)
+2. Tension efficace secondaire à vide $U_{s}$ (en V)
+3. Rapport de transformation m = $U_{s}$ / $U_{p}$ (sans unité, 3 décimales)
+4. Valeur maximale du secondaire $U_{max}$ relevée à l'oscilloscope (en V)
 5. Période du signal (en ms)
 6. Le transformateur d'isolement…  
     - ☐ Transforme le courant alternatif en courant continu  
@@ -58,8 +58,8 @@ Un transformateur alimente une résistance de charge à travers un redresseur. V
 ### 🛠️ Marche à suivre
 
 1. Câblez l'oscilloscope : CH1 sur le secondaire (S1), CH2 sur la charge RL, masses reliées ; affichez les deux voies (5 V/div, 5 ms/div).
-2. Observez et décrivez la tension u<sub>RL</sub> : combien de « bosses » par période du secteur ?
-3. Mesurez la valeur moyenne de u<sub>RL</sub> avec MM1 en V⎓ et la valeur maximale à l'oscilloscope. Comparez avec U<sub>smax</sub> − 0,7 V (simple) ou − 1,4 V (pont).
+2. Observez et décrivez la tension $u_{RL}$ : combien de « bosses » par période du secteur ?
+3. Mesurez la valeur moyenne de $u_{RL}$ avec MM1 en V⎓ et la valeur maximale à l'oscilloscope. Comparez avec $U_{smax}$ − 0,7 V (simple) ou − 1,4 V (pont).
 4. Cliquez « ↻ Montage suivant » pour étudier l'autre redresseur.
 
 ### ❓ Questions
@@ -102,18 +102,18 @@ Un pont redresseur alimente une charge de 100 Ω. Un condensateur de filtrage de
 1. Câblez CH1 de l'oscilloscope sur la charge RL et passez la voie en couplage <b>AC</b> avec 1 V/div pour voir l'ondulation.
 2. Mesurez la tension moyenne (MM1 en V⎓) et l'ondulation ΔV pp. Calculez le courant dans la charge I = U/R.
 3. Calculez la capacité C minimale pour ΔV ≤ 1 V : C = I / (2·f·ΔV). Choisissez la valeur normalisée supérieure.
-4. Remplacez C1 dans l'inspecteur (attention à la tension de service ≥ 1,5 × U<sub>max</sub>). Vérifiez à l'oscilloscope.
+4. Remplacez C1 dans l'inspecteur (attention à la tension de service ≥ 1,5 × $U_{max}$). Vérifiez à l'oscilloscope.
 
 ### ❓ Questions
 
 1. Tension moyenne sur la charge avec C = 100 µF (en V)
-2. Courant dans la charge I ≈ U<sub>moy</sub>/R (en mA), pour U<sub>moy</sub> ≈ 14 V
+2. Courant dans la charge I ≈ $U_{moy}$/R (en mA), pour $U_{moy}$ ≈ 14 V
 3. Capacité minimale pour ΔV ≤ 1 V : C = I/(2·f·ΔV) (en µF), I = 0,14 A, f = 50 Hz
 4. Valeur E12 à choisir (en µF)
 5. La tension de service du condensateur doit être…  
-    - ☐ Inférieure à U<sub>max</sub>  
-    - ☐ Égale à U<sub>max</sub>  
-    - ☐ Supérieure à U<sub>max</sub> (marge ≥ 30 %)  
+    - ☐ Inférieure à $U_{max}$  
+    - ☐ Égale à $U_{max}$  
+    - ☐ Supérieure à $U_{max}$ (marge ≥ 30 %)  
     - ☐ Sans importance
 
 ### 📥 Fichiers à ouvrir dans ElectroLab
@@ -131,26 +131,26 @@ Une alimentation complète (transformateur, pont, filtrage, régulateur 7805) al
 ### 🎯 Objectifs
 
 - Mesurer la tension avant et après régulation
-- Calculer la puissance dissipée par le régulateur P = (U<sub>e</sub> − U<sub>s</sub>)·I
+- Calculer la puissance dissipée par le régulateur P = ($U_{e}$ − $U_{s}$)·I
 - Comprendre la tension de déchet minimale (≈ 2 V)
 - Savoir quand un dissipateur thermique est nécessaire
 
 ### 🛠️ Marche à suivre
 
 1. Mesurez la tension d'entrée du régulateur (aux bornes de C1) à l'oscilloscope et au multimètre, puis la tension de sortie.
-2. Calculez la puissance dissipée par U1 : P = (U<sub>e</sub> − U<sub>s</sub>)·I<sub>s</sub>. Quelle température atteint le boîtier sans dissipateur ? Observez le comportement dans l'inspecteur de U1 (protection thermique).
+2. Calculez la puissance dissipée par U1 : P = ($U_{e}$ − $U_{s}$)·$I_{s}$. Quelle température atteint le boîtier sans dissipateur ? Observez le comportement dans l'inspecteur de U1 (protection thermique).
 3. Si nécessaire, ajoutez un dissipateur thermique (case dans l'inspecteur) ou changez de transformateur.
 4. Variante : avec le transformateur 6 V, mesurez l'ondulation en sortie. Pourquoi la sortie n'est-elle plus régulée ?
 
 ### ❓ Questions
 
-1. Tension moyenne en entrée du régulateur U<sub>e</sub> (en V)
-2. Tension de sortie U<sub>s</sub> (en V)
-3. Courant de charge I<sub>s</sub> (en mA)
+1. Tension moyenne en entrée du régulateur $U_{e}$ (en V)
+2. Tension de sortie $U_{s}$ (en V)
+3. Courant de charge $I_{s}$ (en mA)
 4. Puissance dissipée par le régulateur (en W)
 5. Quelle est la condition pour que le 7805 régule correctement ?  
-    - ☐ U<sub>e</sub> doit toujours rester au-dessus de ≈ 7 V (5 V + tension de déchet)  
-    - ☐ U<sub>e</sub> doit être égale à 5 V  
+    - ☐ $U_{e}$ doit toujours rester au-dessus de ≈ 7 V (5 V + tension de déchet)  
+    - ☐ $U_{e}$ doit être égale à 5 V  
     - ☐ Il faut une charge nulle  
     - ☐ Il faut une fréquence supérieure à 1 kHz
 
