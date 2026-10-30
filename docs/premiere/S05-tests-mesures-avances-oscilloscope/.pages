@@ -1,0 +1,6 @@
+title: "S05 · Tests & Mesures Avancés : Oscilloscope Mixte, Analyseur Logique, I2C / SPI"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "🛠️ TP": 02-tp.md
+  - "🖥️ Simulateur ElectroLab": 04-simulateur.md

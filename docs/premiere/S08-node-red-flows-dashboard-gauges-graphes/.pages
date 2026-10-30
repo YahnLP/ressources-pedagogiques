@@ -1,0 +1,7 @@
+title: "S08 · Node-RED : Flows · Dashboard · Gauges · Graphes Temps Réel · InfluxDB"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "🛠️ TP": 02-tp.md
+  - "📝 Exercices et ateliers": 03-exercices.md
+  - "📎 Aide-mémoire node-red · influxdb": annexe-aide-memoire-node-red-influxdb.md

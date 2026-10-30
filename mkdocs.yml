@@ -1,102 +1,87 @@
-# À modifier avec le nom et la description du site
-site_name: "Ressources pédagogiques - BAC PRO CIEL"
-site_description: "Cours et ressources du BAC PRO CIEL (E2) - Yahn Le Prettre"
-
-# Auteur / dépôt / URL (version GitHub Pages)
+site_name: "Électronique – Bac Pro CIEL (E2)"
+site_description: "Cours, TP et annexes du module E2 – Bac Pro CIEL (Seconde, Première, Terminale) – Yahn Le Prettre"
 site_url: "https://yahnlp.github.io/ressources-pedagogiques/"
 site_author: "Yahn Le Prettre"
 repo_url: "https://github.com/YahnLP/ressources-pedagogiques"
 edit_uri: "edit/main/docs/"
 
-# À modifier, avec votre nom et la licence choisie
 copyright: |
-  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">
-    <img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
-  </a>
-  <br/>
-  Hébergé sur GitHub Pages
+  © Yahn LE PRETTRE, Enseignant à la MFR de Pontonx ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr">Licence CC BY-NC-SA 4.0</a>
 
-# À modifier, avec votre mail
-extra:
-  social:
-    - icon: fontawesome/regular/envelope
-      link: "mailto:yahn.leprettre.mfr@gmail.com"
-      name: "Écrire à l'auteur"
-    - icon: fontawesome/brands/github
-      link: "https://github.com/YahnLP/ressources-pedagogiques"
-      name: "GitHub"
+  · Hébergé sur GitHub Pages
 
 docs_dir: docs
 
-# Éventuellement à modifier avec votre thème de couleurs
 theme:
   name: material
   language: fr
-  font: false # RGPD ; pas de fonte Google
-
-  # ⚠️ Décommenter si docs/images/favicon.png et docs/images/logo.png existent
-  # favicon: images/favicon.png
-  # logo: images/logo.png
-
-  palette: # Palettes de couleurs jour/nuit
+  font: false            # pas de police Google (RGPD)
+  logo: images/logo.svg
+  favicon: images/logo.svg
+  palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: indigo
-      accent: indigo
+      accent: cyan
       toggle:
         icon: material/weather-sunny
         name: "Passer au mode nuit"
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: green
+      primary: indigo
+      accent: cyan
       toggle:
         icon: material/weather-night
         name: "Passer au mode jour"
-
   features:
-    - navigation.instant
+    - navigation.tabs
+    - navigation.indexes
     - navigation.top
-    - toc.integrate
-    - header.autohide
-    - content.code.annotate
+    - navigation.instant
+    - toc.follow
+    - content.code.copy
+    - search.highlight
+    - search.suggest
+    - navigation.footer
+    - content.tabs.link
 
-nav:
-  - "🏡 Accueil": index.md
-  - ... | regex=^(?:(?!_REM.md).)*$
+plugins:
+  - search:
+      lang: fr
+  - awesome-pages
+  - callouts
 
 markdown_extensions:
-  - meta
-  - abbr
-  - def_list
-  - attr_list
-  - footnotes
   - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: false
+      toc_depth: 3
   - pymdownx.details
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
-  - pymdownx.highlight:
-      auto_title: true
+  - pymdownx.keys
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.tasklist:
-      custom_checkbox: false
-      clickable_checkbox: true
+      custom_checkbox: true
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.keys:
-      separator: "＋"
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.superfences
-  - toc:
-      permalink: "⚓︎"
-      toc_depth: 2
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
-plugins:
-  - search
-  - awesome-pages:
-      collapse_single_pages: true
-  - macros
+extra_css:
+  - xtra/extra.css
+
+extra_javascript:
+  - xtra/extra.js

@@ -1,0 +1,6 @@
+title: "S12 · Réussir un TP de Mesure en 45 Minutes : Rapidité sans Sacrifier la Précision"
+nav:
+  - README.md
+  - "🛠️ TP (1)": 02-tp-1.md
+  - "🛠️ TP (2)": 02-tp-2.md
+  - "🖥️ Simulateur ElectroLab": 04-simulateur.md

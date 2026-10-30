@@ -1,0 +1,6 @@
+title: "S02 · Diodes LED · Circuits Série & Parallèle · Loi d'Ohm appliquée"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "📎 Datasheet simplifiée — LED 5 mm Générique": annexe-datasheet-simplifiee-led-5-mm-generique.md
+  - "🖥️ Simulateur ElectroLab": 04-simulateur.md

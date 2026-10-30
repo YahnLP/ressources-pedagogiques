@@ -1,0 +1,17 @@
+title: "Annexes · Rappels de cours E2"
+nav:
+  - README.md
+  - "Pack 01 · Composants électroniques (fiche A)": 01-composants-electroniques-a.md
+  - "Pack 01 · Composants électroniques (fiche B)": 01-composants-electroniques-b.md
+  - "Pack 02 · Schémas électroniques et plans de câblage (fiche A)": 02-schemas-electroniques-et-plans-de-a.md
+  - "Pack 02 · Schémas électroniques et plans de câblage (fiche B)": 02-schemas-electroniques-et-plans-de-b.md
+  - "Pack 03 · Montage et assemblage de circuits (fiche A)": 03-montage-et-assemblage-de-circuits-a.md
+  - "Pack 03 · Montage et assemblage de circuits (fiche B)": 03-montage-et-assemblage-de-circuits-b.md
+  - "Pack 04 · Mesures électriques (fiche A)": 04-mesures-electriques-a.md
+  - "Pack 04 · Mesures électriques (fiche B)": 04-mesures-electriques-b.md
+  - "Pack 05 · Analyse et diagnostic des pannes (fiche A)": 05-analyse-et-diagnostic-des-pannes-a.md
+  - "Pack 05 · Analyse et diagnostic des pannes (fiche B)": 05-analyse-et-diagnostic-des-pannes-b.md
+  - "Pack 06 · Maintenance et réparation (fiche A)": 06-maintenance-et-reparation-a.md
+  - "Pack 06 · Maintenance et réparation (fiche B)": 06-maintenance-et-reparation-b.md
+  - "Pack 07 · Microcontrôleurs et programmation basique (Arduino) (fiche A)": 07-microcontroleurs-et-programmation-a.md
+  - "Pack 07 · Microcontrôleurs et programmation basique (Arduino) (fiche B)": 07-microcontroleurs-et-programmation-b.md

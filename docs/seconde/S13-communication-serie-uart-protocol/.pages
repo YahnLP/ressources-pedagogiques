@@ -1,0 +1,5 @@
+title: "S13 · Communication Série UART · Protocol & Timing · Serial Monitor Avancé · HC-05 Bluetooth"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "📎 Référence sketches & commandes AT": annexe-reference-sketches-commandes-at.md

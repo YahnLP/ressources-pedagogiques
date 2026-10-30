@@ -1,0 +1,5 @@
+title: "S02 · KiCad : Saisie de Schéma, Bibliothèques, ERC, Netlist"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "🛠️ TP": 02-tp.md

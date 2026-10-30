@@ -1,0 +1,5 @@
+title: "S18 · Documentation Technique : DAT, Schémas de Câblage, BOM, Procédures"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "📝 Exercices et ateliers": 03-exercices.md

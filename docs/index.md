@@ -1,55 +1,82 @@
-# BAC PRO CIEL — Ressources pédagogiques
+<div class="hero" markdown>
 
-**Bienvenue sur l'espace de ressources du BAC PRO CIEL.**
+# Électronique
 
----
+**Bac Pro CIEL – module E2**
+Cours, TP et ressources – Yahn LE PRETTRE, Enseignant à la MFR de Pontonx
 
-# 🎓 BAC PRO CIEL
+On n'apprend pas l'électronique en la regardant : **on câble, on mesure, on soude, on dépanne.**
 
-## Cybersécurité, Informatique et réseaux, Électronique
+<a class="hero-btn" href="seconde/">🌱 Commencer en Seconde</a>
+<a class="hero-btn alt" href="ressources/electrolab/">🖥️ Simulateur ElectroLab</a>
 
-> 💡 *Comprendre et mettre en œuvre les systèmes numériques pour devenir un(e) professionnel(le) CIEL opérationnel(le).*
+</div>
 
----
+> [!NOTE]
+> **Ici, on apprend en faisant.** Chaque notion s'appuie sur une fiche de cours, des TP guidés et des documents de référence (aide-mémoire, fiches techniques, check-lists).
 
-## 📚 Organisation du site
+## 🗺️ Choisis ton année
 
-Le site est organisé **par bloc de compétences**.
+<div class="cards" markdown>
 
-| Bloc | Contenu | Statut |
-|---|---|---|
-| **E2** | Électronique : composants, schémas, montage, mesures, diagnostic, maintenance, microcontrôleurs | 🟢 En ligne (7 fiches de cours) |
+<div class="card" markdown>
+<span class="big">🌱</span>
 
-Chaque fiche de cours est illustrée de schémas et de planches d'illustrations.
+### Seconde
+**18 séances** – Composants, loi d'Ohm, schémas, soudure, Arduino, capteurs et projet A1.
 
-Les corrigés et fiches formateur ne sont pas publiés sur ce site.
+[**Ouvrir la progression →**](seconde/README.md){ .go }
+</div>
 
----
+<div class="card green" markdown>
+<span class="big">🌿</span>
 
-## 🧭 Comment utiliser cet espace ?
+### Première
+**19 séances** – KiCad, PCB, ESP32, MQTT, Node-RED, cloud, fiabilité, CEM et projet A2.
 
-### En classe
+[**Ouvrir la progression →**](premiere/README.md){ .go }
+</div>
 
-```
-1. Ouvrir la fiche du jour
-2. Lire les objectifs
-3. Réaliser les activités / le TP
-4. Compléter l'auto-évaluation
-```
+<div class="card amber" markdown>
+<span class="big">🌳</span>
 
-### En cas d'absence
+### Terminale
+**17 séances** – Mesures et procès-verbaux, alimentation, validation, métrologie, préparation de l'épreuve E2.
 
-```
-1. Consulter la fiche de cours
-2. Reproduire les manipulations en autonomie
-3. Faire valider la compréhension au cours suivant
-```
+[**Ouvrir la progression →**](terminale/README.md){ .go }
+</div>
 
----
+<div class="card violet" markdown>
+<span class="big">🖥️</span>
 
-## 🔄 Mises à jour
+### Simulateur ElectroLab
+**Exercices et TP simulés** – Télécharge le fichier, ouvre-le dans ElectroLab.
 
-En cas de problème technique ou de lien inaccessible, le signaler directement à l'enseignant.
+[**Mode d'emploi →**](ressources/electrolab.md){ .go }
+</div>
+
+<div class="card violet" markdown>
+<span class="big">📚</span>
+
+### Annexes
+**Rappels de cours E2** – Sept packs illustrés (composants, schémas, mesures, diagnostic, Arduino…).
+
+[**Ouvrir les annexes →**](annexes/rappels-e2/README.md){ .go }
+</div>
+
+</div>
+
+## 🧱 Une séance, c'est quoi ?
+
+<div class="steps" markdown>
+<div markdown>**📋 Fiche séance**<br>Les documents de la séance</div>
+<div markdown>**📖 Cours**<br>La fiche de cours élève</div>
+<div markdown>**🛠️ TP**<br>Manipulations guidées</div>
+<div markdown>**🖥️ Simulateur**<br>Fichiers à ouvrir dans ElectroLab</div>
+</div>
+
+> [!EXAMPLE] 🚀 Pour aller plus loin
+> Ce pictogramme signale un contenu **au-delà du programme**, utile au métier de technicien.
 
 ---
 

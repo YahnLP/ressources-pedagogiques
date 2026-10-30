@@ -1,4 +1,7 @@
-arrange:
+nav:
   - index.md
-  - E2
-  - ...
+  - seconde
+  - premiere
+  - terminale
+  - ressources
+  - annexes

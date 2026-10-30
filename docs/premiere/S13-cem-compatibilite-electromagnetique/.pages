@@ -1,0 +1,7 @@
+title: "S13 · CEM : Compatibilité Électromagnétique · Conduits/Rayonnés · Blindage · Filtrage · Mise à la Terre"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "🛠️ TP": 02-tp.md
+  - "📎 Aide-mémoire CEM": annexe-aide-memoire-cem.md
+  - "🖥️ Simulateur ElectroLab": 04-simulateur.md
