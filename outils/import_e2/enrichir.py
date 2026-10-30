@@ -392,24 +392,55 @@ ASCII = [  # (année, séance, marqueur dans le bloc, figure ou texte de remplac
     ('premiere', 'S02', 'KiCad Project Manager', 'kicad_fenetre_principale', 'Gestionnaire de projet KiCad'),
     ('premiere', 'S02', 'BARRE DE MENUS', 'kicad_editeur_schema', "Interface d'Eeschema"),
     ('premiere', 'S09', 'AWS IoT Core', 'chaine_aws', 'Architecture AWS IoT Core'),
+    ('premiere', 'S01', 'SCHÉMA ATTENDU', 'driver_transistor_s01', 'Schéma attendu : LED pilotée par un transistor', {'file': '02-tp.md', 'cut': 'CALCULS PRÉALABLES'}),
+    ('premiere', 'S02', 'NE555 U1', 'ne555_astable_tp', 'Schéma du NE555 en montage astable', {'file': '02-tp.md', 'cut': 'Fréquence approximative'}),
+    ('premiere', 'S03', 'Circuit à implémenter', 'driver_transistor_s03', 'Circuit à implémenter sur le PCB', {'file': '02-tp.md', 'cut': 'Composants et empreintes'}),
+    ('premiere', 'S05', 'Bus I2C → Capteur MPU-6050', 'bus_arduino_i2c_spi', 'Bus I2C et bus SPI de l\'Arduino', {'file': '02-tp.md', 'cut': 'Alimentation : USB'}),
+    ('premiere', 'S06', 'ESP32 DevKit v1 :', 'esp32_caracteristiques', 'Caractéristiques de l\'ESP32 DevKit v1', {'cut': 'Alimentation : 3,3 V'}),
+    ('premiere', 'S07', 'Mosquitto 2.x', 'architecture_mqtt_tp', 'Architecture du TP : ESP32, Wi-Fi et broker Mosquitto', {'file': '02-tp.md', 'cut': 'Topics utilisés'}),
+    ('premiere', 'S09', 'AWS IoT Core', 'chaine_aws', 'De l\'ESP32 à CloudWatch', {'file': '02-tp.md'}),
+    ('premiere', 'S11', '┌── [C1] ──┐', 'rbd_parallele', 'Système parallèle', {'cut': 'Le système tombe'}),
+    ('premiere', 'S12', 'Vue de dessus du boîtier', 'boitier_vue_dessus', 'Vue de dessus du boîtier', {}),
+    ('premiere', 'S12', 'Développé à découper', 'developpe_boitier', 'Développé du boîtier en 6 faces', {'file': '02-tp.md'}),
+    ('premiere', 'S13', 'L (inductance) en série', 'filtre_lc', 'Filtre LC', {'cut': 'Fréquence de coupure'}),
+    ('premiere', 'S13', 'Signal bruité ──[R]──', 'filtre_rc', 'Filtre RC', {'file': '02-tp.md', 'cut': 'Fréquence de coupure'}),
+    ('premiere', 'S13', 'PLAN CONTINU (recommandé)', 'plan_masse_continu_fendu', 'Plan de masse continu et plan de masse fendu', {'md': '{IMG}\n\n- **Plan continu** : le courant de retour emprunte le chemin de moindre impédance, juste sous la piste. La boucle est minimale, donc le rayonnement aussi.\n- **Plan fendu** : la fente force le courant de retour à faire un long détour. La boucle devient une grande antenne et les deux parties du plan se couplent.'}),
+    ('premiere', 'S13', 'RÈGLE 1 — Point de masse unique', 'regles_masse', 'Les quatre règles de mise à la masse', {'md': '{IMG}\n\n1. **Point de masse unique (étoile)** : toutes les masses reviennent à un seul point, idéal pour l\'analogique basse fréquence.\n2. **Plan de masse (réseau)** : toutes les masses sont reliées à un plan continu, idéal pour le numérique et la haute fréquence.\n3. **Masses séparées** : les masses analogique et numérique se rejoignent en un point de jonction unique vers la terre.\n4. **Pas de boucle de masse** : deux chemins différents entre deux points de masse forment une antenne.'}),
+    ('premiere', 'S15', 'Schéma : LED + résistance', 'schema_erreurs_erc', 'Schéma contenant quatre erreurs à trouver', {'file': '03-exercices.md', 'cut': 'Erreurs à trouver'}),
+    ('terminale', 'S01', 'CARTE SONDE_E2_A3', 'carte_sonde', 'Carte sonde E2 A3', {'file': '02-tp.md', 'cut': 'Composants à mesurer'}),
+    ('terminale', 'S03', 'Source (batterie LiPo', 'chaine_alimentation_decouplage', 'Chaîne d\'alimentation et découplage', {'cut': 'Protection optionnelle'}),
+    ('terminale', 'S04', 'Architecture A3', 'architecture_a3', 'Architecture A3 : alarme locale et publication réseau', {'cut': 'Avantage'}),
+    ('terminale', 'S06', '─┤  NE555', 'brochage_ne555', 'Brochage du NE555', {'cut': 'Mode astable'}),
+    ('terminale', 'S06', '│ 7805│', 'brochage_7805', 'Brochage du régulateur 7805', {'cut': '(1) Input'}),
+    ('terminale', 'S07', 'FAMILLE 1', 'familles_normes', 'Les trois familles de normes', {}),
+    ('terminale', 'S11', 'pin7 (DISCHARGE)', 'ne555_astable_dossier', 'Schéma du dossier technique', {'file': 'annexe-dossier-technique-tp-s11-annee-3-e2.md'}),
+    ('terminale', 'S11', 'CONTROL VOLTAGE', 'brochage_ne555', 'Brochage du NE555', {'file': 'annexe-dossier-technique-tp-s11-annee-3-e2.md'}),
+    ('terminale', 'S11', '7805     │', 'brochage_7805', 'Brochage du 7805', {'file': 'annexe-dossier-technique-tp-s11-annee-3-e2.md'}),
 ]
 LANGS = ('cpp', 'c', 'python', 'bash', 'javascript', 'json', 'arduino', 'ino', 'yaml', 'sql', 'js', 'sh', 'flux', 'csv')
 
 
 def ascii_remplacements():
     n = 0
-    for y, sess, marker, rep, alt in ASCII:
-        d = D(y, sess); f = d / '01-cours.md'; L = f.read_text(encoding='utf-8').split('\n'); i = 0; done = False
+    for r in ASCII:
+        y, sess, marker, rep, alt = r[:5]; ex = r[5] if len(r) > 5 else {}
+        d = D(y, sess); f = d / ex.get('file', '01-cours.md'); L = f.read_text(encoding='utf-8').split('\n'); i = 0; done = False
         while i < len(L):
             m = re.match(r'^(\s*)```(\w*)\s*$', L[i])
             if m and m.group(2) not in LANGS:
                 j = i + 1
                 while j < len(L) and not re.match(r'^\s*```\s*$', L[j]): j += 1
                 if any(marker in l for l in L[i + 1:j]):
-                    if rep.startswith('='): new = rep[1:].split('\n') if rep[1:] else []
-                    else:
-                        q(FIG / f'{rep}.png', d / 'images' / (rep.replace('_', '-') + '.png')); new = [f'![{alt}](images/{rep.replace("_", "-")}.png)']
-                    L[i:j + 1] = new; n += 1; done = True; break
+                    if 'md' in ex or not rep.startswith('='):
+                        q(FIG / f'{rep}.png', d / 'images' / (rep.replace('_', '-') + '.png')); img = f'![{alt}](images/{rep.replace("_", "-")}.png)'
+                    if 'md' in ex: L[i:j + 1] = ex['md'].replace('{IMG}', img).split('\n')
+                    elif rep.startswith('='): L[i:j + 1] = rep[1:].split('\n') if rep[1:] else []
+                    elif 'cut' in ex:
+                        k = next((x for x in range(i + 1, j) if L[x].strip().startswith(ex['cut'])), None)
+                        if k is None: print('coupure introuvable', y, sess, ex['cut']); L[i:j + 1] = [img]
+                        else: L[i:k] = [img, '', L[i]]
+                    else: L[i:j + 1] = [img]
+                    n += 1; done = True; break
                 i = j
             i += 1
         if not done: print('bloc introuvable', y, sess, marker)

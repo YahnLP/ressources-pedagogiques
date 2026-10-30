@@ -22,18 +22,9 @@
 
 ### L'intelligence embarquée : décision locale
 
+![Architecture A3 : alarme locale et publication réseau](images/architecture-a3.png)
+
 ```
-Architecture A3 :
-
- [Capteur] ──► [ESP32]
-                  │
-                  ├── Calcul KPI (moyenne, tendance...)
-                  ├── Comparaison aux seuils
-                  ├── Si alarme → LED rouge / buzzer / relais (LOCAL)
-                  │                    ↓ immédiat, sans réseau
-                  └── Si réseau OK → publication JSON sur MQTT/AWS
-                                         ↓ dashboard CloudWatch
-
 Avantage : réaction < 1 seconde, même sans Wi-Fi
 ```
 

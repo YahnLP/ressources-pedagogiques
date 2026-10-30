@@ -27,38 +27,7 @@
 
 ## DOCUMENT 2 — SCHÉMA ÉLECTRONIQUE (à interpréter)
 
-```
-                        +12V (J1 pin1)
-                          │
-              ┌─── C1 (100nF CMS) ───┐
-              │                      │
-              └─── Vin (U1:7805) ─── │ ─── GND
-                       │             │
-                     Vout           GND
-                       │
-                      +5V ─── C2 (10µF élec.) ─── GND
-                       │
-                       ├─── R1 (10kΩ) ───┬─── pin7 (DISCHARGE)
-                       │                 │
-                       │             R2 (68kΩ)
-                       │                 │
-                       │             pin6 (THRESHOLD) ──┬── pin2 (TRIGGER)
-                       │                                │
-                       │                            C3 (10µF élec.)
-                       │                                │
-                       │                               GND
-                       │
-                       ├─── pin8 (VCC) de U2:NE555
-                       │
-                      pin4 (RESET) ─── +5V
-                      pin5 (CTRL)  ─── C4 (100nF CMS) ─── GND
-                       │
-                      pin3 (OUTPUT) ─── R3 (100Ω) ─── Anode(LED1) ─── Cathode(LED1) ─── GND
-                       │
-                      pin1 (GND) ─── GND
-
-Alimentation : 2× PWR_FLAG (sur +5V et GND)
-```
+![Schéma du dossier technique](images/ne555-astable-dossier.png)
 
 > **Note :** Ce schéma est le document de référence pour toutes les parties du TP.
 
@@ -68,14 +37,7 @@ Alimentation : 2× PWR_FLAG (sur +5V et GND)
 
 ### Brochage DIP-8
 
-```
-         ┌─────────┐
-GND    1 ─┤         ├─ 8  VCC
-TRIG   2 ─┤  NE555  ├─ 7  DISCHARGE
-OUTPUT 3 ─┤         ├─ 6  THRESHOLD
-RESET  4 ─┤         ├─ 5  CONTROL VOLTAGE
-         └─────────┘
-```
+![Brochage du NE555](images/brochage-ne555.png)
 
 ### Mode astable — Formules
 
@@ -101,12 +63,7 @@ Période     : T  = tH + tL = 1/f                   [s]
 
 ### Brochage TO-220
 
-```
-   ┌──────────────┐
-   │     7805     │
-(1)│  (2)│  (3)   │
-  Vin  GND  Vout
-```
+![Brochage du 7805](images/brochage-7805.png)
 
 ### Caractéristiques
 

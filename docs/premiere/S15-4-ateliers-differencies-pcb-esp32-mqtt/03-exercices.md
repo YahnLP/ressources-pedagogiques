@@ -31,11 +31,9 @@ RÈGLES MINIMALES :
 
 > Description d'un schéma KiCad avec des problèmes :
 
-```
-Schéma : LED + résistance + alimentation 5V
+![Schéma contenant quatre erreurs à trouver](images/schema-erreurs-erc.png)
 
-  [+5V] ─── [R1] ─── [D1 LED] ─── GND
-  
+```
 Erreurs à trouver (il y en a 4) :
 
   1. La résistance R1 n'a pas de valeur saisie (champ Value vide)
