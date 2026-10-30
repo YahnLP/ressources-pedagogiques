@@ -1,0 +1,6 @@
+title: "S16 · Projet A1 : Système domotique · Capteur DHT11 T°/Humidité · Schéma électronique complet"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "📎 Fiche technique — capteur DHT11": annexe-fiche-technique-capteur-dht11.md
+  - "📎 Fiche gabarit — schéma électronique DU système domotique A1": annexe-fiche-gabarit-schema-electronique-du.md

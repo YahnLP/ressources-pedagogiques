@@ -1,0 +1,8 @@
+title: "S04 · PCB Double Face : Métallisation · Sérigraphie · tht/smd Mixte · Gerber"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "🛠️ TP": 02-tp.md
+  - "📝 Exercices et ateliers": 03-exercices.md
+  - "📎 Aide-mémoire PCB double face · gerber": annexe-aide-memoire-pcb-double-face-gerber.md
+  - "🖥️ Simulateur ElectroLab": 04-simulateur.md

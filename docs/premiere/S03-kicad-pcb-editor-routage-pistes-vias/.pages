@@ -1,0 +1,6 @@
+title: "S03 · KiCad PCB Editor : Routage · Pistes & Vias · Clearance · DRC · Visualisation 3D"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "🛠️ TP": 02-tp.md
+  - "📎 Aide-mémoire PCB KiCad": annexe-aide-memoire-pcb-kicad.md

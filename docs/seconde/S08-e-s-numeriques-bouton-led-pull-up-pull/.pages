@@ -1,0 +1,5 @@
+title: "S08 · E/S Numériques : Bouton & LED · Pull-up / Pull-down · Débogage Serial"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "📎 Référence sketches": annexe-reference-sketches.md

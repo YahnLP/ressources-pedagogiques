@@ -1,0 +1,7 @@
+title: "S03 · Dimensionnement d'Alimentation : Bilan de Puissance · Régulateurs · Calcul Thermique"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "🛠️ TP": 02-tp.md
+  - "📎 Aide-mémoire alimentation embarquée": annexe-aide-memoire-alimentation-embarquee.md
+  - "🖥️ Simulateur ElectroLab": 04-simulateur.md

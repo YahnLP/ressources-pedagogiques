@@ -1,0 +1,5 @@
+title: "S17 · Tests d'intégration · Documentation technique (Schéma + BOM) · Résolution de pannes réelles"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "📎 Fiche protocole DE tests & rapport DE diagnostic": annexe-fiche-protocole-de-tests-rapport-de.md

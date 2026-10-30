@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Électronique Bac Pro CIEL">
+<polygon points="32,4 56,18 56,46 32,60 8,46 8,18" fill="#3f51b5"/>
+<rect x="21" y="21" width="22" height="22" rx="3" fill="#fff"/>
+<g stroke="#fff" stroke-width="3" stroke-linecap="round"><line x1="26" y1="14" x2="26" y2="21"/><line x1="38" y1="14" x2="38" y2="21"/><line x1="26" y1="43" x2="26" y2="50"/><line x1="38" y1="43" x2="38" y2="50"/><line x1="14" y1="27" x2="21" y2="27"/><line x1="14" y1="37" x2="21" y2="37"/><line x1="43" y1="27" x2="50" y2="27"/><line x1="43" y1="37" x2="50" y2="37"/></g>
+<circle cx="27" cy="38" r="2.5" fill="#3f51b5"/></svg>

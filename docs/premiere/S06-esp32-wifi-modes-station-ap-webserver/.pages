@@ -1,0 +1,6 @@
+title: "S06 · ESP32 WiFi : Modes Station & AP · WebServer Embarqué · MQTT Client Basique"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "🛠️ TP": 02-tp.md
+  - "📎 Aide-mémoire ESP32 WiFi · WebServer · MQTT": annexe-aide-memoire-esp32-wifi-webserver-mqtt.md

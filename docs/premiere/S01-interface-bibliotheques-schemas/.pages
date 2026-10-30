@@ -1,0 +1,6 @@
+title: "S01 · Interface · Bibliothèques · Schémas · Premiers pas en CAO électronique"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "🛠️ TP": 02-tp.md
+  - "📎 Aide-mémoire composants + KiCad": annexe-aide-memoire-composants-kicad.md

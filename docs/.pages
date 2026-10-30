@@ -1,7 +1,7 @@
-
-arrange:
+nav:
   - index.md
-  - E2
-  - ...
-exclude:
-  - E31
+  - seconde
+  - premiere
+  - terminale
+  - ressources
+  - annexes

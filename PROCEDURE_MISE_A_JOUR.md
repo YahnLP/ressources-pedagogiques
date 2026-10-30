@@ -1,134 +1,45 @@
-# Procédure de mise à jour — Site BAC PRO CIEL (ressources-pedagogiques)
+# Procédure de mise à jour du site
 
-Ce document explique comment ajouter du contenu, prévisualiser le site en local, et le publier sur GitHub Pages.
-Il s'applique au site MkDocs situé à la racine du dépôt `ressources-pedagogiques` (dossier `docs/`, `mkdocs.yml`, `.github/workflows/mkdocs.yml`).
+Le site est un projet **MkDocs Material** : le contenu est dans `docs/`, la configuration dans `mkdocs.yml`. Il est publié **automatiquement** sur GitHub Pages à chaque `push` sur `main` (`.github/workflows/mkdocs.yml`).
 
----
-
-## 0. Installation initiale (une seule fois par PC)
-
-Vous avez déjà fait cette étape pour le site BTS — c'est exactement la même chose.
+## 1. Prévisualiser en local
 
 ```bash
-# Se placer dans le dossier local du dépôt ressources-pedagogiques
-cd chemin/vers/ressources-pedagogiques
-
-# Créer un environnement Python dédié (recommandé)
-python -m venv .venv
-# Windows :
-.venv\Scripts\activate
-# macOS/Linux :
-source .venv/bin/activate
-
-# Installer les dépendances du site
 pip install -r requirements.txt
+mkdocs serve          # http://127.0.0.1:8000
+mkdocs build --strict # doit se terminer sans erreur avant de publier
 ```
 
----
+## 2. Règle d'or : ce qui est publié
 
-## 1. Prévisualiser le site en local
+Le site est **public**.
 
-Avant de pousser sur GitHub, prévisualisez toujours vos changements :
-
-```bash
-mkdocs serve
-```
-
-Puis ouvrez `http://127.0.0.1:8000/` dans un navigateur. La page se recharge automatiquement à chaque modification d'un fichier.
-
-Pour vérifier qu'il n'y a pas d'erreur de configuration ou de lien cassé avant de publier :
-
-```bash
-mkdocs build --strict
-```
-
-Si cette commande échoue, ne poussez pas — corrigez d'abord l'erreur indiquée.
-
----
-
-## 2. Règle d'or : ce qui est publié, ce qui ne l'est pas
-
-Le site est **public**. Avant d'ajouter un fichier dans `docs/`, vérifiez :
-
-| Type de document | Publié sur le site ? |
+| Type de document | Publié ? |
 |---|---|
-| Fiche de cours élève | ✅ Oui |
-| Activité découverte / exercices (sans corrigé) | ✅ Oui |
-| Fiche de TP | ✅ Oui |
-| Grille d'évaluation | ✅ Oui |
-| QCM (énoncé) | ✅ Oui |
-| **Fiche enseignant** | ❌ Non — reste uniquement dans votre dossier source |
-| **Corrections / corrigés / aide formateur** | ❌ Non — reste uniquement dans votre dossier source |
+| Fiche de cours élève, fiche de TP, exercices sans corrigé | ✅ Oui |
+| Annexes (aide-mémoire, fiches techniques, check-lists) | ✅ Oui |
+| **Fiche enseignant, corrections, corrigés** | ❌ Non : jamais dans ce dépôt |
 
-**En pratique :** tout fichier dont le nom contient `Enseignant`, `Correction`, `Corrige`, `Aide_Formateur` ne doit **pas** être copié dans `docs/`.
+Avant d'ajouter un fichier, vérifier qu'il ne contient **aucune section « correction » ou « document enseignant »**.
 
----
+## 3. Ajouter ou modifier une séance
 
-## 3. Ajouter une nouvelle semaine à un bloc existant (ex. E31 Année 1, S3)
+Une séance = un dossier `docs/<année>/Sxx-titre/` avec `README.md`, `01-cours.md`, `02-tp.md`, éventuellement des annexes et un dossier `tp/` pour les fichiers ElectroLab. Le fichier `.pages` du dossier fixe l'ordre et les titres du menu. Ajouter la ligne de la séance dans le `README.md` de l'année.
 
-1. Créer le dossier :
-   ```
-   docs/E31/Annee-1/Semaine-03/
-   ```
-2. Créer un fichier `.pages` dedans pour fixer l'ordre d'affichage, par exemple :
-   ```yaml
-   arrange:
-       - README.md
-       - 01-fiche-cours-eleve.md
-       - 02-fiche-tp.md
-   ```
-3. Créer un `README.md` de présentation de la semaine (objectifs, compétences, durée) — copiez le modèle d'une semaine existante (`docs/E31/Annee-1/Semaine-01/README.md`) et adaptez-le.
-4. Copier les fichiers élèves depuis votre dossier source (`BAC PRO Ciel/plan de formation/.../E31/Année 1/S3/`), **en excluant** les fiches enseignant et corrections (voir règle ci-dessus), et les renommer avec un préfixe numérique clair (`01-...`, `02-...`) pour contrôler l'ordre si vous n'utilisez pas `.pages`.
-5. Mettre à jour `docs/E31/Annee-1/.pages` pour ajouter `Semaine-03` à la liste `arrange`.
-6. Prévisualiser (`mkdocs serve`), vérifier, puis publier (étape 5 ci-dessous).
+## 4. Fichiers ElectroLab
 
----
-
-## 4. Ajouter un nouveau bloc (ex. E32, E2, E12)
-
-1. Créer le dossier `docs/E32/Annee-1/` (même logique que E31).
-2. Créer `docs/E32/.pages` avec un titre, par exemple :
-   ```yaml
-   title: "E32 - <intitulé du bloc>"
-   arrange:
-       - Annee-1
-   ```
-3. Ajouter `E32` à la liste `arrange` de `docs/.pages` (à la racine).
-4. Reproduire la structure Semaine-XX comme au point 3.
-5. Mettre à jour le tableau d'état dans `docs/index.md` (passer E32 de ⏳ à 🟢 dès qu'il y a du contenu en ligne).
-
----
-
-## 5. Publier (envoyer les changements sur GitHub)
-
-Le site se reconstruit et se publie **automatiquement** via GitHub Actions à chaque `push` sur la branche `main` (voir `.github/workflows/mkdocs.yml`). Il n'y a rien à faire côté GitHub Pages une fois que c'est activé (voir étape 6).
+Les exercices simulés sont générés par `outils/electrolab/generer.js` (ElectroLab n'est jamais modifié) :
 
 ```bash
-git add docs/ mkdocs.yml requirements.txt
-git commit -m "Ajout S3 E31 Année 1"
+node outils/electrolab/generer.js chemin/vers/ElectroLab .
+```
+
+## 5. Publier
+
+```bash
+git add docs/ mkdocs.yml
+git commit -m "Message clair"
 git push origin main
 ```
 
-Le déploiement prend 1 à 3 minutes. Vous pouvez suivre son avancement dans l'onglet **Actions** du dépôt GitHub :
-`https://github.com/YahnLP/ressources-pedagogiques/actions`
-
-Le site est visible à l'adresse :
-`https://yahnlp.github.io/ressources-pedagogiques/`
-
----
-
-## 6. Activer GitHub Pages (à faire une seule fois, lors de la mise en place initiale)
-
-1. Aller sur `https://github.com/YahnLP/ressources-pedagogiques/settings/pages`
-2. Dans **Build and deployment > Source**, choisir **GitHub Actions** (pas « Deploy from a branch »).
-3. Pousser (`git push`) une première fois : le workflow `.github/workflows/mkdocs.yml` se déclenche et publie le site.
-
----
-
-## 7. Checklist rapide avant chaque publication
-
-- [ ] `mkdocs build --strict` ne renvoie aucune erreur
-- [ ] Aucun fichier `Fiche_Enseignant` / `Correction` / `Corrige` dans `docs/`
-- [ ] Le `.pages` du dossier parent liste bien la nouvelle semaine/le nouveau bloc
-- [ ] `mkdocs serve` : la page s'affiche correctement, les liens internes fonctionnent
-- [ ] Message de commit clair (ex. « Ajout S3 E31 Année 1 »)
+Le déploiement prend 1 à 3 minutes (onglet **Actions** du dépôt).

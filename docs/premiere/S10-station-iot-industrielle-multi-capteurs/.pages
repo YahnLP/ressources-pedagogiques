@@ -1,0 +1,7 @@
+title: "S10 · Station IoT Industrielle Multi-Capteurs"
+nav:
+  - README.md
+  - "📎 Cahier DES charges — projet CLIMASENS": annexe-cahier-des-charges-projet-climasens.md
+  - "📎 Code arduino ESP32 — projet CLIMASENS": annexe-code-arduino-esp32-projet-climasens.md
+  - "📎 Dossier technique — projet CLIMASENS": annexe-dossier-technique-projet-climasens.md
+  - "📎 Aide-mémoire projet IoT CLIMASENS": annexe-aide-memoire-projet-iot-climasens.md

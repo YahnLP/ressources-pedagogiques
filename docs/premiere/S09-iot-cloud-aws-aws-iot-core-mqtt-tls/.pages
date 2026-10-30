@@ -1,0 +1,5 @@
+title: "S09 · IoT Cloud AWS : AWS IoT Core, MQTT TLS, Certificats x.509, CloudWatch"
+nav:
+  - README.md
+  - "📖 Cours": 01-cours.md
+  - "🛠️ TP": 02-tp.md
