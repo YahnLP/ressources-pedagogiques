@@ -21,6 +21,8 @@ def fixmath_plain(s):
     s = re.sub('([' + SUPS + ']+)·([' + SUPS + ']+)', lambda x: '^{' + ''.join(SUPD[c] for c in x.group(1)) + '{,}' + ''.join(SUPD[c] for c in x.group(2)) + '}', s)
     s = re.sub(r'\^\(([^()]*)\)', r'^{\1}', s)
     s = re.sub('([' + SUPS + ']+)', lambda x: '^{' + ''.join(SUPD[c] for c in x.group(1)) + '}', s)
+    s = re.sub(r'\^\{(-?\d)\}\s*\\cdot\s*\^\{?(\d)\}?', r'^{\1{,}\2}', s)
+    s = re.sub(r'(= 0\{,\}\d+)\s+(e\^)', r'\1 \\quad \2', s)
     for k, v in GREEK.items(): s = s.replace(k, v)
     def chain(m):
         body = m.group(2)
