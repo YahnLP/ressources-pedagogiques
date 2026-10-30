@@ -3,4 +3,5 @@ nav:
   - README.md
   - "🛠️ TP (1)": 02-tp-1.md
   - "🛠️ TP (2)": 02-tp-2.md
+  - "🛠️ Dépanner un circuit simple": 03-depannage-circuit-simple.md
   - "🖥️ Simulateur ElectroLab": 04-simulateur.md

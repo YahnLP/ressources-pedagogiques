@@ -2,4 +2,5 @@ title: "S12 · Tests au multimètre et contrôle qualité PCB"
 nav:
   - README.md
   - "📖 Cours": 01-cours.md
+  - "🔭 Prise en main de l'oscilloscope": 05-prise-en-main-oscilloscope.md
   - "🖥️ Simulateur ElectroLab": 04-simulateur.md
