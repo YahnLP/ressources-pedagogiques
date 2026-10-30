@@ -1,158 +1,149 @@
-# Semaine 2 : Mesurer : multimètre, alimentation, générateur et oscilloscope
+# Semaine 2 : Mesurer (1) : le multimètre et l'alimentation de laboratoire
 
-> **Durée** : 4 h · **Compétences E2 travaillées** : C07 · C11
+> **Durée** : 4 h · **Compétences E2** : C07, C11
 
-## 🎯 Objectifs : à la fin de la semaine, je sais…
+## 🎯 À la fin de la semaine, je sais…
 
-- Mesurer une tension, un courant, une résistance, une continuité.
-- Régler une alimentation de labo (tension et limite de courant).
-- Régler un générateur de fonctions (forme, fréquence, amplitude).
-- Régler un oscilloscope (VOLT/DIV, SEC/DIV, déclenchement) et lire amplitude, période, fréquence.
-- Choisir le bon instrument selon la grandeur.
+- choisir le **mode** et **brancher** un multimètre pour mesurer une tension, un courant, une résistance, une continuité ;
+- **régler une alimentation de laboratoire** (tension et limite de courant) et interpréter ses modes **CV** et **CC** ;
+- estimer la **marge de précision** d'une mesure ;
+- éviter les **erreurs de branchement** qui détruisent les appareils.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | TP virtuels ElectroLab : multimètre et oscilloscope |
-| 1 h | Multimètre, alimentation de labo, générateur : réel |
-| 1 h | Oscilloscope : réel (signal de test, PWM) |
-| 1 h | Atelier chronométré, passeport instruments, auto-test |
+| 1 h | TP virtuels ElectroLab (multimètre, tester des composants, alimentation) |
+| 1 h | Cours : les instruments, mesurer U, I, R ; l'alimentation de labo |
+| 1 h 15 | Atelier réel : mesures sur un montage LED |
+| 45 min | Exercices et auto-test |
 
 ## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
 
-Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 
-- **Tester les composants hors tension (ohmmètre, diode, continuité)** (1 h, niveau seconde)
-- **Lire un signal à l'oscilloscope : régler, mesurer T, f, Umax, Upp… (6 signaux)** (1 h 15, niveau seconde / première)
-- **Signaux périodiques : GBF, oscilloscope et multimètre** (1 h 15, niveau première)
-- **Signal rectangulaire : rapport cyclique, temps haut, valeur moyenne (5 signaux)** (1 h 15, niveau première / terminale)
-- **Couplage AC / DC : mesurer une ondulation sur une tension continue (3 signaux)** (1 h, niveau terminale)
+- **Découverte du multimètre : tension, courant, loi d'Ohm** (1 h)
+- **Tester les composants hors tension (ohmmètre, diode, continuité)** (1 h)
 
-**Sujets à ouvrir dans ElectroLab** (bouton **Ouvrir**, puis choisis le fichier `.json`) :
+Puis ouvre ces deux sujets (bouton **Ouvrir**, choisis le fichier `.json`) :
 
-- [`alim-cv.json`](../seconde/S12-tests-au-multimetre-et-controle-qualite/tp/alim-cv.json) : alimentation 5 V sur une résistance de 220 Ω : mode CV ; relève U et I (attendu : environ 5,0 V et 22,7 mA)
-- [`alim-cc.json`](../seconde/S12-tests-au-multimetre-et-controle-qualite/tp/alim-cc.json) : même montage avec une résistance de 100 Ω et une limite de 30 mA : l'alimentation passe en mode CC (attendu : environ 30 mA et 3,0 V)
+- [`alim-cv.json`](../seconde/S12-tests-au-multimetre-et-controle-qualite/tp/alim-cv.json) : alimentation 5 V sur une résistance de 220 Ω. Relève U et I (attendu : environ 5,0 V et 22,7 mA, mode **CV**).
+- [`alim-cc.json`](../seconde/S12-tests-au-multimetre-et-controle-qualite/tp/alim-cc.json) : même montage avec 100 Ω et une limite de 30 mA. L'alimentation passe en **CC** (attendu : environ 30 mA et 3,0 V).
 
-> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
-> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
+---
 
-## 📖 Le cours en bref
+## 📖 Le cours
 
-**🤔 À ton avis ?** Tu mesures 5,0 V sur une pin de ton microcontrôleur qui devrait envoyer un signal clignotant. Le multimètre dit « 5 V » : tout va bien ?
+**🤔 À ton avis ?** Tu mesures 5,0 V à la sortie d'une carte qui devrait envoyer un signal. Es-tu sûr que le signal est correct ?
 
 ??? question "Réponse"
-    Pas forcément ! Le multimètre donne une **valeur moyenne** : il ne voit pas que le signal est **figé**. Pour vérifier qu'un signal **varie**, il faut l'oscilloscope.
+    Pas encore : le multimètre donne une valeur **moyenne**. Pour être sûr qu'un signal est correct, il faut aussi **le voir** à l'oscilloscope (semaine 3). Cette semaine, on apprend à bien mesurer les grandeurs **continues**.
 
-### 1. Le multimètre : quel mode, comment brancher
+### 1. Le poste de mesure
 
-| Je mesure | Position | Branchement | Circuit |
+![Les instruments du poste de mesure : alimentation, générateur, multimètre, oscilloscope](images/ess_instruments_labo.png)
+
+### 2. Le multimètre
+
+![Multimètre : modes et bornes](images/multimetre.png)
+
+| Je mesure… | Mode | Branchement | Circuit |
 |---|---|---|---|
-| **Tension** (V) | V⎓ | en **parallèle** (aux bornes du composant) | sous tension |
-| **Courant** (A) | A⎓ ou mA | en **série** (on **ouvre** le circuit pour insérer l'appareil) | sous tension |
-| **Résistance** (Ω) | Ω | aux bornes du composant | **hors tension**, composant isolé |
-| **Continuité** | symbole « bip » | aux deux extrémités d'un fil ou d'une piste | **hors tension** |
-| **Diode** | symbole diode | LED ou diode | **hors tension** |
+| une **tension** | V⎓ (continu) ou V∿ (alternatif) | en **parallèle**, aux bornes du composant | sous tension |
+| un **courant** | A ou mA | en **série** : on **ouvre** le circuit pour insérer l'appareil | sous tension |
+| une **résistance** | Ω | aux bornes du composant isolé | **hors tension** |
+| une **continuité** (fil, piste) | symbole « bip » | aux deux extrémités | **hors tension** |
+| une **diode / LED** | symbole diode | anode et cathode | **hors tension** |
 
-> [!WARNING] ⚠️ Le piège classique
-> Mesurer une **tension** avec le multimètre en position **ampèremètre** crée un **court-circuit** et fait griller le fusible de l'appareil. Toujours vérifier la position **et** les bornes avant de brancher.
+![Mesurer une tension en parallèle et un courant en série](images/ess_mesure_v_a.png)
 
-### 2. Lire l'écran de l'oscilloscope
+> [!WARNING] ⚠️ Le piège qui détruit un multimètre
+> Mesurer une **tension** avec l'appareil resté en position **ampèremètre** crée un **court-circuit** et fait griller son fusible. **Avant de brancher** : vérifie la position **et** les bornes (COM et la borne V/Ω pour la tension).
 
-L'écran est un **quadrillage** de carreaux (divisions).
+### 3. La continuité
 
-$$U_{pp} = \text{carreaux (hauteur)} \times \text{V/DIV} \qquad T = \text{carreaux (largeur)} \times \text{s/DIV} \qquad f = \frac{1}{T}$$
+En mode continuité, le multimètre **bipe** quand le chemin entre les deux pointes est fermé. On vérifie ainsi une **piste**, un **fil**, un **fusible**. On teste **toujours hors tension**.
 
-**Exemple** : un signal carré occupe 3 carreaux en hauteur à 2 V/DIV et une période de 4 carreaux à 5 ms/DIV : $U_{pp} = 6\,\mathrm{V}$, $T = 20\,\mathrm{ms}$, $f = 50\,\mathrm{Hz}$.
+![Test de continuité au multimètre](images/continuite-multimetre.png)
 
-### 3. Le rapport cyclique
+### 4. La précision d'une mesure
 
-Pour un signal carré (par exemple PWM) :
+Aucun instrument n'est parfait. Le constructeur indique une **précision**, par exemple **± (0,5 % de la lecture + 2 chiffres)**.
 
-$$\text{rapport cyclique} = \frac{t_{haut}}{T} \times 100\,\%$$
+**Exemple** : lecture 5,02 V (résolution 0,01 V).
+- 0,5 % de 5,02 = 0,025 V ;
+- 2 chiffres = 2 × 0,01 = 0,02 V ;
+- marge ≈ 0,045 V, arrondie à 0,05 V → **(5,02 ± 0,05) V**.
 
-**Exemple** : état haut pendant 5 ms sur une période de 20 ms → 25 %.
+### 5. L'alimentation de laboratoire
 
-### 4. L'alimentation de laboratoire et le générateur de fonctions
+Elle possède **deux réglages** : la **tension** et la **limite de courant** (un fusible réglable). Elle fonctionne en deux modes :
 
-- **Alimentation de labo** : on règle la **tension** et la **limite de courant** (un fusible réglable) **avant** de brancher. Si le voyant **CC** s'allume, le courant a atteint la limite : **il y a une anomalie** (court-circuit, composant à l'envers).
-- **Générateur de fonctions (GBF)** : il **produit** un signal (sinus, carré) dont on règle la **fréquence**, l'**amplitude** et le décalage (offset). On l'observe à l'oscilloscope. On ne le branche **jamais** sur une tension.
+![Modes CV et CC d'une alimentation de laboratoire](images/ess_alim_cv_cc.png)
 
-**Exemple** : GBF réglé sur un sinus de 1 kHz et 2 V crête à crête : on doit lire à l'oscilloscope $T = 1\,\mathrm{ms}$ et $U_{pp} = 2\,\mathrm{V}$.
+- **CV** (tension constante) : fonctionnement normal.
+- **CC** (courant constant) : le courant a atteint la limite ; l'alimentation **baisse la tension** pour protéger le montage. Si le voyant **CC** s'allume, **il y a une anomalie** (court-circuit, consommation trop forte).
 
-### 5. Les réglages à ne pas oublier
+> [!TIP] 💡 Procédure de mise sous tension
+> 1. Sortie **coupée** (OFF). 2. Régler la **tension**. 3. Court-circuiter les bornes avec un fil et régler la **limite de courant** (par exemple 30 mA), puis retirer le fil. 4. Brancher le montage, mettre la sortie ON et **observer le courant affiché**.
 
-1. **Sonde ×10** déclarée sur la voie.
-2. **Masse** de la sonde sur la masse du circuit.
-3. **Couplage** : DC pour tout voir, AC pour supprimer la composante continue.
-4. **Déclenchement** (trigger) réglé pour avoir une image stable.
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Brancher le montage **avant** de régler la tension.
+> - Laisser la limite de courant **au maximum**.
+> - Mesurer une résistance **sous tension** ou **dans le circuit** : la mesure est fausse.
 
-### Exercice guidé
+---
 
-On observe une période de 5 carreaux à 2 ms/DIV et un signal de 4 carreaux de haut à 1 V/DIV.
+## 🛠️ Atelier réel : mesures sur un montage LED
 
-$T = 5 \times 2 = 10\,\mathrm{ms}$ ; $f = \dfrac{1}{0{,}010} = 100\,\mathrm{Hz}$ ; $U_{pp} = 4 \times 1 = 4\,\mathrm{V}$.
+**Matériel** : alimentation de labo, plaque d'essai, résistance 150 Ω, LED, multimètre.
 
-
-## 🛠️ Atelier guidé : on construit, on mesure, on valide
-
-**Fil rouge** : tu réutilises ton montage LED, et tu apprends à **l'alimenter et le mesurer proprement**.
-
-1. **Alimentation de labo** : règle **5,0 V** et une **limite de courant de 30 mA**, sortie coupée. Mesure la tension à vide au multimètre.
-2. **Branche** le montage LED. Lis le courant affiché par l'alimentation, puis **vérifie-le** avec le multimètre en série.
-3. **Générateur** : règle un signal **carré, 1 kHz, 3 V crête à crête**. Branche-le à l'oscilloscope (sonde ×10 compensée).
-4. **Relève** période, fréquence, $U_{pp}$.
-5. Règle un **rapport cyclique de 25 %** et relève $t_{haut}$ sur l'écran.
-6. Ajoute un **offset** de 1,5 V, puis passe l'oscilloscope en couplage **AC** : que se passe-t-il ?
+1. Règle l'alimentation à **5,0 V**, limite **30 mA**, sortie coupée. Mesure la tension à vide.
+2. Mesure la résistance de 150 Ω **hors tension**.
+3. Monte la LED et sa résistance. Mets la sortie ON. Lis le **courant affiché** par l'alimentation.
+4. **Vérifie ce courant** avec le multimètre (en série, calibre mA).
+5. Mesure la tension aux bornes de la **LED**, puis de la **résistance**. Que vaut leur somme ?
+6. Remplace la résistance par **100 Ω** et mets la limite à **15 mA** : que se passe-t-il ?
 
 ??? success "Résultats attendus"
     1. Environ 5,00 V à vide.
-    2. Environ 20 mA, mode **CV** (le voyant CC ne s'allume pas).
-    3. et 4. $T = 1\,\mathrm{ms}$, $f = 1\,\mathrm{kHz}$, $U_{pp} = 3\,\mathrm{V}$.
-    5. $t_{haut} = 0{,}25 \times 1\,\mathrm{ms} = 0{,}25\,\mathrm{ms}$.
-    6. L'offset décale tout le signal vers le haut ; en **AC**, le signal **se recentre sur zéro** (la composante continue est supprimée).
+    2. Entre 142,5 Ω et 157,5 Ω.
+    3. Environ 20 mA, voyant **CV**.
+    4. Le multimètre donne la même valeur, à la marge de précision près.
+    5. Environ 2 V (LED) et 3 V (résistance) : la somme est égale à la tension d'alimentation.
+    6. Le courant voudrait atteindre $\dfrac{3}{100} = 30\,\mathrm{mA}$, mais il est limité à 15 mA : l'alimentation passe en **CC**.
 
-## ✍️ Exercices d'application
+## ✍️ Exercices
 
-1. Période de 8 carreaux à 0,5 ms/DIV : quelle fréquence ?
-2. Une sonde ×10 est utilisée, mais la voie est restée réglée sur ×1. L'écran indique 1,2 V crête à crête : quelle est la vraie valeur ?
-3. Un signal est à l'état haut 3 ms sur une période de 12 ms. Rapport cyclique ?
-4. Multimètre ±(0,5 % + 2 chiffres), lecture 12,00 V (résolution 0,01 V). Quelle marge ?
+1. On veut mesurer le courant dans une résistance. Où place-t-on l'ampèremètre : en série ou en parallèle ?
+2. Un multimètre de précision ± (0,5 % + 2 chiffres) indique 12,00 V (résolution 0,01 V). Quelle marge ?
+3. Pourquoi mesure-t-on une résistance hors tension ?
+4. Le voyant CC d'une alimentation s'allume dès que tu branches : que penses-tu ?
+5. On règle une alimentation à 9 V pour une LED + résistance consommant 20 mA. Quelle limite de courant choisis-tu ?
 
 ??? success "Corrigés"
-    1. $T = 4\,\mathrm{ms}$ ; $f = 250\,\mathrm{Hz}$.
-    2. Le signal est atténué 10 fois : la vraie valeur est **12 V**.
-    3. $\dfrac{3}{12} = 25\,\%$.
-    4. $0{,}5\,\% \times 12 = 0{,}06$ ; 2 chiffres = 0,02 ; marge = **0,08 V** → $(12{,}00 \pm 0{,}08)\,\mathrm{V}$.
-
-## 📚 Pour approfondir : les séances à consulter
-
-- [Seconde S12 – tests au multimètre](../seconde/S12-tests-au-multimetre-et-controle-qualite/01-cours.md)
-- [Seconde S12 – prise en main de l'oscilloscope](../seconde/S12-tests-au-multimetre-et-controle-qualite/05-prise-en-main-oscilloscope.md)
-- [Seconde S12 – alimentation de labo et générateur](../seconde/S12-tests-au-multimetre-et-controle-qualite/06-alimentation-labo-et-generateur.md)
-- [Première S05 – TP instruments avancés](../premiere/S05-tests-mesures-avances-oscilloscope/05-tp-instruments-avances.md)
-- [Terminale S01 – circuit fourni](../terminale/S01-circuit-fourni-multimetre-oscilloscope/README.md)
-- [Passeport instruments](passeport-instruments.md)
+    1. En **série** : le courant doit traverser l'appareil.
+    2. $0{,}5\,\% \times 12 = 0{,}06$ ; 2 chiffres = 0,02 ; marge **0,08 V** → $(12{,}00 \pm 0{,}08)\,\mathrm{V}$.
+    3. Sous tension, les autres composants et la source **faussent** la mesure, et l'appareil peut être endommagé.
+    4. La consommation dépasse la limite : **court-circuit** probable ou composant à l'envers. On coupe et on cherche l'erreur.
+    5. Environ **30 à 40 mA** (une marge au-dessus de la consommation attendue).
 
 ## ✅ Auto-test
 
-1. Comment branche-t-on un ampèremètre ? Un voltmètre ?
-2. Une période occupe 4 carreaux à 5 ms/DIV. Quelle fréquence ?
-3. Dans quelles conditions mesure-t-on une résistance ?
-4. Que fait le couplage AC ?
-5. Que vérifier avant de brancher la sonde ?
-6. Que règle-t-on sur une alimentation de labo avant de brancher le montage ?
-7. Le voyant CC est allumé : que signifie-t-il ?
+1. Quel est le mode du multimètre pour tester un fil ?
+2. Que signifie « CC » sur une alimentation ?
+3. Quelle erreur détruit le fusible d'un multimètre ?
+4. Comment écrire un résultat de mesure avec sa marge ?
 
 ??? success "Réponses"
-    1. L'ampèremètre en **série**, le voltmètre en **parallèle**.
-    2. $T = 20\,\mathrm{ms}$ ; $f = 50\,\mathrm{Hz}$.
-    3. **Hors tension** et, si possible, **hors circuit**.
-    4. Il supprime la **composante continue** pour voir la variation.
-    5. Qu'elle est déclarée en **×10** et que la masse est sur la **masse du circuit**.
-    6. La **tension** et la **limite de courant**.
-    7. Le courant a atteint la **limite** : il y a une **anomalie** (court-circuit, consommation trop forte).
+    1. Le mode **continuité** (bip).
+    2. Le courant a atteint la **limite** réglée : la tension chute.
+    3. Mesurer une **tension** avec l'appareil en position **ampèremètre**.
+    4. « valeur ± marge », avec l'unité : $(5{,}02 \pm 0{,}05)\,\mathrm{V}$.
 
 ## 📦 Livrable
 
-Relevé de 5 mesures (valeur, unité, instrument, réglage utilisé).
+Relevé de 6 mesures (tension, courant, résistance, continuité) avec l'instrument, le mode, la valeur et la marge.
+
+> [!NOTE] 📚 Pour approfondir (facultatif)
+> Ce parcours se suffit à lui-même. Pour aller plus loin : Seconde S12 (tests au multimètre et contrôle qualité) et Terminale S02 (rapport de mesures).

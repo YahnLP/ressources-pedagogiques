@@ -1,158 +1,177 @@
-# Semaine 4 : Alimentation et commande de charges
+# Semaine 4 : Lire un schéma et une datasheet, monter et souder
 
-> **Durée** : 4 h · **Compétences E2 travaillées** : C07 · C11
+> **Durée** : 4 h · **Compétence E2** : C07
 
-## 🎯 Objectifs : à la fin de la semaine, je sais…
+## 🎯 À la fin de la semaine, je sais…
 
-- Faire un bilan de puissance (courant de pointe et courant moyen).
-- Calculer la puissance dissipée par un régulateur linéaire et sa température de jonction.
-- Estimer l'autonomie d'une batterie.
-- Commander une charge avec un transistor, un MOSFET ou un relais.
+- **lire un schéma** normalisé et le découper en blocs ;
+- **trouver dans une datasheet** le brochage, les limites et les valeurs utiles ;
+- **monter un circuit** sur plaque d'essai, puis le **souder** ;
+- **contrôler une brasure** selon les critères IPC-A-610.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | TP virtuels ElectroLab : régulation 7805, transistor |
-| 1 h | Bilan de puissance et thermique |
-| 1 h | Transistor, MOSFET, relais, diode de roue libre |
-| 1 h | Atelier réel et auto-test |
+| 1 h | TP virtuel ElectroLab (NE555 en astable) ; lecture de schémas |
+| 1 h | Cours : symboles, datasheet (7805, BC547, NE555) |
+| 1 h | Atelier réel : plaque d'essai |
+| 1 h | Soudure, contrôle IPC et auto-test |
 
 ## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
 
-Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 
-- **Régulation linéaire avec un 7805** (1 h 30, niveau terminale)
-- **Transistor bipolaire en commutation** (1 h 30, niveau première)
-- **Relais commandé par transistor : la diode de roue libre** (1 h 30, niveau terminale)
-- **MOSFET de puissance : commande d'une lampe 12 V par une sortie logique** (1 h 15, niveau terminale)
+- **NE555 en multivibrateur astable (4 fréquences)** (1 h 30) : tu vérifies la formule de la fréquence.
 
-> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
-> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
+---
 
-## 📖 Le cours en bref
+## 📖 Le cours
 
-**🤔 À ton avis ?** Un régulateur 7805 alimenté en 12 V pour fournir 5 V à 500 mA devient **brûlant**. Pourquoi ? Où va l'énergie « en trop » ?
+**🤔 À ton avis ?** On te donne une carte inconnue avec un composant marqué « LM7805 ». Comment savoir comment le brancher sans rien griller ?
 
 ??? question "Réponse"
-    Elle est **transformée en chaleur** dans le régulateur. On va apprendre à la calculer.
+    On lit sa **datasheet** (la notice du fabricant) et le **schéma** de la carte. Cette semaine, tu apprends à lire ces deux documents.
 
-### 1. Le bilan de puissance
+### 1. Lire un schéma
 
-Avant de choisir une alimentation, on **additionne les courants** de tous les composants :
+Un schéma est un **plan** : il montre **comment les composants sont reliés**, pas où ils sont posés.
 
-| Composant | Tension | Courant |
-|---|---|---|
-| Microcontrôleur | 3,3 V | 80 mA |
-| Capteur | 3,3 V | 2 mA |
-| LED | 3,3 V | 10 mA |
-| **Total** | | **92 mA** |
+![Symboles normalisés des composants courants](images/symboles-de-base.png)
 
-On prévoit une **marge de 25 %** : $I_{source} \geq 1{,}25 \times I_{total}$ → ici 115 mA minimum.
+- Chaque composant a un **repère** : **R**1 (résistance), **C**1 (condensateur), **D**1 (diode), **Q**1 (transistor), **U**1 (circuit intégré), **J**1 (connecteur).
+- Les **traits** sont des fils. Un **point plein** à un croisement veut dire « relié » ; **sans point**, les fils ne sont pas reliés.
+- Par convention : le **+** en haut, la **masse (GND)** en bas, le signal de **gauche à droite**.
 
-### 2. Le régulateur linéaire
+![Schéma électrique et montage sur plaque d'essai : un même circuit, deux représentations](images/schema-vs-montage.png)
 
-Il « mange » l'excès de tension en chaleur :
+> [!TIP] 💡 Méthode
+> Pour comprendre un schéma, **découpe-le en blocs** (alimentation, traitement, sortie), puis lis chaque bloc.
 
-$$P_{diss} = (V_{in} - V_{out}) \times I_{out} \qquad \eta \approx \frac{V_{out}}{V_{in}}$$
+### 2. Lire une datasheet
 
-**Exemple** : 12 V → 5 V à 500 mA : $P = 7 \times 0{,}5 = 3{,}5\,\mathrm{W}$ et $\eta \approx 42\,\%$. Plus de la moitié de l'énergie part en chaleur.
+Une datasheet contient toujours les mêmes parties.
 
-> [!TIP] 💡 En clair
-> Plus l'écart $V_{in} - V_{out}$ est grand, plus ça chauffe. Si l'écart est grand ou le courant fort, on utilise un **convertisseur à découpage** (rendement 85 à 90 %).
+![Datasheet annotée : où trouver quoi](images/datasheet-annotee.png)
 
-### 3. La température du composant
+| À chercher | Pourquoi |
+|---|---|
+| **Brochage** (*pin configuration*) | brancher chaque broche au bon endroit |
+| **Absolute maximum ratings** | limites à **ne jamais dépasser** |
+| **Electrical characteristics** (min / typ / max) | valeurs **garanties**, pour calculer |
+| **Package** | choisir l'empreinte du circuit imprimé |
 
-$$T_j = T_{amb} + P_{diss} \times R_{\theta ja}$$
+> [!TIP] 💡 Min, typ, max
+> Les valeurs **garanties** sont **min** et **max**. La valeur « typique » est ce qu'on mesure en général, **sans garantie**. Pour un calcul de sécurité, on prend **le cas le plus défavorable**.
 
-Pour un 7805 sans radiateur, $R_{\theta ja} \approx 65\,°\mathrm{C/W}$.
+![Limites absolues du transistor BC547](images/ratings-bc547.png)
 
-**Exemple** : $P = 1{,}2\,\mathrm{W}$ et 25 °C ambiants : $T_j = 25 + 1{,}2 \times 65 = 103\,°\mathrm{C}$. On vise **moins de 105 °C** (125 °C maxi moins 20 °C de marge) : on est à la limite, **il faut un radiateur** ou un autre montage. Avec les 3,5 W de l'exemple 2, $T_j$ atteindrait plus de 250 °C : le composant serait détruit.
+### 3. Trois composants à connaître
 
-### 4. L'autonomie sur batterie
+**Le régulateur 7805** : sortie **5 V** (garantie de 4,8 à 5,2 V), entrée de **7 V à 35 V maximum**.
 
-$$t = \frac{\text{capacité (mAh)}}{I_{moy}\,(\mathrm{mA})} \times 0{,}8$$
+![Brochage du régulateur 7805](images/brochage-7805.png)
 
-Le 0,8 tient compte du fait qu'on n'utilise pas toute la capacité.
+**Le transistor BC547** : $V_{CE}$ max = 45 V ; $I_C$ max = 100 mA ; gain $h_{FE}$ de 110 à 800 (très dispersé) ; saturé : $V_{CE(sat)} \approx 0{,}2\,\mathrm{V}$.
 
-**Exemple** : batterie 1000 mAh, consommation moyenne 50 mA : $t = \dfrac{1000}{50} \times 0{,}8 = 16\,\mathrm{h}$.
+**Le NE555** en astable :
 
-**Courant moyen avec mise en veille** : un système consomme 150 mA pendant 5 s, puis 0,1 mA pendant 55 s :
+$$f = \frac{1{,}44}{(R_a + 2R_b) \times C} \qquad DC = \frac{R_a + R_b}{R_a + 2R_b}$$
 
-$$I_{moy} = \frac{150 \times 5 + 0{,}1 \times 55}{60} \approx 12{,}6\,\mathrm{mA}$$
+![Brochage du NE555](images/brochage-ne555.png)
+
+Avec $R_a = 10\,\mathrm{kΩ}$, $R_b = 68\,\mathrm{kΩ}$, $C = 10\,\mathrm{\mu F}$ : $f \approx 0{,}99\,\mathrm{Hz}$ et $DC \approx 53\,\%$. C'est le **clignoteur** que tu vas construire pendant le parcours.
 
 > [!WARNING] ⚠️ Erreurs fréquentes
-> - Utiliser le courant de **pointe** au lieu du courant **moyen** pour l'autonomie.
-> - Oublier la **marge de 25 %**.
-> - Oublier de convertir **mA ↔ A** dans $P = U \times I$.
+> - Utiliser la datasheet du **mauvais composant** (vérifie la référence exacte et le fabricant).
+> - Confondre **limite absolue** et **valeur de fonctionnement**.
+> - Lire le brochage **vu du dessous** au lieu de vu du dessus.
 
-### 5. Le transistor en interrupteur
+### 4. La plaque d'essai
 
-Un transistor NPN (BC547, BC337) : un petit courant dans la **base (B)** autorise un grand courant entre **collecteur (C)** et **émetteur (E)**.
+Sur une plaque d'essai (*breadboard*), les trous d'une **même colonne de 5** sont reliés ; les **rails** (lignes + et −) courent sur toute la longueur. On monte un circuit **sans souder**, pour le tester.
 
-- **Bloqué** : pas de courant de base → interrupteur **ouvert**.
-- **Saturé** : courant de base suffisant → interrupteur **fermé** ($V_{CE} \approx 0{,}2\,\mathrm{V}$).
+![Plaque d'essai : colonnes reliées et rails d'alimentation](images/breadboard.png)
 
-$$I_B = \frac{I_C}{10} \qquad R_b = \frac{V_{commande} - 0{,}7}{I_B}$$
+![Câblage correct et câblage erroné sur une plaque d'essai](images/cablage-ok-ko.png)
 
-**Exemple** : charge de 50 mA, commande à 5 V : $I_B = 5\,\mathrm{mA}$ ; $R_b = \dfrac{4{,}3}{0{,}005} = 860\,\Omega$ → **820 Ω**.
+> [!TIP] 💡 Méthode de montage
+> 1. Relier les rails +5 V et GND. 2. Poser les composants **dans l'ordre du schéma**. 3. **Vérifier avant d'alimenter** : sens des LED, polarité des condensateurs, absence de court-circuit entre + et −.
 
-### 6. MOSFET et relais
+### 5. Souder à l'étain
 
-- **MOSFET** « logic level » : se commande par la **tension** de grille ; très faibles pertes ; ajouter une résistance de rappel à la masse sur la grille.
-- **Relais** : interrupteur à **bobine**. Toujours une **diode de roue libre** en parallèle inverse de la bobine, sinon le **pic de tension** détruit le transistor.
+Boîtiers à pattes traversantes (THT) ou composants montés en surface (CMS) : les deux se soudent, le THT est plus simple à la main.
 
+![Composants traversants et composants montés en surface](images/cms-traversant.png)
 
-## 🛠️ Atelier guidé : on construit, on mesure, on valide
+Les **5 étapes** d'une brasure :
 
-**Fil rouge** : tu dimensionnes l'**alimentation du clignoteur** (12 V → 5 V).
+![Les étapes de la soudure](images/etapes-soudure.png)
 
-1. **Bilan** : NE555 ≈ 10 mA, LED = 20 mA. Total ?
-2. **Régulateur** : puissance dissipée par le 7805 sous 12 V, puis température de jonction ($R_{\theta ja} = 65\,°\mathrm{C/W}$, 25 °C ambiants).
-3. Même calcul sous **9 V** (pile) : que gagne-t-on ?
-4. **Autonomie** sur une pile 9 V de 500 mAh.
-5. Faut-il un **radiateur** ? Justifie.
+1. Fer chaud (≈ 350 °C), panne propre.
+2. Chauffer **en même temps** la patte et la pastille.
+3. Amener l'étain **sur la pastille**, pas sur le fer.
+4. Retirer l'étain, puis le fer.
+5. Laisser refroidir **sans bouger**.
+
+### 6. Contrôler une brasure (IPC-A-610, classe 2)
+
+![Coupe d'une brasure correcte](images/brasure-coupe.png)
+
+Une brasure correcte est **brillante**, en **cône**, et le trou est rempli à **75 % au moins**.
+
+![Défauts de brasure : pont, soudure froide, manque de soudure](images/defauts-brasures.png)
+
+---
+
+## 🛠️ Atelier réel
+
+**Matériel** : plaque d'essai, alimentation 5 V, LED, résistance 150 Ω, plaquette de soudure, fer, étain, 3 résistances.
+
+1. Ouvre la datasheet du **7805** : note la tension d'entrée maximale, la sortie, et le brochage.
+2. Monte sur la plaque : alimentation 5 V → résistance 150 Ω → LED → masse. Vérifie, puis alimente.
+3. **Dessine** le schéma de ce que tu viens de monter, avec les repères et les valeurs.
+4. Soude **3 résistances** sur la plaquette : contrôle chaque brasure (brillante, cône, remplissage).
+5. Repère sur la plaquette un défaut volontaire (soudure froide) et corrige-le.
 
 ??? success "Résultats attendus"
-    1. $I_{total} = 30\,\mathrm{mA}$ ; avec 25 % de marge : 37,5 mA minimum côté source.
-    2. $P = (12 - 5) \times 0{,}03 = 0{,}21\,\mathrm{W}$ ; $T_j = 25 + 0{,}21 \times 65 \approx 38{,}7\,°\mathrm{C}$.
-    3. $P = 4 \times 0{,}03 = 0{,}12\,\mathrm{W}$ : moins de chaleur, meilleur rendement.
-    4. $t = \dfrac{500}{30} \times 0{,}8 \approx 13\,\mathrm{h}$.
-    5. **Non** : 38,7 °C est très inférieur aux 105 °C exploitables.
+    1. Entrée maximale **35 V**, sortie **5 V** ; broches : 1 entrée, 2 masse, 3 sortie.
+    2. La LED s'allume (environ 20 mA).
+    3. Schéma : source 5 V, R1 = 150 Ω, D1, masse.
+    4. Brasures brillantes en cône ; trous remplis à 75 % au moins.
+    5. Une soudure froide est **terne et craquelée** : on la reprend (chauffer, ajouter un peu d'étain).
 
-## ✍️ Exercices d'application
+## ✍️ Exercices
 
-1. Un 7805 alimenté en 24 V débite 100 mA. Que se passe-t-il ?
-2. Un convertisseur à découpage de rendement 90 % délivre 5 V sous 100 mA. Quelle puissance prélève-t-il ? Quelles pertes ?
-3. Pic de consommation de 220 mA : quelle source minimale ?
-4. $R_f = 22\,\mathrm{k\Omega}$, $R_g = 2{,}2\,\mathrm{k\Omega}$ sur un AOP non inverseur : gain ?
+1. Un 7805 est alimenté en 7,5 V. Peut-il réguler à 5 V ? Et en 6 V ? (chute minimale d'environ 2 V)
+2. NE555 : $R_a = 4{,}7\,\mathrm{kΩ}$, $R_b = 33\,\mathrm{kΩ}$, $C = 10\,\mathrm{\mu F}$. Quelle fréquence ?
+3. Pourquoi calcule-t-on avec les limites de la datasheet plutôt qu'avec les valeurs typiques ?
+4. Une brasure traversante est remplie à 70 % : est-elle conforme en classe 2 ?
+5. Deux fils se croisent sur un schéma, sans point : sont-ils reliés ?
 
 ??? success "Corrigés"
-    1. $P = 19 \times 0{,}1 = 1{,}9\,\mathrm{W}$ ; $T_j = 25 + 1{,}9 \times 65 \approx 148{,}5\,°\mathrm{C}$ : **supérieur à 125 °C**, le composant est détruit. Il faut un convertisseur à découpage ou un radiateur.
-    2. $P_{in} = \dfrac{5 \times 0{,}1}{0{,}9} \approx 0{,}556\,\mathrm{W}$ ; pertes ≈ **0,056 W**.
-    3. $220 \times 1{,}25 = 275\,\mathrm{mA}$.
-    4. $G = 1 + 10 = 11$.
-
-## 📚 Pour approfondir : les séances à consulter
-
-- [Terminale S03 – dimensionnement d'alimentation](../terminale/S03-dimensionnement-d-alimentation-bilan-de/01-cours.md)
-- [Première S12 – transistor, MOSFET, relais](../premiere/S12-prototypes-avances-integration/03-transistor-mosfet-relais.md)
+    1. À 7,5 V : **oui** (7,5 − 5 = 2,5 V ≥ 2 V). À 6 V : **non** (1 V < 2 V).
+    2. $f = \dfrac{1{,}44}{(4{,}7 + 66) \times 10^{3} \times 10^{-5}} \approx 2{,}04\,\mathrm{Hz}$.
+    3. Pour que le montage fonctionne dans le **cas le plus défavorable** (composant le moins favorable, température extrême).
+    4. **Non** : il faut au moins 75 %.
+    5. **Non** : seul un **point plein** indique une liaison.
 
 ## ✅ Auto-test
 
-1. Pic de 400 mA : quelle source minimale avec 25 % de marge ?
-2. Un 7805 passe de 9 V à 5 V pour 300 mA. Quelle puissance dissipe-t-il ?
-3. Avec $R_{\theta ja} = 65\,°\mathrm{C/W}$ et 25 °C ambiants, quelle est $T_j$ ?
-4. Charge de 50 mA, commande à 5 V : valeur de $R_b$ ?
-5. Pourquoi une diode sur une bobine de relais ?
+1. Que signifie « absolute maximum ratings » ?
+2. Quelle est la tension d'entrée maximale d'un 7805 ?
+3. Combien de trous sont reliés dans une colonne d'une plaque d'essai ?
+4. À quoi reconnaît-on une soudure froide ?
 
 ??? success "Réponses"
-    1. $400 \times 1{,}25 = 500\,\mathrm{mA}$.
-    2. $(9 - 5) \times 0{,}3 = 1{,}2\,\mathrm{W}$.
-    3. $25 + 1{,}2 \times 65 = 103\,°\mathrm{C}$ : radiateur recommandé.
-    4. $I_B = 5\,\mathrm{mA}$ ; $R_b = \dfrac{4{,}3}{0{,}005} = 860\,\Omega$ → **820 Ω**.
-    5. Elle absorbe le **pic de tension** à la coupure.
+    1. Les limites à **ne jamais dépasser** : au-delà, le composant peut être détruit.
+    2. **35 V**.
+    3. **5 trous**.
+    4. Elle est **terne et craquelée**.
 
 ## 📦 Livrable
 
-Bilan de puissance complet d'un petit montage (tableau + conclusion sur le régulateur).
+Fiche de synthèse d'une datasheet (brochage, limites, valeurs utiles) et plaquette soudée contrôlée.
+
+> [!NOTE] 📚 Pour approfondir (facultatif)
+> Ce parcours se suffit à lui-même. Pour aller plus loin : Seconde S03 (breadboard, schémas), S04 (soudure et IPC) et S06 (lecture de datasheet) ; Première S01 (« Lire une datasheet »).

@@ -1,130 +1,190 @@
-# Semaine 6 : Le système communicant : UART, I²C, WiFi, MQTT et supervision
+# Semaine 6 : Microcontrôleur, capteurs et traitement du signal
 
-> **Durée** : 4 h · **Compétences E2 travaillées** : C07 · C11
+> **Durée** : 4 h · **Compétences E2** : C07, C11
 
-## 🎯 Objectifs : à la fin de la semaine, je sais…
+## 🎯 À la fin de la semaine, je sais…
 
-- Expliquer la chaîne capteur → microcontrôleur → réseau → supervision.
-- Lire une trame UART et calculer sa durée.
-- Reconnaître un bus I²C et son adresse.
-- Décrire un échange MQTT (broker, topic, JSON).
-- Diagnostiquer une liaison qui ne fonctionne pas.
+- écrire et lire un **programme Arduino** simple (entrées, sorties, moniteur série) ;
+- **lire un capteur analogique** (LM35) et convertir la valeur en grandeur physique ;
+- produire un signal **PWM** ;
+- **filtrer** un signal (filtre RC), l'**amplifier** (AOP) et lire une **table de vérité**.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | TP virtuels ElectroLab : analyseur logique, UART, I²C |
-| 1 h | Cours : protocoles et MQTT |
-| 1 h | Atelier : trames, topics, supervision |
-| 1 h | Diagnostic d'une liaison ; auto-test |
+| 1 h | TP virtuels ElectroLab (AOP, filtre RC, portes, diviseur) |
+| 1 h 15 | Cours : programme Arduino, entrées et sorties |
+| 1 h | Cours : capteur LM35 et conversion ; filtre, AOP, logique |
+| 45 min | Atelier réel et auto-test |
 
 ## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
 
-Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 
-- **Prise en main de l'analyseur logique (chronogrammes d'un compteur)** (45 min, niveau première)
-- **Analyse d'une liaison série UART / RS-232 (5 variantes)** (1 h 30, niveau première / terminale)
-- **Analyse d'un bus I²C : adresse, ACK, résistances de rappel (4 cas)** (1 h 45, niveau terminale)
+- **Amplificateur inverseur à AOP : gain et saturation** (1 h 30)
+- **Filtre RC passe-bas : gain et fréquence de coupure** (1 h 30)
+- **Portes logiques : tables de vérité, alimentation, CMOS / TTL** (1 h 15)
+- **Diviseur de tension et influence du voltmètre** (1 h)
 
-> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
-> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
+---
 
-## 📖 Le cours en bref
+## 📖 Le cours
 
-**🤔 À ton avis ?** Ton capteur de température est dans une salle, ton écran de contrôle dans un bureau. Comment la valeur voyage-t-elle jusqu'à lui ?
+**🤔 À ton avis ?** Un capteur délivre une tension de 0,25 V. Comment l'Arduino peut-il en faire « 25 °C » sur un écran ?
 
 ??? question "Réponse"
-    Par une **liaison** (série, I²C, WiFi) qui suit un **protocole** : des règles communes de format et de vitesse. On étudie les plus courantes.
+    Il **convertit** la tension en un nombre (convertisseur ADC), puis le programme applique une **formule**. On apprend chaque étape.
 
-### 1. Pourquoi et comment communiquer
+### 1. Un microcontrôleur, c'est quoi ?
 
-Un système communicant suit une **chaîne** : **capteur → microcontrôleur → réseau → supervision** (écran, tableau de bord, alarme). Chaque maillon doit **parler la même langue** que le suivant : c'est le rôle des **protocoles**.
+Un **microcontrôleur** est un petit ordinateur sur une puce : il lit des **entrées**, exécute un **programme** et pilote des **sorties**. Les cartes **Arduino Uno** (5 V) ou **ESP32** (3,3 V) en sont équipées.
 
-### 2. La liaison série UART
+![Carte Arduino Uno annotée : broches numériques, entrées analogiques, alimentation](images/arduino-uno-annote.png)
 
-Les bits partent **un par un** sur un fil, à une vitesse commune (**baud rate**, par exemple 9600). Une trame **8N1** contient **10 bits** : 1 bit de départ (0), 8 bits de données (le moins significatif d'abord), 1 bit d'arrêt (1).
+### 2. Le programme : `setup()` et `loop()`
 
-$$T_{bit} = \frac{1}{\text{baud}} \qquad \text{à 9600 bauds : } T_{bit} \approx 104\,\mathrm{\mu s}\ ;\ \text{un octet} \approx 1{,}04\,\mathrm{ms}$$
+![Structure d'un programme : setup une fois, loop en boucle](images/setup-loop.png)
 
-**Câblage** : TX d'un côté vers **RX** de l'autre (et inversement) + **masse commune**. Même vitesse des deux côtés, sinon : caractères absurdes.
+```cpp
+void setup() {            // exécuté UNE fois au démarrage
+  pinMode(13, OUTPUT);    // broche 13 = sortie
+  Serial.begin(9600);     // moniteur série à 9600 bauds
+}
+void loop() {             // répété en boucle
+  digitalWrite(13, HIGH); // sortie à 5 V
+  delay(500);             // attendre 500 ms
+  digitalWrite(13, LOW);
+  delay(500);
+}
+```
 
-### 3. Le bus I²C
+| Instruction | Rôle |
+|---|---|
+| `pinMode(p, OUTPUT / INPUT / INPUT_PULLUP)` | choisir le rôle d'une broche |
+| `digitalWrite(p, HIGH / LOW)` | mettre une sortie à 5 V / 0 V |
+| `digitalRead(p)` | lire une entrée (HIGH ou LOW) |
+| `analogRead(A0)` | lire une tension de 0 à 5 V : nombre de **0 à 1023** |
+| `analogWrite(p, 0…255)` | signal **PWM** |
+| `Serial.println(x)` | afficher x sur le moniteur série |
 
-Deux fils seulement : **SDA** (données) et **SCL** (horloge), partagés par plusieurs appareils. Chaque appareil a une **adresse** (par exemple `0x27` pour un écran LCD). Les deux lignes ont des **résistances de rappel** (≈ 4,7 kΩ) vers le +V. Sur l'Arduino Uno : SDA = A4, SCL = A5.
+![Montage d'une LED sur la broche 13 avec sa résistance](images/schema-led-d13.png)
 
-### 4. WiFi et MQTT avec l'ESP32
+**Bouton poussoir** : avec `INPUT_PULLUP`, une résistance interne tire l'entrée à 5 V. Le bouton relié à la masse donne **LOW quand on appuie**.
 
-L'**ESP32** se connecte au WiFi (mode **station**) ou crée son propre réseau (mode **point d'accès**, adresse 192.168.4.1). Ses broches fonctionnent en **3,3 V** : ne jamais y appliquer 5 V.
+![Entrée avec résistance de rappel (pull-up / pull-down)](images/pulldown-pullup.png)
 
-**MQTT** : un **broker** (serveur) reçoit les messages d'un **publisher** et les redistribue aux **subscribers** abonnés au même **topic** (par exemple `salle1/temperature`). Port **1883** (8883 avec TLS). Les topics sont **sensibles à la casse**. Caractères joker : `+` (un niveau) et `#` (tous les niveaux suivants). Le contenu est souvent un texte **JSON** : `{"temp": 23.5}`.
+![Le moniteur série de l'environnement Arduino](images/serial-monitor-ide.png)
 
-### 5. Superviser : moyenne, seuil, hystérésis
+### 3. Lire un capteur : la conversion analogique-numérique
 
-Pour fiabiliser une mesure, on calcule des **indicateurs** (KPI) :
+Le convertisseur **ADC** de l'Arduino a **10 bits** : $2^{10} = 1\,024$ valeurs (0 à 1023) pour 0 à 5 V. Un pas vaut $\dfrac{5}{1023} \approx 4{,}9\,\mathrm{mV}$.
 
-- **Moyenne mobile** des N dernières mesures : elle lisse le bruit (20, 22, 21, 25 → 22).
-- **Seuil avec hystérésis** : l'alarme se **déclenche** à 30 °C mais ne se **coupe** qu'en dessous de 28 °C : on évite le battement autour d'un seul seuil.
-- **Trois niveaux** : normal, avertissement, critique.
+![Conversion analogique-numérique : de la tension à la valeur](images/adc-conversion.png)
 
-### 6. Diagnostiquer une liaison
+$$U = \text{valeur} \times \frac{5}{1023}$$
 
-Dans l'ordre : **alimentation** ; **câblage** (TX ↔ RX croisés, masse commune) ; **vitesse** identique ; **niveaux** de tension compatibles (3,3 V / 5 V) ; **adresse** I²C correcte ; **IP du broker** et **topic** (casse !) pour MQTT. Un outil précieux : le **moniteur série** et l'**analyseur logique**.
+**Capteur de température LM35** : **10 mV par °C**, donc $T = U \times 100$.
 
+![Brochage du capteur LM35](images/lm35-brochage.png)
 
-## 🛠️ Atelier guidé : on construit, on mesure, on valide
+![Câblage du LM35 sur l'Arduino](images/cablage-lm35.png)
 
-**Fil rouge 2 : la station de mesure communicante.**
+```cpp
+void loop() {
+  int brut = analogRead(A0);
+  float tension = brut * 5.0 / 1023.0;
+  float temperature = tension * 100.0;
+  Serial.println(temperature);
+  delay(1000);
+}
+```
 
-1. **Trame UART** : écris la trame de la lettre `A` (code `0x41`) en 8N1 (bit de départ, 8 bits de données le moins significatif d'abord, bit d'arrêt).
-2. **Durées** : durée d'un octet à 9600 bauds, puis à 115200 bauds.
-3. **Topics MQTT** : propose les topics pour 3 salles (température) et le topic qui permet de s'abonner aux 3 salles.
-4. **Hystérésis** : seuils 30 °C (déclenchement) et 28 °C (retour) ; suite de mesures : 29,5 ; 30,5 ; 29,5 ; 28,5 ; 27,9. Donne l'état de l'alarme pour chaque mesure.
-5. **Niveaux** : un signal de 5 V doit entrer dans l'ESP32 : propose un diviseur 1 kΩ / 2 kΩ et calcule la tension.
+**Exemple** : `brut = 51` → $U \approx 0{,}249\,\mathrm{V}$ → $T \approx 24{,}9\,°\mathrm{C}$. Un pas de l'ADC correspond à environ 0,5 °C : c'est la **résolution** de la mesure.
+
+**PWM** : `analogWrite(9, 64)` donne un rapport cyclique de $\dfrac{64}{255} \approx 25\,\%$ à environ 490 Hz.
+
+### 4. Filtrer et amplifier un signal
+
+**Le filtre RC passe-bas** laisse passer les basses fréquences et atténue les hautes :
+
+$$f_c = \frac{1}{2\pi R C}$$
+
+![Réponse d'un filtre RC passe-bas : gain en fonction de la fréquence](images/ess_rc_bode.png)
+
+**L'amplificateur opérationnel** (AOP) amplifie un petit signal. En montage **non inverseur** : $G = 1 + \dfrac{R_f}{R_g}$.
+
+![Montage non inverseur d'un amplificateur opérationnel](images/ess_aop.png)
+
+### 5. La logique
+
+Les circuits numériques ne connaissent que **0** (≈ 0 V) et **1** (≈ 5 V ou 3,3 V).
+
+![Niveaux logiques et zone interdite](images/niveaux-logiques.png)
+
+| A | B | ET | OU | NON-ET |
+|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 1 |
+| 0 | 1 | 0 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 |
+| 1 | 1 | 1 | 1 | 0 |
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Oublier `Serial.begin(9600)` ou régler le moniteur sur une autre vitesse : texte illisible.
+> - Diviser des entiers (`brut / 1023`) : le résultat est tronqué. Écrire `1023.0`.
+> - Brancher un capteur analogique sur une broche **numérique** au lieu de A0…
+> - Alimenter un AOP en 5 V en attendant une sortie de 8 V.
+
+---
+
+## 🛠️ Atelier réel : la station de mesure
+
+**Fil rouge 2.** Matériel : Arduino (ou ESP32), LM35, LED, bouton, résistance 220 Ω.
+
+1. Câble la **LED** sur la broche 13 avec 220 Ω. Téléverse le programme de clignotement (500 ms).
+2. Câble le **bouton** entre la broche 2 et la masse (`INPUT_PULLUP`) : la LED s'allume tant qu'on appuie.
+3. Câble le **LM35** (+5 V, A0, GND). Écris le programme de lecture et affiche la température sur le moniteur série (9600 bauds).
+4. Combien de clignotements par seconde avec `delay(250)` ?
+5. Place la LED sur une broche PWM (9) et fais varier l'intensité avec `analogWrite`.
 
 ??? success "Résultats attendus"
-    1. `0x41` = 01000001 ; bits envoyés dans l'ordre : **0** (départ), **1 0 0 0 0 0 1 0**, **1** (arrêt).
-    2. 9600 bauds : environ **1,04 ms** ; 115200 bauds : environ **87 µs**.
-    3. `salle1/temperature`, `salle2/temperature`, `salle3/temperature` ; abonnement `salle/+/temperature` si les topics sont `salle/1/temperature`… (ou `+/temperature`).
-    4. OK, **ALARME**, ALARME, ALARME, **OK**.
-    5. $5 \times \dfrac{2}{1+2} \approx 3{,}33\,\mathrm{V}$.
+    1. La LED clignote à **1 Hz**.
+    2. LED allumée **quand on appuie** (bouton relié à la masse : LOW).
+    3. La **température ambiante** (par exemple 22 à 25 °C), qui monte si on touche le capteur.
+    4. Période 500 ms → **2 clignotements par seconde**.
+    5. Intensité proportionnelle au rapport cyclique ($64/255 \approx 25\,\%$ : faible ; 255 : maximale).
 
-## ✍️ Exercices d'application
+## ✍️ Exercices
 
-1. Quelle différence entre UART et I²C ?
-2. À quoi sert l'adresse I²C ?
-3. Moyenne mobile de 18, 20, 22, 24 ?
-4. Pourquoi une hystérésis ?
+1. Combien de valeurs distinctes peut renvoyer `analogRead` ?
+2. `analogRead` renvoie 102 pour un LM35 : quelle température ?
+3. Quel rapport cyclique donne `analogWrite(9, 128)` ?
+4. Avec `INPUT_PULLUP`, que lit-on quand le bouton relié à la masse est appuyé ?
+5. Gain d'un AOP non inverseur avec $R_f = 10\,\mathrm{kΩ}$ et $R_g = 1\,\mathrm{kΩ}$ ? Fréquence de coupure d'un filtre RC (10 kΩ, 100 nF) ?
 
 ??? success "Corrigés"
-    1. L'**UART** relie **deux** appareils (TX/RX, vitesse commune) ; l'**I²C** relie **plusieurs** appareils sur 2 fils (SDA, SCL) grâce aux **adresses**.
-    2. À **repérer** chaque appareil sur le bus.
-    3. $\dfrac{84}{4} = 21$.
-    4. Pour éviter que l'alarme **bat** (s'allume et s'éteigne sans arrêt) autour d'un seul seuil.
-
-## 📚 Pour approfondir : les séances à consulter
-
-- [Seconde S13 – liaison série UART](../seconde/S13-communication-serie-uart-protocol/01-cours.md)
-- [Seconde S15 – LCD I²C](../seconde/S15-lcd-i2c-bibliotheque-affichage/01-cours.md)
-- [Première S06 – ESP32 WiFi](../premiere/S06-esp32-wifi-modes-station-ap-webserver/01-cours.md)
-- [Première S07 – MQTT](../premiere/S07-mqtt-publish-subscribe-topics-qos/01-cours.md)
-- [Terminale S04 – KPI et alarme embarquée](../terminale/S04-acquisition-capteur-courbe-kpi-alarme/01-cours.md)
+    1. $2^{10} = 1\,024$ valeurs (0 à 1023).
+    2. $U = 102 \times \dfrac{5}{1023} \approx 0{,}50\,\mathrm{V}$ ; $T \approx 49{,}9\,°\mathrm{C}$.
+    3. $\dfrac{128}{255} \approx 50\,\%$.
+    4. **LOW** (0).
+    5. $G = 1 + 10 = 11$ ; $f_c = \dfrac{1}{2\pi \times 10^{4} \times 10^{-7}} \approx 159\,\mathrm{Hz}$.
 
 ## ✅ Auto-test
 
-1. Combien de bits dans une trame 8N1 ?
-2. Durée d'un octet à 9600 bauds ?
-3. Un ESP32 reçoit un signal de 5 V sur une broche : problème ?
-4. `Salle1/temp` et `salle1/temp` : même topic ?
-5. Quel port utilise MQTT sans chiffrement ?
+1. Que fait `analogRead(A0)` ?
+2. Pourquoi écrire `5.0 / 1023.0` ?
+3. Que font les basses fréquences dans un filtre RC passe-bas ?
+4. Sortie d'une porte NON-ET avec A = 1 et B = 1 ?
 
 ??? success "Réponses"
-    1. **10 bits** (1 départ + 8 données + 1 arrêt).
-    2. $10 \times 104\,\mathrm{\mu s} \approx 1{,}04\,\mathrm{ms}$.
-    3. Oui : ses broches sont en **3,3 V** ; il faut un diviseur de tension ou un convertisseur de niveau.
-    4. **Non** : les topics sont **sensibles à la casse**.
-    5. **1883**.
+    1. Il lit une tension de 0 à 5 V et renvoie un nombre de **0 à 1023**.
+    2. Pour forcer un calcul **décimal**.
+    3. Elles **passent** ; les hautes fréquences sont atténuées.
+    4. **0**.
 
 ## 📦 Livrable
 
-Schéma de la chaîne de ta station de mesure (capteur, microcontrôleur, protocole, topic MQTT) avec les valeurs choisies.
+Programme commenté qui lit un capteur de température et affiche la valeur en °C sur le moniteur série.
+
+> [!NOTE] 📚 Pour approfondir (facultatif)
+> Ce parcours se suffit à lui-même. Pour aller plus loin : Seconde S07 à S09 (Arduino, entrées numériques, LM35) et Première S12 (AOP, filtre RC, portes logiques).
