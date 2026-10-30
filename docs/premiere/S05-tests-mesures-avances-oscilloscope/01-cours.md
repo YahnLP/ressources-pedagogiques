@@ -109,8 +109,6 @@ $$\boxed{f_{éch} \geq 10 \times f_{bus}}$$
 
 ---
 
-![Transaction I2C : condition START, adresse sur 7 bits, bit R/W et ACK.](images/chrono-i2c.png)
-
 ### Configurer le décodeur I2C dans Saleae
 
 1. Ouvrir Saleae Logic 2  
@@ -182,8 +180,6 @@ $$5. SCL = CH0, SDA = CH1$$
 ```
 
 ---
-
-![Transaction SPI : CS bas, huit coups d'horloge SCLK, données sur MOSI et MISO.](images/chrono-spi.png)
 
 ---
 

@@ -220,8 +220,6 @@ Le **L293D** est un circuit intégré (CI) contenant **deux ponts H** :
 
 **⚠️ IMPORTANT :** Les GND doivent être **communs** (Arduino GND et Pile GND reliés ensemble).
 
-![Câblage du L293D : Arduino, moteur et pile 9 V externe](images/cablage-l293d.png)
-
 ---
 
 ## 5️⃣ TABLE DE VÉRITÉ DU PONT H

@@ -72,9 +72,22 @@ def reponses(L):
     return out
 
 
+def dedoublonner(L, fenetre=40):
+    """Supprime une figure répétée à moins de `fenetre` lignes de sa première occurrence."""
+    out = []; vu = {}
+    for l in L:
+        m = re.match(r'^!\[[^\]]*\]\((images/[^)\s]+)', l)
+        if m:
+            if m.group(1) in vu and len(out) - vu[m.group(1)] < fenetre:
+                continue
+            vu[m.group(1)] = len(out)
+        out.append(l)
+    return out
+
+
 def fix(text):
     L = text.split('\n')
-    L = header_footer(L); L = collapse_rules(L); L = reponses(L)
+    L = header_footer(L); L = collapse_rules(L); L = reponses(L); L = dedoublonner(L)
     t = re.sub(r'\n{3,}', '\n\n', '\n'.join(L))
     return t
 

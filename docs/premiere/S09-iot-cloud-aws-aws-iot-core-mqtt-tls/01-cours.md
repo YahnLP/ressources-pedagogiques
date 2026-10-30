@@ -94,8 +94,6 @@ xxxxxxxxxxxxxxx-ats.iot.eu-west-1.amazonaws.com
 
 ---
 
-![Authentification TLS standard et mutuelle (mTLS) avec AWS IoT Core.](images/tls-mtls.png)
-
 ---
 
 ## 4️⃣ CRÉER UN THING DANS AWS IOT CORE
