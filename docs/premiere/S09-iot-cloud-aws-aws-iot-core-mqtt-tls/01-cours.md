@@ -19,6 +19,20 @@
 
 ## 1️⃣ DU BROKER LOCAL AU CLOUD : POURQUOI ?
 
+### 🧱 Ce qu'il faut savoir avant de commencer
+
+| Notion | En simple |
+|---|---|
+| **Cloud** | Des ordinateurs d'une entreprise (ici Amazon), **accessibles par Internet**, que l'on **loue** : on n'achète ni ne maintient de machine. |
+| **AWS** | *Amazon Web Services* : la plateforme cloud d'Amazon, qui propose des centaines de services dont **AWS IoT Core** (un broker MQTT géré). |
+| **NAT / IP privée** | Chez toi, la box partage **une seule adresse publique** entre tous tes appareils (`192.168.x.x` en interne). De l'extérieur, **on ne peut pas joindre** ton PC directement : c'est pourquoi un broker Mosquitto local n'est pas accessible depuis Internet. |
+| **Console AWS** | Le **site web** sur lequel on configure ses services AWS. |
+| **Région** | L'endroit (ex. `eu-west-1`, en Irlande) où tournent tes ressources. |
+
+> [!TIP] 💡 En clair : ce qui change par rapport à S07
+> Le principe MQTT est **identique** (publier, s'abonner, topics, QoS). Ce qui change : le broker est **hébergé par Amazon** et la connexion est **chiffrée et authentifiée** par des **certificats**. Ton code ressemble donc à celui de S07, avec **3 différences** : connexion sécurisée, port 8883, adresse du broker.
+
+
 ### Les limites de Mosquitto local (S7-A2)
 
 > En S7-A2, votre broker Mosquitto ne fonctionnait que sur votre réseau local. Dans un projet IoT réel :
@@ -60,6 +74,27 @@ xxxxxxxxxxxxxxx-ats.iot.eu-west-1.amazonaws.com
 
 > **Important :** L'endpoint contient la région. Toutes vos ressources (Thing, Policy, certificat) doivent être dans la **même région** que l'endpoint.
 
+
+> [!TIP] 💡 En clair : comment les 4 composants s'articulent
+> 1. Le **Thing** dit à AWS « cet appareil existe ».
+> 2. Le **certificat** prouve que l'appareil est bien celui-là.
+> 3. La **policy** précise **ce qu'il a le droit de faire** (se connecter, publier sur tel topic…).
+> 4. L'**endpoint** est l'adresse où l'appareil se connecte.
+>
+> Sans l'un des quatre, la connexion échoue. La policy doit être **attachée au certificat**, et le certificat **attaché au Thing**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quel composant prouve l'identité de l'ESP32 ? Lequel fixe ses droits ?
+
+??? success "Réponse"
+    Le **certificat X.509** prouve l'identité ; la **policy** fixe les droits.
+
+**Q2.** Pourquoi l'endpoint contient-il la région ?
+
+??? success "Réponse"
+    Parce que les ressources sont **hébergées dans une région précise** : Thing, policy et certificat doivent être dans la même.
+
 ---
 
 ## 3️⃣ SÉCURITÉ : TLS ET CERTIFICATS X.509
@@ -95,6 +130,42 @@ xxxxxxxxxxxxxxx-ats.iot.eu-west-1.amazonaws.com
 ### Authentification mutuelle TLS (Mutual TLS / mTLS)
 
 ![TLS standard et mTLS : authentification du serveur seul ou des deux côtés](images/tls-mtls.png)
+
+
+> [!TIP] 💡 En clair : le principe des certificats
+> **Cryptographie asymétrique** : on fabrique **deux clés liées**. La **clé privée** reste **secrète** sur l'appareil ; la **clé publique** peut être **donnée à tout le monde**. Ce que l'une chiffre, **seule l'autre** peut le déchiffrer.
+>
+> **Le certificat** est la **carte d'identité** de la clé publique : il est **signé** par une **autorité de certification (CA)**, un tiers de confiance, comme une préfecture signe une carte d'identité.
+>
+> **Pourquoi deux sens de vérification ?** En **TLS classique** (un site web), seul le **serveur** montre son certificat : toi, tu vérifies que c'est le bon site. En **mTLS**, **les deux** se présentent : AWS vérifie aussi que **l'ESP32 est autorisé**.
+>
+> | Fichier | Je m'en sers pour… | Secret ? |
+> |---|---|---|
+> | `AmazonRootCA1.pem` | vérifier que le **serveur** est bien Amazon | non (public) |
+> | `device-certificate.pem.crt` | **prouver mon identité** à AWS | non |
+> | `private.pem.key` | **signer** l'échange | **oui, jamais partagé** |
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Publier `private.pem.key` sur **GitHub** ou l'envoyer par mail : n'importe qui pourrait se faire passer pour l'ESP32.
+> - Perdre la clé privée : elle n'est **téléchargeable qu'une seule fois**, il faut refaire un certificat.
+> - **Horloge fausse** : un certificat a une **période de validité** ; avec une date incorrecte, la connexion est refusée.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle clé ne doit jamais quitter l'appareil ?
+
+??? success "Réponse"
+    La **clé privée** (`private.pem.key`).
+
+**Q2.** À quoi sert `AmazonRootCA1.pem` ?
+
+??? success "Réponse"
+    À **vérifier que le serveur** auquel on se connecte est bien AWS (et pas un imposteur).
+
+**Q3.** Quelle différence entre TLS et mTLS ?
+
+??? success "Réponse"
+    En TLS, seul le **serveur** s'authentifie ; en **mTLS**, **client et serveur** s'authentifient mutuellement.
 
 ---
 
@@ -149,6 +220,15 @@ Console AWS → IoT Core → Gérer → Objets → Créer un objet
 ```
 
 > **En production :** la Policy restrictive n'autorise que les topics et clientId spécifiques au device. En labo, `*` simplifie la configuration.
+
+
+> [!WARNING] ⚠️ Pannes classiques à cette étape
+> | Symptôme | Cause probable |
+> |---|---|
+> | Connexion refusée | policy **non attachée** au certificat |
+> | Connexion OK mais publication refusée | la policy n'autorise pas `iot:Publish` sur ce **topic** |
+> | Rien ne se passe | certificat **inactif** (à activer dans la console) |
+> | Fichiers perdus | ils ne se téléchargent **qu'une seule fois** : refaire un certificat |
 
 ---
 
@@ -268,6 +348,28 @@ void loop() {
 > - Pas de certificats → 3 fichiers PEM intégrés au code
 > - Endpoint `localhost` → Endpoint AWS (URL longue)
 
+
+> [!TIP] 💡 En clair : lire les différences avec le code de S07
+> - `WiFiClientSecure` à la place de `WiFiClient` : la connexion est **chiffrée**.
+> - On donne à ce client les **3 contenus** (CA, certificat, clé) : `setCACert`, `setCertificate`, `setPrivateKey`.
+> - Port **8883** (MQTT + TLS) et **endpoint** AWS à la place de l'IP de ton PC.
+> - Tout le reste (`subscribe`, `publish`, `callback`, `mqtt.loop()`) est **identique** à S07.
+
+> [!NOTE] 🔎 Diagnostic de connexion (le code d'erreur `mqtt.state()`)
+> Le code renvoyé après un échec te dit **où chercher** : **-2** réseau/serveur injoignable (Wi-Fi, endpoint) ; **5** non autorisé (policy, certificat inactif) ; **-4** délai dépassé. Vérifie aussi que l'**heure** est correcte et que les **3 fichiers** sont bien copiés **en entier**, avec leurs lignes `-----BEGIN/END-----`.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle différence de **port** entre le broker local et AWS IoT Core ?
+
+??? success "Réponse"
+    **1883** (non chiffré) en local, **8883** (TLS) pour AWS.
+
+**Q2.** Que deviennent `subscribe`, `publish` et `callback` par rapport à S07 ?
+
+??? success "Réponse"
+    Ils sont **identiques** : seule la connexion change.
+
 ---
 
 ## 6️⃣ IOT RULES : ROUTER LES DONNÉES
@@ -298,6 +400,24 @@ Console AWS → IoT Core → Règles → Créer une règle
   → Unité : None (ou Celsius)
   → Rôle IAM : créer un rôle auto
 ```
+
+
+> [!TIP] 💡 En clair : une règle IoT, c'est un « si… alors… »
+> **SI** un message arrive sur un topic qui correspond (`esp32/+/data`), **ALORS** on le **transmet** à un autre service (ici CloudWatch pour l'afficher). La requête `SELECT … FROM '…'` indique **quoi** extraire du message (`temp`, `hum`) et **quel topic** surveiller.
+>
+> Le **rôle IAM** est l'**autorisation** donnée à la règle d'écrire dans CloudWatch : sans lui, la règle est refusée.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Dans `SELECT temp FROM 'esp32/+/data'`, que signifie le `+` ?
+
+??? success "Réponse"
+    Il remplace **un niveau** : la règle s'applique à tous les ESP32 (`esp32/1/data`, `esp32/2/data`…).
+
+**Q2.** La règle existe mais CloudWatch ne reçoit rien. Que vérifier ?
+
+??? success "Réponse"
+    Que le **topic** de l'ESP32 correspond au `FROM`, que le champ `temp` existe dans le JSON, et que le **rôle IAM** est bien attribué.
 
 ---
 
@@ -332,6 +452,22 @@ Ajouter un 2ème widget :
   Métrique : IoT/Capteurs/CIEL → Temperature
   Min : 0, Max : 50
 ```
+
+
+> [!TIP] 💡 En clair
+> Une **métrique** est une valeur numérique **horodatée** (comme un point InfluxDB). Un **dashboard** les affiche, une **alarme** te prévient quand une valeur dépasse un seuil. C'est le même rôle que Node-RED et InfluxDB en S08, mais **hébergé** par Amazon.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle ressource CloudWatch envoie un e-mail si la température dépasse 30 °C ?
+
+??? success "Réponse"
+    Une **alarme** (*Alarm*) sur la métrique de température.
+
+**Q2.** Quel est l'équivalent, dans AWS, du couple Node-RED Dashboard + InfluxDB ?
+
+??? success "Réponse"
+    **CloudWatch** : métriques (stockage) et dashboard (affichage).
 
 ---
 

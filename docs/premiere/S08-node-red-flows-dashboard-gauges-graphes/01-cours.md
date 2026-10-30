@@ -35,6 +35,24 @@
 
 ## 1️⃣ — Node-RED : la plateforme d'orchestration IoT
 
+### 🧱 Ce qu'il faut savoir avant de commencer
+
+| Notion | En simple |
+|---|---|
+| **JSON** | Une façon d'écrire des données sous forme de **couples nom : valeur** entre accolades : `{"temp": 23.5, "hum": 65}`. L'ESP32 l'envoie sous forme de **texte**. |
+| **Objet JavaScript** | La même donnée, mais **manipulable dans un programme** : on lit `data.temp` pour obtenir `23.5`. Passer du texte à l'objet s'appelle **parser**. |
+| **`localhost`** | « Cet ordinateur-ci ». `http://localhost:1880` = le Node-RED qui tourne sur **mon** PC. Depuis un autre PC, on remplace `localhost` par l'**adresse IP** du PC qui l'héberge. |
+| **Port** | Le numéro qui distingue les logiciels réseau d'une même machine : 1880 (Node-RED), 1883 (broker MQTT), 8086 (InfluxDB). |
+
+> [!TIP] 💡 En clair : une chaîne de montage de données
+> Un **flow** Node-RED ressemble à une **chaîne de montage** : chaque **nœud** est un poste de travail (recevoir, transformer, afficher) et chaque **fil** est le tapis roulant. Ce qui circule sur le tapis, c'est un **message** (`msg`), une petite boîte qui contient la donnée dans `msg.payload`.
+>
+> Exemple : `[mqtt in] → [json] → [function] → [gauge]` : le texte reçu du broker est converti en objet, on en extrait la température, puis la jauge l'affiche.
+
+> [!WARNING] ⚠️ Deploy
+> Après **chaque modification**, il faut cliquer sur **Deploy** (bouton rouge en haut à droite). Sans cela, **le flow en marche est l'ancien**.
+
+
 ### Pourquoi Node-RED ?
 
 ```
@@ -75,6 +93,32 @@ URL : http://localhost:1880
 
 Dashboard : http://localhost:1880/ui
 ```
+
+
+#### Suivre un message pas à pas
+
+On branche `[inject] → [function] → [debug]`. Le nœud *function* contient `msg.payload = msg.payload * 2; return msg;`.
+
+1. On clique sur le bouton de l'*inject* configuré avec le nombre `10` : il crée `msg = { payload: 10 }`.
+2. Le message suit le fil jusqu'au *function*, qui calcule `20` et **renvoie** le message.
+3. Le *debug* affiche `msg.payload : 20` dans le panneau de droite.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que se passe-t-il si tu modifies un flow sans cliquer sur Deploy ?
+
+??? success "Réponse"
+    Rien : le flow en marche reste **l'ancienne version**.
+
+**Q2.** Dans un message, où se trouve la donnée principale ?
+
+??? success "Réponse"
+    Dans **`msg.payload`**.
+
+**Q3.** Quel nœud utilise-t-on pour **voir** ce qui circule dans un flow ?
+
+??? success "Réponse"
+    Le nœud **debug** (affichage dans le panneau de droite).
 
 ---
 
@@ -120,6 +164,27 @@ switch      → Interrupteur marche/arrêt
 slider      → Curseur de valeur
 ```
 
+
+> [!TIP] 💡 En clair : le montage type d'un flow IoT
+> `[mqtt in]` **reçoit** le texte publié par l'ESP32 → `[json]` le **convertit** en objet → `[function]` ou `[change]` en **extrait** la valeur utile → `[gauge]`/`[chart]` l'**affichent**, `[influxdb out]` la **stocke**.
+>
+> **Le nœud `json` est indispensable** : sans lui, `msg.payload` est un **texte** (`"{\"temp\":23.5}"`) et on ne peut pas écrire `msg.payload.temp`.
+
+> [!NOTE] 🔎 Quel nœud pour quel besoin ?
+> **Voir ce qui arrive** → debug · **Recevoir de MQTT** → mqtt in · **Changer une valeur sans coder** → change · **Calculer ou tester une condition** → function · **Séparer selon la valeur** → switch · **Éviter de répéter la même valeur** → rbe
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Le gauge affiche NaN alors que le broker reçoit bien `{"temp":23.5}`. Quelle est la cause la plus probable ?
+
+??? success "Réponse"
+    Le message n'a pas été **converti** en objet (nœud `json` manquant) ou on n'a pas **extrait** `msg.payload.temp` : la jauge reçoit du texte.
+
+**Q2.** Quel nœud te permet de n'envoyer une valeur au graphe que si elle a **changé** ?
+
+??? success "Réponse"
+    Le nœud **rbe** (Report By Exception).
+
 ---
 
 ![Flow Node-RED simple à 5 nœuds](images/nodered-flow-simple.png)
@@ -136,7 +201,7 @@ slider      → Curseur de valeur
 // return msg = renvoyer le message (modifié ou non)
 
 // Exemple 1 : extraire un champ JSON
-var data = msg.payload;          // msg.payload = "{\"temp\":23.5}"
+var data = msg.payload;          // msg.payload = "{\"temperature\":23.5}"
 // Si msg.payload est un objet JSON déjà parsé (après nœud json) :
 msg.payload = data.temperature;  // Extraire seulement la température
 return msg;
@@ -168,6 +233,46 @@ if (msg.payload > 30) {
     return [null, msg];    // Vers output 2 seulement (normal)
 }
 ```
+
+
+> [!TIP] 💡 En clair : lire un nœud function
+> - `msg` est la **boîte** qui arrive ; on peut **modifier** son contenu (`msg.payload = ...`).
+> - `return msg;` **renvoie la boîte** au nœud suivant ; `return null;` **la jette** (rien n'est transmis).
+> - Une fonction avec **deux sorties** renvoie un **tableau** `[sortie1, sortie2]` : `null` signifie « rien sur cette sortie ».
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - **Oublier `return msg`** : le flow s'arrête sans message d'erreur apparent.
+> - **Mauvais nom de champ** : si l'ESP32 envoie `{"temp":23.5}`, il faut écrire `msg.payload.temp`, **pas** `msg.payload.temperature`.
+> - Appliquer `msg.payload.temp` alors que `msg.payload` est encore du **texte** (oubli du nœud `json`).
+> - Taper un guillemet français ou une faute dans un nom : JavaScript **distingue majuscules et minuscules**.
+
+**Exemple complet commenté** : l'ESP32 publie `{"temp":31.2}` et on veut une alerte si la température dépasse 30 °C.
+
+```javascript
+var t = msg.payload.temp;        // 1. lire la valeur dans l'objet (31.2)
+msg.payload = t;                 // 2. ne garder que le nombre
+if (t > 30) {                    // 3. condition d'alerte
+    return [msg, null];          //    alerte -> sortie 1
+}
+return [null, msg];              // 4. normal -> sortie 2
+```
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Un nœud function ne renvoie plus rien. Quelle ligne a-t-on pu oublier ?
+
+??? success "Réponse"
+    `return msg;` (ou on a renvoyé `null`).
+
+**Q2.** L'ESP32 publie `{"humidite": 60}`. Comment lire la valeur dans une function ?
+
+??? success "Réponse"
+    `msg.payload.humidite` (le nom doit être **identique**, accents et majuscules compris).
+
+**Q3.** Que veut dire `return [null, msg];` dans une function à deux sorties ?
+
+??? success "Réponse"
+    Rien n'est envoyé sur la **sortie 1** ; le message part sur la **sortie 2**.
 
 ---
 
@@ -216,6 +321,24 @@ Pour plusieurs séries sur le même graphe :
   msg.payload = 23.5
 ```
 
+
+> [!TIP] 💡 En clair : tab, group, widget
+> Le dashboard est une **page web** : un **Tab** est un onglet, un **Group** est un cadre dans l'onglet, un **widget** (gauge, chart, bouton) est un élément dans le cadre. On ne peut pas placer un widget **sans group**.
+>
+> **Gauge** = *quelle est la valeur maintenant ?* ; **Chart** = *comment a-t-elle évolué ?* ; **Sectors** = zones de couleur pour repérer d'un coup d'œil une valeur anormale.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Tu veux voir l'évolution de la température sur la dernière heure. Gauge ou chart ?
+
+??? success "Réponse"
+    Un **chart** : la jauge ne montre que la valeur **instantanée**.
+
+**Q2.** Comment afficher deux courbes (salle 1 et salle 2) sur le même graphe ?
+
+??? success "Réponse"
+    Donner à chaque message un **`msg.topic` différent** : une série par topic.
+
 ---
 
 ![Dashboard Node-RED : jauge et graphe](images/nodered-dashboard.png)
@@ -260,6 +383,36 @@ from(bucket: "iot_salle")
   |> filter(fn: (r) => r._measurement == "sonde")
   |> aggregateWindow(every: 1m, fn: mean, createEmpty: false)
 ```
+
+
+> [!TIP] 💡 En clair : un point InfluxDB, c'est une ligne de tableur horodatée
+> | Élément | Rôle | Exemple |
+> |---|---|---|
+> | **Measurement** | le « nom du tableau » | `sonde` |
+> | **Tags** | des **étiquettes** pour **filtrer** (texte, peu de valeurs différentes) | `location=salle_e2` |
+> | **Fields** | les **valeurs mesurées** (nombres) | `temperature=23.5` |
+> | **Timestamp** | l'**heure** de la mesure (ajoutée automatiquement) | `2026-10-30T14:00:00Z` |
+>
+> **Règle simple** : ce qu'on veut **filtrer** (où ? quel capteur ?) → **tag** ; ce qu'on veut **calculer ou tracer** (température, humidité) → **field**.
+>
+> **Comment lire une requête Flux** : on **enchaîne des étapes** avec `|>`, comme sur la chaîne de montage : prendre le bucket → garder les 10 dernières minutes → ne garder que la mesure `sonde` → ne garder que le champ `temperature` → calculer la moyenne.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Dans `temperature=23.5,location=salle_e2`, qui est le tag et qui est le field ?
+
+??? success "Réponse"
+    `location` est le **tag** (étiquette de filtrage) ; `temperature` est le **field** (valeur mesurée).
+
+**Q2.** Que signifie `range(start: -1h)` dans une requête Flux ?
+
+??? success "Réponse"
+    Ne garder que les données de la **dernière heure**.
+
+**Q3.** Pourquoi une base temporelle plutôt qu'un fichier texte ?
+
+??? success "Réponse"
+    Elle **indexe l'heure**, **calcule vite** moyennes et fenêtres de temps, et sait **effacer** automatiquement les anciennes données.
 
 ---
 
@@ -322,6 +475,22 @@ return msg;
 // ]
 ```
 
+
+> [!NOTE] 🔎 Pour écrire dans InfluxDB, il faut trois informations de connexion
+> L'**adresse** du serveur (`http://localhost:8086`), l'**organisation** et le **token** : une sorte de **mot de passe d'application** généré dans InfluxDB. Sans token valide, l'écriture est **refusée** (erreur 401).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Où se configure le bucket dans lequel on écrit ?
+
+??? success "Réponse"
+    Dans le nœud **influxdb out** (serveur, organisation, bucket).
+
+**Q2.** L'écriture est refusée avec une erreur 401. Que vérifier en premier ?
+
+??? success "Réponse"
+    Le **token** (valide, avec droit d'écriture sur ce bucket).
+
 ---
 
 ![Flow IoT complet ESP32 → MQTT → Node-RED → InfluxDB](images/nodered-flow-complet.png)
@@ -339,6 +508,24 @@ return msg;
 - **Node-RED** : orchestration et dashboard simple (S8, *ici*)
 - **InfluxDB** : stockage à long terme (S8, *ici*)
 - **Grafana** : dashboard professionnel (bonus S8 / S10)
+
+
+#### 🔧 Diagnostic : « rien ne s'affiche sur le dashboard »
+
+On suit la donnée **de la source vers l'affichage** et on s'arrête au premier maillon défaillant.
+
+| # | Je vérifie | Comment | Si ça ne va pas |
+|---|---|---|---|
+| 1 | L'ESP32 publie | moniteur série : « Publié » | corriger Wi-Fi/MQTT |
+| 2 | Le broker reçoit | `mosquitto_sub -h <IP> -t "#" -v` | topic ou adresse du broker faux |
+| 3 | Node-RED reçoit | nœud `debug` branché sur `mqtt in` | topic abonné différent |
+| 4 | La donnée est convertie | `debug` après `json` : objet et non texte | ajouter le nœud `json` |
+| 5 | La valeur est extraite | `debug` après `function` : un **nombre** | nom du champ faux |
+| 6 | Le widget affiche | gauge/chart dans un **group** | group manquant, pas de Deploy |
+| 7 | InfluxDB enregistre | Data Explorer d'InfluxDB | token, bucket ou organisation faux |
+
+> [!TIP] 💡 La méthode
+> **Une vérification à la fois**, de gauche à droite, avec un **debug** à chaque étape : on **coupe le problème en deux** au lieu de modifier plusieurs choses à la fois.
 
 ---
 
