@@ -40,13 +40,14 @@ def f_cablage_ok_ko():
         def xy(c, r): return bb.xy(c, r)
         def wire(p, q, col): return f'<path d="M{p[0]},{p[1]} L{q[0]},{q[1]}" stroke="{col}" stroke-width="5" stroke-linecap="round"/>'
         def res(p, q): return f'<rect x="{p[0]-2}" y="{p[1]-6}" width="{q[0]-p[0]+4}" height="12" rx="4" fill="#e9d4a3" stroke="#a88"/>' + f'<rect x="{p[0]+14}" y="{p[1]-6}" width="4" height="12" fill="#7a4320"/><rect x="{p[0]+24}" y="{p[1]-6}" width="4" height="12" fill="#000"/><rect x="{p[0]+34}" y="{p[1]-6}" width="4" height="12" fill="#7a4320"/>'
+        def resv(p, q): return f'<rect x="{p[0]-6}" y="{p[1]-2}" width="12" height="{q[1]-p[1]+4}" rx="4" fill="#e9d4a3" stroke="#a88"/>' + ''.join(f'<rect x="{p[0]-6}" y="{p[1]+10+i*10}" width="12" height="4" fill="{c}"/>' for i, c in enumerate(("#7a4320", "#000", "#7a4320")))
         def led(a, k): 
             cx = (a[0] + k[0]) / 2
             return f'<path d="M{a[0]},{a[1]} V{a[1]-12} M{k[0]},{k[1]} V{k[1]-12}" stroke="#bbb" stroke-width="3"/><circle cx="{cx}" cy="{a[1]-18}" r="13" fill="#e5353b" stroke="#a11"/>'
         if ok:
             inner += wire(bb.rail(0, "T+"), xy(2, "a"), RED) + res(xy(2, "c"), xy(6, "c")) + led(xy(6, "a"), xy(9, "a")) + wire(xy(9, "b"), bb.rail(10, "T-"), "#111")
         else:
-            inner += wire(bb.rail(0, "T-"), xy(2, "a"), "#111") + res(xy(2, "c"), xy(2, "d")) + led(xy(6, "a"), xy(6, "b")) + wire(xy(9, "b"), bb.rail(10, "T+"), RED)
+            inner += wire(bb.rail(0, "T-"), xy(2, "a"), "#111") + resv(xy(2, "b"), xy(2, "e")) + led(xy(6, "a"), xy(6, "b")) + wire(xy(9, "b"), bb.rail(10, "T+"), RED)
         return g(ox + 60, 90, inner, s)
     o += duo(0, 0, "Câblage CORRECT", "Câblage INCORRECT", GREEN, RED, h=770, wa=570)
     o += board(40, True) + board(630, False)
