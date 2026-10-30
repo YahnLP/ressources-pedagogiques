@@ -20,6 +20,16 @@
 7. Produire un schéma électronique professionnel
 8. Vocabulaire clé à maîtriser
 
+
+### 🤔 À ton avis ?
+
+Une maison « intelligente » **ouvre les volets** quand il fait chaud et **affiche l'humidité** dans le salon. Quel capteur mesure à la fois **température et humidité** ?
+
+??? question "Voir une réponse possible"
+    Le **DHT11** : un petit capteur à **trois ou quatre broches** qui mesure la **température** et l'**humidité**, puis envoie les deux valeurs sous forme de **données numériques** sur **un seul fil**.
+    
+    Dans ce projet, tu réalises un **système domotique complet** : **mesurer, afficher, communiquer**, puis tu rédiges le **schéma électrique** correspondant.
+
 ---
 
 ## 1. Le capteur DHT11 — description et fonctionnement
@@ -51,6 +61,30 @@ Il utilise un protocole de communication **numérique** propriétaire, à la dif
 
 > ⚠️ **Limitation importante du DHT11** : Il ne peut pas être interrogé plus d'une fois toutes les **2 secondes**. Si tu tentes une lecture plus fréquente, le capteur retourne `NaN` (Not a Number). C'est pour cela que le sketch utilise `delay(2000)` ou `millis()` pour espacer les lectures.
 
+
+> [!TIP] 💡 En clair
+> Le **DHT11** mesure la **température** (de 0 à 50 °C, précision environ ±2 °C) et l'**humidité** (de 20 à 80 %, précision environ ±5 %). Il est **lent** : **une mesure par seconde au maximum**. Contrairement au LM35, il envoie **directement des valeurs numériques**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelles grandeurs mesure le DHT11 ?
+
+??? success "Réponse"
+    La **température** et l'**humidité**.
+
+**Q2.** Peut-on lire le DHT11 100 fois par seconde ?
+
+??? success "Réponse"
+    **Non** : une mesure par seconde au maximum.
+
+**Q3.** Quelle différence avec le LM35 ?
+
+??? success "Réponse"
+    Le DHT11 envoie des **données numériques** ; le LM35 une **tension analogique**.
+
+> [!SUCCESS] 🧠 À retenir
+> - DHT11 : température + humidité, numérique, 1 mesure/s au maximum.
+
 ---
 
 ## 2. Le protocole 1-Wire du DHT11
@@ -64,6 +98,22 @@ Le DHT11 utilise un protocole de communication **numérique série** propriétai
 ![Protocole du DHT11 : démarrage, réponse, 40 bits](images/dht11-chronogramme.png)
 
 **Dans la pratique**, tu n'as pas à gérer ce protocole toi-même : la bibliothèque Adafruit s'en charge entièrement. Tu appelles juste `dht.readTemperature()` et `dht.readHumidity()`.
+
+
+> [!TIP] 💡 En clair
+> Le DHT11 envoie ses données sur **un seul fil** (bus « 1-Wire » simplifié). Le **microcontrôleur demande** la mesure, puis le capteur **répond** avec **40 bits** : l'humidité, la température et un **contrôle d'erreur**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Combien de fils de données faut-il pour le DHT11 ?
+
+??? success "Réponse"
+    **Un seul**.
+
+**Q2.** À quoi sert le contrôle d'erreur ?
+
+??? success "Réponse"
+    À **vérifier** que les données reçues sont correctes.
 
 ---
 
@@ -87,6 +137,17 @@ Le DHT11 utilise un protocole de communication **numérique série** propriétai
 ### 3.2 Initialisation dans le sketch
 
 ```cpp
+
+> [!TIP] 💡 En clair
+> La bibliothèque **s'occupe du protocole** à ta place : toi, tu appelles simplement `dht.readTemperature()` et `dht.readHumidity()`. **Teste** toujours si le résultat est valide (`isnan`) avant de l'afficher.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi teste-t-on avec `isnan` ?
+
+??? success "Réponse"
+    Pour **détecter une lecture ratée** et ne pas afficher une valeur absurde.
+
 #include <DHT.h>
 
 #define BROCHE_DHT  2       // Broche numérique connectée à DATA du DHT11
@@ -154,6 +215,29 @@ Serial.print("HR="); Serial.print(humidite); Serial.println("%");
 
 > ✅ **Si tu as le module breakout** : pas besoin d'ajouter la résistance pull-up, elle est déjà soudée sur la carte.
 
+
+> [!TIP] 💡 En clair
+> Le DHT11 se câble avec **trois fils** : **+5 V**, **GND** et la broche de **données**. Une **résistance de 10 kΩ** entre données et +5 V (appelée résistance de **pull-up**) **stabilise** la ligne.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Inverser +5 V et GND : le capteur chauffe et se détruit.
+> - Oublier la résistance de pull-up : lectures erratiques.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert la résistance de pull-up ?
+
+??? success "Réponse"
+    À **maintenir la ligne de données au niveau haut** quand personne ne parle.
+
+**Q2.** Combien de fils faut-il brancher sur un DHT11 ?
+
+??? success "Réponse"
+    Trois : **+5 V**, **GND** et **données**.
+
+> [!SUCCESS] 🧠 À retenir
+> - DHT11 : +5 V, GND, données, avec pull-up de 10 kΩ.
+
 ---
 
 ## 5. Affichage T° et humidité sur le LCD I2C
@@ -168,6 +252,10 @@ Le LCD 16×2 permet d'afficher **2 lignes de 16 caractères**. Pour afficher T°
 ### 5.2 Sketch d'affichage DHT11 + LCD
 
 ```cpp
+
+> [!TIP] 💡 En clair
+> Pour afficher **deux grandeurs** sur un écran 16×2, on utilise **une ligne par grandeur** : la température sur la ligne 0, l'humidité sur la ligne 1.
+
 #include <LiquidCrystal_I2C.h>
 #include <DHT.h>
 
@@ -241,6 +329,20 @@ void loop() {
 // DHT11 + LCD I2C + HC-05 Bluetooth
 // Auteur : [Ton nom]   Date : [Date S16]
 // ================================================
+
+
+> [!TIP] 💡 En clair
+> Un système domotique complet suit une **chaîne** : **capteur → Arduino → affichage / Bluetooth**. Découpe-le en **blocs** : tu programmes et tu testes **chaque bloc séparément**, puis tu les assembles.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Cite les trois blocs d'un système domotique simple.
+
+??? success "Réponse"
+    **Acquisition** (capteur), **traitement** (Arduino), **communication / affichage**.
+
+> [!SUCCESS] 🧠 À retenir
+> - Un système = des blocs testés séparément, puis assemblés.
 
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
@@ -471,6 +573,25 @@ All component references labeled. Professional schematic style, IEC symbols, Fre
 | **Version** | V1.0 |
 | **Révision** | Laisser vide pour V1.0 |
 | **Feuille** | 1/1 |
+
+
+> [!TIP] 💡 En clair
+> Un **schéma professionnel** doit se lire **sans explication** : **symboles normalisés**, fils **droits** (angles à 90°), croisements **sans point** si les fils ne sont pas reliés, **points de connexion** marqués, **composants repérés** (R1, C1…) et **valeurs indiquées**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Deux fils se croisent sans point de connexion. Sont-ils reliés ?
+
+??? success "Réponse"
+    **Non** : seul un **point** indique une connexion.
+
+**Q2.** Que doit-on indiquer à côté de chaque composant ?
+
+??? success "Réponse"
+    Son **repère** (R1, C1…) et sa **valeur**.
+
+> [!SUCCESS] 🧠 À retenir
+> - Schéma pro : symboles normalisés, repères, valeurs, points de connexion.
 
 ---
 

@@ -20,6 +20,16 @@
 7. L'auto-évaluation — pourquoi et comment
 8. Vocabulaire clé à maîtriser
 
+
+### 🤔 À ton avis ?
+
+Tu as terminé ton projet. Mais **qui le sait** ? Comment convaincre un jury en 10 minutes que ton système fonctionne et que tu l'as compris ?
+
+??? question "Voir une réponse possible"
+    Avec une **soutenance** bien préparée : **4 minutes de présentation**, **3 minutes de démonstration**, **3 minutes de questions**. Le jury ne veut pas t'entendre réciter : il veut voir que tu **comprends ce que tu as fait**.
+    
+    Dans cette séance, tu apprends à **structurer**, à **démontrer** et à **répondre aux questions**, puis à **t'évaluer** avec la grille du jury.
+
 ---
 
 ## 1. Qu'est-ce qu'une soutenance de projet technique ?
@@ -36,6 +46,17 @@ Elle n'est pas un examen de récitation de cours. Elle évalue **ta capacité à
 > 💡 **Analogie** : Imagine que tu es technicien et que ton chef te demande de lui expliquer pourquoi le système que tu as installé chez un client fonctionne bien. Tu dois lui montrer que ça marche, lui expliquer comment, et lui dire ce que tu ferais différemment la prochaine fois. C'est exactement une soutenance.
 
 ![Ce qu'évalue une soutenance : savoir, savoir-faire, savoir-être](images/soutenance-zones.png)
+
+
+> [!TIP] 💡 En clair
+> Une soutenance évalue **trois choses** : ce que tu **sais** (savoir), ce que tu sais **faire** (savoir-faire) et la façon dont tu **communiques** (savoir-être).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Une soutenance est-elle une récitation de cours ?
+
+??? success "Réponse"
+    **Non** : on évalue ta capacité à **expliquer, démontrer et analyser** ton projet.
 
 ---
 
@@ -59,6 +80,25 @@ Elle n'est pas un examen de récitation de cours. Elle évalue **ta capacité à
 | ✅ Ton montage et smartphone | ❌ Faire la démo sans avoir préparé les connexions |
 | ✅ Le dossier technique S17 | ❌ Affirmer que ça marche sans démontrer |
 
+
+> [!TIP] 💡 En clair
+> Le format dure **10 minutes** en tout : $4 + 3 + 3 = 10$ (présentation, démonstration, questions). **Tu ne peux pas lire** un texte écrit mot pour mot, mais tu peux avoir des **notes** comme guide.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Combien de temps dure la démonstration ?
+
+??? success "Réponse"
+    **3 minutes**.
+
+**Q2.** Peut-on lire un texte rédigé à l'avance ?
+
+??? success "Réponse"
+    **Non** : seules des notes servant de guide sont autorisées.
+
+> [!SUCCESS] 🧠 À retenir
+> - 4 min présentation + 3 min démonstration + 3 min questions = 10 min.
+
 ---
 
 ## 3. Structurer sa présentation
@@ -78,6 +118,17 @@ Utilise ces formules pour paraître professionnel et structuré :
 | **Pendant la démo** | *"Je vais maintenant vous montrer en direct que… Vous pouvez observer que…"* |
 | **Présentation d'un problème** | *"J'ai rencontré un problème sur… Le symptôme était… J'ai diagnostiqué que la cause était… J'ai corrigé en…"* |
 | **Conclusion** | *"En conclusion, le système remplit [X/Y] fonctionnalités demandées. Les points à améliorer seraient…"* |
+
+
+> [!TIP] 💡 En clair
+> Une présentation claire suit **toujours le même fil** : **contexte** (à quoi sert le projet), **solution** (ce que tu as choisi), **résultats** (ce que ça donne), **bilan** (ce qui a marché ou non).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Cite les quatre parties d'une présentation.
+
+??? success "Réponse"
+    **Contexte**, **solution**, **résultats**, **bilan**.
 
 ---
 
@@ -118,6 +169,24 @@ Je peux vous montrer dans mon rapport de test que le système a fonctionné
 lors des tests documentés en S17."
 ```
 
+
+> [!TIP] 💡 En clair
+> La démonstration est la partie **la plus risquée** : prépare **avant** tout le matériel, **teste** une dernière fois, et **prévois un plan B** (une vidéo ou des photos) si le montage plante.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Brancher le montage **pendant** la soutenance.
+> - Dire « ça marche » sans le **montrer**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que faire si la démonstration échoue en direct ?
+
+??? success "Réponse"
+    **Rester calme**, expliquer ce qu'on suspecte, et utiliser le **plan B** (vidéo, photos).
+
+> [!SUCCESS] 🧠 À retenir
+> - Préparer, tester, prévoir un plan B.
+
 ---
 
 ## 5. Répondre aux questions du jury
@@ -140,6 +209,17 @@ lors des tests documentés en S17."
 > - *"Je n'ai pas eu l'occasion de tester ce cas précis, mais par raisonnement, je pense que…"*
 > - *"Cette question dépasse ce que j'ai implémenté, mais je saurais chercher la réponse dans [la datasheet / le cours]"*
 > - *"Je n'en suis pas certain, mais lors de mes tests j'ai observé que…"*
+
+
+> [!TIP] 💡 En clair
+> Face à une question du jury : **écoute jusqu'au bout**, **reformule** si besoin, puis **réponds simplement**. Si tu ne sais pas, **dis-le honnêtement** et explique **comment tu chercherais** la réponse.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Tu ne connais pas la réponse. Que fais-tu ?
+
+??? success "Réponse"
+    Tu le **dis honnêtement** et tu expliques **comment tu chercherais**.
 
 ---
 
@@ -168,6 +248,17 @@ Une **grille critériée** est l'outil d'évaluation utilisé par l'enseignant (
 | Mélange tout dans un chiffre | Identifie précisément ce qui est maîtrisé et ce qui ne l'est pas |
 | Ne permet pas de cibler les révisions | Permet de savoir exactement sur quoi travailler avant A2 |
 
+
+> [!TIP] 💡 En clair
+> Le jury évalue avec une **grille critériée** : pour chaque **compétence**, il choisit un **niveau** de maîtrise. Connaître la grille te permet de **savoir exactement ce qu'on attend** de toi.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert une grille critériée ?
+
+??? success "Réponse"
+    À **évaluer chaque compétence** selon des critères clairs et connus à l'avance.
+
 ---
 
 ## 7. L'auto-évaluation — pourquoi et comment
@@ -193,6 +284,13 @@ Il est **normal** que ton auto-évaluation diffère de celle de l'enseignant. Ce
 - Si tu t'es **surévalué** → tu as une fausse image de ta maîtrise → danger pour l'examen
 - Si tu t'es **sous-évalué** → tu manques de confiance en toi → travaille sur la communication
 - Si les évaluations **concordent** → tu as un regard professionnel sur ton travail ✅
+
+
+> [!TIP] 💡 En clair
+> L'**auto-évaluation** consiste à te **situer toi-même** par rapport à la grille. Elle t'aide à voir **ce qu'il te reste à travailler** : être honnête avec soi-même est une qualité professionnelle.
+
+> [!SUCCESS] 🧠 À retenir
+> - S'auto-évaluer honnêtement = savoir quoi améliorer.
 
 ---
 

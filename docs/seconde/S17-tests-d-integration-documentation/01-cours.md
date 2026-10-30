@@ -19,6 +19,16 @@
 6. Les outils du dépannage
 7. Vocabulaire clé à maîtriser
 
+
+### 🤔 À ton avis ?
+
+Ton montage fonctionne **quand tu le regardes**. Mais comment **prouver** à quelqu'un d'autre qu'il fonctionne… et comment le réparer s'il tombe en panne ?
+
+??? question "Voir une réponse possible"
+    Avec des **tests écrits**, une **documentation** (schéma, liste des composants) et une **méthode de dépannage**. Ce sont les **preuves** qu'un technicien laisse derrière lui.
+    
+    Dans cette séance, tu apprends à **tester**, à **documenter** et à **dépanner** ton système.
+
 ---
 
 ## 1. Les tests d'intégration — définition et méthode
@@ -44,6 +54,22 @@ Un **test d'intégration** vérifie que **toutes ces parties fonctionnent correc
 | **Test unitaire** | Un seul composant à la fois | Vérifier que la DEL rouge s'allume avec 3,3V |
 | **Test d'intégration** | Plusieurs composants ensemble | Vérifier que la commande BT allume bien la DEL |
 | **Test système** | Le système complet en situation réelle | Contrôler les 3 DEL depuis 5 m, dans une autre pièce |
+
+
+> [!TIP] 💡 En clair
+> Un **test d'intégration** vérifie que **plusieurs éléments assemblés** fonctionnent **ensemble**. Chaque élément peut marcher seul et pourtant **l'ensemble échouer** (mauvais câblage, conflit de broches, alimentation insuffisante).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi un test d'intégration est-il utile si chaque module a déjà été testé seul ?
+
+??? success "Réponse"
+    Parce que les modules peuvent **mal fonctionner ensemble** (conflits, alimentation, câblage).
+
+**Q2.** Cite un exemple de problème visible seulement à l'assemblage.
+
+??? success "Réponse"
+    Deux modules qui utilisent la **même broche**, ou une **alimentation trop faible**.
 
 ---
 
@@ -92,6 +118,28 @@ Chaque ligne du tableau de tests doit contenir :
 | T-10 | Test de portée 5 m | Connecté BT, 5 m de distance | Envoyer `R1` | Commande exécutée | | |
 | T-11 | Test de portée 10 m | Connecté BT, 10 m | Envoyer `R1` | Commande exécutée ou déconnexion | | |
 
+
+> [!TIP] 💡 En clair
+> Un **protocole de test** est un tableau avec : **ce qu'on teste**, **comment**, le **résultat attendu**, le **résultat obtenu** et **OK / NOK**. Écris le **résultat attendu AVANT** de faire le test, sinon tu risques de **trouver « normal »** ce que tu observes.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Remplir « résultat attendu » après avoir fait la mesure.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi écrit-on le résultat attendu avant le test ?
+
+??? success "Réponse"
+    Pour **comparer honnêtement** : sinon on ajuste l'attendu à ce qu'on observe.
+
+**Q2.** Quelles colonnes contient un protocole de test ?
+
+??? success "Réponse"
+    Test, méthode, résultat **attendu**, résultat **obtenu**, **OK/NOK**.
+
+> [!SUCCESS] 🧠 À retenir
+> - Protocole = attendu écrit avant, obtenu mesuré, verdict OK/NOK.
+
 ---
 
 ## 3. La documentation technique : le schéma annoté
@@ -133,6 +181,17 @@ Le cartouche est le "badge d'identité" du schéma. Il se place en bas à droite
 | Version | V1.0 |
 | Établissement | LP [Nom de l'établissement] |
 | Feuille | 1/1 |
+
+
+> [!TIP] 💡 En clair
+> Le **schéma annoté** est la **carte** de ton système : symboles normalisés, **repères**, **valeurs**, **numéros de broches**. Quelqu'un d'autre doit pouvoir **reconstruire** ton montage avec ce seul document.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quel est le critère d'un bon schéma annoté ?
+
+??? success "Réponse"
+    Quelqu'un d'autre peut **reconstruire le montage** à partir du seul schéma.
 
 ---
 
@@ -198,6 +257,25 @@ R = (5 - 2) / 0,02 = 3 / 0,02 = 150 Ω → on prend 220 Ω (valeur normalisée s
 | Jaune | 5 | 2,1 | 0,02 | | |
 | Verte | 5 | 2,2 | 0,02 | | |
 
+
+> [!TIP] 💡 En clair
+> La **BOM** (nomenclature) est la **liste des composants** : **repère**, **désignation**, **valeur**, **quantité**. Elle sert à **commander**, à **vérifier** le montage et à **dépanner**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert une BOM ?
+
+??? success "Réponse"
+    À **lister tous les composants** (repère, valeur, quantité) pour commander, monter et dépanner.
+
+**Q2.** Un schéma contient R1, R2, R3 de même valeur. Quelle quantité écris-tu pour cette valeur ?
+
+??? success "Réponse"
+    **3**.
+
+> [!SUCCESS] 🧠 À retenir
+> - BOM = repère, désignation, valeur, quantité.
+
 ---
 
 ## 5. Méthodologie de résolution de pannes
@@ -229,6 +307,25 @@ Lorsqu'un système ne fonctionne pas, il existe une méthode structurée que tou
 | La connexion BT s'établit puis se coupe | Alimentation insuffisante | Mesurer la tension VCC du HC-05 sous charge | Utiliser une alimentation plus stable ou condensateur de découplage |
 | Le sketch ne se téléverse pas | Port COM occupé par moniteur série | Fermer le moniteur série avant de téléverser | Fermer moniteur série → téléverser → rouvrir |
 
+
+> [!TIP] 💡 En clair
+> Dépanner, c'est **raisonner**, pas essayer au hasard : **1. observer** (qu'est-ce qui ne marche pas exactement ?), **2. supposer** (quelle cause possible ?), **3. mesurer** (vérifier avec le multimètre), **4. corriger**, **5. retester**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle est la première étape d'un dépannage ?
+
+??? success "Réponse"
+    **Observer** précisément le symptôme.
+
+**Q2.** Pourquoi retester après la correction ?
+
+??? success "Réponse"
+    Pour vérifier que le défaut a **bien disparu** et qu'aucun autre n'est apparu.
+
+> [!SUCCESS] 🧠 À retenir
+> - Observer, supposer, mesurer, corriger, retester.
+
 ---
 
 ## 6. Les outils du dépannage
@@ -259,6 +356,17 @@ Serial.println(digitalRead(4));   // Affiche 0 ou 1
 Serial.print("Tension fictive : ");
 Serial.println(analogRead(A0));   // Pour tester les entrées analogiques
 ```
+
+
+> [!TIP] 💡 En clair
+> Les **outils** du dépanneur : le **multimètre** (tension, continuité), le **moniteur série** (ce que dit le programme), l'**inspection visuelle** (soudures, composants à l'envers) et la **substitution** (essayer un composant sûr à la place).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quel outil permet de voir ce que « pense » le programme ?
+
+??? success "Réponse"
+    Le **moniteur série**.
 
 ---
 

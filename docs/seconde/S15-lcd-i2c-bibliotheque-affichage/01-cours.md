@@ -20,6 +20,16 @@
 7. Structure du proto maquette final
 8. Vocabulaire clé à maîtriser
 
+
+### 🤔 À ton avis ?
+
+Ton Arduino sait calculer une température, mais personne ne la voit… Comment **afficher** le résultat sur un petit écran **sans utiliser une dizaine de broches** ?
+
+??? question "Voir une réponse possible"
+    Avec un écran LCD équipé d'un **module I2C** : il ne demande que **deux fils de données** (SDA et SCL) au lieu de plus de dix. Il suffit ensuite de **deux fils d'alimentation**.
+    
+    Dans cette séance, tu apprends à **comprendre l'I2C**, à **afficher du texte** sur un LCD 16×2 et à y montrer la **température du LM35**.
+
 ---
 
 ## 1. Le protocole I2C — principe et intérêt
@@ -59,6 +69,34 @@ Le protocole **I2C** (Inter-Integrated Circuit, prononcé "I-deux-C" ou "I-carr�
 
 > ⚠️ Sur Arduino UNO, **ne pas utiliser A4 et A5 comme entrées analogiques** si tu utilises I2C — elles sont réservées au bus.
 
+
+> [!TIP] 💡 En clair
+> L'**I2C** est un protocole à **deux fils** : **SDA** (les données) et **SCL** (l'horloge). Plusieurs appareils peuvent partager **les mêmes deux fils**, chacun étant repéré par une **adresse** (souvent `0x27` ou `0x3F` pour un écran LCD). Sur l'Arduino Uno : **SDA = A4**, **SCL = A5**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quels sont les deux fils de l'I2C ?
+
+??? success "Réponse"
+    **SDA** (données) et **SCL** (horloge).
+
+**Q2.** À quoi sert l'adresse I2C ?
+
+??? success "Réponse"
+    À **repérer** chaque appareil sur les mêmes deux fils.
+
+**Q3.** Sur quelles broches de l'Arduino Uno trouve-t-on SDA et SCL ?
+
+??? success "Réponse"
+    **SDA = A4** et **SCL = A5**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Se tromper d'adresse (`0x27` ou `0x3F`) : l'écran reste éteint ou vide.
+> - Intervertir SDA et SCL.
+
+> [!SUCCESS] 🧠 À retenir
+> - I2C = 2 fils (SDA, SCL) + une adresse par appareil.
+
 ---
 
 ## 2. L'écran LCD 16×2 avec module I2C
@@ -85,6 +123,22 @@ Le protocole **I2C** (Inter-Integrated Circuit, prononcé "I-deux-C" ou "I-carr�
 | **SDA** | Fil bleu | **A4** |
 | **SCL** | Fil jaune | **A5** |
 
+
+> [!TIP] 💡 En clair
+> L'écran **16×2** affiche **2 lignes de 16 caractères**. Sa position s'exprime avec **(colonne, ligne)** et la numérotation commence à **0** : `lcd.setCursor(0, 1)` place le curseur au **début de la deuxième ligne**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Combien de caractères au maximum sur l'écran ?
+
+??? success "Réponse"
+    $16 \times 2 = 32$ caractères.
+
+**Q2.** Que fait `lcd.setCursor(0, 1)` ?
+
+??? success "Réponse"
+    Il place le curseur au **début de la 2ᵉ ligne** (numérotation à partir de 0).
+
 ---
 
 ## 3. La bibliothèque LiquidCrystal_I2C
@@ -98,6 +152,25 @@ Le protocole **I2C** (Inter-Integrated Circuit, prononcé "I-deux-C" ou "I-carr�
 ### 3.2 Initialisation dans le sketch
 
 ```cpp
+
+> [!TIP] 💡 En clair
+> Une **bibliothèque** est du code **déjà écrit** que tu réutilises. Avec `LiquidCrystal_I2C`, trois instructions suffisent : `lcd.init()` pour démarrer, `lcd.backlight()` pour allumer le rétro-éclairage, `lcd.print()` pour écrire.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert une bibliothèque ?
+
+??? success "Réponse"
+    À **réutiliser du code déjà écrit** au lieu de tout reprogrammer.
+
+**Q2.** Quelle instruction affiche du texte ?
+
+??? success "Réponse"
+    `lcd.print()`.
+
+> [!SUCCESS] 🧠 À retenir
+> - `init()` démarre, `backlight()` allume, `print()` écrit.
+
 #include <LiquidCrystal_I2C.h>
 
 // LiquidCrystal_I2C(adresse, colonnes, lignes)
@@ -177,6 +250,10 @@ float temperature = tension * 100.0;            // Conversion en °C
 
 > 📌 Le LM35 mesure entre **−55°C et +150°C**. En usage normal (température ambiante), on obtient des valeurs entre 150 et 250 sur `analogRead()`.
 
+
+> [!TIP] 💡 En clair
+> Rappel de S09 : le LM35 donne **10 mV par °C**, et $T = \text{valeur} \times \dfrac{5}{1023} \times 100$.
+
 ---
 
 ## 5. Intégration LM35 → LCD : afficher la température en temps réel
@@ -192,6 +269,17 @@ float temperature = tension * 100.0;            // Conversion en °C
 // S15 – LM35 + LCD I2C
 // Affichage de la température en temps réel
 // ============================================
+
+
+> [!TIP] 💡 En clair
+> On **assemble** deux briques que tu connais : **mesurer** la température (S09) puis l'**afficher** (LCD). Pour éviter que d'anciens caractères restent à l'écran, on **efface** la ligne ou on réécrit des **espaces** avant d'afficher la nouvelle valeur.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi efface-t-on l'écran avant d'écrire une nouvelle valeur ?
+
+??? success "Réponse"
+    Pour ne pas garder d'**anciens caractères** (par exemple « 100 » devenant « 99 » laisserait un « 0 »).
 
 #include <LiquidCrystal_I2C.h>
 
@@ -253,6 +341,20 @@ void loop() {
 // LM35 + LCD I2C + HC-05 Bluetooth
 // Auteur : [Ton nom]   Date : [Date S15]
 // ================================================
+
+
+> [!TIP] 💡 En clair
+> Quand on assemble **LM35 + LCD + HC-05**, la règle d'or est **d'ajouter un élément à la fois** et de **tester** à chaque étape : si tout est branché d'un coup et que ça ne marche pas, on ne sait plus où chercher.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi ajoute-t-on les modules un par un ?
+
+??? success "Réponse"
+    Pour **localiser** facilement la cause d'un problème.
+
+> [!SUCCESS] 🧠 À retenir
+> - Assembler = un module à la fois, test à chaque étape.
 
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
