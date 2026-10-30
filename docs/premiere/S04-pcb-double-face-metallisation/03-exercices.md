@@ -26,15 +26,15 @@ Rapport cyclique: D = Th / T = (R1 + R2) / (R1 + 2×R2)
 
 **Q1.1** — Calcule la fréquence avec R1=10kΩ, R2=47kΩ, C1=100µF :
 
-```
-T = 0,693 × (10 000 + 2 × 47 000) × 100 × 10⁻⁶
-T = 0,693 × __________ × 0,0001
-T = __________ s
+$$T = 0{,}693 \times (10\,000 + 2 \times 47\,000) \times 100 \times 10⁻⁶$$
 
-f = 1 / T = __________ Hz
+$$T = 0{,}693 \times \underline{\hspace{2.5em}} \times 0{,}0001$$
 
-La LED clignote à __________ fois par seconde.
-```
+$$T = \underline{\hspace{2.5em}} s$$
+
+$$f = \dfrac{1}{T} = \underline{\hspace{2.5em}} Hz$$
+
+La LED clignote à __________ fois par seconde.  
 
 **Q1.2** — Si on remplace C1 par 10µF (valeur ×10 plus petite), que devient la fréquence ?
 
@@ -45,12 +45,10 @@ f_nouvelle = __________ Hz
 
 **Q1.3** — Calcule le rapport cyclique pour R1=10kΩ, R2=47kΩ :
 
-```
-D = (10 + 47) / (10 + 2 × 47) = __________ / __________ = __________  %
+$$D = \dfrac{10 + 47}{10 + 2 \times 47} = \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
-Interprétation : le signal est HIGH pendant ______% du temps et LOW pendant ______%
-La LED est allumée pendant ______% de la période → elle semble ☐ plus ☐ moins lumineuse que 50%
-```
+Interprétation : le signal est HIGH pendant ______% du temps et LOW pendant ______%  
+La LED est allumée pendant ______% de la période → elle semble ☐ plus ☐ moins lumineuse que 50%  
 
 ---
 

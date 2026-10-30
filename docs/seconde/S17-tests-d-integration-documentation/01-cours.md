@@ -217,16 +217,14 @@ Professional Excel/LibreOffice style, French headers, color-coded header row."
 Pour ne pas griller une DEL, il faut toujours calculer la résistance de limitation :
 
 > **Formule :**
-> ```
-> R = (Vcc - V_DEL) / I_DEL
-> ```
-> Avec :
-> - **Vcc** = tension d'alimentation = 5 V
-> - **V_DEL** = tension de seuil de la DEL ≈ 2 V (rouge) / 2,1 V (jaune) / 2,2 V (verte)
-> - **I_DEL** = courant nominal ≈ 20 mA = 0,02 A
+> $$> R = \dfrac{V_{cc} - V_{\mathrm{DEL}}}{I_{\mathrm{DEL}}}$$
+> ```  
+> Avec :  
+> - **Vcc** = tension d'alimentation = 5 V  
+> - **V_DEL** = tension de seuil de la DEL ≈ 2 V (rouge) / 2,1 V (jaune) / 2,2 V (verte)  
+> - **I_DEL** = courant nominal ≈ 20 mA = 0,02 A  
 
-**Exemple pour la DEL rouge :**
-```
+**Exemple pour la DEL rouge :**  
 R = (5 - 2) / 0,02 = 3 / 0,02 = 150 Ω → on prend 220 Ω (valeur normalisée supérieure) ✅
 ```
 

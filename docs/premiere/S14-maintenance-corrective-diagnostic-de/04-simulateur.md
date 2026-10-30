@@ -52,19 +52,19 @@ Une alimentation stabilisée 5 V / 110 mA (secteur → fusible → transformateu
 
 *Bac Pro CIEL (première / terminale) · durée indicative : 1 h 30*
 
-Une platine de signalisation commande une LED à l'aide d'un transistor : LED allumée quand l'interrupteur SW1 est fermé, éteinte quand il est ouvert. Elle ne fonctionne plus. Trouvez la panne par des mesures (V<sub>BE</sub>, V<sub>CE</sub>, tensions aux bornes de R<sub>B</sub> et R<sub>C</sub>), réparez, puis contrôlez les deux états.
+Une platine de signalisation commande une LED à l'aide d'un transistor : LED allumée quand l'interrupteur SW1 est fermé, éteinte quand il est ouvert. Elle ne fonctionne plus. Trouvez la panne par des mesures ($V_{BE}$, $V_{CE}$, tensions aux bornes de $R_{B}$ et $R_{C}$), réparez, puis contrôlez les deux états.
 
 ### 🎯 Objectifs
 
 - Déduire un état du transistor (bloqué, saturé, court-circuité) des tensions mesurées
-- Séparer commande (R<sub>B</sub>, base) et puissance (R<sub>C</sub>, LED, collecteur)
+- Séparer commande ($R_{B}$, base) et puissance ($R_{C}$, LED, collecteur)
 - Localiser un composant défectueux ou une connexion coupée
 - Contrôler les deux états de fonctionnement après réparation
 
 ### 🛠️ Marche à suivre
 
 1. <b>Constat</b> : testez SW1 ouvert / fermé et lisez le symptôme.
-2. <b>Mesures</b> : V<sub>BE</sub> (≈ 0,7 V si la base est alimentée), V<sub>CE</sub> (≈ 0,1 V saturé, ≈ 5 V bloqué), tension sur R<sub>B</sub> et sur R<sub>C</sub>.
+2. <b>Mesures</b> : $V_{BE}$ (≈ 0,7 V si la base est alimentée), $V_{CE}$ (≈ 0,1 V saturé, ≈ 5 V bloqué), tension sur $R_{B}$ et sur $R_{C}$.
 3. <b>Localisation</b> : quelle partie est en cause, commande ou puissance ? Confirmez hors tension (ohmmètre, testeur de diode, continuité).
 4. <b>Réparation</b> (remplacer le composant, ou rétablir la connexion avec un fil).
 5. <b>Contrôle</b> : SW1 fermé → LED allumée ; SW1 ouvert → éteinte.

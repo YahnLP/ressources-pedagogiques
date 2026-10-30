@@ -79,37 +79,37 @@ Polarité        : obligatoire (+ vers VCC, − vers GND)
 
 ## R6 — Formules de référence complètes
 
-```
-━━━ ÉLECTRICITÉ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-U = R × I                        (loi d'Ohm)
-P = U × I                        (puissance)
-R_LED = (Vcc − Vf) / If          (dimensionnement résistance LED)
-I = U / R                        (courant dans une résistance)
+━━━ ÉLECTRICITÉ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
 
-━━━ ALIMENTATION ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Pdiss_LDO = (Vin − Vout) × Iout  (dissipation régulateur)
-Iout = Σ(courants @ Vout)        (somme de tous les courants)
-η = Vout / Vin                   (rendement LDO linéaire, approx.)
-Autonomie = Capacité(mAh) / I_moy(mA) × 0,80   (batterie)
-I_moy cycle = (I1×t1 + I2×t2) / (t1 + t2)     (courant moyen)
+$$U = R \times I (loi d'Ohm)$$
 
-━━━ THERMIQUE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Tj = Tamb + Pdiss × Rθja         (température jonction sans radiateur)
-Tj max exploitable = 105°C       (125 − 20 de marge sécurité)
-Marge thermique = 105 − Tj
+P = U × I                        (puissance)  
+R_LED = (Vcc − Vf) / If          (dimensionnement résistance LED)  
+I = U / R                        (courant dans une résistance)  
 
-━━━ MÉTROLOGIE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Biais e̅  = Σei / n
-Écart-type σ = √(Σei² / (n−1))
-Incertitude type u = σ / √n
-Incertitude élargie U = 2 × u    (k=2, confiance 95%)
-Conformité : |e̅| + U ≤ spécification constructeur
+━━━ ALIMENTATION ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
+Pdiss_LDO = (Vin − Vout) × Iout  (dissipation régulateur)  
+Iout = Σ(courants @ Vout)        (somme de tous les courants)  
+η = Vout / Vin                   (rendement LDO linéaire, approx.)  
+Autonomie = Capacité(mAh) / I_moy(mA) × 0,80   (batterie)  
+I_moy cycle = (I1×t1 + I2×t2) / (t1 + t2)     (courant moyen)  
 
-━━━ TOLÉRANCES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-±5%  : [Rnom × 0,95 ; Rnom × 1,05]
-±1%  : [Vnom × 0,99 ; Vnom × 1,01]
-±20% : [Cnom × 0,80 ; Cnom × 1,20]
-```
+━━━ THERMIQUE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
+Tj = Tamb + Pdiss × Rθja         (température jonction sans radiateur)  
+Tj max exploitable = 105°C       (125 − 20 de marge sécurité)  
+Marge thermique = 105 − Tj  
+
+━━━ MÉTROLOGIE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
+Biais e̅  = Σei / n  
+Écart-type σ = √(Σei² / (n−1))  
+Incertitude type u = σ / √n  
+Incertitude élargie U = 2 × u    (k=2, confiance 95%)  
+Conformité : |e̅| + U ≤ spécification constructeur  
+
+━━━ TOLÉRANCES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
+±5%  : [Rnom × 0,95 ; Rnom × 1,05]  
+±1%  : [Vnom × 0,99 ; Vnom × 1,01]  
+±20% : [Cnom × 0,80 ; Cnom × 1,20]  
 
 ---
 

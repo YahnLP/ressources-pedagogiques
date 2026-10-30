@@ -9,6 +9,8 @@
 
 Une alimentation de laboratoire alimente une résistance de 470 Ω. Vous apprenez à brancher un <b>voltmètre en dérivation</b> et un <b>ampèremètre en série</b>, puis à vérifier la loi d'Ohm.
 
+![Cercle de la puissance : P = U × I](images/puissance-cercle.png)
+
 ### 🎯 Objectifs
 
 - Régler une alimentation de laboratoire (tension, limitation de courant)

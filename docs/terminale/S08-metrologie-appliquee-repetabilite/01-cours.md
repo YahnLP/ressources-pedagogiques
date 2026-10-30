@@ -32,28 +32,28 @@
 
 ### Répétabilité (Equipment Variation — EV)
 
-```
-DÉFINITION :
-  Variabilité observée quand UN SEUL opérateur mesure le MÊME objet
-  PLUSIEURS FOIS avec le MÊME instrument dans les MÊMES conditions.
+DÉFINITION :  
+Variabilité observée quand UN SEUL opérateur mesure le MÊME objet  
+PLUSIEURS FOIS avec le MÊME instrument dans les MÊMES conditions.  
 
-CAUSES de la non-répétabilité :
-  → Résolution limitée de l'instrument (arrondi au dernier chiffre)
-  → Bruit électronique de l'instrument
-  → Instabilité de l'objet mesuré (température qui dérive)
-  → Vibrations mécaniques
-  → Variations de l'interface pièce/instrument (contact sondes)
+CAUSES de la non-répétabilité :  
+→ Résolution limitée de l'instrument (arrondi au dernier chiffre)  
+→ Bruit électronique de l'instrument  
+→ Instabilité de l'objet mesuré (température qui dérive)  
+→ Vibrations mécaniques  
+→ Variations de l'interface pièce/instrument (contact sondes)  
 
-CALCUL :
-  Effectuer n mesures → calculer σ_EV (écart-type des n mesures)
-  
-  σ_EV = √(Σ(xi − x̄)² / (n−1))
+CALCUL :  
+Effectuer n mesures → calculer σ_EV (écart-type des n mesures)  
 
-  Ou méthode des étendues (plus rapide) :
-  σ_EV = R̄ / d2
-    avec R̄ = étendue moyenne des groupes de mesures
-    et d2 = constante statistique (d2 = 1,128 pour n=2 · 1,693 pour n=3 · 2,059 pour n=5)
-```
+$$σ_EV = \sqrt(Σ(xi - x̄)^2 / (n-1))$$
+
+Ou méthode des étendues (plus rapide) :  
+
+$$σ_EV = R̄ / d2$$
+
+avec R̄ = étendue moyenne des groupes de mesures  
+et d2 = constante statistique (d2 = 1,128 pour n=2 · 1,693 pour n=3 · 2,059 pour n=5)  
 
 ### Reproductibilité (Appraiser Variation — AV)
 
@@ -106,37 +106,36 @@ Pour un système IoT industriel :
 
 ### Protocole Gauge R&R simplifié
 
-```
-PROTOCOLE (version cours BAC PRO) :
-  k = 2 opérateurs (A et B)
-  n = 5 mesures par opérateur
-  p = 1 pièce (pour simplifier)
+PROTOCOLE (version cours BAC PRO) :  
+k = 2 opérateurs (A et B)  
+n = 5 mesures par opérateur  
+p = 1 pièce (pour simplifier)  
 
-ÉTAPE 1 — Mesures :
-  Opérateur A : effectue n mesures → calcule x̄_A et σ_A (ou R_A)
-  Opérateur B : effectue n mesures → calcule x̄_B et σ_B (ou R_B)
+ÉTAPE 1 — Mesures :  
+Opérateur A : effectue n mesures → calcule x̄_A et σ_A (ou R_A)  
+Opérateur B : effectue n mesures → calcule x̄_B et σ_B (ou R_B)  
 
-ÉTAPE 2 — Répétabilité (EV) :
-  σ_EV = (σ_A + σ_B) / 2   (moyenne des écarts-types des opérateurs)
-  
-  Ou avec les étendues :
-  σ_EV = R̄ / d2   avec R̄ = (R_A + R_B)/2 · d2 = 1,693 (pour n=5)
+ÉTAPE 2 — Répétabilité (EV) :  
+σ_EV = (σ_A + σ_B) / 2   (moyenne des écarts-types des opérateurs)  
 
-ÉTAPE 3 — Reproductibilité (AV) :
-  AV_brut = |x̄_A − x̄_B|   (différence entre les moyennes)
-  σ_AV = √max( AV_brut²/n − σ_EV²/(n×p) ; 0 )
-  
-  Simplification fréquente si 1 seule pièce (p=1) :
-  σ_AV ≈ |x̄_A − x̄_B| / √n   (approximation acceptable)
+Ou avec les étendues :  
+σ_EV = R̄ / d2   avec R̄ = (R_A + R_B)/2 · d2 = 1,693 (pour n=5)  
 
-ÉTAPE 4 — GRR total :
-  σ_GRR = √(σ_EV² + σ_AV²)
+ÉTAPE 3 — Reproductibilité (AV) :  
+AV_brut = |x̄_A − x̄_B|   (différence entre les moyennes)  
+σ_AV = √max( AV_brut²/n − σ_EV²/(n×p) ; 0 )  
 
-ÉTAPE 5 — %GRR :
-  %GRR = (5,15 × σ_GRR / Tolérance) × 100
-  
-  Le facteur 5,15 = 2 × 2,575 = couvre 99% de la distribution normale
-```
+Simplification fréquente si 1 seule pièce (p=1) :  
+σ_AV ≈ |x̄_A − x̄_B| / √n   (approximation acceptable)  
+
+ÉTAPE 4 — GRR total :  
+
+$$σ_GRR = \sqrt(σ_EV^2 + σ_AV^2)$$
+
+ÉTAPE 5 — %GRR :  
+%GRR = (5,15 × σ_GRR / Tolérance) × 100  
+
+Le facteur 5,15 = 2 × 2,575 = couvre 99% de la distribution normale  
 
 ### Interprétation du %GRR
 
@@ -185,29 +184,29 @@ LA LIMITE DE DÉTECTION :
 
 ### Formules de la limite de détection
 
-```
-À PARTIR DU BRUIT DE FOND σ_bruit = σ_répétabilité (quand on mesure une valeur fixe) :
+À PARTIR DU BRUIT DE FOND σ_bruit = σ_répétabilité (quand on mesure une valeur fixe) :  
 
-LDD (Limite de Décision de Détection) :
-  LDD = 1,65 × σ_bruit
-  → Signal au-dessus de LDD : 95% de chance que ce soit un vrai signal
+LDD (Limite de Décision de Détection) :  
+LDD = 1,65 × σ_bruit  
+→ Signal au-dessus de LDD : 95% de chance que ce soit un vrai signal  
 
-LD (Limite de Détection) :
-  LD  = 3,3 × σ_bruit
-  → Signal au-dessus de LD : erreur < 5% sur la décision de détection
+LD (Limite de Détection) :  
+LD  = 3,3 × σ_bruit  
+→ Signal au-dessus de LD : erreur < 5% sur la décision de détection  
 
-RÈGLE PRATIQUE SIMPLIFIÉE :
-  LD ≈ 3 × σ_bruit   (règle "3-sigma", très utilisée en pratique)
+RÈGLE PRATIQUE SIMPLIFIÉE :  
+LD ≈ 3 × σ_bruit   (règle "3-sigma", très utilisée en pratique)  
 
-  Un signal n'est détectable de façon fiable que si sa valeur > LD.
+Un signal n'est détectable de façon fiable que si sa valeur > LD.  
 
-APPLICATION AU DHT22 (σ_répétabilité = 0,3°C) :
-  LDD = 1,65 × 0,3 = 0,50°C
-  LD  = 3,3 × 0,3  = 0,99°C ≈ 1°C
-  
-  → Le DHT22 peut détecter de façon fiable des variations ≥ 1°C.
-  → Une variation de 0,1°C est INDÉTECTABLE avec ce capteur.
-```
+APPLICATION AU DHT22 (σ_répétabilité = 0,3°C) :  
+
+$$LDD = 1{,}65 \times 0{,}3 = 0{,}50\,\mathrm{°C}$$
+
+$$LD = 3{,}3 \times 0{,}3 = 0{,}99\,\mathrm{°C} \approx 1\,\mathrm{°C}$$
+
+→ Le DHT22 peut détecter de façon fiable des variations ≥ 1°C.  
+→ Une variation de 0,1°C est INDÉTECTABLE avec ce capteur.  
 
 ### Lien entre σ, résolution et LD
 

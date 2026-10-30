@@ -5,15 +5,14 @@
 
 ## ⚡ Bilan de puissance
 
-```
-Tableau : Composant | Vcc | I_pic | I_moy | P_moy
+Tableau : Composant | Vcc | I_pic | I_moy | P_moy  
 
-I_moy sur cycle :
-  I_moy = (I1×t1 + I2×t2) / (t1+t2)
+I_moy sur cycle :  
 
-Courant de source :
-  ≥ I_pic_total × 1,25  (marge 25%)
-```
+$$I_{\mathrm{moy}} = \dfrac{I_{1} \times t1 + I_{2} \times t2}{t1+t2}$$
+
+Courant de source :  
+≥ I_pic_total × 1,25  (marge 25%)  
 
 ---
 

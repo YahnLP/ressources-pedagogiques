@@ -11,16 +11,16 @@ Un diviseur 1 MΩ / 1 MΩ alimenté en 10 V devrait délivrer 5 V. Mais le voltm
 
 ### 🎯 Objectifs
 
-- Calculer la tension de sortie d'un diviseur U<sub>s</sub> = E·R2/(R1+R2)
+- Calculer la tension de sortie d'un diviseur $U_{s}$ = E·R2/(R1+R2)
 - Mettre en évidence l'erreur de méthode due à la résistance interne du voltmètre
 - Observer l'effet d'une charge sur la sortie du diviseur
 
 ### 🛠️ Marche à suivre
 
-1. Câblez MM1 (V⎓) entre le point milieu S (R1/R2) et la masse. Relevez U<sub>s</sub>. Comparez à la valeur théorique 5 V : quel écart observez-vous ?
+1. Câblez MM1 (V⎓) entre le point milieu S (R1/R2) et la masse. Relevez $U_{s}$. Comparez à la valeur théorique 5 V : quel écart observez-vous ?
 2. Calculez la résistance équivalente de R2 en parallèle avec l'entrée du voltmètre (10 MΩ) et expliquez l'écart.
 3. Remplacez le diviseur par R1 = R2 = 10 kΩ (modifiez les valeurs) : l'erreur est-elle toujours visible ? Pourquoi ?
-4. Ajoutez une charge R<sub>L</sub> = 10 kΩ entre S et la masse (c'est R3 déjà placée en bas, à relier) et mesurez U<sub>s</sub>.
+4. Ajoutez une charge $R_{L}$ = 10 kΩ entre S et la masse (c'est R3 déjà placée en bas, à relier) et mesurez $U_{s}$.
 
 ### ❓ Questions
 

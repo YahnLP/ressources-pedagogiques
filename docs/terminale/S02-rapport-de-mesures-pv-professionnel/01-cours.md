@@ -160,12 +160,11 @@ $$u_A = \frac{s}{\sqrt{n}} \quad \text{où} \quad s = \sqrt{\frac{1}{n-1}\sum_{i
 
 **Exemple (n=5 mesures de résistance) :**
 
-```
-Mesures : 4 701 Ω / 4 698 Ω / 4 705 Ω / 4 702 Ω / 4 699 Ω
-Moyenne x̄ = 4 701 Ω
-Écart-type s = 2,7 Ω
-u_A = 2,7 / √5 = 1,2 Ω
-```
+Mesures : 4 701 Ω / 4 698 Ω / 4 705 Ω / 4 702 Ω / 4 699 Ω  
+Moyenne x̄ = 4 701 Ω  
+Écart-type s = 2,7 Ω  
+
+$$u_{\mathrm{A}} = 2{,}7 / \sqrt5 = 1{,}2\,\mathrm{\Omega }$$
 
 ---
 
@@ -178,6 +177,7 @@ u_A = 2,7 / √5 = 1,2 Ω
 $$u_{B,rés} = \frac{\text{résolution}}{2\sqrt{3}}$$
 
 **Exemple :** Multimètre affiche `4 703 Ω`, résolution = 1 Ω
+
 $$u_{B,rés} = \frac{1}{2\sqrt{3}} = \frac{1}{3,46} \approx 0,29 \text{ Ω}$$
 
 **Source 2 : classe de l'instrument**
@@ -187,6 +187,7 @@ $$u_{B,rés} = \frac{1}{2\sqrt{3}} = \frac{1}{3,46} \approx 0,29 \text{ Ω}$$
 $$u_{B,classe} = \frac{\text{classe\%} \times \text{valeur lue}}{100 \times \sqrt{3}}$$
 
 **Exemple :** Fluke 87V, classe 0,5%, mesure 4 703 Ω
+
 $$u_{B,classe} = \frac{0,5 \times 4703}{100 \times 1,73} = \frac{23,5}{173} \approx 13,6 \text{ Ω}$$
 
 ---
@@ -199,17 +200,17 @@ $$\boxed{U = k \cdot u_c \quad \text{avec } k=2 \text{ pour 95\% de confiance}}$
 
 **Exemple complet :**
 
-```
-u_A         = 1,2 Ω
-u_B,rés     = 0,3 Ω
-u_B,classe  = 13,6 Ω
+$$u_{\mathrm{A}} = 1{,}2\,\mathrm{\Omega }$$
 
-u_c = √(1,2² + 0,3² + 13,6²) = √(1,44 + 0,09 + 184,96) = √186,49 = 13,7 Ω
+$$u_{\mathrm{B}},rés = 0{,}3\,\mathrm{\Omega }$$
 
-U = 2 × 13,7 = 27,4 Ω  → arrondi à 30 Ω (règle : 1 chiffre significatif sur U)
+u_B,classe  = 13,6 Ω  
 
-Résultat : R = (4 703 ± 30) Ω  [niveau de confiance 95%]
-```
+$$u_{\mathrm{c}} = \sqrt(1{,}2^2 + 0{,}3^2 + 13{,}6^2) = \sqrt(1{,}44 + 0{,}09 + 184{,}96) = \sqrt186{,}49 = 13{,}7\,\mathrm{\Omega }$$
+
+U = 2 × 13,7 = 27,4 Ω  → arrondi à 30 Ω (règle : 1 chiffre significatif sur U)  
+
+Résultat : R = (4 703 ± 30) Ω  [niveau de confiance 95%]  
 
 > **Règle d'arrondi :** L'incertitude élargie s'arrondit **par excès à 1 chiffre significatif** (sauf si commence par 1 ou 2 → 2 chiffres). La valeur mesurée s'arrondit ensuite au même rang décimal que U.
 

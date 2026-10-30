@@ -46,19 +46,18 @@ Solutions :
 
 ## 🛡️ Blindage
 
-```
-Efficace si :
-  ✓ Continu (pas de fente)
-  ✓ Relié à la masse (1 point)
-  ✓ Faible impédance
+Efficace si :  
+✓ Continu (pas de fente)  
+✓ Relié à la masse (1 point)  
+✓ Faible impédance  
 
-Règle fente :
-  Fente < λ/20 (sinon → antenne !)
-  λ = c/f = 3×10⁸ / f
+Règle fente :  
+Fente < λ/20 (sinon → antenne !)  
 
-Ex : f = 2,4 GHz → λ = 12,5 cm
-     Fente max = 12,5/20 = 6,25 mm
-```
+$$λ = \dfrac{c}{f} = 3 \times 10⁸ / f$$
+
+Ex : f = 2,4 GHz → λ = 12,5 cm  
+Fente max = 12,5/20 = 6,25 mm  
 
 ---
 

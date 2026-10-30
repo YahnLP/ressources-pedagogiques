@@ -12,14 +12,14 @@ Un générateur délivre un signal <b>inconnu</b> (réglages masqués). À l'aid
 ### 🎯 Objectifs
 
 - Régler correctement un oscilloscope (sensibilités, base de temps, déclenchement)
-- Mesurer T, f, V<sub>max</sub>, V<sub>min</sub>, V<sub>pp</sub>
+- Mesurer T, f, $V_{max}$, $V_{min}$, $V_{pp}$
 - Distinguer valeur moyenne (V⎓) et valeur efficace alternative (V∿)
 
 ### 🛠️ Marche à suivre
 
 1. Câblez l'oscilloscope : CH1 aux bornes de R1 (sortie GBF), GND à la masse. Utilisez « Auto » pour obtenir une image stable puis affinez les réglages.
 2. Relevez la forme du signal, sa période T et sa fréquence f = 1/T.
-3. Relevez V<sub>max</sub>, V<sub>min</sub> et V<sub>pp</sub>. Déduisez l'amplitude et la valeur moyenne (composante continue).
+3. Relevez $V_{max}$, $V_{min}$ et $V_{pp}$. Déduisez l'amplitude et la valeur moyenne (composante continue).
 4. Câblez MM1 (V⎓) puis MM2 (V∿) aux bornes de R1 et comparez avec l'oscilloscope.
 5. Cliquez « ↻ Autre signal » pour recommencer avec un autre signal.
 
@@ -31,8 +31,8 @@ Un générateur délivre un signal <b>inconnu</b> (réglages masqués). À l'aid
     - ☐ Triangulaire
 2. Période T (en ms)
 3. Fréquence f (en Hz)
-4. Tension maximale V<sub>max</sub> (en V)
-5. Tension crête à crête V<sub>pp</sub> (en V)
+4. Tension maximale $V_{max}$ (en V)
+5. Tension crête à crête $V_{pp}$ (en V)
 6. Valeur moyenne du signal (en V) — lue en V⎓
 7. Valeur efficace de la composante alternative, lue en V∿ (en V)
 

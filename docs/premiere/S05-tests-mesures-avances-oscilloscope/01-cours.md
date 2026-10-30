@@ -141,15 +141,15 @@ SDA  ─┐  ┌─────────────────────.
 
 ### Configurer le décodeur I2C dans Saleae
 
-```
-1. Ouvrir Saleae Logic 2
-2. Brancher l'analyseur : CH0 → SCL, CH1 → SDA, GND → GND circuit
-3. Régler la fréquence d'échantillonnage : 8 MHz (pour I2C 400 kHz)
-4. Analyser → Add Analyzer → I2C
-5. SCL = CH0, SDA = CH1
-6. Lancer une capture (Start + exécuter le code Arduino)
-7. Zoom sur la capture → les trames s'affichent décodées
-```
+1. Ouvrir Saleae Logic 2  
+2. Brancher l'analyseur : CH0 → SCL, CH1 → SDA, GND → GND circuit  
+3. Régler la fréquence d'échantillonnage : 8 MHz (pour I2C 400 kHz)  
+4. Analyser → Add Analyzer → I2C  
+
+$$5. SCL = CH0, SDA = CH1$$
+
+6. Lancer une capture (Start + exécuter le code Arduino)  
+7. Zoom sur la capture → les trames s'affichent décodées  
 
 ### Diagnostic I2C — Les problèmes courants
 

@@ -18,11 +18,17 @@ const PLAN = {
   'terminale/3': [['transfo', 1], ['redress', 1], ['filtrage', 1], ['regul', 1]],
   'terminale/12': [['diviseur', 1]],
 };
-const md = s => String(s || '').replace(/<br\s*\/?>/g, '  \n');
+const SEC = [
+  ['Calculer R = (E − V<sub>F</sub>) / I<sub>F</sub> avec la loi des mailles', "Calculer R = (E − V<sub>F</sub>) / I<sub>F</sub> : la résistance reçoit la tension qui reste (E − V<sub>F</sub>), puis on applique la loi d'Ohm"],
+  ['Calculez R avec la loi des mailles E = R·I + V<sub>F</sub>.', "Calculez R : la tension aux bornes de R est U<sub>R</sub> = E − V<sub>F</sub>, puis R = U<sub>R</sub> / I<sub>F</sub> (loi d'Ohm)."],
+  ['Appliquer la loi des nœuds (I = I2 + I3)', 'Vérifier que le courant total est la somme des courants des branches (I = I2 + I3)'],
+];
+let CUR_YEAR = '';
+const md = s => { let t = String(s || '').replace(/<br\s*\/?>/g, '  \n'); if (CUR_YEAR === 'seconde') SEC.forEach(([a, b]) => { t = t.split(a).join(b); }); return t.replace(/([A-Za-z])<sub>([^<]+)<\/sub>/g, (m, a, b) => `$${a}_{${b}}$`); };
 const bySc = Object.fromEntries(NS.SCENARIOS.map(s => [s.id, s]));
 let nfiles = 0;
 for (const [key, list] of Object.entries(PLAN)) {
-  const [year, n] = key.split('/');
+  const [year, n] = key.split('/'); CUR_YEAR = year;
   const ydir = path.join(REPO, 'docs', year);
   const sdir = fs.readdirSync(ydir).find(d => d.startsWith('S' + String(n).padStart(2, '0') + '-'));
   if (!sdir) { console.log('séance introuvable', key); continue; }

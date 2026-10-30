@@ -42,27 +42,7 @@
 
 **Comprendre l'électricité comme un circuit d'eau :**
 
-```
-┌────────────────────────────────────────┐
-│      CHÂTEAU D'EAU (Tension U)         │
-│         ↓ Haute pression               │
-│         │                              │
-│    ┌────▼────┐                         │
-│    │  POMPE  │ ← Générateur            │
-│    └────┬────┘                         │
-│         │                              │
-│    ┌────▼──────────┐                   │
-│    │ TUYAU ÉTROIT  │ ← Résistance      │
-│    │  (Résistance) │                   │
-│    └────┬──────────┘                   │
-│         │                              │
-│         ▼ Débit (Intensité I)          │
-│                                        │
-│    ┌─────────┐                         │
-│    │ TURBINE │ ← Charge (LED, moteur)  │
-│    └─────────┘                         │
-└────────────────────────────────────────┘
-```
+![Analogie de l'eau : château d'eau, pompe, tuyau étroit et turbine face à pile, résistance et lampe](images/analogie-eau.png)
 
 **Points clés de l'analogie :**
 
@@ -100,12 +80,9 @@ I = Intensité (Ampère)
 
 **Pour retrouver facilement les 3 formules :**
 
-```
-        U
-       ───
-      │   │
-      R   I
-```
+![Cercle de la loi d'Ohm : U en haut, R à gauche, I à droite ; on cache la grandeur cherchée](images/loi-ohm-cercle.png)
+
+$$U = R \times I \qquad I = \dfrac{U}{R} \qquad R = \dfrac{U}{I}$$
 
 **Comment utiliser le triangle :**
 
@@ -127,11 +104,13 @@ I = Intensité (Ampère)
 - Intensité : I = 0,01 A
 
 **Calcul :**
-```
-U = R × I
-U = 1000 × 0,01
-U = 10 V
-```
+$$
+\begin{aligned}
+U &= R \times I \\
+U &= 1000 \times 0{,}01 \\
+U &= 10\,\mathrm{V}
+\end{aligned}
+$$
 
 **Réponse :** La tension est de **10 Volts**.
 
@@ -144,11 +123,13 @@ U = 10 V
 - Intensité : I = 0,02 A
 
 **Calcul :**
-```
-R = U / I
-R = 12 / 0,02
-R = 600 Ω
-```
+$$
+\begin{aligned}
+R &= \dfrac{U}{I} \\
+R &= \dfrac{12}{0{,}02} \\
+R &= 600\,\mathrm{\Omega }
+\end{aligned}
+$$
 
 **Réponse :** La résistance est de **600 Ohms**.
 
@@ -161,11 +142,13 @@ R = 600 Ω
 - Résistance : R = 500 Ω
 
 **Calcul :**
-```
-I = U / R
-I = 5 / 500
-I = 0,01 A = 10 mA
-```
+$$
+\begin{aligned}
+I &= \dfrac{U}{R} \\
+I &= \dfrac{5}{500} \\
+I &= 0{,}01\,\mathrm{A} = 10\,\mathrm{mA}
+\end{aligned}
+$$
 
 **Réponse :** L'intensité est de **0,01 Ampère** ou **10 milliampères**.
 
@@ -272,20 +255,7 @@ Les **résistances** utilisent un système de **bagues colorées** pour indiquer
 
 **Une résistance à 4 bagues :**
 
-```
-┌──────────────────────────────────┐
-│    RÉSISTANCE 4 BAGUES           │
-│                                  │
-│   ██  ██  ██  ██                │
-│   │   │   │   │                 │
-│   1   2   3   4                 │
-│                                  │
-│  Bague 1 : Chiffre des dizaines │
-│  Bague 2 : Chiffre des unités   │
-│  Bague 3 : Multiplicateur       │
-│  Bague 4 : Tolérance (optionnel)│
-└──────────────────────────────────┘
-```
+![Lecture du code couleurs d'une résistance à 4 bagues](images/resistance-code-couleurs.png)
 
 **Formule :**
 
@@ -306,9 +276,8 @@ Valeur = (Bague1 × 10 + Bague2) × Multiplicateur
 | Bague 3 | 🔴 Rouge | × 100 |
 
 **Calcul :**
-```
-(1 × 10 + 0) × 100 = 10 × 100 = 1 000 Ω = 1 kΩ
-```
+
+$$(1 \times 10 + 0) \times 100 = 10 \times 100 = 1\,000\,\mathrm{\Omega } = 1\,\mathrm{k\Omega }$$
 
 **Réponse :** **1 000 Ω** ou **1 kΩ**
 
@@ -323,9 +292,8 @@ Valeur = (Bague1 × 10 + Bague2) × Multiplicateur
 | Bague 3 | 🟠 Orange | × 1 000 |
 
 **Calcul :**
-```
-(4 × 10 + 7) × 1 000 = 47 × 1 000 = 47 000 Ω = 47 kΩ
-```
+
+$$(4 \times 10 + 7) \times 1\,000 = 47 \times 1\,000 = 47\,000\,\mathrm{\Omega } = 47\,\mathrm{k\Omega }$$
 
 **Réponse :** **47 000 Ω** ou **47 kΩ**
 
@@ -340,9 +308,8 @@ Valeur = (Bague1 × 10 + Bague2) × Multiplicateur
 | Bague 3 | 🟡 Jaune | × 10 000 |
 
 **Calcul :**
-```
-(1 × 10 + 0) × 10 000 = 10 × 10 000 = 100 000 Ω = 100 kΩ
-```
+
+$$(1 \times 10 + 0) \times 10\,000 = 10 \times 10\,000 = 100\,000\,\mathrm{\Omega } = 100\,\mathrm{k\Omega }$$
 
 **Réponse :** **100 000 Ω** ou **100 kΩ**
 
@@ -391,20 +358,14 @@ Une résistance de 1 kΩ ± 5% peut avoir une valeur réelle entre **950 Ω et 1
 
 **Calcul de la résistance de limitation :**
 
-```
-           Vcc (Tension alimentation)
-Rled = ─────────────────────────────
-              Iled (0,02 A)
-```
+$$R_{\text{LED}} = \dfrac{V_{cc} - V_F}{I_{\text{LED}}}$$
 
 **Exemple :**  
 Alimenter une LED rouge (Vf = 2V) avec une pile de 9V :
 
-```
-Rled = (9V - 2V) / 0,02A = 7V / 0,02A = 350 Ω
+$$R_{\mathrm{LED}} = \dfrac{9\,\mathrm{V} - 2\,\mathrm{V}}{0{,}02\,\mathrm{A}} = \dfrac{7\,\mathrm{V}}{0{,}02\,\mathrm{A}} = 350\,\mathrm{\Omega }$$
 
-→ On choisira une résistance de 330 Ω ou 470 Ω (valeur standard)
-```
+→ On choisira une résistance de 330 Ω ou 470 Ω (valeur standard)  
 
 ![Illustration : Schéma électrique d'un circuit LED avec pile 9V, résistance de protection et LED. Annotations montrant le sens du courant et les valeurs. Style : schéma technique clair et coloré.]
 
@@ -522,30 +483,24 @@ Cochez les affirmations vraies :
 
 ### Triangle de la loi d'Ohm
 
-```
-    U
-   ───
-  R │ I
+![Cercle de la loi d'Ohm](images/loi-ohm-cercle.png)
 
-U = R × I
-R = U / I
-I = U / R
-```
+$$U = R \times I \qquad I = \dfrac{U}{R} \qquad R = \dfrac{U}{I}$$
 
 ### Conversions rapides
 
-```
-1 kΩ = 1 000 Ω
-1 MΩ = 1 000 000 Ω
-1 A = 1 000 mA
-1 mA = 0,001 A
-```
+$$
+\begin{aligned}
+1\,\mathrm{k\Omega } &= 1\,000\,\mathrm{\Omega } \\
+1\,\mathrm{M\Omega } &= 1\,000\,000\,\mathrm{\Omega } \\
+1\,\mathrm{A} &= 1\,000\,\mathrm{mA} \\
+1\,\mathrm{mA} &= 0{,}001\,\mathrm{A}
+\end{aligned}
+$$
 
 ### Résistance de limitation LED
 
-```
-Rled = (Vcc - Vf) / Iled
-```
+$$R_{\mathrm{LED}} = \dfrac{V_{cc} - V_{\mathrm{F}}}{I_{\mathrm{LED}}}$$
 
 ---
 

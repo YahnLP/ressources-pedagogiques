@@ -36,31 +36,31 @@ Mon score : ___/8  ☐ Tous acquis → continuer · ☐ Manques → revoir S12-3
 
 > Fermer la fiche. Écrire les formules sur une feuille de brouillon.
 
-```
-1. Dissipation d'un régulateur linéaire :
-   Pdiss = ___________________________
+1. Dissipation d'un régulateur linéaire :  
+Pdiss = ___________________________  
 
-2. Température de jonction :
-   Tj = ___________________________  ·  Tj max exploitable = _____ °C
+2. Température de jonction :  
+Tj = ___________________________  ·  Tj max exploitable = _____ °C  
 
-3. Courant total LDO :
-   I_LDO = ___________________________________________ (liste les composants)
+3. Courant total LDO :  
+I_LDO = ___________________________________________ (liste les composants)  
 
-4. Rendement d'un LDO :
-   η = ___________ (approximation) = _____ % pour 3,3V depuis 5V
+4. Rendement d'un LDO :  
+η = ___________ (approximation) = _____ % pour 3,3V depuis 5V  
 
-5. Autonomie sur batterie avec convertisseur (η_conv = 88%) :
-   I_batterie = ___________________________
-   t_réelle   = ___________________________
+5. Autonomie sur batterie avec convertisseur (η_conv = 88%) :  
+I_batterie = ___________________________  
+t_réelle   = ___________________________  
 
-Réponses :
-1. (Vin−Vout) × Iout  2. Tamb + Pdiss × Rθja · 105°C
-3. I_ESP32 + I_DHT22 + I_LED + I_charge (ne pas oublier R_charge !)
-4. Vout/Vin = 3,3/5 = 66%
-5. I_moy / η · Capacité(mAh) / I_batterie × 0,80
+Réponses :  
+1. (Vin−Vout) × Iout  2. Tamb + Pdiss × Rθja · 105°C  
+3. I_ESP32 + I_DHT22 + I_LED + I_charge (ne pas oublier R_charge !)  
 
-Mon score : ___/5  ☐ Tous → continuer · ☐ Revoir → S3-3A_06 + S15-3A_06
-```
+$$4. \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
+
+5. I_moy / η · Capacité(mAh) / I_batterie × 0,80  
+
+Mon score : ___/5  ☐ Tous → continuer · ☐ Revoir → S3-3A_06 + S15-3A_06  
 
 ---
 

@@ -134,22 +134,23 @@ Où :
 
 ### Calcul pratique avec la calculatrice
 
-```
-Pour calculer e^(−λt) :
-  Méthode 1 : touche [e^x] → entrer (−λt)
-  Méthode 2 : touche [e] × [x] → EXP puis le nombre
+Pour calculer e^(−λt) :  
+Méthode 1 : touche [e^x] → entrer (−λt)  
+Méthode 2 : touche [e] × [x] → EXP puis le nombre  
 
-Exemple :
-  MTBF = 50 000 h · λ = 1/50 000 = 2×10⁻⁵ h⁻¹
-  Quelle est la fiabilité après 1 an (8 760 h) ?
-  
-  R(8760) = e^(−2×10⁻⁵ × 8760)
-           = e^(−0,1752)
-           = 0,839
-           = 83,9%
-  
-  Probabilité de panne dans l'année : F = 1 − 0,839 = 16,1%
-```
+Exemple :  
+MTBF = 50 000 h · λ = 1/50 000 = 2×10⁻⁵ h⁻¹  
+Quelle est la fiabilité après 1 an (8 760 h) ?  
+
+$$R(8760) = e^(-2 \times 10⁻⁵ \times 8760)$$
+
+$$= e^(-0{,}1752)$$
+
+$$= 0{,}839$$
+
+$$= 83{,}9\,\mathrm{\%}$$
+
+Probabilité de panne dans l'année : F = 1 − 0,839 = 16,1%  
 
 ### Vérification : à t = MTBF, R = ?
 
@@ -223,30 +224,35 @@ MTBF du système série :
 
 ### Exemple : carte ESP32 avec 4 composants critiques
 
-```
-Composant       | MTBF (h)    | λ (pannes/h)
-ESP32 module    | 100 000     | 10⁻⁵
-DHT22           | 50 000      | 2×10⁻⁵
-Alimentation    | 80 000      | 1,25×10⁻⁵
-Condensateur    | 60 000      | 1,67×10⁻⁵
+Composant       | MTBF (h)    | λ (pannes/h)  
+ESP32 module    | 100 000     | 10⁻⁵  
+DHT22           | 50 000      | 2×10⁻⁵  
+Alimentation    | 80 000      | 1,25×10⁻⁵  
+Condensateur    | 60 000      | 1,67×10⁻⁵  
 
-λsystème = 10⁻⁵ + 2×10⁻⁵ + 1,25×10⁻⁵ + 1,67×10⁻⁵
-         = (1 + 2 + 1,25 + 1,67) × 10⁻⁵
-         = 5,92 × 10⁻⁵ pannes/heure
+λsystème = 10⁻⁵ + 2×10⁻⁵ + 1,25×10⁻⁵ + 1,67×10⁻⁵  
 
-MTBFsystème = 1 / 5,92×10⁻⁵ = 16 892 heures ≈ 1,9 ans
+$$= (1 + 2 + 1{,}25 + 1{,}67) \times 10⁻⁵$$
 
-Vérification avec R(t) après 8 760 h (1 an) :
-  R1(8760) = e^(−10⁻⁵ × 8760) = e^(−0,0876) = 0,916
-  R2(8760) = e^(−2×10⁻⁵ × 8760) = e^(−0,1752) = 0,839
-  R3(8760) = e^(−1,25×10⁻⁵ × 8760) = e^(−0,1095) = 0,896
-  R4(8760) = e^(−1,67×10⁻⁵ × 8760) = e^(−0,1463) = 0,864
-  
-  Rs(8760) = 0,916 × 0,839 × 0,896 × 0,864 = 0,594
-             = 59,4% de chances de fonctionner encore après 1 an
+= 5,92 × 10⁻⁵ pannes/heure  
 
-Observation : en série, plus on ajoute de composants, PLUS le système est fragile.
-```
+MTBFsystème = 1 / 5,92×10⁻⁵ = 16 892 heures ≈ 1,9 ans  
+
+Vérification avec R(t) après 8 760 h (1 an) :  
+
+$$R_{1}(8760) = e^(-10⁻⁵ \times 8760) = e^(-0{,}0876) = 0{,}916$$
+
+$$R_{2}(8760) = e^(-2 \times 10⁻⁵ \times 8760) = e^(-0{,}1752) = 0{,}839$$
+
+$$R_{3}(8760) = e^(-1{,}25 \times 10⁻⁵ \times 8760) = e^(-0{,}1095) = 0{,}896$$
+
+$$R_{4}(8760) = e^(-1{,}67 \times 10⁻⁵ \times 8760) = e^(-0{,}1463) = 0{,}864$$
+
+$$Rs(8760) = 0{,}916 \times 0{,}839 \times 0{,}896 \times 0{,}864 = 0{,}594$$
+
+= 59,4% de chances de fonctionner encore après 1 an  
+
+Observation : en série, plus on ajoute de composants, PLUS le système est fragile.  
 
 ---
 
@@ -279,20 +285,21 @@ MTBF approximatif pour 2 composants identiques (R1 = R2 = R) :
 
 ### Exemple : deux alimentations redondantes
 
-```
-Alimentation A : MTBF = 80 000 h · R(8760) = e^(−8760/80000) = e^(−0,1095) = 0,896
-Alimentation B : MTBF = 80 000 h · même fiabilité
+Alimentation A : MTBF = 80 000 h · R(8760) = e^(−8760/80000) = e^(−0,1095) = 0,896  
+Alimentation B : MTBF = 80 000 h · même fiabilité  
 
-Rs(8760) = 1 − (1 − 0,896) × (1 − 0,896)
-         = 1 − 0,104 × 0,104
-         = 1 − 0,0108
-         = 0,9892 = 98,92%
+$$Rs(8760) = 1 - (1 - 0{,}896) \times (1 - 0{,}896)$$
 
-Comparaison :
-  1 alimentation → R = 89,6%
-  2 alimentations en parallèle → R = 98,9%
-  Gain en fiabilité : +9,3 points !
-```
+$$= 1 - 0{,}104 \times 0{,}104$$
+
+$$= 1 - 0{,}0108$$
+
+$$= 0{,}9892 = 98{,}92\,\mathrm{\%}$$
+
+Comparaison :  
+1 alimentation → R = 89,6%  
+2 alimentations en parallèle → R = 98,9%  
+Gain en fiabilité : +9,3 points !  
 
 ---
 

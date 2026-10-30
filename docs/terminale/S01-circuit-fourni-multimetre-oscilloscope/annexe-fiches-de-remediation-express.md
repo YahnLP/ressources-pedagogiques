@@ -102,25 +102,26 @@ VALEURS e⁻ˣ : e⁻⁰·¹=0,905 · e⁻⁰·²=0,819 · e⁻⁰·⁵=0,607 ·
 
 ### Exercice express R3 (10 min)
 
-```
-Capteur DHT22 : MTBF = 50 000 h
+Capteur DHT22 : MTBF = 50 000 h  
 
-a) λ = 1/50000 = _______h⁻¹
+$$a) λ = \dfrac{1}{50000} = \underline{\hspace{2.5em}}h⁻¹$$
 
-b) R après 1 an (8760h) :
-   λt = 2×10⁻⁵ × 8760 = _______
-   R = e^(−_______) = _______ = _______ %
+b) R après 1 an (8760h) :  
 
-c) Système : [DHT22 (R=0,84)] en série avec [ESP32 (R=0,92)] :
-   Rs = _______ × _______ = _______ = _______ %
+$$λt = 2 \times 10⁻⁵ \times 8760 = \underline{\hspace{2.5em}}$$
 
-d) Même système mais DHT22 en double (2 capteurs parallèle) :
-   R_capt// = 1 − (1−0,84)² = 1 − _______ = _______
-   Rs_nouveau = _______ × 0,92 = _______ = _______ %
-   Gain : _______ points
+$$R = e^(-\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
-Réponses : a)2×10⁻⁵ b)0,1752/0,839/83,9% c)0,773/77,3% d)0,0256/0,974 · 0,896 · 89,6% · +12,3pts
-```
+c) Système : [DHT22 (R=0,84)] en série avec [ESP32 (R=0,92)] :  
+
+$$Rs = \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+
+d) Même système mais DHT22 en double (2 capteurs parallèle) :  
+R_capt// = 1 − (1−0,84)² = 1 − _______ = _______  
+Rs_nouveau = _______ × 0,92 = _______ = _______ %  
+Gain : _______ points  
+
+Réponses : a)2×10⁻⁵ b)0,1752/0,839/83,9% c)0,773/77,3% d)0,0256/0,974 · 0,896 · 89,6% · +12,3pts  
 
 ---
 
@@ -174,26 +175,28 @@ CONFORMITÉ : |Biais| + U ≤ spécification constructeur
 
 ### Exercice express R5 (10 min)
 
-```
-5 mesures d'un capteur (référence = 25,0°C) :
-  25,3 · 24,9 · 25,2 · 25,4 · 25,2
+5 mesures d'un capteur (référence = 25,0°C) :  
+25,3 · 24,9 · 25,2 · 25,4 · 25,2  
 
-ei (écarts) : _______ · _______ · _______ · _______ · _______
-Σei = _______   Σei² = _______
+ei (écarts) : _______ · _______ · _______ · _______ · _______  
 
-Biais = _______ / 5 = _______ °C
-σ = √(_______ / 4) = _______ °C
-u = _______ / √5  = _______ °C
-U = 2 × _______ = _______ °C
+$$Σei = \underline{\hspace{2.5em}} Σei^2 = \underline{\hspace{2.5em}}$$
 
-Spécification = ±0,5°C :
-|Biais| + U = _______ + _______ = _______ °C
-☐ CONFORME ☐ NON CONFORME
+Biais = _______ / 5 = _______ °C  
 
-Réponses : ei=+0,3/-0,1/+0,2/+0,4/+0,2 · Σei=+1,0 · Σei²=0,34
-Biais=+0,20°C · σ=√(0,34/4)=√0,085=0,291°C · u=0,130°C · U=0,260°C
-0,20+0,26=0,46°C ≤ 0,5°C → CONFORME (limite !)
-```
+$$σ = \sqrt(\underline{\hspace{2.5em}} / 4) = \underline{\hspace{2.5em}} °C$$
+
+$$u = \underline{\hspace{2.5em}} / \sqrt5 = \underline{\hspace{2.5em}} °C$$
+
+$$U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
+
+Spécification = ±0,5°C :  
+|Biais| + U = _______ + _______ = _______ °C  
+☐ CONFORME ☐ NON CONFORME  
+
+Réponses : ei=+0,3/-0,1/+0,2/+0,4/+0,2 · Σei=+1,0 · Σei²=0,34  
+Biais=+0,20°C · σ=√(0,34/4)=√0,085=0,291°C · u=0,130°C · U=0,260°C  
+0,20+0,26=0,46°C ≤ 0,5°C → CONFORME (limite !)  
 
 ---
 

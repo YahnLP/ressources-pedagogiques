@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-MODULES = ["figs01", "figs02", "figs04", "figs07"]
+MODULES = ["figs01", "figs02", "figs04", "figs07", "figs_sec"]
 
 
 def collect():
