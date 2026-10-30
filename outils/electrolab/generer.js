@@ -34,7 +34,7 @@ for (const [key, list] of Object.entries(PLAN)) {
   if (!sdir) { console.log('séance introuvable', key); continue; }
   const dir = path.join(ydir, sdir); const tp = path.join(dir, 'tp'); fs.mkdirSync(tp, { recursive: true });
   let page = ['# 🖥️ Exercices et TP sur le simulateur ElectroLab', '',
-    '> [!NOTE]', '> **Comment faire ?** 1) Télécharge le fichier `.json` (clic droit → *Enregistrer le lien sous*). 2) Dans ElectroLab, clique sur **Ouvrir** et choisis ce fichier. 3) Réponds aux questions sur ta feuille ou dans ton portfolio. Mode d\'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).', ''];
+    '> [!NOTE]', '> **Comment faire ?** 1) Télécharge le fichier `.json` (clic droit → *Enregistrer le lien sous*). 2) Dans [ElectroLab](https://yahnlp.github.io/ElectroLab/), clique sur **Ouvrir** et choisis ce fichier. 3) Réponds aux questions sur ta feuille ou dans ton portfolio. Mode d\'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).', ''];
   const links = [];
   for (const [id, nv] of list) {
     const sc = bySc[id]; if (!sc) { console.log('scénario inconnu', id); continue; }

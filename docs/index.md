@@ -50,7 +50,7 @@ On n'apprend pas l'électronique en la regardant : **on câble, on mesure, on so
 <span class="big">🖥️</span>
 
 ### Simulateur ElectroLab
-**Exercices et TP simulés** – Télécharge le fichier, ouvre-le dans ElectroLab.
+**Exercices et TP simulés** – Télécharge le fichier, ouvre-le dans [ElectroLab](https://yahnlp.github.io/ElectroLab/).
 
 [**Mode d'emploi →**](ressources/electrolab.md){ .go }
 </div>

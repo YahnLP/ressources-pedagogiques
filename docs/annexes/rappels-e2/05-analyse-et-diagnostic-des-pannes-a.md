@@ -1,5 +1,5 @@
 ---
-title: "Pack 05 – Analyse et diagnostic des pannes (fiche A)"
+title: "Pack 05 – Analyse et diagnostic des pannes (version essentielle)"
 ---
 
 

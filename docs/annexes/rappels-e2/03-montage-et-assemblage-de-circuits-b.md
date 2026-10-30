@@ -1,5 +1,5 @@
 ---
-title: "Pack 03 – Montage et assemblage de circuits (fiche B)"
+title: "Pack 03 – Montage et assemblage de circuits (version détaillée)"
 ---
 
 

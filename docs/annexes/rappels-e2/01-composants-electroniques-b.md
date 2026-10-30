@@ -1,5 +1,5 @@
 ---
-title: "Pack 01 – Composants électroniques (fiche B)"
+title: "Pack 01 – Composants électroniques (version détaillée)"
 ---
 
 

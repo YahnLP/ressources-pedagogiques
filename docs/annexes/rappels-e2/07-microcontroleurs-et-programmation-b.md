@@ -1,5 +1,5 @@
 ---
-title: "Pack 07 – Microcontrôleurs et programmation basique (Arduino) (fiche B)"
+title: "Pack 07 – Microcontrôleurs et programmation basique (Arduino) (version détaillée)"
 ---
 
 
