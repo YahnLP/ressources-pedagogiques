@@ -63,6 +63,9 @@ Auteur(s): _______________________________
 
 \_\_\_\_\_\_\_\_\_
 
+??? success "Éléments de réponse"
+    **Q1** — Un DAT complet à 13 sections fait en général **15 à 25 pages** (une à deux pages par section, plus le schéma et la BOM) ; l'important est que **chaque section soit présente et renseignée**.
+
 ---
 
 # TÂCHE T2 — ARCHITECTURE ET COMPOSANTS (25 min)
@@ -142,6 +145,9 @@ Annotations obligatoires sur les flèches :
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
+??? success "Éléments de réponse"
+    **Q2** — Deux fils qui se croisent **sans point plein** ne sont **pas reliés** (simple croisement). Une **jonction** se reconnaît au **point plein** à l'intersection. Il vaut mieux éviter les croisements en utilisant des étiquettes de net.
+
 ---
 
 # TÂCHE T4 — BOM (20 min)
@@ -166,6 +172,10 @@ Annotations obligatoires sur les flèches :
 **Q4.** Si un composant de la BOM n'est plus disponible (rupture de stock), quel champ de la BOM vous permet de trouver rapidement un substitut ?
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+??? success "Éléments de réponse"
+    **Q3** — Sites de recherche : **Mouser**, **Farnell**, **RS Components**, **Digi-Key**, **LCSC** (recherche par référence fabricant ou par désignation).  
+    **Q4** — La **référence fabricant (le modèle exact)** : elle permet de chercher un composant équivalent chez un autre fournisseur.
 
 ---
 
@@ -299,6 +309,9 @@ PROCÉDURE MAINTENANCE — REF: PROC-MAINT-001
 1. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 2. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 3. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+??? success "Éléments de réponse"
+    **Q5** — Exemples d'améliorations prioritaires : schéma plus lisible (légende, repères), BOM complète (références fournisseur, quantités), section configuration sans mot de passe en clair, procédures numérotées et testables.
 
 ---
 
