@@ -49,7 +49,8 @@ def toutes_les_entrees():
 
 
 def main(root):
-    for y, s, fn, titre, rep in toutes_les_entrees():
+    for ent in toutes_les_entrees():
+        y, s, fn, titre, rep = ent[:5]; etiquette = ent[5] if len(ent) > 5 else 'Réponses'
         d = Path(glob.glob(f'{root}/docs/{y}/{s}-*')[0]); f = d / fn
         L = f.read_text(encoding='utf-8').split('\n')
         i = next((k for k, l in enumerate(L) if l.startswith(titre)), None)
@@ -57,7 +58,7 @@ def main(root):
         niv = len(titre) - len(titre.lstrip('#'))
         j = next((k for k in range(i + 1, len(L)) if L[k].strip() == '---' or (L[k].startswith('#') and len(L[k]) - len(L[k].lstrip('#')) <= niv)), len(L))
         if any(l.startswith('??? success') for l in L[i:j]): continue
-        L[j:j] = ['??? success "Réponses"'] + ['    ' + x for x in rep] + ['']
+        L[j:j] = [f'??? success "{etiquette}"'] + ['    ' + x for x in rep] + ['']
         f.write_text('\n'.join(L), encoding='utf-8')
 
 
