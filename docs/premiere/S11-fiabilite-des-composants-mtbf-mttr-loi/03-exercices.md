@@ -67,6 +67,14 @@ Interprétation : une panne tous les _______ mois environ
 D calculé : _______ % · Norme : 99,5% · ☐ Conforme ☐ Non conforme
 ```
 
+??? success "Réponses"
+    **Q1.1.a** : 45 min = 0,75 h · 3 h 20 min ≈ 3,33 h · 1 h 00 = 1 h · 7 h 15 min = 7,25 h  
+    **Q1.1.b** : TA = 0,75 + 3,33 + 1 + 7,25 ≈ 12,33 h · TO = 3 × 8 760 − 12,33 ≈ 26 267,67 h  
+    MTBF = 26 267,67 / 4 ≈ 6 566,9 h · MTTR = 12,33 / 4 ≈ 3,08 h  
+    $D = \dfrac{6\,566{,}9}{6\,566{,}9 + 3{,}08} \approx 0{,}99953 = 99{,}95\,\%$  
+    **Q1.1.c** : 6 566,9 / 730 ≈ 9 mois : une panne tous les 9 mois environ  
+    **Q1.1.d** : 99,95 % ≥ 99,5 % : conforme
+
 ---
 
 ### Exercice 1.2 — Améliorer la disponibilité
@@ -89,6 +97,10 @@ Le MTTR actuel est de _______ h.
 Pour atteindre 99,9%, il faudrait le réduire de _______ h.
 Piste d'amélioration : ________________________________________________________
 ```
+
+??? success "Réponses"
+    $MTTR \leq \dfrac{6\,566{,}9 \times 0{,}001}{0{,}999} \approx 6{,}57\,\mathrm{h}$  
+    Le MTTR actuel est de 3,08 h : il est déjà inférieur à 6,57 h, donc l'objectif D ≥ 99,9 % est déjà atteint (D = 99,95 %). Aucune réduction n'est nécessaire ; pour garder cette marge, on peut tenir des pièces de rechange en stock.
 
 ---
 
@@ -119,6 +131,12 @@ Aucune des 3 ne l'atteint seule → ☐ Vrai ☐ Faux
 La solution la plus proche est : _____________________________________________
 Écart par rapport à l'objectif : _______ %
 ```
+
+??? success "Réponses"
+    **Q1.3.a** : HDD : $D = \dfrac{300\,000}{300\,004} \approx 99{,}9987\,\%$  
+    SSD : $D = \dfrac{1\,500\,000}{1\,500\,001} \approx 99{,}99993\,\%$  
+    NVMe : $D = \dfrac{2\,000\,000}{2\,000\,000{,}5} \approx 99{,}999975\,\%$  
+    **Q1.3.b** : Faux : le HDD n'atteint pas 99,999 % mais le SSD et le NVMe l'atteignent. La solution la plus proche est le NVMe (99,999975 %), qui dépasse l'objectif d'environ 0,001 point.
 
 ---
 
@@ -164,6 +182,16 @@ Pour trouver t : prendre le logarithme naturel ln des deux membres
 t ≤ −ln(0,90) / λ = 0,105 / (2×10⁻⁵) = _______ heures = _______ mois
 ```
 
+??? success "Réponses"
+    **Q2.1.a** : $\lambda = \dfrac{1}{50\,000} = 2 \times 10^{-5}$ panne/heure  
+    **Q2.1.b** :  
+    - 1 an : $\lambda t = 0{,}1752$ ; $R = e^{-0{,}1752} \approx 0{,}839$ soit 83,9 %  
+    - 2 ans : $\lambda t = 0{,}3504$ ; $R \approx 0{,}704$ soit 70,4 %  
+    - 5 ans : $\lambda t = 0{,}876$ ; $R \approx 0{,}416$ soit 41,6 %  
+    - MTBF : $\lambda t = 1$ ; $R = 0{,}368$ soit 36,8 %  
+    **Q2.1.c** : R(8 760) ≈ 83,9 % : sur 1 000 capteurs, environ 839 fonctionnent encore et 161 sont en panne.  
+    **Q2.1.d** : $t \leq \dfrac{0{,}105}{2 \times 10^{-5}} \approx 5\,268\,\mathrm{h} \approx 7{,}2$ mois
+
 ---
 
 ### Exercice 2.2 — Comparer deux composants
@@ -201,6 +229,16 @@ $$R_{\mathrm{A}}(17520) = e^{-0{,}0001 \times 17520} = e^{\underline{\hspace{2.5
 $$R_{\mathrm{B}}(17520) = e^{-0{,}00001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
 
 Conclusion : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+
+??? success "Réponses"
+    **Q2.2.a** : $\lambda_A = 10^{-4}\,\mathrm{h^{-1}}$ ; $\lambda_B = 10^{-5}\,\mathrm{h^{-1}}$  
+    **Q2.2.b** :  
+    - 1 000 h : $R_A = 0{,}905$ ; $R_B = 0{,}990$ ; écart 0,085  
+    - 5 000 h : $R_A = 0{,}607$ ; $R_B = 0{,}951$ ; écart 0,344  
+    - 10 000 h : $R_A = 0{,}368$ ; $R_B = 0{,}905$ ; écart 0,537  
+    - 50 000 h : $R_A = 0{,}0067$ ; $R_B = 0{,}607$ ; écart 0,600  
+    **Q2.2.c** : 2 ans = 17 520 h. $R_A = e^{-1{,}752} \approx 0{,}173$ soit 17,3 % ; $R_B = e^{-0{,}1752} \approx 0{,}839$ soit 83,9 %.  
+    Conclusion : le composant B (premium) est indispensable, car A n'a que 17 % de chances de tenir 2 ans sans panne.
 
 ---
 
@@ -241,6 +279,11 @@ $$Rs_sans_redondance = \underline{\hspace{2.5em}} \times \underline{\hspace{2.5e
 
 Gain de la redondance CPU : \_\_\_\_\_\_\_ % − \_\_\_\_\_\_\_ % = \_\_\_\_\_\_\_ points  
 
+??? success "Réponses"
+    **Q3.1.a** : $R_{CPU} = 1 - (1 - 0{,}90)(1 - 0{,}90) = 1 - 0{,}10 \times 0{,}10 = 0{,}99$  
+    **Q3.1.b** : $R_s = 0{,}95 \times 0{,}99 \times 0{,}99 \approx 0{,}931 = 93{,}1\,\%$  
+    **Q3.1.c** : sans redondance : $0{,}95 \times 0{,}90 \times 0{,}99 \approx 0{,}846 = 84{,}6\,\%$ ; gain de la redondance : 93,1 − 84,6 ≈ 8,5 points
+
 ---
 
 ### Exercice 3.2 — Station IoT CLIMASENS (lien avec le projet)
@@ -277,6 +320,11 @@ $$
 Solution proposée : ___________________________________________________________
 Calculer la nouvelle Rs avec votre amélioration : _______ %
 ```
+
+??? success "Réponses"
+    **Q3.2.a** : $R_{capteurs} = 1 - (1 - 0{,}88)(1 - 0{,}85) = 1 - 0{,}12 \times 0{,}15 = 0{,}982$  
+    **Q3.2.b** : $R_s = 0{,}982 \times 0{,}92 \times 0{,}97 \times 0{,}99 \approx 0{,}868 = 86{,}8\,\%$  
+    **Q3.2.c** : l'ESP32 (R = 0,92) est le maillon le plus faible de la chaîne en série : on le double en redondance (deux ESP32 en parallèle, $R = 1 - 0{,}08^2 = 0{,}9936$), d'où $R_s = 0{,}982 \times 0{,}9936 \times 0{,}97 \times 0{,}99 \approx 0{,}937 = 93{,}7\,\%$.
 
 ---
 
