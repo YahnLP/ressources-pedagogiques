@@ -20,6 +20,16 @@
 7. L'appairage avec un smartphone
 8. Vocabulaire clé à maîtriser
 
+
+### 🤔 À ton avis ?
+
+Ton casque sans fil reçoit la musique de ton téléphone sans aucun câble. Comment l'Arduino pourrait-il, lui aussi, **échanger avec un smartphone** ?
+
+??? question "Voir une réponse possible"
+    Avec un **module Bluetooth** comme le **HC-05** : il se comporte comme un **câble série sans fil**. L'Arduino lui envoie des caractères par ses broches TX/RX, et le module les transmet par radio au téléphone.
+    
+    Dans cette séance, tu apprends à **configurer** le HC-05 (commandes AT), à le **câbler** sans l'abîmer et à l'**appairer** avec ton smartphone.
+
 ---
 
 ## 1. Le Bluetooth — Rappels essentiels
@@ -38,6 +48,22 @@ Il fonctionne sur la bande de fréquences **2,4 GHz** (comme le Wi-Fi, mais avec
 | Version Bluetooth | 2.0 + EDR |
 
 > 💡 **Analogie** : Le Bluetooth, c'est comme une "prise USB invisible". Tu branches deux appareils sans câble, et ils échangent des données comme s'ils étaient reliés directement.
+
+
+> [!TIP] 💡 En clair
+> Le **Bluetooth** est une liaison radio **courte portée** (une dizaine de mètres), qui consomme peu. Deux appareils doivent d'abord être **appairés** (ils se reconnaissent avec un code), puis ils peuvent échanger des données.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que signifie « appairer » deux appareils ?
+
+??? success "Réponse"
+    Les faire **se reconnaître** (avec un code PIN) pour qu'ils puissent communiquer.
+
+**Q2.** Quelle est la portée typique du Bluetooth ?
+
+??? success "Réponse"
+    Une **dizaine de mètres**.
 
 ---
 
@@ -66,6 +92,28 @@ Le **HC-05** est un module Bluetooth **esclave/maître** (configurable). Il est 
 
 > ⚠️ **ATTENTION** : La broche **RXD** du HC-05 supporte **3,3 V maximum**. Si l'Arduino envoie du 5 V directement, tu risques d'endommager le module. Il faut utiliser un **pont diviseur de tension**.
 
+
+> [!TIP] 💡 En clair
+> Le HC-05 possède **6 broches** : **VCC**, **GND**, **TXD**, **RXD**, **STATE** et **EN/KEY**. Retiens surtout : **TXD** (il envoie) va vers **RX** de l'Arduino ; **RXD** (il reçoit) va vers **TX** de l'Arduino, **avec un diviseur de tension** car RXD ne supporte que **3,3 V**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Brancher RXD directement sur le 5 V de l'Arduino : le module peut être **endommagé**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Où branche-t-on la broche TXD du HC-05 ?
+
+??? success "Réponse"
+    Sur la broche **RX** de l'Arduino.
+
+**Q2.** Quelle broche demande un diviseur de tension ?
+
+??? success "Réponse"
+    **RXD**, car elle ne supporte que **3,3 V**.
+
+> [!SUCCESS] 🧠 À retenir
+> - TXD → RX ; RXD → TX (avec diviseur).
+
 ---
 
 ## 3. Le protocole série sans fil
@@ -85,6 +133,17 @@ Le HC-05 utilise en interne le protocole **SPP (Serial Port Profile)** du Blueto
 | Programmation Arduino | `Serial.begin()` | `SoftwareSerial.begin()` |
 | Débit typique | 9600 à 115200 bauds | 9600 à 115200 bauds |
 | Protocole applicatif | UART brut | UART via SPP Bluetooth |
+
+
+> [!TIP] 💡 En clair
+> Le HC-05 **transmet en radio** ce que tu lui envoies en série. Pour l'Arduino, **parler au HC-05 ou au PC, c'est la même chose** : on utilise `Serial` ou `SoftwareSerial`, avec les mêmes fonctions qu'en S13.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi utilise-t-on `SoftwareSerial` avec le HC-05 ?
+
+??? success "Réponse"
+    Pour garder le port série matériel (USB) libre pour le **PC** pendant que le HC-05 utilise **deux autres broches**.
 
 ---
 
@@ -128,6 +187,34 @@ Les **commandes AT** (du mot « ATtention ») sont un langage de configuration i
 
 ![Moniteur série : échange de commandes AT](images/moniteur-serie-at.png)
 
+
+> [!TIP] 💡 En clair
+> Les **commandes AT** servent à **configurer** le module (nom, code PIN, vitesse). On les envoie **en mode AT** : on met la broche **EN/KEY à l'état haut** au moment de l'alimentation, et la LED clignote **lentement** (environ toutes les 2 secondes). La vitesse du mode AT est de **38 400 bauds**. Chaque commande se termine par **retour à la ligne** : règle le moniteur sur « NL & CR ».
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Rester à 9600 bauds dans le moniteur : le module **ne répond pas**.
+> - Oublier « NL & CR » : la commande n'est pas validée.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Comment reconnaît-on que le HC-05 est en mode AT ?
+
+??? success "Réponse"
+    La LED clignote **lentement** (environ toutes les 2 s).
+
+**Q2.** À quelle vitesse communique-t-on avec le HC-05 en mode AT ?
+
+??? success "Réponse"
+    **38 400 bauds**.
+
+**Q3.** Que répond le module à la commande `AT` ?
+
+??? success "Réponse"
+    `OK`.
+
+> [!SUCCESS] 🧠 À retenir
+> - Mode AT : KEY à l'état haut, LED lente, 38 400 bauds, « NL & CR ».
+
 ---
 
 ## 5. Câblage Arduino UNO + HC-05
@@ -151,6 +238,17 @@ Les **commandes AT** (du mot « ATtention ») sont un langage de configuration i
 > 
 > `V_sortie = 5V × R2 / (R1 + R2) = 5 × 2000 / 3000 = 3,33 V ✅`
 
+
+> [!TIP] 💡 En clair
+> Avant d'alimenter, **vérifie ton câblage** : alimentation, **masse commune**, TX/RX **croisés**, diviseur de tension sur RXD. Un câblage vérifié évite de détruire un module.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelles sont les trois vérifications avant d'alimenter ?
+
+??? success "Réponse"
+    **Alimentation correcte**, **masse commune**, **TX/RX croisés** (avec diviseur sur RXD).
+
 ---
 
 ## 6. Sketch Arduino commenté
@@ -160,6 +258,17 @@ Les **commandes AT** (du mot « ATtention ») sont un langage de configuration i
 // S14 – Bluetooth HC-05 ↔ Arduino ↔ Smartphone
 // Auteur : [Ton nom]    Date : [Date]
 // ============================================
+
+
+> [!TIP] 💡 En clair
+> Dans le sketch, on **lit** ce qui arrive du HC-05 pour **commander** quelque chose (par exemple une LED), et on **renvoie** une réponse au téléphone. Teste chaque partie **séparément** avant de les assembler.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi teste-t-on le sketch par morceaux ?
+
+??? success "Réponse"
+    Pour **localiser** facilement l'erreur si ça ne marche pas.
 
 #include <SoftwareSerial.h>      // Bibliothèque pour créer un port série logiciel
 
@@ -229,6 +338,25 @@ L'**appairage** (ou *pairing* en anglais) est le processus par lequel deux appar
 | **5** | Dans l'app, appuyer sur **Connect** | LED du HC-05 : clignotement lent → allumée fixe |
 | **6** | Taper `1` puis **Envoyer** | La LED 13 de l'Arduino s'allume |
 | **7** | Taper `0` puis **Envoyer** | La LED 13 s'éteint |
+
+
+> [!TIP] 💡 En clair
+> Pour **appairer** : active le Bluetooth du téléphone, **cherche** « HC-05 », saisis le **code PIN** (par défaut **1234**), puis ouvre une **application de terminal Bluetooth**. Tu peux alors **envoyer et recevoir** des caractères.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quel est le code PIN par défaut d'un HC-05 ?
+
+??? success "Réponse"
+    **1234**.
+
+**Q2.** Que faut-il installer sur le smartphone pour échanger des caractères ?
+
+??? success "Réponse"
+    Une **application de terminal Bluetooth** (série).
+
+> [!SUCCESS] 🧠 À retenir
+> - Appairage : chercher HC-05, PIN 1234, application de terminal.
 
 ---
 
