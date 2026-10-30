@@ -26,6 +26,16 @@
 ✅ Identifier les principaux composants électroniques  
 ✅ Calculer une valeur manquante dans un circuit  
 
+
+### 🤔 À ton avis ?
+
+Tu branches une LED directement sur une pile 9 V, sans rien d'autre. Que va-t-il se passer, à ton avis ?
+
+??? question "Voir une réponse possible"
+    La LED est **détruite** : elle laisse passer **beaucoup trop de courant** et grille en une fraction de seconde.
+    
+    Pour la protéger, on place une **résistance** en série. Dans cette séance, tu vas apprendre à **choisir** cette résistance, à **lire** sa valeur grâce à ses bagues de couleur, et à **calculer** avec la loi d'Ohm.
+
 ---
 
 ## 1️⃣ LES 3 GRANDEURS ÉLECTRIQUES FONDAMENTALES
@@ -53,6 +63,37 @@
 | Intensité (A) | Débit de l'eau |
 | Résistance (Ω) | Étroitesse du tuyau |
 | Charge (LED, moteur) | Turbine / Roue à eau |
+
+
+> [!TIP] 💡 En clair
+> Une pile pousse des **charges électriques** dans les fils, un peu comme une pompe pousse de l'eau dans un tuyau.
+>
+> - La **tension (U)** dit **avec quelle force** on pousse : c'est la « pression ».
+> - L'**intensité (I)** dit **combien** de charges passent chaque seconde : c'est le « débit ».
+> - La **résistance (R)** dit **à quel point le passage est difficile** : c'est l'étroitesse du tuyau.
+>
+> Un tuyau plus étroit laisse passer **moins d'eau** : une résistance plus grande laisse passer **moins de courant**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Dans l'analogie de l'eau, que représente l'intensité du courant ?
+
+??? success "Réponse"
+    Le **débit** de l'eau, c'est-à-dire la quantité qui passe en une seconde. Son unité est l'**ampère (A)**.
+
+**Q2.** On rétrécit le tuyau sans changer la pompe. Que devient le débit ? Et en électricité ?
+
+??? success "Réponse"
+    Le débit **diminue**. En électricité, quand la **résistance augmente** avec la même pile, l'**intensité diminue**.
+
+**Q3.** Associe chaque grandeur à son unité : tension, intensité, résistance.
+
+??? success "Réponse"
+    Tension → **volt (V)** ; intensité → **ampère (A)** ; résistance → **ohm (Ω)**.
+
+> [!SUCCESS] 🧠 À retenir
+> - **U** se mesure en volts, **I** en ampères, **R** en ohms.
+> - Plus R est grande, moins il passe de courant.
 
 ---
 
@@ -104,6 +145,43 @@ $$
 
 ??? success "Réponse"
     La tension est de **10 Volts**.
+
+
+> [!TIP] 💡 En clair
+> La loi d'Ohm relie les trois grandeurs : $U = R \times I$.
+>
+> Si tu connais **deux** grandeurs, tu peux toujours trouver la **troisième**. Pour ne pas te tromper, suis toujours les mêmes étapes :
+>
+> 1. **Écris** ce que tu cherches (U, R ou I).
+> 2. **Choisis** la formule avec le cercle : tu caches la grandeur cherchée.
+> 3. **Convertis** les unités en V, A et Ω (des mA deviennent des A).
+> 4. **Calcule**.
+> 5. **Vérifie** que le résultat est logique (ordre de grandeur).
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Oublier de convertir les mA en A : 20 mA = **0,02 A** (et pas 20).
+> - Mélanger les formules : le cercle sert à retrouver la bonne.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Une résistance de 100 Ω est traversée par 0,05 A. Quelle est la tension à ses bornes ?
+
+??? success "Réponse"
+    On cherche U : $U = R \times I = 100 \times 0{,}05 = 5\,\mathrm{V}$.
+
+**Q2.** Une tension de 5 V est appliquée à un composant qui laisse passer 20 mA. Quelle est sa résistance ?
+
+??? success "Réponse"
+    On cherche R : $R = \dfrac{U}{I} = \dfrac{5}{0{,}02} = 250\,\Omega$ (20 mA = 0,02 A).
+
+**Q3.** Une résistance de 450 Ω est alimentée en 9 V. Quelle intensité la traverse ?
+
+??? success "Réponse"
+    On cherche I : $I = \dfrac{U}{R} = \dfrac{9}{450} = 0{,}02\,\mathrm{A} = 20\,\mathrm{mA}$.
+
+> [!SUCCESS] 🧠 À retenir
+> - $U = R \times I$ ; $I = \dfrac{U}{R}$ ; $R = \dfrac{U}{I}$.
+> - Toujours convertir en V, A et Ω avant de calculer.
 
 ---
 
@@ -169,6 +247,37 @@ $$
 - 1 000 Ω = 1 kΩ
 - 10 000 Ω = 10 kΩ
 - 1 000 000 Ω = 1 000 kΩ = 1 MΩ
+
+
+> [!TIP] 💡 En clair
+> Les valeurs en électronique sont souvent **très grandes** ou **très petites**. On utilise des **préfixes** pour éviter d'écrire trop de zéros :
+>
+> - **k** (kilo) = mille : 1 kΩ = 1 000 Ω
+> - **M** (méga) = un million : 1 MΩ = 1 000 000 Ω
+> - **m** (milli) = un millième : 1 mA = 0,001 A
+>
+> Pour passer de l'unité aux milli, on **multiplie par 1 000** ; dans l'autre sens, on **divise par 1 000**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Convertis 3 300 Ω en kΩ.
+
+??? success "Réponse"
+    $3\,300\,\Omega = 3{,}3\,\mathrm{k\Omega}$ (on divise par 1 000).
+
+**Q2.** Convertis 0,015 A en mA.
+
+??? success "Réponse"
+    $0{,}015\,\mathrm{A} = 15\,\mathrm{mA}$ (on multiplie par 1 000).
+
+**Q3.** Convertis 47 mA en A.
+
+??? success "Réponse"
+    $47\,\mathrm{mA} = 0{,}047\,\mathrm{A}$ (on divise par 1 000).
+
+> [!SUCCESS] 🧠 À retenir
+> - kilo = ×1 000 ; méga = ×1 000 000 ; milli = ÷ 1 000.
+> - A → mA : on multiplie par 1 000. mA → A : on divise par 1 000.
 
 ---
 
@@ -251,6 +360,41 @@ Les **résistances** utilisent un système de **bagues colorées** pour indiquer
 Valeur = (Bague1 × 10 + Bague2) × Multiplicateur
 ```
 
+
+> [!TIP] 💡 En clair
+> Une résistance est trop petite pour qu'on y écrive sa valeur : on la **code avec des bagues de couleur**. Chaque couleur correspond à un **chiffre** :
+>
+> **N**oir 0 · **M**arron 1 · **R**ouge 2 · **O**range 3 · **J**aune 4 · **V**ert 5 · **B**leu 6 · **V**iolet 7 · **G**ris 8 · **B**lanc 9
+>
+> Petite phrase pour s'en souvenir : « **N**e **M**angez **R**ien **O**u **J**eûnez **V**oilà **B**ien **V**otre **G**rande **B**êtise ».
+>
+> On lit **de gauche à droite**, en partant de la bague la plus proche d'un bord (la bague de tolérance dorée ou argentée est à droite) :
+>
+> 1. les **deux premières bagues** donnent **deux chiffres** ;
+> 2. la **troisième** donne le **nombre de zéros** à ajouter (le multiplicateur) ;
+> 3. la **quatrième** donne la **tolérance** (précision).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Décode : Rouge – Rouge – Marron.
+
+??? success "Réponse"
+    Rouge = 2, rouge = 2, marron = 1 zéro : **220 Ω**.
+
+**Q2.** Décode : Orange – Orange – Rouge.
+
+??? success "Réponse"
+    Orange = 3, orange = 3, rouge = 2 zéros : $3\,300\,\Omega = 3{,}3\,\mathrm{k\Omega}$.
+
+**Q3.** Décode : Jaune – Violet – Orange.
+
+??? success "Réponse"
+    Jaune = 4, violet = 7, orange = 3 zéros : $47\,000\,\Omega = 47\,\mathrm{k\Omega}$.
+
+> [!SUCCESS] 🧠 À retenir
+> - Les deux premières bagues : deux chiffres. La troisième : le nombre de zéros. La quatrième : la tolérance.
+> - On lit toujours en partant du côté opposé à la bague dorée ou argentée.
+
 ---
 
 ### 📝 Exemples de décodage
@@ -332,6 +476,37 @@ Une résistance de 1 kΩ ± 5% peut avoir une valeur réelle entre **950 Ω et 1
 | 🟡 **Condensateur** | ![Condensateur](images/sym-condo.png){ width="210" } | Stocker de l'énergie électrique | Valeur en F (Farad) | Parfois (électrolytique) |
 | 🔵 **Transistor** | ![Transistor](images/sym-npn.png){ width="210" } | Amplifier ou commuter un signal | 3 pattes : B, C, E | Oui |
 | 🔋 **Pile** | ![Pile](images/sym-pile.png){ width="210" } | Fournir une tension | Tension en V | Oui (+ et -) |
+
+
+> [!TIP] 💡 En clair
+> Une **LED** laisse passer le courant **dans un seul sens** et n'accepte qu'un **courant faible** (environ 20 mA). Si on la branche sans protection, elle reçoit trop de courant et grille.
+>
+> On place donc une **résistance de limitation** **en série**. On la calcule avec la loi d'Ohm : la résistance doit « absorber » la tension en trop.
+>
+> $R = \dfrac{U_{pile} - U_{LED}}{I_{LED}}$
+>
+> Pour une pile de 9 V, une LED rouge ($U_{LED} \approx 2\,\mathrm{V}$) et $I = 20\,\mathrm{mA}$ : $R = \dfrac{9 - 2}{0{,}02} = 350\,\Omega$. On choisit la valeur normalisée **juste au-dessus** (390 Ω) : la LED reçoit un peu moins de courant, donc elle est protégée.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi faut-il une résistance en série avec une LED ?
+
+??? success "Réponse"
+    Pour **limiter le courant** : sans elle, la LED reçoit un courant trop fort et est détruite.
+
+**Q2.** Calcule la résistance pour une LED rouge (2 V, 20 mA) alimentée en 5 V.
+
+??? success "Réponse"
+    $R = \dfrac{5 - 2}{0{,}02} = 150\,\Omega$ (valeur normalisée : 150 Ω).
+
+**Q3.** Pourquoi choisit-on la valeur normalisée juste **au-dessus** du résultat ?
+
+??? success "Réponse"
+    Une résistance plus grande donne un courant **plus faible** : la LED reste sous son courant maximal et n'est pas détruite.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Brancher la LED à l'envers : elle ne s'allume pas (patte longue = **anode +**).
+> - Oublier de retirer la tension de la LED ($U_{LED}$) dans le calcul.
 
 ---
 
