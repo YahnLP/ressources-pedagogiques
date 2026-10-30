@@ -1,5 +1,5 @@
 ---
-title: "Pack 06 – Maintenance et réparation (fiche A)"
+title: "Pack 06 – Maintenance et réparation (version essentielle)"
 ---
 
 # Maintenance et réparation

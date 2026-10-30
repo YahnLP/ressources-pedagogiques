@@ -1,5 +1,5 @@
 ---
-title: "Pack 01 – Composants électroniques (fiche A)"
+title: "Pack 01 – Composants électroniques (version essentielle)"
 ---
 
 # Composants électroniques

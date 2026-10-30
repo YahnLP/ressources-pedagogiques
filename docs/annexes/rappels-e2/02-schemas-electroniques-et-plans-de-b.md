@@ -1,5 +1,5 @@
 ---
-title: "Pack 02 – Schémas électroniques et plans de câblage (fiche B)"
+title: "Pack 02 – Schémas électroniques et plans de câblage (version détaillée)"
 ---
 
 # Schémas électroniques et plans de câblage

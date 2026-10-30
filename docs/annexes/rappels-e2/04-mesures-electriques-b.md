@@ -1,5 +1,5 @@
 ---
-title: "Pack 04 – Mesures électriques (fiche B)"
+title: "Pack 04 – Mesures électriques (version détaillée)"
 ---
 
 # Mesures électriques
