@@ -14,6 +14,7 @@ python3 outils/import_e2/inline.py .
 python3 outils/import_e2/nettoyage.py .
 python3 outils/import_e2/corrections.py .
 python3 outils/import_e2/niveaux.py .
+python3 outils/import_e2/electrolab.py .
 python3 outils/import_e2/corriges.py .
 python3 outils/import_e2/explications.py .
 python3 outils/import_e2/composants.py .

@@ -1,4 +1,12 @@
 # 📖 FICHE COURS – S14 ANNÉE 2 – E2
+
+> [!TIP] 🖥️ TP virtuel ElectroLab : pour t'entraîner
+> Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis choisis :
+> - **Dépannage d'une alimentation 5 V (7 pannes)** (2 h, terminale)
+> - **Dépannage d'une platine transistor + LED (6 pannes)** (1 h 30, première / terminale)
+> 
+> Le simulateur corrige automatiquement et ne risque pas d'abîmer le matériel : **réussis d'abord le TP virtuel, puis refais la manipulation sur le matériel réel.** Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
+
 ## Maintenance Corrective : Diagnostic de Pannes, Procédures de Réparation
 
 ---

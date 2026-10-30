@@ -1,4 +1,4 @@
-# Semaine 1 : Les composants et les lois de base
+# Semaine 1 : Les composants, les lois de base et la sécurité
 
 > **Durée** : 4 h · **Compétences E2 travaillées** : C07
 
@@ -8,22 +8,35 @@
 - Appliquer la loi d'Ohm et calculer une puissance.
 - Lire le code couleurs d'une résistance.
 - Calculer la résistance en série d'une LED.
+- Connaître les règles de sécurité de base.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | Découvrir les familles de composants et leurs symboles |
-| 1 h | Loi d'Ohm, puissance, code couleurs : exercices |
-| 1 h | LED : calcul de la résistance, câblage sur plaque d'essai |
-| 1 h | Auto-test et correction |
+| 1 h | TP virtuel ElectroLab : loi d'Ohm, associations, LED |
+| 1 h | Cours : composants, code couleurs, puissance |
+| 1 h | Atelier réel : LED + résistance sur plaque d'essai |
+| 1 h | Exercices, sécurité, auto-test |
+
+## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
+
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+
+- **Découverte du multimètre : tension, courant, loi d'Ohm** (1 h, niveau seconde)
+- **Associations de résistances et diviseur de courant** (1 h, niveau seconde)
+- **Puissance, effet Joule et dimensionnement d'une résistance** (1 h, niveau seconde)
+- **LED : calcul de la résistance de limitation** (1 h, niveau seconde)
+
+> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
+> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
 
 ## 📖 Le cours en bref
 
-??? question "🤔 À ton avis ?"
-    Pourquoi une LED branchée directement sur une pile de 9 V grille-t-elle en un éclair ?
+**🤔 À ton avis ?** Pourquoi une LED branchée directement sur une pile de 9 V grille-t-elle en un éclair ?
 
-    **Réponse** : parce que rien ne **limite le courant**. Il faut une résistance en série. Toute la semaine sert à comprendre pourquoi et à savoir la calculer.
+??? question "Réponse"
+    Parce que rien ne **limite le courant**. Il faut une résistance en série. Toute la semaine sert à comprendre pourquoi et à savoir la calculer.
 
 ### 1. Tension, courant, résistance : l'analogie de l'eau
 
@@ -76,15 +89,15 @@ Les valeurs vendues suivent une **série** (E12) : 10 · 12 · 15 · 18 · 22 ·
 > - Brancher un condensateur chimique **à l'envers** : il chauffe et peut éclater.
 > - Oublier que 330 kΩ n'est pas 330 Ω (**préfixes** : k = 1000, M = 1 000 000).
 
-### Exercice guidé : la résistance d'une LED
+### 6. Sécurité et bons réflexes
 
-LED rouge (tension 2 V, courant voulu 20 mA) sur une alimentation de 5 V.
+- **Très basse tension** (jusqu'à 50 V alternatif / 120 V continu) : pas de risque d'électrisation. Au-delà, **habilitation électrique** (BR) obligatoire.
+- **Électricité statique (ESD)** : touche les cartes par les bords, range les circuits intégrés dans leurs sachets antistatiques.
+- **Fer à souder** : toujours sur son support ; aspiration des fumées ; étain **sans plomb** (RoHS).
+- **Déchets** : une carte ou une batterie hors service est un **déchet électronique (DEEE)**, jamais à la poubelle ordinaire.
 
-$$R = \frac{V_{cc} - V_{LED}}{I} = \frac{5 - 2}{0{,}020} = 150\,\Omega$$
 
-C'est une valeur de la série E12 : on prend **150 Ω**. Le courant réel est alors exactement 20 mA.
-
-## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+## 🛠️ Atelier guidé : on construit, on mesure, on valide
 
 **Fil rouge** : pendant 10 semaines, tu vas concevoir, fabriquer, tester et dépanner **un clignoteur à LED** (NE555). Cette semaine : la partie LED.
 
@@ -125,6 +138,7 @@ C'est une valeur de la série E12 : on prend **150 Ω**. Le courant réel est al
 - [Seconde S01 – code couleurs et loi d'Ohm](../seconde/S01-code-couleurs-des-resistances-et-loi-d/01-cours.md)
 - [Seconde S01 – familles de composants](../seconde/S01-code-couleurs-des-resistances-et-loi-d/02-familles-de-composants.md)
 - [Seconde S02 – diodes et LED](../seconde/S02-diodes-led-circuits-serie-parallele-loi/01-cours.md)
+- [Seconde S05 – sécurité et environnement](../seconde/S05-maintenance-n1-nettoyage-de-cartes/02-securite-et-environnement.md)
 
 ## ✅ Auto-test
 
@@ -133,6 +147,7 @@ C'est une valeur de la série E12 : on prend **150 Ω**. Le courant réel est al
 3. Quelle résistance en série avec une LED (2 V, 20 mA) sous 5 V ?
 4. Quelle patte d'une LED est l'anode (+) ?
 5. Quelle puissance dissipe une résistance traversée par 100 mA sous 5 V ?
+6. À partir de quelle tension faut-il une habilitation électrique ?
 
 ??? success "Réponses"
     1. **10 kΩ**, tolérance ± 5 %.
@@ -140,6 +155,7 @@ C'est une valeur de la série E12 : on prend **150 Ω**. Le courant réel est al
     3. $R = \dfrac{5 - 2}{0{,}020} = 150\,\Omega$.
     4. La **patte longue**.
     5. $P = 5 \times 0{,}1 = 0{,}5\,\mathrm{W}$.
+    6. Au-delà de **50 V alternatif** ou **120 V continu**.
 
 ## 📦 Livrable
 

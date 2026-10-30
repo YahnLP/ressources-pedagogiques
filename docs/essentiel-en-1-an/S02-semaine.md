@@ -14,17 +14,35 @@
 
 | Durée | Activité |
 |---|---|
-| 1 h | Multimètre : tension, courant, résistance, continuité |
-| 1 h | Alimentation de labo et générateur de fonctions |
-| 1 h | Oscilloscope : signal de test, sonde ×10, PWM, LED qui clignote |
-| 1 h | Atelier chronométré et auto-test (passeport instruments) |
+| 1 h | TP virtuels ElectroLab : multimètre et oscilloscope |
+| 1 h | Multimètre, alimentation de labo, générateur : réel |
+| 1 h | Oscilloscope : réel (signal de test, PWM) |
+| 1 h | Atelier chronométré, passeport instruments, auto-test |
+
+## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
+
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+
+- **Tester les composants hors tension (ohmmètre, diode, continuité)** (1 h, niveau seconde)
+- **Lire un signal à l'oscilloscope : régler, mesurer T, f, Umax, Upp… (6 signaux)** (1 h 15, niveau seconde / première)
+- **Signaux périodiques : GBF, oscilloscope et multimètre** (1 h 15, niveau première)
+- **Signal rectangulaire : rapport cyclique, temps haut, valeur moyenne (5 signaux)** (1 h 15, niveau première / terminale)
+- **Couplage AC / DC : mesurer une ondulation sur une tension continue (3 signaux)** (1 h, niveau terminale)
+
+**Sujets à ouvrir dans ElectroLab** (bouton **Ouvrir**, puis choisis le fichier `.json`) :
+
+- [`alim-cv.json`](../seconde/S12-tests-au-multimetre-et-controle-qualite/tp/alim-cv.json) : alimentation 5 V sur une résistance de 220 Ω : mode CV ; relève U et I (attendu : environ 5,0 V et 22,7 mA)
+- [`alim-cc.json`](../seconde/S12-tests-au-multimetre-et-controle-qualite/tp/alim-cc.json) : même montage avec une résistance de 100 Ω et une limite de 30 mA : l'alimentation passe en mode CC (attendu : environ 30 mA et 3,0 V)
+
+> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
+> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
 
 ## 📖 Le cours en bref
 
-??? question "🤔 À ton avis ?"
-    Tu mesures 5,0 V sur une pin de ton microcontrôleur qui devrait envoyer un signal clignotant. Le multimètre dit « 5 V » : tout va bien ?
+**🤔 À ton avis ?** Tu mesures 5,0 V sur une pin de ton microcontrôleur qui devrait envoyer un signal clignotant. Le multimètre dit « 5 V » : tout va bien ?
 
-    **Réponse** : pas forcément ! Le multimètre donne une **valeur moyenne** : il ne voit pas que le signal est **figé**. Pour vérifier qu'un signal **varie**, il faut l'oscilloscope.
+??? question "Réponse"
+    Pas forcément ! Le multimètre donne une **valeur moyenne** : il ne voit pas que le signal est **figé**. Pour vérifier qu'un signal **varie**, il faut l'oscilloscope.
 
 ### 1. Le multimètre : quel mode, comment brancher
 
@@ -75,7 +93,8 @@ On observe une période de 5 carreaux à 2 ms/DIV et un signal de 4 carreaux de 
 
 $T = 5 \times 2 = 10\,\mathrm{ms}$ ; $f = \dfrac{1}{0{,}010} = 100\,\mathrm{Hz}$ ; $U_{pp} = 4 \times 1 = 4\,\mathrm{V}$.
 
-## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+
+## 🛠️ Atelier guidé : on construit, on mesure, on valide
 
 **Fil rouge** : tu réutilises ton montage LED, et tu apprends à **l'alimenter et le mesurer proprement**.
 

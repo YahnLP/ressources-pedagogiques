@@ -1,4 +1,12 @@
 # 📘 FICHE DE COURS — S13 · 2ᵉ ANNÉE · E2
+
+> [!TIP] 🖥️ TP virtuel ElectroLab : pour t'entraîner
+> Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis choisis :
+> - **Filtre RC passe-bas : gain et fréquence de coupure** (1 h 30, terminale)
+> - **Charge et décharge d'un condensateur (circuit RC)** (1 h 15, première)
+> 
+> Le simulateur corrige automatiquement et ne risque pas d'abîmer le matériel : **réussis d'abord le TP virtuel, puis refais la manipulation sur le matériel réel.** Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
+
 ## CEM : Compatibilité Électromagnétique · Conduits/Rayonnés · Blindage · Filtrage · Mise à la Terre
 
 ---

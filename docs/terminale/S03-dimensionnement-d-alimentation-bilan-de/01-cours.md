@@ -1,4 +1,14 @@
 # 📘 FICHE DE COURS — S3 · 3ᵉ ANNÉE · E2
+
+> [!TIP] 🖥️ TP virtuel ElectroLab : pour t'entraîner
+> Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis choisis :
+> - **Le transformateur : rapport de transformation** (1 h, première)
+> - **Redressement simple et double alternance** (1 h 15, première)
+> - **Filtrage par condensateur : choix de C** (1 h 15, première)
+> - **Régulation linéaire avec un 7805** (1 h 30, terminale)
+> 
+> Le simulateur corrige automatiquement et ne risque pas d'abîmer le matériel : **réussis d'abord le TP virtuel, puis refais la manipulation sur le matériel réel.** Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
+
 ## Dimensionnement d'Alimentation : Bilan de Puissance · Régulateurs · Calcul Thermique
 
 ---

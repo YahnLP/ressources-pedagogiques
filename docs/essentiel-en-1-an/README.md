@@ -1,6 +1,6 @@
 # ⚡ L'essentiel en 1 an : une formation express en 10 semaines
 
-Ce n'est **pas** une simple révision : c'est une **formation complète et accélérée**, qui part des bases et mène à l'épreuve E2 (« Réalisation et maintenance de produits électroniques », coefficient 5). **10 semaines de 4 heures** (40 h). Chaque semaine contient un **cours**, un **atelier guidé pas à pas**, des **exercices corrigés** et un **livrable**. On construit, on teste et on dépanne **une même carte** (un clignoteur à LED) du début à la fin : c'est le **fil rouge**. Utilisable en classe comme **seul(e)**, y compris pour rattraper avant le bac.
+Ce n'est **pas** une simple révision : c'est une **formation complète et accélérée**, qui part des bases et mène à l'épreuve E2 (« Réalisation et maintenance de produits électroniques », coefficient 5). **10 semaines de 4 heures** (40 h). Chaque semaine contient un **cours**, un **atelier guidé pas à pas**, des **exercices corrigés** et un **livrable**. **Aucun prérequis** : le parcours est pensé pour un élève qui **arrive directement en Terminale** et reprend tout l'essentiel de Seconde et de Première (composants, mesures, soudure, microcontrôleur, communication, du schéma au Gerber, test, dépannage). Deux **fils rouges** : une **carte clignoteur NE555** que l'on conçoit, fabrique, mesure, valide et dépanne, et une **station de mesure communicante** (capteur, microcontrôleur, MQTT). Avant chaque TP réel, un **TP virtuel dans ElectroLab** permet de s'entraîner sans risque et avec correction automatique. Utilisable en classe comme **seul(e)**.
 
 ## 🎯 Ce que tu sauras faire à la fin
 
@@ -16,15 +16,15 @@ Les compétences évaluées à l'E2 sont **C03** (participer à un projet), **C0
 
 | Semaine | Thème | Compétences |
 |---|---|---|
-| [**1**](S01-semaine.md) | Les composants et les lois de base | C07 |
+| [**1**](S01-semaine.md) | Les composants, les lois de base et la sécurité | C07 |
 | [**2**](S02-semaine.md) | Mesurer : multimètre, alimentation, générateur et oscilloscope | C07 · C11 |
-| [**3**](S03-semaine.md) | Lire un schéma et une datasheet | C07 |
-| [**4**](S04-semaine.md) | L'alimentation : bilan de puissance et thermique | C07 · C11 |
-| [**5**](S05-semaine.md) | Du cahier des charges au schéma (CAO) | C07 |
-| [**6**](S06-semaine.md) | Du PCB aux fichiers de fabrication (Gerber) | C07 |
-| [**7**](S07-semaine.md) | Commander une charge, amplifier, filtrer | C07 |
-| [**8**](S08-semaine.md) | Tester et valider : protocole et procès-verbal | C11 · C03 |
-| [**9**](S09-semaine.md) | Dépanner un circuit simple | C11 |
+| [**3**](S03-semaine.md) | Lire un schéma et une datasheet, monter et souder | C07 |
+| [**4**](S04-semaine.md) | Alimentation et commande de charges | C07 · C11 |
+| [**5**](S05-semaine.md) | Microcontrôleur, capteurs et traitement du signal | C07 · C11 |
+| [**6**](S06-semaine.md) | Le système communicant : UART, I²C, WiFi, MQTT et supervision | C07 · C11 |
+| [**7**](S07-semaine.md) | Du cahier des charges au schéma et au PCB | C07 |
+| [**8**](S08-semaine.md) | Du PCB aux fichiers de fabrication, à la carte soudée | C07 |
+| [**9**](S09-semaine.md) | Tester, valider et dépanner | C11 · C03 |
 | [**10**](S10-semaine.md) | Épreuve blanche et bilan | C03 · C07 · C11 |
 
 ## 🧭 Comment travailler

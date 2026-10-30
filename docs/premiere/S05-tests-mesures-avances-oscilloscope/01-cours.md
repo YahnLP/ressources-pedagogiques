@@ -1,4 +1,16 @@
 # 📖 FICHE COURS – S5 ANNÉE 2 – E2
+
+> [!TIP] 🖥️ TP virtuel ElectroLab : pour t'entraîner
+> Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis choisis :
+> - **Lire un signal à l'oscilloscope : régler, mesurer T, f, Umax, Upp… (6 signaux)** (1 h 15, seconde / première)
+> - **Signaux périodiques : GBF, oscilloscope et multimètre** (1 h 15, première)
+> - **Signal rectangulaire : rapport cyclique, temps haut, valeur moyenne (5 signaux)** (1 h 15, première / terminale)
+> - **Prise en main de l'analyseur logique (chronogrammes d'un compteur)** (45 min, première)
+> - **Analyse d'un bus I²C : adresse, ACK, résistances de rappel (4 cas)** (1 h 45, terminale)
+> - **Analyse d'un bus SPI : retrouver le mode (CPOL / CPHA) (4 cas)** (1 h 30, terminale)
+> 
+> Le simulateur corrige automatiquement et ne risque pas d'abîmer le matériel : **réussis d'abord le TP virtuel, puis refais la manipulation sur le matériel réel.** Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
+
 ## Tests & Mesures Avancés : Oscilloscope Mixte, Analyseur Logique, I2C / SPI
 
 ---

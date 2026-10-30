@@ -1,4 +1,4 @@
-# Semaine 3 : Lire un schéma et une datasheet
+# Semaine 3 : Lire un schéma et une datasheet, monter et souder
 
 > **Durée** : 4 h · **Compétences E2 travaillées** : C07
 
@@ -7,22 +7,32 @@
 - Lire un schéma normalisé et repérer les blocs fonctionnels.
 - Trouver dans une datasheet : brochage, limites absolues, caractéristiques min / typ / max.
 - Calculer les composants autour d'un circuit à partir de la datasheet.
+- Monter un circuit sur plaque d'essai puis le souder.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | Symboles normalisés et lecture d'un schéma |
-| 1 h | Anatomie d'une datasheet (7805) |
-| 1 h | Datasheet du BC547 et du NE555 : exercices |
-| 1 h | Auto-test et correction |
+| 1 h | Schéma normalisé et datasheet (7805, BC547, NE555) |
+| 1 h | TP virtuel ElectroLab : NE555 en astable |
+| 1 h | Montage sur plaque d'essai |
+| 1 h | Soudure et contrôle IPC ; auto-test |
+
+## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
+
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+
+- **NE555 en multivibrateur astable (4 fréquences)** (1 h 30, niveau première / terminale)
+
+> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
+> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
 
 ## 📖 Le cours en bref
 
-??? question "🤔 À ton avis ?"
-    On te donne une carte inconnue avec un composant marqué « LM7805 ». Comment savoir comment le brancher sans rien griller ?
+**🤔 À ton avis ?** On te donne une carte inconnue avec un composant marqué « LM7805 ». Comment savoir comment le brancher sans rien griller ?
 
-    **Réponse** : on lit sa **datasheet** et le **schéma**. Cette semaine, tu apprends à lire ces deux documents, qui sont ta « notice » en électronique.
+??? question "Réponse"
+    On lit sa **datasheet** et le **schéma**. Cette semaine, tu apprends à lire ces deux documents, qui sont ta « notice » en électronique.
 
 ### 1. Lire un schéma
 
@@ -72,7 +82,24 @@ Avec $R_a = 10\,\mathrm{k\Omega}$, $R_b = 68\,\mathrm{k\Omega}$, $C = 10\,\mathr
 > - Confondre **limite absolue** et **valeur de fonctionnement**.
 > - Lire le brochage **vu du dessous** au lieu de vu du dessus (le dessin précise le sens).
 
-## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+### 6. Monter un circuit : plaque d'essai puis soudure
+
+**Plaque d'essai (breadboard)** : les trous d'une **même colonne** (5 trous) sont reliés ; les **rails** (lignes + et −) courent sur toute la longueur. On y monte un circuit **sans souder**, pour le tester.
+
+> [!TIP] 💡 Méthode
+> 1. Relier les rails +5 V et GND. 2. Poser les composants **dans l'ordre du schéma**. 3. Vérifier **avant** d'alimenter (sens des LED, polarité des condensateurs, absence de court-circuit entre + et −).
+
+**Souder à l'étain (5 étapes)** : 1) fer chaud (≈ 350 °C) et panne propre ; 2) chauffer **en même temps** la patte et la pastille ; 3) amener l'étain **sur la pastille** (pas sur le fer) ; 4) retirer l'étain, puis le fer ; 5) laisser refroidir **sans bouger**.
+
+**Brasure correcte** (IPC-A-610, classe 2) : brillante, en **cône**, trou rempli à **75 % au moins**. Défauts : **pont** de soudure (court-circuit), soudure **froide** (terne, craquelée), **manque** de soudure.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Alimenter avant de vérifier le montage.
+> - Souder un composant polarisé (LED, condensateur chimique, diode) **à l'envers**.
+> - Oublier que le fer **brûle** : jamais de la main.
+
+
+## 🛠️ Atelier guidé : on construit, on mesure, on valide
 
 **Fil rouge** : tu choisis les composants du clignoteur **à partir des datasheets**.
 
@@ -105,6 +132,7 @@ Avec $R_a = 10\,\mathrm{k\Omega}$, $R_b = 68\,\mathrm{k\Omega}$, $C = 10\,\mathr
 - [Seconde S03 – schémas normalisés](../seconde/S03-breadboard-schemas-electriques-normes/01-cours.md)
 - [Seconde S06 – lecture de datasheet](../seconde/S06-schemas-electriques-normes-tinkercad/01-cours.md)
 - [Première S01 – lire une datasheet](../premiere/S01-interface-bibliotheques-schemas/03-lire-une-datasheet.md)
+- [Seconde S04 – soudure et IPC](../seconde/S04-soudure-a-l-etain-composants/01-cours.md)
 
 ## ✅ Auto-test
 
@@ -113,6 +141,7 @@ Avec $R_a = 10\,\mathrm{k\Omega}$, $R_b = 68\,\mathrm{k\Omega}$, $C = 10\,\mathr
 3. Quelle est la tension d'entrée maximale d'un 7805 ?
 4. Quelle formule donne la fréquence d'un NE555 en astable ?
 5. À quoi sert la section « pin configuration » ?
+6. Combien de trous sont reliés dans une même colonne d'une plaque d'essai ?
 
 ??? success "Réponses"
     1. Les limites à **ne jamais dépasser** : au-delà, le composant peut être détruit.
@@ -120,6 +149,7 @@ Avec $R_a = 10\,\mathrm{k\Omega}$, $R_b = 68\,\mathrm{k\Omega}$, $C = 10\,\mathr
     3. **35 V**.
     4. $f = \dfrac{1{,}44}{(R_a + 2R_b) \times C}$.
     5. À **câbler sans erreur** (numéro et nom des broches).
+    6. **5 trous**.
 
 ## 📦 Livrable
 

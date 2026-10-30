@@ -1,4 +1,11 @@
 # 📘 FICHE DE COURS — S4 · 2ᵉ ANNÉE · E2
+
+> [!TIP] 🖥️ TP virtuel ElectroLab : pour t'entraîner
+> Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis choisis :
+> - **NE555 en multivibrateur astable (4 fréquences)** (1 h 30, première / terminale)
+> 
+> Le simulateur corrige automatiquement et ne risque pas d'abîmer le matériel : **réussis d'abord le TP virtuel, puis refais la manipulation sur le matériel réel.** Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
+
 ## PCB Double Face : Métallisation · Sérigraphie · THT/SMD Mixte · Gerber
 
 ---

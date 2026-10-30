@@ -1,124 +1,114 @@
-# Semaine 8 : Tester et valider : protocole et procès-verbal
+# Semaine 8 : Du PCB aux fichiers de fabrication, à la carte soudée
 
-> **Durée** : 4 h · **Compétences E2 travaillées** : C11 · C03
+> **Durée** : 4 h · **Compétences E2 travaillées** : C07
 
 ## 🎯 Objectifs : à la fin de la semaine, je sais…
 
-- Suivre un protocole de test et noter attendu / mesuré / verdict.
-- Comparer une mesure et sa marge à une tolérance.
-- Rédiger un PV clair (identification, instruments, résultats, conclusion).
+- Placer et router un PCB selon des règles (clearance, largeurs).
+- Passer le DRC, exporter les Gerber, le perçage et la BOM.
+- Contrôler une brasure selon IPC-A-610.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | Tolérance, marge de mesure (version essentielle) et conformité |
-| 1 h | Structure d'un PV, traçabilité des instruments |
-| 1 h | TP : carte NE555 / 7805 (mesures et PV) |
-| 1 h | Auto-test et correction |
+| 1 h | DRC, corrections, fichiers de fabrication (Gerber, perçage, BOM) |
+| 1 h | Vérification dans un visualiseur ; TP de bout en bout (étapes 3 à 5) |
+| 1 h | Soudure de la carte et contrôle IPC |
+| 1 h | Mise sous tension et auto-test |
+
+## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
+
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+
+- **Tester les composants hors tension (ohmmètre, diode, continuité)** (1 h, niveau seconde)
+
+> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
+> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
 
 ## 📖 Le cours en bref
 
-??? question "🤔 À ton avis ?"
-    Tu mesures 4,80 V sur une sortie censée être 5 V ± 5 %. Conforme ?
+**🤔 À ton avis ?** Pourquoi les pistes d'alimentation sont-elles plus larges que les pistes de signal ?
 
-    **Réponse** : oui, **4,80 V est dans la plage [4,75 V ; 5,25 V]**. Mais si l'incertitude de ta mesure est de ± 0,1 V, la vraie valeur pourrait être 4,70 V : **hors tolérance**. On doit donc tenir compte de la **marge de mesure**.
+??? question "Réponse"
+    Une piste est un **fil de cuivre** : trop fine pour le courant, elle **chauffe**. On la dimensionne en fonction du courant qu'elle transporte.
 
-### 1. La tolérance et la plage
+### 1. Contrôler : le DRC
 
-« 5 V ± 5 % » signifie : **5 × 0,95 = 4,75 V** à **5 × 1,05 = 5,25 V**. Tout ce qui est dans cette plage est **conforme**.
+Le DRC vérifie que **rien ne viole les règles** (pistes trop proches, trop fines, pastilles qui se touchent). Objectif : **0 erreur**.
 
-### 2. La marge de mesure (version essentielle)
+### 2. Les fichiers de fabrication
 
-Aucun instrument n'est parfait. On estime la marge avec la **précision du constructeur**, par exemple « ± (0,5 % de la lecture + 2 chiffres) » pour un multimètre.
+Le fabricant reçoit :
 
-**Exemple** : lecture 5,02 V (résolution 0,01 V) : $0{,}5\,\% \times 5{,}02 = 0{,}025\,\mathrm{V}$ ; 2 chiffres = 0,02 V ; marge ≈ 0,05 V. Résultat : **(5,02 ± 0,05) V**.
+- les **Gerber** : un fichier par couche (cuivre, masque de soudure, sérigraphie, contour) ;
+- le fichier de **perçage** (.drl) ;
+- la **BOM** (liste des composants) pour l'assemblage.
 
-> [!TIP] 💡 Règle de conclusion
-> On compare **toute la plage** « valeur ± marge » à la tolérance :
-> - toute la plage dedans → **conforme** ;
-> - une partie dehors → **non garanti / à justifier** ;
-> - toute la plage dehors → **non conforme**.
+> [!TIP] 💡 En clair
+> Un fichier Gerber est une **image vectorielle** d'une couche. On l'ouvre dans un **visualiseur** pour voir **exactement** ce qui sera fabriqué.
 
-### 3. Le procès-verbal (PV)
+### 3. Souder et contrôler (IPC-A-610)
 
-Un PV est la **preuve écrite** d'un contrôle. Il contient :
-
-1. **Identification** : carte, date, opérateur ;
-2. **Instruments** utilisés (modèle, numéro de série, **étalonnage valide**) ;
-3. **Méthode** (comment on a mesuré) ;
-4. **Résultats** : attendu, mesuré, marge, verdict pour chaque test ;
-5. **Conclusion** : conforme ou non, avec le critère ;
-6. **Signature**.
-
-### 4. La traçabilité
-
-Un instrument est **comparé régulièrement** à une référence (étalonnage). Si son étalonnage est **périmé**, ses mesures ne sont plus valables dans un PV.
-
-### Exercice guidé
-
-Carte alimentée en 12 V : sortie 7805 mesurée à $(4{,}99 \pm 0{,}03)\,\mathrm{V}$, tolérance 5 V ± 5 %. Plage mesurée : 4,96 à 5,02 V, dans [4,75 ; 5,25] → **conforme**.
+Pour un composant traversant (classe 2) : soudure **brillante**, forme de **cône**, trou **rempli à 75 % au moins**. Défauts : **pont de soudure** (court-circuit), soudure **froide** (terne, craquelée), **manque de soudure**.
 
 > [!WARNING] ⚠️ Erreurs fréquentes
-> - Oublier l'**unité** ou la **tolérance** dans le PV.
-> - Conclure « conforme » en comparant **seulement la valeur** et pas la plage avec sa marge.
-> - Utiliser un instrument **hors étalonnage**.
+> - Ne pas ouvrir les Gerber avant l'envoi.
+> - Router une piste de signal **sous** un composant sans y penser (risque de court-circuit).
+> - Oublier le **perçage** (fichier .drl) dans l'envoi.
 
-## 🛠️ Atelier guidé : on construit ensemble le clignoteur
 
-**Fil rouge** : tu **valides** ta carte clignoteur avec un **procès-verbal**.
+## 🛠️ Atelier guidé : on construit, on mesure, on valide
 
-1. Alimente en 12 V (limite de courant 100 mA).
-2. **TC-01** : tension de sortie du 7805 (attendu 5 V ± 5 %).
-3. **TC-02** : fréquence du clignotement (attendu 1 Hz ± 10 %).
-4. **TC-03** : courant dans la LED (attendu ≤ 30 mA, cible 20 mA).
-5. **TC-04** : rapport cyclique (attendu environ 50 %).
-6. Rédige le **PV** : tableau attendu / mesuré / marge / verdict, et conclusion.
+**Fil rouge** : tu transformes le schéma en **carte fabricable**, puis tu la **soudes**.
 
-??? success "Exemple de PV (valeurs types)"
-    | Test | Attendu | Mesuré ± marge | Verdict |
-    |---|---|---|---|
-    | TC-01 $V_{out}$ | 4,75 à 5,25 V | $(4{,}99 \pm 0{,}03)\,\mathrm{V}$ | Conforme |
-    | TC-02 $f$ | 0,90 à 1,10 Hz | $(0{,}99 \pm 0{,}02)\,\mathrm{Hz}$ | Conforme |
-    | TC-03 $I_F$ | ≤ 30 mA | $(19{,}3 \pm 0{,}3)\,\mathrm{mA}$ | Conforme |
-    | TC-04 $DC$ | ≈ 50 % | 53 % | Observation : cohérent avec la formule |
+1. Importe le schéma dans le PCB. Trace le **contour 60 × 40 mm**.
+2. **Règles** : clearance 0,25 mm ; pistes 0,25 mm ; alimentation 0,5 mm ; via 0,8 / 0,4 mm.
+3. **Place** : J1 au bord, 7805 et ses condensateurs, NE555, passifs près du NE555, LED près du bord.
+4. **Route** l'alimentation, puis les signaux. Lance le **DRC** : 0 erreur.
+5. **Exporte** Gerber (cuivre, masque, sérigraphie, contour), perçage, BOM. **Ouvre-les** dans un visualiseur.
+6. **Soude** dans l'ordre : résistances, support DIP-8, condensateurs, régulateur, connecteur, LED. **Contrôle** les brasures.
 
-    **Conclusion** : la carte est **conforme** au cahier des charges ; instruments utilisés et leur étalonnage indiqués ; PV daté et signé.
+??? success "Résultats attendus"
+    - DRC : **0 erreur** ; pistes d'alimentation visiblement plus larges.
+    - Fichiers : F.Cu (ou B.Cu), masque, sérigraphie, Edge.Cuts, `.drl`, `.csv` de la BOM.
+    - Brasures : brillantes, en cône, trou rempli à **75 % au moins** ; aucun pont ni soudure froide.
 
 ## ✍️ Exercices d'application
 
-1. Mesure $(5{,}20 \pm 0{,}08)\,\mathrm{V}$ pour 5 V ± 5 % : verdict ?
-2. Mesure $(0{,}93 \pm 0{,}02)\,\mathrm{Hz}$ pour 1 Hz ± 10 % : verdict ?
-3. Citez 3 éléments obligatoires d'un PV.
-4. Pourquoi un instrument hors étalonnage invalide-t-il un PV ?
+1. Deux pistes sont à 0,18 mm l'une de l'autre, règle 0,25 mm. Violation de combien ?
+2. Une pastille de 1,8 mm est percée à 1,0 mm. Largeur de l'anneau de cuivre ?
+3. Où place-t-on le condensateur de découplage du NE555 ?
+4. Remplissage d'un trou traversant de 70 % : conforme en classe 2 ?
 
 ??? success "Corrigés"
-    1. Plage 5,12 à 5,28 V, qui **dépasse** 5,25 V : **non garanti**, à justifier ou refaire avec un meilleur instrument.
-    2. Plage 0,91 à 0,95 Hz, dans [0,90 ; 1,10] : **conforme**.
-    3. Par exemple : **identification** (carte, date, opérateur), **instruments** avec étalonnage, **résultats** avec verdict, **conclusion**, **signature**.
-    4. Sa mesure n'est plus **garantie** : elle n'est plus **traçable** jusqu'à une référence.
+    1. $0{,}25 - 0{,}18 = 0{,}07\,\mathrm{mm}$ : le DRC signale une erreur.
+    2. $\dfrac{1{,}8 - 1{,}0}{2} = 0{,}4\,\mathrm{mm}$.
+    3. **Au plus près** des broches 8 (VCC) et 1 (GND).
+    4. **Non** : il faut au moins 75 %.
 
 ## 📚 Pour approfondir : les séances à consulter
 
-- [Terminale S02 – rapport de mesures et PV](../terminale/S02-rapport-de-mesures-pv-professionnel/01-cours.md)
-- [Terminale S07 – validation et conformité](../terminale/S07-validation-conformite-pv-professionnel/01-cours.md)
-- [Terminale S11 – TP carte NE555 / 7805](../terminale/S11-interpreter-document-mesures-carte/02-tp.md)
+- [Première S03 – PCB et routage](../premiere/S03-kicad-pcb-editor-routage-pistes-vias/01-cours.md)
+- [Première S04 – double face et Gerber](../premiere/S04-pcb-double-face-metallisation/01-cours.md)
+- [Terminale S06 – TP de bout en bout](../terminale/S06-flux-kicad-complet-schema-erc-pcb-drc/02-tp-de-bout-en-bout.md)
+- [Seconde S04 – soudure et IPC](../seconde/S04-soudure-a-l-etain-composants/01-cours.md)
 
 ## ✅ Auto-test
 
-1. Sortie 5 V ± 5 % : quelle plage est acceptable ?
-2. Mesure $(5{,}02 \pm 0{,}05)\,\mathrm{V}$ : conforme ?
-3. Mesure $(5{,}20 \pm 0{,}08)\,\mathrm{V}$ : conforme ?
-4. Pourquoi indiquer l'instrument et son étalonnage ?
-5. Un PV peut-il se terminer par « ça marche » ?
+1. Quelle largeur pour une piste d'alimentation, quelle clearance ?
+2. Quels fichiers envoie-t-on au fabricant ?
+3. Pourquoi ouvrir les Gerber dans un visualiseur ?
+4. Une brasure avec un remplissage de 72 % est-elle conforme (classe 2) ?
+5. Dans quel ordre route-t-on ?
 
 ??? success "Réponses"
-    1. De **4,75 V à 5,25 V**.
-    2. **Oui** : la plage 4,97 à 5,07 V est dans la tolérance.
-    3. **Non garanti** : la plage dépasse 5,25 V.
-    4. Pour que la mesure soit **vérifiable** (traçabilité).
-    5. **Non** : la conclusion compare le résultat à un **critère chiffré**.
+    1. Piste d'alimentation **0,5 mm à 0,8 mm** ; clearance minimale **0,2 à 0,25 mm**.
+    2. Les **Gerber** (cuivre, masque, sérigraphie, contour) et le fichier de **perçage**.
+    3. Pour voir **ce qui sera réellement fabriqué**.
+    4. **Non** : minimum 75 %.
+    5. **Alimentation** d'abord, puis les signaux.
 
 ## 📦 Livrable
 
-PV complet d'une carte (tableau attendu / mesuré / verdict + conclusion).
+Fichiers de fabrication (Gerber, perçage, BOM) de la carte de la semaine 5.
