@@ -2,6 +2,8 @@
 Usage : python3 essentiel.py <racine>"""
 import sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from essentiel_cours import COURS
 
 S = '../../seconde/'
 P = '../../premiere/'
@@ -77,7 +79,7 @@ def page(w):
     n = w['n']
     o = [f"# Semaine {n} : {w['titre']}", "", f"> **Durée** : 4 h · **Compétences E2 travaillées** : {w['comp']}", "", "## 🎯 Objectifs : à la fin de la semaine, je sais…", ""]
     o += [f"- {x}" for x in w['obj']] + ["", "## 🗓️ Déroulé", "", "| Durée | Activité |", "|---|---|"]
-    o += [f"| {d} | {a} |" for d, a in w['deroule']] + ["", "## 📚 Ressources à utiliser", ""]
+    o += [f"| {d} | {a} |" for d, a in w['deroule']] + ["", "## 📖 Le cours en bref", "", COURS[n].strip(), "", "## 📚 Pour approfondir : les séances à consulter", ""]
     o += [f"- {l}" for l in w['liens']] + ["", "## ✅ Auto-test", ""]
     for i, (q, _) in enumerate(w['tests'], 1): o.append(f"{i}. {q}")
     o += ["", '??? success "Réponses"']
