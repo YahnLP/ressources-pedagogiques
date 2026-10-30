@@ -1,0 +1,28 @@
+import sys; sys.path.insert(0, __import__("pathlib").Path(__file__).resolve().parents[1].as_posix())
+from explications import *
+
+ENTREES = [
+    ("## 🗝️ Vocabulaire", 'fin', apropos("Un bouton relié à l'Arduino ne marche pas : parfois la LED s'allume toute seule, parfois non. D'où peut venir le problème, à ton avis ?", "Quand une entrée n'est **reliée à rien** (ni au + ni au −), elle « flotte » : elle capte les **parasites** et se met à **0 ou à 1 au hasard**. Il faut **forcer** l'entrée à un niveau connu avec une **résistance** : c'est le rôle des résistances **pull-down** et **pull-up**.\n\nDans cette séance, tu apprends à **lire un bouton** proprement et à **déboguer** avec le Serial Monitor.")),
+    ("## 1.", 'fin', clair("Une entrée numérique ne comprend que **deux états** : **HIGH (1)** et **LOW (0)**. Pour l'Arduino Uno :\n\n- de 0 à environ **0,8 V** : le niveau est **LOW** (0) ;\n- au-dessus d'environ **2 V** : le niveau est **HIGH** (1) ;\n- **entre les deux** : zone **interdite**, le résultat est **imprévisible**.\n\nUne entrée **flottante** (reliée à rien) se retrouve **n'importe où** : c'est le piège à éviter.") + "\n" + verifie(
+        ("Quelle valeur lit l'Arduino pour une tension de 4,5 V ?", "**HIGH (1)**, car c'est bien au-dessus du seuil haut."),
+        ("Pourquoi une entrée flottante est-elle problématique ?", "Elle capte des **parasites** et prend une valeur **aléatoire** : le programme réagit n'importe comment."),
+        ("Que renvoie `digitalRead()` ?", "**1** (HIGH) ou **0** (LOW).")) + "\n" + retenir("Une entrée numérique doit toujours être **franchement** à 0 ou à 1.")),
+    ("## 2.", 'fin', clair("La résistance **pull-down** (« tire vers le bas ») relie l'entrée à **GND**. Quand le bouton est **relâché**, l'entrée est tirée à **0 V** : **LOW**. Quand on **appuie**, le bouton envoie le **5 V** sur l'entrée : **HIGH**.\n\nAvec une résistance de 10 kΩ, le courant qui passe quand le bouton est appuyé est très faible : $I = \\dfrac{5}{10\\,000} = 0{,}5\\,\\mathrm{mA}$, donc **sans danger**.") + "\n" + verifie(
+        ("Avec un pull-down, quel niveau lit-on bouton relâché ?", "**LOW (0)**."),
+        ("Avec un pull-down, quel niveau lit-on bouton appuyé ?", "**HIGH (1)**."),
+        ("Pourquoi choisit-on une valeur élevée (10 kΩ) pour la résistance pull-down ?", "Pour que le courant dans la résistance reste **très faible** ($0{,}5\\,\\mathrm{mA}$) quand on appuie.")) + "\n" + retenir("Pull-down : relâché = 0, appuyé = 1.")),
+    ("## 3.", 'fin', clair("La résistance **pull-up** (« tire vers le haut ») relie l'entrée au **5 V**. **Bouton relâché**, l'entrée est à **1** ; **bouton appuyé**, il relie l'entrée à **GND** : elle passe à **0**. Le comportement est donc **inversé**.\n\nL'Arduino possède une résistance pull-up **intégrée** : on l'active avec `pinMode(4, INPUT_PULLUP)`. Il n'y a **plus besoin de résistance externe** : le bouton se branche simplement entre la broche et **GND**.") + "\n" + erreurs("Oublier que la logique est **inversée** : avec `INPUT_PULLUP`, **appuyé = LOW (0)**.") + "\n" + verifie(
+        ("Avec `INPUT_PULLUP`, que lit-on bouton relâché ?", "**HIGH (1)**."),
+        ("Que lit-on bouton appuyé ?", "**LOW (0)** : le bouton relie la broche à GND."),
+        ("Quel est l'avantage de `INPUT_PULLUP` ?", "On **supprime la résistance externe** : moins de composants et de fils.")) + "\n" + retenir("Pull-up : relâché = 1, appuyé = 0 (logique inversée).")),
+    ("## 4.", 'fin', clair("Un programme **prend des décisions** avec `if / else` : **si** la condition est vraie, on fait une chose, **sinon** une autre. Par exemple : *si le bouton est appuyé, allume la LED ; sinon, éteins-la*.\n\nPour **mémoriser** un état (LED allumée ou éteinte), on utilise une **variable** : elle doit être déclarée **en dehors de `loop()`**, sinon elle est remise à zéro à chaque tour.") + "\n" + verifie(
+        ("À quoi sert `if / else` ?", "À **choisir** entre deux actions selon une condition."),
+        ("Pourquoi déclare-t-on une variable d'état en dehors de `loop()` ?", "Parce que sinon elle est **réinitialisée** à chaque exécution de `loop()` et ne mémorise plus rien."),
+        ("Un bouton fait clignoter la LED au lieu de la basculer. Quelle est la cause possible ?", "Le **rebond** du bouton : on ajoute un petit `delay(50)` pour l'ignorer.")) + "\n" + retenir("`if / else` décide ; une variable d'état mémorise ; on la déclare hors de `loop()`.")),
+    ("## 5.", 'fin', clair("Quand ça ne marche pas, **affiche ce que lit l'Arduino** avec `Serial.println()`. Tu vois alors si le problème vient du **câblage** (valeur incorrecte) ou du **programme** (la valeur est bonne mais la réaction est mauvaise). Pour ne pas inonder l'écran, on affiche **seulement lors d'un changement**.") + "\n" + verifie(
+        ("Que permet de voir `Serial.println(etatBouton)` ?", "La **valeur lue** sur l'entrée (0 ou 1) : on vérifie ainsi le câblage."),
+        ("Pourquoi n'affiche-t-on qu'en cas de changement ?", "Pour **éviter des milliers de lignes** illisibles dans le moniteur.")) + "\n" + retenir("Quand ça ne marche pas : afficher les valeurs avec le Serial Monitor.")),
+    ("## 6.", 'fin', clair("Pour choisir ton montage : **pull-down externe** = résistance + 5 V sur le bouton (appuyé = 1) ; **pull-up externe** = résistance + GND sur le bouton (appuyé = 0) ; **INPUT_PULLUP** = **aucun composant en plus**, bouton vers GND (appuyé = 0). Le plus simple est **INPUT_PULLUP**.") + "\n" + verifie(
+        ("Quelle configuration demande le moins de composants ?", "**INPUT_PULLUP** : le bouton est relié directement entre la broche et GND."),
+        ("Avec quelle configuration lit-on 1 quand on appuie ?", "Avec le **pull-down** (bouton relié au 5 V).")) ),
+]

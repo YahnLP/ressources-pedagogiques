@@ -23,6 +23,16 @@
 | **Compilateur** | Outil qui traduit le code C++ lisible par un humain en code machine exécutable par l'Arduino |
 | **Broche numérique** | Broche de l'Arduino pouvant être en état HIGH (5V) ou LOW (0V) — broches D0 à D13 |
 
+
+### 🤔 À ton avis ?
+
+Une machine peut « penser » ? Comment un petit circuit comme un Arduino peut-il décider d'allumer une LED ?
+
+??? question "Voir une réponse possible"
+    Il ne pense pas : il **exécute un programme**, c'est-à-dire une suite d'**instructions** que **tu écris**. Le programme lui dit, par exemple : « allume la broche 13, attends une seconde, éteins-la ».
+    
+    Dans cette séance, tu apprends à **écrire**, **téléverser** et **tester** ton premier programme (un « sketch ») sur une carte Arduino.
+
 ---
 
 ## 1. L'Arduino Uno — Anatomie de la carte
@@ -37,6 +47,37 @@
 | **LED onboard "L"** | Reliée à D13 | LED de test directement sur la carte |
 | **USB** | Connecteur type B | Alimentation + communication série avec le PC |
 | **Reset** | Bouton | Redémarre le sketch depuis le début |
+
+
+> [!TIP] 💡 En clair
+> La carte **Arduino Uno** contient un **microcontrôleur** (ATmega328P) : un petit ordinateur sur une puce. On y raccorde :
+>
+> - le **câble USB** (alimentation et programmation) ;
+> - les **broches numériques** D0 à D13 (entrées ou sorties 0 / 1) ;
+> - les **broches analogiques** A0 à A5 (mesure de tensions) ;
+> - les broches **5 V**, **3,3 V** et **GND** (alimentation).
+>
+> La **LED « L »** est reliée à la broche **D13** : c'est elle que s'allume avec le programme Blink.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert le câble USB de l'Arduino ?
+
+??? success "Réponse"
+    À **alimenter** la carte et à **téléverser** le programme depuis l'ordinateur.
+
+**Q2.** Quelle LED de la carte est reliée à D13 ?
+
+??? success "Réponse"
+    La LED **« L »**.
+
+**Q3.** Quelle différence entre broches numériques et broches analogiques ?
+
+??? success "Réponse"
+    Les **numériques** ne connaissent que **0 ou 1** ; les **analogiques** mesurent une **tension variable**.
+
+> [!SUCCESS] 🧠 À retenir
+> - Le microcontrôleur exécute le programme ; D0–D13 numériques, A0–A5 analogiques.
 
 ---
 
@@ -67,6 +108,35 @@
 ÉTAPE 5 → Cliquer Téléverser → les LEDs TX/RX clignotent pendant le transfert
 ÉTAPE 6 → "Téléversement terminé" dans la zone de messages = succès
 ```
+
+
+> [!TIP] 💡 En clair
+> L'**IDE Arduino** est le logiciel où tu **écris**, **vérifies** (✓) et **téléverses** (→) ton programme. Avant de téléverser, deux réglages **obligatoires** :
+>
+> 1. choisir la **carte** : *Arduino Uno* ;
+> 2. choisir le **port** : celui où l'Arduino est branché (COM3, COM4…).
+>
+> **Vérifier** (compiler) contrôle la syntaxe ; **téléverser** envoie le programme dans la carte.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quels sont les deux réglages à faire avant de téléverser ?
+
+??? success "Réponse"
+    Le **type de carte** (Arduino Uno) et le **port** de communication.
+
+**Q2.** Quelle différence entre « Vérifier » et « Téléverser » ?
+
+??? success "Réponse"
+    **Vérifier** contrôle le programme ; **téléverser** l'envoie dans la carte.
+
+**Q3.** Le port n'apparaît pas. Que vérifies-tu ?
+
+??? success "Réponse"
+    Que le **câble USB** est bien branché (et que c'est un câble de **données**).
+
+> [!SUCCESS] 🧠 À retenir
+> - Choisir carte et port, vérifier, puis téléverser.
 
 ---
 
@@ -161,6 +231,41 @@ TABLE DE CORRESPONDANCE delay() :
   delay(50)   = 0,05 seconde   (50 ms)  → quasi-invisible à l'œil
 ```
 
+
+> [!TIP] 💡 En clair
+> Un sketch comporte **toujours deux parties** :
+>
+> - `setup()` : exécuté **une seule fois**, au démarrage. On y **configure** les broches (`pinMode`).
+> - `loop()` : exécuté **en boucle, sans fin**. C'est le **comportement permanent**.
+>
+> Pour allumer puis éteindre une LED : `digitalWrite(broche, HIGH)` allume, `digitalWrite(broche, LOW)` éteint, `delay(1000)` attend **1 seconde** (1000 ms).
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Oublier le point-virgule `;` à la fin d'une instruction.
+> - Oublier `pinMode(13, OUTPUT)` dans `setup()`.
+> - Confondre `HIGH` (allumé) et `LOW` (éteint).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Combien de fois `setup()` est-elle exécutée ?
+
+??? success "Réponse"
+    **Une seule fois**, au démarrage.
+
+**Q2.** Que fait `delay(500)` ?
+
+??? success "Réponse"
+    Elle **attend 500 millisecondes** (0,5 seconde) avant la suite.
+
+**Q3.** Quelle instruction fait clignoter une LED à 1 Hz ?
+
+??? success "Réponse"
+    Allumer (`HIGH`), `delay(500)`, éteindre (`LOW`), `delay(500)` : cela donne **un clignotement par seconde**.
+
+> [!SUCCESS] 🧠 À retenir
+> - `setup()` une fois, `loop()` sans fin.
+> - `pinMode`, `digitalWrite`, `delay`.
+
 ---
 
 ## 4. Câblage d'une LED externe sur Arduino
@@ -192,6 +297,27 @@ ou 220 Ω (si on veut une LED moins brillante — $I_{F}$ = 13,6 mA)
 | **LED avec anode côté broche Arduino** | Le courant sort de la broche (HIGH = 5V) et entre dans l'anode |
 | **Câble noir sur GND** | Convention de câblage — facilite le débogage visuel |
 | **Ne pas dépasser 200 mA total sur toutes les broches** | Limite du régulateur interne de l'Arduino Uno |
+
+
+> [!TIP] 💡 En clair
+> La LED reliée **à l'extérieur** doit toujours être **protégée par une résistance**, comme en S02. Le chemin est : **broche D13 → résistance → LED (anode vers D13) → GND**.
+>
+> Si la LED ne s'allume pas, vérifie dans l'ordre : le **sens** de la LED, la **résistance**, la **broche** utilisée, le **GND** relié.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi faut-il une résistance en série avec la LED ?
+
+??? success "Réponse"
+    Pour **limiter le courant** : sans elle, la LED ou la broche risque d'être détruite.
+
+**Q2.** Où se branche la patte longue (anode) de la LED ?
+
+??? success "Réponse"
+    Du côté de la **broche D13** (via la résistance), la patte courte allant au **GND**.
+
+> [!SUCCESS] 🧠 À retenir
+> - D13 → résistance → LED → GND.
 
 ---
 
@@ -237,6 +363,25 @@ La vitesse doit être **identique** dans le code (`Serial.begin()`) ET dans le m
 | 115200 bauds | Débogage rapide, streaming de données |
 
 > ⚠️ **Ouvrir le Serial Monitor APRÈS le téléversement**. L'ouvrir pendant le téléversement peut provoquer une erreur de port.
+
+
+> [!TIP] 💡 En clair
+> Le **Serial Monitor** est une « fenêtre de discussion » entre l'Arduino et l'ordinateur. Dans le programme, `Serial.begin(9600)` ouvre la communication et `Serial.println("texte")` envoie un message. La **vitesse** (9600 bauds) doit être **la même** dans le programme et dans la fenêtre du Serial Monitor, sinon tu vois des **caractères illisibles**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert le Serial Monitor ?
+
+??? success "Réponse"
+    À **afficher** les messages envoyés par l'Arduino et à **tester** ou **déboguer** un programme.
+
+**Q2.** Le moniteur affiche des caractères bizarres. Quelle est la cause la plus probable ?
+
+??? success "Réponse"
+    La **vitesse** choisie (bauds) n'est pas la même que dans `Serial.begin()`.
+
+> [!SUCCESS] 🧠 À retenir
+> - `Serial.begin(9600)` dans le programme = 9600 bauds dans le moniteur.
 
 ---
 
@@ -327,6 +472,22 @@ void loop() {
 | Port COM introuvable | Arduino non reconnu ou port mal sélectionné | Vérifier Outils → Port + driver CH340 si clone |
 
 > 💡 **Astuce de débogage** : Lire le message d'erreur de bas en haut — la première erreur listée est souvent la plus importante. Les erreurs suivantes sont souvent des conséquences de la première.
+
+
+> [!TIP] 💡 En clair
+> Quand l'IDE affiche une **erreur en rouge**, **ne panique pas** : lis le message, trouve la **ligne** indiquée et cherche d'abord les erreurs les plus fréquentes : **point-virgule** oublié, **accolade** non fermée, **faute de frappe** dans un nom (`pinmode` au lieu de `pinMode`), **majuscule** oubliée.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Le message dit « expected ';' before '}' ». Que faut-il faire ?
+
+??? success "Réponse"
+    Ajouter un **point-virgule** à la fin de l'instruction **juste avant** l'accolade.
+
+**Q2.** Pourquoi `pinmode(13, OUTPUT)` provoque-t-elle une erreur ?
+
+??? success "Réponse"
+    L'Arduino distingue **majuscules et minuscules** : il faut écrire `pinMode`.
 
 ---
 

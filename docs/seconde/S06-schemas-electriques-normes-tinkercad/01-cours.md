@@ -20,6 +20,16 @@
 | **Pull-up** | Résistance connectée entre un nœud et VCC pour forcer le niveau logique à VCC quand aucun signal n'est appliqué |
 | **Modèle idéal** | Représentation simplifiée d'un composant utilisée par les simulateurs — les valeurs réelles peuvent légèrement différer |
 
+
+### 🤔 À ton avis ?
+
+Un ingénieur veut tester son circuit avant de le fabriquer. Peut-il le faire sans acheter un seul composant ?
+
+??? question "Voir une réponse possible"
+    Oui, grâce à un **simulateur** comme **Tinkercad Circuits** : on construit et on teste le montage **à l'écran**, sans risque de griller un composant.
+    
+    Mais attention : la simulation n'est pas la réalité. Dans cette séance, tu apprends à **dessiner un schéma normalisé**, à **simuler** dans Tinkercad, à **lire une datasheet** et à **dimensionner** un circuit, puis à comprendre les **limites** de la simulation.
+
 ---
 
 ## 1. Schémas électriques normés — Approfondissement
@@ -55,6 +65,32 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 ### 1.3 Exemple de schéma normé complet avec les nouvelles conventions
 
 ![Schéma normé : bouton-poussoir et LED](images/schema-bp-led.png)
+
+
+> [!TIP] 💡 En clair
+> Un schéma sert à **communiquer**. Plus le circuit est grand, plus il faut respecter les **conventions** : fils droits (horizontaux ou verticaux), **alimentation en haut**, **masse en bas**, **signal de gauche à droite**, **points** sur les jonctions, **noms et valeurs** sur chaque composant.
+>
+> Tu rencontres aussi de **nouveaux symboles** : transistor, fusible, régulateur, relais, optocoupleur.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Où place-t-on l'alimentation et la masse sur un schéma ?
+
+??? success "Réponse"
+    L'**alimentation en haut**, la **masse en bas**.
+
+**Q2.** À quoi sert le symbole du fusible ?
+
+??? success "Réponse"
+    À **protéger** le circuit : il **coupe** le courant en cas de surintensité.
+
+**Q3.** Pourquoi note-t-on la valeur à côté de chaque composant ?
+
+??? success "Réponse"
+    Pour que le schéma soit **complet** : on peut monter ou dépanner le circuit sans autre document.
+
+> [!SUCCESS] 🧠 À retenir
+> - Un bon schéma est **lisible** : fils droits, jonctions marquées, noms et valeurs.
 
 ---
 
@@ -114,6 +150,37 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 | **Voltmètre** | V | **En parallèle** avec l'élément à mesurer | Tension aux bornes en Volts |
 | **Ampèremètre** | A | **En série** dans le circuit | Courant traversant en Ampères ou mA |
 
+
+> [!TIP] 💡 En clair
+> Tinkercad Circuits est un **atelier virtuel**. Le travail se fait toujours en **quatre temps** :
+>
+> 1. **Poser** les composants sur la zone de travail.
+> 2. **Les relier** avec des fils.
+> 3. **Régler** leurs valeurs (résistance, tension de l'alimentation).
+> 4. **Démarrer la simulation** (le triangle vert) et **observer**.
+>
+> Tu peux aussi placer un **multimètre virtuel** pour mesurer : **en parallèle** pour la tension, **en série** pour le courant, comme dans la réalité.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Comment mesure-t-on la tension aux bornes d'une LED dans Tinkercad ?
+
+??? success "Réponse"
+    Avec le multimètre en **mode voltmètre**, branché **en parallèle** de la LED.
+
+**Q2.** Que se passe-t-il si on oublie de démarrer la simulation ?
+
+??? success "Réponse"
+    Rien ne s'anime : il faut cliquer sur **« Démarrer la simulation »**.
+
+**Q3.** Un composant simulé peut-il « griller » ?
+
+??? success "Réponse"
+    Oui, Tinkercad signale certaines erreurs (LED sans résistance), mais pas toutes les pannes de la vraie vie.
+
+> [!SUCCESS] 🧠 À retenir
+> - Poser, relier, régler, simuler, observer.
+
 ---
 
 ## 3. Lecture d'une datasheet — Méthode professionnelle
@@ -171,6 +238,35 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 | **Gain** | Gain (amplification) | $h_{\mathrm{FE}}$, β |
 | **Operating Conditions** | Conditions de fonctionnement | $T_{C}$ = 25°C standard |
 
+
+> [!TIP] 💡 En clair
+> Une datasheet est un **document technique** de plusieurs pages. Pas besoin de tout lire : on suit toujours **le même parcours** :
+>
+> 1. la **première page** : à quoi sert le composant ;
+> 2. le tableau **« Absolute Maximum Ratings »** : les limites à **ne jamais dépasser** ;
+> 3. les **caractéristiques électriques** : les valeurs de **fonctionnement** ;
+> 4. le **brochage** : à quoi correspond chaque patte.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que signifient les « Absolute Maximum Ratings » ?
+
+??? success "Réponse"
+    Les **valeurs limites absolues** : au-delà, le composant peut être **détruit**.
+
+**Q2.** Pour un transistor BC547, que veut dire $I_C = 100\,\mathrm{mA}$ dans ce tableau ?
+
+??? success "Réponse"
+    Le **courant maximal** que peut supporter le collecteur : on reste **très en dessous** en fonctionnement normal.
+
+**Q3.** Où trouve-t-on la correspondance entre les pattes et leur rôle ?
+
+??? success "Réponse"
+    Dans le **brochage** (« pinout »), souvent dessiné sur la première page.
+
+> [!SUCCESS] 🧠 À retenir
+> - Limites absolues = à ne jamais dépasser ; valeurs typiques = pour calculer.
+
 ---
 
 ## 4. Application : Dimensionner un circuit avec la datasheet
@@ -196,6 +292,38 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 | Courant de base nécessaire | $I_{\mathrm{B}} = \dfrac{I_{\mathrm{C}}}{h_{\mathrm{FE}}}_min = \dfrac{20\,\mathrm{mA}}{110}$ | $I_{\mathrm{B}} = 0{,}18\,\mathrm{mA}$ |
 | Résistance de base | $R_{\mathrm{B}} = \dfrac{V_{\mathrm{out}} - V_{\mathrm{BE}}}{I_{\mathrm{B}}} = \dfrac{5 - 0{,}6}{0{,}00018}$ | **$R_{B}$ ≈ 24 kΩ → prendre 10 kΩ** (surpilotage pour saturation assurée) |
 
+
+> [!TIP] 💡 En clair
+> On veut allumer une LED (20 mA) depuis une sortie Arduino qui ne peut donner que **peu de courant**. On intercale un **transistor** qui joue le rôle d'**interrupteur commandé** : un **petit courant de base** pilote un **plus gros courant de collecteur**.
+>
+> Deux résistances, deux calculs :
+>
+> 1. **$R_C$** (côté LED) protège la LED : $R_C = \dfrac{V_{CC} - V_F - V_{CE_{sat}}}{I_F}$.
+> 2. **$R_B$** (côté base) limite le courant de base : on calcule d'abord $I_B = \dfrac{I_C}{h_{FE}}$.
+>
+> Pour que le transistor soit bien **saturé**, on choisit un $R_B$ **plus petit** que la valeur calculée (sécurité).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi utilise-t-on un transistor entre l'Arduino et une charge puissante ?
+
+??? success "Réponse"
+    Parce qu'une sortie Arduino fournit **peu de courant** : le transistor permet de commander un **courant plus important**.
+
+**Q2.** À quoi sert la résistance de base ?
+
+??? success "Réponse"
+    À **limiter le courant de base** pour ne pas endommager le transistor ni la sortie de l'Arduino.
+
+**Q3.** Pourquoi prend-on le $h_{FE}$ **minimum** de la datasheet pour calculer ?
+
+??? success "Réponse"
+    Pour être sûr que le transistor est **bien saturé** même avec un composant moins performant.
+
+> [!SUCCESS] 🧠 À retenir
+> - Le transistor commande un fort courant avec un petit.
+> - Deux résistances : $R_C$ protège la charge, $R_B$ limite le courant de base.
+
 ---
 
 ## 5. Simulation vs réalité — Comprendre les limites de Tinkercad
@@ -210,6 +338,25 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 | **Utilité principale** | Valider la logique + pré-dimensionnement | Valider en conditions réelles |
 
 > 📌 **Conclusion** : La simulation est une étape de **pré-validation**, pas un remplacement de l'expérimentation réelle. On simule pour s'assurer de la logique et du dimensionnement, puis on câble pour valider dans les conditions réelles.
+
+
+> [!TIP] 💡 En clair
+> La simulation sert à **vérifier la logique** et à **pré-dimensionner**. Elle ne remplace pas la réalité : les composants simulés sont **idéaux** (une LED a exactement 2 V), alors que les vrais composants ont des **tolérances**, chauffent, et peuvent tomber en panne.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Cite une limite de la simulation.
+
+??? success "Réponse"
+    Les modèles sont **idéaux** : tolérances, chaleur, parasites et pannes réelles ne sont pas toutes reproduites.
+
+**Q2.** À quoi sert alors la simulation ?
+
+??? success "Réponse"
+    À **valider la logique** et pré-dimensionner avant le montage réel.
+
+> [!SUCCESS] 🧠 À retenir
+> - On simule pour préparer ; on mesure pour valider.
 
 ---
 
