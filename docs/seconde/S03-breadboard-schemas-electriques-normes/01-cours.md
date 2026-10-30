@@ -20,6 +20,16 @@
 | **Court-circuit** | Connexion directe entre + et − sans résistance — dangereux — courant très élevé |
 | **Masse (GND)** | Référence de potentiel zéro volt — pôle négatif de l'alimentation |
 
+
+### 🤔 À ton avis ?
+
+Tu prépares un montage à tester. Pourquoi ne soude-t-on pas directement les composants ?
+
+??? question "Voir une réponse possible"
+    Parce qu'on se **trompe** souvent au début ! La **breadboard** (platine d'essai) permet de **brancher et débrancher** les composants sans soudure : on teste, on corrige, puis on soude quand le montage est bon.
+    
+    Dans cette séance, tu apprends à **câbler** sur une breadboard, à **lire un schéma** normalisé et à **chercher une panne** avec le test de continuité.
+
 ---
 
 ## 1. La breadboard — Anatomie et utilisation
@@ -51,6 +61,42 @@ La breadboard est divisée en **3 zones fonctionnelles** :
 ### 1.3 Exemple de câblage correct vs incorrect
 
 ![Câblage correct et câblage incorrect sur breadboard](images/cablage-ok-ko.png)
+
+
+> [!TIP] 💡 En clair
+> La breadboard est une plaque percée de trous. **Sous les trous, des lames métalliques relient certains trous entre eux** :
+>
+> - sur chaque **groupe de 5 trous** (repérés par les lettres a à e, ou f à j), les 5 trous sont **reliés** ;
+> - les deux **bandes d'alimentation** (rouge + et bleue −) sont reliées **sur toute leur longueur** ;
+> - la **rainure centrale** ne relie **rien** : elle sépare les deux moitiés. Les circuits intégrés se posent **à cheval** sur la rainure.
+>
+> **Pour connecter deux composants, on met leurs pattes dans le même groupe de 5 trous.**
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi les deux pattes d'une résistance ne doivent-elles pas être dans le même groupe de 5 trous ?
+
+??? success "Réponse"
+    Parce que les 5 trous sont **reliés** : la résistance serait **court-circuitée** (le courant passerait à côté d'elle).
+
+**Q2.** À quoi sert la rainure centrale ?
+
+??? success "Réponse"
+    Elle **sépare** les deux moitiés de la plaque, ce qui permet de poser un **circuit intégré** à cheval sans relier ses broches entre elles.
+
+**Q3.** Où branche-t-on le fil rouge de l'alimentation ?
+
+??? success "Réponse"
+    Sur la **bande rouge (+)**, et le fil noir sur la **bande bleue (−)**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Mettre deux pattes dans le même groupe de 5 trous.
+> - Oublier que certaines breadboards ont un bus d'alimentation **coupé au milieu**.
+
+> [!SUCCESS] 🧠 À retenir
+> - Les 5 trous d'un même groupe sont reliés entre eux.
+> - La rainure centrale ne relie rien.
+> - Rouge = +, bleu = −.
 
 ---
 
@@ -93,6 +139,33 @@ Un bon schéma est **lisible, logique et normé**. Voici les règles à respecte
 
 ![Schéma normé IEC : deux LED en parallèle](images/schema-parallele-iec.png)
 
+
+> [!TIP] 💡 En clair
+> Un **schéma électrique** est un dessin **simplifié** du circuit. Il ne montre pas où sont les composants sur la plaque, mais **comment ils sont reliés**. Pour que tout le monde le lise de la même façon, les symboles sont **normalisés** (norme **IEC 60617**).
+>
+> En pratique : **un trait = un fil**, **un point noir = une jonction**, et chaque composant porte son **nom** et sa **valeur** (R1 = 330 Ω).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi utilise-t-on des symboles normalisés ?
+
+??? success "Réponse"
+    Pour que **tous les techniciens** lisent le même schéma de la même façon, sans ambiguïté.
+
+**Q2.** Que signifie un point noir à l'intersection de deux fils ?
+
+??? success "Réponse"
+    Que les deux fils sont **connectés** (une jonction). Sans point, les fils se croisent sans se toucher.
+
+**Q3.** Comment reconnaît-on le sens d'une LED sur un schéma ?
+
+??? success "Réponse"
+    Le **triangle** pointe vers la **cathode** (la barre) ; deux petites flèches indiquent la lumière émise.
+
+> [!SUCCESS] 🧠 À retenir
+> - Un schéma décrit les liaisons, pas la position des pièces.
+> - Symboles normalisés, noms et valeurs sur chaque composant.
+
 ---
 
 ## 3. Lire un schéma et le transposer en montage
@@ -128,6 +201,38 @@ Un bon schéma est **lisible, logique et normé**. Voici les règles à respecte
 Étape 5 → Vérifier visuellement avant de mettre sous tension
            (sens de la LED, rangées correctes, aucun court-circuit)
 ```
+
+
+> [!TIP] 💡 En clair
+> Lire un schéma, puis le monter, se fait **toujours dans le même ordre** :
+>
+> 1. repère la **source** (+ et −) ;
+> 2. **suis le chemin** du + jusqu'au − ;
+> 3. note l'**ordre des composants** ;
+> 4. relève les **valeurs** ;
+> 5. **vérifie** les sens (LED, diodes).
+>
+> Pour passer au montage : **un fil rouge pour le +, un noir pour le −**, puis tu poses les composants **dans l'ordre du schéma**, chaque liaison correspondant à un **même groupe de 5 trous**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Par quoi commence-t-on pour lire un schéma ?
+
+??? success "Réponse"
+    Par la **source** de tension : on repère le + et le −, puis on suit le chemin du courant.
+
+**Q2.** Que doit-on vérifier avant de mettre sous tension ?
+
+??? success "Réponse"
+    Le **sens de la LED**, les **rangées** correctes, l'**absence de court-circuit**.
+
+**Q3.** Sur le schéma, R1 et D1 sont reliées par un fil. Comment le traduit-on sur la breadboard ?
+
+??? success "Réponse"
+    En mettant une patte de R1 et la patte d'**anode** de D1 dans le **même groupe de 5 trous**.
+
+> [!SUCCESS] 🧠 À retenir
+> - Lis le schéma du + vers le −, puis monte dans le même ordre.
 
 ---
 
@@ -169,6 +274,39 @@ Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichoto
 | 5 | Fil de retour GND | **BIP** | Fil mal inséré en retour |
 
 > 💡 **Note** : Une diode/LED ne donne **pas** de bip en test de continuité classique car sa résistance directe est > 0 Ω. Utiliser le **mode test diode** (symbole →|) du multimètre pour tester une LED : affichera la tension $V_{F}$ ≈ 2 V si la LED est bonne.
+
+
+> [!TIP] 💡 En clair
+> Quand un montage ne marche pas, **ne devine pas** : **teste**. Le test de **continuité** vérifie si le courant peut **passer** entre deux points : le multimètre fait **BIP** si oui, **silence** si le chemin est coupé.
+>
+> **Règle absolue :** on teste **hors tension**.
+>
+> On avance **par étapes** (dichotomie) : on teste d'abord la moitié du circuit, puis on réduit la zone en cause, jusqu'à trouver le fil ou le contact défectueux.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que veut dire un BIP du multimètre en mode continuité ?
+
+??? success "Réponse"
+    Il existe un **chemin conducteur** entre les deux points : le fil ou le contact est bon.
+
+**Q2.** Pourquoi faut-il tester hors tension ?
+
+??? success "Réponse"
+    Une tension présente **fausse la mesure** et peut **endommager** le multimètre.
+
+**Q3.** Le fil rouge est bien branché mais la LED reste éteinte. Que testes-tu en premier ?
+
+??? success "Réponse"
+    Le **bus +** de bout en bout, puis le fil rouge, puis chaque liaison jusqu'à la LED : on avance **étape par étape**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Tester un montage encore alimenté.
+> - Croire qu'une LED « bipe » en test de continuité : pour une diode, utilise plutôt le **mode test diode**.
+
+> [!SUCCESS] 🧠 À retenir
+> - Continuité = BIP si le chemin est fermé.
+> - Toujours hors tension, étape par étape.
 
 ---
 
