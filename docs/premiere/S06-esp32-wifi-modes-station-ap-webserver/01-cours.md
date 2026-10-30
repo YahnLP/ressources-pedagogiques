@@ -64,6 +64,27 @@ void loop() {
 }
 ```
 
+
+> [!TIP] 💡 En clair
+> Un **microcontrôleur** est un petit ordinateur sur une seule puce : il lit des capteurs, commande des sorties et exécute **un seul programme**, sans système d'exploitation. L'**ESP32** ajoute à cela le **Wi-Fi** et le **Bluetooth** déjà intégrés : il peut donc se connecter à un réseau sans carte supplémentaire.
+>
+> Le programme Arduino a toujours deux parties : `setup()` s'exécute **une seule fois** au démarrage (préparer) ; `loop()` se répète **sans fin** (agir).
+
+> [!WARNING] ⚠️ Attention aux tensions
+> Les broches (GPIO) de l'ESP32 fonctionnent en **3,3 V**. Brancher directement un signal **5 V** peut **détruire** la broche. Le port USB, lui, apporte 5 V à la carte, qui les convertit en 3,3 V.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Combien de fois `setup()` est-elle exécutée ? Et `loop()` ?
+
+??? success "Réponse"
+    `setup()` : **une seule fois** au démarrage. `loop()` : **en boucle**, indéfiniment.
+
+**Q2.** Peut-on brancher une sortie de capteur en 5 V sur un GPIO de l'ESP32 ?
+
+??? success "Réponse"
+    **Non**, pas directement : les GPIO sont en **3,3 V**. Il faut adapter le niveau (diviseur de tension ou adaptateur de niveau).
+
 ---
 
 ## 2️⃣ — Mode Station (STA) : se connecter au WiFi
@@ -117,6 +138,34 @@ Informations utiles une fois connecté :
   WiFi.macAddress()  → Adresse MAC de l'ESP32
 ```
 
+
+> [!TIP] 💡 En clair : ce qui se passe quand l'ESP32 se connecte
+> 1. `WiFi.begin(ssid, password)` : l'ESP32 cherche le réseau portant ce **nom** (SSID) et présente le **mot de passe**.
+> 2. La **box** (le routeur) vérifie le mot de passe, puis lui attribue une **adresse IP** automatiquement : c'est le rôle du **DHCP**.
+> 3. `WiFi.status() == WL_CONNECTED` devient vrai : l'ESP32 est **sur le réseau**, comme un téléphone.
+>
+> La boucle `while` **attend** que ce soit fini : sans elle, le programme continuerait avant d'être connecté. Si le SSID est faux ou le mot de passe incorrect, la boucle **ne se termine jamais** : on voit des points s'afficher à l'infini dans le moniteur série.
+
+> [!NOTE] 🔎 Les mots à connaître
+> **SSID** : nom du réseau Wi-Fi · **IP** : adresse de l'ESP32 sur ce réseau (`192.168.1.42`) · **DHCP** : service de la box qui distribue les adresses · **RSSI** : puissance du signal reçu en dBm (plus proche de 0 = meilleur : −50 dBm est très bon, −85 dBm est limite).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Le moniteur série affiche des points sans fin. Cite deux causes.
+
+??? success "Réponse"
+    SSID ou **mot de passe incorrect** ; réseau **hors de portée** ; réseau en **5 GHz** (l'ESP32 ne gère que le **2,4 GHz**).
+
+**Q2.** Qui attribue l'adresse IP à l'ESP32 ?
+
+??? success "Réponse"
+    Le **DHCP de la box** (routeur) du réseau.
+
+**Q3.** Un RSSI de −80 dBm est-il meilleur qu'un RSSI de −50 dBm ?
+
+??? success "Réponse"
+    **Non** : −50 dBm est un signal **bien plus fort**.
+
 ---
 
 ![ESP32 en mode STA](images/wifi-sta.png)
@@ -124,6 +173,20 @@ Informations utiles une fois connecté :
 ---
 
 ## 3️⃣ — WebServer embarqué
+
+> [!TIP] 💡 En clair : un serveur web sur un microcontrôleur
+> Quand tu tapes une adresse dans ton navigateur, il envoie une **requête** à un serveur, qui renvoie une **réponse** (une page). L'ESP32 peut jouer le rôle du serveur : **tu tapes son adresse IP** dans ton navigateur, et il te répond.
+>
+> | Élément | Rôle |
+> |---|---|
+> | **URL** `http://192.168.1.42/led/on` | **Adresse** (l'IP) suivie du **chemin** demandé (`/led/on`) |
+> | **Route** | Association chemin → fonction : `server.on("/led/on", handleLedOn)` |
+> | **Handler** | La fonction qui s'exécute quand ce chemin est demandé |
+> | **Code 200 / 404** | Réponse « tout va bien » / « page introuvable » |
+> | **Port 80** | Le port standard du web (HTTP) |
+>
+> **Déroulé** : le navigateur demande `/led/on` → l'ESP32 appelle `handleLedOn()` → la LED s'allume → il répond « LED allumée » au navigateur.
+
 
 ### Créer un serveur HTTP sur l'ESP32
 
@@ -205,9 +268,47 @@ http://192.168.1.42/led/off   → Éteint la LED
    Sans lui, le serveur ne répond à aucune requête
 ```
 
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Oublier `server.handleClient()` dans `loop()` : le serveur **ne répond jamais**.
+> - Utiliser une adresse IP **différente** de celle affichée dans le moniteur série (la box peut en donner une autre à chaque démarrage).
+> - Mettre un `delay()` de plusieurs secondes dans `loop()` : le navigateur **attend** la réponse.
+> - Se connecter avec un téléphone sur **un autre réseau** (4G, autre Wi-Fi) : l'ESP32 n'est joignable que **sur son réseau**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Dans l'URL `http://192.168.1.42/led/off`, que représentent `192.168.1.42` et `/led/off` ?
+
+??? success "Réponse"
+    `192.168.1.42` est l'**adresse de l'ESP32** ; `/led/off` est le **chemin** (la route) qui déclenche `handleLedOff()`.
+
+**Q2.** Que se passe-t-il si on demande `/led/clignote` qui n'a pas de route ?
+
+??? success "Réponse"
+    C'est `handleNotFound()` qui répond, avec le code **404**.
+
+**Q3.** Pourquoi `server.handleClient()` doit-il être dans `loop()` ?
+
+??? success "Réponse"
+    Parce qu'il **vérifie à chaque tour** si une requête est arrivée et appelle le bon handler.
+
 ---
 
 ## 4️⃣ — Mode Access Point (AP)
+
+> [!TIP] 💡 En clair : station ou point d'accès ?
+> - **Mode STA (station)** : l'ESP32 est un **client**, comme ton téléphone qui rejoint le Wi-Fi de la maison. Il a besoin d'une box.
+> - **Mode AP (point d'accès)** : l'ESP32 **crée son propre réseau**, comme une box. Ton téléphone s'y connecte. Aucune box nécessaire.
+>
+> | | STA | AP |
+> |---|---|---|
+> | Besoin d'une box existante | oui | **non** |
+> | Accès à Internet / broker MQTT | oui | non (sauf mode STA+AP) |
+> | IP de l'ESP32 | donnée par la box (DHCP) | **192.168.4.1** (fixe par défaut) |
+> | Usage typique | capteur connecté | **configuration initiale**, démonstration sans réseau |
+>
+> Le cas classique : au premier démarrage l'ESP32 ne connaît pas le Wi-Fi de la maison. Il crée un réseau **AP** avec une page où l'utilisateur saisit le SSID et le mot de passe ; puis il redémarre en mode **STA**.
+
 
 ### L'ESP32 crée son propre réseau WiFi
 
@@ -264,6 +365,24 @@ Mode STA + AP simultané :
   → Cas typique : portail de configuration initial
 ```
 
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Tu veux montrer ton ESP32 en classe sans accès au Wi-Fi du lycée. Quel mode choisis-tu ?
+
+??? success "Réponse"
+    Le mode **AP** : l'ESP32 crée son propre réseau et le téléphone s'y connecte.
+
+**Q2.** En mode AP, à quelle adresse tape-t-on dans le navigateur ?
+
+??? success "Réponse"
+    `http://192.168.4.1` (adresse par défaut de l'ESP32 en AP).
+
+**Q3.** Pourquoi utiliser STA+AP pour un portail de configuration ?
+
+??? success "Réponse"
+    L'ESP32 **diffuse un réseau** pour la configuration (AP) tout en pouvant **rejoindre** la box (STA).
+
 ---
 
 ![Modes Wi-Fi de l'ESP32 : STA, AP et STA + AP](images/wifi-modes.png)
@@ -271,6 +390,12 @@ Mode STA + AP simultané :
 ---
 
 ## 5️⃣ — MQTT : messagerie IoT pub/sub
+
+> [!TIP] 💡 En clair : MQTT en 30 secondes
+> Avec le serveur web, **tu viens chercher** l'information. Avec MQTT, c'est l'ESP32 qui **envoie** sa mesure à un intermédiaire, le **broker**, qui la transmet à toutes les personnes **abonnées** au sujet (le **topic**). Le capteur et le tableau de bord ne se connaissent pas : ils ne parlent qu'au broker.
+>
+> Le détail (déroulé pas à pas, topics, QoS, retained, testament) est dans le cours suivant, **S07**. Ici, on retient surtout **comment l'ESP32 se connecte et publie**.
+
 
 ### Architecture MQTT
 
@@ -310,7 +435,7 @@ QoS 0 → "Fire and forget" : message envoyé une fois, pas d'accusé de récept
          Le plus rapide, peut être perdu si déconnexion
          
 QoS 1 → "At least once" : message envoyé jusqu'à réception d'un ACK
-         Peut être reçu plusieurs fois (dédupliqué par le broker)
+         Peut être reçu **plusieurs fois** (doublons possibles : à gérer côté application)
          
 QoS 2 → "Exactly once" : garantit la réception exactement 1 fois
          Le plus fiable, mais plus lent (4 échanges)
@@ -434,6 +559,24 @@ Perte de connexion  La requête échoue           Broker conserve le dernier mes
 Sécurité            HTTPS (TLS sur 443)         MQTT over TLS (port 8883)
 Cas d'usage E2      Page web de contrôle locale Multi-capteurs, tableau de bord
 ```
+
+
+> [!TIP] 💡 En clair : lequel choisir ?
+> - **Une seule personne**, qui veut **voir ou commander l'ESP32 depuis son navigateur**, sur le même réseau → **WebServer**.
+> - **Plusieurs appareils ou applications** qui échangent des mesures, ou un **historique/supervision** → **MQTT**.
+> - **Configuration initiale** sans réseau → **mode AP + WebServer**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Dix capteurs doivent envoyer leurs mesures à un dashboard. WebServer ou MQTT ?
+
+??? success "Réponse"
+    **MQTT** : chaque capteur publie vers le broker, le dashboard s'abonne ; en WebServer il faudrait interroger les dix capteurs un par un.
+
+**Q2.** Tu veux allumer une LED depuis ton téléphone, sur le Wi-Fi de la classe, sans rien installer. Que choisis-tu ?
+
+??? success "Réponse"
+    Un **WebServer** : le navigateur du téléphone suffit.
 
 ---
 
