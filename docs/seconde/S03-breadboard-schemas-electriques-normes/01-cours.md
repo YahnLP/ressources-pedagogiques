@@ -185,9 +185,16 @@ Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichoto
 3. Quel courant traverse R1 ? *($I_{\mathrm{total}}$ = U_R1 / R1)*
 4. Quel courant traverse D1 seule ?
 
+*Réponses :*
+
+1. \_\_\_\_\_\_\_\_\_\_\_\_\_ 2. \_\_\_\_\_\_\_\_\_\_\_\_\_ V   3. \_\_\_\_\_\_\_\_\_\_\_\_\_ mA   4. \_\_\_\_\_\_\_\_\_\_\_\_\_ mA
+
 ??? success "Réponses"
 
-    1. \_\_\_\_\_\_\_\_\_\_\_\_\_ 2. \_\_\_\_\_\_\_\_\_\_\_\_\_ V   3. \_\_\_\_\_\_\_\_\_\_\_\_\_ mA   4. \_\_\_\_\_\_\_\_\_\_\_\_\_ mA
+    1. D1 et D2 sont en **parallèle** (leurs deux bornes sont reliées aux mêmes points).  
+    2. $U_{R1} = V_{alim} - V_F = 9 - 2 = 7\,\mathrm{V}$  
+    3. $I_{total} = \dfrac{U_{R1}}{R_1} = \dfrac{7}{470} \approx 0{,}0149\,\mathrm{A} \approx 14{,}9\,\mathrm{mA}$  
+    4. Les deux branches sont identiques en courant : $I_{D1} = \dfrac{14{,}9}{2} \approx 7{,}4\,\mathrm{mA}$
 
 ### Exercice 2 — Dessiner un schéma (10 min)
 

@@ -57,7 +57,7 @@ def reponses(L):
             if not body:
                 while j < len(L) and not L[j].strip(): j += 1
             while j < len(L) and L[j].strip() and not L[j].startswith(('#', '---', '```', '|', '>', '![', '**R', '*R')): body.append(L[j]); j += 1
-            if body and not any('___' in b for b in body) and sum(len(b) for b in body) < 900:
+            if body and not any('___' in b or '\\_\\_\\_' in b for b in body) and sum(len(b) for b in body) < 900:
                 title = 'Réponses' if label.lower().startswith('réponses') else 'Réponse'
                 if fence:
                     k = j
