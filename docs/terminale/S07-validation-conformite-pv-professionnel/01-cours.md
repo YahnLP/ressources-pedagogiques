@@ -175,7 +175,7 @@ Deux fabricants livrent la même carte. Comment le client peut-il **vérifier** 
 
 4. INSTRUMENTS UTILISÉS
    Multimètre      : Fluke 87V  |  N°7435280  |  Classe 0,5%
-   Oscilloscope    : Rigol DS1054Z  |  N°DS1054-2026-09
+   Oscilloscope    : Owon SDS5032E-V  |  N°SDS5032-2026-09
    Alimentation    : PS305D  |  N°ALI-2026-05  |  Classe 1%
    Tous les instruments sont dans leur période d'étalonnage valide.
 
