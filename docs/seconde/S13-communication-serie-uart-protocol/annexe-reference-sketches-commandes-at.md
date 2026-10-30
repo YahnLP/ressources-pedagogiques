@@ -185,7 +185,7 @@ void loop() {
  *   GND  → GND Arduino
  *   TXD  → D10 (RX SoftwareSerial)
  *   RXD  → D11 via diviseur 1kΩ/2kΩ → 3,33V
- *   KEY  → GND (force le mode AT)
+ *   KEY  → 3,3 V (force le mode AT)
  *
  * UTILISATION :
  *   Ouvrir le Serial Monitor à 9600 bauds + "Both NL & CR"
@@ -204,7 +204,7 @@ void setup() {
   btSerial.begin(38400);    // Liaison Arduino ↔ HC-05 en mode AT
 
   Serial.println("=== Passerelle HC-05 — Mode AT ===");
-  Serial.println("Vérifier : KEY du HC-05 est relié à GND");
+  Serial.println("Vérifier : KEY du HC-05 est relié au 3,3 V à la mise sous tension");
   Serial.println("Régler Serial Monitor sur 'Both NL & CR'");
   Serial.println("Taper 'AT' et appuyer Entrée → doit répondre 'OK'");
 }
@@ -325,8 +325,6 @@ Format de réponse   : +<COMMANDE>:<valeur>\r\n  puis  OK\r\n
 | `AT+NAME=<nom>` | Config | Max 32 chars | `OK` |
 | `AT+PSWD?` | Requête | — | `+PSWD:1234` |
 | `AT+PSWD=<code>` | Config | 4-8 chiffres | `OK` |
-| `AT+BAUD?` | Requête | — | `+BAUD:4` |
-| `AT+BAUD<code>` | Config | Code 1-8 | `OK` |
 | `AT+ROLE?` | Requête | — | `+ROLE:0` |
 | `AT+ROLE=0` | Config | 0=esclave | `OK` |
 | `AT+ROLE=1` | Config | 1=maître | `OK` |
@@ -373,7 +371,7 @@ D11 (TX) ── [1kΩ] ─── nœud ─── [2kΩ] ─ RXD (3.3V MAX)
                                GND
 
 D10 (RX) ─────────────────────────── TXD
-GND ────────────────────────────────── KEY  (mode AT)
+3,3V ──────────────────────────────── KEY  (mode AT)
                                          └─────────┘
 
          DIVISEUR : V_out = 5V × 2kΩ/(1kΩ+2kΩ) = 3.33V ✓
@@ -395,7 +393,7 @@ D10 (RX) ───────────────────────�
 NC ────────────────────────────────── KEY  (NON relié → mode communication)
                                          └─────────┘
 
-Note : En mode communication normale, KEY doit être LIBRE (non câblé à GND)
+Note : En mode communication normale, KEY doit être LIBRE (non relié au 3,3 V)
        HC-05 baud rate doit correspondre à btSerial.begin(X)
 ```
 

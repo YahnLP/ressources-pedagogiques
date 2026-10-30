@@ -318,7 +318,7 @@ Flow control    : None
 | GND | GND | Masse commune |
 | **TXD** | **RX Arduino (D10 avec SoftwareSerial)** | Sortie 3,3V — compatible entrée 5V Arduino |
 | **RXD** | **TX Arduino (D11) via diviseur !** | **Entrée 3,3V MAX — protéger avec diviseur** |
-| KEY | GND ou bouton vers GND | Maintenir à GND pour forcer le mode AT |
+| KEY (EN) | 3,3 V ou bouton vers 3,3 V | Maintenir à l'état haut (3,3 V) à la mise sous tension pour forcer le mode AT |
 | STATE | Optionnel | Indicateur d'état connexion Bluetooth |
 
 ### 4.2 Le diviseur de tension 5V → 3,3V (protection RXD)
@@ -381,33 +381,28 @@ void loop() {
 
 ### 4.4 Commandes AT du HC-05
 
-En **mode AT** (broche KEY maintenue à GND ou niveau bas au démarrage), le HC-05 répond à des commandes texte à **38400 bauds** :
+En **mode AT** (broche KEY maintenue à l'état haut, 3,3 V, à la mise sous tension), le HC-05 répond à des commandes texte à **38400 bauds** :
 
 | Commande | Réponse attendue | Utilité |
 |---|---|---|
 | `AT` | `OK` | Test de communication — vérifier que le mode AT est actif |
 | `AT+NAME?` | `+NAME:HC-05` | Lire le nom Bluetooth actuel |
 | `AT+NAME=MonArduino` | `OK` | Changer le nom Bluetooth visible |
-| `AT+BAUD?` | `+BAUD:4` | Lire le baud rate (4 = 9600) |
-| `AT+BAUD8` | `OK` | Passer le baud rate à 115200 (code 8) |
+| `AT+UART?` | `+UART:9600,0,0` | Lire le baud rate, le bit de stop et la parité |
+| `AT+UART=115200,0,0` | `OK` | Passer le baud rate à 115200 (1 stop, sans parité) |
 | `AT+PSWD?` | `+PSWD:1234` | Lire le code PIN d'appairage |
 | `AT+PSWD=0000` | `OK` | Changer le code PIN |
 | `AT+ROLE?` | `+ROLE:0` | Lire le rôle (0=esclave, 1=maître) |
 | `AT+RESET` | `OK` | Redémarrer le module |
 | `AT+VERSION?` | `+VERSION:x.x-xx` | Lire la version du firmware |
 
-**Tableau des codes baud rate HC-05 :**
+**Format de la commande de vitesse du HC-05 :** `AT+UART=<baud>,<stop>,<parité>`
 
-| Code AT | Baud rate | Usage |
-|---|---|---|
-| 1 | 1200 | — |
-| 2 | 2400 | — |
-| 3 | 4800 | — |
-| **4** | **9600** | **Standard Arduino** |
-| 5 | 19200 | — |
-| 6 | 38400 | Mode AT |
-| 7 | 57600 | — |
-| **8** | **115200** | **Haut débit** |
+| Exemple | Effet |
+|---|---|
+| `AT+UART=9600,0,0` | 9600 bauds, 1 bit de stop, sans parité (**standard Arduino**) |
+| `AT+UART=38400,0,0` | 38400 bauds (vitesse du mode AT) |
+| `AT+UART=115200,0,0` | 115200 bauds (**haut débit**) |
 
 ### 4.5 Schéma de câblage complet Arduino + HC-05
 
@@ -437,7 +432,7 @@ En **mode AT** (broche KEY maintenue à GND ou niveau bas au démarrage), le HC-
 >     → Évite le blocage sur une attente de données inexistantes  
 >
 > □ 6. Pour HC-05 : diviseur de tension sur RXD et mode AT correct ?  
->     → Vérifier que KEY est bien à GND et baud rate = 38400 en AT  
+>     → Vérifier que KEY est bien à l'état haut (3,3 V) à la mise sous tension et baud rate = 38400 en AT  
 
 ### 5.2 Tableau des symptômes et diagnostics
 
@@ -448,7 +443,7 @@ En **mode AT** (broche KEY maintenue à GND ou niveau bas au démarrage), le HC-
 | Commande non reconnue (String) | `\r` résiduel (Windows) | Ajouter `commande.trim()` |
 | `readStringUntil()` bloque | Pas de `\n` envoyé | Régler Newline selector sur "Newline" |
 | `Serial.parseInt()` renvoie 0 | Tampon vide ou données non numériques | Vérifier `Serial.available()` + données envoyées |
-| HC-05 ne répond pas aux AT | Baud rate incorrect ou mode AT non actif | Vérifier KEY=GND + baud rate = 38400 |
+| HC-05 ne répond pas aux AT | Baud rate incorrect ou mode AT non actif | Vérifier KEY à l'état haut (3,3 V) + baud rate = 38400 |
 | HC-05 reçoit des données corrompues | Absence de diviseur de tension | Ajouter diviseur 1kΩ/2kΩ sur RXD |
 
 
@@ -491,9 +486,9 @@ En **mode AT** (broche KEY maintenue à GND ou niveau bas au démarrage), le HC-
 | Structure trame 8N1 | Start(0) + D0..D7 + Stop(1) = 10 bits au total |
 | Lire une commande texte | `readStringUntil('\n')` + `.trim()` + vérifier "Newline" dans le SM |
 | Lire un entier | `Serial.parseInt()` après `Serial.available() > 0` |
-| Configurer HC-05 | `btSerial.begin(38400)` en mode AT, KEY à GND |
+| Configurer HC-05 | `btSerial.begin(38400)` en mode AT, KEY à 3,3 V |
 | Protéger le HC-05 | Diviseur 1kΩ/2kΩ sur RXD : V = 5 × 2/3 = 3,33V |
-| Commandes AT essentielles | `AT` → OK · `AT+NAME?` · `AT+BAUD?` · `AT+RESET` |
+| Commandes AT essentielles | `AT` → OK · `AT+NAME?` · `AT+UART?` · `AT+RESET` |
 
 ---
 
