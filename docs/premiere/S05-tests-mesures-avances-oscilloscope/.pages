@@ -3,4 +3,5 @@ nav:
   - README.md
   - "📖 Cours": 01-cours.md
   - "🛠️ TP": 02-tp.md
+  - "🎛️ TP instruments avancés": 05-tp-instruments-avances.md
   - "🖥️ Simulateur ElectroLab": 04-simulateur.md

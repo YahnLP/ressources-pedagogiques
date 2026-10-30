@@ -73,9 +73,39 @@ $$I_{moy} = \frac{150 \times 5 + 0{,}1 \times 55}{60} \approx 12{,}6\,\mathrm{mA
 > - Oublier la **marge de 25 %**.
 > - Oublier de convertir **mA ↔ A** dans $P = U \times I$.
 
+## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+
+**Fil rouge** : tu dimensionnes l'**alimentation du clignoteur** (12 V → 5 V).
+
+1. **Bilan** : NE555 ≈ 10 mA, LED = 20 mA. Total ?
+2. **Régulateur** : puissance dissipée par le 7805 sous 12 V, puis température de jonction ($R_{\theta ja} = 65\,°\mathrm{C/W}$, 25 °C ambiants).
+3. Même calcul sous **9 V** (pile) : que gagne-t-on ?
+4. **Autonomie** sur une pile 9 V de 500 mAh.
+5. Faut-il un **radiateur** ? Justifie.
+
+??? success "Résultats attendus"
+    1. $I_{total} = 30\,\mathrm{mA}$ ; avec 25 % de marge : 37,5 mA minimum côté source.
+    2. $P = (12 - 5) \times 0{,}03 = 0{,}21\,\mathrm{W}$ ; $T_j = 25 + 0{,}21 \times 65 \approx 38{,}7\,°\mathrm{C}$.
+    3. $P = 4 \times 0{,}03 = 0{,}12\,\mathrm{W}$ : moins de chaleur, meilleur rendement.
+    4. $t = \dfrac{500}{30} \times 0{,}8 \approx 13\,\mathrm{h}$.
+    5. **Non** : 38,7 °C est très inférieur aux 105 °C exploitables.
+
+## ✍️ Exercices d'application
+
+1. Un 7805 alimenté en 24 V débite 100 mA. Que se passe-t-il ?
+2. Un convertisseur à découpage de rendement 90 % délivre 5 V sous 100 mA. Quelle puissance prélève-t-il ? Quelles pertes ?
+3. Pic de consommation de 220 mA : quelle source minimale ?
+4. Courant moyen d'un système qui consomme 150 mA pendant 5 s puis 0,1 mA pendant 55 s ?
+
+??? success "Corrigés"
+    1. $P = 19 \times 0{,}1 = 1{,}9\,\mathrm{W}$ ; $T_j = 25 + 1{,}9 \times 65 \approx 148{,}5\,°\mathrm{C}$ : **supérieur à 125 °C**, le composant est détruit. Il faut un convertisseur à découpage ou un radiateur.
+    2. $P_{in} = \dfrac{5 \times 0{,}1}{0{,}9} \approx 0{,}556\,\mathrm{W}$ ; pertes ≈ **0,056 W**.
+    3. $220 \times 1{,}25 = 275\,\mathrm{mA}$.
+    4. $\dfrac{750 + 5{,}5}{60} \approx 12{,}6\,\mathrm{mA}$.
+
 ## 📚 Pour approfondir : les séances à consulter
 
-- [Terminale S03 – dimensionnement d'alimentation](../S03-dimensionnement-d-alimentation-bilan-de/01-cours.md)
+- [Terminale S03 – dimensionnement d'alimentation](../terminale/S03-dimensionnement-d-alimentation-bilan-de/01-cours.md)
 
 ## ✅ Auto-test
 

@@ -84,11 +84,47 @@ $$R = \frac{V_{cc} - V_{LED}}{I} = \frac{5 - 2}{0{,}020} = 150\,\Omega$$
 
 C'est une valeur de la série E12 : on prend **150 Ω**. Le courant réel est alors exactement 20 mA.
 
+## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+
+**Fil rouge** : pendant 10 semaines, tu vas concevoir, fabriquer, tester et dépanner **un clignoteur à LED** (NE555). Cette semaine : la partie LED.
+
+**Matériel** : alimentation 5 V, plaque d'essai, résistance 150 Ω, LED rouge, multimètre.
+
+1. **Calcule** la résistance pour une LED (2 V) à 20 mA sur 5 V.
+2. **Trouve ses couleurs** : quelles bagues pour 150 Ω ?
+3. **Mesure** la résistance au multimètre (hors tension) et vérifie qu'elle est dans sa tolérance.
+4. **Monte** LED + résistance sur la plaque d'essai (patte longue de la LED côté résistance).
+5. **Mesure** la tension aux bornes de la LED, puis de la résistance.
+6. **Mesure** le courant (multimètre en série, calibre mA).
+7. **Remplace** la résistance par 330 Ω et observe : que change-t-il ?
+
+??? success "Résultats attendus"
+    1. $R = \dfrac{5 - 2}{0{,}020} = 150\,\Omega$.
+    2. **marron – vert – marron – or** (1, 5, × 10, ± 5 %).
+    3. Entre 142,5 Ω et 157,5 Ω ($150 \pm 5\,\%$).
+    4. La LED s'allume.
+    5. Environ 2 V aux bornes de la LED, environ 3 V aux bornes de la résistance (la somme fait 5 V).
+    6. Environ 20 mA ($\dfrac{3}{150}$).
+    7. $I = \dfrac{5 - 2}{330} \approx 9\,\mathrm{mA}$ : la LED éclaire **moins fort**.
+
+## ✍️ Exercices d'application
+
+1. Une LED verte (2,1 V) doit être traversée par 10 mA sur une alimentation de 9 V. Quelle résistance, et quelle valeur de la série E12 ?
+2. On associe 100 Ω et 220 Ω : résistance équivalente en série ? en parallèle ?
+3. Pont diviseur : 12 V, $R_1 = 10\,\mathrm{k\Omega}$, $R_2 = 4{,}7\,\mathrm{k\Omega}$. Quelle tension de sortie ?
+4. Une résistance de 330 Ω reçoit 9 V. Quelle puissance dissipe-t-elle ? Une résistance de 0,25 W convient-elle ?
+
+??? success "Corrigés"
+    1. $R = \dfrac{9 - 2{,}1}{0{,}010} = 690\,\Omega$ → **680 Ω** (E12).
+    2. Série : $320\,\Omega$ ; parallèle : $\dfrac{100 \times 220}{320} \approx 68{,}8\,\Omega$.
+    3. $V_s = 12 \times \dfrac{4{,}7}{14{,}7} \approx 3{,}84\,\mathrm{V}$.
+    4. $P = \dfrac{9^2}{330} \approx 0{,}245\,\mathrm{W}$ : **à la limite** des 0,25 W : on prend une résistance de 0,5 W.
+
 ## 📚 Pour approfondir : les séances à consulter
 
-- [Seconde S01 – code couleurs et loi d'Ohm](../../seconde/S01-code-couleurs-des-resistances-et-loi-d/01-cours.md)
-- [Seconde S01 – familles de composants](../../seconde/S01-code-couleurs-des-resistances-et-loi-d/02-familles-de-composants.md)
-- [Seconde S02 – diodes et LED](../../seconde/S02-diodes-led-circuits-serie-parallele-loi/01-cours.md)
+- [Seconde S01 – code couleurs et loi d'Ohm](../seconde/S01-code-couleurs-des-resistances-et-loi-d/01-cours.md)
+- [Seconde S01 – familles de composants](../seconde/S01-code-couleurs-des-resistances-et-loi-d/02-familles-de-composants.md)
+- [Seconde S02 – diodes et LED](../seconde/S02-diodes-led-circuits-serie-parallele-loi/01-cours.md)
 
 ## ✅ Auto-test
 

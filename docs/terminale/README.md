@@ -2,7 +2,7 @@
 
 Se préparer à l'épreuve E2 : mesures et procès-verbaux, alimentation, validation, métrologie, remédiation.
 
-> 🎯 **Révision en 10 semaines** : [L'essentiel en 1 an](00-essentiel-en-1-an/README.md) — le parcours court (40 h) pour réussir l'épreuve E2, utilisable seul(e) avant le bac.
+> ⚡ **Formation express en 10 semaines** : [L'essentiel en 1 an](../essentiel-en-1-an/README.md) — un parcours complet de 40 h (cours, ateliers, exercices) pour réussir l'épreuve E2, utilisable en classe ou seul(e).
 
 ## 📅 Progression
 

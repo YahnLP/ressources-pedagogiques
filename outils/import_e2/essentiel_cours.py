@@ -103,7 +103,14 @@ $$\text{rapport cyclique} = \frac{t_{haut}}{T} \times 100\,\%$$
 
 **Exemple** : état haut pendant 5 ms sur une période de 20 ms → 25 %.
 
-### 4. Les réglages à ne pas oublier
+### 4. L'alimentation de laboratoire et le générateur de fonctions
+
+- **Alimentation de labo** : on règle la **tension** et la **limite de courant** (un fusible réglable) **avant** de brancher. Si le voyant **CC** s'allume, le courant a atteint la limite : **il y a une anomalie** (court-circuit, composant à l'envers).
+- **Générateur de fonctions (GBF)** : il **produit** un signal (sinus, carré) dont on règle la **fréquence**, l'**amplitude** et le décalage (offset). On l'observe à l'oscilloscope. On ne le branche **jamais** sur une tension.
+
+**Exemple** : GBF réglé sur un sinus de 1 kHz et 2 V crête à crête : on doit lire à l'oscilloscope $T = 1\,\mathrm{ms}$ et $U_{pp} = 2\,\mathrm{V}$.
+
+### 5. Les réglages à ne pas oublier
 
 1. **Sonde ×10** déclarée sur la voie.
 2. **Masse** de la sonde sur la masse du circuit.

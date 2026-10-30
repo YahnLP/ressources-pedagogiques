@@ -6,7 +6,7 @@ from pathlib import Path
 
 BANDEAU = ("> [!NOTE] 🔶 Approfondissement\n"
            "> Cette partie va **au-delà de l'essentiel** attendu pour l'épreuve E2. À faire **après** le parcours essentiel "
-           "(voir « L'essentiel en 1 an » en Terminale), si tu as du temps ou si tu vises plus haut.")
+           "(voir l'onglet « L'essentiel en 1 an »), si tu as du temps ou si tu vises plus haut.")
 
 SIMPLIFIE = ("> [!NOTE] 🎚️ Deux niveaux pour cette partie\n"
              "> **Essentiel** : toute mesure a un doute. On l'estime avec la **précision donnée par le constructeur** de l'instrument, "

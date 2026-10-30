@@ -57,13 +57,45 @@
 
 Après l'épreuve blanche, classe tes erreurs : **oublis** (unités, tolérance), **calculs**, **manipulations**, **rédaction**. Révise **d'abord** la catégorie où tu perds le plus de points.
 
+## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+
+**Épreuve blanche (3 h)** sur une carte **neuve** du même type que le fil rouge (autre valeur de composants).
+
+| Phase | Durée | Travail |
+|---|---|---|
+| 1 | 30 min | Calculs préalables : fréquence, rapport cyclique, courant LED, plages de tolérance |
+| 2 | 1 h 15 | Mesures de la carte (tensions, fréquence, courant) avec les bons instruments |
+| 3 | 45 min | Dépannage d'une panne injectée (tableau de tensions) |
+| 4 | 30 min | PV : tableau, verdicts, conclusion, signature |
+
+**Barème (20 points)** : calculs (5) · mesures et réglages des instruments (5) · dépannage (5) · PV (5).
+
+??? success "Critères de réussite"
+    - Unités présentes partout ; tolérances **chiffrées** ; verdicts **justifiés**.
+    - Instruments correctement réglés (calibre, sonde ×10, déclenchement).
+    - Panne trouvée **par mesure** (pas par hasard) et réparée par **un seul** changement.
+    - PV **daté, signé**, propre.
+
+## ✍️ Exercices d'application
+
+1. Quel est l'ordre logique d'une épreuve de mesure ?
+2. Une mesure te paraît aberrante. Que fais-tu ?
+3. Quelles sont les trois compétences évaluées ?
+4. Que mets-tu dans ton dossier de compétences ?
+
+??? success "Corrigés"
+    1. **Préparer** (calculs attendus) → **mesurer** → **comparer** → **conclure** et rédiger.
+    2. Je vérifie le **branchement**, le **calibre**, la **sonde**, puis je **refais** la mesure.
+    3. **C03** participer à un projet ; **C07** réaliser maquettes et prototypes ; **C11** maintenir un système électronique.
+    4. Les **preuves** : schéma, fichiers de fabrication, PV, fiches d'intervention.
+
 ## 📚 Pour approfondir : les séances à consulter
 
-- [Terminale S15 – examen complet 2 h](../S15-document-autorise-examen-complet-2h/README.md)
-- [Terminale S13 – TP complet 2 h](../S13-documents-autorises-tp-complet-2h/README.md)
-- [Terminale S17 – entraînement contrainte de temps](../S17-entrainement-contrainte-de-temps/README.md)
-- [Terminale S16 – séance finale](../S16-seance-finale-cibler-comprendre-corriger/README.md)
-- [Terminale S18 – dossier de compétences](../S18-finalisation-du-dossier-de-competences/README.md)
+- [Terminale S15 – examen complet 2 h](../terminale/S15-document-autorise-examen-complet-2h/README.md)
+- [Terminale S13 – TP complet 2 h](../terminale/S13-documents-autorises-tp-complet-2h/README.md)
+- [Terminale S17 – entraînement contrainte de temps](../terminale/S17-entrainement-contrainte-de-temps/README.md)
+- [Terminale S16 – séance finale](../terminale/S16-seance-finale-cibler-comprendre-corriger/README.md)
+- [Terminale S18 – dossier de compétences](../terminale/S18-finalisation-du-dossier-de-competences/README.md)
 
 ## ✅ Auto-test
 
