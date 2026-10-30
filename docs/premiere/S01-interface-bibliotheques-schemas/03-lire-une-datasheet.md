@@ -87,7 +87,7 @@ Ouvre la datasheet de chaque composant (site du fabricant) et complète. Les val
     1. Environ **4,5 V à 16 V** (selon le fabricant).
     2. Environ **200 mA** (il peut commander une LED directement).
     3. $f = \dfrac{1{,}44}{(R_{a} + 2R_b) \times C}$.
-    4. $f = \dfrac{1{,}44}{146\,000 \times 10 \times 10^{-6}} \approx 0{,}99\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}}}}}}$.
+    4. $f = \dfrac{1{,}44}{146\,000 \times 10 \times 10^{-6}} \approx 0{,}99\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}}}}}}}$.
 
 > [!SUCCESS] 🧠 À retenir
 > - La datasheet est **le document de référence** : pas de blog ni de forum à la place.
