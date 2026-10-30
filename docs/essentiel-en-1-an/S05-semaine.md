@@ -1,171 +1,170 @@
-# Semaine 5 : Microcontrôleur, capteurs et traitement du signal
+# Semaine 5 : Alimentation et commande de charges
 
-> **Durée** : 4 h · **Compétences E2 travaillées** : C07 · C11
+> **Durée** : 4 h · **Compétences E2** : C07, C11
 
-## 🎯 Objectifs : à la fin de la semaine, je sais…
+## 🎯 À la fin de la semaine, je sais…
 
-- Écrire et lire un programme Arduino simple (entrées, sorties, moniteur série).
-- Lire un capteur analogique (LM35) et convertir en grandeur physique.
-- Produire un signal PWM.
-- Filtrer un signal (filtre RC), amplifier (AOP) et lire une table de vérité.
+- faire un **bilan de puissance** et prévoir une marge ;
+- calculer la **puissance dissipée** et la **température** d'un régulateur linéaire ;
+- estimer **l'autonomie** d'une batterie ;
+- **commander une charge** avec un transistor, un MOSFET ou un relais ;
+- protéger une charge inductive avec une **diode de roue libre**.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | Programme Arduino : sorties, entrées, bouton |
-| 1 h | Capteur LM35 : lecture et conversion |
-| 1 h | TP virtuels ElectroLab : AOP, filtre RC, portes ; conditionnement du signal |
-| 1 h | Exercices et auto-test |
+| 1 h | TP virtuels ElectroLab (régulation 7805, transistor, relais, MOSFET) |
+| 1 h 15 | Cours : alimentation et thermique |
+| 1 h | Cours : commande de charges |
+| 45 min | Exercices et auto-test |
 
 ## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
 
-Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 
-- **Amplificateur inverseur à AOP : gain et saturation** (1 h 30, niveau terminale)
-- **Filtre RC passe-bas : gain et fréquence de coupure** (1 h 30, niveau terminale)
-- **Portes logiques : tables de vérité, alimentation, CMOS / TTL** (1 h 15, niveau première)
-- **Diviseur de tension et influence du voltmètre** (1 h, niveau première)
+- **Régulation linéaire avec un 7805** (1 h 30)
+- **Transistor bipolaire en commutation** (1 h 30)
+- **Relais commandé par transistor : la diode de roue libre** (1 h 30)
+- **MOSFET de puissance : commande d'une lampe 12 V par une sortie logique** (1 h 15)
 
-> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
-> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
+---
 
-## 📖 Le cours en bref
+## 📖 Le cours
 
-**🤔 À ton avis ?** Un capteur délivre une tension de 0,25 V. Comment l'Arduino peut-il en faire « 25 °C » sur un écran ?
+**🤔 À ton avis ?** Un régulateur 7805 alimenté en 12 V pour fournir 5 V à 500 mA devient brûlant. Où va l'énergie « en trop » ?
 
 ??? question "Réponse"
-    Il **convertit** la tension en nombre (ADC), puis le programme applique une **formule**. On va apprendre chaque étape.
+    Elle est **transformée en chaleur** dans le régulateur. On va apprendre à la calculer.
 
-### 1. Programmer un microcontrôleur : Arduino / ESP32
+### 1. Le bilan de puissance
 
-Un **microcontrôleur** est un petit ordinateur sur une puce : il lit des **entrées**, exécute un **programme** et pilote des **sorties**. Un programme Arduino (« sketch ») a deux parties :
+Avant de choisir une alimentation, on **additionne les courants** de tous les composants :
 
-```cpp
-void setup() {            // exécuté UNE fois au démarrage
-  pinMode(13, OUTPUT);    // broche 13 = sortie
-  Serial.begin(9600);     // moniteur série à 9600 bauds
-}
-void loop() {             // répété en boucle
-  digitalWrite(13, HIGH); // sortie à 5 V
-  delay(500);             // attendre 500 ms
-  digitalWrite(13, LOW);
-  delay(500);
-}
-```
+| Composant | Tension | Courant |
+|---|---|---|
+| Microcontrôleur | 3,3 V | 80 mA |
+| Capteur | 3,3 V | 2 mA |
+| LED | 3,3 V | 10 mA |
+| **Total** | | **92 mA** |
 
-| Instruction | Rôle |
-|---|---|
-| `pinMode(p, OUTPUT / INPUT / INPUT_PULLUP)` | choisir le rôle d'une broche |
-| `digitalWrite(p, HIGH / LOW)` | mettre une sortie à 5 V / 0 V |
-| `digitalRead(p)` | lire une entrée (HIGH ou LOW) |
-| `analogRead(A0)` | lire une tension de 0 à 5 V : nombre de **0 à 1023** |
-| `analogWrite(p, 0…255)` | signal **PWM** (rapport cyclique) |
-| `Serial.println(x)` | afficher x sur le moniteur série |
+On prévoit une **marge de 25 %** : $I_{source} \geq 1{,}25 \times I_{total}$, soit ici 115 mA minimum.
 
-> [!TIP] 💡 Bouton poussoir
-> Avec `INPUT_PULLUP`, une résistance interne tire l'entrée à 5 V : le bouton relié à la masse donne **LOW quand on appuie**.
+### 2. Le régulateur linéaire et la chaleur
 
-### 2. Lire un capteur : conversion analogique-numérique
+![Régulateur linéaire et régulateur à découpage](images/lineaire-decoupage.png)
 
-Le convertisseur **ADC** de l'Arduino a **10 bits** : $2^{10} = 1\,024$ valeurs (0 à 1023) pour 0 à 5 V. Un pas vaut $\dfrac{5}{1023} \approx 4{,}9\,\mathrm{mV}$.
+Un régulateur linéaire « mange » l'excès de tension **en chaleur** :
 
-$$U = \text{valeur} \times \frac{5}{1023}$$
+$$P_{diss} = (V_{in} - V_{out}) \times I_{out} \qquad \eta \approx \frac{V_{out}}{V_{in}}$$
 
-**Capteur de température LM35** : **10 mV par °C**, donc $T = U \times 100$.
+**Exemple** : 12 V → 5 V à 500 mA : $P = 7 \times 0{,}5 = 3{,}5\,\mathrm{W}$ et $\eta \approx 42\,\%$ : plus de la moitié de l'énergie part en chaleur. Si l'écart est grand ou le courant fort, on utilise un **convertisseur à découpage** (rendement 85 à 90 %).
 
-```cpp
-void loop() {
-  int brut = analogRead(A0);
-  float tension = brut * 5.0 / 1023.0;
-  float temperature = tension * 100.0;
-  Serial.println(temperature);
-  delay(1000);
-}
-```
+![Chaîne d'alimentation avec condensateurs de découplage](images/chaine-alimentation-decouplage.png)
 
-**Exemple** : `brut = 51` → $U \approx 0{,}249\,\mathrm{V}$ → $T \approx 24{,}9\,°\mathrm{C}$. Un pas de l'ADC (4,9 mV) correspond à environ 0,5 °C : c'est la **résolution** de la mesure.
+### 3. La température du composant
 
-**PWM** : `analogWrite(9, 64)` donne un rapport cyclique de $\dfrac{64}{255} \approx 25\,\%$ à environ 490 Hz.
+![Modèle thermique d'un régulateur](images/modele-thermique.png)
+
+$$T_j = T_{amb} + P_{diss} \times R_{\theta ja}$$
+
+Pour un 7805 sans radiateur, $R_{\theta ja} \approx 65\,°\mathrm{C/W}$. On vise **moins de 105 °C** (125 °C maximum moins 20 °C de marge).
+
+**Exemple** : $P = 1{,}2\,\mathrm{W}$ à 25 °C ambiants : $T_j = 25 + 1{,}2 \times 65 = 103\,°\mathrm{C}$ : à la limite, il faut un **radiateur**. Avec 3,5 W, $T_j$ dépasserait 250 °C : destruction.
+
+### 4. L'autonomie sur batterie
+
+$$t = \frac{\text{capacité (mAh)}}{I_{moy}\,(\mathrm{mA})} \times 0{,}8$$
+
+Le 0,8 tient compte du fait qu'on n'utilise pas toute la capacité. **Exemple** : 1000 mAh à 50 mA : $t = 20 \times 0{,}8 = 16\,\mathrm{h}$.
+
+Avec une **mise en veille** : 150 mA pendant 5 s puis 0,1 mA pendant 55 s :
+
+$$I_{moy} = \frac{150 \times 5 + 0{,}1 \times 55}{60} \approx 12{,}6\,\mathrm{mA}$$
+
+### 5. Commander une charge : le transistor en interrupteur
+
+Une sortie de microcontrôleur fournit environ **20 mA**. Une charge plus gourmande se commande avec un **transistor** : un petit courant de **base** autorise un grand courant de **collecteur** à l'**émetteur**.
+
+![Transistors NPN, PNP et MOSFET : symboles et rôles](images/transistors.png)
+
+- **Bloqué** : pas de courant de base → interrupteur **ouvert**.
+- **Saturé** : courant de base suffisant → interrupteur **fermé** ($V_{CE} \approx 0{,}2\,\mathrm{V}$).
+
+$$I_B = \frac{I_C}{10} \qquad R_b = \frac{V_{commande} - 0{,}7}{I_B}$$
+
+On prend $I_C/10$ (et non $I_C/h_{FE}$) pour être **sûr de saturer**.
+
+![Une LED pilotée par un transistor NPN](images/schema-transistor-led.png)
+
+**Exemple** : charge de 50 mA, commande à 5 V : $I_B = 5\,\mathrm{mA}$ ; $R_b = \dfrac{4{,}3}{0{,}005} = 860\,\Omega$ → **820 Ω**.
+
+### 6. Le relais et la diode de roue libre
+
+![Commander un relais avec un transistor : diode de roue libre](images/ess_relais_transistor.png)
+
+Un **relais** est un interrupteur à **bobine** : il isole la commande de la charge. Sa bobine consomme environ 70 mA : on la commande par un **transistor** (BC337 : 800 mA maximum). À la coupure, la bobine produit un **pic de tension** : une **diode de roue libre** (1N4007) en parallèle inverse l'absorbe.
+
+> [!TIP] 💡 Le MOSFET
+> Un MOSFET « logic level » se commande par la **tension** de grille (sans courant de commande notable). Une fois passant, il se comporte comme une petite résistance $R_{DS(on)}$ (quelques dizaines de mΩ). Pertes : $P = R_{DS(on)} \times I^2$ (0,2 W pour 22 mΩ et 3 A). On ajoute une résistance de rappel à la masse sur la grille.
 
 > [!WARNING] ⚠️ Erreurs fréquentes
-> - Oublier `Serial.begin(9600)` ou régler le moniteur sur une autre vitesse : texte illisible.
-> - Diviser des entiers (`brut / 1023`) : le résultat est tronqué. Écrire `1023.0`.
-> - Brancher le capteur sur une broche **numérique** au lieu d'une entrée **analogique** (A0…).
+> - Utiliser le courant de **pointe** au lieu du courant **moyen** pour l'autonomie.
+> - Oublier la **diode** sur une bobine : le transistor est détruit.
+> - Calculer $R_b$ avec le gain maximal : le transistor ne sature pas.
 
-### 3. Traiter le signal : filtre, amplificateur, logique
+---
 
-Montage **non inverseur** : $G = 1 + \dfrac{R_f}{R_g}$. **Exemple** : $R_f = 10\,\mathrm{k\Omega}$, $R_g = 1\,\mathrm{k\Omega}$ → $G = 11$ : 100 mV en entrée donnent 1,1 V en sortie. La sortie ne dépasse jamais l'alimentation.
+## 🛠️ Atelier réel
 
-$$f_c = \frac{1}{2\pi R C}$$
+**Fil rouge 1 : alimentation du clignoteur.**
 
-Il laisse passer les **basses fréquences** et atténue les **hautes**. **Exemple** : 10 kΩ et 100 nF → $f_c \approx 159\,\mathrm{Hz}$.
-
-| A | B | ET | OU | NON-ET |
-|---|---|---|---|---|
-| 0 | 0 | 0 | 0 | 1 |
-| 0 | 1 | 0 | 1 | 1 |
-| 1 | 0 | 0 | 1 | 1 |
-| 1 | 1 | 1 | 1 | 0 |
-
-> [!WARNING] ⚠️ Erreurs fréquentes
-> - Calculer $R_b$ avec le gain maximal : on prend **$I_C/10$** pour être sûr de saturer.
-> - Oublier la **diode** sur une bobine.
-> - Alimenter un AOP en 5 V en attendant une sortie de 8 V.
-
-
-## 🛠️ Atelier guidé : on construit, on mesure, on valide
-
-**Fil rouge 2 : la station de mesure.** Matériel : Arduino (ou ESP32), capteur LM35, LED, bouton.
-
-1. Câble la **LED** sur la broche 13 avec une résistance de 220 Ω. Téléverse le programme de clignotement (500 ms).
-2. Câble le **bouton** entre la broche 2 et la masse (`INPUT_PULLUP`) : la LED s'allume tant qu'on appuie.
-3. Câble le **LM35** (+5 V, A0, GND). Écris le programme de lecture et affiche la température sur le moniteur série (9600 bauds).
-4. Change la fréquence de clignotement : combien de clignotements par seconde pour `delay(250)` ?
-5. Pose la LED sur une broche PWM (9) et fais varier l'intensité avec `analogWrite`.
+1. **Bilan** : NE555 ≈ 10 mA, LED = 20 mA : total ?
+2. **7805 sous 12 V** : puissance dissipée, puis $T_j$ ($R_{\theta ja} = 65\,°\mathrm{C/W}$, 25 °C ambiants).
+3. Même calcul sous **9 V** : que gagne-t-on ?
+4. **Autonomie** sur une pile 9 V de 500 mAh.
+5. Faut-il un **radiateur** ? Justifie.
+6. **Relais** : bobine 5 V / 70 mA commandée à 5 V. Choisis le transistor et calcule $R_b$.
 
 ??? success "Résultats attendus"
-    1. La LED clignote à **1 Hz** (500 ms allumée + 500 ms éteinte).
-    2. LED allumée **quand on appuie** (le bouton relié à la masse donne LOW).
-    3. Environ la **température ambiante** (par exemple 22 à 25 °C) ; elle monte si on touche le capteur.
-    4. Période 500 ms → **2 clignotements par seconde**.
-    5. Intensité proportionnelle au rapport cyclique ($64/255 \approx 25\,\%$ : faible ; 255 : maximale).
+    1. $I_{total} = 30\,\mathrm{mA}$ ; avec 25 % de marge : 37,5 mA minimum côté source.
+    2. $P = (12 - 5) \times 0{,}03 = 0{,}21\,\mathrm{W}$ ; $T_j = 25 + 0{,}21 \times 65 \approx 38{,}7\,°\mathrm{C}$.
+    3. $P = 4 \times 0{,}03 = 0{,}12\,\mathrm{W}$ : moins de chaleur.
+    4. $t = \dfrac{500}{30} \times 0{,}8 \approx 13\,\mathrm{h}$.
+    5. **Non** : 38,7 °C est très inférieur aux 105 °C exploitables.
+    6. **BC337** ; $I_B = 7\,\mathrm{mA}$ ; $R_b = \dfrac{4{,}3}{0{,}007} \approx 614\,\Omega$ → **560 Ω**.
 
-## ✍️ Exercices d'application
+## ✍️ Exercices
 
-1. Combien de valeurs distinctes peut renvoyer `analogRead` ?
-2. `brut = 102` sur un LM35 : température ?
-3. Pourquoi écrire `1023.0` plutôt que `1023` ?
-4. Un AOP non inverseur a $R_f = 10\,\mathrm{k\Omega}$, $R_g = 1\,\mathrm{k\Omega}$ : gain ?
+1. Un 7805 alimenté en 24 V débite 100 mA. Que se passe-t-il ?
+2. Un convertisseur à découpage de rendement 90 % délivre 5 V sous 100 mA. Quelle puissance prélève-t-il ?
+3. Pic de consommation de 220 mA : quelle source minimale ?
+4. Courant moyen d'un système à 150 mA pendant 5 s puis 0,1 mA pendant 55 s ?
+5. Charge de 30 mA, commande à 5 V : valeur de $R_b$ (règle $I_C/10$) ?
 
 ??? success "Corrigés"
-    1. $2^{10} = 1\,024$ valeurs (0 à 1023).
-    2. $U \approx 0{,}50\,\mathrm{V}$ ; $T \approx 49{,}9\,°\mathrm{C}$.
-    3. Pour forcer un calcul **décimal** ; avec des entiers le résultat est tronqué.
-    4. $G = 1 + 10 = 11$.
-
-## 📚 Pour approfondir : les séances à consulter
-
-- [Seconde S07 – structure d'un sketch](../seconde/S07-arduino-ide-structure-du-sketch-led/01-cours.md)
-- [Seconde S08 – entrées numériques](../seconde/S08-e-s-numeriques-bouton-led-pull-up-pull/01-cours.md)
-- [Seconde S09 – capteur LM35](../seconde/S09-capteur-lm35-analogread-et-conversion/01-cours.md)
-- [Première S12 – AOP, filtre RC, portes logiques](../premiere/S12-prototypes-avances-integration/04-aop-filtre-logique.md)
+    1. $P = 19 \times 0{,}1 = 1{,}9\,\mathrm{W}$ ; $T_j = 25 + 1{,}9 \times 65 \approx 148{,}5\,°\mathrm{C}$ : **supérieur à 125 °C**, le composant est détruit. Il faut un découpage ou un radiateur.
+    2. $P_{in} = \dfrac{5 \times 0{,}1}{0{,}9} \approx 0{,}556\,\mathrm{W}$ (pertes ≈ 0,056 W).
+    3. $220 \times 1{,}25 = 275\,\mathrm{mA}$.
+    4. $\dfrac{750 + 5{,}5}{60} \approx 12{,}6\,\mathrm{mA}$.
+    5. $I_B = 3\,\mathrm{mA}$ ; $R_b = \dfrac{4{,}3}{0{,}003} \approx 1{,}4\,\mathrm{kΩ}$ → **1,2 kΩ** (E12 inférieure).
 
 ## ✅ Auto-test
 
-1. Que fait `analogRead(A0)` ? Quelle plage de valeurs ?
-2. `analogRead` renvoie 102 pour un LM35 : quelle température ?
-3. Quel rapport cyclique donne `analogWrite(9, 128)` ?
-4. Avec `INPUT_PULLUP`, que lit-on quand on appuie sur le bouton relié à la masse ?
-5. Fréquence de coupure d'un filtre RC (10 kΩ, 100 nF) ?
+1. Quelle formule donne la puissance dissipée par un régulateur linéaire ?
+2. Pourquoi une diode en parallèle sur la bobine d'un relais ?
+3. À quoi sert la marge de 25 % ?
+4. Pourquoi un régulateur linéaire chauffe-t-il ?
 
 ??? success "Réponses"
-    1. Il lit une tension de 0 à 5 V et renvoie un nombre de **0 à 1023**.
-    2. $U = 102 \times \dfrac{5}{1023} \approx 0{,}50\,\mathrm{V}$ ; $T \approx 49{,}9\,°\mathrm{C}$.
-    3. $\dfrac{128}{255} \approx 50\,\%$.
-    4. **LOW** (0).
-    5. $\dfrac{1}{2\pi RC} \approx 159\,\mathrm{Hz}$.
+    1. $P_{diss} = (V_{in} - V_{out}) \times I_{out}$.
+    2. Elle absorbe le **pic de tension** à la coupure.
+    3. À absorber les **pointes** de consommation et le vieillissement.
+    4. Il **dissipe en chaleur** la différence $V_{in} - V_{out}$.
 
 ## 📦 Livrable
 
-Programme commenté qui lit un capteur de température et affiche la valeur en °C sur le moniteur série.
+Bilan de puissance du clignoteur (tableau, $P_{diss}$, $T_j$, autonomie) et schéma commenté d'une commande de relais.
+
+> [!NOTE] 📚 Pour approfondir (facultatif)
+> Ce parcours se suffit à lui-même. Pour aller plus loin : Terminale S03 (dimensionnement d'alimentation), Première S12 (transistor, MOSFET, relais) et Seconde S10 (moteur, PWM, pont en H).

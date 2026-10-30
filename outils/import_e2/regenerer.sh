@@ -19,7 +19,6 @@ python3 outils/import_e2/corriges.py .
 python3 outils/import_e2/explications.py .
 python3 outils/import_e2/composants.py .
 python3 outils/import_e2/espacement.py .
-python3 outils/import_e2/essentiel.py .
 python3 - <<'PY'
 import glob, re
 for f in glob.glob('docs/*/*/*.md'):

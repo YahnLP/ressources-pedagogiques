@@ -2,7 +2,7 @@
 
 Se préparer à l'épreuve E2 : mesures et procès-verbaux, alimentation, validation, métrologie, remédiation.
 
-> ⚡ **Formation express en 10 semaines** : [L'essentiel en 1 an](../essentiel-en-1-an/README.md) — un parcours complet de 40 h (cours, ateliers, exercices) pour réussir l'épreuve E2, utilisable en classe ou seul(e).
+> ⚡ **Formation express autonome en 11 semaines** : [L'essentiel en 1 an](../essentiel-en-1-an/README.md) — un parcours complet de 10 semaines de 4 h + 1 semaine dédiée à l'épreuve (cours, ateliers, exercices) pour réussir l'épreuve E2, utilisable en classe ou seul(e).
 
 ## 📅 Progression
 
