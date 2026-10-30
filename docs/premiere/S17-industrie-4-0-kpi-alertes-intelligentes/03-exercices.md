@@ -78,6 +78,12 @@ se trouvent entre _______ et _______ bar (intervalle µ ± σ).
 Est-ce acceptable pour une chaîne industrielle ? ☐ Oui ☐ Non · Raison : ___________
 ```
 
+??? success "Réponses"
+    **Q1.a** : bucket `procimex`, `range(start: -30m)`, champ `temperature`.  
+    **Q1.b** : `range(start: -3h)` et la fonction `max()` (et `min()` pour le minimum).  
+    **Q1.c** : `range(start: -1h)` et `aggregateWindow(every: 10m, fn: mean, createEmpty: false)`.  
+    **Q1.d** : 0,42 bar est l'écart-type : la dispersion des mesures de pression autour de leur moyenne. Une valeur idéale serait la plus proche de 0. 68 % des mesures se trouvent entre 4,38 et 5,22 bar. Pour une chaîne industrielle, ce n'est pas acceptable : la dispersion représente près de 9 % de la pression nominale.
+
 ---
 
 ## 🟡 EXERCICE 2 — Logique d'alertes multi-niveaux (15 min)
@@ -143,6 +149,11 @@ Output 2 (ATTENTION) : ☐ Reçoit un message ☐ null
 Output 3 (CRITIQUE)  : ☐ Reçoit un message ☐ null
 ```
 
+??? success "Réponses"
+    Seuils : CRITIQUE `temp > CRIT_MAX (30) || temp < CRIT_MIN (15)` ; ATTENTION `temp > ATTN_MAX (26) || temp < ATTN_MIN (18)` ; INFO `temp > INFO_MAX (24) || temp < INFO_MIN (20)` ; dans le test INFO : `return [msgAlerte, null, null];`  
+    **Q2.a** : une température de 31 °C vérifie aussi les conditions ATTENTION et INFO. Le premier test vrai arrête la fonction (`return`) : on teste donc le niveau le plus grave en premier, pour ne pas le masquer par un niveau plus faible.  
+    **Q2.b** : pour 31 °C, seule la sortie 3 (CRITIQUE) reçoit un message ; les sorties 1 et 2 reçoivent `null`.
+
 ---
 
 ## 🟠 EXERCICE 3 — Feux tricolores sur le dashboard (10 min)
@@ -178,6 +189,10 @@ return msg;
 ```
 Propriété à cocher/configurer : ______________________________________________
 ```
+
+??? success "Réponses"
+    **Q3.a** : `"INFO" : { bg: "#FFC107", emoji: "🟡", label: "INFO" }` et `"CRITIQUE" : { bg: "#F44336", emoji: "🔴", label: "CRITIQUE" }`.  
+    **Q3.b** : l'option « Allow HTML » (autoriser le HTML) du nœud text.
 
 ---
 
@@ -243,5 +258,12 @@ Comparaison avec spécification ±0,5°C :
   
 Conclusion : _________________________________________________________________
 ```
+
+??? success "Réponses"
+    **Q4.a** : Σ écart = 2,1 ; Σ écart² = 1,05.  
+    **Q4.b** : biais = 2,1 / 10 = 0,21 °C : le DHT22 surestime la vraie valeur de 0,21 °C.  
+    **Q4.c** (formule de l'énoncé) : $\sigma = \sqrt{\dfrac{1{,}05}{9}} = \sqrt{0{,}1167} \approx 0{,}34\,°\mathrm{C}$  
+    **Q4.d** : $u = \dfrac{0{,}34}{\sqrt{10}} = \dfrac{0{,}34}{3{,}16} \approx 0{,}11\,°\mathrm{C}$ ; $U = 2 \times 0{,}11 = 0{,}22\,°\mathrm{C}$ ; $T_{DHT22} = (22{,}3 \pm 0{,}22)\,°\mathrm{C}$ [95 %].  
+    **Q4.e** : biais 0,21 °C ; U = 0,22 °C ; pire cas 0,21 + 0,22 = 0,43 °C < 0,5 °C : conforme. Conclusion : la spécification ±0,5 °C est vérifiée, mais avec une marge faible (0,07 °C).
 
 ---

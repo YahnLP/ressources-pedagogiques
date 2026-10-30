@@ -39,8 +39,17 @@ ENTREES = [
 ]
 
 
+def toutes_les_entrees():
+    """ENTREES + les fichiers de corriges_donnees/ (un fichier par lot, pour éviter les conflits)."""
+    import importlib.util
+    e = list(ENTREES)
+    for f in sorted((Path(__file__).parent / 'corriges_donnees').glob('*.py')):
+        spec = importlib.util.spec_from_file_location(f.stem, f); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); e += m.ENTREES
+    return e
+
+
 def main(root):
-    for y, s, fn, titre, rep in ENTREES:
+    for y, s, fn, titre, rep in toutes_les_entrees():
         d = Path(glob.glob(f'{root}/docs/{y}/{s}-*')[0]); f = d / fn
         L = f.read_text(encoding='utf-8').split('\n')
         i = next((k for k, l in enumerate(L) if l.startswith(titre)), None)
