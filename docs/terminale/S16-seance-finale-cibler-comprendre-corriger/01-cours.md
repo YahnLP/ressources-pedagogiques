@@ -5,6 +5,14 @@
 
 ## ÉTAPE 1 — MON BILAN PERSONNEL (10 min, individuel)
 
+### 🤔 À ton avis ?
+
+À quelques semaines de l'épreuve, **où perds-tu le plus de points** ? Sais-tu vraiment ce que tu dois retravailler en priorité ?
+
+??? question "Voir une réponse possible"
+    Cette séance t'aide à **cibler** tes lacunes (bilan personnel), à **comprendre** tes erreurs (erreurs types) puis à les **corriger** par des ateliers. Mieux vaut **travailler 2 points précis** que tout reprendre au hasard.
+
+
 > En vous aidant de vos copies corrigées (S9-A3 et S14-A3), identifiez vos lacunes.
 
 ### Mes résultats
@@ -42,6 +50,13 @@ Lacune 3 : ___________________________________________________________
 ---
 
 ## ÉTAPE 2 — ANALYSE DES ERREURS TYPES (15 min, collectif)
+
+> [!TIP] 💡 En clair
+> Une **erreur type** revient chez plusieurs élèves : oubli d'unité, arrondi trop tôt, mauvaise conversion, schéma sans PWR_FLAG… Repérer **tes** erreurs types t'évite de les refaire le jour de l'épreuve.
+
+> [!SUCCESS] 🧠 À retenir
+> - Noter ses erreurs types = ne plus les refaire.
+
 
 > Le formateur présente les 5 erreurs les plus fréquentes. Notez ci-dessous la règle correcte pour chaque erreur que vous avez commise.
 
