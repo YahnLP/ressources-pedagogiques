@@ -109,6 +109,10 @@ Application 3 : Amplificateur audio précision ±15V → ±12V, 100mA
 
 ## 🟩 ATELIER B — Métrologie R&R & Limite de Détection
 
+> [!NOTE] 🔶 Approfondissement
+> Cette partie va **au-delà de l'essentiel** attendu pour l'épreuve E2. À faire **après** le parcours essentiel (voir « L'essentiel en 1 an » en Terminale), si tu as du temps ou si tu vises plus haut.
+
+
 > Pour les apprenants ayant < 12/20 en métrologie au S9.
 
 ### Rappel express (5 min)
@@ -380,6 +384,10 @@ return [msgVisu, msgDB];
 ---
 
 ## 🟨 ATELIER E — Fiabilité MTBF / R(t)
+
+> [!NOTE] 🔶 Approfondissement
+> Cette partie va **au-delà de l'essentiel** attendu pour l'épreuve E2. À faire **après** le parcours essentiel (voir « L'essentiel en 1 an » en Terminale), si tu as du temps ou si tu vises plus haut.
+
 
 > Pour les apprenants ayant < 9/15 en fiabilité au S9.
 

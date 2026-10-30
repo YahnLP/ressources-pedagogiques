@@ -207,6 +207,12 @@ Ce que contient un certificat d'étalonnage :
 
 ## 4️⃣ INCERTITUDES DE MESURE
 
+> [!NOTE] 🎚️ Deux niveaux pour cette partie
+> **Essentiel** : toute mesure a un doute. On l'estime avec la **précision donnée par le constructeur** de l'instrument, par exemple ±(0,5 % de la lecture + 2 chiffres) pour un multimètre. **Exemple** : lecture 5,02 V ; 0,5 % de 5,02 = 0,025 V ; 2 chiffres de 0,01 V = 0,02 V ; marge ≈ 0,045 V, arrondie à 0,05 V → **(5,02 ± 0,05) V**. On conclut en comparant **toute la plage** « valeur ± marge » à la tolérance.
+>
+> **🔶 Approfondissement** : le calcul complet (type A, type B, incertitude combinée et élargie) qui suit.
+
+
 ### Pourquoi aucune mesure n'est parfaite
 
 > Toute mesure est affectée d'une incertitude — un doute sur la valeur "vraie". Cette incertitude a deux origines :

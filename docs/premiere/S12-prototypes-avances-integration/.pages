@@ -3,3 +3,5 @@ nav:
   - README.md
   - "📖 Cours": 01-cours.md
   - "🛠️ TP": 02-tp.md
+  - "🔌 Transistor, MOSFET, relais": 03-transistor-mosfet-relais.md
+  - "📈 AOP, filtre RC, portes logiques": 04-aop-filtre-logique.md

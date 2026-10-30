@@ -2,3 +2,4 @@ title: "S06 · Flux KiCad Complet : Schéma → ERC → PCB → DRC → Gerber �
 nav:
   - README.md
   - "📖 Cours": 01-cours.md
+  - "🎯 TP de bout en bout": 02-tp-de-bout-en-bout.md
