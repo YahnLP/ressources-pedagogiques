@@ -26,6 +26,16 @@
 ✅ Varier la vitesse d'un moteur avec PWM  
 ✅ Inverser le sens de rotation d'un moteur  
 
+
+### 🤔 À ton avis ?
+
+Une voiture télécommandée peut avancer **vite ou lentement**, et même **reculer**. Comment un circuit électronique y parvient-il ?
+
+??? question "Voir une réponse possible"
+    Pour **régler la vitesse**, il alimente le moteur par **petites impulsions** : plus elles sont longues, plus le moteur tourne vite (c'est la **PWM**). Pour **inverser le sens**, il **change la polarité** de la tension avec un montage appelé **pont en H**.
+    
+    Dans cette séance, tu apprends à **commander un moteur** avec une carte Arduino et un circuit L293D.
+
 ---
 
 ## 1️⃣ LE MOTEUR À COURANT CONTINU (DC)
@@ -72,6 +82,33 @@ Pour inverser le sens de rotation d'un moteur DC, il suffit d'**inverser la pola
 | + sur fil 2, - sur fil 1 | ⟲ Sens antihoraire |
 
 ![Inversion du sens de rotation d'un moteur en inversant la pile](images/moteur-sens.png)
+
+
+> [!TIP] 💡 En clair
+> Un **moteur à courant continu** transforme l'**énergie électrique en mouvement**. Si on inverse la tension, il tourne **dans l'autre sens**. Plus la tension moyenne est grande, plus il tourne **vite**.
+>
+> Attention : un moteur **consomme beaucoup plus de courant** qu'une LED, et il peut créer des **parasites**. On ne le branche **jamais directement** sur une broche de l'Arduino.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que se passe-t-il si on inverse la tension aux bornes d'un moteur DC ?
+
+??? success "Réponse"
+    Il tourne **dans l'autre sens**.
+
+**Q2.** Pourquoi ne branche-t-on pas un moteur directement sur une broche Arduino ?
+
+??? success "Réponse"
+    La broche ne peut fournir qu'un **courant faible** : le moteur demande bien plus et risquerait de **l'endommager**.
+
+**Q3.** Comment fait-on varier la vitesse d'un moteur DC ?
+
+??? success "Réponse"
+    En faisant varier la **tension moyenne** appliquée, par exemple avec la PWM.
+
+> [!SUCCESS] 🧠 À retenir
+> - Inverser la tension = inverser le sens ; la tension moyenne règle la vitesse.
+> - Un moteur ne se branche jamais directement sur une broche d'Arduino.
 
 ---
 
@@ -147,6 +184,36 @@ void loop() {
 }
 ```
 
+
+> [!TIP] 💡 En clair
+> La **PWM** (modulation de largeur d'impulsion) « allume et éteint » très vite la tension. Ce qui compte, c'est la **proportion du temps où c'est allumé**, appelée **rapport cyclique** :
+>
+> - 0 % : toujours éteint, le moteur est **arrêté** ;
+> - 50 % : allumé la moitié du temps, le moteur tourne à **vitesse moyenne** ;
+> - 100 % : toujours allumé, **vitesse maximale**.
+>
+> Avec Arduino : `analogWrite(broche, valeur)` avec une valeur de **0 à 255** (255 = 100 %).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quel rapport cyclique correspond à `analogWrite(9, 128)` ?
+
+??? success "Réponse"
+    Environ **50 %** (128 sur 255).
+
+**Q2.** Quelle valeur donner à `analogWrite` pour un moteur à pleine vitesse ?
+
+??? success "Réponse"
+    **255**.
+
+**Q3.** La PWM change-t-elle la tension maximale ?
+
+??? success "Réponse"
+    Non : la tension reste la même, c'est la **durée à l'état haut** qui change, donc la **tension moyenne**.
+
+> [!SUCCESS] 🧠 À retenir
+> - PWM : rapport cyclique 0 à 100 % ; `analogWrite` de 0 à 255.
+
 ---
 
 ## 3️⃣ POURQUOI UN PONT H EST NÉCESSAIRE
@@ -173,6 +240,22 @@ Un **pont H** est un circuit électronique qui permet de :
 1. **Amplifier le courant** (Arduino commande, mais ne fournit pas le courant)
 2. **Contrôler le sens** de rotation facilement
 3. **Protéger** Arduino
+
+
+> [!TIP] 💡 En clair
+> Pour **inverser le sens** d'un moteur, il faudrait **inverser les fils**. Le **pont en H** le fait à notre place, avec des **interrupteurs électroniques** : selon ceux qui sont fermés, le courant traverse le moteur dans un sens ou dans l'autre. Son nom vient de la forme du schéma : un « H » avec le moteur au milieu.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert un pont en H ?
+
+??? success "Réponse"
+    À **inverser le sens de rotation** d'un moteur (et à le commander avec un petit signal).
+
+**Q2.** Pourquoi l'appelle-t-on « pont en H » ?
+
+??? success "Réponse"
+    Parce que le schéma a la forme d'un **H** : le moteur forme la barre horizontale, les interrupteurs les barres verticales.
 
 ---
 
@@ -220,6 +303,40 @@ Le **L293D** est un circuit intégré (CI) contenant **deux ponts H** :
 
 **⚠️ IMPORTANT :** Les GND doivent être **communs** (Arduino GND et Pile GND reliés ensemble).
 
+
+> [!TIP] 💡 En clair
+> Le **L293D** est un circuit qui contient **deux ponts en H**. Retiens ses **trois types de broches** :
+>
+> - **EN** (enable) : autorise le moteur (c'est ici qu'on met la PWM) ;
+> - **IN1 / IN2** : choisissent le **sens** ;
+> - **VCC1** (5 V, logique) et **VCC2** (alimentation du **moteur**).
+>
+> Les **GND** de l'Arduino et de la pile doivent être **reliés ensemble**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Oublier de relier les masses (GND) : le montage ne fonctionne pas.
+> - Alimenter le moteur par le 5 V de l'Arduino : ce n'est pas assez puissant.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi servent les broches IN1 et IN2 ?
+
+??? success "Réponse"
+    À choisir le **sens de rotation** du moteur.
+
+**Q2.** Où branche-t-on le signal PWM ?
+
+??? success "Réponse"
+    Sur la broche **EN** (enable).
+
+**Q3.** Pourquoi relier les GND de l'Arduino et de la pile ?
+
+??? success "Réponse"
+    Pour avoir une **masse commune** : sans elle, les signaux n'ont pas de référence.
+
+> [!SUCCESS] 🧠 À retenir
+> - EN = vitesse (PWM) ; IN1/IN2 = sens ; masses reliées.
+
 ---
 
 ## 5️⃣ TABLE DE VÉRITÉ DU PONT H
@@ -241,6 +358,26 @@ Le sens de rotation dépend des valeurs de **IN1** et **IN2** :
 - **Rotation sens 1** : Le courant passe de OUT1 vers OUT2
 - **Rotation sens 2** : Le courant passe de OUT2 vers OUT1
 - **Frein** : Court-circuit interne, le moteur freine rapidement (ne pas maintenir longtemps)
+
+
+> [!TIP] 💡 En clair
+> La **table de vérité** résume ce que fait le moteur selon IN1 et IN2 (avec EN actif) :
+>
+> - IN1 = 1, IN2 = 0 : **sens 1** ;
+> - IN1 = 0, IN2 = 1 : **sens 2** ;
+> - IN1 = IN2 : le moteur est **arrêté** (freiné).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** IN1 = 1 et IN2 = 0. Que fait le moteur ?
+
+??? success "Réponse"
+    Il tourne dans le **sens 1**.
+
+**Q2.** IN1 et IN2 sont tous deux à 0. Que fait le moteur ?
+
+??? success "Réponse"
+    Il est **arrêté**.
 
 ---
 
@@ -437,6 +574,25 @@ void loop() {
 | GND non communs | Vérifier Arduino GND ↔ Pile GND | Relier les GND |
 | Moteur défectueux | Tester moteur avec pile directe | Remplacer moteur |
 | L293D mal inséré | Vérifier l'orientation (repère •) | Réinsérer correctement |
+
+
+> [!TIP] 💡 En clair
+> Si le moteur ne tourne pas, cherche **dans l'ordre** : **alimentation** du moteur (VCC2), **masse commune**, **broche EN**, **câblage IN1/IN2**, **programme**. Sinon, **mesure** avec le multimètre.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Le moteur ne tourne pas. Quelle est la première vérification ?
+
+??? success "Réponse"
+    L'**alimentation du moteur** (VCC2, pile bien branchée) et la **masse commune**.
+
+**Q2.** Le moteur tourne mais dans le mauvais sens. Que fait-on ?
+
+??? success "Réponse"
+    On **inverse** les états de IN1 et IN2 (ou on permute les fils du moteur).
+
+> [!SUCCESS] 🧠 À retenir
+> - Dépanner = vérifier dans l'ordre : alimentation, masse, EN, IN1/IN2, programme.
 
 ---
 
