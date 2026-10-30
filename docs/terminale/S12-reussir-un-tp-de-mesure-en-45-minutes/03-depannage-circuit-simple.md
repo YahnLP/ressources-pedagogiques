@@ -53,7 +53,7 @@ Pour chaque relevé, trouve la **cause**.
 
     - **A** : le signal arrive (5 V) mais la base est à 0 V : **$R_{b}$ coupée** (ou soudure coupée). Plus de courant de base, le transistor est bloqué.
     - **B** : **pas de signal en entrée** (0 V) : le problème est **en amont** (câble, générateur, microcontrôleur), pas dans ce circuit.
-    - **C** : l'entrée et la base sont normales, mais le collecteur est à **1,8 V** au lieu de 0,2 V : le transistor **ne sature pas**, il fournit trop peu de courant (≈ 8,7 mA au lieu de 18,7 mA). La cause : un courant de base trop faible, donc **$R_b$ de valeur trop grande** (100 kΩ montée à la place de 10 kΩ). On le confirme en mesurant $R_b$ hors tension.
+    - **C** : l'entrée et la base sont normales, mais le collecteur est à **1,8 V** au lieu de 0,2 V : le transistor **ne sature pas**, il fournit trop peu de courant (≈ 8,7 mA au lieu de 18,7 mA). La cause : un courant de base trop faible, donc **$R_{b}$ de valeur trop grande** (100 kΩ montée à la place de 10 kΩ). On le confirme en mesurant $R_{b}$ hors tension.
     - **D** : entrée à 0 V mais la LED reste allumée et le collecteur est à 0 V : le **transistor est en court-circuit collecteur-émetteur** (claqué) : à remplacer.
 
 ### Hors tension : confirmer avec le multimètre
@@ -86,7 +86,7 @@ Un montage identique mais avec **$R_{c} = 330\,\Omega$** et une alimentation de 
 ??? success "Réponses"
 
     - Normal : $\dfrac{5 - 2 - 0{,}2}{330} \approx 8{,}5\,\mathrm{mA}$ (tension aux bornes de $R_{c}$ : 2,8 V).
-    - 0,5 V aux bornes de $R_c$ : courant $\dfrac{0{,}5}{330} \approx 1{,}5\,\mathrm{mA}$, très insuffisant. Le transistor ne sature pas : la cause la plus probable est un **courant de base trop faible** ($R_b$ de valeur trop grande). On confirme en mesurant $V_{CE}$ (bien supérieur à 0,2 V) puis $R_b$ hors tension.
+    - 0,5 V aux bornes de $R_{c}$ : courant $\dfrac{0{,}5}{330} \approx 1{,}5\,\mathrm{mA}$, très insuffisant. Le transistor ne sature pas : la cause la plus probable est un **courant de base trop faible** ($R_{b}$ de valeur trop grande). On confirme en mesurant $V_{CE}$ (bien supérieur à 0,2 V) puis $R_{b}$ hors tension.
 
 > [!SUCCESS] 🧠 À retenir
 > - Dépanner = **décrire, mesurer, comparer, isoler, réparer, tracer**.

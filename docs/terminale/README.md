@@ -2,7 +2,11 @@
 
 Se préparer à l'épreuve E2 : mesures et procès-verbaux, alimentation, validation, métrologie, remédiation.
 
+> 🎯 **Révision en 10 semaines** : [L'essentiel en 1 an](00-essentiel-en-1-an/README.md) — le parcours court (40 h) pour réussir l'épreuve E2, utilisable seul(e) avant le bac.
+
 ## 📅 Progression
+
+> 🔶 = **approfondissement** : facultatif pour l'essentiel de l'épreuve E2 (à faire après le parcours essentiel).
 
 | Séance | Thème | Contenu |
 |---|---|---|
@@ -13,7 +17,7 @@ Se préparer à l'épreuve E2 : mesures et procès-verbaux, alimentation, valida
 | **S05** | Procédures · Timing · PV · Calculs · BAC PRO ciel · E2 · 3ᵉ année S5 | [📘 Ouvrir](S05-procedures-timing-pv-calculs-bac-pro/README.md) |
 | **S06** | Flux KiCad Complet : Schéma → ERC → PCB → DRC → Gerber → BOM | [📘 Ouvrir](S06-flux-kicad-complet-schema-erc-pcb-drc/README.md) |
 | **S07** | Validation & Conformité : PV Professionnel, Normes IPC/cei/iso, DAT Électronique | [📘 Ouvrir](S07-validation-conformite-pv-professionnel/README.md) |
-| **S08** | Métrologie Appliquée : Répétabilité · Reproductibilité · Gauge R&R · Limite de Détection | [📘 Ouvrir](S08-metrologie-appliquee-repetabilite/README.md) |
+| **S08** | 🔶 Métrologie Appliquée : Répétabilité · Reproductibilité · Gauge R&R · Limite de Détection | [📘 Ouvrir](S08-metrologie-appliquee-repetabilite/README.md) |
 | **S10** | 6 Ateliers Ciblés : Alimentation · Métrologie · PCB · IoT · Fiabilité · CEM | [📘 Ouvrir](S10-6-ateliers-cibles-alimentation/README.md) |
 | **S11** | Interpréter Document + Mesures : Carte NE555 / 7805 agritech | [📘 Ouvrir](S11-interpreter-document-mesures-carte/README.md) |
 | **S12** | Réussir un TP de Mesure en 45 Minutes : Rapidité sans Sacrifier la Précision | [📘 Ouvrir](S12-reussir-un-tp-de-mesure-en-45-minutes/README.md) |
