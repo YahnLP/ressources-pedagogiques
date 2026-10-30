@@ -18,6 +18,16 @@
 | **Circuit parallèle** | Les composants sont branchés côte à côte — même tension aux bornes de chacun |
 | **Datasheet** | Document technique du fabricant donnant toutes les caractéristiques d'un composant |
 
+
+### 🤔 À ton avis ?
+
+Sur les anciennes guirlandes de Noël, quand **une seule ampoule grille**, **toute la guirlande s'éteint**. Sur les guirlandes LED modernes, les autres restent allumées. Pourquoi, à ton avis ?
+
+??? question "Voir une réponse possible"
+    Les anciennes ampoules sont branchées **les unes après les autres**, **en série** : un seul chemin pour le courant, donc une coupure arrête tout. Les montages modernes utilisent des **branches en parallèle** : chaque LED a son propre chemin.
+    
+    Dans cette séance, tu vas apprendre à **calculer** la résistance qui protège une LED et à comprendre ces deux façons de brancher des composants.
+
 ---
 
 ## 1. La diode LED : structure et fonctionnement
@@ -37,6 +47,33 @@ Une LED est un composant **semiconducteur** qui transforme l'énergie électriqu
 | Tension $V_{F}$ typique | 1,8 – 2,2 V | 2,0 – 2,5 V | 3,0 – 3,5 V | 3,0 – 3,5 V |
 | Courant $I_{F}$ nominal | 20 mA | 20 mA | 20 mA | 20 mA |
 | Courant $I_{F}$ maximum | 30 mA | 30 mA | 30 mA | 30 mA |
+
+
+> [!TIP] 💡 En clair
+> Une LED est une **diode** qui émet de la lumière. Elle laisse passer le courant **dans un seul sens** : de l'**anode (+)** vers la **cathode (−)**.
+>
+> Pour s'allumer, elle a besoin d'une tension minimale appelée **tension de seuil** ($V_F$, environ 2 V pour une LED rouge). Ensuite, **le courant augmente très vite** : si rien ne le limite, la LED est détruite. D'où la **résistance de limitation**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Une LED ne s'allume pas alors que le circuit est complet. Quelle est la première chose à vérifier ?
+
+??? success "Réponse"
+    Le **sens de branchement** : la patte longue (anode) doit aller vers le **+**.
+
+**Q2.** Que signifie $V_F$ pour une LED ?
+
+??? success "Réponse"
+    La **tension de seuil** (« forward voltage ») : la tension qui apparaît aux bornes de la LED quand elle est allumée (environ 2 V pour une rouge).
+
+**Q3.** Pourquoi une LED ne supporte-t-elle pas 9 V directement ?
+
+??? success "Réponse"
+    Elle laisse alors passer un courant **beaucoup trop fort** et elle est détruite. Il faut une résistance en série.
+
+> [!SUCCESS] 🧠 À retenir
+> - La LED est une diode : elle a un sens (anode +, cathode −).
+> - Elle a une tension de seuil $V_F$ et un courant normal $I_F$ (≈ 20 mA).
 
 ---
 
@@ -66,6 +103,32 @@ $$U = R \times I$$
 
 > 💡 **Attention aux unités !** Les calculs se font avec des Ampères (A), pas des milliampères (mA).  
 > Conversion : $20\,\mathrm{mA} = 0{,}020\,\mathrm{A}$ (diviser par 1000)
+
+
+> [!TIP] 💡 En clair
+> C'est la **même loi d'Ohm** que dans la séance S01 : $U = R \times I$. Ici, on l'utilise sur la résistance qui protège la LED.
+>
+> Trois réflexes : **écrire ce qu'on cherche**, **convertir en V, A, Ω**, puis **calculer** avec la bonne formule.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Une résistance de 220 Ω est traversée par 15 mA. Quelle tension a-t-elle à ses bornes ?
+
+??? success "Réponse"
+    $U = R \times I = 220 \times 0{,}015 = 3{,}3\,\mathrm{V}$ (15 mA = 0,015 A).
+
+**Q2.** Une tension de 6 V est appliquée à 300 Ω. Quel courant passe ?
+
+??? success "Réponse"
+    $I = \dfrac{U}{R} = \dfrac{6}{300} = 0{,}02\,\mathrm{A} = 20\,\mathrm{mA}$.
+
+**Q3.** Pourquoi convertit-on les mA en A avant de calculer ?
+
+??? success "Réponse"
+    Parce que la loi d'Ohm donne un bon résultat avec les **unités de base** : volts, ampères et ohms.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Utiliser 20 au lieu de 0,02 pour 20 mA : le résultat est faux d'un facteur 1 000.
 
 ---
 
@@ -109,6 +172,42 @@ Où :
 | 2. Calcul R | $R = \dfrac{1{,}7}{0{,}02}$ | $R = 85\,\mathrm{\Omega }$ |
 | 3. Valeur normalisée E24 | Valeur supérieure la plus proche | $R = 100\,\mathrm{\Omega }$ |
 
+
+> [!TIP] 💡 En clair
+> Une LED rouge « garde » environ 2 V pour elle. Si tu l'alimentes avec 9 V, il reste **7 V en trop**. C'est la **résistance** qui doit les absorber, tout en laissant passer 20 mA.
+>
+> **Méthode en 4 étapes :**
+>
+> 1. **Tension à absorber** : $V_R = V_{alim} - V_F$.
+> 2. **Courant voulu** : $I_F = 20\,\mathrm{mA} = 0{,}02\,\mathrm{A}$.
+> 3. **Calcul** : $R = \dfrac{V_R}{I_F}$.
+> 4. **Choix** : on prend la valeur **normalisée** (série E24) **au-dessus** du résultat.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Calcule la résistance pour une LED rouge (2 V, 20 mA) alimentée en 5 V.
+
+??? success "Réponse"
+    $V_R = 5 - 2 = 3\,\mathrm{V}$ ; $R = \dfrac{3}{0{,}02} = 150\,\Omega$. 150 Ω est une valeur normalisée.
+
+**Q2.** Calcule la résistance pour une LED verte (2,1 V, 20 mA) alimentée en 12 V.
+
+??? success "Réponse"
+    $V_R = 12 - 2{,}1 = 9{,}9\,\mathrm{V}$ ; $R = \dfrac{9{,}9}{0{,}02} = 495\,\Omega$ ; valeur normalisée au-dessus : **510 Ω**.
+
+**Q3.** Calcule la résistance pour une LED rouge (2 V, 20 mA) alimentée en 3,3 V.
+
+??? success "Réponse"
+    $V_R = 3{,}3 - 2 = 1{,}3\,\mathrm{V}$ ; $R = \dfrac{1{,}3}{0{,}02} = 65\,\Omega$ ; valeur normalisée au-dessus : **68 Ω**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Oublier de retirer $V_F$ : on calculerait $R = 9 / 0{,}02 = 450\,\Omega$, alors que la bonne valeur est 350 Ω.
+> - Prendre une valeur **plus petite** que le résultat : la LED reçoit trop de courant.
+
+> [!SUCCESS] 🧠 À retenir
+> - $R = \dfrac{V_{alim} - V_F}{I_F}$, avec $I_F$ en ampères.
+> - On choisit la valeur normalisée **juste au-dessus** du résultat.
+
 ---
 
 ## 4. Circuits série et circuits parallèle
@@ -129,6 +228,33 @@ Où :
 **Exemple — 2 LEDs rouges en série sur 9 V :**
 
 > R = (9 − 2 − 2) / 0,02 = 5 / 0,02 = **250 Ω → choisir 270 Ω**
+
+
+> [!TIP] 💡 En clair
+> **En série**, les composants forment **un seul chemin**, comme des personnes qui marchent en file indienne : **le même courant** traverse tout le monde, et **la tension se partage**. Si un maillon est coupé, **tout s'arrête**.
+>
+> **En parallèle**, le courant a **plusieurs chemins**, comme les voies d'une autoroute : **la tension est la même** sur chaque branche, et **le courant se partage**. Si une branche est coupée, **les autres continuent**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Deux LED rouges (2 V, 20 mA) sont en série sur 9 V. Calcule la résistance.
+
+??? success "Réponse"
+    $R = \dfrac{9 - 2 - 2}{0{,}02} = 250\,\Omega$ ; valeur normalisée : **270 Ω**.
+
+**Q2.** Deux LED rouges sont en parallèle sur 9 V. Quel courant total faut-il ?
+
+??? success "Réponse"
+    $I_{total} = 2 \times 20 = 40\,\mathrm{mA}$ ; et $R = \dfrac{9 - 2}{0{,}04} = 175\,\Omega$ (valeur normalisée : 180 Ω).
+
+**Q3.** Une LED grille. Dans quel montage les autres restent-elles allumées ?
+
+??? success "Réponse"
+    Dans le montage **en parallèle** : chaque LED a son propre chemin.
+
+> [!SUCCESS] 🧠 À retenir
+> - Série : **même courant**, la tension se partage, une panne coupe tout.
+> - Parallèle : **même tension**, le courant se partage, les autres branches continuent.
 
 ---
 
@@ -181,6 +307,28 @@ Une **datasheet** est le document officiel du fabricant. Elle contient toutes le
 
 > 📌 **Règle pratique** : On prend toujours la valeur **typique** (typ.) pour calculer, et on vérifie qu'on ne dépasse pas la valeur **maximale** (max).
 
+
+> [!TIP] 💡 En clair
+> Une **datasheet** est la « notice » du composant, écrite par le fabricant. Tu n'as pas besoin de tout lire : cherche **trois choses** :
+>
+> 1. la **tension directe** $V_F$ ;
+> 2. le **courant normal** $I_F$ ;
+> 3. les **valeurs maximales** à ne jamais dépasser.
+>
+> Pour calculer, on prend les valeurs **typiques** (« typ. ») ; on vérifie ensuite qu'on reste **sous les valeurs maximales** (« max »).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle valeur de la datasheet utilise-t-on pour calculer la résistance ?
+
+??? success "Réponse"
+    Les valeurs **typiques** de $V_F$ et de $I_F$.
+
+**Q2.** Pourquoi ne prend-on pas $I_{FM} = 100\,\mathrm{mA}$ pour calculer ?
+
+??? success "Réponse"
+    C'est un courant **maximal instantané**, jamais un courant de fonctionnement normal : on utilise $I_F = 20\,\mathrm{mA}$.
+
 ---
 
 ## 6. Utilisation du multimètre
@@ -194,6 +342,38 @@ Une **datasheet** est le document officiel du fabricant. Elle contient toutes le
 | Résistance | **Ω** | **Hors circuit** (composant non alimenté) | Ohms (Ω) |
 | Continuité | Symbole **))) ou 🔊** | En série | Bip si continuité |
 | Test diode | Symbole **→|** | Anode sur rouge, cathode sur noir | Affiche $V_{F}$ |
+
+
+> [!TIP] 💡 En clair
+> Le multimètre se branche **différemment** selon ce qu'on mesure. Pour t'en souvenir :
+>
+> - **Tension** : en **parallèle** (on mesure « entre deux points »).
+> - **Courant** : en **série** (le courant doit **traverser** l'appareil).
+> - **Résistance** : **hors tension**, composant sorti du circuit.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Brancher l'ampèremètre **en parallèle** : on crée un court-circuit et on peut détruire l'appareil.
+> - Mesurer une résistance alors que le circuit est alimenté : la mesure est fausse.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Comment branche-t-on le multimètre pour mesurer la tension aux bornes d'une LED ?
+
+??? success "Réponse"
+    **En parallèle** de la LED, en mode tension continue (DCV).
+
+**Q2.** Pour mesurer le courant dans le circuit, où place-t-on l'ampèremètre ?
+
+??? success "Réponse"
+    **En série** : on ouvre le circuit et on y intercale l'appareil.
+
+**Q3.** Peut-on mesurer la valeur d'une résistance dans un circuit alimenté ?
+
+??? success "Réponse"
+    Non : il faut couper l'alimentation et, si possible, sortir la résistance du circuit.
+
+> [!SUCCESS] 🧠 À retenir
+> - V en parallèle, A en série, Ω hors tension.
 
 ---
 

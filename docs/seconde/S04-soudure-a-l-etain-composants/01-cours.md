@@ -22,6 +22,16 @@
 | **Brasure froide (cold joint)** | Défaut : étain mal fondu, aspect mat et granuleux, connexion électrique médiocre |
 | **Délaminage** | Défaut grave : le pad de cuivre se décolle du PCB suite à une surchauffe |
 
+
+### 🤔 À ton avis ?
+
+Pourquoi ne peut-on pas simplement « coller » les pattes d'un composant sur la carte avec de l'étain froid ?
+
+??? question "Voir une réponse possible"
+    Parce que l'étain doit **fondre** et **mouiller** à la fois la **patte** et la **pastille** de cuivre : c'est un vrai **alliage** qui assure la liaison **électrique** et **mécanique**. Si l'étain ne fond pas bien, on obtient une **brasure froide**, qui conduit mal et finit par casser.
+    
+    Dans cette séance, tu apprends le **geste**, la **norme de qualité** et le **contrôle** d'une soudure.
+
 ---
 
 ## 1. Le poste de soudure et ses équipements
@@ -52,6 +62,35 @@
 | **Pompe à dessouder** | Piston à dépression | Aspire l'étain fondu | Armer le piston, faire fondre la brasure, appuyer sur le bouton |
 | **Isopropanol (IPA)** | Alcool isopropylique 99% | Dissout les résidus de flux | Nettoyer le PCB après soudure avec chiffon non pelucheux |
 
+
+> [!TIP] 💡 En clair
+> Le fer à souder **ne soude pas** : il **transfère de la chaleur**. C'est la **chaleur** du fer qui fait fondre l'étain, jamais le contact direct de l'étain avec la panne.
+>
+> - **Température** : environ **360 °C** pour l'étain sans plomb (SAC305).
+> - **Étain** : il contient du **flux**, qui nettoie le cuivre pour que l'étain « accroche ».
+> - **Tresse** ou **pompe** : pour retirer un excès d'étain.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert le flux ?
+
+??? success "Réponse"
+    Il **nettoie** les surfaces de cuivre (il enlève les oxydes) pour que l'étain **mouille** bien.
+
+**Q2.** À quelle température règle-t-on le fer pour de l'étain sans plomb ?
+
+??? success "Réponse"
+    Entre **360 et 380 °C** environ.
+
+**Q3.** Combien de temps le fer doit-il rester en contact avec une brasure ?
+
+??? success "Réponse"
+    **2 à 3 secondes au maximum**, sinon la pastille risque de se décoller.
+
+> [!SUCCESS] 🧠 À retenir
+> - Le fer chauffe la patte et la pastille ; c'est cette chaleur qui fait fondre l'étain.
+> - Contact : 2 à 3 secondes maximum.
+
 ---
 
 ## 2. Technique de soudure — Les 5 étapes
@@ -71,6 +110,41 @@
 > ⚠️ **Erreur classique n°1 :** Poser l'étain sur la panne du fer (étain "pré-fondu") plutôt que de le laisser fondre au contact de la zone chauffée. Résultat : brasure froide garantie.
 
 > ⚠️ **Erreur classique n°2 :** Souffler sur la brasure pour la refroidir plus vite. Résultat : cristallisation trop rapide → brasure froide.
+
+
+> [!TIP] 💡 En clair
+> Une bonne soudure se fait **toujours dans le même ordre** :
+>
+> 1. **Insérer** le composant (attention au sens).
+> 2. **Chauffer** la patte **et** la pastille ensemble.
+> 3. **Apporter l'étain** sur la zone chauffée, **du côté opposé à la panne**.
+> 4. **Retirer l'étain**, **puis le fer**.
+> 5. **Laisser refroidir** sans bouger ni souffler, puis **couper** la patte.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Poser l'étain sur la panne du fer : il fond mais ne mouille pas la pastille.
+> - Souffler sur la soudure pour la refroidir : elle cristallise trop vite (brasure froide).
+> - Bouger la carte pendant le refroidissement : brasure « collée », fragile.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quel est l'ordre des deux retraits à l'étape 4 ?
+
+??? success "Réponse"
+    On retire **d'abord l'étain**, **puis le fer**.
+
+**Q2.** Où amène-t-on l'étain ?
+
+??? success "Réponse"
+    Sur la **zone chauffée**, du côté **opposé à la panne** : c'est la chaleur de la patte et de la pastille qui le fait fondre.
+
+**Q3.** Pourquoi ne faut-il pas souffler sur la soudure ?
+
+??? success "Réponse"
+    Un refroidissement trop rapide donne une **brasure froide** (mate et granuleuse).
+
+> [!SUCCESS] 🧠 À retenir
+> - Chauffer, étain, retirer l'étain, retirer le fer, refroidir.
 
 ---
 
@@ -116,6 +190,35 @@
 | **Soufflure (void)** | Trou / cratère dans la brasure | Humidité dans le PCB ou flux dégradé | 🟡 Refus si > 25% surface |
 | **Délaminage** | Pad cuivre décollé | Surchauffe (> 3 s de contact) | 🔴 Refus toutes classes — PCB irréparable |
 
+
+> [!TIP] 💡 En clair
+> La norme **IPC-A-610** dit **ce qu'on accepte ou refuse** pour une soudure. Il y a **trois classes** : **Classe 1** (grand public), **Classe 2** (industrie, ce qu'on vise) et **Classe 3** (santé, aéronautique, haute fiabilité).
+>
+> Une **bonne brasure** est **brillante, lisse, en forme de cône légèrement creusé**, elle **recouvre** bien la pastille et la patte.
+>
+> Une **mauvaise brasure** se repère à son **aspect** : mate et granuleuse (froide), boule d'étain (excès), étain entre deux pastilles (pont), pastille décollée (délaminage).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle classe IPC vise-t-on en formation ?
+
+??? success "Réponse"
+    La **Classe 2** (électronique industrielle et professionnelle).
+
+**Q2.** Une soudure est mate et granuleuse. Comment s'appelle ce défaut ? Quelle est sa cause ?
+
+??? success "Réponse"
+    Une **brasure froide** : le fer n'était pas assez chaud ou le contact a été trop court.
+
+**Q3.** Quel défaut est irréparable ?
+
+??? success "Réponse"
+    Le **délaminage** (pastille décollée par surchauffe) : la carte est abîmée.
+
+> [!SUCCESS] 🧠 À retenir
+> - Brasure correcte : brillante, lisse, en cône creusé.
+> - Défauts : froide, pont, excès, manque, collée, soufflure, délaminage.
+
 ---
 
 ## 4. Séquence d'insertion des composants traversants
@@ -135,6 +238,24 @@ L'ordre d'insertion est crucial pour la qualité et la facilité du montage :
 | **7** | LEDs, transistors | 15–25 mm | **Polarité obligatoire** — patte longue = anode |
 
 > 💡 **Règle mnémotechnique** : **"Du plus plat au plus grand"** — on commence toujours par ce qui couche le plus près du PCB.
+
+
+> [!TIP] 💡 En clair
+> On soude **du plus plat au plus grand** : ainsi la carte posée à l'envers **reste stable** et les composants hauts ne gênent pas l'accès aux plus petits.
+>
+> **Ordre :** straps, résistances, diodes, condensateurs céramiques, connecteurs, condensateurs électrolytiques, puis LED et transistors.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi soude-t-on les composants hauts en dernier ?
+
+??? success "Réponse"
+    Pour que la carte reste **stable à l'envers** et pour **garder l'accès** aux petits composants.
+
+**Q2.** Quels composants demandent de respecter la **polarité** ?
+
+??? success "Réponse"
+    Les **diodes**, les **LED**, les **condensateurs électrolytiques** et les **transistors**.
 
 ---
 
@@ -163,6 +284,30 @@ Après soudure de tous les composants, inspecter chaque brasure avec la loupe :
 | Absence de court-circuit | Multimètre mode Ω | Hors tension | R > 1 kΩ entre + et − |
 | Fonctionnement LED | Alimentation labo | Sous tension | LED allumée |
 | Tension $V_{F}$ LED | Multimètre DCV | Sous tension | ≈ 2 V (rouge) |
+
+
+> [!TIP] 💡 En clair
+> Après la soudure, **contrôle avant d'alimenter** :
+>
+> 1. **Regarde** chaque brasure à la loupe (aspect, pont, remplissage).
+> 2. **Vérifie** les polarités.
+> 3. **Teste** la continuité de l'alimentation et l'absence de court-circuit entre + et − (en mode ohmmètre, hors tension).
+> 4. **Alimente** seulement si tout est bon.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quel test réalise-t-on avant d'alimenter la carte ?
+
+??? success "Réponse"
+    La **continuité de l'alimentation** et l'**absence de court-circuit** entre + et −, **hors tension**.
+
+**Q2.** Quelle valeur mesure-t-on entre + et − si tout va bien ?
+
+??? success "Réponse"
+    Une résistance **supérieure à 1 kΩ** (pas un court-circuit).
+
+> [!SUCCESS] 🧠 À retenir
+> - Regarder, vérifier les sens, tester hors tension, puis alimenter.
 
 ---
 
