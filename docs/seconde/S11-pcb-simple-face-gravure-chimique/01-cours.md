@@ -27,6 +27,16 @@
 | **Gerber** | Format de fichier standard pour la fabrication PCB (extension .gbr) — contient les données de chaque couche |
 | **IPC-A-600** | Norme internationale de critères d'acceptabilité des circuits imprimés |
 
+
+### 🤔 À ton avis ?
+
+Les cartes électroniques de ton téléphone sont des **plaques vertes** couvertes de fines **lignes de cuivre**. Comment fabrique-t-on ces lignes ?
+
+??? question "Voir une réponse possible"
+    On part d'une plaque **entièrement recouverte de cuivre**, puis on **enlève le cuivre inutile** avec un produit chimique. Il ne reste que les **pistes** dessinées par le schéma.
+    
+    Dans cette séance, tu apprends à **fabriquer un circuit imprimé simple face**, à **percer** les trous et à **contrôler** sa qualité. Attention : on manipule des **produits chimiques**, la sécurité est **obligatoire**.
+
 ---
 
 ## 1. Structure d'un PCB simple face
@@ -51,6 +61,28 @@ Résistance d'une piste de 100 mm × 1 mm × 35 µm :
 $$R = \rho  \times \dfrac{L}{l \times e} = 1{,}72 \times 10^{-8} \times \dfrac{0{,}1}{0{,}001 \times 35 \times 10^{-6}} = 0{,}049\,\mathrm{\Omega } \approx 50 m\Omega$$
 
 → Négligeable pour la plupart des signaux, mais significatif pour les forts courants  
+
+
+> [!TIP] 💡 En clair
+> Un PCB simple face est un **sandwich** :
+>
+> - le **support** isolant (en fibre de verre et résine, appelé FR4) ;
+> - une fine couche de **cuivre** (35 µm) ;
+> - éventuellement un **vernis** qui protège les pistes.
+>
+> Le cuivre sert de **fils** : les **pistes** relient les composants. Les composants se posent d'un côté et se soudent **de l'autre côté**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi servent les pistes d'un PCB ?
+
+??? success "Réponse"
+    Elles jouent le rôle de **fils** : elles relient les composants entre eux.
+
+**Q2.** De quoi est fait le support d'un PCB ?
+
+??? success "Réponse"
+    D'un matériau **isolant** (FR4) recouvert de **cuivre**.
 
 ---
 
@@ -142,6 +174,37 @@ Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bai
 | **Sous-gravure locale** | Agitation insuffisante | Points de court-circuit locaux | Agitation régulière, face cuivre vers le bas |
 | **Pistes décollées** | Mauvais transfert toner, surface grasse | Pistes arrachées | Bien dégraisser avant transfert, appuyer suffisamment |
 
+
+> [!TIP] 💡 En clair
+> La fabrication suit **8 étapes** : **1.** dessiner le schéma et le routage, **2.** imprimer le calque (typon), **3.** le transférer sur la plaque, **4.** révéler, **5.** **graver** (le chlorure ferrique mange le cuivre non protégé), **6.** rincer et neutraliser, **7.** nettoyer, **8.** percer.
+>
+> Le **toner** ou la résine **protège** le cuivre qu'on veut garder : le produit n'attaque que le cuivre **nu**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Laisser la plaque trop longtemps dans le bain : sur-gravure, les pistes deviennent trop fines.
+> - Ne pas assez graver : des **ponts de cuivre** restent entre les pistes (court-circuits).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi le cuivre protégé par le toner n'est-il pas attaqué ?
+
+??? success "Réponse"
+    Parce que le toner est **résistant** au chlorure ferrique : le produit ne dissout que le cuivre **nu**.
+
+**Q2.** Que risque-t-on avec une gravure trop courte ?
+
+??? success "Réponse"
+    Des **ponts de cuivre** (court-circuits) entre les pistes.
+
+**Q3.** Cite deux équipements de sécurité à porter pendant la gravure.
+
+??? success "Réponse"
+    Des **gants** et des **lunettes** de protection (et une blouse, dans un local aéré).
+
+> [!SUCCESS] 🧠 À retenir
+> - Le toner protège le cuivre ; le chlorure ferrique dissout le reste.
+> - Sécurité obligatoire : gants, lunettes, aération.
+
 ---
 
 ## 3. Le perçage des PCB
@@ -185,6 +248,22 @@ Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bai
 7. Souffler les poussières avec de l'air comprimé (lunettes obligatoires)
 8. Vérifier le trou à la loupe : bords nets, pas d'éclatement, centré sur le pad
 ```
+
+
+> [!TIP] 💡 En clair
+> Le perçage se fait avec une **perceuse à colonne** et un **foret en carbure de tungstène** (très dur) de **0,8 à 1 mm** : vitesse **élevée**, avance **lente**. On perce **du côté cuivre**, la plaque posée sur une cale. Si on force, le foret **casse**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi utilise-t-on un foret en carbure de tungstène ?
+
+??? success "Réponse"
+    Parce que la fibre de verre est **très abrasive** : un foret ordinaire s'userait vite.
+
+**Q2.** Comment doit-on régler la perceuse ?
+
+??? success "Réponse"
+    **Vitesse élevée**, **avance lente** : on ne force pas.
 
 ---
 
@@ -258,6 +337,32 @@ L'anneau de cuivre est la couronne de cuivre qui entoure le trou de perçage. Il
 | Rugosité des bords du trou | Absence de fibres saillantes > 0,08 mm |
 | Perpendiculaire au substrat | < 0,5° d'inclinaison |
 
+
+> [!TIP] 💡 En clair
+> La norme **IPC-A-600** décrit comment **juger la qualité** d'un circuit imprimé. On regarde surtout : la **largeur des pistes**, l'**espacement** entre pistes, l'**anneau de cuivre** autour des trous, la **surface** des pistes et le **perçage**.
+>
+> L'**anneau de cuivre** est la couronne de cuivre qui reste autour d'un trou percé : il se calcule avec $\dfrac{\varnothing_{pastille} - \varnothing_{trou}}{2}$.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Une pastille de 1,8 mm est percée avec un foret de 1,0 mm. Quelle est la largeur de l'anneau de cuivre ?
+
+??? success "Réponse"
+    $\dfrac{1{,}8 - 1{,}0}{2} = 0{,}4\,\mathrm{mm}$.
+
+**Q2.** Un trou est décalé et l'anneau est incomplet. Le circuit est-il conforme ?
+
+??? success "Réponse"
+    **Non** : l'anneau doit être complet pour une bonne soudure.
+
+**Q3.** Pourquoi contrôle-t-on l'espacement entre deux pistes ?
+
+??? success "Réponse"
+    Pour détecter des **ponts de cuivre** qui créeraient un **court-circuit**.
+
+> [!SUCCESS] 🧠 À retenir
+> - IPC-A-600 : largeur, espacement, anneau, surface, perçage.
+
 ---
 
 ## 5. Vérification multimètre du PCB
@@ -299,6 +404,29 @@ Si silence : L'anneau de cuivre a été sectionné par le foret (trou trop déca
 | 3 | | MΩ | MΩ | > 1 MΩ | ☐ ✓ ☐ ✗ |
 | 4 | | MΩ | MΩ | > 1 MΩ | ☐ ✓ ☐ ✗ |
 | 5 | Pad – piste | ))) | Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
+
+
+> [!TIP] 💡 En clair
+> Avant de souder, on **teste le circuit nu** au multimètre :
+>
+> - **continuité** d'une piste, d'un bout à l'autre : **BIP** attendu ;
+> - **isolement** entre deux pistes voisines : **aucun bip**, résistance très grande ;
+> - **continuité pastille – piste** : la pastille est bien reliée à sa piste.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** On touche deux pistes voisines et le multimètre bipe. Que signifie-t-il ?
+
+??? success "Réponse"
+    Les pistes sont **reliées** par un pont de cuivre : c'est un **court-circuit** à corriger.
+
+**Q2.** Que doit-on entendre en testant une piste d'un bout à l'autre ?
+
+??? success "Réponse"
+    Un **BIP** : la piste est continue.
+
+> [!SUCCESS] 🧠 À retenir
+> - Piste : BIP. Entre deux pistes : silence.
 
 ---
 

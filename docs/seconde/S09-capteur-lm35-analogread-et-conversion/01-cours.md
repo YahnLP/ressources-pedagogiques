@@ -14,6 +14,16 @@
 - ✅ Convertir une valeur ADC en tension puis en température
 - ✅ Créer un thermomètre fonctionnel avec Arduino
 
+
+### 🤔 À ton avis ?
+
+Un thermomètre numérique affiche « 24,3 °C ». Comment un petit circuit peut-il **connaître** une température et **l'écrire en chiffres** ?
+
+??? question "Voir une réponse possible"
+    Un **capteur** transforme la température en une **tension électrique**. Cette tension varie **de façon continue** (elle est analogique). L'Arduino la **mesure** avec un **convertisseur** qui la transforme en **nombre**. Un petit calcul donne enfin la température en °C.
+    
+    Dans cette séance, tu suis toute cette chaîne : **capteur LM35 → tension → nombre → température**.
+
 ---
 
 ## 📚 PARTIE 1 : SIGNAL ANALOGIQUE VS NUMÉRIQUE
@@ -30,6 +40,32 @@
 - **Tension électrique** : 2.3V, 2.35V, 2.351V, 2.3512V...
 - **Son** : Onde sonore (voix, musique)
 - **Lumière** : Intensité lumineuse (0 à 100% et toutes les valeurs intermédiaires)
+
+
+> [!TIP] 💡 En clair
+> Un signal **analogique** varie **de façon continue** : il peut prendre **toutes** les valeurs possibles (la température d'une pièce, la tension d'une pile qui se vide). Un signal **numérique** ne prend que **quelques valeurs précises** (0 ou 1).
+>
+> L'Arduino **ne comprend que des nombres** : pour utiliser un capteur analogique, il faut donc **convertir**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** La température d'une pièce est-elle un signal analogique ou numérique ?
+
+??? success "Réponse"
+    **Analogique** : elle varie de façon continue, sans « sauts ».
+
+**Q2.** Un interrupteur ouvert / fermé est-il analogique ou numérique ?
+
+??? success "Réponse"
+    **Numérique** : il n'a que deux états.
+
+**Q3.** Pourquoi doit-on convertir un signal analogique pour l'Arduino ?
+
+??? success "Réponse"
+    Parce que l'Arduino ne traite que des **nombres** : il faut transformer la tension en un nombre.
+
+> [!SUCCESS] 🧠 À retenir
+> - Analogique = continu ; numérique = quelques valeurs précises.
 
 ---
 
@@ -102,6 +138,35 @@
 **Schéma de principe :**
 
 ![Conversion ADC 10 bits : 0 V → 0, 5 V → 1023](images/adc-conversion.png)
+
+
+> [!TIP] 💡 En clair
+> Le **convertisseur analogique-numérique (ADC)** transforme une tension en un **nombre entier**. L'Arduino Uno a un ADC de **10 bits** : il dispose de $2^{10} = 1\,024$ niveaux, donc de **0 à 1023**.
+>
+> La plage mesurée est **0 à 5 V**. Chaque niveau représente donc $\dfrac{5}{1023} \approx 4{,}9\,\mathrm{mV}$.
+>
+> **Conversion :** $U = \text{valeur} \times \dfrac{5}{1023}$.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que renvoie `analogRead()` pour une tension de 0 V ? Et pour 5 V ?
+
+??? success "Réponse"
+    **0** pour 0 V ; **1023** pour 5 V.
+
+**Q2.** Quelle tension correspond à une valeur de 512 ?
+
+??? success "Réponse"
+    $U = 512 \times \dfrac{5}{1023} \approx 2{,}5\,\mathrm{V}$ (la moitié de la plage).
+
+**Q3.** Pourquoi 1024 niveaux ?
+
+??? success "Réponse"
+    Parce que l'ADC a **10 bits** : $2^{10} = 1\,024$.
+
+> [!SUCCESS] 🧠 À retenir
+> - `analogRead()` donne un nombre de 0 à 1023.
+> - $U = \text{valeur} \times \dfrac{5}{1023}$.
 
 ---
 
@@ -193,6 +258,34 @@ Le **LM35** est un capteur de température analogique de précision.
 
 ![Brochage du LM35 en boîtier TO-92, vu de face](images/lm35-brochage.png)
 
+
+> [!TIP] 💡 En clair
+> Le **LM35** est un capteur de température très simple : il possède **trois broches** (+5 V, signal, GND) et délivre **10 mV par degré Celsius**. À 25 °C, il sort donc $25 \times 10 = 250\,\mathrm{mV} = 0{,}25\,\mathrm{V}$.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Inverser le **+5 V** et le **GND** : le LM35 chauffe et peut être détruit.
+> - Brancher la broche de signal ailleurs que sur une entrée **analogique** (A0, A1…).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle tension délivre un LM35 à 30 °C ?
+
+??? success "Réponse"
+    $30 \times 10\,\mathrm{mV} = 300\,\mathrm{mV} = 0{,}3\,\mathrm{V}$.
+
+**Q2.** Quelle est la sensibilité du LM35 ?
+
+??? success "Réponse"
+    **10 mV par °C**.
+
+**Q3.** Sur quelle broche de l'Arduino branche-t-on la broche de signal du LM35 ?
+
+??? success "Réponse"
+    Sur une **entrée analogique**, par exemple **A0**.
+
+> [!SUCCESS] 🧠 À retenir
+> - LM35 : 10 mV par °C, trois broches (+5 V, signal, GND).
+
 ---
 
 **Caractéristiques techniques :**
@@ -279,6 +372,36 @@ Tension_OUT (V) = Température (°C) × 0.01 V/°C
 int valeurADC = analogRead(A0);
 // Exemple : valeurADC = 51
 ```
+
+
+> [!TIP] 💡 En clair
+> Pour passer du capteur à la température, on suit **trois étapes** :
+>
+> 1. **Lire** le nombre : `valeur = analogRead(A0)`.
+> 2. **Convertir en tension** : $U = \text{valeur} \times \dfrac{5}{1023}$.
+> 3. **Convertir en température** : $T = U \times 100$ (car 10 mV par °C, soit 100 °C par volt).
+>
+> **Exemple :** valeur = 51 → $U = 51 \times \dfrac{5}{1023} \approx 0{,}249\,\mathrm{V}$ → $T \approx 24{,}9\,°\mathrm{C}$.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** `analogRead` renvoie 102. Quelle est la température ?
+
+??? success "Réponse"
+    $U = 102 \times \dfrac{5}{1023} \approx 0{,}499\,\mathrm{V}$ ; $T \approx 49{,}9\,°\mathrm{C}$.
+
+**Q2.** Pourquoi multiplie-t-on la tension par 100 ?
+
+??? success "Réponse"
+    Parce que le LM35 délivre **10 mV par °C** : 1 V correspond à **100 °C**.
+
+**Q3.** Que se passe-t-il si on oublie de diviser par 1023 ?
+
+??? success "Réponse"
+    On obtient un nombre **beaucoup trop grand** qui n'a plus de sens comme température.
+
+> [!SUCCESS] 🧠 À retenir
+> - lire → tension → température : $T = \text{valeur} \times \dfrac{5}{1023} \times 100$.
 
 ---
 
@@ -403,6 +526,25 @@ void loop() {
   delay(1000);  // Attendre 1 seconde
 }
 ```
+
+
+> [!TIP] 💡 En clair
+> Dans le programme, on écrit exactement ces trois étapes : on **lit** avec `analogRead`, on **calcule**, on **affiche** avec `Serial.println`. On utilise des nombres à virgule (`float`) pour ne pas perdre les décimales. Pour des mesures plus stables, on fait une **moyenne** de plusieurs lectures.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi utilise-t-on le type `float` pour la température ?
+
+??? success "Réponse"
+    Parce qu'une température a des **décimales** : un `int` les perdrait.
+
+**Q2.** À quoi sert la moyenne de plusieurs mesures ?
+
+??? success "Réponse"
+    À **lisser le bruit** : une seule mesure peut être perturbée.
+
+> [!SUCCESS] 🧠 À retenir
+> - `analogRead` → calcul en `float` → `Serial.println`.
 
 ---
 

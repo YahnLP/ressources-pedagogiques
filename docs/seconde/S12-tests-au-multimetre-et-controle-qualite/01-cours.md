@@ -26,6 +26,16 @@
 ✅ Suivre une procédure de contrôle qualité  
 ✅ Rédiger un PV (Procès-Verbal) de contrôle professionnel  
 
+
+### 🤔 À ton avis ?
+
+Une carte vient d'être fabriquée. Comment savoir, **avant de l'alimenter**, qu'elle est sans défaut ?
+
+??? question "Voir une réponse possible"
+    On la **teste méthodiquement avec un multimètre** : continuité des pistes, absence de court-circuit entre l'alimentation et la masse, et vérification des soudures. On **note** les résultats dans un **procès-verbal (PV)**.
+    
+    C'est ce que tu fais dans cette séance : **tester, contrôler, rédiger**.
+
 ---
 
 ## 1️⃣ LE MULTIMÈTRE EN MODE CONTINUITÉ
@@ -81,6 +91,32 @@ Le multimètre considère qu'il y a continuité si la résistance est **inférie
 
 ![Mode continuité : fil intact (bip) et fil coupé (pas de bip)](images/continuite-multimetre.png)
 
+
+> [!TIP] 💡 En clair
+> En **mode continuité**, le multimètre envoie un très petit courant entre ses deux pointes. **S'il passe**, il fait **BIP** : le chemin est fermé. **S'il ne passe pas**, silence : le chemin est coupé.
+>
+> On teste **toujours hors tension**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que signifie un BIP en mode continuité ?
+
+??? success "Réponse"
+    Le chemin entre les deux pointes est **fermé** (continuité).
+
+**Q2.** Pourquoi teste-t-on hors tension ?
+
+??? success "Réponse"
+    Pour ne pas fausser la mesure et ne pas **endommager** le multimètre.
+
+**Q3.** Quelle différence entre « pas de bip » et « BIP » sur un fil ?
+
+??? success "Réponse"
+    Pas de bip : le fil est **coupé** ; bip : il est **continu**.
+
+> [!SUCCESS] 🧠 À retenir
+> - BIP = chemin fermé ; silence = chemin coupé ; toujours hors tension.
+
 ---
 
 ## 2️⃣ TESTS SUR CARTE PCB
@@ -115,6 +151,36 @@ Si pas de BIP → Piste coupée !
 - Gravure trop agressive (piste trop fine disparue)
 - Rayure mécanique pendant la manipulation
 - Piste mal conçue (trop fine dès le départ)
+
+
+> [!TIP] 💡 En clair
+> Sur une carte, on enchaîne **trois tests** :
+>
+> 1. **Continuité** de chaque piste importante (alimentation, masse, signaux) ;
+> 2. **Absence de court-circuit** entre le **+** et le **−** (en mode ohmmètre : une valeur **grande** est bon signe) ;
+> 3. **Vérification des soudures** (un bip peut disparaître si une soudure est froide).
+>
+> On avance **dans l'ordre**, on **note** chaque résultat.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Le multimètre bipe entre le + et le − de l'alimentation. Que faut-il en conclure ?
+
+??? success "Réponse"
+    Il y a un **court-circuit** : il ne faut **pas** alimenter la carte avant de l'avoir cherché.
+
+**Q2.** Quel test fait-on en premier ?
+
+??? success "Réponse"
+    La **continuité des pistes** d'alimentation et de masse, puis l'**absence de court-circuit**.
+
+**Q3.** Pourquoi note-t-on chaque résultat ?
+
+??? success "Réponse"
+    Pour **garder une trace** et rédiger le PV, et pour repérer plus vite la cause d'un défaut.
+
+> [!SUCCESS] 🧠 À retenir
+> - Continuité, court-circuit, soudures, dans cet ordre.
 
 ---
 
@@ -203,6 +269,22 @@ Un court-circuit, c'est quand deux pistes qui ne devraient PAS se toucher sont r
 | Pas de résidu de flux ou de saleté | ☐ | ☐ |
 | Pas de rayure sur les pistes | ☐ | ☐ |
 
+
+> [!TIP] 💡 En clair
+> Les défauts de fabrication **les plus fréquents** : **piste coupée** (pas de bip là où il en faut un), **court-circuit** entre pistes (bip là où il n'en faut pas), **soudure froide** (contact intermittent), **composant à l'envers** (polarité), **pastille décollée**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Une piste ne bipe pas d'un bout à l'autre. Quel défaut ?
+
+??? success "Réponse"
+    Une **piste coupée**.
+
+**Q2.** Une LED ne s'allume pas mais le circuit est complet. Que peut-on suspecter ?
+
+??? success "Réponse"
+    Une LED **à l'envers** ou une **soudure froide**.
+
 ---
 
 ## 4️⃣ PROCÉDURE DE CONTRÔLE QUALITÉ
@@ -238,6 +320,17 @@ Un court-circuit, c'est quand deux pistes qui ne devraient PAS se toucher sont r
 ```
 Fabrication → Test (sans alim) → Réparation → Re-test → Mise sous tension
 ```
+
+
+> [!TIP] 💡 En clair
+> Une **procédure de contrôle** est une **liste d'étapes toujours identiques** : ainsi, **deux personnes différentes** trouvent les **mêmes défauts**. Elle va du **simple** (inspection visuelle) au **plus précis** (tests électriques).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi suit-on toujours la même procédure ?
+
+??? success "Réponse"
+    Pour que le contrôle soit **reproductible** : le résultat ne dépend pas de la personne qui le fait.
 
 ---
 
@@ -320,6 +413,25 @@ Si non-conformités :
 **Validé par :** (Responsable qualité)  
 **Date :** JJ/MM/AAAA  
 **Signature :** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+
+> [!TIP] 💡 En clair
+> Le **procès-verbal (PV)** est la **preuve écrite** du contrôle. Il contient : la **référence** de la carte, la **date**, les **tests réalisés**, les **résultats mesurés**, la **conclusion** (conforme ou non) et la **signature**. Un PV doit être **clair** : quelqu'un d'autre doit comprendre ce que tu as fait.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Cite trois éléments d'un PV.
+
+??? success "Réponse"
+    Par exemple : la **référence de la carte**, la **date**, les **résultats des mesures**, la **conclusion**, la **signature**.
+
+**Q2.** Pourquoi écrit-on la conclusion « conforme » ou « non conforme » ?
+
+??? success "Réponse"
+    Pour que la **décision** soit claire (la carte peut-elle être utilisée ?).
+
+> [!SUCCESS] 🧠 À retenir
+> - Un PV = preuve écrite : tests, résultats, conclusion, signature.
 
 ---
 

@@ -1,0 +1,27 @@
+import sys; sys.path.insert(0, __import__("pathlib").Path(__file__).resolve().parents[1].as_posix())
+from explications import *
+
+ENTREES = [
+    ("## 🎯 OBJECTIFS", 'fin', apropos("Une voiture télécommandée peut avancer **vite ou lentement**, et même **reculer**. Comment un circuit électronique y parvient-il ?", "Pour **régler la vitesse**, il alimente le moteur par **petites impulsions** : plus elles sont longues, plus le moteur tourne vite (c'est la **PWM**). Pour **inverser le sens**, il **change la polarité** de la tension avec un montage appelé **pont en H**.\n\nDans cette séance, tu apprends à **commander un moteur** avec une carte Arduino et un circuit L293D.")),
+    ("## 1️⃣", 'fin', clair("Un **moteur à courant continu** transforme l'**énergie électrique en mouvement**. Si on inverse la tension, il tourne **dans l'autre sens**. Plus la tension moyenne est grande, plus il tourne **vite**.\n\nAttention : un moteur **consomme beaucoup plus de courant** qu'une LED, et il peut créer des **parasites**. On ne le branche **jamais directement** sur une broche de l'Arduino.") + "\n" + verifie(
+        ("Que se passe-t-il si on inverse la tension aux bornes d'un moteur DC ?", "Il tourne **dans l'autre sens**."),
+        ("Pourquoi ne branche-t-on pas un moteur directement sur une broche Arduino ?", "La broche ne peut fournir qu'un **courant faible** : le moteur demande bien plus et risquerait de **l'endommager**."),
+        ("Comment fait-on varier la vitesse d'un moteur DC ?", "En faisant varier la **tension moyenne** appliquée, par exemple avec la PWM.")) + "\n" + retenir("Inverser la tension = inverser le sens ; la tension moyenne règle la vitesse.", "Un moteur ne se branche jamais directement sur une broche d'Arduino.")),
+    ("## 2️⃣", 'fin', clair("La **PWM** (modulation de largeur d'impulsion) « allume et éteint » très vite la tension. Ce qui compte, c'est la **proportion du temps où c'est allumé**, appelée **rapport cyclique** :\n\n- 0 % : toujours éteint, le moteur est **arrêté** ;\n- 50 % : allumé la moitié du temps, le moteur tourne à **vitesse moyenne** ;\n- 100 % : toujours allumé, **vitesse maximale**.\n\nAvec Arduino : `analogWrite(broche, valeur)` avec une valeur de **0 à 255** (255 = 100 %).") + "\n" + verifie(
+        ("Quel rapport cyclique correspond à `analogWrite(9, 128)` ?", "Environ **50 %** (128 sur 255)."),
+        ("Quelle valeur donner à `analogWrite` pour un moteur à pleine vitesse ?", "**255**."),
+        ("La PWM change-t-elle la tension maximale ?", "Non : la tension reste la même, c'est la **durée à l'état haut** qui change, donc la **tension moyenne**.")) + "\n" + retenir("PWM : rapport cyclique 0 à 100 % ; `analogWrite` de 0 à 255.")),
+    ("## 3️⃣", 'fin', clair("Pour **inverser le sens** d'un moteur, il faudrait **inverser les fils**. Le **pont en H** le fait à notre place, avec des **interrupteurs électroniques** : selon ceux qui sont fermés, le courant traverse le moteur dans un sens ou dans l'autre. Son nom vient de la forme du schéma : un « H » avec le moteur au milieu.") + "\n" + verifie(
+        ("À quoi sert un pont en H ?", "À **inverser le sens de rotation** d'un moteur (et à le commander avec un petit signal)."),
+        ("Pourquoi l'appelle-t-on « pont en H » ?", "Parce que le schéma a la forme d'un **H** : le moteur forme la barre horizontale, les interrupteurs les barres verticales.")) ),
+    ("## 4️⃣", 'fin', clair("Le **L293D** est un circuit qui contient **deux ponts en H**. Retiens ses **trois types de broches** :\n\n- **EN** (enable) : autorise le moteur (c'est ici qu'on met la PWM) ;\n- **IN1 / IN2** : choisissent le **sens** ;\n- **VCC1** (5 V, logique) et **VCC2** (alimentation du **moteur**).\n\nLes **GND** de l'Arduino et de la pile doivent être **reliés ensemble**.") + "\n" + erreurs("Oublier de relier les masses (GND) : le montage ne fonctionne pas.", "Alimenter le moteur par le 5 V de l'Arduino : ce n'est pas assez puissant.") + "\n" + verifie(
+        ("À quoi servent les broches IN1 et IN2 ?", "À choisir le **sens de rotation** du moteur."),
+        ("Où branche-t-on le signal PWM ?", "Sur la broche **EN** (enable)."),
+        ("Pourquoi relier les GND de l'Arduino et de la pile ?", "Pour avoir une **masse commune** : sans elle, les signaux n'ont pas de référence.")) + "\n" + retenir("EN = vitesse (PWM) ; IN1/IN2 = sens ; masses reliées.")),
+    ("## 5️⃣", 'fin', clair("La **table de vérité** résume ce que fait le moteur selon IN1 et IN2 (avec EN actif) :\n\n- IN1 = 1, IN2 = 0 : **sens 1** ;\n- IN1 = 0, IN2 = 1 : **sens 2** ;\n- IN1 = IN2 : le moteur est **arrêté** (freiné).") + "\n" + verifie(
+        ("IN1 = 1 et IN2 = 0. Que fait le moteur ?", "Il tourne dans le **sens 1**."),
+        ("IN1 et IN2 sont tous deux à 0. Que fait le moteur ?", "Il est **arrêté**.")) ),
+    ("## 7️⃣", 'fin', clair("Si le moteur ne tourne pas, cherche **dans l'ordre** : **alimentation** du moteur (VCC2), **masse commune**, **broche EN**, **câblage IN1/IN2**, **programme**. Sinon, **mesure** avec le multimètre.") + "\n" + verifie(
+        ("Le moteur ne tourne pas. Quelle est la première vérification ?", "L'**alimentation du moteur** (VCC2, pile bien branchée) et la **masse commune**."),
+        ("Le moteur tourne mais dans le mauvais sens. Que fait-on ?", "On **inverse** les états de IN1 et IN2 (ou on permute les fils du moteur).")) + "\n" + retenir("Dépanner = vérifier dans l'ordre : alimentation, masse, EN, IN1/IN2, programme.")),
+]
