@@ -15,7 +15,7 @@ def f_drv1(): return figure(W, 530, driver("+5 V", "220 Ω", "10 kΩ", "D1", "Si
 def f_drv3(): return figure(W, 530, driver("+9 V (BT1, pile 9 V)", "150 Ω", "10 kΩ", "D1 rouge", "J1 pin 2 : signal d'entrée", T(100, 410, "J1 pin 1 : GND", 16, 800, MUTED, "start") + chip(850, 220, "R2 = résistance du collecteur", BLUE, w=380, size=17), "Q1 = BC547 (TO-92)"))
 
 
-def ne555(R1, R2, C1, C3, R3, note=None):
+def ne555(R1, R2, C1, C3, R3, note=None, nr1="R1", nr2="R2", nc1="C1", nc2="C2"):
     bx, by, bw, bh = 460, 150, 180, 200
     o = f'<rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="8" fill="#fff" stroke="{INK}" stroke-width="3.5"/>' + T(562, 262, "NE555", 22, 800, INK) + f'<path d="M{bx+bw/2-18},{by} a18,18 0 0 0 36,0" fill="none" stroke="{INK}" stroke-width="3"/>'
     pins = {"4": (bx + 40, by, "up", "RESET"), "8": (bx + 140, by, "up", "VCC"), "1": (bx + 40, by + bh, "dn", "GND"), "5": (bx + 140, by + bh, "dn", "CTRL"), "3": (bx, by + 50, "l", "OUT"), "2": (bx, by + 100, "l", "TRIG"), "6": (bx, by + 150, "l", "THR"), "7": (bx + bw, by + 150, "r", "DIS")}
@@ -24,17 +24,17 @@ def ne555(R1, R2, C1, C3, R3, note=None):
         o += T(tx[0], tx[1], f"{n} {t}", 13, 700, MUTED, "start" if d == "l" else "end" if d == "r" else "middle")
     o += s_wire([(150, 70), (900, 70)], RED, 3) + T(120, 76, "+5 V", 17, 800, RED, "end")
     o += s_wire([(pins["4"][0], 150), (pins["4"][0], 70)]) + s_wire([(pins["8"][0], 150), (pins["8"][0], 70)]) + dot(pins["4"][0], 70) + dot(pins["8"][0], 70)
-    o += vrun(760, 70, 300, [(160, "R", f"R1 = {R1}", {})], 1, 52) + s_wire([(640, 300), (760, 300)]) + dot(760, 300) + vrun(760, 300, 430, [(365, "R", f"R2 = {R2}", {})], 1, 52)
+    o += vrun(760, 70, 300, [(160, "R", f"{nr1} = {R1}", {})], 1, 52) + s_wire([(640, 300), (760, 300)]) + dot(760, 300) + vrun(760, 300, 430, [(365, "R", f"{nr2} = {R2}", {})], 1, 52)
     o += s_wire([(760, 430), (400, 430), (400, 250), (460, 250)]) + s_wire([(400, 300), (460, 300)]) + dot(400, 300) + dot(400, 430)
-    o += vrun(400, 430, 520, [(485, "C", f"C1 = {C1}", {})], -1, 52) + gnd(400, 520)
-    o += s_wire([(pins["1"][0], 350), (pins["1"][0], 380)]) + gnd(pins["1"][0], 380) + vrun(pins["5"][0], 350, 450, [(405, "C", "C2 = 100 nF", {})], 1, 52) + gnd(pins["5"][0], 450)
+    o += vrun(400, 430, 520, [(485, "C", f"{nc1} = {C1}", {})], -1, 52) + gnd(400, 520)
+    o += s_wire([(pins["1"][0], 350), (pins["1"][0], 380)]) + gnd(pins["1"][0], 380) + vrun(pins["5"][0], 350, 450, [(405, "C", f"{nc2} = 100 nF", {})], 1, 52) + gnd(pins["5"][0], 450)
     o += hrun(200, 130, 460, [(300, "R", f"R3 = {R3}", {})]) + vrun(130, 200, 340, [(270, "LED", "LED", {})], -1, 58) + gnd(130, 340)
     if note: o += chip(600, 590, note, INK, w=900, size=15)
     return figure(W, 630, o)
 
 
 def f_ne555_a(): return ne555("10 kΩ", "47 kΩ", "10 µF", "", "330 Ω", "f ≈ 1 / (0,693 × (R1 + 2 × R2) × C1) ≈ 0,5 Hz : la LED clignote toutes les 2 s environ")
-def f_ne555_b(): return ne555("10 kΩ", "68 kΩ", "10 µF", "", "100 Ω", "Alimentation 12 V → 5 V par le 7805 (C1 100 nF, C2 10 µF) · deux PWR_FLAG sur +5 V et GND")
+def f_ne555_b(): return ne555("10 kΩ", "68 kΩ", "10 µF", "", "150 Ω", "7805 : 12 V → 5 V (C1 100 nF, C2 10 µF hors schéma) · PWR_FLAG sur +5 V et GND", nr1="Ra", nr2="Rb", nc1="C3", nc2="C4")
 
 
 def f_bus():
