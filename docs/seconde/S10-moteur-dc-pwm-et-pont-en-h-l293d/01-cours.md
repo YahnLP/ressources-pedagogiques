@@ -59,9 +59,7 @@ Un **moteur DC** (Direct Current = Courant Continu) est un **actionneur** qui tr
 
 ### 🔌 Symbole électrique
 
-```
-     ──M──
-```
+![Symbole du moteur DC et moteur réel](images/symbole-moteur.png)
 
 ### 🔄 Inversion du sens de rotation
 
@@ -99,36 +97,7 @@ Duty Cycle (%) = (Temps ON / Période totale) × 100
 
 **Exemples de signaux PWM :**
 
-```
-PWM 0% (Moteur arrêté)
-─────────────────────────
-     0V
-
-
-PWM 25% (Vitesse lente)
-──┐   ┌──┐   ┌──┐   ┌──
-  └───┘  └───┘  └───┘
-  ON OFF ON OFF ON OFF
-
-
-PWM 50% (Vitesse moyenne)
-──┐ ┌──┐ ┌──┐ ┌──┐ ┌──
-  └─┘  └─┘  └─┘  └─┘
-  ON  ON  ON  ON  ON
-  OFF OFF OFF OFF OFF
-
-
-PWM 75% (Vitesse rapide)
-──┐   ┌──┐   ┌──┐   ┌──
-  └─┘   └─┘   └─┘
-  ON    ON    ON    ON
-  OF    OF    OF    OF
-
-
-PWM 100% (Vitesse max)
-──────────────────────────
-     5V
-```
+![PWM : rapport cyclique de 0 % à 100 % et vitesse du moteur](images/pwm-rapport-cyclique.png)
 
 ### ⏱️ Fréquence du PWM
 

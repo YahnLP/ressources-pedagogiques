@@ -47,10 +47,7 @@ Le multimètre en mode continuité :
 
 Sur le multimètre, le mode continuité est représenté par :
 
-```
-    ──▷|───  )))
-    (Diode + Son)
-```
+![Test de continuité : symbole diode et bip sonore](images/continuite-buzzer.png)
 
 ### 📊 Interprétation des résultats
 

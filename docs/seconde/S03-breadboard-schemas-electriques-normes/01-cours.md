@@ -68,14 +68,14 @@ Un schéma électrique est un **langage universel**. Un technicien en France et 
 
 | Composant | Symbole IEC | Remarque |
 |---|---|---|
-| Source de tension continue | Deux barres : grande = **+**, petite = **−** | La grande barre est toujours le pôle positif |
-| Résistance | Rectangle | Symbole européen — les USA utilisent un zigzag |
-| LED | Triangle + barre + flèches | Les flèches représentent la lumière émise |
-| Interrupteur (NF ouvert) | Ligne avec angle ouvert | NF = normalement fermé, NO = normalement ouvert |
-| Condensateur | Deux barres parallèles | Pour les condensateurs polarisés, une barre est incurvée (−) |
-| Jonction (connexion) | **Point noir •** | Obligatoire quand deux fils se connectent |
-| Croisement (pas de connexion) | Pont en arc | Deux fils se croisent mais ne se touchent pas |
-| Masse GND | Triangle inversé ou peigne | Référence 0 V du circuit |
+| Source de tension continue | ![Deux barres : grande = **+**, petite = **−**](images/sym-source-continue.png){ width="210" } | La grande barre est toujours le pôle positif |
+| Résistance | ![Rectangle](images/sym-resistance.png){ width="210" } | Symbole européen — les USA utilisent un zigzag |
+| LED | ![Triangle + barre + flèches](images/sym-led.png){ width="210" } | Les flèches représentent la lumière émise |
+| Interrupteur (NF ouvert) | ![Ligne avec angle ouvert](images/sym-inter-no.png){ width="210" } | NF = normalement fermé, NO = normalement ouvert |
+| Condensateur | ![Deux barres parallèles](images/sym-condo.png){ width="210" } | Pour les condensateurs polarisés, une barre est incurvée (−) |
+| Jonction (connexion) | ![**Point noir •**](images/sym-jonction.png){ width="210" } | Obligatoire quand deux fils se connectent |
+| Croisement (pas de connexion) | ![Pont en arc](images/sym-croisement.png){ width="210" } | Deux fils se croisent mais ne se touchent pas |
+| Masse GND | ![Triangle inversé ou peigne](images/sym-masse.png){ width="210" } | Référence 0 V du circuit |
 
 ### 2.3 Règles de dessin d'un schéma
 
@@ -205,19 +205,8 @@ GND
 
 > "Une alimentation 9 V alimente deux résistances de 220 Ω (R1 et R2) en série. Une LED rouge (D1) est connectée après R2. Le tout est bouclé sur la masse."
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                                                                         │
-│                                                                         │
-│                                                                         │
-│                                                                         │
-│                                                                         │
-│                                                                         │
-│                                                                         │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
-                    Votre schéma IEC normé ici
-```
+> [!NOTE] ✏️ À toi de dessiner
+> Dessine ton schéma sur ta feuille ou dans ton dossier (zone prévue pour le schéma).
 
 ---
 

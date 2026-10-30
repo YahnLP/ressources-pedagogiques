@@ -9,36 +9,32 @@
 
 ## 1️⃣ LE FLUX KiCad COMPLET
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│                    FLUX KICAD 8 COMPLET                              │
-│                                                                      │
-│  1. EESCHEMA (schéma)                                                │
-│     → Placer symboles (A)                                           │
-│     → Câbler (W) + Labels (L) + Alim (P) + PWR_FLAG                │
-│     → Annoter (Tools → Annotate)                                     │
-│     → ERC (Inspect → ERC) → 0 erreur obligatoire                   │
-│                  ↓                                                   │
-│  2. ASSOCIATION EMPREINTES                                           │
-│     → Tools → Assign Footprints                                     │
-│     → Chaque symbole → une empreinte PCB                            │
-│                  ↓                                                   │
-│  3. PCBNEW (routage)                                                 │
-│     → Importer netlist (ou "Update PCB from Schematic")             │
-│     → Placer les composants                                         │
-│     → Définir le contour (Edge.Cuts)                                │
-│     → Router les pistes                                             │
-│     → DRC (Inspect → DRC) → 0 erreur obligatoire                   │
-│                  ↓                                                   │
-│  4. EXPORT GERBER + DRILL                                            │
-│     → File → Fabrication Outputs → Gerbers                         │
-│     → File → Fabrication Outputs → Drill Files                     │
-│                  ↓                                                   │
-│  5. BOM                                                              │
-│     → Tools → Generate BOM (dans Eeschema)                          │
-│     → Compléter avec références fournisseurs et prix                │
-└──────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] FLUX KICAD 8 COMPLET
+>
+> 1. EESCHEMA (schéma)  
+>   → Placer symboles (A)  
+>   → Câbler (W) + Labels (L) + Alim (P) + PWR_FLAG  
+>   → Annoter (Tools → Annotate)  
+>   → ERC (Inspect → ERC) → 0 erreur obligatoire  
+>                ↓  
+> 2. ASSOCIATION EMPREINTES  
+>   → Tools → Assign Footprints  
+>   → Chaque symbole → une empreinte PCB  
+>                ↓  
+> 3. PCBNEW (routage)  
+>   → Importer netlist (ou "Update PCB from Schematic")  
+>   → Placer les composants  
+>   → Définir le contour (Edge.Cuts)  
+>   → Router les pistes  
+>   → DRC (Inspect → DRC) → 0 erreur obligatoire  
+>                ↓  
+> 4. EXPORT GERBER + DRILL  
+>   → File → Fabrication Outputs → Gerbers  
+>   → File → Fabrication Outputs → Drill Files  
+>                ↓  
+> 5. BOM  
+>   → Tools → Generate BOM (dans Eeschema)  
+>   → Compléter avec références fournisseurs et prix  
 
 ---
 

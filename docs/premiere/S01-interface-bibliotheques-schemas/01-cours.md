@@ -93,32 +93,30 @@ WORKFLOW KiCad :
 
 ### Le Schematic Editor — zones clés
 
-```
-┌─────┬───────────────────────────────────────┬──────────┐
-│     │  Barre d'outils horizontale             │          │
-│  B  │─────────────────────────────────────────│  Barre  │
-│  a  │                                         │  verti- │
-│  r  │                                         │  cale   │
-│  r  │         ZONE DE DESSIN                  │  (Pas-  │
-│  e  │                                         │  ser)   │
-│     │                                         │          │
-│  g. │                                         │          │
-└─────┴───────────────────────────────────────┴──────────┘
+|  | Barre d'outils horizontale |  |
+|---|---|---|
+| B | ───────────────────────────────────────── | Barre |
+| a |  | verti- |
+| r |  | cale |
+| r | ZONE DE DESSIN | (Pas- |
+| e |  | ser) |
+|  |  |  |
+| g. |  |  |
+
 
 Raccourcis clavier essentiels :
-  A → Ajouter un composant (Add Symbol)
-  W → Ajouter un fil (Wire)
-  P → Ajouter un symbole d'alimentation (Power)
-  E → Éditer les propriétés d'un composant
-  R → Faire pivoter
-  X → Copier
-  DEL → Supprimer
-  Esc → Annuler l'outil en cours
-  Ctrl+Z → Annuler
-  Ctrl+S → Sauvegarder
-  Molette → Zoom avant/arrière
-  Clic droit → Menu contextuel
-```
+A → Ajouter un composant (Add Symbol)
+W → Ajouter un fil (Wire)
+P → Ajouter un symbole d'alimentation (Power)
+E → Éditer les propriétés d'un composant
+R → Faire pivoter
+X → Copier
+DEL → Supprimer
+Esc → Annuler l'outil en cours
+Ctrl+Z → Annuler
+Ctrl+S → Sauvegarder
+Molette → Zoom avant/arrière
+Clic droit → Menu contextuel
 
 ---
 

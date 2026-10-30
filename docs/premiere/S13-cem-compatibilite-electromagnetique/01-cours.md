@@ -53,24 +53,19 @@ DOUBLE EXIGENCE DE LA CEM :
 
 ### Le triangle SOURCE – COUPLAGE – VICTIME
 
-```
-┌────────────────────────────────────────────────────────────────────┐
-│                                                                    │
-│      SOURCE                COUPLAGE                VICTIME        │
-│   (Émetteur)                                    (Récepteur)       │
-│                                                                    │
-│   Moteur       ──── Par les fils ──────────────► Capteur          │
-│   Variateur                                                        │
-│   Alimentation ──── Par les ondes ─────────────► WiFi             │
-│   à découpage                                                      │
-│   ESP32        ──── Par les fils ──────────────► µC voisin        │
-│   Téléphone    ──── Par les ondes ─────────────► Haut-parleur     │
-│                                                                    │
-│  SOLUTION : Agir sur le COUPLAGE (c'est le plus simple !)         │
-│             Ou améliorer l'IMMUNITE de la victime                 │
-│             Ou réduire l'EMISSION de la source                    │
-└────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] SOURCE                COUPLAGE                VICTIME
+> (Émetteur)                                    (Récepteur)  
+>
+> Moteur       ──── Par les fils ──────────────► Capteur  
+> Variateur  
+> Alimentation ──── Par les ondes ─────────────► WiFi  
+> à découpage  
+> ESP32        ──── Par les fils ──────────────► µC voisin  
+> Téléphone    ──── Par les ondes ─────────────► Haut-parleur  
+>
+> SOLUTION : Agir sur le COUPLAGE (c'est le plus simple !)  
+>           Ou améliorer l'IMMUNITE de la victime  
+>           Ou réduire l'EMISSION de la source  
 
 ### Le marquage CE et la directive CEM
 
@@ -266,26 +261,24 @@ CODE :
 
 ### Filtre LC passe-bas (filtre CEM actif)
 
-```
 PRINCIPE :
-  L (inductance) en série + C (condensateur) en parallèle vers la masse
+L (inductance) en série + C (condensateur) en parallèle vers la masse
 
-  Signal ──[L]──┬── Signal filtré
-                │
-               [C]
-                │
-               GND
+Signal ──[L]──┬── Signal filtré
+│
+[C]
+│
+GND
 
 Fréquence de coupure : fc = 1 / (2π√LC)
 
 Exemple : L = 100µH · C = 100nF
-  fc = 1 / (2π × √(100×10⁻⁶ × 100×10⁻⁹))
-     = 1 / (2π × √(10⁻¹¹))
-     = 1 / (2π × 3,16×10⁻⁶)
-     = 50 360 Hz ≈ 50 kHz
-  
-  → Tout ce qui est > 50 kHz est fortement atténué.
-```
+fc = 1 / (2π × √(100×10⁻⁶ × 100×10⁻⁹))
+= 1 / (2π × √(10⁻¹¹))
+= 1 / (2π × 3,16×10⁻⁶)
+= 50 360 Hz ≈ 50 kHz
+
+→ Tout ce qui est > 50 kHz est fortement atténué.
 
 ---
 

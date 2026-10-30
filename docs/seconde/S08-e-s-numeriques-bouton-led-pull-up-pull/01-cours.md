@@ -304,24 +304,20 @@ void loop() {
 
 ## 6. Récapitulatif des configurations d'entrée
 
-```
-┌──────────────────────────────────────────────────────────────────────────┐
-│  GUIDE DE CHOIX — Configuration d'entrée pour bouton-poussoir            │
-│                                                                          │
-│  Je suis débutant / logique naturelle souhaitable :                      │
-│    → Pull-down externe 10 kΩ                                             │
-│    → APPUYÉ = HIGH = 1  /  RELÂCHÉ = LOW = 0                             │
-│    → if (digitalRead(btn) == 1) { ... appuyé ... }                       │
-│                                                                          │
-│  Je veux minimiser le câblage :                                          │
-│    → INPUT_PULLUP interne                                                │
-│    → APPUYÉ = LOW = 0  /  RELÂCHÉ = HIGH = 1  (INVERSÉ !)               │
-│    → if (digitalRead(btn) == 0) { ... appuyé ... }                       │
-│                                                                          │
-│  Règle d'or : Choisir l'une des deux et RESTER COHÉRENT dans tout        │
-│  le sketch. Mélanger les deux = bugs impossibles à diagnostiquer.        │
-└──────────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] GUIDE DE CHOIX — Configuration d'entrée pour bouton-poussoir
+>
+> Je suis débutant / logique naturelle souhaitable :  
+>  → Pull-down externe 10 kΩ  
+>  → APPUYÉ = HIGH = 1  /  RELÂCHÉ = LOW = 0  
+>  → if (digitalRead(btn) == 1) { ... appuyé ... }  
+>
+> Je veux minimiser le câblage :  
+>  → INPUT_PULLUP interne  
+>  → APPUYÉ = LOW = 0  /  RELÂCHÉ = HIGH = 1  (INVERSÉ !)  
+>  → if (digitalRead(btn) == 0) { ... appuyé ... }  
+>
+> Règle d'or : Choisir l'une des deux et RESTER COHÉRENT dans tout  
+> le sketch. Mélanger les deux = bugs impossibles à diagnostiquer.  
 
 ---
 

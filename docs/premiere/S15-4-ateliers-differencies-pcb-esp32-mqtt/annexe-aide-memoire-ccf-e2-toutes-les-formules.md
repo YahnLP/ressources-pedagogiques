@@ -85,22 +85,23 @@ from(bucket:"nom") |> range(start:-1h)
 
 ## 🔧 Fiabilité
 
-```
-λ = 1/MTBF         MTBF = TO/n      MTTR = TA/n
-D = MTBF/(MTBF+MTTR)
-R(t) = e^(−λt)     F(t) = 1−R(t)
+λ = 1/MTBF         MTBF = TO/n      MTTR = TA/n  
+D = MTBF/(MTBF+MTTR)  
 
-À t=MTBF : R = e⁻¹ ≈ 0,368 (36,8%)
+$$R(t) = e^(-λt) F(t) = 1-R(t)$$
 
-Série    : Rs = R1×R2×R3   λs = λ1+λ2+λ3
-Parallèle: Rs = 1−(1−R1)(1−R2)
+À t=MTBF : R = e⁻¹ ≈ 0,368 (36,8%)  
 
-Valeurs e :
-e⁻⁰·¹=0,905  e⁻⁰·²=0,819  e⁻⁰·³=0,741
-e⁻⁰·⁵=0,607  e⁻¹=0,368    e⁻²=0,135
+Série    : Rs = R1×R2×R3   λs = λ1+λ2+λ3  
+Parallèle: Rs = 1−(1−R1)(1−R2)  
 
-1 an = 8760 h · 1 mois = 730 h
-```
+Valeurs e :  
+
+$$e⁻⁰ \cdot ¹=0{,}905 e⁻⁰ \cdot ^2=0{,}819 e⁻⁰ \cdot ^3=0{,}741$$
+
+e⁻⁰·⁵=0,607  e⁻¹=0,368    e⁻²=0,135  
+
+1 an = 8760 h · 1 mois = 730 h  
 
 ---
 

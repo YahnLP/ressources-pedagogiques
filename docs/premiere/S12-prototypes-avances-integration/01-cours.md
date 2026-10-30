@@ -31,14 +31,10 @@
 
 ### Les 4 familles de contraintes à traiter
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  1. MÉCANIQUES  : dimensions, fixation, vibration, choc         │
-│  2. THERMIQUES  : dissipation, Tmax composants, ventilation     │
-│  3. ENVIRONNEMENTALES : IP (eau, poussière), UV, chimique       │
-│  4. ERGONOMIQUES : accès opérateur, étiquetage, connecteurs     │
-└─────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] 1. MÉCANIQUES  : dimensions, fixation, vibration, choc
+> 2. THERMIQUES  : dissipation, Tmax composants, ventilation  
+> 3. ENVIRONNEMENTALES : IP (eau, poussière), UV, chimique  
+> 4. ERGONOMIQUES : accès opérateur, étiquetage, connecteurs  
 
 ---
 
@@ -246,24 +242,20 @@ $$\Delta T \approx \frac{P_{totale}}{k \cdot S}$$
 
 ### Structure d'un cas de test
 
-```
-┌────────────────────────────────────────────────────────────────────┐
-│ TC-001 : Connectivité MQTT en conditions normales                  │
-│                                                                    │
-│ Objectif : Vérifier que l'ESP32 se connecte et publie en < 10s    │
-│ Préconditions : Wi-Fi disponible, broker actif                    │
-│ Procédure :                                                        │
-│   1. Mettre sous tension l'ESP32                                  │
-│   2. Chronomètre : démarrer à l'allumage                         │
-│   3. Observer le moniteur série ou le broker MQTT                │
-│ Mesures :                                                         │
-│   - Délai avant premier message MQTT publié : _____ s             │
-│   - Contenu du message : _____                                   │
-│ Critère d'acceptance : Délai ≤ 10 secondes ET message JSON valide│
-│ Résultat : PASS ☐    FAIL ☐                                      │
-│ Commentaires : _________________________________________          │
-└────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] TC-001 : Connectivité MQTT en conditions normales
+>
+> Objectif : Vérifier que l'ESP32 se connecte et publie en < 10s  
+> Préconditions : Wi-Fi disponible, broker actif  
+> Procédure :  
+> 1. Mettre sous tension l'ESP32  
+> 2. Chronomètre : démarrer à l'allumage  
+> 3. Observer le moniteur série ou le broker MQTT  
+> Mesures :  
+> - Délai avant premier message MQTT publié : _____ s  
+> - Contenu du message : _____  
+> Critère d'acceptance : Délai ≤ 10 secondes ET message JSON valide  
+> Résultat : PASS ☐    FAIL ☐  
+> Commentaires : _________________________________________  
 
 ### Familles de tests pour un projet IoT embarqué
 

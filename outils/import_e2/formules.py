@@ -4,6 +4,8 @@ Chaque ligne est validée par KaTeX (node) ; une ligne non convertible reste en 
 """
 import json, re, subprocess, sys, glob
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import fences
 
 REPO = Path(sys.argv[1]); DRY = '--dry' in sys.argv
 UNITS = ['kΩ', 'MΩ', 'Ω', 'mV', 'kV', 'V', 'mA', 'µA', 'A', 'kHz', 'MHz', 'Hz', 'mW', 'kW', 'W', 'ms', 'µs', 'ns', 's', 'nF', 'µF', 'pF', 'F', 'mH', 'µH', 'H', '°C', '%', 'kbit/s', 'bit/s', 'Mo', 'Ko', 'ko', 'h', 'min', 'm', 'mm', 'cm', 'km']
@@ -70,7 +72,7 @@ def main():
     for f in sorted(glob.glob(str(REPO / 'docs/*/*/*.md'))):
         if '/annexes/' in f: continue
         t = Path(f).read_text(encoding='utf-8')
-        for m in re.finditer(r'```\n(.*?)\n```', t, re.S):
+        for m in fences.finditer(t):
             if classify_block(m.group(1)): cands.append((f, m.span(), m.group(1)))
     lines = sorted({tex(l) for _, _, b in cands for l in b.split('\n') if tex(l)})
     node = r"""const k=require('/tmp/kt/package'); const L=JSON.parse(require('fs').readFileSync(0,'utf8')); const bad=[];

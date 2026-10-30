@@ -51,75 +51,68 @@
 
 ### Les 13 sections obligatoires
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  1. PAGE DE GARDE                                                   │
-│     Titre, version, date, statut (brouillon / validé), auteur(s)   │
-│                                                                     │
-│  2. HISTORIQUE DES RÉVISIONS                                        │
-│     Tableau : version, date, auteur, description du changement     │
-│                                                                     │
-│  3. OBJET ET PÉRIMÈTRE                                             │
-│     "Ce document décrit..." — ce qui est couvert ET ce qui n'est   │
-│     pas couvert                                                     │
-│                                                                     │
-│  4. ARCHITECTURE GÉNÉRALE                                           │
-│     Diagramme bloc : composants + flux de données + protocoles     │
-│                                                                     │
-│  5. DESCRIPTION DES COMPOSANTS                                      │
-│     Tableau : composant, référence, rôle, version firmware/hard    │
-│                                                                     │
-│  6. SCHÉMAS DE CÂBLAGE                                             │
-│     Câblage électrique + réseau + liaison de données               │
-│                                                                     │
-│  7. BOM (Bill Of Materials)                                         │
-│     Liste exhaustive : référence, qté, fournisseur, prix unitaire  │
-│                                                                     │
-│  8. CONFIGURATION                                                   │
-│     IP, ports, topics MQTT, seuils, certificats, paramètres        │
-│                                                                     │
-│  9. PROCÉDURE D'INSTALLATION                                        │
-│     Étapes ordonnées, test de validation à la fin                  │
-│                                                                     │
-│  10. PROCÉDURE DE MAINTENANCE CORRECTIVE                           │
-│      Arbre de décision + actions correctives type                  │
-│                                                                     │
-│  11. PROCÉDURE DE REPRISE D'ACTIVITÉ                               │
-│      Comment redémarrer après une panne majeure                    │
-│                                                                     │
-│  12. GLOSSAIRE                                                      │
-│      Définitions des termes techniques utilisés                    │
-│                                                                     │
-│  13. ANNEXES                                                        │
-│      Code source, captures d'écran, fiches techniques capteurs     │
-└─────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] 1. PAGE DE GARDE
+>   Titre, version, date, statut (brouillon / validé), auteur(s)  
+>
+> 2. HISTORIQUE DES RÉVISIONS  
+>   Tableau : version, date, auteur, description du changement  
+>
+> 3. OBJET ET PÉRIMÈTRE  
+>   "Ce document décrit..." — ce qui est couvert ET ce qui n'est  
+>   pas couvert  
+>
+> 4. ARCHITECTURE GÉNÉRALE  
+>   Diagramme bloc : composants + flux de données + protocoles  
+>
+> 5. DESCRIPTION DES COMPOSANTS  
+>   Tableau : composant, référence, rôle, version firmware/hard  
+>
+> 6. SCHÉMAS DE CÂBLAGE  
+>   Câblage électrique + réseau + liaison de données  
+>
+> 7. BOM (Bill Of Materials)  
+>   Liste exhaustive : référence, qté, fournisseur, prix unitaire  
+>
+> 8. CONFIGURATION  
+>   IP, ports, topics MQTT, seuils, certificats, paramètres  
+>
+> 9. PROCÉDURE D'INSTALLATION  
+>   Étapes ordonnées, test de validation à la fin  
+>
+> 10. PROCÉDURE DE MAINTENANCE CORRECTIVE  
+>    Arbre de décision + actions correctives type  
+>
+> 11. PROCÉDURE DE REPRISE D'ACTIVITÉ  
+>    Comment redémarrer après une panne majeure  
+>
+> 12. GLOSSAIRE  
+>    Définitions des termes techniques utilisés  
+>
+> 13. ANNEXES  
+>    Code source, captures d'écran, fiches techniques capteurs  
 
 ### Page de garde type
 
-```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   DOSSIER DES ARCHITECTURES TECHNIQUES
+DOSSIER DES ARCHITECTURES TECHNIQUES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Projet   : Station IoT Surveillance Vibratoire
-   Client   : INDUSTECH SAS
-   Référence: DAT-ESP32-VIB-001
-   Version  : 1.0
-   Date     : 2026-03-20
-   Statut   : ☐ Brouillon  ☑ Pour Validation  ☐ Validé
+Projet   : Station IoT Surveillance Vibratoire
+Client   : INDUSTECH SAS
+Référence: DAT-ESP32-VIB-001
+Version  : 1.0
+Date     : 2026-03-20
+Statut   : ☐ Brouillon  ☑ Pour Validation  ☐ Validé
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Auteur(s): Alice DUPONT, Baptiste MARTIN
-   Relecteur: [Formateur]
+Auteur(s): Alice DUPONT, Baptiste MARTIN
+Relecteur: [Formateur]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 HISTORIQUE DES RÉVISIONS
-┌─────────┬────────────┬────────────┬──────────────────────────┐
-│ Version │ Date       │ Auteur     │ Description              │
-├─────────┼────────────┼────────────┼──────────────────────────┤
-│ 0.1     │ 2026-03-15 │ A. DUPONT  │ Création initiale        │
-│ 1.0     │ 2026-03-20 │ A. DUPONT  │ Version complète validée │
-└─────────┴────────────┴────────────┴──────────────────────────┘
-```
+| Version | Date | Auteur | Description |
+|---|---|---|---|
+| 0.1 | 2026-03-15 | A. DUPONT | Création initiale |
+| 1.0 | 2026-03-20 | A. DUPONT | Version complète validée |
+
 
 ---
 

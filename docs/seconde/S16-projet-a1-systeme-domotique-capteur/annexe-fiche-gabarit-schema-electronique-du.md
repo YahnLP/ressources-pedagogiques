@@ -52,25 +52,8 @@ Avant de commencer le schéma, liste tous les composants de ton système domotiq
 
 ---
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                   │
-│                                                                   │
-│                                                                   │
-│                                                                   │
-│                                                                   │
-│                                                                   │
-│                    ZONE DE SCHÉMA                                 │
-│               (Coller capture ou dessiner)                        │
-│                                                                   │
-│                                                                   │
-│                                                                   │
-│                                                                   │
-│                                                                   │
-│                                                                   │
-│                                                                   │
-└─────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] ✏️ À toi de dessiner
+> Dessine ton schéma sur ta feuille ou dans ton dossier (zone prévue pour le schéma).
 
 ---
 

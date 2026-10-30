@@ -60,27 +60,23 @@ L'Arduino Uno intègre un convertisseur USB-UART (ATmega16U2 ou CH340) qui gère
 
 ### 1.3 Les 5 paramètres UART
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│  Les 5 paramètres UART — TOUS doivent correspondre des deux côtés       │
-│                                                                         │
-│  1. BAUD RATE    : 300 / 1200 / 4800 / 9600 / 19200 / 38400 /          │
-│                    57600 / 115200 / 230400 / 921600 bauds               │
-│     → Standard Arduino : 9600 (débogage) ou 115200 (débit élevé)        │
-│                                                                         │
-│  2. BITS DE DONNÉES : 5 / 6 / 7 / 8 (standard = 8)                     │
-│                                                                         │
-│  3. PARITÉ       : N (aucune) / E (paire) / O (impaire)                 │
-│     → Standard Arduino : N (aucune parité)                               │
-│                                                                         │
-│  4. BITS DE STOP : 1 / 2 (standard = 1)                                 │
-│                                                                         │
-│  5. CONTRÔLE DE FLUX : None / XON-XOFF (logiciel) / RTS-CTS (matériel) │
-│     → Standard Arduino : None                                            │
-│                                                                         │
-│  Configuration résumée : 8N1 = [8 data][No parity][1 stop]              │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] Les 5 paramètres UART — TOUS doivent correspondre des deux côtés
+>
+> 1. BAUD RATE    : 300 / 1200 / 4800 / 9600 / 19200 / 38400 /  
+>                  57600 / 115200 / 230400 / 921600 bauds  
+>   → Standard Arduino : 9600 (débogage) ou 115200 (débit élevé)  
+>
+> 2. BITS DE DONNÉES : 5 / 6 / 7 / 8 (standard = 8)  
+>
+> 3. PARITÉ       : N (aucune) / E (paire) / O (impaire)  
+>   → Standard Arduino : N (aucune parité)  
+>
+> 4. BITS DE STOP : 1 / 2 (standard = 1)  
+>
+> 5. CONTRÔLE DE FLUX : None / XON-XOFF (logiciel) / RTS-CTS (matériel)  
+>   → Standard Arduino : None  
+>
+> Configuration résumée : 8N1 = [8 data][No parity][1 stop]  
 
 ### 1.4 Que se passe-t-il avec un mauvais baud rate ?
 
@@ -261,11 +257,11 @@ Flow control    : None
 ### 4.2 Le diviseur de tension 5V → 3,3V (protection RXD)
 
 
-```
-Calcul du diviseur :
-  V_out = V_in × R2 / (R1 + R2)
-  V_out = 5 × 2000 / (1000 + 2000) = 5 × 2/3 = 3,33 V ✓
-```
+Calcul du diviseur :  
+
+$$V_{\mathrm{out}} = V_{\mathrm{in}} \times \dfrac{R_{2}}{R_{1} + R_{2}}$$
+
+$$V_{\mathrm{out}} = 5 \times \dfrac{2000}{1000 + 2000} = 5 \times \dfrac{2}{3} = 3{,}33\,\mathrm{V} \;\checkmark$$
 
 ### 4.3 SoftwareSerial — Utiliser des broches alternatives pour UART
 
@@ -335,29 +331,25 @@ En **mode AT** (broche KEY maintenue à GND ou niveau bas au démarrage), le HC-
 
 ### 5.1 Checklist de débogage UART en 6 points
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│  CHECKLIST DÉBOGAGE UART — À consulter en cas de problème              │
-│                                                                         │
-│  □ 1. BAUD RATE identique des deux côtés ?                              │
-│       → Serial.begin(X) == baud rate du terminal                        │
-│                                                                         │
-│  □ 2. TX et RX bien croisés ?                                           │
-│       → TX Arduino ↔ RX autre appareil (jamais TX-TX)                  │
-│                                                                         │
-│  □ 3. Newline selector correct dans le Serial Monitor ?                 │
-│       → "Newline" si readStringUntil('\n'), "No line ending" si read()  │
-│                                                                         │
-│  □ 4. commande.trim() appelé après readStringUntil() ?                  │
-│       → Élimine les \r résiduels (Windows CRLF)                         │
-│                                                                         │
-│  □ 5. Serial.available() vérifié avant toute lecture ?                  │
-│       → Évite le blocage sur une attente de données inexistantes        │
-│                                                                         │
-│  □ 6. Pour HC-05 : diviseur de tension sur RXD et mode AT correct ?    │
-│       → Vérifier que KEY est bien à GND et baud rate = 38400 en AT     │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] CHECKLIST DÉBOGAGE UART — À consulter en cas de problème
+>
+> □ 1. BAUD RATE identique des deux côtés ?  
+>     → Serial.begin(X) == baud rate du terminal  
+>
+> □ 2. TX et RX bien croisés ?  
+>     → TX Arduino ↔ RX autre appareil (jamais TX-TX)  
+>
+> □ 3. Newline selector correct dans le Serial Monitor ?  
+>     → "Newline" si readStringUntil('\n'), "No line ending" si read()  
+>
+> □ 4. commande.trim() appelé après readStringUntil() ?  
+>     → Élimine les \r résiduels (Windows CRLF)  
+>
+> □ 5. Serial.available() vérifié avant toute lecture ?  
+>     → Évite le blocage sur une attente de données inexistantes  
+>
+> □ 6. Pour HC-05 : diviseur de tension sur RXD et mode AT correct ?  
+>     → Vérifier que KEY est bien à GND et baud rate = 38400 en AT  
 
 ### 5.2 Tableau des symptômes et diagnostics
 

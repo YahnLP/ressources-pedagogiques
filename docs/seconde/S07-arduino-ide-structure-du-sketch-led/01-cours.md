@@ -171,13 +171,12 @@ TABLE DE CORRESPONDANCE delay() :
 
 L'Arduino Uno fournit **5 V** sur ses broches numériques. La LED externe (V_F = 2V, I_F nominal = 20 mA) nécessite une résistance de limitation comme en S2 :
 
-```
-R = (V_alim − V_F) / I_F
-R = (5 − 2,0) / 0,020 = 3 / 0,020 = 150 Ω
+R = (V_alim − V_F) / I_F  
 
-→ Valeur E24 : 150 Ω (valeur exacte dans la série)
-  ou 220 Ω (si on veut une LED moins brillante — I_F = 13,6 mA)
-```
+$$R = \dfrac{5 - 2{,}0}{0{,}020} = \dfrac{3}{0{,}020} = 150\,\mathrm{\Omega }$$
+
+→ Valeur E24 : 150 Ω (valeur exacte dans la série)  
+ou 220 Ω (si on veut une LED moins brillante — I_F = 13,6 mA)  
 
 > 📌 Sur l'Arduino, on utilise souvent **220 Ω** par convention car c'est la valeur E24 la plus proche couramment disponible dans les kits, et elle offre une bonne marge de sécurité pour la broche.
 

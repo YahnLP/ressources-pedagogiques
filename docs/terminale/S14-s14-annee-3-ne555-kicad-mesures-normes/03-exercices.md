@@ -166,11 +166,11 @@ const float SB = _____ ;
 
 **B2.1 *(2 pts)*** — Calculez la tendance en °C/heure :
 
-```
-Tendance = (T_finale - T_initiale) / durée_en_heures
-         = (_____ - _____) / (40/60)
-         = _____ °C/heure
-```
+Tendance = (T_finale - T_initiale) / durée_en_heures  
+
+$$= \dfrac{\underline{\hspace{2.5em}} - \underline{\hspace{2.5em}}}{40/60}$$
+
+= _____ °C/heure  
 
 **B2.2 *(2 pts)*** — Avec cette tendance, estimez l'heure à laquelle la température dépassera le seuil CRITIQUE de 38°C :
 
@@ -428,12 +428,10 @@ Câblage : entre _____ et _____
 
 **E2.1 *(4 pts)*** — Calculez $\bar{V}$, $u_A$, $u_{B,cl}$, $u_c$, $U$ et exprimez le résultat :
 
-```
-(Montrez tous les calculs)
+(Montrez tous les calculs)  
 
 
-Vout = (_____ ± _____) V  [95%]
-```
+$$V_{out} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$$
 
 **E2.2 *(2 pts)*** — La fréquence NE555 mesurée à l'oscillo est 0,978 Hz. La spécification est 1 Hz ±10%.
 
@@ -452,17 +450,12 @@ _________________________________________________________________________
 
 **E3.1 *(3 pts)*** — Rédigez le tableau de résultats du PV de validation (TC-01 Vout, TC-02 fréquence, TC-03 inspection IPC) pour la carte AGRIMAX :
 
-```
-┌──────┬──────────────────────────────┬──────────────────┬─────────┐
-│ TC#  │ Exigence                     │ Résultat ± U     │ Conf.   │
-├──────┼──────────────────────────────┼──────────────────┼─────────┤
-│TC-01 │ Vout = 5V ±5% = [4,75;5,25]V│                  │         │
-├──────┼──────────────────────────────┼──────────────────┼─────────┤
-│TC-02 │ f = 1Hz ±10% = [0,90;1,10]Hz│                  │         │
-├──────┼──────────────────────────────┼──────────────────┼─────────┤
-│TC-03 │ Assemblage IPC-A-610 Cl.2    │                  │         │
-└──────┴──────────────────────────────┴──────────────────┴─────────┘
-```
+| TC# | Exigence | Résultat ± U | Conf. |
+|---|---|---|---|
+| TC-01 | Vout = 5V ±5% = [4,75;5,25]V |  |  |
+| TC-02 | f = 1Hz ±10% = [0,90;1,10]Hz |  |  |
+| TC-03 | Assemblage IPC-A-610 Cl.2 |  |  |
+
 
 **E3.2 *(2 pts)*** — TC-03 est NON CONFORME (remplissage J1 = 72%). Rédigez la conclusion globale du PV :
 

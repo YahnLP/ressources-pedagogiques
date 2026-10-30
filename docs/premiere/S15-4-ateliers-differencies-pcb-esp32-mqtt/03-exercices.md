@@ -188,50 +188,50 @@ Q.B.2c — Pour afficher 3 courbes (température, humidité, CO₂) sur UN SEUL 
 
 ### Rappel express (3 min)
 
-```
-λ = 1/MTBF               MTBF = TO/n           MTTR = TA/n
-D = MTBF/(MTBF+MTTR)     R(t) = e^(−λt)        F(t) = 1 − R(t)
+λ = 1/MTBF               MTBF = TO/n           MTTR = TA/n  
+D = MTBF/(MTBF+MTTR)     R(t) = e^(−λt)        F(t) = 1 − R(t)  
 
-À t = MTBF : R = e⁻¹ = 0,368 (36,8% encore OK)
+À t = MTBF : R = e⁻¹ = 0,368 (36,8% encore OK)  
 
-Série    : Rs = R1 × R2 × R3
-Parallèle: Rs = 1 − (1−R1)(1−R2)(1−R3)
+Série    : Rs = R1 × R2 × R3  
+Parallèle: Rs = 1 − (1−R1)(1−R2)(1−R3)  
 
-e⁻⁰·¹=0,905  e⁻⁰·²=0,819  e⁻⁰·³=0,741  e⁻⁰·⁵=0,607  e⁻¹=0,368
-```
+$$e⁻⁰ \cdot ¹=0{,}905 e⁻⁰ \cdot ^2=0{,}819 e⁻⁰ \cdot ^3=0{,}741 e⁻⁰ \cdot ⁵=0{,}607 e⁻¹=0{,}368$$
 
 ### Exercice C1 — MTBF/MTTR/D (10 min)
 
-```
-Un automate industriel a fonctionné 2 ans (24h/24) et a subi 5 pannes :
-  Panne 1 : 2h00   Panne 2 : 30 min   Panne 3 : 45 min
-  Panne 4 : 3h15   Panne 5 : 1h30
+Un automate industriel a fonctionné 2 ans (24h/24) et a subi 5 pannes :  
+Panne 1 : 2h00   Panne 2 : 30 min   Panne 3 : 45 min  
+Panne 4 : 3h15   Panne 5 : 1h30  
 
-a) TA total = _______ h
-b) TO = 2 × 8760 − TA = _______ h
-c) MTBF = TO / n = _______ h = _______ jours
-d) MTTR = TA / n = _______ h
-e) D = MTBF / (MTBF + MTTR) = _______  = _______ %
-f) Exigence D ≥ 99,9% : ☐ Conforme ☐ Non conforme
-```
+a) TA total = _______ h  
+
+$$b) TO = 2 \times 8760 - TA = \underline{\hspace{2.5em}} h$$
+
+c) MTBF = TO / n = _______ h = _______ jours  
+d) MTTR = TA / n = _______ h  
+e) D = MTBF / (MTBF + MTTR) = _______  = _______ %  
+f) Exigence D ≥ 99,9% : ☐ Conforme ☐ Non conforme  
 
 ### Exercice C2 — Loi exponentielle (10 min)
 
-```
-Capteur DHT22 : MTBF = 50 000 h
+Capteur DHT22 : MTBF = 50 000 h  
 
-a) λ = 1/50000 = _______ h⁻¹
+$$a) λ = \dfrac{1}{50000} = \underline{\hspace{2.5em}} h⁻¹$$
 
-b) R après 1 an (8760h) :
-   λt = _______ × 8760 = _______
-   R(8760) = e^(_______) = _______ = _______ %
+b) R après 1 an (8760h) :  
 
-c) Sur 200 capteurs, après 1 an : _______ encore fonctionnels
+$$λt = \underline{\hspace{2.5em}} \times 8760 = \underline{\hspace{2.5em}}$$
 
-d) Pour R(t) ≥ 90% :
-   e^(−λt) ≥ 0,90 → −λt ≥ ln(0,90) ≈ −0,105
-   t ≤ 0,105 / λ = _______ h = _______ mois
-```
+$$R(8760) = e^(\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+
+c) Sur 200 capteurs, après 1 an : _______ encore fonctionnels  
+
+d) Pour R(t) ≥ 90% :  
+
+$$e^(-λt) \geq 0{,}90 \to -λt \geq ln(0{,}90) \approx -0{,}105$$
+
+t ≤ 0,105 / λ = _______ h = _______ mois  
 
 ### Exercice C3 — Système mixte (10 min)
 
@@ -297,24 +297,25 @@ Situation 3 : Un téléphone 4G posé sur une table perturbe les données WiFi
 
 ### Exercice D2 — Calculs CEM (10 min)
 
-```
-a) Un boîtier doit bloquer les rayonnements WiFi (2,4 GHz).
-   Quelle est la taille maximale des fentes d'aération ?
-   
-   λ = 3×10⁸ / 2,4×10⁹ = _______ m = _______ cm
-   Fente max = λ/20 = _______ cm = _______ mm
+a) Un boîtier doit bloquer les rayonnements WiFi (2,4 GHz).  
+Quelle est la taille maximale des fentes d'aération ?  
 
-b) Un filtre RC protège un ADC. Le signal utile est à 5 Hz maximum.
-   On veut fc = 50 Hz. Avec R = 33 kΩ, calculer C :
-   
-   C = 1 / (2π × fc × R) = 1 / (2π × _______ × _______)
-   C = _______ F = _______ nF (valeur commerciale : _______ nF)
+$$λ = 3 \times 10⁸ / 2{,}4 \times 10⁹ = \underline{\hspace{2.5em}} m = \underline{\hspace{2.5em}} cm$$
 
-c) À partir de quelle fréquence une piste de 20 cm se comporte-t-elle comme une antenne ?
-   
-   L > λ/20 → λ < 20 × 0,20 = _______ m
-   f > c/λ = 3×10⁸ / _______ = _______ MHz
-```
+Fente max = λ/20 = _______ cm = _______ mm  
+
+b) Un filtre RC protège un ADC. Le signal utile est à 5 Hz maximum.  
+On veut fc = 50 Hz. Avec R = 33 kΩ, calculer C :  
+
+$$C = \dfrac{1}{2π \times fc \times R} = \dfrac{1}{2π \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$$
+
+C = _______ F = _______ nF (valeur commerciale : _______ nF)  
+
+c) À partir de quelle fréquence une piste de 20 cm se comporte-t-elle comme une antenne ?  
+
+$$L > λ/20 \to λ < 20 \times 0{,}20 = \underline{\hspace{2.5em}} m$$
+
+$$f > c/λ = 3 \times 10⁸ / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} MHz$$
 
 ### Exercice D3 — Règles PCB CEM (10 min)
 

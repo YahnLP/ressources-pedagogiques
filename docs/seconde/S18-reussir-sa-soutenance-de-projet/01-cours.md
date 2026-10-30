@@ -34,20 +34,7 @@ Elle n'est pas un examen de récitation de cours. Elle évalue **ta capacité à
 
 > 💡 **Analogie** : Imagine que tu es technicien et que ton chef te demande de lui expliquer pourquoi le système que tu as installé chez un client fonctionne bien. Tu dois lui montrer que ça marche, lui expliquer comment, et lui dire ce que tu ferais différemment la prochaine fois. C'est exactement une soutenance.
 
-```
-[ILLUSTRATION 1]
-Légende : Schéma en trois zones représentant ce qu'évalue une soutenance de projet technique :
-Zone 1 (gauche) = "Savoir" (connaissances théoriques : protocoles, composants),
-Zone 2 (centre) = "Savoir-faire" (démonstration live, schéma, BOM),
-Zone 3 (droite) = "Savoir-être" (communication, posture, gestion des questions).
-Les trois zones s'inscrivent dans un grand cercle labellisé "Compétence professionnelle".
-PROMPT ILLUSTRATION : "Venn-style or three-zone infographic showing professional competence:
-Left zone (blue): 'Savoir' - brain icon, theory, protocols, components.
-Center zone (orange): 'Savoir-faire' - hands icon, live demo, schematic, BOM.
-Right zone (green): 'Savoir-être' - speech bubble icon, communication, posture, answering questions.
-All three zones overlap in a central circle labeled 'Compétence professionnelle'.
-Clean flat design, French labels, white background."
-```
+![Ce qu'évalue une soutenance : savoir, savoir-faire, savoir-être](images/soutenance-zones.png)
 
 ---
 
@@ -77,19 +64,7 @@ Clean flat design, French labels, white background."
 
 ### 3.1 Le plan en 3 blocs (rappel de l'activité de découverte)
 
-```
-[ILLUSTRATION 2]
-Légende : Frise chronologique de la présentation en 3 blocs colorés :
-Bloc rouge (0-1 min) = "Contexte" avec icône client/problème,
-Bloc orange (1-3 min) = "Solution" avec icône Arduino et composants,
-Bloc vert (3-4 min) = "Résultats" avec icône tableau de tests et graphique de taux de conformité.
-Les durées sont indiquées sous chaque bloc.
-PROMPT ILLUSTRATION : "Horizontal timeline infographic showing 3-block presentation structure:
-Block 1 (red, 0-1min): 'Contexte' - client icon, problem statement.
-Block 2 (orange, 1-3min): 'Solution' - Arduino icon, HC-05, LED components.
-Block 3 (green, 3-4min): 'Résultats' - test table icon, percentage gauge at 85%.
-Timeline with minute markers, clean flat design, French labels, professional style."
-```
+![Frise de la présentation : contexte, solution, résultats](images/soutenance-frise.png)
 
 ### 3.2 Les formules d'accroche et de transition
 
@@ -148,20 +123,7 @@ lors des tests documentés en S17."
 
 ### 5.1 La méthode en 3 temps
 
-```
-[ILLUSTRATION 3]
-Légende : Organigramme "Répondre à une question de jury" en 3 étapes :
-Étape 1 (écouter) = oreille stylisée + "Je reformule la question",
-Étape 2 (réfléchir) = ampoule + "Je prends 5 secondes",
-Étape 3 (répondre) = bulle de parole + "Je réponds avec mes mots et un exemple concret".
-Si je ne sais pas : flèche vers "J'admets honnêtement et je propose ce que je ferais pour trouver la réponse".
-PROMPT ILLUSTRATION : "Three-step flowchart for answering jury questions:
-Step 1 (blue ear icon): 'Écouter et reformuler - Je reformule la question pour être sûr de l'avoir comprise'.
-Step 2 (yellow lightbulb): 'Réfléchir - Je prends 5 secondes avant de répondre'.
-Step 3 (green speech bubble): 'Répondre - Avec mes mots et un exemple concret de mon projet'.
-Side branch (red): 'Je ne sais pas → J'admets et je propose une piste de recherche'.
-Clean flowchart style, French labels, white background."
-```
+![Répondre à une question du jury en 3 étapes](images/jury-organigramme.png)
 
 | Étape | Ce que tu fais | Exemple |
 |---|---|---|
@@ -186,19 +148,7 @@ Clean flowchart style, French labels, white background."
 
 Une **grille critériée** est l'outil d'évaluation utilisé par l'enseignant (et dans les épreuves BAC). Elle remplace la simple note chiffrée par une **évaluation qualitative et objective** de chaque compétence.
 
-```
-[ILLUSTRATION 4]
-Légende : Extrait de grille critériée montrant 3 niveaux de maîtrise pour une compétence :
-Niveau 1 (rouge) = "Non acquis" avec description négative,
-Niveau 2 (orange) = "En cours d'acquisition" avec description partielle,
-Niveau 3 (vert) = "Acquis" avec description positive.
-Chaque cellule contient une description comportementale précise (pas juste des adjectifs).
-PROMPT ILLUSTRATION : "Evaluation criteria grid showing one competency row with three mastery levels:
-Column 1 (red background): 'Non acquis (1)' - 'L'apprenant ne peut pas expliquer le câblage du HC-05'.
-Column 2 (orange background): 'En cours (2)' - 'L'apprenant explique partiellement avec quelques erreurs'.
-Column 3 (green background): 'Acquis (3)' - 'L'apprenant explique correctement et justifie ses choix'.
-Professional rubric table style, French text, clean formatting."
-```
+![Extrait de grille critériée : trois niveaux de maîtrise](images/grille-criteriee.png)
 
 ### 6.2 Les 4 niveaux de maîtrise utilisés
 

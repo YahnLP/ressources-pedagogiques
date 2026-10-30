@@ -41,15 +41,7 @@ Il fonctionne sur la bande de fréquences **2,4 GHz** (comme le Wi-Fi, mais avec
 
 ---
 
-```
-[ILLUSTRATION 1]
-Légende : Comparaison visuelle des portées : Bluetooth (10 m, bulle bleue autour d'un Arduino et d'un smartphone),
-Wi-Fi (50 m, bulle verte autour d'un routeur), NFC (quelques cm, bulle rouge entre deux téléphones).
-Les trois appareils sont représentés de manière stylisée avec leurs bulles de portée respectives à l'échelle.
-PROMPT ILLUSTRATION : "Flat design infographic showing three wireless communication technologies side by side:
-Bluetooth (blue bubble, 10m range, Arduino board and smartphone), Wi-Fi (green bubble, 50m, router),
-NFC (red bubble, 5cm, two phones touching). Clean white background, labeled in French, professional technical style."
-```
+![Portées comparées : Bluetooth, Wi-Fi et NFC](images/portees-sans-fil.png)
 
 ---
 
@@ -59,15 +51,7 @@ Le **HC-05** est un module Bluetooth **esclave/maître** (configurable). Il est 
 
 ### 2.1 Vue du module
 
-```
-[ILLUSTRATION 2]
-Légende : Schéma annoté du module HC-05 vu de face et de dessous, avec toutes les broches étiquetées :
-VCC (alimentation), GND (masse), TXD (émission), RXD (réception), STATE (état connexion), EN/KEY (mode AT).
-La LED de statut est clairement repérée sur le dessin.
-PROMPT ILLUSTRATION : "Technical diagram of HC-05 Bluetooth module, top-down and side view, all pins labeled:
-VCC, GND, TXD, RXD, STATE, EN/KEY. LED indicator highlighted in red. Clean engineering drawing style,
-white background, French pin labels, dimensions visible."
-```
+![Module HC-05 : brochage et LED d'état](images/hc05-brochage.png)
 
 ### 2.2 Description des broches
 
@@ -90,15 +74,7 @@ white background, French pin labels, dimensions visible."
 
 Le HC-05 utilise en interne le protocole **SPP (Serial Port Profile)** du Bluetooth. Pour l'Arduino (et pour toi), c'est **transparent** : tu envoies des octets sur la liaison série, et le HC-05 les transmet sans fil.
 
-```
-[ILLUSTRATION 3]
-Légende : Schéma de la chaîne de communication complète : Smartphone → liaison Bluetooth (2,4 GHz, onde représentée) 
-→ Module HC-05 → liaison série UART filaire (RX/TX) → Arduino UNO → LED ou actionneur.
-Les flèches indiquent le sens bidirectionnel des données.
-PROMPT ILLUSTRATION : "Technical block diagram showing data flow: Smartphone on left → Bluetooth waves (2.4GHz, shown as radio waves) 
-→ HC-05 module (labeled SPP profile) → UART serial wires (RX/TX labeled) → Arduino UNO → LED output on right. 
-Bidirectional arrows. Clean engineering style, blue and orange color scheme, white background."
-```
+![Chaîne de communication : smartphone, HC-05, Arduino, actionneur](images/chaine-bluetooth.png)
 
 ### 3.2 Comparaison : liaison série filaire vs sans fil
 
@@ -148,15 +124,7 @@ Les **commandes AT** (du mot « ATtention ») sont un langage de configuration i
 | `AT+RESET` | Redémarrer le module | `AT+RESET` | `OK` |
 | `AT+VERSION?` | Lire la version du firmware | `AT+VERSION?` | `+VERSION:2.0-20100601` |
 
-```
-[ILLUSTRATION 4]
-Légende : Capture d'écran simulée du moniteur série Arduino IDE montrant un échange AT typique :
-l'utilisateur tape "AT" et reçoit "OK", puis "AT+NAME=CIEL_BT" et reçoit "OK",
-puis "AT+PSWD=1234" et reçoit "OK". Interface sombre style terminal.
-PROMPT ILLUSTRATION : "Simulated Arduino IDE Serial Monitor screenshot, dark background, monospace font.
-Shows AT command exchange: user types 'AT' → response 'OK', then 'AT+NAME=CIEL_BT' → 'OK',
-'AT+PSWD=1234' → 'OK'. Labels indicating baud rate 38400, NL & CR setting. Professional screenshot mockup."
-```
+![Moniteur série : échange de commandes AT](images/moniteur-serie-at.png)
 
 ---
 
@@ -164,16 +132,7 @@ Shows AT command exchange: user types 'AT' → response 'OK', then 'AT+NAME=CIEL
 
 ### 5.1 Schéma de câblage (mode communication, SoftwareSerial)
 
-```
-[ILLUSTRATION 5]
-Légende : Schéma de câblage Fritzing complet : Arduino UNO à gauche, module HC-05 à droite.
-Connexions : 5V Arduino → VCC HC-05, GND → GND, broche 11 Arduino → pont diviseur (1kΩ + 2kΩ) → RXD HC-05,
-broche TXD HC-05 → broche 10 Arduino directement. La broche EN/KEY reste non connectée (flottante) pour le mode normal.
-PROMPT ILLUSTRATION : "Fritzing-style wiring diagram, Arduino UNO on left, HC-05 Bluetooth module on right.
-Connections: Arduino 5V to HC-05 VCC, GND to GND, Arduino pin 11 through voltage divider (1kΩ and 2kΩ resistors)
-to HC-05 RXD, HC-05 TXD directly to Arduino pin 10. Color-coded wires: red=power, black=GND, yellow=TX, blue=RX.
-Clear component labels, white background, professional PCB diagram style."
-```
+![Câblage Arduino – HC-05 avec pont diviseur 1 kΩ / 2 kΩ](images/cablage-arduino-hc05.png)
 
 ### 5.2 Table de câblage
 
@@ -257,20 +216,7 @@ L'**appairage** (ou *pairing* en anglais) est le processus par lequel deux appar
 
 ### Étapes d'appairage Android (Serial Bluetooth Terminal)
 
-```
-[ILLUSTRATION 6]
-Légende : Capture d'écran simulée d'un smartphone Android montrant les 4 étapes d'appairage :
-1) Écran Bluetooth activé avec liste des appareils disponibles (HC-05 visible),
-2) Demande de code PIN (champ de saisie "1234"),
-3) Appareil "jumelé" avec icône de validation,
-4) Interface Serial Bluetooth Terminal avec connexion active et échange de messages.
-PROMPT ILLUSTRATION : "Four-panel smartphone screen mockup showing Bluetooth pairing process:
-Panel 1: Android Bluetooth settings with HC-05 visible in device list.
-Panel 2: PIN code entry dialog showing '1234'.
-Panel 3: Paired devices list with HC-05 showing checkmark.
-Panel 4: Serial Bluetooth Terminal app showing sent '1' and received 'LED allumée!'.
-Clean Android UI style, professional mockup."
-```
+![Appairage Bluetooth en 4 étapes sur smartphone](images/pairing-bluetooth.png)
 
 | Étape | Action à réaliser | Résultat attendu |
 |---|---|---|

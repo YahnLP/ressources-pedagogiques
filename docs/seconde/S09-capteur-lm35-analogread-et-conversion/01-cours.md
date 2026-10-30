@@ -41,15 +41,7 @@
 
 **Représentation graphique :**
 
-```
-Tension (V)
-    5V │     ╱───╲
-       │    ╱     ╲
-    3V │   ╱       ╲___
-       │  ╱
-    0V └────────────────> Temps
-       Variation CONTINUE
-```
+![Signal analogique : variation continue de la tension](images/signal-analogique.png)
 
 **💡 Point clé :** Entre 2.3V et 2.4V, il existe une **infinité de valeurs** (2.31V, 2.311V, 2.3111V...).
 
@@ -72,13 +64,7 @@ Tension (V)
 
 **Représentation graphique :**
 
-```
-Tension (V)
-    5V │ ┌───┐   ┌───┐
-       │ │   │   │   │
-    0V └─┘   └───┘   └──> Temps
-       États DISCRETS
-```
+![Signal numérique : deux états, 0 ou 1](images/signal-numerique.png)
 
 **💡 Point clé :** On ne peut avoir que certaines valeurs prédéfinies (0V ou 5V dans l'exemple).
 
@@ -120,15 +106,7 @@ Tension (V)
 
 **Schéma de principe :**
 
-```
-Signal analogique          ADC              Valeur numérique
-(0V à 5V)             (10 bits)             (0 à 1023)
-
-   0.0V    ──────────> ADC ──────────>        0
-   1.0V    ──────────> ADC ──────────>      204
-   2.5V    ──────────> ADC ──────────>      512
-   5.0V    ──────────> ADC ──────────>     1023
-```
+![Conversion ADC 10 bits : 0 V → 0, 5 V → 1023](images/adc-conversion.png)
 
 ---
 
@@ -215,16 +193,12 @@ Le **LM35** est un capteur de température analogique de précision.
 
 **Photo et boîtier :**
 
-```
-   LM35DZ (TO-92)
-   Vue de face (face plate vers toi)
+LM35DZ (TO-92)
+Vue de face (face plate vers toi)
 
-      ┌─────┐
-      │ LM35│
-      │     │
-      └──┬──┘
-    1  2  3
-```
+│ LM35│
+│     │
+1  2  3
 
 ---
 
@@ -247,17 +221,15 @@ Le **LM35** est un capteur de température analogique de précision.
 
 **Vue de face (face plate vers soi) :**
 
-```
-      ┌─────┐
-      │ LM35│
-      │     │
-      └──┬──┘
-    1  2  3
-    │  │  │
-    │  │  └──── 3. OUT (Signal analogique)
-    │  └──────── 2. GND (Masse / 0V)
-    └──────────── 1. VCC (Alimentation +5V)
-```
+│ LM35│
+│     │
+1  2  3
+|  |  |
+|---|---|
+
+│  │  └──── 3. OUT (Signal analogique)
+│  └──────── 2. GND (Masse / 0V)
+└──────────── 1. VCC (Alimentation +5V)
 
 **⚠️ IMPORTANT :**
 
@@ -314,14 +286,12 @@ Tension_OUT (V) = Température (°C) × 0.01 V/°C
 
 **Sur breadboard :**
 
-```
-   Arduino              Breadboard
-     5V ─────────┬────── LM35 broche 1 (VCC)
-                 │
-    GND ─────────┼────── LM35 broche 2 (GND)
-                 │
-     A0 ─────────┘────── LM35 broche 3 (OUT)
-```
+Arduino              Breadboard
+5V ─────────┬────── LM35 broche 1 (VCC)
+│
+GND ─────────┼────── LM35 broche 2 (GND)
+│
+A0 ─────────┘────── LM35 broche 3 (OUT)
 
 ---
 

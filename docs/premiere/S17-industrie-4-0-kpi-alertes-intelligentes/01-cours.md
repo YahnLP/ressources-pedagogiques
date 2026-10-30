@@ -265,28 +265,27 @@ Capteur fidèle et non exact : mesures regroupées mais décalées de la valeur 
 
 ### Calcul d'incertitude
 
-```
-INCERTITUDE DE TYPE B (seule applicable si 1 seule mesure) :
-  Tirée des spécifications du fabricant
+INCERTITUDE DE TYPE B (seule applicable si 1 seule mesure) :  
+Tirée des spécifications du fabricant  
 
-  Exemple : DHT22 — précision température : ±0,5°C
-  Distribution uniforme → u_B = 0,5 / √3 = 0,5 / 1,732 ≈ 0,29°C
+Exemple : DHT22 — précision température : ±0,5°C  
+Distribution uniforme → u_B = 0,5 / √3 = 0,5 / 1,732 ≈ 0,29°C  
 
-INCERTITUDE DE TYPE A (si n mesures répétées) :
-  u_A = s / √n
-  s   = écart-type des mesures
-  n   = nombre de mesures
+INCERTITUDE DE TYPE A (si n mesures répétées) :  
+u_A = s / √n  
+s   = écart-type des mesures  
+n   = nombre de mesures  
 
-INCERTITUDE COMBINÉE :
-  u_c = √(u_A² + u_B²)
+INCERTITUDE COMBINÉE :  
 
-INCERTITUDE ÉLARGIE (pour probabilité de couverture P ≈ 95%) :
-  U = k × u_c     avec k = 2 (facteur d'élargissement)
+$$u_{\mathrm{c}} = \sqrt(u_A^2 + u_B^2)$$
 
-EXPRESSION DU RÉSULTAT :
-  T = (valeur mesurée) ± U  [°C]  (P = 95%)
-  Exemple : T = 23,4 ± 0,6 °C  (P = 95%)
-```
+INCERTITUDE ÉLARGIE (pour probabilité de couverture P ≈ 95%) :  
+U = k × u_c     avec k = 2 (facteur d'élargissement)  
+
+EXPRESSION DU RÉSULTAT :  
+T = (valeur mesurée) ± U  [°C]  (P = 95%)  
+Exemple : T = 23,4 ± 0,6 °C  (P = 95%)  
 
 ---
 

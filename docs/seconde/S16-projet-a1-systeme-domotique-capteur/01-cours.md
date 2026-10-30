@@ -32,18 +32,7 @@ Le **DHT11** est un capteur **numérique** qui mesure simultanément deux grande
 
 Il utilise un protocole de communication **numérique** propriétaire, à la différence du LM35 qui produit une tension analogique.
 
-```
-[ILLUSTRATION 1]
-Légende : Vue annotée du capteur DHT11 en boîtier TO-92 4 broches et en version module breakout 3 broches.
-Pour le boîtier nu : broche 1 = VCC (+5V), broche 2 = DATA (signal numérique), broche 3 = NC (non connectée),
-broche 4 = GND. La résistance pull-up 10kΩ est dessinée entre VCC et DATA sur le schéma côté boîtier nu.
-Pour le module breakout : 3 broches VCC, DATA, GND avec la résistance intégrée indiquée.
-PROMPT ILLUSTRATION : "Technical diagram of DHT11 sensor in two versions side by side:
-Left: 4-pin TO-92 package with pins labeled: Pin1=VCC(+5V), Pin2=DATA, Pin3=NC, Pin4=GND.
-External 10kΩ pull-up resistor shown between VCC and DATA.
-Right: 3-pin breakout module with VCC, DATA, GND labels and 'résistance intégrée' annotation.
-Clean engineering diagram style, French labels, white background."
-```
+![Capteur DHT11 : version nue (4 broches) et module (3 broches)](images/dht11-brochage.png)
 
 ### 1.2 Comparaison DHT11 vs LM35
 
@@ -71,19 +60,7 @@ Le DHT11 utilise un protocole de communication **numérique série** propriétai
 
 > 💡 **Analogie** : Imagine un morse entre deux personnes avec une seule corde tendue. Alternativement, l'un tire (envoie) et l'autre écoute (reçoit), en suivant un code précis de signaux courts et longs. Le DHT11, c'est la même chose : l'Arduino envoie d'abord un signal de "réveil", puis écoute la réponse du capteur qui encode température et humidité en impulsions.
 
-```
-[ILLUSTRATION 2]
-Légende : Chronogramme simplifié du protocole DHT11 montrant 3 phases successives sur un axe temporel :
-Phase 1 (bleu) = "Signal de démarrage" : Arduino tire DATA vers le bas pendant 18 ms,
-Phase 2 (orange) = "Réponse du capteur" : DHT11 répond en 80 µs bas + 80 µs haut,
-Phase 3 (vert) = "40 bits de données" : DHT11 envoie 40 impulsions encodant humidité et température.
-PROMPT ILLUSTRATION : "Simplified timing diagram of DHT11 communication protocol. Horizontal time axis.
-Three phases shown as waveforms:
-Phase 1 (blue): 'Signal démarrage Arduino' - LOW for 18ms then HIGH.
-Phase 2 (orange): 'Réponse DHT11' - 80µs LOW + 80µs HIGH.
-Phase 3 (green): '40 bits données' - series of short and long pulses labeled 'bit 0' and 'bit 1'.
-Clean oscilloscope-style diagram, French labels, white background, professional technical style."
-```
+![Protocole du DHT11 : démarrage, réponse, 40 bits](images/dht11-chronogramme.png)
 
 **Dans la pratique**, tu n'as pas à gérer ce protocole toi-même : la bibliothèque Adafruit s'en charge entièrement. Tu appelles juste `dht.readTemperature()` et `dht.readHumidity()`.
 
@@ -156,18 +133,7 @@ Serial.print("HR="); Serial.print(humidite); Serial.println("%");
 
 ### 4.1 Version boîtier nu (4 broches)
 
-```
-[ILLUSTRATION 3]
-Légende : Schéma de câblage Fritzing du DHT11 boîtier nu sur Arduino UNO.
-Broche 1 (VCC) → 5V Arduino. Broche 2 (DATA) → Pin 2 Arduino ET vers une résistance 10kΩ dont l'autre
-extrémité est reliée à 5V (résistance pull-up). Broche 3 (NC) non connectée. Broche 4 (GND) → GND Arduino.
-La résistance pull-up est clairement identifiée avec sa valeur.
-PROMPT ILLUSTRATION : "Fritzing-style wiring diagram for bare DHT11 (4-pin TO-92) on Arduino UNO.
-Pin 1 (VCC) to Arduino 5V (red wire). Pin 2 (DATA) to Arduino digital pin 2 (yellow wire) AND to one end
-of 10kΩ pull-up resistor (the other end connects to 5V). Pin 3 (NC) unconnected, shown floating.
-Pin 4 (GND) to Arduino GND (black wire). Pull-up resistor clearly labeled '10kΩ Pull-up'.
-Color-coded wires, component labels, professional Fritzing style, white background."
-```
+![Câblage du DHT11 nu sur Arduino avec résistance pull-up de 10 kΩ](images/dht11-cablage.png)
 
 | Broche DHT11 (boîtier nu) | → | Connexion |
 |---|---|---|
@@ -194,12 +160,8 @@ Color-coded wires, component labels, professional Fritzing style, white backgrou
 
 Le LCD 16×2 permet d'afficher **2 lignes de 16 caractères**. Pour afficher T° et humidité simultanément :
 
-```
-┌────────────────┐
-│ Temp:  23.5°C  │  ← Ligne 0 : Température
-│ Humid: 55.0 %  │  ← Ligne 1 : Humidité
-└────────────────┘
-```
+> [!NOTE] Temp:  23.5°C  │  ← Ligne 0 : Température
+> Humid: 55.0 %  │  ← Ligne 1 : Humidité  
 
 ### 5.2 Sketch d'affichage DHT11 + LCD
 
@@ -267,23 +229,7 @@ void loop() {
 
 ### 6.1 Architecture du système domotique A1
 
-```
-[ILLUSTRATION 4]
-Légende : Schéma bloc de l'architecture complète du système domotique. Au centre : Arduino UNO.
-À gauche en haut : DHT11 (broche numérique D2) avec double flèche étiquetée "T° + Humidité".
-En haut : LCD I2C 16x2 (bus I2C A4/A5) avec flèche "Affichage local".
-À droite : HC-05 Bluetooth (SoftwareSerial broches 10/11) avec flèche vers Smartphone.
-En bas : icône nuage "Cloud" ou pictogramme de smartphone montrant les données reçues.
-Les seuils d'alerte (T>30°C, HR>80%) sont représentés par des icônes alarme sur les flèches correspondantes.
-PROMPT ILLUSTRATION : "System architecture block diagram for domotique project.
-Center: Arduino UNO.
-Left: DHT11 sensor (D2, labeled 'T° + Humidité (1-Wire)').
-Top: LCD I2C 16x2 (A4/A5, labeled 'Affichage local').
-Right: HC-05 Bluetooth (D10/D11, labeled 'Transmission sans fil') → Smartphone.
-Alarm icons on T>30°C and HR>80% thresholds.
-Arrows showing bidirectional data flow (commands from smartphone).
-Clean flat design, French labels, color-coded connections, white background."
-```
+![Architecture du système domotique](images/architecture-domotique.png)
 
 ### 6.2 Sketch du système domotique complet
 
@@ -487,24 +433,15 @@ Le **schéma électronique** est le document qui permet à n'importe quel techni
 
 ### 7.2 Les éléments obligatoires d'un schéma de projet
 
-```
-[ILLUSTRATION 5]
-Légende : Schéma électronique complet du système domotique A1 avec tous les éléments obligatoires :
-- Arduino UNO représenté comme un bloc rectangulaire avec ses broches numérotées
-- DHT11 avec sa résistance pull-up 10kΩ (R1) entre VCC et DATA
-- LCD I2C représenté comme un bloc avec les 4 connexions (VCC, GND, SDA, SCL)
-- HC-05 avec pont diviseur (R2=1kΩ, R3=2kΩ) sur RXD
-- Alimentation +5V et GND correctement repérés
-- Cartouche en bas à droite avec titre, auteur, date, version
-- Références normalisées : R1, R2, R3 pour résistances ; BT1 pour HC-05 ; U1 pour Arduino ; LCD1 pour l'écran ; DHT1 pour le capteur
-PROMPT ILLUSTRATION : "Complete electronic schematic for Arduino domotique system.
-Components as blocks: U1=Arduino UNO (with labeled pins D2, D10, D11, A4, A5, 5V, GND),
-DHT1=DHT11 sensor (with R1=10kΩ pull-up between VCC and DATA),
-LCD1=LCD I2C 16x2 (SDA to A4, SCL to A5),
-BT1=HC-05 (with voltage divider R2=1kΩ + R3=2kΩ on RXD pin).
-Power rails +5V and GND labeled. Title block bottom-right with project title, author, date, version.
-All component references labeled. Professional schematic style, IEC symbols, French labels."
-```
+![Schéma électronique complet du système domotique A1](images/schema-complet-domotique.png)
+Components as blocks: U1=Arduino UNO (with labeled pins D2, D10, D11, A4, A5, 5V, GND),  
+DHT1=DHT11 sensor (with R1=10kΩ pull-up between VCC and DATA),  
+
+$$LCD1=LCD I2C 16x2 (SDA to A4, SCL to A5),$$
+
+BT1=HC-05 (with voltage divider R2=1kΩ + R3=2kΩ on RXD pin).  
+Power rails +5V and GND labeled. Title block bottom-right with project title, author, date, version.  
+All component references labeled. Professional schematic style, IEC symbols, French labels."  
 
 ### 7.3 Checklist du schéma complet
 

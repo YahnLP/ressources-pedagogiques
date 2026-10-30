@@ -46,15 +46,15 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 ### 1.2 Symboles avancés à maîtriser en S6
 
 
-| Symbole | Repère | Usage typique |
-|---|---|---|
-| **Transistor NPN** | Q ou T | Commutateur, amplificateur |
-| **Transistor PNP** | Q ou T | Commutateur côté positif |
-| **Fusible** | F | Protection contre les surintensités |
-| **Régulateur de tension** | U ou VR | Stabiliser une tension (ex : 7805 → 5V fixe) |
-| **Condensateur polarisé** | C | Filtrage, découplage (électrolytique) |
-| **Relais** | K ou RLY | Commander un circuit de puissance par un signal faible |
-| **Optocoupleur** | OK ou OC | Isoler galvaniquement deux circuits |
+| Composant | Symbole IEC | Repère | Usage typique |
+|---|---|---|---|
+| **Transistor NPN** | ![Transistor NPN](images/sym-npn.png){ width="210" } | Q ou T | Commutateur, amplificateur |
+| **Transistor PNP** | ![Transistor PNP](images/sym-pnp.png){ width="210" } | Q ou T | Commutateur côté positif |
+| **Fusible** | ![Fusible](images/sym-fusible.png){ width="210" } | F | Protection contre les surintensités |
+| **Régulateur de tension** | ![Régulateur de tension](images/sym-regulateur.png){ width="210" } | U ou VR | Stabiliser une tension (ex : 7805 → 5V fixe) |
+| **Condensateur polarisé** | ![Condensateur polarisé](images/sym-condo-polarise.png){ width="210" } | C | Filtrage, découplage (électrolytique) |
+| **Relais** | ![Relais](images/sym-relais.png){ width="210" } | K ou RLY | Commander un circuit de puissance par un signal faible |
+| **Optocoupleur** | ![Optocoupleur](images/sym-optocoupleur.png){ width="210" } | OK ou OC | Isoler galvaniquement deux circuits |
 
 ### 1.3 Exemple de schéma normé complet avec les nouvelles conventions
 
@@ -82,20 +82,16 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ### 2.2 Procédure de création d'un circuit — 5 étapes
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│  CRÉER UN CIRCUIT SUR TINKERCAD — Procédure standard                  │
-│                                                                        │
-│  1. Créer un nouveau projet : "Circuits" → "+ Nouveau circuit"         │
-│  2. Nommer le projet : NOM_Prenom_S6_TP1 (convention classe)           │
-│  3. Glisser les composants depuis le panneau droit sur le canvas       │
-│  4. Connecter les composants en cliquant sur une broche et en tirant   │
-│     un fil jusqu'à la broche suivante (le fil passe auto en H/V)       │
-│  5. Régler les valeurs des composants (double-clic → modifier valeur)  │
-│  6. Cliquer "Démarrer la simulation" pour tester                       │
-│  7. Sauvegarder (Ctrl+S ou auto-save)                                  │
-└──────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] CRÉER UN CIRCUIT SUR TINKERCAD — Procédure standard
+>
+> 1. Créer un nouveau projet : "Circuits" → "+ Nouveau circuit"  
+> 2. Nommer le projet : NOM_Prenom_S6_TP1 (convention classe)  
+> 3. Glisser les composants depuis le panneau droit sur le canvas  
+> 4. Connecter les composants en cliquant sur une broche et en tirant  
+>   un fil jusqu'à la broche suivante (le fil passe auto en H/V)  
+> 5. Régler les valeurs des composants (double-clic → modifier valeur)  
+> 6. Cliquer "Démarrer la simulation" pour tester  
+> 7. Sauvegarder (Ctrl+S ou auto-save)  
 
 ### 2.3 Composants disponibles dans Tinkercad — Les essentiels
 

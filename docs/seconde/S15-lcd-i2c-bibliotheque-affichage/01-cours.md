@@ -30,16 +30,7 @@ Sans I2C, un écran LCD classique (sans module I2C) nécessite **jusqu'à 10 bro
 
 Le protocole **I2C** (Inter-Integrated Circuit, prononcé "I-deux-C" ou "I-carré-C") réduit cette connexion à **seulement 2 fils**, quel que soit le nombre de composants connectés.
 
-```
-[ILLUSTRATION 1]
-Légende : Comparaison côte à côte entre un câblage LCD classique (10 fils partant de l'Arduino vers le LCD,
-représenté encombré et complexe) et un câblage LCD I2C (uniquement 4 fils : VCC, GND, SDA, SCL),
-représenté propre et épuré. Les deux montages aboutissent au même écran LCD 16x2.
-PROMPT ILLUSTRATION : "Side-by-side comparison diagram: Left side shows 'LCD classique' with Arduino UNO
-connected to LCD 16x2 using 10 colored wires (messy, complex). Right side shows 'LCD I2C' with Arduino UNO
-connected to LCD+I2C module using only 4 wires (VCC red, GND black, SDA blue, SCL yellow).
-Clean flat technical style, labeled in French, white background, emphasis on simplicity of I2C."
-```
+![LCD classique (10 fils) et LCD I2C (4 fils)](images/lcd-classique-vs-i2c.png)
 
 ### 1.2 Les deux fils du bus I2C
 
@@ -52,16 +43,7 @@ Clean flat technical style, labeled in French, white background, emphasis on sim
 
 ### 1.3 Le bus I2C : maître et esclaves
 
-```
-[ILLUSTRATION 2]
-Légende : Schéma du bus I2C avec un Arduino UNO (Maître) au centre, relié par deux fils SDA et SCL
-à trois périphériques esclaves : LCD I2C (adresse 0x27), capteur de température (0x48) et RTC (0x68).
-Chaque esclave est représenté avec son adresse hexadécimale clairement affichée.
-PROMPT ILLUSTRATION : "I2C bus architecture diagram: Arduino UNO labeled 'Maître' in center,
-connected via two horizontal bus lines (SDA blue, SCL yellow) to three slave devices:
-LCD I2C module (address 0x27), temperature sensor (0x48), RTC module (0x68).
-Each slave shows address badge. Clean engineering diagram, French labels, white background."
-```
+![Bus I2C : un maître et trois esclaves](images/bus-i2c.png)
 
 | Rôle | Qui ? | Nombre |
 |---|---|---|
@@ -83,18 +65,7 @@ Each slave shows address badge. Clean engineering diagram, French labels, white 
 
 ### 2.1 Description du composant
 
-```
-[ILLUSTRATION 3]
-Légende : Vue annotée de l'ensemble LCD 16x2 + module I2C soudé au dos.
-Face avant : 32 emplacements de caractères (16 colonnes × 2 lignes) avec la numérotation des positions
-(0,0) en haut à gauche, (15,0) en haut à droite, (0,1) en bas à gauche.
-Face arrière (vue de profil) : module I2C PCF8574 avec ses 4 broches (VCC, GND, SDA, SCL) étiquetées
-et le potentiomètre de contraste visible.
-PROMPT ILLUSTRATION : "Technical diagram of LCD 16x2 with I2C module. Front view shows 32 character cells
-(16 columns x 2 rows) with cursor position grid labeled: (0,0) top-left, (15,0) top-right, (0,1) bottom-left.
-Back view (side inset) shows I2C PCF8574 module with 4 pins labeled VCC, GND, SDA, SCL and blue contrast
-potentiometer. Professional component diagram, French labels, white background."
-```
+![LCD 16×2 : positions des caractères et module I2C](images/lcd-i2c-annote.png)
 
 | Caractéristique | Valeur |
 |---|---|
@@ -157,17 +128,7 @@ void setup() {
 
 ### 3.4 Le système de coordonnées du LCD
 
-```
-[ILLUSTRATION 4]
-Légende : Grille de positionnement du curseur LCD 16x2. Axe horizontal = colonne (0 à 15),
-Axe vertical = ligne (0 = première ligne du haut, 1 = deuxième ligne). Quelques cases sont remplies
-avec des exemples de caractères pour montrer où setCursor(0,0), setCursor(8,0) et setCursor(0,1) placent le curseur.
-PROMPT ILLUSTRATION : "Grid diagram showing LCD 16x2 cursor coordinate system.
-16 columns (0-15 on X axis) and 2 rows (0-1 on Y axis). Grid cells shown.
-Highlighted cells: (0,0)=top-left marked red with 'setCursor(0,0)', (8,0)=middle-top in blue, (0,1)=bottom-left in green.
-Example text showing 'Temp: 23.4C' on row 0 and 'CIEL  OK' on row 1. 
-Clean diagram, French axis labels, professional style."
-```
+![LCD 16×2 : coordonnées de setCursor](images/lcd-curseur.png)
 
 > 📌 **Règle à retenir** :
 > - `setCursor(colonne, ligne)` — **d'abord la colonne**, ensuite la ligne
@@ -194,17 +155,7 @@ lcd.print(" C");          // Affiche l'unité
 
 ## 4. Rappel — Le capteur LM35 (S9)
 
-```
-[ILLUSTRATION 5]
-Légende : Vue du capteur LM35 avec ses 3 broches identifiées (de gauche à droite : +Vs = alimentation +5V,
-Vout = tension de sortie proportionnelle à la température, GND = masse), et la formule de conversion
-encadrée : Température (°C) = (Vout × 100). Rappel visuel du graphique linéaire sortie/température.
-PROMPT ILLUSTRATION : "LM35 temperature sensor diagram: front view of TO-92 package with 3 pins labeled:
-Pin 1 (+Vs 5V), Pin 2 (Vout → Arduino A0), Pin 3 (GND). 
-Inset shows conversion formula 'T(°C) = tension(V) × 100' in a highlighted box.
-Small linear graph showing Vout vs Temperature (0°C=0V, 100°C=1V). 
-Clean technical diagram, French labels, white background."
-```
+![LM35 : brochage et conversion tension → température](images/lm35-brochage.png)
 
 ### Rappel de la formule de conversion
 
@@ -232,15 +183,7 @@ float temperature = tension * 100.0;            // Conversion en °C
 
 ### 5.1 Schéma d'intégration
 
-```
-[ILLUSTRATION 6]
-Légende : Schéma de câblage Fritzing complet : Arduino UNO au centre, LM35 connecté sur A0 (5V, GND, Vout→A0),
-LCD I2C connecté sur A4 (SDA) et A5 (SCL) avec VCC et GND. Les fils sont colorés selon leur fonction.
-PROMPT ILLUSTRATION : "Fritzing-style wiring diagram: Arduino UNO center, LM35 sensor on left connected
-to A0 (Vout), 5V and GND. LCD 16x2 with I2C module on right connected to A4 (SDA, blue wire),
-A5 (SCL, yellow wire), 5V (red) and GND (black). Color-coded wires, component labels, white background,
-professional PCB diagram style, French annotations."
-```
+![Câblage : LM35 sur A0 et LCD I2C sur A4 / A5](images/cablage-lm35-lcd.png)
 
 ### 5.2 Sketch d'affichage température sur LCD
 
@@ -300,19 +243,7 @@ void loop() {
 
 ### 6.1 Architecture du proto maquette final
 
-```
-[ILLUSTRATION 7]
-Légende : Schéma bloc de l'architecture complète du proto maquette. Au centre : Arduino UNO.
-À gauche : LM35 (entrée analogique A0) avec flèche "donnée de température". En haut : LCD I2C
-(bus I2C sur A4/A5) avec flèche "affichage local". À droite : HC-05 (SoftwareSerial broches 10/11)
-avec flèche "envoi BT" vers un pictogramme Smartphone. Tous les composants sont reliés à GND/5V.
-PROMPT ILLUSTRATION : "System architecture block diagram for Arduino proto-board.
-Center: Arduino UNO. Left: LM35 (connected to A0, labeled 'Entrée analogique').
-Top: LCD I2C 16x2 (connected to A4/A5, labeled 'Affichage local - Bus I2C').
-Right: HC-05 Bluetooth (connected to pins 10/11, labeled 'Envoi sans fil').
-Far right: Smartphone icon (labeled 'Affichage déporté - App BT').
-Arrows showing data flow. Color-coded connections. Clean flat design, French labels."
-```
+![Architecture du proto maquette final](images/architecture-proto.png)
 
 ### 6.2 Sketch du proto maquette final (intégration complète)
 

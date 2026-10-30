@@ -53,24 +53,21 @@ Dans le tableau de bord :
 ### Étape 3 — Panneau Composants
 
 
-```
 Pour trouver un composant :
-  Option A → Taper son nom dans la barre de recherche
-  Option B → Dérouler la catégorie correspondante
+Option A → Taper son nom dans la barre de recherche
+Option B → Dérouler la catégorie correspondante
 
 Composants à connaître et leur emplacement :
-  ┌──────────────────────┬────────────────────┐
-  │ Composant            │ Catégorie          │
-  ├──────────────────────┼────────────────────┤
-  │ Résistance           │ Basiques           │
-  │ DEL (LED)            │ Basiques           │
-  │ Condensateur         │ Basiques           │
-  │ Pile (9V)            │ Basiques           │
-  │ Bouton-poussoir      │ Basiques           │
-  │ Multimètre           │ Instruments        │
-  │ Arduino Uno R3       │ Microcontrôleurs   │
-  └──────────────────────┴────────────────────┘
-```
+| Composant | Catégorie |
+|---|---|
+| Résistance | Basiques |
+| DEL (LED) | Basiques |
+| Condensateur | Basiques |
+| Pile (9V) | Basiques |
+| Bouton-poussoir | Basiques |
+| Multimètre | Instruments |
+| Arduino Uno R3 | Microcontrôleurs |
+
 
 ### Étape 4 — Poser un composant sur le canvas
 
@@ -83,22 +80,19 @@ Composants à connaître et leur emplacement :
 
 ### Étape 5 — Modifier la valeur d'un composant
 
-```
-  1. Cliquer UNE FOIS sur le composant → il est sélectionné (bordure bleue)
-  2. Un encadré de propriétés apparaît (en haut ou en bas selon la version)
-  3. Modifier la valeur dans le champ "Résistance" ou "Tension" selon le composant
-  4. Valider en cliquant ailleurs
+1. Cliquer UNE FOIS sur le composant → il est sélectionné (bordure bleue)
+2. Un encadré de propriétés apparaît (en haut ou en bas selon la version)
+3. Modifier la valeur dans le champ "Résistance" ou "Tension" selon le composant
+4. Valider en cliquant ailleurs
 
 Exemples de valeurs à connaître :
-  ┌─────────────────┬──────────────┬───────────────────────────────┐
-  │ Composant       │ Champ        │ Valeur à taper                │
-  ├─────────────────┼──────────────┼───────────────────────────────┤
-  │ Résistance      │ Résistance   │ 390 (la valeur est en Ohms)   │
-  │ Pile            │ Tension      │ 9 (volts)                     │
-  │ Condensateur    │ Capacitance  │ 100µ (microfarads)            │
-  │ DEL             │ Couleur      │ Choisir : rouge, vert, bleu…  │
-  └─────────────────┴──────────────┴───────────────────────────────┘
-```
+| Composant | Champ | Valeur à taper |
+|---|---|---|
+| Résistance | Résistance | 390 (la valeur est en Ohms) |
+| Pile | Tension | 9 (volts) |
+| Condensateur | Capacitance | 100µ (microfarads) |
+| DEL | Couleur | Choisir : rouge, vert, bleu… |
+
 
 ---
 
