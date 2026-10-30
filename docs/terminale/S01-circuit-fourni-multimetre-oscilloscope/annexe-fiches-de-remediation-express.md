@@ -38,8 +38,10 @@ Q1 : Y a-t-il une violation DRC ? ☐ Oui ☐ Non · De combien ? _______ mm
 Q2 : Le condensateur est-il bien placé ? ☐ Oui ☐ Non · Règle : _______________
 Q3 : Le plan fendu pose-t-il un problème CEM ? ☐ Oui ☐ Non · Raison : __________
 
-Réponses : Q1=Oui +0,05mm · Q2=Non (8mm >> 2mm) · Q3=Oui (grande boucle = rayonnement)
 ```
+
+??? success "Réponses"
+    Q1=Oui +0,05mm · Q2=Non (8mm >> 2mm) · Q3=Oui (grande boucle = rayonnement)
 
 ---
 
@@ -80,8 +82,10 @@ void loop() {
 }
 // Bonus : quelle 4ème erreur critique dans loop() ?
 
-Réponses : 115200 · !=WL_CONNECTED · ID unique · mqtt.loop() absent
 ```
+
+??? success "Réponses"
+    115200 · !=WL_CONNECTED · ID unique · mqtt.loop() absent
 
 ---
 
@@ -125,7 +129,7 @@ $$Rs_nouveau = \underline{\hspace{2.5em}} \times 0{,}92 = \underline{\hspace{2.5
 Gain : _______ points  
 
 ??? success "Réponses"
-    a)2×10⁻⁵ b)0,1752/0,839/83,9% c)0,773/77,3% d)0,0256/0,974 · 0,896 · 89,6% · +12,3pts
+    a)$2\times 10^{-5}$ b)0,1752/0,839/83,9% c)0,773/77,3% d)0,0256/0,974 · 0,896 · 89,6% · +12,3pts
 
 ---
 
@@ -158,8 +162,10 @@ c) Quelle violation CEM : condensateur 100nF placé à 15mm de l'ESP32 ?
 d) Plan de masse fendu par une piste d'alimentation : quel problème CEM ?
    ____________________________________________________________________________
 
-Réponses : a)3m/0,15m/15cm b)72Hz c)inductance piste → filtre inefficace à HF d)détour courant→grande boucle→rayonnement
 ```
+
+??? success "Réponses"
+    a)3m/0,15m/15cm b)72Hz c)inductance piste → filtre inefficace à HF d)détour courant→grande boucle→rayonnement
 
 ---
 

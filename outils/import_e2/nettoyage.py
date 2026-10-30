@@ -39,23 +39,35 @@ def header_footer(L):
     return out
 
 
+def details(body, title):
+    return ['', f'??? success "{title}"'] + ['    ' + x.rstrip() + ('  ' if k < len(body) - 1 else '') for k, x in enumerate(body)] + ['']
+
+
 def reponses(L):
     out = []; i = 0; fence = False
     while i < len(L):
         l = L[i]
-        if re.match(r'^\s*```', l): fence = not fence; out.append(l); i += 1; continue
-        m = None if fence else REP.match(l)
-        if m and not l.startswith((' ', '\t', '>', '|')):
+        if re.match(r'^\s*```', l):
+            fence = not fence; out.append(l); i += 1; continue
+        m = REP.match(l) if not l.startswith(('\t', '>', '|')) else None
+        if m and (fence or not l.startswith(' ')):
             label = m.group(2) + (m.group(3) or '')
             body = [m.group(5)] if m.group(5).strip() else []
             j = i + 1
+            if not body:
+                while j < len(L) and not L[j].strip(): j += 1
             while j < len(L) and L[j].strip() and not L[j].startswith(('#', '---', '```', '|', '>', '![', '**R', '*R')): body.append(L[j]); j += 1
-            if body and not any('___' in b or '…' * 2 in b for b in body) and sum(len(b) for b in body) < 900:
+            if body and not any('___' in b for b in body) and sum(len(b) for b in body) < 900:
                 title = 'Réponses' if label.lower().startswith('réponses') else 'Réponse'
+                if fence:
+                    k = j
+                    while k < len(L) and not re.match(r'^\s*```', L[k]): k += 1
+                    rest = [x for x in L[j:k]]
+                    out.append('```'); out += details(body, title)
+                    if any(x.strip() for x in rest): out.append('```'); out += rest + ['```']
+                    fence = False; i = k + 1; continue
                 if out and out[-1].strip(): out.append('')
-                out.append(f'??? success "{title}"')
-                out += ['    ' + b.rstrip() + ('  ' if k < len(body) - 1 else '') for k, b in enumerate(body)]
-                out.append(''); i = j; continue
+                out += details(body, title)[1:]; i = j; continue
         out.append(l); i += 1
     return out
 

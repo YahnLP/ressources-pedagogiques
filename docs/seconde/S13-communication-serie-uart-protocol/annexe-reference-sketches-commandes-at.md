@@ -309,8 +309,10 @@ void loop() {
 Format de commande  : AT+<COMMANDE>[=<valeur>]<CR><LF>
 Format de requête   : AT+<COMMANDE>?<CR><LF>
 Format de réponse   : +<COMMANDE>:<valeur>\r\n  puis  OK\r\n
-Réponse d'erreur    : ERROR:(code)\r\n
 ```
+
+??? success "Réponse"
+    d'erreur    : ERROR:(code)\r\n
 
 ### Commandes essentielles
 
