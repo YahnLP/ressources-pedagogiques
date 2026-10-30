@@ -2,10 +2,13 @@
 Usage : python3 essentiel.py <racine>"""
 import sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from essentiel_cours import COURS
+from essentiel_ateliers import ATELIER, EXOS
 
-S = '../../seconde/'
-P = '../../premiere/'
-T = '../'
+S = '../seconde/'
+P = '../premiere/'
+T = '../terminale/'
 
 def L(titre, chemin): return f'[{titre}]({chemin})'
 
@@ -17,11 +20,11 @@ SEMAINES = [
   liens=[L("Seconde S01 – code couleurs et loi d'Ohm", S+"S01-code-couleurs-des-resistances-et-loi-d/01-cours.md"), L("Seconde S01 – familles de composants", S+"S01-code-couleurs-des-resistances-et-loi-d/02-familles-de-composants.md"), L("Seconde S02 – diodes et LED", S+"S02-diodes-led-circuits-serie-parallele-loi/01-cours.md")],
   tests=[("Une résistance marron – noir – orange – or vaut combien ?","**10 kΩ**, tolérance ± 5 %."),("Quel courant dans une résistance de 330 Ω sous 5 V ?","$I = \\dfrac{5}{330} \\approx 15{,}2\\,\\mathrm{mA}$."),("Quelle résistance en série avec une LED (2 V, 20 mA) sous 5 V ?","$R = \\dfrac{5 - 2}{0{,}020} = 150\\,\\Omega$."),("Quelle patte d'une LED est l'anode (+) ?","La **patte longue**."),("Quelle puissance dissipe une résistance traversée par 100 mA sous 5 V ?","$P = 5 \\times 0{,}1 = 0{,}5\\,\\mathrm{W}$.")],
   livrable="Fiche « mes composants » : symbole, rôle et une valeur typique pour 8 composants."),
- dict(n=2, titre="Mesurer : multimètre et oscilloscope", comp="C07 · C11",
-  obj=["Mesurer une tension, un courant, une résistance, une continuité.", "Régler un oscilloscope (VOLT/DIV, SEC/DIV, déclenchement) et lire amplitude, période, fréquence.", "Choisir le bon instrument selon la grandeur."],
-  deroule=[("1 h","Multimètre : tension, courant, résistance, continuité"),("1 h","Prise en main de l'oscilloscope (signal de test, sonde ×10)"),("1 h","Mesurer un signal PWM et une LED qui clignote"),("1 h","Auto-test et correction")],
-  liens=[L("Seconde S12 – tests au multimètre", S+"S12-tests-au-multimetre-et-controle-qualite/01-cours.md"), L("Seconde S12 – prise en main de l'oscilloscope", S+"S12-tests-au-multimetre-et-controle-qualite/05-prise-en-main-oscilloscope.md"), L("Terminale S01 – circuit fourni", T+"S01-circuit-fourni-multimetre-oscilloscope/README.md")],
-  tests=[("Comment branche-t-on un ampèremètre ? Un voltmètre ?","L'ampèremètre en **série**, le voltmètre en **parallèle**."),("Une période occupe 4 carreaux à 5 ms/DIV. Quelle fréquence ?","$T = 20\\,\\mathrm{ms}$ ; $f = 50\\,\\mathrm{Hz}$."),("Dans quelles conditions mesure-t-on une résistance ?","**Hors tension** et, si possible, **hors circuit**."),("Que fait le couplage AC ?","Il supprime la **composante continue** pour voir la variation."),("Que vérifier avant de brancher la sonde ?","Qu'elle est déclarée en **×10** et que la masse est sur la **masse du circuit**.")],
+ dict(n=2, titre="Mesurer : multimètre, alimentation, générateur et oscilloscope", comp="C07 · C11",
+  obj=["Mesurer une tension, un courant, une résistance, une continuité.", "Régler une alimentation de labo (tension et limite de courant).", "Régler un générateur de fonctions (forme, fréquence, amplitude).", "Régler un oscilloscope (VOLT/DIV, SEC/DIV, déclenchement) et lire amplitude, période, fréquence.", "Choisir le bon instrument selon la grandeur."],
+  deroule=[("1 h","Multimètre : tension, courant, résistance, continuité"),("1 h","Alimentation de labo et générateur de fonctions"),("1 h","Oscilloscope : signal de test, sonde ×10, PWM, LED qui clignote"),("1 h","Atelier chronométré et auto-test (passeport instruments)")],
+  liens=[L("Seconde S12 – tests au multimètre", S+"S12-tests-au-multimetre-et-controle-qualite/01-cours.md"), L("Seconde S12 – prise en main de l'oscilloscope", S+"S12-tests-au-multimetre-et-controle-qualite/05-prise-en-main-oscilloscope.md"), L("Seconde S12 – alimentation de labo et générateur", S+"S12-tests-au-multimetre-et-controle-qualite/06-alimentation-labo-et-generateur.md"), L("Première S05 – TP instruments avancés", P+"S05-tests-mesures-avances-oscilloscope/05-tp-instruments-avances.md"), L("Terminale S01 – circuit fourni", T+"S01-circuit-fourni-multimetre-oscilloscope/README.md"), L("Passeport instruments", "passeport-instruments.md")],
+  tests=[("Comment branche-t-on un ampèremètre ? Un voltmètre ?","L'ampèremètre en **série**, le voltmètre en **parallèle**."),("Une période occupe 4 carreaux à 5 ms/DIV. Quelle fréquence ?","$T = 20\\,\\mathrm{ms}$ ; $f = 50\\,\\mathrm{Hz}$."),("Dans quelles conditions mesure-t-on une résistance ?","**Hors tension** et, si possible, **hors circuit**."),("Que fait le couplage AC ?","Il supprime la **composante continue** pour voir la variation."),("Que vérifier avant de brancher la sonde ?","Qu'elle est déclarée en **×10** et que la masse est sur la **masse du circuit**."),("Que règle-t-on sur une alimentation de labo avant de brancher le montage ?","La **tension** et la **limite de courant**."),("Le voyant CC est allumé : que signifie-t-il ?","Le courant a atteint la **limite** : il y a une **anomalie** (court-circuit, consommation trop forte).")],
   livrable="Relevé de 5 mesures (valeur, unité, instrument, réglage utilisé)."),
  dict(n=3, titre="Lire un schéma et une datasheet", comp="C07",
   obj=["Lire un schéma normalisé et repérer les blocs fonctionnels.", "Trouver dans une datasheet : brochage, limites absolues, caractéristiques min / typ / max.", "Calculer les composants autour d'un circuit à partir de la datasheet."],
@@ -73,11 +76,54 @@ SEMAINES = [
   livrable="Copie corrigée de l'épreuve blanche et plan de révision personnel."),
 ]
 
+PASSEPORT = """# 🎛️ Passeport instruments
+
+> Chaque compétence se **valide** par une **manipulation observée** (l'enseignant ou un camarade coche). Les trois années préparent ces compétences ; en parcours court, tu les fais **toutes** pendant les semaines 2, 4, 8 et 9.
+
+| Instrument | Je sais… | Où s'entraîner | Validé |
+|---|---|---|---|
+| **Multimètre** | mesurer une **tension** (en parallèle) | [Seconde S12](../seconde/S12-tests-au-multimetre-et-controle-qualite/01-cours.md) | ☐ |
+| | mesurer un **courant** (en série) sans court-circuit | idem | ☐ |
+| | mesurer une **résistance** hors tension | idem | ☐ |
+| | tester une **continuité** et une **diode** | idem | ☐ |
+| | choisir le bon **calibre** et lire la **précision** du constructeur | [Terminale S02](../terminale/S02-rapport-de-mesures-pv-professionnel/01-cours.md) | ☐ |
+| **Alimentation de labo** | régler la **tension** et la **limite de courant** avant de brancher | [Seconde S12](../seconde/S12-tests-au-multimetre-et-controle-qualite/06-alimentation-labo-et-generateur.md) | ☐ |
+| | interpréter le mode **CV / CC** | idem | ☐ |
+| **Générateur de fonctions** | produire un sinus, un carré (fréquence, amplitude, offset) | idem | ☐ |
+| **Oscilloscope** | installer et **compenser** une sonde ×10 | [Seconde S12](../seconde/S12-tests-au-multimetre-et-controle-qualite/05-prise-en-main-oscilloscope.md) | ☐ |
+| | lire **amplitude, période, fréquence** | idem | ☐ |
+| | régler le **déclenchement** | [Première S05](../premiere/S05-tests-mesures-avances-oscilloscope/05-tp-instruments-avances.md) | ☐ |
+| | utiliser **mesures automatiques et curseurs** | idem | ☐ |
+| | observer **deux voies** (entrée / sortie d'un montage) | idem | ☐ |
+| | mesurer un **rapport cyclique** (PWM) | Seconde S12 et Première S05 | ☐ |
+| **Analyseur logique** (si disponible) | décoder une liaison **UART** ou **I2C** | [Première S05](../premiere/S05-tests-mesures-avances-oscilloscope/01-cours.md) | ☐ |
+| **Soudure** | souder et contrôler une brasure (IPC-A-610) | [Seconde S04](../seconde/S04-soudure-a-l-etain-composants/01-cours.md) | ☐ |
+
+## ⏱️ Atelier chronométré (fin de semaine 2)
+
+Objectif : **moins de 2 minutes** par manœuvre.
+
+1. Mesurer une résistance hors tension et la comparer à sa tolérance.
+2. Régler l'alimentation à 5 V, limite 50 mA, puis alimenter un montage LED.
+3. Mesurer la tension aux bornes de la LED et le courant dans le circuit.
+4. Régler le GBF (carré, 1 kHz, 3 V$_{pp}$) et lire sa période et son amplitude à l'oscilloscope.
+5. Mesurer le rapport cyclique d'un signal PWM.
+
+> [!SUCCESS] 🧠 À retenir
+> - Avant toute mesure : **bon appareil**, **bon calibre**, **bon branchement**.
+> - Avant de brancher un montage : **tension et limite de courant réglées**.
+> - À l'oscilloscope : **sonde déclarée**, **masse au bon endroit**, **déclenchement réglé**.
+"""
+
 def page(w):
     n = w['n']
     o = [f"# Semaine {n} : {w['titre']}", "", f"> **Durée** : 4 h · **Compétences E2 travaillées** : {w['comp']}", "", "## 🎯 Objectifs : à la fin de la semaine, je sais…", ""]
     o += [f"- {x}" for x in w['obj']] + ["", "## 🗓️ Déroulé", "", "| Durée | Activité |", "|---|---|"]
-    o += [f"| {d} | {a} |" for d, a in w['deroule']] + ["", "## 📚 Ressources à utiliser", ""]
+    o += [f"| {d} | {a} |" for d, a in w['deroule']] + ["", "## 📖 Le cours en bref", "", COURS[n].strip(), "", "## 🛠️ Atelier guidé : on construit ensemble le clignoteur", "", ATELIER[n].strip(), "", "## ✍️ Exercices d'application", ""]
+    for i, (q, _) in enumerate(EXOS[n], 1): o.append(f"{i}. {q}")
+    o += ["", '??? success "Corrigés"']
+    for i, (_, r) in enumerate(EXOS[n], 1): o.append(f"    {i}. {r}")
+    o += ["", "## 📚 Pour approfondir : les séances à consulter", ""]
     o += [f"- {l}" for l in w['liens']] + ["", "## ✅ Auto-test", ""]
     for i, (q, _) in enumerate(w['tests'], 1): o.append(f"{i}. {q}")
     o += ["", '??? success "Réponses"']
@@ -86,8 +132,8 @@ def page(w):
     return "\n".join(o)
 
 def readme():
-    o = ["# 🎯 L'essentiel en 1 an : parcours de 10 semaines", "",
-         "Ce parcours rassemble **l'essentiel** pour réussir l'épreuve E2 (« Réalisation et maintenance de produits électroniques », coefficient 5). Il est conçu pour **10 semaines de 4 heures** (40 h) et peut servir de **révision avant le bac** pour avancer **seul(e)**.", "",
+    o = ["# ⚡ L'essentiel en 1 an : une formation express en 10 semaines", "",
+         "Ce n'est **pas** une simple révision : c'est une **formation complète et accélérée**, qui part des bases et mène à l'épreuve E2 (« Réalisation et maintenance de produits électroniques », coefficient 5). **10 semaines de 4 heures** (40 h). Chaque semaine contient un **cours**, un **atelier guidé pas à pas**, des **exercices corrigés** et un **livrable**. On construit, on teste et on dépanne **une même carte** (un clignoteur à LED) du début à la fin : c'est le **fil rouge**. Utilisable en classe comme **seul(e)**, y compris pour rattraper avant le bac.", "",
          "## 🎯 Ce que tu sauras faire à la fin", "",
          "- **comprendre** un circuit électronique simple et **connaître** ses composants ;",
          "- **lire** une datasheet et en tirer les valeurs utiles ;",
@@ -99,20 +145,25 @@ def readme():
     o += [f"| [**{w['n']}**](S{w['n']:02d}-semaine.md) | {w['titre']} | {w['comp']} |" for w in SEMAINES]
     o += ["", "## 🧭 Comment travailler", "",
           "1. Lis les **objectifs** de la semaine, puis suis le **déroulé** (4 × 1 h).",
-          "2. Utilise les **ressources** indiquées : ce sont les séances de Seconde, Première et Terminale qui traitent exactement le sujet.",
-          "3. Fais l'**auto-test** *sans regarder* les réponses, puis corrige-toi.",
-          "4. Finis par le **livrable** : c'est une preuve de compétence pour ton dossier.", "",
+          "2. Lis le **cours en bref**, puis fais l'**atelier guidé** étape par étape (tu peux comparer à la correction).",
+          "3. Fais les **exercices** et l'**auto-test** *sans regarder* les réponses, puis corrige-toi.",
+          "4. Pour aller plus loin, les séances de Seconde, Première et Terminale sont indiquées en fin de page.",
+          "5. Finis par le **livrable** : c'est une preuve de compétence pour ton dossier.", "",
+          "> [!TIP] 🎛️ Passeport instruments",
+          "> Savoir **manipuler les appareils de mesure** est une compétence clé de l'E2. Tout au long du parcours, fais valider ton [passeport instruments](passeport-instruments.md) : multimètre, alimentation, générateur, oscilloscope.", "",
           "> [!NOTE] 🔶 Et le reste ?",
           "> Les séances marquées 🔶 (approfondissement) ne sont **pas nécessaires** pour l'essentiel : Gauge R&R, calcul complet d'incertitudes, fiabilité MTBF, cloud AWS, requêtes Flux. Tu peux les faire **après** ce parcours.", ""]
     return "\n".join(o)
 
 def main(root):
-    d = Path(root) / 'docs' / 'terminale' / '00-essentiel-en-1-an'
+    d = Path(root) / 'docs' / 'essentiel-en-1-an'
     d.mkdir(parents=True, exist_ok=True)
     (d / 'README.md').write_text(readme(), encoding='utf-8')
     for w in SEMAINES: (d / f"S{w['n']:02d}-semaine.md").write_text(page(w), encoding='utf-8')
-    nav = ['title: "🎯 L\'essentiel en 1 an (10 semaines × 4 h)"', 'nav:', '  - README.md']
+    nav = ['title: "⚡ L\'essentiel en 1 an"', 'nav:', '  - README.md']
+    nav += ['  - "🎛️ Passeport instruments": passeport-instruments.md']
     nav += [f"  - \"Semaine {w['n']} · {w['titre']}\": S{w['n']:02d}-semaine.md" for w in SEMAINES]
+    (d / 'passeport-instruments.md').write_text(PASSEPORT, encoding='utf-8')
     (d / '.pages').write_text("\n".join(nav) + "\n", encoding='utf-8')
     print('parcours essentiel généré')
 

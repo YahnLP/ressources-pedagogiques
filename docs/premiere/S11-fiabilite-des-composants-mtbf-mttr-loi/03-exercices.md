@@ -1,7 +1,7 @@
 # 🔬 EXERCICES PROGRESSIFS — S11 · 2ᵉ ANNÉE · E2
 
 > [!NOTE] 🔶 Approfondissement
-> Cette partie va **au-delà de l'essentiel** attendu pour l'épreuve E2. À faire **après** le parcours essentiel (voir « L'essentiel en 1 an » en Terminale), si tu as du temps ou si tu vises plus haut.
+> Cette partie va **au-delà de l'essentiel** attendu pour l'épreuve E2. À faire **après** le parcours essentiel (voir l'onglet « L'essentiel en 1 an »), si tu as du temps ou si tu vises plus haut.
 
 ## Fiabilité : MTBF · MTTR · R(t) · Systèmes Série/Parallèle/Complexes
 
