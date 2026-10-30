@@ -4,7 +4,6 @@
 ---
 
 > **Document élève — À conserver dans le portfolio et réutiliser en S14, S16**
-> BAC Pro CIEL | S13 Module E2 | MFR de Pontonx
 
 ---
 

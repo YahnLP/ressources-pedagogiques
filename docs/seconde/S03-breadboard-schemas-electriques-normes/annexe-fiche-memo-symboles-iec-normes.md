@@ -74,7 +74,8 @@
 | Deux barres parallèles inégales avec bornes | |
 | Deux barres parallèles égales avec bornes | |
 
-*Réponses : Résistance · LED · Interrupteur NO · Masse GND · Jonction · Source tension continue · Condensateur non polarisé*
+??? success "Réponses"
+    Résistance · LED · Interrupteur NO · Masse GND · Jonction · Source tension continue · Condensateur non polarisé*
 
 ---
 

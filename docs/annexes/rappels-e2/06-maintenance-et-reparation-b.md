@@ -2,7 +2,6 @@
 title: "Pack 06 – Maintenance et réparation (fiche B)"
 ---
 
-
 # Maintenance et réparation
 
 ## 🎯 Objectifs (niveau E2)
@@ -31,6 +30,7 @@ En E2, on attend surtout une chose :
 La maintenance et la réparation des équipements électroniques consistent à entretenir, diagnostiquer, et réparer les circuits et les systèmes pour prolonger leur durée de vie et garantir leur bon fonctionnement.
 
 Il existe deux grandes logiques :
+
 - **Prévenir** la panne (avant qu’elle arrive)
 - **Corriger** la panne (quand elle est là)
 
@@ -60,6 +60,7 @@ Basée sur des données de surveillance, elle permet d’anticiper les pannes en
 Exemple : utiliser un capteur de température pour surveiller les variations sur un circuit de puissance, et agir si la température atteint un seuil critique.
 
 En atelier, on peut l’illustrer avec :
+
 - une température qui augmente progressivement,
 - un signal qui devient bruité,
 - une consommation qui monte anormalement.
@@ -94,6 +95,7 @@ Observer le circuit pour identifier les signes d’usure, d’accumulation de po
 Exemple : une inspection visuelle d’une carte mère peut révéler des condensateurs bombés, signe de vieillissement.
 
 On cherche notamment :
+
 - traces de chauffe,
 - composants fissurés,
 - fils abîmés,
@@ -111,6 +113,7 @@ La poussière et les débris peuvent altérer la dissipation thermique et créer
 Exemple : dans les ordinateurs, nettoyer les ventilateurs et les grilles de dissipation thermique pour éviter la surchauffe.
 
 À retenir :
+
 - nettoyer = meilleure ventilation = composants moins chauds,
 - **attention** : pas d’objets métalliques sur la carte (risque court-circuit),
 - si possible : outils antistatiques.
@@ -121,6 +124,7 @@ Contrôler les soudures et les connexions pour détecter les fissures, soudures 
 Exemple : un circuit avec des soudures froides peut générer des coupures intermittentes ou des pannes soudaines.
 
 À retenir :
+
 - **soudure froide = souvent panne intermittente**
 - une bonne soudure : cône propre, brillante, pas de pont
 
@@ -135,6 +139,7 @@ Utiliser un multimètre pour vérifier les tensions et les courants aux points c
 Exemple : mesurer les tensions d’alimentation pour s’assurer que chaque section du circuit reçoit une tension correcte.
 
 En pratique, “points clés” = :
+
 - tension d’alimentation principale,
 - sortie d’un régulateur,
 - entrée/sortie d’un capteur,
@@ -175,6 +180,7 @@ Exemple : en cas d’absence de courant, vérifier le fusible et l’interrupteu
 Ici, on applique : **tests simples d’abord** = gain de temps.
 
 Réflexe très utile :
+
 - continuité **Vcc → circuit** et **GND → retour**
 - vérifier qu’il n’y a pas de court-circuit **Vcc ↔ GND**
 
@@ -184,6 +190,7 @@ Tester chaque composant pour vérifier sa valeur ou son fonctionnement, en utili
 Exemple : mesurer la résistance d’un composant pour détecter une variation par rapport à sa valeur nominale.
 
 Rappels opérationnels :
+
 - Résistance : mesure en **Ω (hors tension)**
 - Diode/LED : **mode test diode**
 - Oscilloscope : signal **présent / absent / déformé**
@@ -194,6 +201,7 @@ Une fois la panne localisée, remplacer les composants défaillants en s’assur
 Exemple : remplacer un condensateur défectueux par un modèle avec la même capacité et tension nominale.
 
 Règles simples à respecter :
+
 - **même capacité**
 - **tension nominale ≥** (au moins égale)
 - respecter la **polarité** (condensateur électrolytique)
@@ -204,6 +212,7 @@ Après la réparation, tester le circuit sous tension pour s’assurer que la pa
 Exemple : après avoir remplacé une diode de redressement, mesurer la tension de sortie pour confirmer que le courant est correctement redressé.
 
 On refait la mini-checklist :
+
 - pas de court-circuit,
 - tension OK,
 - fonctionnement OK.
@@ -236,6 +245,7 @@ Toujours débrancher le circuit de l’alimentation avant d’effectuer des opé
 Exemple : ne jamais toucher aux composants d’un circuit haute tension sans être sûr qu’il est hors tension.
 
 En atelier, même en basse tension :
+
 - on coupe avant de modifier le câblage,
 - on coupe avant de changer de mode (V ↔ Ω ↔ A).
 

@@ -99,11 +99,13 @@ Les **commandes AT** (du mot « ATtention ») sont un langage de configuration i
 ### 4.2 Comment entrer en mode AT ?
 
 **Méthode 1 – Bouton EN/KEY avant la mise sous tension :**
+
 1. Maintenir la broche **EN/KEY à HIGH** (relier à 3,3V)
 2. Puis alimenter le module (brancher VCC)
 3. La LED clignote **lentement** (2 secondes par flash) → mode AT activé ✅
 
 **Méthode 2 – Connexion directe PC (via adaptateur USB-TTL) :**
+
 1. Relier HC-05 directement à un adaptateur USB-TTL 3,3V
 2. Ouvrir le moniteur série à **38400 bauds** avec "Pas de terminateur de ligne" → "Les deux, NL & CR"
 

@@ -2,7 +2,6 @@
 title: "Pack 03 – Montage et assemblage de circuits (fiche A)"
 ---
 
-
 # Montage et assemblage de circuits
 
 ## I. Compréhension du circuit et préparation au montage
@@ -10,6 +9,7 @@ title: "Pack 03 – Montage et assemblage de circuits (fiche A)"
 Le montage et l’assemblage d’un circuit nécessitent une compréhension approfondie du schéma électronique et du plan de câblage pour une installation précise et fonctionnelle.
 
 ✅ **Complément utile :**
+
 - Schéma = logique (qui est relié à qui).  
 - Plan de câblage = placement réel (où je mets les fils/composants).  
 - En atelier, une grande partie des pannes vient d’une **mauvaise préparation**.
@@ -19,6 +19,7 @@ Avant de commencer, il est essentiel de :
 ● Analyser le schéma électronique : identifier chaque composant (résistances, diodes, transistors, etc.), comprendre leur rôle dans le circuit et vérifier les connexions.
 
 ✅ **Complément utile : méthode simple**
+
 1) repérer **Vcc/GND**  
 2) suivre le circuit “du + vers le –”  
 3) repérer les **points de jonction**  
@@ -32,18 +33,21 @@ Avant de commencer, il est essentiel de :
 ● Étudier le plan de câblage : s’assurer que l’on comprend la disposition physique des composants, leur orientation, et les chemins de connexion.
 
 ✅ **Complément utile :**
+
 - Sur breadboard : comprendre quelles rangées/rails sont déjà connectés.
 - Sur PCB : repérer l’orientation des composants (encoche du CI, bande “-” du condensateur, sens diode).
 
 ● Réunir tous les composants : vérifier les spécifications et la polarité (quand applicable) de chaque composant pour éviter les erreurs au moment de l’assemblage.
 
 ✅ **Complément utile :**
+
 - Vérifier la **valeur** (Ω, µF) + la **polarité**.
 - Une résistance trop faible peut créer un courant trop fort (ex : LED grillée).
 
 ● Préparer l’espace de travail : organiser un espace propre et bien éclairé, avec des outils à portée de main (fer à souder, pinces, multimètre).
 
 ✅ **Complément utile :**
+
 - Pro : “j’anticipe” → je gagne du temps et j’évite les erreurs.
 - Sécurité : le fer à souder chauffe très fort → zone dédiée.
 
@@ -54,6 +58,7 @@ Avant de commencer, il est essentiel de :
 Les composants peuvent être assemblés sur plusieurs types de supports selon les besoins du circuit et les contraintes de l’environnement d’utilisation.
 
 ✅ **Complément utile :**
+
 - Il faut choisir le support selon : **rapidité**, **fiabilité**, **modification**, **compacité**.
 
 ### ● Montage sur plaque de prototypage (breadboard) :
@@ -62,6 +67,7 @@ Les composants peuvent être assemblés sur plusieurs types de supports selon le
 ○ Exemple : tester un circuit de capteur de température en reliant simplement les composants pour s’assurer du bon fonctionnement avant le montage définitif.
 
 ✅ **Complément utile :**
+
 - Avantage : très rapide, facile à modifier.
 - Limite : moins fiable si ça bouge (fils qui se débranchent).
 
@@ -76,6 +82,7 @@ Les composants peuvent être assemblés sur plusieurs types de supports selon le
 ○ Exemple : un PCB pour une alimentation régulée avec les composants fixés et les pistes optimisées pour minimiser les pertes de courant.
 
 ✅ **Complément utile :**
+
 - Avantage : compact + fiable.
 - Limite : difficile à modifier après fabrication, nécessite soudure/compétence.
 
@@ -85,6 +92,7 @@ Les composants peuvent être assemblés sur plusieurs types de supports selon le
 ○ Exemple : fabriquer un amplificateur audio simple en soudant chaque composant dans des bandes distinctes, avec des coupures pour ajuster les connexions.
 
 ✅ **Complément utile :**
+
 - Avantage : solide, modifiable “un peu” (en coupant les bandes).
 - Limite : il faut penser aux bandes (risque de court-circuit si coupure oubliée).
 
@@ -100,18 +108,21 @@ Les composants peuvent être assemblés sur plusieurs types de supports selon le
 La soudure est une étape essentielle dans le montage des circuits permanents. Elle permet de fixer les composants et d’assurer une connexion électrique fiable.
 
 ✅ **Complément utile :**
+
 - Objectif : une soudure **mécaniquement solide** + **électriquement conductrice**.
 
 ● Choix du matériel de soudure : il faut un fer à souder, de l’étain (alliage de soudure) et parfois du flux pour faciliter la soudure.  
 ○ Fer à souder entre 350-400°C pour les composants standards, et une panne fine pour les soudures précises.
 
 ✅ **Complément utile :**
+
 - Température trop basse → soudure froide.
 - Trop haute / trop longtemps → composant abîmé.
 
 ● Préparation de la surface : nettoyer les pistes et les broches des composants pour une meilleure adhérence de l’étain.
 
 ✅ **Complément utile :**
+
 - “Propre” = étain accroche mieux, soudure plus brillante.
 
 ● Réalisation de la soudure : <br>
@@ -120,6 +131,7 @@ La soudure est une étape essentielle dans le montage des circuits permanents. E
 ○ Vérifier que la soudure forme un cône propre et brillant, sans excès d’étain ou connexion avec une piste adjacente.
 
 ✅ **Complément utile :**
+
 - Le bon geste : chauffer **piste + patte** puis déposer l’étain.
 - “Cône propre” = signe de bonne liaison.
 
@@ -131,6 +143,7 @@ La soudure est une étape essentielle dans le montage des circuits permanents. E
 ● Inspection des soudures : s’assurer qu’il n’y a pas de “soudure froide” (mauvaise connexion) et que toutes les connexions sont solides et bien réalisées.
 
 ✅ **Complément utile :**
+
 - Une soudure froide peut “marcher parfois” → panne difficile à trouver.
 - On inspecte : aspect + absence de pont + solidité.
 
@@ -143,23 +156,27 @@ Après avoir soudé les composants, il est crucial de vérifier le circuit pour 
 ● Contrôle des connexions : vérifier à l’aide d’un multimètre que chaque composant est correctement relié à ceux nécessaires, et qu’il n’y a pas de court-circuit.
 
 ✅ **Complément utile :**
+
 - Avant alimentation, on vérifie **Vcc ↔ GND** : pas de court-circuit.
 
 ● Test de continuité : utiliser la fonction de continuité du multimètre pour s’assurer que les connexions entre composants sont complètes et sans coupure.
 
 ✅ **Complément utile :**
+
 - “Bip” = continuité (liaison).
 - Pas de bip = coupure (fil manquant / piste coupée).
 
 ● Vérification de la polarité : contrôler les composants polarisés (diodes, condensateurs, transistors) pour confirmer qu’ils sont orientés correctement.
 
 ✅ **Complément utile :**
+
 - Diode/LED : sens obligatoire.
 - Condensateur polarisé : bande “–” à respecter.
 
 ● Mise sous tension progressive : si possible, appliquer une tension inférieure à celle prévue et observer le comportement du circuit avant de l’alimenter complètement.
 
 ✅ **Complément utile :**
+
 - Objectif : éviter de “tout griller” en cas d’erreur.
 - Indices : échauffement, consommation anormale, LED trop forte.
 
@@ -172,16 +189,19 @@ Une fois le circuit assemblé, il peut être nécessaire de procéder à des tes
 ● Test de tension : vérifier la présence des bonnes valeurs de tension aux points clés du circuit (par exemple, sur les broches d’un amplificateur).
 
 ✅ **Complément utile :**
+
 - On compare à une valeur attendue (ordre de grandeur).
 
 ● Vérification du courant : s’assurer que les courants aux différentes branches du circuit sont dans les valeurs attendues.
 
 ✅ **Complément utile :**
+
 - Courant trop fort → échauffement / casse.
 
 ● Observation des signes de défauts : échauffement excessif, absence de signal, ou consommation anormale de courant sont des indices de problème.
 
 ✅ **Complément utile :**
+
 - “Je coupe tout de suite” si ça chauffe ou sent mauvais.
 
 ● Diagnostic de pannes courantes :
@@ -190,6 +210,7 @@ Une fois le circuit assemblé, il peut être nécessaire de procéder à des tes
 ○ Exemple : si une LED ne s’allume pas, tester le courant dans la branche pour vérifier la continuité et la polarité de la diode.
 
 ✅ **Complément utile :**
+
 - Méthode de diagnostic LED :
   1) vérifier polarité LED
   2) vérifier résistance (valeur + connexion)
@@ -205,21 +226,25 @@ Les CMS sont des composants très petits, soudés directement sur les pistes d�
 ● Utilisation d’un fer à souder de précision ou d’une station de soudage à air chaud : ces outils permettent de souder les petits composants sans les endommager.
 
 ✅ **Complément utile :**
+
 - CMS = précision + outillage adapté.
 
 ● Application de pâte à souder : pour les CMS, on utilise souvent une pâte d’étain appliquée sur les pastilles de soudure avant de chauffer.
 
 ✅ **Complément utile :**
+
 - Pâte = facilite la fixation pendant le chauffage.
 
 ● Placement précis des composants : les CMS sont placés avec une pince à épiler sur la pâte à souder, puis chauffés pour fixer chaque connexion.
 
 ✅ **Complément utile :**
+
 - Le placement est critique : très petit, facile à décaler.
 
 ● Reflow et four de soudure : dans l’industrie, on utilise un four qui chauffe toute la carte pour fixer les composants CMS en une seule étape.
 
 ✅ **Complément utile :**
+
 - Reflow = production en série, très rapide.
 
 ---
@@ -231,21 +256,25 @@ Une fois le montage terminé, les circuits doivent être protégés des conditio
 ● Boîtiers et enclosures : placer le circuit dans un boîtier adapté pour le protéger des poussières, des chocs et des variations d’humidité.
 
 ✅ **Complément utile :**
+
 - Un boîtier = sécurité + durabilité.
 
 ● Fixation des composants : s’assurer que les composants et les connexions sont stables et que rien ne risque de se déplacer lors d’une utilisation.
 
 ✅ **Complément utile :**
+
 - Éviter que des fils tirent sur les soudures.
 
 ● Blindage électromagnétique : utiliser un boîtier métallique ou des rubans de blindage pour éviter les interférences, surtout dans les circuits de haute fréquence ou de précision.
 
 ✅ **Complément utile :**
+
 - Blindage = réduire les parasites.
 
 ● Application de vernis de protection : un vernis isolant peut être appliqué sur la carte pour la protéger de l’oxydation et des courts-circuits.
 
 ✅ **Complément utile :**
+
 - Vernis = utile si humidité/poussière, mais demande prudence en maintenance.
 
 ---
@@ -255,16 +284,19 @@ Une fois le montage terminé, les circuits doivent être protégés des conditio
 ● Assemblage d’un circuit d’éclairage LED : les LEDs sont connectées avec des résistances pour contrôler le courant et sont montées sur un PCB ; le tout est protégé dans un boîtier transparent.
 
 ✅ **Complément utile :**
+
 - Résistance = protection LED (limite le courant).
 
 ● Construction d’un ampli audio : implique des composants polarisés (condensateurs électrolytiques, transistors) montés sur une carte, avec un soin particulier pour les soudures et le blindage pour éviter les parasites.
 
 ✅ **Complément utile :**
+
 - Blindage utile en audio (parasites).
 
 ● Fabrication d’un capteur de température : le capteur est monté avec un microcontrôleur et un régulateur de tension, le tout dans un boîtier étanche pour protéger le circuit des éléments extérieurs.
 
 ✅ **Complément utile :**
+
 - Capteur → traitement → action (logique CIEL).
 
 ---

@@ -1,8 +1,6 @@
 # 📖 FICHE COURS – S14 ANNÉE 2 – E2
 ## Maintenance Corrective : Diagnostic de Pannes, Procédures de Réparation
 
-**Nom : ________________  Prénom : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS

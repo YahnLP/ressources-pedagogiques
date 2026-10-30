@@ -2,7 +2,6 @@
 title: "Pack 07 – Microcontrôleurs et programmation basique (Arduino) (fiche B)"
 ---
 
-
 # Systèmes microcontrôleurs et programmation basique (Arduino)
 
 ## 🎯 Objectifs (niveau E2)
@@ -51,6 +50,7 @@ C’est pour cela qu’on le retrouve partout (objets du quotidien, robotique, a
 
 #### ○ Processeur (CPU)
 Le CPU exécute les instructions du programme :  
+
 - calculs, comparaisons, décisions (**if/else**),  
 - contrôle des broches (allumer/éteindre, lire un bouton, etc.).
 
@@ -64,6 +64,7 @@ On distingue plusieurs mémoires (à connaître car elles n’ont pas le même r
 | **EEPROM** (optionnelle) | stocke des données **modifiables** (réglages) | ✅ Oui |
 
 Exemple concret :
+
 - Flash : ton code Arduino
 - RAM : la valeur lue par un capteur, un compteur, une variable
 - EEPROM : mémoriser un **seuil** même après coupure
@@ -72,6 +73,7 @@ Exemple concret :
 Ils permettent au microcontrôleur de communiquer avec l’extérieur via les **broches**.
 
 ➡️ Une broche = un **point de connexion** que tu configures :
+
 - soit en **entrée** (je lis un capteur/bouton),
 - soit en **sortie** (je commande une LED/relais…).
 
@@ -124,6 +126,7 @@ Elles envoient des signaux pour commander LED, relais, moteurs (via driver), etc
 - Sur Arduino, on commande une sortie avec : `digitalWrite(pin, HIGH/LOW)`.
 
 ⚠️ Règle atelier (sécurité matériel) :
+
 - une **LED** doit presque toujours avoir **une résistance** en série.
 - un **moteur** ne se branche pas directement sur une broche (il faut un module/driver), car il consomme trop.
 
@@ -157,6 +160,7 @@ Le PWM permet de simuler un “analogique” en sortie (utile pour luminosité L
 Sur Arduino, on utilise : `analogWrite(pinPWM, valeur)` avec **0→255**.
 
 👉 À retenir :
+
 - `digitalWrite` = ON/OFF (tout-ou-rien)
 - `analogWrite` = variation (0→255) sur broche PWM
 

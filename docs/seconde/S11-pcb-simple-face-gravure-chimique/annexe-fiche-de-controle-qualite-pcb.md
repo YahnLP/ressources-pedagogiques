@@ -4,7 +4,6 @@
 ---
 
 > **Document élève — Pièce de traçabilité OBLIGATOIRE à archiver**
-> BAC Pro CIEL | S11 Module E2 | MFR de Pontonx
 > Indicateurs Qualiopi 6 & 7 — Traçabilité de réalisation
 
 ---

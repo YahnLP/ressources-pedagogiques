@@ -3,11 +3,6 @@
 
 ---
 
-> **BAC Pro CIEL — 1ère année** | MFR de Pontonx  
-> Nom : _________________________ Prénom : _________________________ Date : _________
-
----
-
 ## 🗝️ Vocabulaire clé à maîtriser pour l'examen
 
 | Terme | Définition à retenir |
@@ -37,8 +32,6 @@ Une LED est un composant **semiconducteur** qui transforme l'énergie électriqu
 
 ![Symbole IEC et aspect réel d'une LED](images/diode-led.png)
 
-
-
 | Caractéristique | Rouge | Vert | Bleu | Blanc |
 |---|---|---|---|---|
 | Tension V_F typique | 1,8 – 2,2 V | 2,0 – 2,5 V | 3,0 – 3,5 V | 3,0 – 3,5 V |
@@ -63,8 +56,6 @@ $$U = R \times I$$
 
 ![Cercle de la loi d'Ohm : U en haut, R à gauche, I à droite](images/loi-ohm-cercle.png)
 
-
-
 ### 2.3 Les trois formules à retenir
 
 | Je cherche... | La formule | Exemple numérique |
@@ -84,15 +75,14 @@ $$U = R \times I$$
 
 ![Circuit LED : pile 9 V, résistance et LED en série](images/circuit-led-9v.png)
 
-
 Quand on branche une LED sur une alimentation, il faut "absorber" la tension en surplus avec une résistance.
-
 
 ### 3.2 La formule de calcul
 
 $$R = \frac{V_{alim} - V_F}{I_F}$$
 
 Où :
+
 - **V_alim** = tension de l'alimentation (en Volts)
 - **V_F** = tension de seuil de la LED (en Volts, lue dans la datasheet)
 - **I_F** = courant nominal de la LED (en **Ampères** — convertir les mA !)
@@ -127,8 +117,6 @@ Où :
 
 ![Deux LED en série avec une résistance](images/led-serie.png)
 
-
-
 **Règles du circuit série :**
 
 | Paramètre | Comportement en série |
@@ -147,8 +135,6 @@ Où :
 ### 4.2 Le circuit parallèle
 
 ![Deux LED en parallèle avec une résistance commune](images/led-parallele.png)
-
-
 
 **Règles du circuit parallèle :**
 
@@ -200,8 +186,6 @@ Une **datasheet** est le document officiel du fabricant. Elle contient toutes le
 ## 6. Utilisation du multimètre
 
 ![Multimètre numérique annoté](images/multimetre.png)
-
-
 
 | Mesure | Position sélecteur | Branchement | Unité lue |
 |---|---|---|---|

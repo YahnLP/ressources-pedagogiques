@@ -1,8 +1,6 @@
 # 📖 FICHE COURS – S9 ANNÉE 2 – E2
 ## IoT Cloud AWS : AWS IoT Core, MQTT TLS, Certificats X.509, CloudWatch
 
-**Nom : ________________  Prénom : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS

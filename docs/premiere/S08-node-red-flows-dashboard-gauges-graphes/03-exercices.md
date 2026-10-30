@@ -30,6 +30,7 @@ return msg;
 ```
 
 **Q1.2** — Écris le code d'un nœud function qui :
+
 - Convertit la température de Celsius en Fahrenheit (`F = C × 9/5 + 32`)
 - Arrondit au dixième
 - Crée un objet avec les deux valeurs
@@ -60,6 +61,7 @@ return msg;
 ```
 
 **Q1.4** — Écris un nœud function avec **2 sorties** :
+
 - Sortie 1 → Si CO₂ > 1000 ppm (qualité d'air mauvaise)
 - Sortie 2 → Sinon (qualité normale)
 

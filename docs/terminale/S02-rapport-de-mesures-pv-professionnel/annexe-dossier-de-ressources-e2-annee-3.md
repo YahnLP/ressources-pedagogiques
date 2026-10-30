@@ -149,7 +149,6 @@ Résultats :
 |  |  |  |  |
 |  |  |  |  |
 
-
 Spécification appliquée :
 Conformité : ☐ Conforme  ☐ Non conforme  ☐ Sous réserve de :
 

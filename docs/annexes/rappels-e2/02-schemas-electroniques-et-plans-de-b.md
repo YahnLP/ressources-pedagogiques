@@ -2,7 +2,6 @@
 title: "Pack 02 – Schémas électroniques et plans de câblage (fiche B)"
 ---
 
-
 # Schémas électroniques et plans de câblage
 
 ## 🎯 Objectifs (à atteindre pour l'épreuve E2)
@@ -73,12 +72,14 @@ Chaque composant a un symbole unique et, souvent, une valeur inscrite à côté 
 Ces valeurs sont indispensables : une résistance avec une mauvaise valeur peut, par exemple, griller une LED ou empêcher un transistor de commuter.
 
 **Unités à reconnaître rapidement :**
+
 - Ω, kΩ (résistances)
 - µF, nF (condensateurs)
 
 ### ● Connexions (lignes)
 Les lignes relient les composants et montrent le chemin électrique.  
 Dans un montage réel :
+
 - une ligne du schéma correspond à un **fil** sur une breadboard,
 - ou à une **piste** sur un PCB.
 
@@ -104,6 +105,7 @@ Pour mémoriser, tu peux utiliser ce mini-tableau :
 
 ### ● Sources d’alimentation : Vcc et GND
 Les sources d’alimentation sont souvent représentées par :
+
 - **Vcc** : tension positive (par exemple +5V)
 - **GND** : masse / 0V
 
@@ -172,6 +174,7 @@ Sur breadboard, on peut aussi prévoir des “zones” d’alimentation : par ex
 
 ### ● Polarité et orientation des composants
 Certains composants doivent être placés dans le bon sens :
+
 - diodes, LED
 - condensateurs polarisés
 
@@ -207,6 +210,7 @@ Comme ça, je vérifie d’abord que tout est bien câblé, et j’évite de gri
 
 ### ● Schéma de câblage pour une alimentation régulée
 On peut repérer trois fonctions :
+
 1) **Redresser** (pont de diodes)  
 2) **Filtrer** (condensateur de filtrage)  
 3) **Réguler** (régulateur de tension)
@@ -216,6 +220,7 @@ Le schéma de principe montre les connexions, et le plan de câblage précise la
 ### ● Montage d'un détecteur de lumière (LDR)
 Un circuit simple qui utilise une photorésistance (LDR), un transistor et une résistance.  
 Très souvent, le principe est :
+
 - LDR + résistance = diviseur de tension
 - la tension obtenue sert à commander un transistor (donc un actionneur : LED, relais, etc.)
 

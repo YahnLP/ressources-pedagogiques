@@ -3,12 +3,6 @@
 
 ---
 
-**Nom :** _________________________ **Prénom :** _________________________
-
-**Classe :** Bac Pro CIEL - Année 1 **Date :** ___/___/______
-
----
-
 ## 🎯 OBJECTIFS DE LA SÉANCE
 
 À la fin de ce cours, tu seras capable de :
@@ -92,7 +86,8 @@
 
 **Question :** Comment faire communiquer les deux ?
 
-**Réponse :** Utiliser un **convertisseur ADC** (Analogique vers Digital)
+??? success "Réponse"
+    Utiliser un **convertisseur ADC** (Analogique vers Digital)
 
 ---
 
@@ -156,7 +151,8 @@ Car on compte de 0 à 1023 (1024 valeurs au total : 0, 1, 2... 1023).
 Tension = 307 × (5/1023) = ______ V
 ```
 
-**Réponse :** 1.502 V ≈ 1.5 V
+??? success "Réponse"
+    1.502 V ≈ 1.5 V
 
 ---
 
@@ -169,9 +165,11 @@ int valeur = analogRead(broche);
 ```
 
 **Paramètres :**
+
 - `broche` : Numéro du port analogique (A0, A1, A2, A3, A4, A5)
 
 **Retour :**
+
 - Valeur entière entre **0** et **1023**
 
 ---
@@ -215,7 +213,6 @@ Le **LM35** est un capteur de température analogique de précision.
 ### 3.2 Brochage du LM35DZ
 
 **Vue de face (face plate vers soi) :**
-
 
 **⚠️ IMPORTANT :**
 
@@ -621,6 +618,7 @@ void loop() {
 | Créer un thermomètre DIY | 😐 Fragile  🙂 Acquis  😃 Maîtrisé |
 
 **Questions pour toi :**
+
 - Qu'est-ce qui t'a semblé le plus difficile aujourd'hui ?
 - As-tu réussi à afficher la température ?
 - Te sens-tu capable de refaire un thermomètre seul(e) ?

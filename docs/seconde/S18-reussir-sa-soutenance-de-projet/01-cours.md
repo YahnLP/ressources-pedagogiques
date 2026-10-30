@@ -27,6 +27,7 @@
 Une **soutenance** est une présentation orale devant un jury au cours de laquelle tu **défends** le travail que tu as réalisé.
 
 Elle n'est pas un examen de récitation de cours. Elle évalue **ta capacité à :**
+
 - Expliquer tes choix techniques
 - Démontrer que ton système fonctionne
 - Analyser ce qui a bien et moins bien fonctionné
@@ -188,6 +189,7 @@ S'auto-évaluer ne sert pas à "se noter soi-même" mais à **développer son re
 ### 7.3 L'écart entre auto-évaluation et évaluation enseignant
 
 Il est **normal** que ton auto-évaluation diffère de celle de l'enseignant. Cet écart est une information précieuse :
+
 - Si tu t'es **surévalué** → tu as une fausse image de ta maîtrise → danger pour l'examen
 - Si tu t'es **sous-évalué** → tu manques de confiance en toi → travaille sur la communication
 - Si les évaluations **concordent** → tu as un regard professionnel sur ton travail ✅

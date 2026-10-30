@@ -4,7 +4,6 @@
 ---
 
 > **Document élève — À garder dans le portfolio numérique**
-> BAC Pro CIEL | S6 Module E2 | MFR de Pontonx
 
 ---
 
@@ -30,7 +29,6 @@
 
 ### Étape 1 — Accéder au module Circuits
 
-
 ```
 Dans le tableau de bord :
   → Cliquer sur l'onglet "Circuits" dans le menu gauche ou en haut
@@ -52,7 +50,6 @@ Dans le tableau de bord :
 
 ### Étape 3 — Panneau Composants
 
-
 Pour trouver un composant :
 Option A → Taper son nom dans la barre de recherche
 Option B → Dérouler la catégorie correspondante
@@ -67,7 +64,6 @@ Composants à connaître et leur emplacement :
 | Bouton-poussoir | Basiques |
 | Multimètre | Instruments |
 | Arduino Uno R3 | Microcontrôleurs |
-
 
 ### Étape 4 — Poser un composant sur le canvas
 
@@ -93,13 +89,11 @@ Exemples de valeurs à connaître :
 | Condensateur | Capacitance | 100µ (microfarads) |
 | DEL | Couleur | Choisir : rouge, vert, bleu… |
 
-
 ---
 
 ## PARTIE 3 — Connecter les composants
 
 ### Étape 6 — Tracer un fil de connexion
-
 
 ```
 Pour tracer un fil :
@@ -130,7 +124,6 @@ Pour supprimer un fil :
 ## PARTIE 4 — Simuler le circuit
 
 ### Étape 8 — Lancer la simulation
-
 
 ```
   → Cliquer sur le triangle vert "Démarrer la simulation"
@@ -170,7 +163,6 @@ Pour mesurer un COURANT (ampèremètre) :
 ```
 
 ### Étape 11 — Partager le circuit (pour remettre au formateur)
-
 
 ```
   → Cliquer sur l'icône "Partager" (flèche ou lien en haut à droite)

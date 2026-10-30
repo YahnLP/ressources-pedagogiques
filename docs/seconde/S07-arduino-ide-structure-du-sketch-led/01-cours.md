@@ -3,11 +3,6 @@
 
 ---
 
-> **BAC Pro CIEL — 1ère année** | MFR de Pontonx
-> Nom : _________________________ Prénom : _________________________ Date : _________
-
----
-
 ## 🗝️ Vocabulaire clé
 
 | Terme | Définition |
@@ -34,8 +29,6 @@
 
 ![Anatomie de la carte Arduino Uno](images/arduino-uno-annote.png)
 
-
-
 | Zone | Broches / Éléments | Rôle |
 |---|---|---|
 | **Numériques** | D0 à D13 | Entrée ou sortie logique (0V / 5V) |
@@ -52,8 +45,6 @@
 ### 2.1 Interface de l'IDE 2.x
 
 ![Interface de l'IDE Arduino (maquette)](images/arduino-ide.png)
-
-
 
 | Élément de l'interface | Rôle |
 |---|---|
@@ -85,7 +76,6 @@
 
 ![Fonctionnement de setup() et loop()](images/setup-loop.png)
 
-
 Tout sketch Arduino doit contenir exactement ces deux fonctions :
 
 ```cpp
@@ -106,7 +96,6 @@ void loop() {
   // → Comportement permanent du système
 }
 ```
-
 
 ### 3.2 Le sketch Blink — Analyse ligne par ligne
 
@@ -195,8 +184,6 @@ ou 220 Ω (si on veut une LED moins brillante — I_F = 13,6 mA)
 
 ![Câblage de la LED sur breadboard](images/cablage-uno-breadboard.png)
 
-
-
 ### 4.3 Règles de câblage LED + Arduino
 
 | Règle | Pourquoi |
@@ -242,7 +229,6 @@ void loop() {
 
 ![Moniteur série de l'IDE Arduino (maquette)](images/serial-monitor-ide.png)
 
-
 La vitesse doit être **identique** dans le code (`Serial.begin()`) ET dans le menu déroulant du Serial Monitor. Si les vitesses diffèrent → caractères illisibles (charabia).
 
 | Vitesse | Usage habituel |
@@ -251,7 +237,6 @@ La vitesse doit être **identique** dans le code (`Serial.begin()`) ET dans le m
 | 115200 bauds | Débogage rapide, streaming de données |
 
 > ⚠️ **Ouvrir le Serial Monitor APRÈS le téléversement**. L'ouvrir pendant le téléversement peut provoquer une erreur de port.
-
 
 ---
 

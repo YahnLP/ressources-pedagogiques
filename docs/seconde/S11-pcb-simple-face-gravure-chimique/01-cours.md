@@ -3,11 +3,6 @@
 
 ---
 
-> **BAC Pro CIEL — 1ère année** | MFR de Pontonx
-> Nom : _________________________ Prénom : _________________________ Date : _________
-
----
-
 ## 🗝️ Vocabulaire clé
 
 | Terme | Définition |
@@ -40,8 +35,6 @@
 
 ![Coupe d'un PCB simple face](images/pcb-coupe-couches.png)
 
-
-
 | Couche | Matériau | Épaisseur standard | Rôle |
 |---|---|---|---|
 | **Substrat** | FR4 (fibre de verre + époxy) | 1,6 mm | Support mécanique et isolation électrique |
@@ -66,8 +59,6 @@ $$R = ρ \times \dfrac{L}{l \times e} = 1{,}72 \times 10⁻⁸ \times \dfrac{0{,
 ### 2.1 Vue d'ensemble du procédé
 
 ![Les 8 étapes de fabrication d'un PCB](images/flux-fabrication-pcb.png)
-
-
 
 ### 2.2 Méthode 1 : Transfert toner (fer à repasser)
 
@@ -103,14 +94,12 @@ Méthode plus précise, nécessite un poste insolateur.
 
 ![Mécanisme de la gravure au perchlorure de fer](images/gravure-mecanisme.png)
 
-
 ```
 2 FeCl₃  +  Cu  →  2 FeCl₂  +  CuCl₂
 
 Lecture : Le fer trivalent (Fe³⁺) oxyde le cuivre (Cu) en cuivre divalent (Cu²⁺)
 Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bain épuisé
 ```
-
 
 #### Paramètres de gravure
 
@@ -146,8 +135,6 @@ Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bai
 
 ![Sous-gravure, gravure correcte et sur-gravure](images/gravure-defauts.png)
 
-
-
 | Anomalie | Cause | Conséquence | Prévention |
 |---|---|---|---|
 | **Sous-gravure** (ponts cuivre) | Temps trop court, bain froid, bain épuisé | Courts-circuits entre pistes | Respecter la durée, maintenir 35–40°C |
@@ -162,8 +149,6 @@ Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bai
 ### 3.1 Outillage et paramètres
 
 ![Perceuse à colonne annotée](images/perceuse-colonne.png)
-
-
 
 | Paramètre | Valeur | Raison |
 |---|---|---|
@@ -221,8 +206,6 @@ La norme **IPC-A-600** (Acceptability of Printed Boards) définit les critères 
 
 ![Critères visuels IPC-A-600](images/criteres-ipc-a600.png)
 
-
-
 #### Critère 1 — Largeur de piste
 
 | Classe | Réduction maximale acceptée | Explication |
@@ -247,9 +230,7 @@ La norme **IPC-A-600** (Acceptability of Printed Boards) définit les critères 
 
 ![Mesure de l'anneau de cuivre](images/anneau-cuivre.png)
 
-
 L'anneau de cuivre est la couronne de cuivre qui entoure le trou de perçage. Il doit rester suffisamment large après perçage pour assurer une bonne soudure.
-
 
 | Paramètre | Valeur minimale Classe 2 |
 |---|---|
@@ -284,8 +265,6 @@ L'anneau de cuivre est la couronne de cuivre qui entoure le trou de perçage. Il
 ### 5.1 Protocole de test en 3 étapes
 
 ![Tests au multimètre sur un PCB](images/test-multimetre-pcb.png)
-
-
 
 **Étape 1 — Test de continuité des pistes :**
 ```

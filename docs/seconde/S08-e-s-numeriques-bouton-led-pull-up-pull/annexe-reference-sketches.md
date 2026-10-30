@@ -4,7 +4,6 @@
 ---
 
 > **Document élève — À conserver dans le portfolio et réutiliser en S9, S10, S16**
-> BAC Pro CIEL | S8 Module E2 | MFR de Pontonx
 
 ---
 
@@ -340,7 +339,6 @@ CONFIGURATION PULL-DOWN (logique naturelle)
 
   État relâché : D4 → GND via 10kΩ → digitalRead = 0
   État appuyé  : D4 → 5V via bouton → digitalRead = 1
-
 
 CONFIGURATION INPUT_PULLUP (économique, logique inversée)
 ──────────────────────────────────────────────────────────

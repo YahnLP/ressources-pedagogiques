@@ -2,7 +2,6 @@
 title: "Pack 01 – Composants électroniques (fiche B)"
 ---
 
-
 # Composants électroniques
 
 ## 🎯 Objectifs
@@ -26,6 +25,7 @@ title: "Pack 01 – Composants électroniques (fiche B)"
 - **Courant (I)** en ampères (A) : on peut le voir comme “le débit” qui circule.
 
 👉 Beaucoup d’erreurs en atelier viennent :
+
 - d’un **mauvais sens** (diode/LED),
 - ou d’une **mauvaise valeur** (résistance trop faible → trop de courant → LED grillée).
 
@@ -56,6 +56,7 @@ C’est exactement ce qu’on veut quand on protège une LED.
 Attention aussi : une résistance peut **chauffer**, car elle dissipe de l’énergie (puissance **P** en watts). Enfin, savoir lire le **code couleur** ou un marquage est utile pour reconnaître la valeur d’une résistance.
 
 On retrouve la résistance dans plusieurs montages classiques :
+
 - pour **limiter** un courant,
 - pour réaliser un **diviseur de tension**,
 - pour stabiliser un signal logique (pull-up / pull-down selon les montages).
@@ -87,6 +88,7 @@ On retrouve la résistance dans plusieurs montages classiques :
 
 En réalité, on rencontre très souvent des valeurs en **µF** (microfarads) ou **nF** (nanofarads).  
 On utilise un condensateur pour :
+
 - **lisser** une tension (filtrage),
 - **absorber** des variations rapides (anti-parasites),
 - créer une temporisation simple avec une résistance (circuit **RC**).
@@ -122,6 +124,7 @@ On rencontre souvent des inductances en **mH** (millihenrys) ou **µH**.
 L’idée à retenir est simple : une inductance “n’aime pas” que le courant change brutalement, elle s’oppose donc aux **variations rapides de courant**.
 
 On les retrouve notamment dans :
+
 - des alimentations (filtrage),
 - des filtres audio (séparation graves/aigus).
 
@@ -150,6 +153,7 @@ On les retrouve notamment dans :
 - Les diodes de redressement convertissent le courant alternatif en courant continu.
 
 Une diode a un **sens** :
+
 - le courant “autorisé” va de **l’anode vers la cathode**,
 - sur le symbole, le trait correspond à la **cathode**.
 
@@ -183,6 +187,7 @@ La **LED** est une diode particulière : elle émet de la lumière.
 
 En atelier (niveau CIEL), on s’en sert souvent pour **commander une charge** (moteur, LED puissante, relais) avec un petit signal.  
 On distingue deux familles fréquentes :
+
 - **bipolaire (BJT)** : base/collecteur/émetteur (NPN/PNP),
 - **MOSFET** : gate/drain/source (souvent utilisé en puissance et en numérique).
 
@@ -215,6 +220,7 @@ Quand c’est mal câblé, le résultat est typique : la charge ne s’allume pa
 | **Composants actifs** | Nécessitent une source d’énergie et peuvent **contrôler** le courant | transistors, diodes, circuits intégrés | “Actif” = contrôler / orienter / amplifier / traiter |
 
 Les passifs sont indispensables pour :
+
 - protéger (résistance),
 - stabiliser (condensateur),
 - filtrer (inductance).
@@ -414,6 +420,7 @@ Exemple : capteur lumière → allumer LED automatiquement.
 | 4. Fabrication / test | PCB + soudure + test fonctionnement |
 
 Réflexe pro : toujours vérifier dans cet ordre :
+
 1) **tension d’alimentation**  
 2) **polarités** (LED, condensateur électrolytique)  
 3) **valeurs** (résistance trop faible = courant trop fort)

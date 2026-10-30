@@ -26,6 +26,7 @@
 ### 1.1 Qu'est-ce qu'un test d'intégration ?
 
 Lorsque tu construis un système électronique (comme ton projet Arduino-Bluetooth), tu as d'abord testé chaque partie **séparément** :
+
 - La communication Bluetooth seule (S14)
 - Les DEL seules
 - Le sketch Arduino seul
@@ -51,6 +52,7 @@ Un **test d'intégration** vérifie que **toutes ces parties fonctionnent correc
 ### 2.1 Pourquoi un protocole ?
 
 Un **protocole de tests** est un document qui décrit, **avant** de tester, exactement :
+
 - **Ce que** l'on va tester (le cas de test)
 - **Comment** on va le tester (la procédure)
 - **Ce qu'on attend** comme résultat
@@ -99,6 +101,7 @@ Chaque ligne du tableau de tests doit contenir :
 Un schéma électrique permet à **n'importe quel technicien** de comprendre, reproduire ou dépanner un montage **sans avoir besoin d'expliquer verbalement**. C'est un langage universel dans le domaine de l'électronique et de l'électrotechnique.
 
 **"Annoté"** signifie que le schéma contient :
+
 - Les **valeurs** de tous les composants (ex : R1 = 220Ω)
 - Les **références** des composants (ex : U1 = Arduino UNO, BT1 = HC-05)
 - Les **tensions** aux points stratégiques (ex : +5V, +3,3V, GND)

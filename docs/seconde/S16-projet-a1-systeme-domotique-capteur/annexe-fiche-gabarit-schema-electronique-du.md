@@ -25,6 +25,7 @@ Avant de commencer le schéma, liste tous les composants de ton système domotiq
 | **R3** | Résistance pont diviseur | 2 kΩ – 1/4W | Pont div. tension RXD HC-05 |
 
 **Vérification :**
+
 - Nombre total de composants : _____
 - Nombre de points GND : _____ (ils doivent tous être reliés)
 - Nombre de points +5V : _____ (ils doivent tous être reliés)

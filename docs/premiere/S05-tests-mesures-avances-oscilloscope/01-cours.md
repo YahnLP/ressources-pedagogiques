@@ -1,8 +1,6 @@
 # 📖 FICHE COURS – S5 ANNÉE 2 – E2
 ## Tests & Mesures Avancés : Oscilloscope Mixte, Analyseur Logique, I2C / SPI
 
-**Nom : ________________  Prénom : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS

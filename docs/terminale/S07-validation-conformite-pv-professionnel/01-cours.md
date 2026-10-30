@@ -1,8 +1,6 @@
 # 📖 FICHE COURS – S7 ANNÉE 3 – E2
 ## Validation & Conformité : PV Professionnel, Normes IPC/CEI/ISO, DAT Électronique
 
-**Nom : ________________  Prénom : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS

@@ -2,7 +2,6 @@
 title: "Pack 01 – Composants électroniques (fiche A)"
 ---
 
-
 # Composants électroniques
 
 ## I. Les composants électroniques de base : caractéristiques et fonctions
@@ -10,6 +9,7 @@ title: "Pack 01 – Composants électroniques (fiche A)"
 Les composants électroniques sont les éléments fondamentaux d'un circuit électronique. Chacun joue un rôle précis pour contrôler le flux d'électricité, amplifier des signaux, stocker de l'énergie ou permettre l'interconnexion de différents éléments.
 
 ✅ **Complément utile :**
+
 - Un **circuit** fonctionne seulement s’il est **fermé** (boucle complète).
 - Deux grandeurs reviennent tout le temps :
   - **Tension (U)** en volts (V) : “la force” qui pousse.
@@ -26,6 +26,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - Exemples : dans un circuit d'éclairage, une résistance peut limiter le courant pour éviter de brûler une ampoule LED fragile.
 
 ✅ **Compléments utiles :**
+
 - Loi d’Ohm (très utilisée) : **I = U / R** (plus R est grande, plus I diminue).
 - Attention puissance : une résistance peut chauffer (puissance P en watts).
 - Codes couleurs / marquage : utile pour reconnaître la valeur.
@@ -47,6 +48,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - Exemples : dans les alimentations d'ordinateurs, ils aident à filtrer les variations de tension pour éviter les pannes.
 
 ✅ **Compléments utiles :**
+
 - Un condensateur est souvent en **µF** (microfarads) ou **nF** (nanofarads) en électronique réelle.
 - Il sert à :
   - **lisser** une tension (filtrage)
@@ -68,6 +70,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - Exemples : dans les systèmes audio, elles filtrent les hautes fréquences pour améliorer la qualité sonore.
 
 ✅ **Compléments utiles :**
+
 - En pratique, les inductances sont souvent en **mH** (millihenrys) ou **µH**.
 - Elles s’opposent surtout aux **variations rapides de courant** : elles “n’aiment pas” que le courant change brusquement.
 - On les trouve dans :
@@ -87,6 +90,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - Exemples : les diodes LED émettent de la lumière quand un courant les traverse, tandis que les diodes de redressement convertissent le courant alternatif en courant continu.
 
 ✅ **Compléments utiles :**
+
 - Une diode a un **sens** :
   - **anode → cathode** (courant “autorisé”)
   - repérage : trait sur le symbole = **cathode**
@@ -107,6 +111,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - Exemples : dans les téléphones portables, les transistors amplifient les signaux pour émettre ou recevoir des communications.
 
 ✅ **Compléments utiles :**
+
 - Un transistor sert souvent à :
   - commander une charge (moteur, LED puissante, relais) avec un petit signal
   - amplifier un signal faible (audio par exemple)
@@ -130,6 +135,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - Exemples : résistances, condensateurs, inductances. Ils n’ont pas besoin de source externe pour fonctionner.
 
 ✅ **Compléments utiles :**
+
 - “Passif” = ne peut pas “amplifier” ou “décider”, il subit le circuit.
 - Ils sont essentiels pour :
   - protéger (résistance)
@@ -140,6 +146,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - Exemples : transistors, diodes, circuits intégrés. Ces composants sont au cœur des fonctions de traitement de signal et de régulation dans les systèmes électroniques.
 
 ✅ **Compléments utiles :**
+
 - “Actif” = peut contrôler, orienter, amplifier, traiter une information.
 - Un **circuit intégré (CI)** est souvent une “boîte” qui contient beaucoup de transistors.
 
@@ -155,6 +162,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 La plupart des systèmes électroniques fonctionnent en utilisant des associations spécifiques de composants pour remplir des fonctions précises.
 
 ✅ **Complément utile :**
+
 - En E2, on vous demande souvent : “Quel montage choisir ? Pourquoi ?”
 - Donc il faut savoir relier **fonction attendue → association de composants**.
 
@@ -163,6 +171,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - En parallèle, chaque composant reçoit la même tension, mais le courant est divisé entre les branches du circuit.
 
 ✅ **Compléments utiles :**
+
 - **Série** : si un composant se coupe, tout s’arrête.
 - **Parallèle** : une branche peut tomber en panne sans couper les autres.
 - Exemple concret : lampes d’une guirlande (selon modèle), circuits domestiques (plutôt parallèle).
@@ -179,6 +188,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - Utilisé souvent pour ajuster les niveaux de tension dans des circuits sensibles, comme les circuits de capteurs.
 
 ✅ **Compléments utiles :**
+
 - Formule (niveau attendu “standard”) :
   - **U_sortie = U_entrée × R2 / (R1 + R2)** (si sortie prise sur R2)
 - Application typique CIEL : transformer un capteur résistif (LDR, NTC) en tension mesurable.
@@ -195,6 +205,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - Exemples : un filtre passe-bas (inductance ou condensateur) laissera passer les basses fréquences et bloquera les hautes fréquences.
 
 ✅ **Compléments utiles :**
+
 - Filtre **RC** très courant : résistance + condensateur.
 - Exemple concret : éviter les parasites sur l’alimentation d’un microcontrôleur.
 - “Passe-bas” = lisse / adoucit les variations rapides.
@@ -212,6 +223,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - Fonctionnent avec une faible tension et faible courant, mais nécessitent souvent une résistance pour limiter le courant afin de ne pas les brûler.
 
 ✅ **Compléments utiles :**
+
 - Tension typique : LED rouge ~ 1,8 à 2,2 V (ordre de grandeur).
 - Résistance de protection : indispensable si alimentation “fixe” (5V par ex).
 - Repérer : patte longue souvent +, méplat côté – (selon modèles).
@@ -220,6 +232,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - Utilisées pour réguler la tension dans les circuits d'alimentation.
 
 ✅ **Compléments utiles :**
+
 - Utilisation : limiter une tension max (ex : protection entrée).
 - En diagnostic : si Zener HS, la tension peut ne plus être régulée.
 
@@ -227,6 +240,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - Les MOSFET sont utilisés dans les circuits de puissance et les systèmes numériques, tandis que les bipolaires sont fréquents dans les amplificateurs.
 
 ✅ **Compléments utiles :**
+
 - MOSFET “logic-level” : utile avec microcontrôleur (commande en 3,3V/5V).
 - BJT : simple à comprendre pour débuter (commande par “petit courant” en base).
 
@@ -234,6 +248,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 - Exemples : amplificateurs opérationnels (op-amps) pour le traitement de signal, microcontrôleurs pour le contrôle de systèmes, mémoires pour le stockage de données.
 
 ✅ **Compléments utiles :**
+
 - Un CI se repère souvent par :
   - boîtier à plusieurs pattes
   - un marquage (référence)
@@ -254,6 +269,7 @@ Les capteurs et actionneurs sont des composants permettant à un circuit électr
 - Exemples : capteur de température pour les thermostats, capteur de lumière pour ajuster l'éclairage.
 
 ✅ **Compléments utiles :**
+
 - Un capteur ne donne pas toujours “directement” une valeur : souvent il faut un montage (diviseur).
 - Exemple : LDR → variation de résistance → variation de tension mesurée.
 
@@ -261,6 +277,7 @@ Les capteurs et actionneurs sont des composants permettant à un circuit électr
 - Exemples : moteurs pour contrôler des mécanismes, haut-parleurs pour émettre des sons.
 
 ✅ **Compléments utiles :**
+
 - Un actionneur consomme souvent plus : on a besoin d’un transistor/driver pour le commander.
 - Ex : piloter un moteur directement avec une sortie logique → impossible / dangereux.
 
@@ -277,6 +294,7 @@ Les capteurs et actionneurs sont des composants permettant à un circuit électr
 - Avantages : robustesse et résistance aux vibrations, utile pour les prototypes et applications de haute puissance.
 
 ✅ **Compléments utiles :**
+
 - Idéal pour apprendre : composants plus gros, plus faciles à manipuler.
 - Souvent utilisé en atelier prototypage et pour réparations simples.
 
@@ -284,6 +302,7 @@ Les capteurs et actionneurs sont des composants permettant à un circuit électr
 - Avantages : permet des circuits plus compacts, largement utilisée dans les appareils modernes.
 
 ✅ **Compléments utiles :**
+
 - CMS = miniaturisation (smartphones, objets connectés).
 - En maintenance : réparation plus délicate (outillage fin).
 
@@ -301,6 +320,7 @@ Les capteurs et actionneurs sont des composants permettant à un circuit électr
 - Robotique : les capteurs détectent l’environnement (obstacles, luminosité), tandis que les microcontrôleurs traitent les informations et les actionneurs exécutent les commandes.
 
 ✅ **Compléments utiles :**
+
 - En CIEL, on relie souvent :
   - **capteurs** (entrée) → **traitement** (microcontrôleur/CI) → **actionneurs** (sortie)
 - Exemple simple : capteur lumière → allumer LED automatiquement.
@@ -314,6 +334,7 @@ Les capteurs et actionneurs sont des composants permettant à un circuit électr
 - Fabrication du PCB (circuit imprimé) où les composants seront soudés pour tester la fonctionnalité du montage.
 
 ✅ **Compléments utiles :**
+
 - Réflexe pro : toujours vérifier
   1) **tension d’alimentation**
   2) **polarités** (LED, condo)

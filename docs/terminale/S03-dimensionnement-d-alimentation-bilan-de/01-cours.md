@@ -60,7 +60,6 @@ Remplir pour chaque composant :
 | TOTAL @3,3V | — | 272 | 91 | 300 | — |
 | TOTAL @5V | — | 150 | 150 | 750 | — |
 
-
 Note : Le courant du régulateur 3,3V ≈ I_total_3,3V = 91 mA moyen, 272 mA de pointe
 Le courant du régulateur 5V  ≈ I_total_5V  = 150 mA
 

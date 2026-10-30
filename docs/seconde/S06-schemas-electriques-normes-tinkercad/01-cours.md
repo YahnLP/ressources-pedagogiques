@@ -3,11 +3,6 @@
 
 ---
 
-> **BAC Pro CIEL — 1ère année** | MFR de Pontonx
-> Nom : _________________________ Prénom : _________________________ Date : _________
-
----
-
 ## 🗝️ Vocabulaire clé à maîtriser pour l'examen
 
 | Terme | Définition à retenir |
@@ -47,8 +42,6 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ![Symboles IEC avancés](images/symboles-avances.png)
 
-
-
 | Composant | Symbole IEC | Repère | Usage typique |
 |---|---|---|---|
 | **Transistor NPN** | ![Transistor NPN](images/sym-npn.png){ width="210" } | Q ou T | Commutateur, amplificateur |
@@ -63,8 +56,6 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ![Schéma normé : bouton-poussoir et LED](images/schema-bp-led.png)
 
-
-
 ---
 
 ## 2. Tinkercad Circuits — Prise en main
@@ -73,13 +64,12 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ![Interface de Tinkercad Circuits (maquette)](images/tinkercad-interface.png)
 
-
 **Tinkercad Circuits** est un simulateur de circuit électronique **gratuit, en ligne et sans installation**, développé par Autodesk. Il permet de :
+
 - Dessiner des circuits avec des composants virtuels
 - **Simuler le fonctionnement** avant tout câblage physique
 - Utiliser des instruments virtuels (voltmètre, ampèremètre, oscilloscope)
 - **Programmer et simuler un Arduino** dans le même environnement
-
 
 | Zone de l'interface | Description | Comment l'utiliser |
 |---|---|---|
@@ -119,8 +109,6 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ![Multimètre virtuel : voltmètre en parallèle, ampèremètre en série](images/tinkercad-multimetre.png)
 
-
-
 | Mode | Symbole sur la face | Branchement | Ce qu'il affiche |
 |---|---|---|---|
 | **Voltmètre** | V | **En parallèle** avec l'élément à mesurer | Tension aux bornes en Volts |
@@ -134,9 +122,7 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ![Première page d'une datasheet annotée](images/datasheet-annotee.png)
 
-
 Une datasheet de composant électronique suit toujours une structure similaire :
-
 
 | Section | Titre anglais type | Ce qu'on y trouve |
 |---|---|---|
@@ -152,9 +138,7 @@ Une datasheet de composant électronique suit toujours une structure similaire :
 
 ![Absolute Maximum Ratings du BC547](images/ratings-bc547.png)
 
-
 > ⚠️ **Règle absolue** : Ces valeurs sont des **seuils de destruction irréversible**. Les dépasser, même une fraction de seconde, peut détruire le composant instantanément. On ne travaille **jamais** à ces valeurs — on les utilise pour vérifier qu'on en est bien loin.
-
 
 ### 3.3 Les 6 paramètres essentiels à extraire systématiquement
 
@@ -195,10 +179,10 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 
 ![LED commandée par un transistor BC547](images/schema-transistor-led.png)
 
-
 **Problème** : On veut commander une LED rouge (V_F = 2V, I_F = 20mA) avec un transistor BC547 piloté par une sortie Arduino (V_out = 5V, I_out max = 40mA).
 
 **Données extraites de la datasheet BC547 :**
+
 - h_FE minimum (gain) = 110 (à I_C = 2mA), typ = 200
 - V_CE(sat) ≈ 0,2 V (transistor saturé)
 - V_BE ≈ 0,6 V (jonction base-émetteur)
@@ -211,7 +195,6 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 | Résistance LED (côté collecteur) | R_C = (V_CC − V_F − V_CE_sat) / I_F = (5 − 2 − 0,2) / 0,02 | **R_C = 140 Ω → choisir 150 Ω** |
 | Courant de base nécessaire | I_B = I_C / h_FE_min = 20mA / 110 | **I_B = 0,18 mA** |
 | Résistance de base | R_B = (V_out − V_BE) / I_B = (5 − 0,6) / 0,00018 | **R_B ≈ 24 kΩ → prendre 10 kΩ** (surpilotage pour saturation assurée) |
-
 
 ---
 

@@ -2,7 +2,6 @@
 title: "Pack 04 – Mesures électriques (fiche B)"
 ---
 
-
 # Mesures électriques
 
 ## 🎯 Objectifs (niveau E2)
@@ -60,6 +59,7 @@ Exemple : mesurer la tension aux bornes d'une pile pour vérifier si elle est en
 Exemple : vérifier le courant consommé par un appareil électronique pour s’assurer qu’il est dans les limites prévues par le circuit.
 
 À retenir :
+
 - le courant dépend de la **charge** : une LED + résistance consomme peu (souvent en **mA**), un moteur consomme beaucoup plus.
 - mesurer le courant demande de **couper le circuit** et de brancher l’appareil **en série** : c’est plus “risqué” si on se trompe (voir la méthode plus loin).
 
@@ -72,6 +72,7 @@ Exemple : vérifier le courant consommé par un appareil électronique pour s’
 Exemple : mesurer la résistance d’un fil chauffant pour s’assurer qu’il dissipera correctement la chaleur.
 
 À retenir :
+
 - ordres de grandeur fréquents : **220 Ω**, **1 kΩ**, **10 kΩ**…
 - une résistance se mesure **hors tension**. Si le circuit est alimenté, la mesure est fausse et on peut abîmer le multimètre.
 - idéalement, on mesure une résistance **isolée** (si elle est dans un circuit, le reste du circuit influence la valeur).
@@ -85,6 +86,7 @@ Exemple : mesurer la résistance d’un fil chauffant pour s’assurer qu’il d
 Exemple : mesurer la puissance consommée par une ampoule pour calculer l’énergie qu’elle utilisera sur une certaine période.
 
 À retenir :
+
 - si **U** augmente ou si **I** augmente, alors **P** augmente.
 - la puissance sert à **dimensionner** : éviter l’échauffement et choisir des composants adaptés (ex : résistance 1/4 W, 1/2 W…).
 - on utilise parfois aussi :  
@@ -104,6 +106,7 @@ Différents outils sont utilisés pour mesurer les grandeurs électriques. L’o
 Exemple : mesurer la tension aux bornes d’une batterie en mode voltmètre (V) et en posant les sondes sur les bornes.
 
 **Repère ultra important (ports du multimètre)**  
+
 - **COM** : noir (toujours)
 - **V/Ω** : rouge pour tension et résistance
 - **mA/A** : rouge pour courant (selon la valeur)
@@ -117,6 +120,7 @@ Exemple : mesurer la tension aux bornes d’une batterie en mode voltmètre (V) 
 </p>
 
 **Astuce de sécurité :**
+
 - si tu ne sais pas, tu demandes validation avant de mesurer un courant.
 - tu commences sur le **calibre le plus grand** (et tu diminues ensuite).
 
@@ -129,6 +133,7 @@ Exemple : mesurer la tension aux bornes d’une batterie en mode voltmètre (V) 
 Exemple : observer le signal de sortie d’un générateur pour vérifier fréquence et amplitude.
 
 Deux réglages essentiels :
+
 - **Volts/div** (hauteur du signal)
 - **Temps/div** (largeur / vitesse)
 
@@ -144,6 +149,7 @@ Deux réglages essentiels :
 Exemple : mesurer le courant consommé par un moteur en insérant l’ampèremètre dans le circuit d’alimentation.
 
 À retenir :
+
 - “en série” = dans le chemin du courant
 - on commence sur le plus grand calibre si on ne connaît pas la valeur
 
@@ -173,6 +179,7 @@ Exemple : mesurer la résistance d’isolement d’un câble pour vérifier qu�
 Exemple : mesurer la tension aux bornes d’un composant → une pointe de chaque côté du composant.
 
 Astuce de diagnostic (alimentation) :  
+
 - rouge sur **Vcc**, noir sur **GND**.
 
 <p align="center">
@@ -189,6 +196,7 @@ Astuce de diagnostic (alimentation) :
 Exemple : pour mesurer le courant dans une lampe : débrancher un fil, insérer l’ampèremètre, puis refermer le circuit.
 
 ⚠️ C’est la mesure la plus “à risque” si on se trompe :
+
 - il faut vérifier le bon port (mA/A)
 - et le bon calibre
 - idéalement, validation enseignant avant le branchement
@@ -207,6 +215,7 @@ Exemple : pour mesurer le courant dans une lampe : débrancher un fil, insérer 
 Exemple : mesurer une résistance isolée → mode Ω, sondes sur les deux extrémités.
 
 À retenir :
+
 - règle simple : **Ω = hors tension**
 - si la résistance est dans un circuit, il faut parfois la sortir ou isoler une patte pour ne pas être influencé par le reste du montage.
 
@@ -222,6 +231,7 @@ Chaque instrument a une marge d’erreur.
 Exemple : précision ±1% → une mesure de 5 V peut varier de ±0,05 V.
 
 À retenir :
+
 - on compare à un **ordre de grandeur**, pas au millième
 - si la mesure est “impossible” (0 V partout, valeur incohérente), la cause est souvent simple :
   - alimentation absente,
@@ -242,6 +252,7 @@ En basse tension atelier, l’effet existe mais reste souvent modéré. On y pen
 Des champs magnétiques ou des circuits proches peuvent perturber certaines mesures.
 
 À retenir :
+
 - on évite les fils trop longs,
 - on évite de faire de grandes boucles,
 - on éloigne si possible les sources de parasites (moteurs, alim bruyante).
@@ -261,6 +272,7 @@ Exemple : si U = 5 V et I = 0,01 A, alors P = 0,05 W.
 En AC, la puissance dépend aussi du facteur de puissance (cos φ), lié au déphasage courant/tension.
 
 À retenir (niveau E2) :
+
 - AC + déphasage = mesure plus complexe
 - on retient l’idée sans forcément faire des calculs avancés en atelier basse tension
 
@@ -288,6 +300,7 @@ La sécurité est primordiale lors de la manipulation de circuits sous tension.
 - Garder des distances de sécurité en haute tension (si applicable).
 
 Réflexes très concrets en atelier :
+
 - on branche l’alimentation **en dernier**
 - on ne change pas de mode (V ↔ A ↔ Ω) sans couper l’alimentation
 - en doute, on demande validation avant de mesurer un courant

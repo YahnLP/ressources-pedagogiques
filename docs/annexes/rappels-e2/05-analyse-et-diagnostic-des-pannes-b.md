@@ -2,7 +2,6 @@
 title: "Pack 05 – Analyse et diagnostic des pannes (fiche B)"
 ---
 
-
 # Analyse et diagnostic des pannes
 
 ## 🎯 Objectifs (niveau E2)
@@ -23,6 +22,7 @@ Diagnostiquer une panne, ce n’est pas “deviner”.
 En atelier, diagnostiquer = **observer → tester → conclure**.
 
 ➡️ Une bonne méthode :
+
 - fait gagner du temps,
 - évite d’abîmer le matériel (court-circuit, surchauffe),
 - permet d’expliquer clairement ce qu’on a trouvé (attendu E2).
@@ -38,6 +38,7 @@ Avant de diagnostiquer une panne, il est essentiel de bien connaître le schéma
 
 Le **fonctionnement attendu**, c’est : *ce qui devrait se passer quand tout va bien*.  
 Exemples très concrets :
+
 - “La LED doit s’allumer.”
 - “La sortie doit basculer de 0 à 5V.”
 - “Le capteur doit faire varier une tension.”
@@ -52,6 +53,7 @@ Exemples très concrets :
 Un diagnostic efficace passe par une analyse logique des symptômes observés, en vérifiant étape par étape chaque composant et chaque connexion.
 
 Une logique simple et très efficace (souvent vraie) :
+
 1) **alimentation** (ai-je bien la bonne tension ?)  
 2) **connexions** (continuité, GND, court-circuit Vcc↔GND)  
 3) **polarités** (LED, diode, condensateur polarisé)  
@@ -63,6 +65,7 @@ L’idée est de tester **le plus probable et le plus simple en premier**.
 Éliminer les causes potentielles les unes après les autres, en commençant par les vérifications les plus simples et les plus accessibles.
 
 C’est comme une enquête :  
+
 - j’émets une hypothèse (“alim absente”, “faux contact”…),  
 - je fais un test,  
 - si le test prouve que ce n’est pas ça, j’élimine et je passe à la suite.
@@ -132,6 +135,7 @@ Vérifier l’état physique des composants (déformations, traces de brûlure, 
 Exemple : une résistance noircie ou un condensateur bombé indiquent souvent une surchauffe ou une panne.
 
 On cherche notamment :
+
 - composant inversé (LED, diode, condensateur polarisé),
 - fil manquant,
 - pont de soudure,
@@ -149,6 +153,7 @@ Utiliser le multimètre pour tester la continuité des pistes et des connexions,
 Exemple : en cas de panne totale, vérifier que la continuité est assurée depuis la source d’alimentation jusqu’aux points clés du circuit.
 
 Deux vérifications très utiles :
+
 - continuité **Vcc → entrée circuit**, puis **GND → retour**,
 - recherche d’un court-circuit **Vcc ↔ GND** (danger).
 
@@ -157,6 +162,7 @@ Mesurer la résistance, la tension et le courant aux bornes de chaque composant 
 Exemple : tester un transistor pour vérifier qu’il fonctionne en tant qu’interrupteur en mesurant la tension entre la base et l’émetteur.
 
 Rappels pratiques :
+
 - résistance : mesure en **Ω** (hors tension),
 - diode/LED : mode **test diode** (doit conduire dans un sens).
 
@@ -165,9 +171,11 @@ Pour des circuits plus complexes, l’oscilloscope permet d’observer la forme 
 Exemple : dans un circuit audio, vérifier la forme d’onde en sortie d’un amplificateur pour détecter les distorsions.
 
 Réglages essentiels :
+
 - **Volts/div** et **Temps/div**.
 
 Lecture rapide :
+
 - “signal absent” = panne en amont,
 - “signal déformé” = composant / alim / bruit / saturation.
 
@@ -205,6 +213,7 @@ Une diode défectueuse peut perdre sa propriété de conduction unidirectionnell
 Méthode de diagnostic : tester la diode dans les deux sens de polarisation pour vérifier qu’elle conduit dans un seul sens.
 
 Test diode attendu :
+
 - un sens “OK”,
 - l’autre “bloqué”.
 
@@ -231,10 +240,12 @@ Exemple de panne : si une sortie reste bloquée sur un état haut ou bas, cela p
 Diagnostic : vérifier les niveaux logiques et les changements d’état des signaux avec un oscilloscope ou un analyseur logique.
 
 En pratique, on attend souvent des niveaux proches de :
+
 - 0V (état bas),
 - 5V (état haut), selon le circuit.
 
 Une sortie “bloquée” peut aussi venir :
+
 - d’un court-circuit,
 - d’une entrée mal câblée,
 - d’un composant HS.
@@ -245,6 +256,7 @@ Exemple de panne : une distorsion dans un amplificateur audio peut indiquer une 
 Diagnostic : utiliser l’oscilloscope pour vérifier la linéarité du signal et localiser la source de la distorsion.
 
 À retenir : “distorsion” = signal déformé, souvent lié à :
+
 - alim instable,
 - composant dégradé,
 - saturation (signal trop fort).

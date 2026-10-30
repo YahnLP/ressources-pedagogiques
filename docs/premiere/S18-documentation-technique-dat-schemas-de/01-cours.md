@@ -1,8 +1,6 @@
 # 📖 FICHE COURS – S18 ANNÉE 2 – E2
 ## Documentation Technique : DAT, Schémas de Câblage, BOM, Procédures
 
-**Nom : ________________  Prénom : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS
@@ -112,7 +110,6 @@ HISTORIQUE DES RÉVISIONS
 |---|---|---|---|
 | 0.1 | 2026-03-15 | A. DUPONT | Création initiale |
 | 1.0 | 2026-03-20 | A. DUPONT | Version complète validée |
-
 
 ---
 

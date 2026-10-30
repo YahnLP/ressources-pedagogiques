@@ -1,8 +1,6 @@
 # 📝 CAHIER D'EXERCICES — CONSOLIDATION FINALE E2
 ## S14 Année 3 — NE555, KiCad, Mesures, Normes, Synthèse
 
-**Nom : ________________  Prénom : ________________  Date : ________________**
-
 > **Mode d'emploi :** Traitez les blocs dans l'ordre indiqué par votre formateur. Dossier ressources E2 autorisé. Calculatrice autorisée. Montrez tous vos calculs — un résultat sans calcul ne donne aucun point.
 
 ---
@@ -430,7 +428,6 @@ Câblage : entre _____ et _____
 
 (Montrez tous les calculs)  
 
-
 $$V_{out} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$$
 
 **E2.2 *(2 pts)*** — La fréquence NE555 mesurée à l'oscillo est 0,978 Hz. La spécification est 1 Hz ±10%.
@@ -455,7 +452,6 @@ _________________________________________________________________________
 | TC-01 | Vout = 5V ±5% = [4,75;5,25]V |  |  |
 | TC-02 | f = 1Hz ±10% = [0,90;1,10]Hz |  |  |
 | TC-03 | Assemblage IPC-A-610 Cl.2 |  |  |
-
 
 **E3.2 *(2 pts)*** — TC-03 est NON CONFORME (remplissage J1 = 72%). Rédigez la conclusion globale du PV :
 
