@@ -177,7 +177,7 @@ Astuce de diagnostic (alimentation) :
 - rouge sur **Vcc**, noir sur **GND**.
 
 <p align="center">
-  <img src="./03-images/v.png" alt="Mesure de tension : voltmètre branché en parallèle sur un composant" width="40%"><br>
+  <img src="./03-images/V.png" alt="Mesure de tension : voltmètre branché en parallèle sur un composant" width="40%"><br>
   <em>Illustration attendue : schéma d’un composant avec voltmètre branché en parallèle.</em>
 </p>
 

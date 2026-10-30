@@ -387,7 +387,7 @@ CMS = miniaturisation : smartphones, objets connectés, cartes modernes.
 La réparation est plus délicate et demande un outillage fin.
 
 <p align="left">
-  <img src="./01-images/cms.png" alt="CMS vs traversant" width="40%"><br>
+  <img src="./01-images/CMS.png" alt="CMS vs traversant" width="40%"><br>
   <em>photo comparative : composant traversant vs composant CMS + indication de taille.</em>
 </p>
 
