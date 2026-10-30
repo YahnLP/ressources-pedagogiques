@@ -65,10 +65,40 @@ Il laisse passer les **basses fréquences** et atténue les **hautes**. **Exempl
 > - Oublier la **diode** sur une bobine.
 > - Alimenter un AOP en 5 V en attendant une sortie de 8 V.
 
+## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+
+**Fil rouge** : tu **améliores** le clignoteur en lui faisant commander une charge plus puissante (un relais 5 V, 70 mA).
+
+1. **Choisis** le transistor (BC547 ou BC337) et justifie.
+2. **Calcule** $R_b$ (commande par la sortie du NE555 à environ 5 V, règle $I_C/10$).
+3. **Dessine** le schéma : bobine du relais, diode de roue libre, transistor.
+4. **Filtre** : place un filtre RC (10 kΩ, 100 nF) sur une tension bruitée et calcule sa fréquence de coupure.
+5. **Logique** : écris la table de vérité d'une alarme « température haute ET porte ouverte ».
+
+??? success "Résultats attendus"
+    1. **BC337** (800 mA maximum) : le BC547 serait trop juste à 70 mA.
+    2. $I_B = 7\,\mathrm{mA}$ ; $R_b = \dfrac{4{,}3}{0{,}007} \approx 614\,\Omega$ → **560 Ω**.
+    3. Diode 1N4007 en parallèle inverse de la bobine.
+    4. $f_c = \dfrac{1}{2\pi \times 10^{4} \times 10^{-7}} \approx 159\,\mathrm{Hz}$.
+    5. Porte **ET** : la sortie vaut 1 seulement si les deux entrées valent 1.
+
+## ✍️ Exercices d'application
+
+1. $R_f = 22\,\mathrm{k\Omega}$, $R_g = 2{,}2\,\mathrm{k\Omega}$ sur un AOP non inverseur : gain ?
+2. Filtre RC : $R = 4{,}7\,\mathrm{k\Omega}$, $C = 10\,\mathrm{nF}$. Fréquence de coupure ?
+3. MOSFET de $R_{DS(on)} = 22\,\mathrm{m\Omega}$ et courant de 3 A : puissance dissipée ?
+4. Sortie d'une porte NON-ET avec A = 1 et B = 1 ?
+
+??? success "Corrigés"
+    1. $G = 1 + 10 = 11$.
+    2. $f_c = \dfrac{1}{2\pi \times 4700 \times 10^{-8}} \approx 3{,}4\,\mathrm{kHz}$.
+    3. $P = 0{,}022 \times 9 \approx 0{,}2\,\mathrm{W}$ : pas de radiateur.
+    4. **0**.
+
 ## 📚 Pour approfondir : les séances à consulter
 
-- [Première S12 – transistor, MOSFET, relais](../../premiere/S12-prototypes-avances-integration/03-transistor-mosfet-relais.md)
-- [Première S12 – AOP, filtre RC, portes logiques](../../premiere/S12-prototypes-avances-integration/04-aop-filtre-logique.md)
+- [Première S12 – transistor, MOSFET, relais](../premiere/S12-prototypes-avances-integration/03-transistor-mosfet-relais.md)
+- [Première S12 – AOP, filtre RC, portes logiques](../premiere/S12-prototypes-avances-integration/04-aop-filtre-logique.md)
 
 ## ✅ Auto-test
 

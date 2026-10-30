@@ -64,12 +64,41 @@ Pour un composant traversant (classe 2) : soudure **brillante**, forme de **côn
 > - Router une piste de signal **sous** un composant sans y penser (risque de court-circuit).
 > - Oublier le **perçage** (fichier .drl) dans l'envoi.
 
+## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+
+**Fil rouge** : tu transformes le schéma en **carte fabricable**, puis tu la **soudes**.
+
+1. Importe le schéma dans le PCB. Trace le **contour 60 × 40 mm**.
+2. **Règles** : clearance 0,25 mm ; pistes 0,25 mm ; alimentation 0,5 mm ; via 0,8 / 0,4 mm.
+3. **Place** : J1 au bord, 7805 et ses condensateurs, NE555, passifs près du NE555, LED près du bord.
+4. **Route** l'alimentation, puis les signaux. Lance le **DRC** : 0 erreur.
+5. **Exporte** Gerber (cuivre, masque, sérigraphie, contour), perçage, BOM. **Ouvre-les** dans un visualiseur.
+6. **Soude** dans l'ordre : résistances, support DIP-8, condensateurs, régulateur, connecteur, LED. **Contrôle** les brasures.
+
+??? success "Résultats attendus"
+    - DRC : **0 erreur** ; pistes d'alimentation visiblement plus larges.
+    - Fichiers : F.Cu (ou B.Cu), masque, sérigraphie, Edge.Cuts, `.drl`, `.csv` de la BOM.
+    - Brasures : brillantes, en cône, trou rempli à **75 % au moins** ; aucun pont ni soudure froide.
+
+## ✍️ Exercices d'application
+
+1. Deux pistes sont à 0,18 mm l'une de l'autre, règle 0,25 mm. Violation de combien ?
+2. Une pastille de 1,8 mm est percée à 1,0 mm. Largeur de l'anneau de cuivre ?
+3. Où place-t-on le condensateur de découplage du NE555 ?
+4. Remplissage d'un trou traversant de 70 % : conforme en classe 2 ?
+
+??? success "Corrigés"
+    1. $0{,}25 - 0{,}18 = 0{,}07\,\mathrm{mm}$ : le DRC signale une erreur.
+    2. $\dfrac{1{,}8 - 1{,}0}{2} = 0{,}4\,\mathrm{mm}$.
+    3. **Au plus près** des broches 8 (VCC) et 1 (GND).
+    4. **Non** : il faut au moins 75 %.
+
 ## 📚 Pour approfondir : les séances à consulter
 
-- [Première S03 – PCB et routage](../../premiere/S03-kicad-pcb-editor-routage-pistes-vias/01-cours.md)
-- [Première S04 – double face et Gerber](../../premiere/S04-pcb-double-face-metallisation/01-cours.md)
-- [Terminale S06 – TP de bout en bout](../S06-flux-kicad-complet-schema-erc-pcb-drc/02-tp-de-bout-en-bout.md)
-- [Seconde S04 – soudure et IPC](../../seconde/S04-soudure-a-l-etain-composants/01-cours.md)
+- [Première S03 – PCB et routage](../premiere/S03-kicad-pcb-editor-routage-pistes-vias/01-cours.md)
+- [Première S04 – double face et Gerber](../premiere/S04-pcb-double-face-metallisation/01-cours.md)
+- [Terminale S06 – TP de bout en bout](../terminale/S06-flux-kicad-complet-schema-erc-pcb-drc/02-tp-de-bout-en-bout.md)
+- [Seconde S04 – soudure et IPC](../seconde/S04-soudure-a-l-etain-composants/01-cours.md)
 
 ## ✅ Auto-test
 

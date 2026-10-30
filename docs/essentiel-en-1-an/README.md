@@ -1,6 +1,6 @@
-# 🎯 L'essentiel en 1 an : parcours de 10 semaines
+# ⚡ L'essentiel en 1 an : une formation express en 10 semaines
 
-Ce parcours rassemble **l'essentiel** pour réussir l'épreuve E2 (« Réalisation et maintenance de produits électroniques », coefficient 5). Il est conçu pour **10 semaines de 4 heures** (40 h) et peut servir de **révision avant le bac** pour avancer **seul(e)**.
+Ce n'est **pas** une simple révision : c'est une **formation complète et accélérée**, qui part des bases et mène à l'épreuve E2 (« Réalisation et maintenance de produits électroniques », coefficient 5). **10 semaines de 4 heures** (40 h). Chaque semaine contient un **cours**, un **atelier guidé pas à pas**, des **exercices corrigés** et un **livrable**. On construit, on teste et on dépanne **une même carte** (un clignoteur à LED) du début à la fin : c'est le **fil rouge**. Utilisable en classe comme **seul(e)**, y compris pour rattraper avant le bac.
 
 ## 🎯 Ce que tu sauras faire à la fin
 
@@ -17,7 +17,7 @@ Les compétences évaluées à l'E2 sont **C03** (participer à un projet), **C0
 | Semaine | Thème | Compétences |
 |---|---|---|
 | [**1**](S01-semaine.md) | Les composants et les lois de base | C07 |
-| [**2**](S02-semaine.md) | Mesurer : multimètre et oscilloscope | C07 · C11 |
+| [**2**](S02-semaine.md) | Mesurer : multimètre, alimentation, générateur et oscilloscope | C07 · C11 |
 | [**3**](S03-semaine.md) | Lire un schéma et une datasheet | C07 |
 | [**4**](S04-semaine.md) | L'alimentation : bilan de puissance et thermique | C07 · C11 |
 | [**5**](S05-semaine.md) | Du cahier des charges au schéma (CAO) | C07 |
@@ -30,9 +30,13 @@ Les compétences évaluées à l'E2 sont **C03** (participer à un projet), **C0
 ## 🧭 Comment travailler
 
 1. Lis les **objectifs** de la semaine, puis suis le **déroulé** (4 × 1 h).
-2. Utilise les **ressources** indiquées : ce sont les séances de Seconde, Première et Terminale qui traitent exactement le sujet.
-3. Fais l'**auto-test** *sans regarder* les réponses, puis corrige-toi.
-4. Finis par le **livrable** : c'est une preuve de compétence pour ton dossier.
+2. Lis le **cours en bref**, puis fais l'**atelier guidé** étape par étape (tu peux comparer à la correction).
+3. Fais les **exercices** et l'**auto-test** *sans regarder* les réponses, puis corrige-toi.
+4. Pour aller plus loin, les séances de Seconde, Première et Terminale sont indiquées en fin de page.
+5. Finis par le **livrable** : c'est une preuve de compétence pour ton dossier.
+
+> [!TIP] 🎛️ Passeport instruments
+> Savoir **manipuler les appareils de mesure** est une compétence clé de l'E2. Tout au long du parcours, fais valider ton [passeport instruments](passeport-instruments.md) : multimètre, alimentation, générateur, oscilloscope.
 
 > [!NOTE] 🔶 Et le reste ?
 > Les séances marquées 🔶 (approfondissement) ne sont **pas nécessaires** pour l'essentiel : Gauge R&R, calcul complet d'incertitudes, fiabilité MTBF, cloud AWS, requêtes Flux. Tu peux les faire **après** ce parcours.

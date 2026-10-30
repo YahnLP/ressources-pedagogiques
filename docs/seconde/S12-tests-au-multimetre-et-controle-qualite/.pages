@@ -3,4 +3,5 @@ nav:
   - README.md
   - "📖 Cours": 01-cours.md
   - "🔭 Prise en main de l'oscilloscope": 05-prise-en-main-oscilloscope.md
+  - "⚡ Alimentation de labo et générateur": 06-alimentation-labo-et-generateur.md
   - "🖥️ Simulateur ElectroLab": 04-simulateur.md

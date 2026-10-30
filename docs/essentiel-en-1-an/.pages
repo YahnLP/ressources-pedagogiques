@@ -1,8 +1,9 @@
-title: "🎯 L'essentiel en 1 an (10 semaines × 4 h)"
+title: "⚡ L'essentiel en 1 an"
 nav:
   - README.md
+  - "🎛️ Passeport instruments": passeport-instruments.md
   - "Semaine 1 · Les composants et les lois de base": S01-semaine.md
-  - "Semaine 2 · Mesurer : multimètre et oscilloscope": S02-semaine.md
+  - "Semaine 2 · Mesurer : multimètre, alimentation, générateur et oscilloscope": S02-semaine.md
   - "Semaine 3 · Lire un schéma et une datasheet": S03-semaine.md
   - "Semaine 4 · L'alimentation : bilan de puissance et thermique": S04-semaine.md
   - "Semaine 5 · Du cahier des charges au schéma (CAO)": S05-semaine.md

@@ -60,11 +60,39 @@ L'**empreinte** est le dessin des **pastilles** sur le circuit imprimé. Elle do
 
 Dessine : un connecteur 2 broches (+12 V, GND), un 7805 avec condensateurs 100 nF et 10 µF, puis une LED avec sa résistance de 150 Ω. Ajoute 2 PWR_FLAG (sur +5 V et GND). L'ERC doit afficher **0 erreur**.
 
+## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+
+**Fil rouge** : tu dessines le **schéma KiCad** du clignoteur.
+
+1. Crée le projet `clignoteur`.
+2. Place : connecteur 2 broches (J1, +12 V / GND), **7805** avec ses condensateurs (100 nF entrée, 10 µF sortie), **NE555**, $R_a$, $R_b$, $C_3$ (10 µF), **100 nF** sur la broche 5, $R_3$ (150 Ω) et la LED.
+3. Câble : broche 4 et 8 au +5 V, broche 1 à la masse, 2 et 6 reliées entre elles et à $C_3$, 7 entre $R_a$ et $R_b$, sortie 3 vers $R_3$ puis LED vers la masse.
+4. Ajoute 2 **PWR_FLAG** (+5 V et GND). **Annote**, renseigne les **valeurs**.
+5. Lance l'**ERC** et corrige jusqu'à **0 erreur**.
+6. Associe les **empreintes**.
+
+??? success "Résultats attendus"
+    - ERC : **0 erreur**.
+    - Empreintes : R → `Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal` ; LED → `LED_THT:LED_D5.0mm` ; NE555 → `Package_DIP:DIP-8_W7.62mm` ; 7805 → `Package_TO_SOT_THT:TO-220-3_Vertical` ; condensateur chimique → `Capacitor_THT:CP_Radial_D5.0mm_P2.50mm` ; connecteur → `Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical`.
+
+## ✍️ Exercices d'application
+
+1. L'ERC affiche `power_pin_not_driven` sur +5 V. Que faire ?
+2. Deux composants portent le repère R1. Quelle erreur et quelle action ?
+3. La broche 5 du NE555 n'est pas utilisée en astable : doit-elle rester non connectée ?
+4. Quelle est la différence entre un composant THT et CMS ?
+
+??? success "Corrigés"
+    1. Poser un **PWR_FLAG** sur le net +5 V.
+    2. `duplicate_reference` : **annoter à nouveau** le schéma.
+    3. On la relie à la masse **par un condensateur de 100 nF** (stabilité) ; si on la laisse en l'air, l'ERC la signale (`pin_not_connected`) et le montage est plus sensible au bruit.
+    4. Le THT a des **pattes qui traversent** la carte ; le CMS est **posé en surface** sur les pistes.
+
 ## 📚 Pour approfondir : les séances à consulter
 
-- [Première S01 – interface et premiers schémas](../../premiere/S01-interface-bibliotheques-schemas/01-cours.md)
-- [Première S02 – saisie de schéma](../../premiere/S02-kicad-saisie-de-schema-bibliotheques/01-cours.md)
-- [Terminale S06 – flux KiCad complet](../S06-flux-kicad-complet-schema-erc-pcb-drc/01-cours.md)
+- [Première S01 – interface et premiers schémas](../premiere/S01-interface-bibliotheques-schemas/01-cours.md)
+- [Première S02 – saisie de schéma](../premiere/S02-kicad-saisie-de-schema-bibliotheques/01-cours.md)
+- [Terminale S06 – flux KiCad complet](../terminale/S06-flux-kicad-complet-schema-erc-pcb-drc/01-cours.md)
 
 ## ✅ Auto-test
 
