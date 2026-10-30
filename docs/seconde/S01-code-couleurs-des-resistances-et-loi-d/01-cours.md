@@ -1,5 +1,14 @@
 # 📘 FICHE DE COURS ÉLÈVE - U2 ÉLECTRONIQUE - SEMAINE 1
 
+> [!TIP] 🖥️ TP virtuel ElectroLab : pour t'entraîner
+> Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis choisis :
+> - **Découverte du multimètre : tension, courant, loi d'Ohm** (1 h, seconde)
+> - **Associations de résistances et diviseur de courant** (1 h, seconde)
+> - **Puissance, effet Joule et dimensionnement d'une résistance** (1 h, seconde)
+> 
+> Le simulateur corrige automatiquement et ne risque pas d'abîmer le matériel : **réussis d'abord le TP virtuel, puis refais la manipulation sur le matériel réel.** Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
+
+
 ## ⚡ CODE COULEURS DES RÉSISTANCES ET LOI D'OHM
 
 ---

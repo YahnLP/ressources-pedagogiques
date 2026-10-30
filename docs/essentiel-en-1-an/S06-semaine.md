@@ -1,120 +1,130 @@
-# Semaine 6 : Du PCB aux fichiers de fabrication (Gerber)
+# Semaine 6 : Le système communicant : UART, I²C, WiFi, MQTT et supervision
 
-> **Durée** : 4 h · **Compétences E2 travaillées** : C07
+> **Durée** : 4 h · **Compétences E2 travaillées** : C07 · C11
 
 ## 🎯 Objectifs : à la fin de la semaine, je sais…
 
-- Placer et router un PCB selon des règles (clearance, largeurs).
-- Passer le DRC, exporter les Gerber, le perçage et la BOM.
-- Contrôler une brasure selon IPC-A-610.
+- Expliquer la chaîne capteur → microcontrôleur → réseau → supervision.
+- Lire une trame UART et calculer sa durée.
+- Reconnaître un bus I²C et son adresse.
+- Décrire un échange MQTT (broker, topic, JSON).
+- Diagnostiquer une liaison qui ne fonctionne pas.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | Contour, règles de conception, placement |
-| 1 h | Routage (alimentation d'abord) et DRC |
-| 1 h | Gerber, perçage, BOM, vérification dans un visualiseur |
-| 1 h | Soudure et contrôle IPC ; auto-test |
+| 1 h | TP virtuels ElectroLab : analyseur logique, UART, I²C |
+| 1 h | Cours : protocoles et MQTT |
+| 1 h | Atelier : trames, topics, supervision |
+| 1 h | Diagnostic d'une liaison ; auto-test |
+
+## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
+
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+
+- **Prise en main de l'analyseur logique (chronogrammes d'un compteur)** (45 min, niveau première)
+- **Analyse d'une liaison série UART / RS-232 (5 variantes)** (1 h 30, niveau première / terminale)
+- **Analyse d'un bus I²C : adresse, ACK, résistances de rappel (4 cas)** (1 h 45, niveau terminale)
+
+> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
+> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
 
 ## 📖 Le cours en bref
 
-??? question "🤔 À ton avis ?"
-    Pourquoi les pistes d'alimentation sont-elles plus larges que les pistes de signal ?
+**🤔 À ton avis ?** Ton capteur de température est dans une salle, ton écran de contrôle dans un bureau. Comment la valeur voyage-t-elle jusqu'à lui ?
 
-    **Réponse** : une piste est un **fil de cuivre** : trop fine pour le courant, elle **chauffe**. On la dimensionne en fonction du courant qu'elle transporte.
+??? question "Réponse"
+    Par une **liaison** (série, I²C, WiFi) qui suit un **protocole** : des règles communes de format et de vitesse. On étudie les plus courantes.
 
-### 1. Les règles de conception
+### 1. Pourquoi et comment communiquer
 
-| Règle | Valeur courante | Pourquoi |
-|---|---|---|
-| **Clearance** (espace entre deux pistes) | 0,2 à 0,25 mm | éviter les courts-circuits |
-| Piste de **signal** | 0,25 à 0,35 mm | faible courant |
-| Piste d'**alimentation** | 0,5 à 0,8 mm | plus de courant |
-| **Via** | Ø 0,8 mm, perçage 0,4 mm | passer d'une face à l'autre |
+Un système communicant suit une **chaîne** : **capteur → microcontrôleur → réseau → supervision** (écran, tableau de bord, alarme). Chaque maillon doit **parler la même langue** que le suivant : c'est le rôle des **protocoles**.
 
-### 2. Placement et routage
+### 2. La liaison série UART
 
-1. **Contour** de la carte (Edge.Cuts).
-2. Placer les **connecteurs au bord**, puis l'**alimentation**, puis le circuit principal, puis les passifs **près des circuits** qu'ils servent.
-3. Le **condensateur de découplage** (100 nF) se place **au plus près** des broches d'alimentation du circuit intégré.
-4. **Router l'alimentation en premier**, puis les signaux. Une masse **continue** (pas coupée par une piste) limite les perturbations.
+Les bits partent **un par un** sur un fil, à une vitesse commune (**baud rate**, par exemple 9600). Une trame **8N1** contient **10 bits** : 1 bit de départ (0), 8 bits de données (le moins significatif d'abord), 1 bit d'arrêt (1).
 
-### 3. Contrôler : le DRC
+$$T_{bit} = \frac{1}{\text{baud}} \qquad \text{à 9600 bauds : } T_{bit} \approx 104\,\mathrm{\mu s}\ ;\ \text{un octet} \approx 1{,}04\,\mathrm{ms}$$
 
-Le DRC vérifie que **rien ne viole les règles** (pistes trop proches, trop fines, pastilles qui se touchent). Objectif : **0 erreur**.
+**Câblage** : TX d'un côté vers **RX** de l'autre (et inversement) + **masse commune**. Même vitesse des deux côtés, sinon : caractères absurdes.
 
-### 4. Les fichiers de fabrication
+### 3. Le bus I²C
 
-Le fabricant reçoit :
+Deux fils seulement : **SDA** (données) et **SCL** (horloge), partagés par plusieurs appareils. Chaque appareil a une **adresse** (par exemple `0x27` pour un écran LCD). Les deux lignes ont des **résistances de rappel** (≈ 4,7 kΩ) vers le +V. Sur l'Arduino Uno : SDA = A4, SCL = A5.
 
-- les **Gerber** : un fichier par couche (cuivre, masque de soudure, sérigraphie, contour) ;
-- le fichier de **perçage** (.drl) ;
-- la **BOM** (liste des composants) pour l'assemblage.
+### 4. WiFi et MQTT avec l'ESP32
 
-> [!TIP] 💡 En clair
-> Un fichier Gerber est une **image vectorielle** d'une couche. On l'ouvre dans un **visualiseur** pour voir **exactement** ce qui sera fabriqué.
+L'**ESP32** se connecte au WiFi (mode **station**) ou crée son propre réseau (mode **point d'accès**, adresse 192.168.4.1). Ses broches fonctionnent en **3,3 V** : ne jamais y appliquer 5 V.
 
-### 5. Souder et contrôler (IPC-A-610)
+**MQTT** : un **broker** (serveur) reçoit les messages d'un **publisher** et les redistribue aux **subscribers** abonnés au même **topic** (par exemple `salle1/temperature`). Port **1883** (8883 avec TLS). Les topics sont **sensibles à la casse**. Caractères joker : `+` (un niveau) et `#` (tous les niveaux suivants). Le contenu est souvent un texte **JSON** : `{"temp": 23.5}`.
 
-Pour un composant traversant (classe 2) : soudure **brillante**, forme de **cône**, trou **rempli à 75 % au moins**. Défauts : **pont de soudure** (court-circuit), soudure **froide** (terne, craquelée), **manque de soudure**.
+### 5. Superviser : moyenne, seuil, hystérésis
 
-> [!WARNING] ⚠️ Erreurs fréquentes
-> - Ne pas ouvrir les Gerber avant l'envoi.
-> - Router une piste de signal **sous** un composant sans y penser (risque de court-circuit).
-> - Oublier le **perçage** (fichier .drl) dans l'envoi.
+Pour fiabiliser une mesure, on calcule des **indicateurs** (KPI) :
 
-## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+- **Moyenne mobile** des N dernières mesures : elle lisse le bruit (20, 22, 21, 25 → 22).
+- **Seuil avec hystérésis** : l'alarme se **déclenche** à 30 °C mais ne se **coupe** qu'en dessous de 28 °C : on évite le battement autour d'un seul seuil.
+- **Trois niveaux** : normal, avertissement, critique.
 
-**Fil rouge** : tu transformes le schéma en **carte fabricable**, puis tu la **soudes**.
+### 6. Diagnostiquer une liaison
 
-1. Importe le schéma dans le PCB. Trace le **contour 60 × 40 mm**.
-2. **Règles** : clearance 0,25 mm ; pistes 0,25 mm ; alimentation 0,5 mm ; via 0,8 / 0,4 mm.
-3. **Place** : J1 au bord, 7805 et ses condensateurs, NE555, passifs près du NE555, LED près du bord.
-4. **Route** l'alimentation, puis les signaux. Lance le **DRC** : 0 erreur.
-5. **Exporte** Gerber (cuivre, masque, sérigraphie, contour), perçage, BOM. **Ouvre-les** dans un visualiseur.
-6. **Soude** dans l'ordre : résistances, support DIP-8, condensateurs, régulateur, connecteur, LED. **Contrôle** les brasures.
+Dans l'ordre : **alimentation** ; **câblage** (TX ↔ RX croisés, masse commune) ; **vitesse** identique ; **niveaux** de tension compatibles (3,3 V / 5 V) ; **adresse** I²C correcte ; **IP du broker** et **topic** (casse !) pour MQTT. Un outil précieux : le **moniteur série** et l'**analyseur logique**.
+
+
+## 🛠️ Atelier guidé : on construit, on mesure, on valide
+
+**Fil rouge 2 : la station de mesure communicante.**
+
+1. **Trame UART** : écris la trame de la lettre `A` (code `0x41`) en 8N1 (bit de départ, 8 bits de données le moins significatif d'abord, bit d'arrêt).
+2. **Durées** : durée d'un octet à 9600 bauds, puis à 115200 bauds.
+3. **Topics MQTT** : propose les topics pour 3 salles (température) et le topic qui permet de s'abonner aux 3 salles.
+4. **Hystérésis** : seuils 30 °C (déclenchement) et 28 °C (retour) ; suite de mesures : 29,5 ; 30,5 ; 29,5 ; 28,5 ; 27,9. Donne l'état de l'alarme pour chaque mesure.
+5. **Niveaux** : un signal de 5 V doit entrer dans l'ESP32 : propose un diviseur 1 kΩ / 2 kΩ et calcule la tension.
 
 ??? success "Résultats attendus"
-    - DRC : **0 erreur** ; pistes d'alimentation visiblement plus larges.
-    - Fichiers : F.Cu (ou B.Cu), masque, sérigraphie, Edge.Cuts, `.drl`, `.csv` de la BOM.
-    - Brasures : brillantes, en cône, trou rempli à **75 % au moins** ; aucun pont ni soudure froide.
+    1. `0x41` = 01000001 ; bits envoyés dans l'ordre : **0** (départ), **1 0 0 0 0 0 1 0**, **1** (arrêt).
+    2. 9600 bauds : environ **1,04 ms** ; 115200 bauds : environ **87 µs**.
+    3. `salle1/temperature`, `salle2/temperature`, `salle3/temperature` ; abonnement `salle/+/temperature` si les topics sont `salle/1/temperature`… (ou `+/temperature`).
+    4. OK, **ALARME**, ALARME, ALARME, **OK**.
+    5. $5 \times \dfrac{2}{1+2} \approx 3{,}33\,\mathrm{V}$.
 
 ## ✍️ Exercices d'application
 
-1. Deux pistes sont à 0,18 mm l'une de l'autre, règle 0,25 mm. Violation de combien ?
-2. Une pastille de 1,8 mm est percée à 1,0 mm. Largeur de l'anneau de cuivre ?
-3. Où place-t-on le condensateur de découplage du NE555 ?
-4. Remplissage d'un trou traversant de 70 % : conforme en classe 2 ?
+1. Quelle différence entre UART et I²C ?
+2. À quoi sert l'adresse I²C ?
+3. Moyenne mobile de 18, 20, 22, 24 ?
+4. Pourquoi une hystérésis ?
 
 ??? success "Corrigés"
-    1. $0{,}25 - 0{,}18 = 0{,}07\,\mathrm{mm}$ : le DRC signale une erreur.
-    2. $\dfrac{1{,}8 - 1{,}0}{2} = 0{,}4\,\mathrm{mm}$.
-    3. **Au plus près** des broches 8 (VCC) et 1 (GND).
-    4. **Non** : il faut au moins 75 %.
+    1. L'**UART** relie **deux** appareils (TX/RX, vitesse commune) ; l'**I²C** relie **plusieurs** appareils sur 2 fils (SDA, SCL) grâce aux **adresses**.
+    2. À **repérer** chaque appareil sur le bus.
+    3. $\dfrac{84}{4} = 21$.
+    4. Pour éviter que l'alarme **bat** (s'allume et s'éteigne sans arrêt) autour d'un seul seuil.
 
 ## 📚 Pour approfondir : les séances à consulter
 
-- [Première S03 – PCB et routage](../premiere/S03-kicad-pcb-editor-routage-pistes-vias/01-cours.md)
-- [Première S04 – double face et Gerber](../premiere/S04-pcb-double-face-metallisation/01-cours.md)
-- [Terminale S06 – TP de bout en bout](../terminale/S06-flux-kicad-complet-schema-erc-pcb-drc/02-tp-de-bout-en-bout.md)
-- [Seconde S04 – soudure et IPC](../seconde/S04-soudure-a-l-etain-composants/01-cours.md)
+- [Seconde S13 – liaison série UART](../seconde/S13-communication-serie-uart-protocol/01-cours.md)
+- [Seconde S15 – LCD I²C](../seconde/S15-lcd-i2c-bibliotheque-affichage/01-cours.md)
+- [Première S06 – ESP32 WiFi](../premiere/S06-esp32-wifi-modes-station-ap-webserver/01-cours.md)
+- [Première S07 – MQTT](../premiere/S07-mqtt-publish-subscribe-topics-qos/01-cours.md)
+- [Terminale S04 – KPI et alarme embarquée](../terminale/S04-acquisition-capteur-courbe-kpi-alarme/01-cours.md)
 
 ## ✅ Auto-test
 
-1. Quelle largeur pour une piste d'alimentation, quelle clearance ?
-2. Quels fichiers envoie-t-on au fabricant ?
-3. Pourquoi ouvrir les Gerber dans un visualiseur ?
-4. Une brasure avec un remplissage de 72 % est-elle conforme (classe 2) ?
-5. Dans quel ordre route-t-on ?
+1. Combien de bits dans une trame 8N1 ?
+2. Durée d'un octet à 9600 bauds ?
+3. Un ESP32 reçoit un signal de 5 V sur une broche : problème ?
+4. `Salle1/temp` et `salle1/temp` : même topic ?
+5. Quel port utilise MQTT sans chiffrement ?
 
 ??? success "Réponses"
-    1. Piste d'alimentation **0,5 mm à 0,8 mm** ; clearance minimale **0,2 à 0,25 mm**.
-    2. Les **Gerber** (cuivre, masque, sérigraphie, contour) et le fichier de **perçage**.
-    3. Pour voir **ce qui sera réellement fabriqué**.
-    4. **Non** : minimum 75 %.
-    5. **Alimentation** d'abord, puis les signaux.
+    1. **10 bits** (1 départ + 8 données + 1 arrêt).
+    2. $10 \times 104\,\mathrm{\mu s} \approx 1{,}04\,\mathrm{ms}$.
+    3. Oui : ses broches sont en **3,3 V** ; il faut un diviseur de tension ou un convertisseur de niveau.
+    4. **Non** : les topics sont **sensibles à la casse**.
+    5. **1883**.
 
 ## 📦 Livrable
 
-Fichiers de fabrication (Gerber, perçage, BOM) de la carte de la semaine 5.
+Schéma de la chaîne de ta station de mesure (capteur, microcontrôleur, protocole, topic MQTT) avec les valeurs choisies.

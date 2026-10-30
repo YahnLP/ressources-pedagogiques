@@ -1,4 +1,14 @@
 # 📖 FICHE COURS – S12 ANNÉE 2 – E2
+
+> [!TIP] 🖥️ TP virtuel ElectroLab : pour t'entraîner
+> Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis choisis :
+> - **Transistor bipolaire en commutation** (1 h 30, première)
+> - **Relais commandé par transistor : la diode de roue libre** (1 h 30, terminale)
+> - **Portes logiques : tables de vérité, alimentation, CMOS / TTL** (1 h 15, première)
+> - **Filtre RC passe-bas : gain et fréquence de coupure** (1 h 30, terminale)
+> 
+> Le simulateur corrige automatiquement et ne risque pas d'abîmer le matériel : **réussis d'abord le TP virtuel, puis refais la manipulation sur le matériel réel.** Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
+
 ## Prototypes Avancés : Intégration Mécanique, Boîtiers 3D, Tests en Conditions Réelles
 
 ---

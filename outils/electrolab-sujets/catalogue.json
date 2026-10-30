@@ -1,0 +1,275 @@
+{
+ "transfo": {
+  "cat": "'3 · Alimentations'",
+  "diff": 2,
+  "title": "Le transformateur : rapport de transformation",
+  "level": "(première)",
+  "duration": "1 h"
+ },
+ "redress": {
+  "cat": "'3 · Alimentations'",
+  "diff": 2,
+  "title": "Redressement simple et double alternance",
+  "level": "(première)",
+  "duration": "1 h 15"
+ },
+ "filtrage": {
+  "cat": "'3 · Alimentations'",
+  "diff": 3,
+  "title": "Filtrage par condensateur : choix de C",
+  "level": "(première)",
+  "duration": "1 h 15"
+ },
+ "regul": {
+  "cat": "'3 · Alimentations'",
+  "diff": 3,
+  "title": "Régulation linéaire avec un 7805",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "inverseur": {
+  "cat": "'5 · Amplification'",
+  "diff": 3,
+  "title": "Amplificateur inverseur à AOP : gain et saturation",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "cre": {
+  "cat": "'5 · Amplification'",
+  "diff": 3,
+  "title": "Interrupteur crépusculaire : comparateur à AOP et LDR",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "ohm": {
+  "cat": "'1 · Lois fondamentales'",
+  "diff": 1,
+  "title": "Découverte du multimètre : tension, courant, loi d'Ohm",
+  "level": "(seconde)",
+  "duration": "1 h"
+ },
+ "assoc": {
+  "cat": "'1 · Lois fondamentales'",
+  "diff": 1,
+  "title": "Associations de résistances et diviseur de courant",
+  "level": "(seconde)",
+  "duration": "1 h"
+ },
+ "kirchhoff": {
+  "cat": "'1 · Lois fondamentales'",
+  "diff": 2,
+  "title": "Lois de Kirchhoff : nœuds et mailles",
+  "level": "(première)",
+  "duration": "1 h 15"
+ },
+ "diviseur": {
+  "cat": "'1 · Lois fondamentales'",
+  "diff": 2,
+  "title": "Diviseur de tension et influence du voltmètre",
+  "level": "(première)",
+  "duration": "1 h"
+ },
+ "puissance": {
+  "cat": "'1 · Lois fondamentales'",
+  "diff": 2,
+  "title": "Puissance, effet Joule et dimensionnement d'une résistance",
+  "level": "(seconde)",
+  "duration": "1 h"
+ },
+ "led": {
+  "cat": "'1 · Lois fondamentales'",
+  "diff": 2,
+  "title": "LED : calcul de la résistance de limitation",
+  "level": "(seconde)",
+  "duration": "1 h"
+ },
+ "rc": {
+  "cat": "'1 · Lois fondamentales'",
+  "diff": 2,
+  "title": "Charge et décharge d'un condensateur (circuit RC)",
+  "level": "(première)",
+  "duration": "1 h 15"
+ },
+ "signaux": {
+  "cat": "'1 · Lois fondamentales'",
+  "diff": 2,
+  "title": "Signaux périodiques : GBF, oscilloscope et multimètre",
+  "level": "(première)",
+  "duration": "1 h 15"
+ },
+ "filtre": {
+  "cat": "'1 · Lois fondamentales'",
+  "diff": 3,
+  "title": "Filtre RC passe-bas : gain et fréquence de coupure",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "uart": {
+  "cat": "CAT",
+  "diff": 3,
+  "title": "Analyse d'une liaison série UART / RS-232 (5 variantes)",
+  "level": "(première / terminale)",
+  "duration": "1 h 30"
+ },
+ "modbus": {
+  "cat": "CAT",
+  "diff": 4,
+  "title": "Analyse d'une trame Modbus RTU sur bus RS-485 (4 cas)",
+  "level": "(terminale)",
+  "duration": "2 h"
+ },
+ "i2c": {
+  "cat": "CAT",
+  "diff": 4,
+  "title": "Analyse d'un bus I²C : adresse, ACK, résistances de rappel (4 cas)",
+  "level": "(terminale)",
+  "duration": "1 h 45"
+ },
+ "spi": {
+  "cat": "CAT",
+  "diff": 4,
+  "title": "Analyse d'un bus SPI : retrouver le mode (CPOL / CPHA) (4 cas)",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "test": {
+  "cat": "'2 · Composants'",
+  "diff": 2,
+  "title": "Tester les composants hors tension (ohmmètre, diode, continuité)",
+  "level": "(seconde)",
+  "duration": "1 h"
+ },
+ "zener": {
+  "cat": "'2 · Composants'",
+  "diff": 3,
+  "title": "Diode Zener : stabilisation de tension",
+  "level": "(première)",
+  "duration": "1 h 15"
+ },
+ "transistor": {
+  "cat": "'2 · Composants'",
+  "diff": 3,
+  "title": "Transistor bipolaire en commutation",
+  "level": "(première)",
+  "duration": "1 h 30"
+ },
+ "relais": {
+  "cat": "'2 · Composants'",
+  "diff": 3,
+  "title": "Relais commandé par transistor : la diode de roue libre",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "dep1": {
+  "cat": "'4 · Dépannage'",
+  "diff": 3,
+  "title": "Dépannage d'une alimentation 5 V (7 pannes)",
+  "level": "(terminale)",
+  "duration": "2 h"
+ },
+ "dep2": {
+  "cat": "'4 · Dépannage'",
+  "diff": 3,
+  "title": "Dépannage d'une platine transistor + LED (6 pannes)",
+  "level": "(première / terminale)",
+  "duration": "1 h 30"
+ },
+ "dep3": {
+  "cat": "'4 · Dépannage'",
+  "diff": 4,
+  "title": "Dépannage d'un amplificateur inverseur à AOP (4 pannes)",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "portes": {
+  "cat": "CAT",
+  "diff": 2,
+  "title": "Portes logiques : tables de vérité, alimentation, CMOS / TTL",
+  "level": "(première)",
+  "duration": "1 h 15"
+ },
+ "ne555": {
+  "cat": "CAT",
+  "diff": 3,
+  "title": "NE555 en multivibrateur astable (4 fréquences)",
+  "level": "(première / terminale)",
+  "duration": "1 h 30"
+ },
+ "opto": {
+  "cat": "CAT",
+  "diff": 3,
+  "title": "Optocoupleur : isoler une commande 5 V d'une charge 12 V",
+  "level": "(première / terminale)",
+  "duration": "1 h 15"
+ },
+ "mosfet": {
+  "cat": "CAT",
+  "diff": 3,
+  "title": "MOSFET de puissance : commande d'une lampe 12 V par une sortie logique",
+  "level": "(terminale)",
+  "duration": "1 h 15"
+ },
+ "dep_log": {
+  "cat": "'4 · Dépannage'",
+  "diff": 3,
+  "title": "Dépannage d'une platine logique NAND + inverseur (5 pannes)",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "bascule": {
+  "cat": "CAT",
+  "diff": 3,
+  "title": "Bascule D : diviseur de fréquence par 2",
+  "level": "(première / terminale)",
+  "duration": "1 h 15"
+ },
+ "compteur": {
+  "cat": "CAT",
+  "diff": 3,
+  "title": "Compteur binaire 4 bits piloté par un NE555 (affichage sur LED)",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "modulo": {
+  "cat": "CAT",
+  "diff": 4,
+  "title": "Compteur modulo N : remise à zéro par une porte ET (modulo 10 et modulo 6)",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "la_intro": {
+  "cat": "'7 · Communication série'",
+  "diff": 1,
+  "title": "Prise en main de l'analyseur logique (chronogrammes d'un compteur)",
+  "level": "(première)",
+  "duration": "45 min"
+ },
+ "osc_lect": {
+  "cat": "CAT",
+  "diff": 2,
+  "title": "Lire un signal à l'oscilloscope : régler, mesurer T, f, Umax, Upp… (6 signaux)",
+  "level": "(seconde / première)",
+  "duration": "1 h 15"
+ },
+ "osc_carre": {
+  "cat": "CAT",
+  "diff": 3,
+  "title": "Signal rectangulaire : rapport cyclique, temps haut, valeur moyenne (5 signaux)",
+  "level": "(première / terminale)",
+  "duration": "1 h 15"
+ },
+ "osc_phi": {
+  "cat": "CAT",
+  "diff": 3,
+  "title": "Deux voies : gain et déphasage d'un filtre RC (4 fréquences)",
+  "level": "(terminale)",
+  "duration": "1 h 30"
+ },
+ "osc_ac": {
+  "cat": "CAT",
+  "diff": 3,
+  "title": "Couplage AC / DC : mesurer une ondulation sur une tension continue (3 signaux)",
+  "level": "(terminale)",
+  "duration": "1 h"
+ }
+}

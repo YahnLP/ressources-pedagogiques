@@ -1,4 +1,11 @@
 # 📘 FICHE DE COURS ÉLÈVE — S15
+
+> [!TIP] 🖥️ TP virtuel ElectroLab : pour t'entraîner
+> Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis choisis :
+> - **Analyse d'un bus I²C : adresse, ACK, résistances de rappel (4 cas)** (1 h 45, terminale)
+> 
+> Le simulateur corrige automatiquement et ne risque pas d'abîmer le matériel : **réussis d'abord le TP virtuel, puis refais la manipulation sur le matériel réel.** Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
+
 ## LCD I2C : bibliothèque & affichage · Intégration LM35 · Proto maquette final
 
 ---

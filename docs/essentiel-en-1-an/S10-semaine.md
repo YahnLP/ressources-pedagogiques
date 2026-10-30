@@ -15,12 +15,22 @@
 | 3 h | Épreuve blanche complète (mesures, calculs, PV) |
 | 1 h | Correction, bilan personnel et plan de révision |
 
+## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
+
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+
+- **Dépannage d'une alimentation 5 V (7 pannes)** (2 h, niveau terminale)
+- **Signaux périodiques : GBF, oscilloscope et multimètre** (1 h 15, niveau première)
+
+> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
+> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
+
 ## 📖 Le cours en bref
 
-??? question "🤔 À ton avis ?"
-    Tu as 3 heures pour mesurer, calculer et rédiger un PV. Comment ne pas perdre de points ?
+**🤔 À ton avis ?** Tu as 3 heures pour mesurer, calculer et rédiger un PV. Comment ne pas perdre de points ?
 
-    **Réponse** : en **suivant un plan** et en vérifiant les points qui rapportent le plus : unités, tolérances, conclusions.
+??? question "Réponse"
+    En **suivant un plan** et en vérifiant les points qui rapportent le plus : unités, tolérances, conclusions.
 
 ### 1. Le plan de l'épreuve (3 h)
 
@@ -57,7 +67,8 @@
 
 Après l'épreuve blanche, classe tes erreurs : **oublis** (unités, tolérance), **calculs**, **manipulations**, **rédaction**. Révise **d'abord** la catégorie où tu perds le plus de points.
 
-## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+
+## 🛠️ Atelier guidé : on construit, on mesure, on valide
 
 **Épreuve blanche (3 h)** sur une carte **neuve** du même type que le fil rouge (autre valeur de composants).
 

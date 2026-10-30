@@ -1,6 +1,6 @@
 """Génère le parcours « L'essentiel en 1 an » (Terminale) : 10 semaines de 4 h.
 Usage : python3 essentiel.py <racine>"""
-import sys
+import re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from essentiel_cours import COURS
@@ -115,14 +115,27 @@ Objectif : **moins de 2 minutes** par manœuvre.
 > - À l'oscilloscope : **sonde déclarée**, **masse au bon endroit**, **déclenchement réglé**.
 """
 
+
+def corriger_accroche(txt):
+    """« À ton avis ? » : la question reste visible, seule la réponse est dans la zone déroulante."""
+    def rep(m):
+        corps = m.group(1)
+        lignes = [l[4:] if l.startswith('    ') else l for l in corps.split('\n')]
+        txt_ = '\n'.join(lignes).strip()
+        q, _, r = txt_.partition('**Réponse**')
+        r = r.lstrip(' :').strip(); r = r[:1].upper() + r[1:]
+        q = q.strip()
+        return f'**🤔 À ton avis ?** {q}\n\n??? question "Réponse"\n    {r}\n\n'
+    return re.sub(r'\?\?\? question "🤔 À ton avis \?"\n((?:    .*\n|\n)+)', rep, txt)
+
 def page(w):
     n = w['n']
     o = [f"# Semaine {n} : {w['titre']}", "", f"> **Durée** : 4 h · **Compétences E2 travaillées** : {w['comp']}", "", "## 🎯 Objectifs : à la fin de la semaine, je sais…", ""]
     o += [f"- {x}" for x in w['obj']] + ["", "## 🗓️ Déroulé", "", "| Durée | Activité |", "|---|---|"]
-    o += [f"| {d} | {a} |" for d, a in w['deroule']] + ["", "## 📖 Le cours en bref", "", COURS[n].strip(), "", "## 🛠️ Atelier guidé : on construit ensemble le clignoteur", "", ATELIER[n].strip(), "", "## ✍️ Exercices d'application", ""]
-    for i, (q, _) in enumerate(EXOS[n], 1): o.append(f"{i}. {q}")
+    o += [f"| {d} | {a} |" for d, a in w['deroule']] + ["", "## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel", "", w['tpvirtuel'], "", "## 📖 Le cours en bref", "", corriger_accroche(w['cours'].strip() + "\n"), "", "## 🛠️ Atelier guidé : on construit, on mesure, on valide", "", w['atelier'].strip(), "", "## ✍️ Exercices d'application", ""]
+    for i, (q, _) in enumerate(w['exos'], 1): o.append(f"{i}. {q}")
     o += ["", '??? success "Corrigés"']
-    for i, (_, r) in enumerate(EXOS[n], 1): o.append(f"    {i}. {r}")
+    for i, (_, r) in enumerate(w['exos'], 1): o.append(f"    {i}. {r}")
     o += ["", "## 📚 Pour approfondir : les séances à consulter", ""]
     o += [f"- {l}" for l in w['liens']] + ["", "## ✅ Auto-test", ""]
     for i, (q, _) in enumerate(w['tests'], 1): o.append(f"{i}. {q}")
@@ -131,9 +144,9 @@ def page(w):
     o += ["", "## 📦 Livrable", "", f"{w['livrable']}", ""]
     return "\n".join(o)
 
-def readme():
+def readme(SEMAINES):
     o = ["# ⚡ L'essentiel en 1 an : une formation express en 10 semaines", "",
-         "Ce n'est **pas** une simple révision : c'est une **formation complète et accélérée**, qui part des bases et mène à l'épreuve E2 (« Réalisation et maintenance de produits électroniques », coefficient 5). **10 semaines de 4 heures** (40 h). Chaque semaine contient un **cours**, un **atelier guidé pas à pas**, des **exercices corrigés** et un **livrable**. On construit, on teste et on dépanne **une même carte** (un clignoteur à LED) du début à la fin : c'est le **fil rouge**. Utilisable en classe comme **seul(e)**, y compris pour rattraper avant le bac.", "",
+         "Ce n'est **pas** une simple révision : c'est une **formation complète et accélérée**, qui part des bases et mène à l'épreuve E2 (« Réalisation et maintenance de produits électroniques », coefficient 5). **10 semaines de 4 heures** (40 h). Chaque semaine contient un **cours**, un **atelier guidé pas à pas**, des **exercices corrigés** et un **livrable**. **Aucun prérequis** : le parcours est pensé pour un élève qui **arrive directement en Terminale** et reprend tout l'essentiel de Seconde et de Première (composants, mesures, soudure, microcontrôleur, communication, du schéma au Gerber, test, dépannage). Deux **fils rouges** : une **carte clignoteur NE555** que l'on conçoit, fabrique, mesure, valide et dépanne, et une **station de mesure communicante** (capteur, microcontrôleur, MQTT). Avant chaque TP réel, un **TP virtuel dans ElectroLab** permet de s'entraîner sans risque et avec correction automatique. Utilisable en classe comme **seul(e)**.", "",
          "## 🎯 Ce que tu sauras faire à la fin", "",
          "- **comprendre** un circuit électronique simple et **connaître** ses composants ;",
          "- **lire** une datasheet et en tirer les valeurs utiles ;",
@@ -158,7 +171,9 @@ def readme():
 def main(root):
     d = Path(root) / 'docs' / 'essentiel-en-1-an'
     d.mkdir(parents=True, exist_ok=True)
-    (d / 'README.md').write_text(readme(), encoding='utf-8')
+    import essentiel_semaines as NEW
+    SEMAINES = NEW.SEM
+    (d / 'README.md').write_text(readme(SEMAINES), encoding='utf-8')
     for w in SEMAINES: (d / f"S{w['n']:02d}-semaine.md").write_text(page(w), encoding='utf-8')
     nav = ['title: "⚡ L\'essentiel en 1 an"', 'nav:', '  - README.md']
     nav += ['  - "🎛️ Passeport instruments": passeport-instruments.md']

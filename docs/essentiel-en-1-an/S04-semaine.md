@@ -1,4 +1,4 @@
-# Semaine 4 : L'alimentation : bilan de puissance et thermique
+# Semaine 4 : Alimentation et commande de charges
 
 > **Durée** : 4 h · **Compétences E2 travaillées** : C07 · C11
 
@@ -7,22 +7,35 @@
 - Faire un bilan de puissance (courant de pointe et courant moyen).
 - Calculer la puissance dissipée par un régulateur linéaire et sa température de jonction.
 - Estimer l'autonomie d'une batterie.
+- Commander une charge avec un transistor, un MOSFET ou un relais.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | Bilan de puissance : tableau et marge de 25 % |
-| 1 h | Régulateur linéaire : $P_{diss}$ et rendement |
-| 1 h | Température de jonction, radiateur, autonomie |
-| 1 h | Auto-test et correction |
+| 1 h | TP virtuels ElectroLab : régulation 7805, transistor |
+| 1 h | Bilan de puissance et thermique |
+| 1 h | Transistor, MOSFET, relais, diode de roue libre |
+| 1 h | Atelier réel et auto-test |
+
+## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
+
+Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis fais ces TP **avant** de toucher au matériel :
+
+- **Régulation linéaire avec un 7805** (1 h 30, niveau terminale)
+- **Transistor bipolaire en commutation** (1 h 30, niveau première)
+- **Relais commandé par transistor : la diode de roue libre** (1 h 30, niveau terminale)
+- **MOSFET de puissance : commande d'une lampe 12 V par une sortie logique** (1 h 15, niveau terminale)
+
+> [!TIP] 🖥️ Pourquoi d'abord le simulateur ?
+> On peut se tromper sans rien casser, répéter autant de fois que nécessaire et obtenir une correction automatique. Le TP réel sert ensuite à **confirmer** et à manipuler le vrai matériel.
 
 ## 📖 Le cours en bref
 
-??? question "🤔 À ton avis ?"
-    Un régulateur 7805 alimenté en 12 V pour fournir 5 V à 500 mA devient **brûlant**. Pourquoi ? Où va l'énergie « en trop » ?
+**🤔 À ton avis ?** Un régulateur 7805 alimenté en 12 V pour fournir 5 V à 500 mA devient **brûlant**. Pourquoi ? Où va l'énergie « en trop » ?
 
-    **Réponse** : elle est **transformée en chaleur** dans le régulateur. On va apprendre à la calculer.
+??? question "Réponse"
+    Elle est **transformée en chaleur** dans le régulateur. On va apprendre à la calculer.
 
 ### 1. Le bilan de puissance
 
@@ -73,7 +86,24 @@ $$I_{moy} = \frac{150 \times 5 + 0{,}1 \times 55}{60} \approx 12{,}6\,\mathrm{mA
 > - Oublier la **marge de 25 %**.
 > - Oublier de convertir **mA ↔ A** dans $P = U \times I$.
 
-## 🛠️ Atelier guidé : on construit ensemble le clignoteur
+### 5. Le transistor en interrupteur
+
+Un transistor NPN (BC547, BC337) : un petit courant dans la **base (B)** autorise un grand courant entre **collecteur (C)** et **émetteur (E)**.
+
+- **Bloqué** : pas de courant de base → interrupteur **ouvert**.
+- **Saturé** : courant de base suffisant → interrupteur **fermé** ($V_{CE} \approx 0{,}2\,\mathrm{V}$).
+
+$$I_B = \frac{I_C}{10} \qquad R_b = \frac{V_{commande} - 0{,}7}{I_B}$$
+
+**Exemple** : charge de 50 mA, commande à 5 V : $I_B = 5\,\mathrm{mA}$ ; $R_b = \dfrac{4{,}3}{0{,}005} = 860\,\Omega$ → **820 Ω**.
+
+### 6. MOSFET et relais
+
+- **MOSFET** « logic level » : se commande par la **tension** de grille ; très faibles pertes ; ajouter une résistance de rappel à la masse sur la grille.
+- **Relais** : interrupteur à **bobine**. Toujours une **diode de roue libre** en parallèle inverse de la bobine, sinon le **pic de tension** détruit le transistor.
+
+
+## 🛠️ Atelier guidé : on construit, on mesure, on valide
 
 **Fil rouge** : tu dimensionnes l'**alimentation du clignoteur** (12 V → 5 V).
 
@@ -95,32 +125,33 @@ $$I_{moy} = \frac{150 \times 5 + 0{,}1 \times 55}{60} \approx 12{,}6\,\mathrm{mA
 1. Un 7805 alimenté en 24 V débite 100 mA. Que se passe-t-il ?
 2. Un convertisseur à découpage de rendement 90 % délivre 5 V sous 100 mA. Quelle puissance prélève-t-il ? Quelles pertes ?
 3. Pic de consommation de 220 mA : quelle source minimale ?
-4. Courant moyen d'un système qui consomme 150 mA pendant 5 s puis 0,1 mA pendant 55 s ?
+4. $R_f = 22\,\mathrm{k\Omega}$, $R_g = 2{,}2\,\mathrm{k\Omega}$ sur un AOP non inverseur : gain ?
 
 ??? success "Corrigés"
     1. $P = 19 \times 0{,}1 = 1{,}9\,\mathrm{W}$ ; $T_j = 25 + 1{,}9 \times 65 \approx 148{,}5\,°\mathrm{C}$ : **supérieur à 125 °C**, le composant est détruit. Il faut un convertisseur à découpage ou un radiateur.
     2. $P_{in} = \dfrac{5 \times 0{,}1}{0{,}9} \approx 0{,}556\,\mathrm{W}$ ; pertes ≈ **0,056 W**.
     3. $220 \times 1{,}25 = 275\,\mathrm{mA}$.
-    4. $\dfrac{750 + 5{,}5}{60} \approx 12{,}6\,\mathrm{mA}$.
+    4. $G = 1 + 10 = 11$.
 
 ## 📚 Pour approfondir : les séances à consulter
 
 - [Terminale S03 – dimensionnement d'alimentation](../terminale/S03-dimensionnement-d-alimentation-bilan-de/01-cours.md)
+- [Première S12 – transistor, MOSFET, relais](../premiere/S12-prototypes-avances-integration/03-transistor-mosfet-relais.md)
 
 ## ✅ Auto-test
 
 1. Pic de 400 mA : quelle source minimale avec 25 % de marge ?
 2. Un 7805 passe de 9 V à 5 V pour 300 mA. Quelle puissance dissipe-t-il ?
 3. Avec $R_{\theta ja} = 65\,°\mathrm{C/W}$ et 25 °C ambiants, quelle est $T_j$ ?
-4. Batterie 1000 mAh, 50 mA : autonomie réelle ?
-5. Pourquoi un régulateur linéaire chauffe-t-il ?
+4. Charge de 50 mA, commande à 5 V : valeur de $R_b$ ?
+5. Pourquoi une diode sur une bobine de relais ?
 
 ??? success "Réponses"
     1. $400 \times 1{,}25 = 500\,\mathrm{mA}$.
     2. $(9 - 5) \times 0{,}3 = 1{,}2\,\mathrm{W}$.
     3. $25 + 1{,}2 \times 65 = 103\,°\mathrm{C}$ : radiateur recommandé.
-    4. $\dfrac{1000}{50} \times 0{,}8 = 16\,\mathrm{h}$.
-    5. Il **dissipe en chaleur** la différence $V_{in} - V_{out}$.
+    4. $I_B = 5\,\mathrm{mA}$ ; $R_b = \dfrac{4{,}3}{0{,}005} = 860\,\Omega$ → **820 Ω**.
+    5. Elle absorbe le **pic de tension** à la coupure.
 
 ## 📦 Livrable
 

@@ -2,13 +2,13 @@ title: "⚡ L'essentiel en 1 an"
 nav:
   - README.md
   - "🎛️ Passeport instruments": passeport-instruments.md
-  - "Semaine 1 · Les composants et les lois de base": S01-semaine.md
+  - "Semaine 1 · Les composants, les lois de base et la sécurité": S01-semaine.md
   - "Semaine 2 · Mesurer : multimètre, alimentation, générateur et oscilloscope": S02-semaine.md
-  - "Semaine 3 · Lire un schéma et une datasheet": S03-semaine.md
-  - "Semaine 4 · L'alimentation : bilan de puissance et thermique": S04-semaine.md
-  - "Semaine 5 · Du cahier des charges au schéma (CAO)": S05-semaine.md
-  - "Semaine 6 · Du PCB aux fichiers de fabrication (Gerber)": S06-semaine.md
-  - "Semaine 7 · Commander une charge, amplifier, filtrer": S07-semaine.md
-  - "Semaine 8 · Tester et valider : protocole et procès-verbal": S08-semaine.md
-  - "Semaine 9 · Dépanner un circuit simple": S09-semaine.md
+  - "Semaine 3 · Lire un schéma et une datasheet, monter et souder": S03-semaine.md
+  - "Semaine 4 · Alimentation et commande de charges": S04-semaine.md
+  - "Semaine 5 · Microcontrôleur, capteurs et traitement du signal": S05-semaine.md
+  - "Semaine 6 · Le système communicant : UART, I²C, WiFi, MQTT et supervision": S06-semaine.md
+  - "Semaine 7 · Du cahier des charges au schéma et au PCB": S07-semaine.md
+  - "Semaine 8 · Du PCB aux fichiers de fabrication, à la carte soudée": S08-semaine.md
+  - "Semaine 9 · Tester, valider et dépanner": S09-semaine.md
   - "Semaine 10 · Épreuve blanche et bilan": S10-semaine.md

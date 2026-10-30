@@ -1,4 +1,11 @@
 # 📘 FICHE DE COURS — S13 / Module E2
+
+> [!TIP] 🖥️ TP virtuel ElectroLab : pour t'entraîner
+> Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾**, puis choisis :
+> - **Analyse d'une liaison série UART / RS-232 (5 variantes)** (1 h 30, première / terminale)
+> 
+> Le simulateur corrige automatiquement et ne risque pas d'abîmer le matériel : **réussis d'abord le TP virtuel, puis refais la manipulation sur le matériel réel.** Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
+
 ## Communication Série UART · Protocol & Timing · Serial Monitor Avancé · HC-05 Bluetooth
 
 ---
