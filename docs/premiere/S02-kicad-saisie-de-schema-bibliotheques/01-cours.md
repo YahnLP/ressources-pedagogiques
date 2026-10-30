@@ -205,6 +205,10 @@ Règle :  1 PWR_FLAG sur le nœud +5V (ou VCC)
 
 > **Indicateur de réussite :** `ERC: 0 errors, 0 warnings` ✅
 
+
+> [!NOTE] 🔎 Lire un message d'ERC
+> Un message a toujours trois informations : **le type** (erreur ou avertissement), **le texte** (ce qui est suspect) et **le lieu** (cliquer pour y aller). Une **erreur** doit être corrigée ; un **avertissement** doit être **compris**, puis corrigé ou justifié.
+
 ---
 
 ## 6️⃣ NETLIST — PASSERELLE VERS LE PCB
@@ -250,6 +254,22 @@ Règle :  1 PWR_FLAG sur le nœud +5V (ou VCC)
 | `(node (ref R1) (pin 1))` | La broche 1 de R1 est connectée à ce nœud |
 
 > **À quoi sert-elle ?** La netlist est importée dans PCBnew qui l'utilise pour placer les empreintes et dessiner les ratsnest (lignes qui indiquent les connexions à router).
+
+
+> [!TIP] 💡 En clair : la netlist
+> La **netlist** est la **liste des connexions** du schéma, sans le dessin : « le net `+5V` relie la broche 1 de `R1` et la broche 1 de `J1` ». Le PCB la reçoit et dessine des **fils élastiques** (le *ratsnest*) entre les pastilles à relier : ton travail de routage consiste à les **remplacer par de vraies pistes**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert la netlist ?
+
+??? success "Réponse"
+    Elle **transmet au PCB** les connexions décrites par le schéma.
+
+**Q2.** Que représentent les lignes fines (fils élastiques) sur le PCB avant routage ?
+
+??? success "Réponse"
+    Les **connexions à réaliser** : chaque ligne relie deux pastilles du même net.
 
 ---
 

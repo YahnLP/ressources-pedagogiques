@@ -27,6 +27,20 @@
 
 ## 1️⃣ OSCILLOSCOPE : DSO VS MSO
 
+### 🧱 Ce qu'il faut savoir avant de commencer
+
+| Notion | En simple |
+|---|---|
+| **Signal analogique** | Une tension qui prend **toutes les valeurs** possibles (par exemple 0 à 3,3 V, de façon continue). |
+| **Signal numérique** | Une tension qui ne prend que **deux états** : bas (0) ou haut (1). |
+| **Bus** | Des **fils partagés** par plusieurs composants qui échangent des données selon un **protocole** (des règles). |
+| **Trame** | Une **séquence de bits** qui forme un message (adresse + données). |
+| **Chronogramme** | Un **graphique** montrant l'état d'un ou plusieurs signaux **dans le temps**. |
+
+> [!TIP] 💡 En clair : pourquoi un MSO ou un analyseur logique ?
+> Un oscilloscope classique **montre la forme** d'un signal. Mais pour un **bus** (I²C, SPI) on veut savoir **quel message** circule. L'analyseur logique (ou les voies numériques d'un MSO) enregistre les **0 et 1** puis les **décode** : « adresse 0x68, écriture, donnée 0x6B ».
+
+
 ### Types d'oscilloscopes numériques
 
 | **Type** | **Voies** | **Usage** | **Exemple** |
@@ -95,6 +109,22 @@ $$\boxed{f_{éch} \geq 10 \times f_{bus}}$$
 | SPI courant | 1–10 MHz | 10–100 MHz |
 | UART 115200 baud | 115,2 kHz | 1 MHz |
 
+
+> [!NOTE] 🔎 Précision sur « Nyquist »
+> La **vraie** limite de Nyquist est **2 × la fréquence du signal**, pour reconstruire une **sinusoïde**. Pour un signal **numérique**, on veut **voir les fronts** : la règle pratique est **échantillonner au moins 10 fois plus vite** que la fréquence du bus (la formule du cours). Trop lent : les fronts sont **faux** ou **manquants**, et le décodage devient **absurde**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Un bus I²C à 400 kHz : à quelle fréquence d'échantillonnage minimale capturer ?
+
+??? success "Réponse"
+    Au moins **4 MHz** (10 × 400 kHz), idéalement **8 MHz**.
+
+**Q2.** Pourquoi un échantillonnage trop lent donne-t-il un décodage faux ?
+
+??? success "Réponse"
+    Parce que les **fronts** sont mal vus : des bits sont **perdus** ou **déformés**.
+
 ---
 
 ## 3️⃣ DÉCODAGE I2C
@@ -118,6 +148,34 @@ $$\boxed{f_{éch} \geq 10 \times f_{bus}}$$
 | **NACK** | Bit 9 haut (pas de réponse) | ❌ NACK = esclave absent ou erreur |
 | **DATA** | Octets de données | `0x6B, 0x00` |
 | **STOP** | Front montant SDA quand SCL=HIGH | Carré rouge `P` dans Saleae |
+
+
+> [!TIP] 💡 En clair : I²C en 5 lignes
+> - **Deux fils** : **SCL** (l'horloge, qui rythme) et **SDA** (les données).
+> - Un **maître** (l'ESP32) parle à des **esclaves** (capteurs), chacun a une **adresse** unique de 7 bits.
+> - Le maître envoie **START**, l'**adresse** + le bit **R/W**, puis le capteur répond **ACK** (« présent ! ») ou **NACK** (« personne ici »).
+> - Les lignes sont **ouvertes au niveau bas** : une résistance de **pull-up** (souvent 4,7 kΩ) les ramène à 3,3 V quand personne ne tire.
+> - **Pas de pull-up** = signal toujours bas ou instable.
+
+> [!WARNING] ⚠️ Diagnostic rapide
+> **NACK sur l'adresse** : mauvaise adresse, capteur non alimenté ou débranché. **SDA reste bas** : un esclave est resté bloqué en pleine transaction.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que signifie un NACK sur la phase d'adresse ?
+
+??? success "Réponse"
+    Aucun esclave **n'a répondu** à cette adresse (absent, non alimenté, mauvaise adresse).
+
+**Q2.** Pourquoi faut-il des résistances de pull-up sur un bus I²C ?
+
+??? success "Réponse"
+    Les lignes sont à **collecteur ouvert** : seules elles **ramènent le niveau haut**.
+
+**Q3.** Quel fil donne le rythme sur l'I²C ?
+
+??? success "Réponse"
+    **SCL** (l'horloge).
 
 ---
 
@@ -191,6 +249,25 @@ $$5. SCL = CH0, SDA = CH1$$
 5. CS active: LOW
 ```
 
+
+> [!TIP] 💡 En clair : SPI en 5 lignes
+> - **Quatre fils** : **SCK** (horloge), **MOSI** (maître → esclave), **MISO** (esclave → maître), **CS** (chip select : « c'est à toi de parler »).
+> - Plus **rapide** que l'I²C, mais **un fil CS par esclave**.
+> - Pas d'adresse : on **sélectionne** l'esclave en mettant son CS à 0.
+> - Les 4 **modes** (CPOL/CPHA) fixent **sur quel front** on lit les données : **maître et esclave doivent utiliser le même**, sinon les données sont décalées.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle différence d'adressage entre I²C et SPI ?
+
+??? success "Réponse"
+    I²C : **adresse** dans la trame ; SPI : on **sélectionne** l'esclave par sa ligne **CS**.
+
+**Q2.** Les octets décodés en SPI sont décalés ou faux. Quelle cause fréquente ?
+
+??? success "Réponse"
+    Un **mauvais mode SPI** (CPOL/CPHA) dans le décodeur ou le composant.
+
 ---
 
 ---
@@ -226,6 +303,10 @@ $$5. SCL = CH0, SDA = CH1$$
 | Corrélation analogique + logique | ❌ | ✅ | ❌ |
 | Coût | 300–1000€ | 800–3000€ | 10–500€ |
 | Usage portable / terrain | Difficile | Difficile | ✅ (USB sur laptop) |
+
+
+> [!TIP] 💡 En clair : méthode de mesure d'un bus
+> 1. **Brancher** les sondes (SCL, SDA, **GND commun**). 2. Régler l'**échantillonnage** (≥ 10 × fréquence du bus). 3. **Déclencher** sur le START ou sur un front. 4. **Capturer**, puis **décoder**. 5. **Lire** les champs : adresse, R/W, ACK/NACK, données. Si le décodage est absurde, vérifier d'abord le **GND**, la **fréquence d'échantillonnage** et la **configuration** du décodeur.
 
 ---
 

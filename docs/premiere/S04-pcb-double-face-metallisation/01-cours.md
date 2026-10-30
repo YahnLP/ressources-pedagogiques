@@ -72,6 +72,10 @@ Comment le créer dans KiCad :
   → Appuyer à nouveau sur V pour revenir sur F.Cu si besoin
 ```
 
+
+> [!TIP] 💡 En clair : pourquoi le double face ?
+> En **simple face**, toutes les pistes sont sur un seul côté : elles **ne peuvent pas se croiser**, il faut des « straps » (fils de liaison). En **double face**, on a **deux niveaux** : une piste peut **passer dessous** grâce à un **via**. Les trous sont **métallisés** : le cuivre dépose une fine couche **dans** le trou, ce qui relie les deux faces et facilite la soudure.
+
 ---
 
 ![Coupe d'un PCB double face](images/coupe-pcb-double-face.png)
@@ -124,6 +128,22 @@ Dans KiCad :
   Modifier : E → propriétés → calque → F.Silkscreen ou B.Silkscreen
 ```
 
+
+> [!TIP] 💡 En clair
+> Le **masque de soudure** (le vernis vert) **recouvre** les pistes pour éviter les ponts de soudure ; il est **ouvert** uniquement sur les **pastilles**. La **sérigraphie** (les inscriptions blanches) aide au **montage** et au **dépannage** : références, polarité, repères.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi les pastilles ne sont-elles pas recouvertes par le masque ?
+
+??? success "Réponse"
+    Pour pouvoir y **souder** les composants.
+
+**Q2.** À quoi sert la sérigraphie ?
+
+??? success "Réponse"
+    À **repérer** les composants et leur sens au montage et au dépannage.
+
 ---
 
 ## 3️⃣ — Composants THT et SMD : différences
@@ -153,6 +173,10 @@ Format    Taille (mm)     Usage typique
 SOT-23    2,9 × 1,3       Transistors, régulateurs simples
 SOIC-8    ~5 × 4          NE555 SMD, AO, mémoires
 ```
+
+
+> [!TIP] 💡 En clair
+> **THT** (*Through-Hole Technology*) : les broches **traversent** la carte et se soudent de l'autre côté, solide et facile à souder à la main. **SMD/CMS** : le composant se **pose sur** la surface, plus petit et adapté à la production automatisée. Les formats SMD se nomment par leur taille (`0805` = 2,0 × 1,25 mm).
 
 ---
 
@@ -210,6 +234,10 @@ Stitching vias (avancé) :
   → Réduit les boucles de masse
 ```
 
+
+> [!TIP] 💡 En clair : le plan de masse
+> Une **zone remplie de cuivre reliée à GND** (*fill zone*) sur toute une face : elle offre un **chemin de retour court** pour le courant, **réduit le bruit** et **simplifie** le routage du GND (chaque broche GND se connecte directement à la zone). Après avoir créé ou modifié la zone, on la **remplit** (touche **B**) pour que les calculs soient à jour.
+
 ---
 
 ## 5️⃣ — Générer les fichiers Gerber
@@ -257,6 +285,27 @@ Fichier Drill :
 
 Enfin : créer un ZIP de tous les fichiers du dossier "gerber/"
 ```
+
+
+> [!TIP] 💡 En clair : des fichiers pour la machine
+> Le fabricant **n'a pas ton fichier KiCad** : il reçoit **un fichier Gerber par calque** (cuivre, masque, sérigraphie, contour) + **un fichier de perçage** (*drill*). On ouvre ensuite ces fichiers **avant de commander** pour vérifier que tout est bien là.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - **Oublier le fichier de perçage** (la carte arrive sans trous).
+> - **Oublier le contour** `Edge.Cuts` (le fabricant ne sait pas où découper).
+> - Générer les fichiers **sans refaire le DRC** après une dernière modification.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Combien de fichiers Gerber pour un double face avec masque et sérigraphie ?
+
+??? success "Réponse"
+    Un par calque : cuivre avant/arrière, masque avant/arrière, sérigraphie avant (et arrière si utile) et **contour**, plus le **perçage**.
+
+**Q2.** Pourquoi ouvrir les Gerber avant de commander ?
+
+??? success "Réponse"
+    Pour **vérifier** ce que le fabricant va **réellement fabriquer**.
 
 ---
 
@@ -352,6 +401,10 @@ BONNE PRATIQUE SÉRIGRAPHIE :
   → Composants > leur courtyard de sérigraphie (pas de chevauchement)
   → Le DRC de KiCad vérifie cela automatiquement
 ```
+
+
+> [!TIP] 💡 En clair : le DFM
+> Le **DFM** (*Design For Manufacturing*) rassemble les règles pour que **le fabricant puisse réaliser** ta carte : largeurs minimales, espacements, perçages, distance aux bords. Si tu **respectes les capacités indiquées** par le fabricant, ta carte est fabricable ; sinon, elle sera **refusée** ou **défectueuse**.
 
 ---
 
