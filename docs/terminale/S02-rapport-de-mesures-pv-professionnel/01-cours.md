@@ -11,6 +11,16 @@
 - ✅ Connaître les critères d'acceptabilité IPC-A-610 par classe
 - ✅ Rédiger un rapport de conformité (conforme / non conforme)
 
+
+### 🤔 À ton avis ?
+
+Tu mesures 5,02 V sur une alimentation. Le client te demande : « Êtes-vous **sûr** de cette valeur ? ». Que peux-tu répondre pour que ta mesure ait de la **valeur professionnelle** ?
+
+??? question "Voir une réponse possible"
+    Tu dois pouvoir dire **avec quel instrument** tu as mesuré (et qu'il est vérifié), **comment**, et **avec quelle marge de doute** : « $5{,}02 \pm 0{,}03\,\mathrm{V}$ ». Une valeur sans incertitude ni traçabilité n'est qu'une **opinion**.
+    
+    Dans cette séance, tu apprends à **rédiger un PV de mesures**, à **calculer l'incertitude** et à **conclure sur la conformité**.
+
 ---
 
 ## 1️⃣ DE LA MESURE AU PROCÈS-VERBAL
@@ -35,6 +45,22 @@
 | Aucune traçabilité | Certificat d'étalonnage référencé |
 | Non signé | Signé par le mesureur et le responsable qualité |
 | Non daté | Daté et numéroté |
+
+
+> [!TIP] 💡 En clair
+> Un **mesurage** donne un **nombre**. Un **procès-verbal (PV)** lui donne un **contexte** : qui a mesuré, quand, avec quoi, dans quelles conditions et avec quel résultat. Sans ce contexte, personne ne peut **refaire** ni **vérifier** la mesure.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi un nombre seul ne suffit-il pas dans un PV ?
+
+??? success "Réponse"
+    Parce qu'on ne peut ni **refaire** ni **vérifier** la mesure sans connaître l'instrument, les conditions et la méthode.
+
+**Q2.** Cite trois informations de contexte d'un PV.
+
+??? success "Réponse"
+    Par exemple : **date**, **opérateur**, **instrument utilisé**, **conditions**, **méthode**.
 
 ---
 
@@ -91,6 +117,29 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
+
+> [!TIP] 💡 En clair
+> Un PV professionnel suit **toujours le même plan** : **identification** (qui, quoi, quand), **instruments** (avec leur étalonnage), **méthode**, **résultats** (mesure, incertitude, unité), **conclusion** (conforme ou non) et **signature**. Cette structure permet à n'importe qui de **retrouver** l'information en quelques secondes.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Oublier l'**unité** à côté du résultat.
+> - Donner une conclusion (« conforme ») sans **critère** ni **valeur limite** associée.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Où indique-t-on la validité de l'étalonnage de l'instrument ?
+
+??? success "Réponse"
+    Dans la partie **instruments** du PV.
+
+**Q2.** Un PV peut-il se terminer par « ça marche » ?
+
+??? success "Réponse"
+    **Non** : la conclusion doit comparer le résultat à un **critère** chiffré.
+
+> [!SUCCESS] 🧠 À retenir
+> - PV = identification, instruments, méthode, résultats, conclusion, signature.
+
 ---
 
 ## 3️⃣ TRAÇABILITÉ MÉTROLOGIQUE
@@ -131,6 +180,25 @@ Ce que contient un certificat d'étalonnage :
 
 > ⚠️ Un instrument non étalonné ou avec un étalonnage périmé ne peut pas servir à produire un PV opposable.
 
+
+> [!TIP] 💡 En clair
+> La **traçabilité métrologique**, c'est la **chaîne** qui relie ton multimètre à un **étalon de référence** : ton instrument est comparé (**étalonné**) à un instrument plus précis, lui-même comparé à un autre, jusqu'à l'étalon national. Un instrument dont l'**étalonnage est périmé** ne peut plus servir de preuve.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que signifie « étalonner » un instrument ?
+
+??? success "Réponse"
+    Le **comparer à un instrument de référence** plus précis et noter l'écart.
+
+**Q2.** Ton multimètre a une date d'étalonnage dépassée. Peux-tu l'utiliser pour un PV ?
+
+??? success "Réponse"
+    **Non** : ses mesures ne sont plus garanties, donc **pas valables** dans un PV officiel.
+
+> [!SUCCESS] 🧠 À retenir
+> - Traçabilité = chaîne d'étalonnages jusqu'à la référence.
+
 ---
 
 ![Chaîne de traçabilité métrologique du BIPM jusqu'au PV de mesure.](images/tracabilite-metrologique.png)
@@ -144,6 +212,45 @@ Ce que contient un certificat d'étalonnage :
 > Toute mesure est affectée d'une incertitude — un doute sur la valeur "vraie". Cette incertitude a deux origines :
 > - Les **variations aléatoires** (bruit, instabilité) → Incertitude de **type A**
 > - Les **limites connues de l'instrument** (résolution, classe, étalonnage) → Incertitude de **type B**
+
+
+> [!TIP] 💡 En clair
+> **Exemple pas à pas** avec 4 mesures d'une tension : $100{,}2$ ; $99{,}8$ ; $100{,}0$ ; $100{,}4$ (en mV).
+>
+> 1. **Moyenne** : $\bar{x} = 100{,}1$.
+> 2. **Écart-type** : $s \approx 0{,}26$.
+> 3. **Type A** : $u_A = \dfrac{s}{\sqrt{n}} = \dfrac{0{,}26}{2} \approx 0{,}13$.
+> 4. **Type B (résolution 0,1)** : $\dfrac{0{,}1}{2\sqrt{3}} \approx 0{,}03$.
+> 5. **Type B (classe 1 %)** : $\dfrac{1 \times 100{,}1}{100 \times \sqrt{3}} \approx 0{,}58$.
+> 6. **Combinée** : $u_c = \sqrt{0{,}13^2 + 0{,}03^2 + 0{,}58^2} \approx 0{,}59$.
+> 7. **Élargie** : $U = 2 \times 0{,}59 \approx 1{,}2$.
+>
+> **Résultat :** $(100{,}1 \pm 1{,}2)\,\mathrm{mV}$ avec 95 % de confiance.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle composante domine ici ?
+
+??? success "Réponse"
+    La **classe de l'instrument** (0,58) : elle est bien plus grande que les deux autres.
+
+**Q2.** Pourquoi multiplie-t-on par $k = 2$ ?
+
+??? success "Réponse"
+    Pour obtenir un **niveau de confiance de 95 %**.
+
+**Q3.** À quoi sert-il de répéter la mesure plusieurs fois ?
+
+??? success "Réponse"
+    À réduire la part **aléatoire** : $u_A = \dfrac{s}{\sqrt{n}}$ diminue quand $n$ augmente.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - **Additionner** les incertitudes au lieu de les combiner en quadrature (racine de la somme des carrés).
+> - Donner trop de **chiffres** : une incertitude s'arrondit à 1 ou 2 chiffres significatifs, **par excès**.
+
+> [!SUCCESS] 🧠 À retenir
+> - $u_c = \sqrt{u_A^2 + u_{B,\mathrm{rés}}^2 + u_{B,\mathrm{classe}}^2}$ et $U = k \cdot u_c$ (avec $k = 2$).
+> - Résultat = valeur ± U, avec l'unité.
 
 ---
 
@@ -231,6 +338,22 @@ Résultat : R = (4 703 ± 30) Ω  [niveau de confiance 95%]
 
 > **En BAC PRO CIEL** : votre projet IoT industriel est typiquement **Classe 2**.
 
+
+> [!TIP] 💡 En clair
+> La norme **IPC-A-610** classe la qualité d'un assemblage en **trois classes** selon l'usage du produit (électronique grand public, professionnelle, haute fiabilité). Plus la classe est élevée, plus les critères sont **sévères**. Chaque défaut est jugé : **acceptable**, **défaut** ou **indicateur de processus**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert la norme IPC-A-610 ?
+
+??? success "Réponse"
+    À **juger la qualité d'un assemblage** (soudures, positionnement) avec des critères précis.
+
+**Q2.** Pourquoi une carte de pacemaker n'est-elle pas jugée comme un jouet ?
+
+??? success "Réponse"
+    Parce que sa **classe** est plus élevée : critères plus **stricts**, car la panne serait grave.
+
 ---
 
 ### Critères d'acceptabilité des brasures (CMS)
@@ -262,6 +385,25 @@ Résultat : R = (4 703 ± 30) Ω  [niveau de confiance 95%]
 | **Conforme** | Toutes les exigences sont satisfaites | "L'assemblage est déclaré conforme à la norme IPC-A-610 Classe 2" |
 | **Non conforme** | Au moins une exigence n'est pas satisfaite | "L'assemblage présente X défauts non conformes — rejeté" |
 | **Sous réserve** | Conforme avec une observation ou une restriction | "Conforme sous réserve de correction du pont de soudure en C3-C4" |
+
+
+> [!TIP] 💡 En clair
+> Pour conclure à la **conformité**, compare **toute la plage** « valeur ± U » à la **limite** : si la plage reste dans la tolérance, c'est **conforme** ; si elle **dépasse** même partiellement, la conclusion est **incertaine** ou **non conforme**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Résultat : $(5{,}02 \pm 0{,}03)\,\mathrm{V}$ ; tolérance : de 4,95 V à 5,05 V. Conforme ?
+
+??? success "Réponse"
+    **Oui** : la plage va de 4,99 V à 5,05 V, entièrement dans la tolérance.
+
+**Q2.** Même résultat mais $\pm 0{,}08\,\mathrm{V}$. Conforme ?
+
+??? success "Réponse"
+    **Non garanti** : la plage va de 4,94 V à 5,10 V et **dépasse** la tolérance.
+
+> [!SUCCESS] 🧠 À retenir
+> - On compare la plage « valeur ± U » à la tolérance, pas seulement la valeur.
 
 ---
 
