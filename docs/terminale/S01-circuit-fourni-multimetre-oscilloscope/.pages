@@ -1,6 +1,7 @@
 title: "S01 · Circuit Fourni · Multimètre · Oscilloscope · Remise en Condition Pratique"
 nav:
   - README.md
+  - "📖 Rappel essentiel": 01-rappel.md
   - "🛠️ TP": 02-tp.md
   - "📎 Fiches DE remédiation express": annexe-fiches-de-remediation-express.md
   - "📎 Aide-mémoire diagnostic A3": annexe-aide-memoire-diagnostic-a3.md

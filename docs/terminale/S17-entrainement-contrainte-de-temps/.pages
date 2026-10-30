@@ -1,6 +1,7 @@
 title: "S17 · Entraînement Contrainte de Temps · Circuit sonde_e2_a3"
 nav:
   - README.md
+  - "📖 Rappel essentiel": 01-rappel.md
   - "🛠️ TP": 02-tp.md
   - "📝 Exercices et ateliers": 03-exercices.md
   - "📎 Checklist finale + conseils nuit avant CCF": annexe-checklist-finale-conseils-nuit-avant-ccf.md

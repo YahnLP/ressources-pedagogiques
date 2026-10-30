@@ -1,4 +1,5 @@
 title: "S14 · S14 Année 3 — NE555, KiCad, Mesures, Normes, Synthèse"
 nav:
   - README.md
+  - "📖 Rappel essentiel": 01-rappel.md
   - "📝 Exercices et ateliers": 03-exercices.md
