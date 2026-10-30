@@ -168,7 +168,7 @@ Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichoto
 | 4 | LED (anode → cathode, sens direct) | **Pas de BIP** (normal pour une diode) | Si BIP : LED en court-circuit → défectueuse |
 | 5 | Fil de retour GND | **BIP** | Fil mal inséré en retour |
 
-> 💡 **Note** : Une diode/LED ne donne **pas** de bip en test de continuité classique car sa résistance directe est > 0 Ω. Utiliser le **mode test diode** (symbole →|) du multimètre pour tester une LED : affichera la tension V_F ≈ 2 V si la LED est bonne.
+> 💡 **Note** : Une diode/LED ne donne **pas** de bip en test de continuité classique car sa résistance directe est > 0 Ω. Utiliser le **mode test diode** (symbole →|) du multimètre pour tester une LED : affichera la tension $V_{F}$ ≈ 2 V si la LED est bonne.
 
 ---
 
@@ -181,13 +181,13 @@ Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichoto
 ![Schéma de l'exercice 1 : source 9 V, R1 = 470 Ω, deux LED en parallèle](images/schema-exercice-lire.png)
 
 1. D1 et D2 sont-elles en **série** ou en **parallèle** ?
-2. Quelle est la tension aux bornes de R1 ? *(V_alim − V_F = ?)* 
-3. Quel courant traverse R1 ? *(I_total = U_R1 / R1)*
+2. Quelle est la tension aux bornes de R1 ? *($V_{\mathrm{alim}}$ − $V_{F}$ = ?)* 
+3. Quel courant traverse R1 ? *($I_{\mathrm{total}}$ = U_R1 / R1)*
 4. Quel courant traverse D1 seule ?
 
-*Réponses :*
+??? success "Réponses"
 
-1. _____________ 2. _____________ V   3. _____________ mA   4. _____________ mA
+    1. \_\_\_\_\_\_\_\_\_\_\_\_\_ 2. \_\_\_\_\_\_\_\_\_\_\_\_\_ V   3. \_\_\_\_\_\_\_\_\_\_\_\_\_ mA   4. \_\_\_\_\_\_\_\_\_\_\_\_\_ mA
 
 ### Exercice 2 — Dessiner un schéma (10 min)
 
@@ -219,7 +219,7 @@ Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichoto
 | Je veux... | Je fais... |
 |---|---|
 | Tester si un fil est intact | Mode **)))** multimètre → BIP = OK |
-| Tester une LED | Mode **→\|** multimètre → affiche V_F ≈ 2 V si OK |
+| Tester une LED | Mode **→\|** multimètre → affiche $V_{F}$ ≈ 2 V si OK |
 | Lire un schéma | Source à gauche → suivre le chemin → composants dans l'ordre |
 | Savoir si deux points breadboard sont connectés | Même numéro de rangée, même demi-breadboard |
 | Identifier une jonction sur schéma | **Point noir •** sur le croisement |

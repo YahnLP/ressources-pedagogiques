@@ -49,7 +49,7 @@ Période de mesure : ≥ 2 s entre lectures
 Vout : 3,3 V ±1% → plage : [3,267 ; 3,333] V  
 Vin min : Vout + 1,3 V = 4,6 V · Vin max : 15 V · Iout max : 1 A  
 
-$$Rθjc = \dfrac{5\,\mathrm{°C}}{W} \cdot Rθja = \dfrac{44\,\mathrm{°C}}{W} \cdot Tj max = 125\,\mathrm{°C}$$
+$$R\theta jc = \dfrac{5\,\mathrm{°C}}{W} \cdot R\theta ja = \dfrac{44\,\mathrm{°C}}{W} \cdot Tj max = 125\,\mathrm{°C}$$
 
 ---
 

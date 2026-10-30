@@ -3,10 +3,10 @@
 
 ---
 
-> **Nom de l'apprenant** : ___________________________
-> **Binôme** : ___________________________
-> **Date** : ___________________________
-> **Version du schéma** : V _____ &nbsp;&nbsp; **Outil utilisé** : ☐ Fritzing &nbsp; ☐ KiCad &nbsp; ☐ Papier/crayon numérisé
+> **Nom de l'apprenant** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Binôme** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Date** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Version du schéma** : V \_\_\_\_\_ &nbsp;&nbsp; **Outil utilisé** : ☐ Fritzing &nbsp; ☐ KiCad &nbsp; ☐ Papier/crayon numérisé
 
 ---
 
@@ -26,9 +26,9 @@ Avant de commencer le schéma, liste tous les composants de ton système domotiq
 
 **Vérification :**
 
-- Nombre total de composants : _____
-- Nombre de points GND : _____ (ils doivent tous être reliés)
-- Nombre de points +5V : _____ (ils doivent tous être reliés)
+- Nombre total de composants : \_\_\_\_\_
+- Nombre de points GND : \_\_\_\_\_ (ils doivent tous être reliés)
+- Nombre de points +5V : \_\_\_\_\_ (ils doivent tous être reliés)
 
 ---
 
@@ -67,7 +67,7 @@ Avant de commencer le schéma, liste tous les composants de ton système domotiq
 | Broche DHT11 | Via | Broche Arduino / Connexion |
 |---|---|---|
 | VCC (1) | Fil direct | +5V Arduino |
-| DATA (2) | Fil direct | Pin ___ Arduino |
+| DATA (2) | Fil direct | Pin \_\_\_ Arduino |
 | DATA (2) | Via R1 (10kΩ) | +5V (pull-up) |
 | NC (3) | — | Non connectée |
 | GND (4) | Fil direct | GND Arduino |
@@ -116,7 +116,7 @@ Avant de rendre, coche chaque point :
 | Le schéma est lisible sans ambiguïté | | |
 | La table de câblage est cohérente avec le schéma | | |
 
-**Score de vérification** : ___ / 10 cases cochées ✅
+**Score de vérification** : \_\_\_ / 10 cases cochées ✅
 
 ---
 
@@ -147,7 +147,7 @@ Avant de rendre, coche chaque point :
 | Cartouche complet | | |
 | **TOTAL** | **/25** | |
 
-**Signature enseignant** : ___________________________ **Date** : ___________
+**Signature enseignant** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ **Date** : \_\_\_\_\_\_\_\_\_\_\_
 
 ---
 

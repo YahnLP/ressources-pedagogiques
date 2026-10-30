@@ -16,7 +16,7 @@
 | 2 | **Pile / Batterie** | ![Alternance de barres longues (+) et courtes (−) empilées, avec les bornes + et − indiquées](images/sym-pile.png){ width="210" } | Pour une seule pile : même symbole qu'une source simple |
 | 3 | **Résistance** | ![Rectangle vide horizontal ou vertical, avec des bornes sur les petits côtés](images/sym-resistance.png){ width="210" } | Symbole européen. Indiquer valeur : *R1 = 390 Ω* |
 | 4 | **Diode** | ![Triangle plein pointant vers une barre verticale. Anode (A) côté pointe du triangle entrant, Cathode (K) côté barre](images/sym-diode.png){ width="210" } | Le courant ne circule que dans le sens A → K |
-| 5 | **LED** | ![Même symbole que la diode + deux flèches obliques partant de la jonction triangle/barre, représentant la lumière émise](images/sym-led.png){ width="210" } | Indiquer couleur et V_F : *D1 rouge, V_F=2V* |
+| 5 | **LED** | ![Même symbole que la diode + deux flèches obliques partant de la jonction triangle/barre, représentant la lumière émise](images/sym-led.png){ width="210" } | Indiquer couleur et $V_{F}$ : *D1 rouge, $V_{F}$=2V* |
 | 6 | **Condensateur non polarisé** | ![Deux barres verticales parallèles de même taille, avec bornes horizontales](images/sym-condo.png){ width="210" } | Indiquer valeur en F, µF ou nF : *C1 = 100 nF* |
 | 7 | **Condensateur polarisé** | ![Deux barres verticales : une droite (+) et une incurvée (−)](images/sym-condo-polarise.png){ width="210" } | L'anode (+) est du côté de la barre droite — polarité obligatoire |
 | 8 | **Interrupteur NO** | ![Ligne horizontale avec une rupture au centre : un segment horizontal et un segment angulé au-dessus (ouvert)](images/sym-inter-no.png){ width="210" } | NO = Normalement Ouvert. Indiquer : *S1* |

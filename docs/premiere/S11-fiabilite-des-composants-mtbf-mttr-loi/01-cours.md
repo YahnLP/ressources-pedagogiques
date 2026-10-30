@@ -3,8 +3,8 @@
 
 ---
 
-> **Nom** : ___________________________
-> **Date** : ___________________________
+> **Nom** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Date** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 > **Compétences travaillées** : S6.1 · S6.2 · S6.3 · S6.4 · S6.5 · C6.1
 
 ---
@@ -31,7 +31,7 @@
 
 $$\mathrm{MTBF} = \dfrac{T_O}{n}$$
 
-avec $T_O$ le temps total de fonctionnement et $n$ le nombre de pannes.
+avec $T_{O}$ le temps total de fonctionnement et $n$ le nombre de pannes.
 
 **Exemple :** un disque dur fonctionne 87 600 heures (10 ans) et tombe en panne 3 fois.
 
@@ -49,7 +49,7 @@ $$\mathrm{MTBF} = \dfrac{87\,600}{3} = 29\,200\ \text{heures} \approx 3{,}3\ \te
 
 $$\mathrm{MTTR} = \dfrac{T_A}{n}$$
 
-avec $T_A$ le temps total d'arrêt et $n$ le nombre de pannes.
+avec $T_{A}$ le temps total d'arrêt et $n$ le nombre de pannes.
 
 **Le MTTR inclut :**
 
@@ -68,7 +68,7 @@ avec $T_A$ le temps total d'arrêt et $n$ le nombre de pannes.
 
 ### Disponibilité
 
-$$D = \dfrac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}} = \dfrac{T_O}{T_O + T_A}$$
+$$D = \dfrac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}} = \dfrac{T_O}{T_O + T_{A}}$$
 
 **Exemple numérique :** MTBF = 2 500 h et MTTR = 3,6 h.
 
@@ -124,17 +124,17 @@ Où :
 
 ### Calcul pratique avec la calculatrice
 
-Pour calculer e^(−λt) :  
-Méthode 1 : touche [e^x] → entrer (−λt)  
+Pour calculer $e^{-\lambda t}$ :  
+Méthode 1 : touche [$e^{x}$] → entrer (−λt)  
 Méthode 2 : touche [e] × [x] → EXP puis le nombre  
 
 Exemple :  
-MTBF = 50 000 h · λ = 1/50 000 = 2×10⁻⁵ h⁻¹  
+MTBF = 50 000 h · λ = 1/50 000 = $2\times 10^{-5}$ $\mathrm{h}^{-1}$  
 Quelle est la fiabilité après 1 an (8 760 h) ?  
 
-$$R(8760) = e^(-2 \times 10⁻⁵ \times 8760)$$
+$$R(8760) = e^{-2 \times 10^{-5} \times 8760}$$
 
-$$= e^(-0{,}1752)$$
+$$= e^{-0{,}1752}$$
 
 $$= 0{,}839$$
 
@@ -177,35 +177,35 @@ C'est pourquoi MTBF ≠ durée de vie garantie !
 
 ![Système série : la panne d'un seul composant arrête tout](images/rbd-serie.png)
 
-$$R_s = R_1 \times R_2 \times R_3 \times \dots \times R_n$$
+$$R_{s} = R_{1} \times R_{2} \times R_{3} \times \dots \times R_{n}$$
 
 $$\lambda_s = \lambda_1 + \lambda_2 + \lambda_3 + \dots + \lambda_n \quad\Rightarrow\quad \mathrm{MTBF}_s = \dfrac{1}{\lambda_s}$$
 
 ### Exemple : carte ESP32 avec 4 composants critiques
 
 Composant       | MTBF (h)    | λ (pannes/h)  
-ESP32 module    | 100 000     | 10⁻⁵  
-DHT22           | 50 000      | 2×10⁻⁵  
-Alimentation    | 80 000      | 1,25×10⁻⁵  
-Condensateur    | 60 000      | 1,67×10⁻⁵  
+ESP32 module    | 100 000     | $10^{-5}$  
+DHT22           | 50 000      | $2\times 10^{-5}$  
+Alimentation    | 80 000      | $1{,}25\times 10^{-5}$  
+Condensateur    | 60 000      | $1{,}67\times 10^{-5}$  
 
-λsystème = 10⁻⁵ + 2×10⁻⁵ + 1,25×10⁻⁵ + 1,67×10⁻⁵  
+λsystème = $10^{-5}$ + $2\times 10^{-5}$ + $1{,}25\times 10^{-5}$ + $1{,}67\times 10^{-5}$  
 
-$$= (1 + 2 + 1{,}25 + 1{,}67) \times 10⁻⁵$$
+$$= (1 + 2 + 1{,}25 + 1{,}67) \times 10^{-5}$$
 
-= 5,92 × 10⁻⁵ pannes/heure  
+= $5{,}92\times 10^{-5}$ pannes/heure  
 
-MTBFsystème = 1 / 5,92×10⁻⁵ = 16 892 heures ≈ 1,9 ans  
+MTBFsystème = 1 / $5{,}92\times 10^{-5}$ = 16 892 heures ≈ 1,9 ans  
 
 Vérification avec R(t) après 8 760 h (1 an) :  
 
-$$R_{1}(8760) = e^(-10⁻⁵ \times 8760) = e^(-0{,}0876) = 0{,}916$$
+$$R_{1}(8760) = e^{-10^{-5} \times 8760} = e^{-0{,}0876} = 0{,}916$$
 
-$$R_{2}(8760) = e^(-2 \times 10⁻⁵ \times 8760) = e^(-0{,}1752) = 0{,}839$$
+$$R_{2}(8760) = e^{-2 \times 10^{-5} \times 8760} = e^{-0{,}1752} = 0{,}839$$
 
-$$R_{3}(8760) = e^(-1{,}25 \times 10⁻⁵ \times 8760) = e^(-0{,}1095) = 0{,}896$$
+$$R_{3}(8760) = e^{-1{,}25 \times 10^{-5} \times 8760} = e^{-0{,}1095} = 0{,}896$$
 
-$$R_{4}(8760) = e^(-1{,}67 \times 10⁻⁵ \times 8760) = e^(-0{,}1463) = 0{,}864$$
+$$R_{4}(8760) = e^{-1{,}67 \times 10^{-5} \times 8760} = e^{-0{,}1463} = 0{,}864$$
 
 $$Rs(8760) = 0{,}916 \times 0{,}839 \times 0{,}896 \times 0{,}864 = 0{,}594$$
 
@@ -236,7 +236,7 @@ MTBFs ≈ MTBF × (1 + 1/2) = 1,5 × MTBF  (approximation)
 
 ### Exemple : deux alimentations redondantes
 
-Alimentation A : MTBF = 80 000 h · R(8760) = e^(−8760/80000) = e^(−0,1095) = 0,896  
+Alimentation A : MTBF = 80 000 h · R(8760) = $e^{-8760/80000}$ = $e^{-0,1095}$ = 0,896  
 Alimentation B : MTBF = 80 000 h · même fiabilité  
 
 $$Rs(8760) = 1 - (1 - 0{,}896) \times (1 - 0{,}896)$$
@@ -276,13 +276,13 @@ $$R_{\text{capteurs}} = 1 - (1 - 0{,}90)(1 - 0{,}90) = 1 - 0{,}10 \times 0{,}10 
 
 **Étape 3 : fiabilité totale**
 
-$$R_s = 0{,}99 \times 0{,}95 \times 0{,}98 \times 0{,}99 \approx 0{,}912 = 91{,}2\ \%$$
+$$R_{s} = 0{,}99 \times 0{,}95 \times 0{,}98 \times 0{,}99 \approx 0{,}912 = 91{,}2\ \%$$
 
 ---
 
 ## 📌 Récapitulatif des formules
 
-$$D = \dfrac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}} = \dfrac{T_O}{T_O + T_A}$$
+$$D = \dfrac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}} = \dfrac{T_O}{T_O + T_{A}}$$
 
 **Exemple numérique :** MTBF = 2 500 h et MTTR = 3,6 h.
 
@@ -305,11 +305,11 @@ $$D = \dfrac{2\,500}{2\,500 + 3{,}6} = \dfrac{2\,500}{2\,503{,}6} = 0{,}9986 = 9
 > ✅ **MTTR** = TA / n → plus court = meilleure maintenabilité
 > ✅ **D = MTBF / (MTBF + MTTR)** → proche de 1 = très disponible
 > ✅ **λ = 1/MTBF** → plus λ est petit, plus le composant est fiable
-> ✅ **R(t) = e^(−λt)** → à t=MTBF : R = e^(−1) ≈ **36,8%**
+> ✅ **R(t) = $e^{-\lambda t}$** → à t=MTBF : R = $e^{-1}$ ≈ **36,8%**
 > ✅ **Série** : Rs = R1 × R2 → PLUS fragile (Rs < Rmin)
 > ✅ **Parallèle** : Rs = 1−(1−R1)(1−R2) → PLUS fiable (Rs > Rmax)
 > ✅ La **courbe en baignoire** montre les 3 phases : mortalité infantile, vie utile, usure
-> ✅ FIT = λ × 10⁹ (unité industrielle du taux de panne)
+> ✅ FIT = λ × $10^{9}$ (unité industrielle du taux de panne)
 
 ---
 

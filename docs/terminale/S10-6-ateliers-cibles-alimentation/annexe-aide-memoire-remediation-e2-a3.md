@@ -10,7 +10,7 @@ Tj = Tamb + Pdiss × Rθja
 
 $$Tj_max_exploitable = 105\,\mathrm{°C}$$
 
-Autonomie = Capacité(mAh) / I_moy × 0,80  
+Autonomie = Capacité(mAh) / $I_{\mathrm{moy}}$ × 0,80  
 
 $$I_{\mathrm{moy}} = \dfrac{I_{1} \times t1 + I_{2} \times t2}{t1+t2}$$
 
@@ -21,19 +21,19 @@ Buck     : η=85-95%, sur batterie, Vin-Vout ≥ 2V → OK
 
 ## 📐 Métrologie R&R
 
-$$σ_EV = \dfrac{σ_A + σ_B}{2}$$
+$$\sigma _EV = \dfrac{\sigma _A + \sigma _B}{2}$$
 
-σ_AV ≈ |x̄_A − x̄_B| / √n  
+$σ_{\mathrm{AV}}$ ≈ |x̄_A − x̄_B| / $\sqrt{n}$  
 
-$$σ_GRR = \sqrt{σ_EV^2 + σ_AV^2}$$
+$$\sigma _GRR = \sqrt{\sigma _EV^2 + \sigma _AV^2}$$
 
-%GRR = 5,15 × σ_GRR / Tolérance × 100  
+%GRR = 5,15 × $σ_{\mathrm{GRR}}$ / Tolérance × 100  
 
 < 10% = EXCELLENT ✓✓  
 10-30% = ACCEPTABLE ✓  
 > 30% = INACCEPTABLE ✗  
 
-LD ≈ 3 × σ_bruit  (signal détectable si > LD)  
+LD ≈ 3 × $σ_{\mathrm{bruit}}$  (signal détectable si > LD)  
 
 ---
 

@@ -96,9 +96,9 @@ Plan FENDU   → grande boucle → fort rayonnement   ✗
 
 Biais = Σei/n  
 
-$$σ = \sqrt{Σ\dfrac{ei^2}{n-1}}$$
+$$\sigma  = \sqrt{Σ\dfrac{ei^2}{n-1}}$$
 
-u = σ/√n  
+u = σ/$\sqrt{n}$  
 U = 2u  (95% conf.)  
 Conformité : |biais| + U ≤ spécif.  
 

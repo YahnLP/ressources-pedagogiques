@@ -38,8 +38,10 @@ Q1 : Y a-t-il une violation DRC ? ☐ Oui ☐ Non · De combien ? _______ mm
 Q2 : Le condensateur est-il bien placé ? ☐ Oui ☐ Non · Règle : _______________
 Q3 : Le plan fendu pose-t-il un problème CEM ? ☐ Oui ☐ Non · Raison : __________
 
-Réponses : Q1=Oui +0,05mm · Q2=Non (8mm >> 2mm) · Q3=Oui (grande boucle = rayonnement)
 ```
+
+??? success "Réponses"
+    Q1=Oui +0,05mm · Q2=Non (8mm >> 2mm) · Q3=Oui (grande boucle = rayonnement)
 
 ---
 
@@ -80,8 +82,10 @@ void loop() {
 }
 // Bonus : quelle 4ème erreur critique dans loop() ?
 
-Réponses : 115200 · !=WL_CONNECTED · ID unique · mqtt.loop() absent
 ```
+
+??? success "Réponses"
+    115200 · !=WL_CONNECTED · ID unique · mqtt.loop() absent
 
 ---
 
@@ -104,13 +108,13 @@ VALEURS e⁻ˣ : e⁻⁰·¹=0,905 · e⁻⁰·²=0,819 · e⁻⁰·⁵=0,607 ·
 
 Capteur DHT22 : MTBF = 50 000 h  
 
-$$a) λ = \dfrac{1}{50000} = \underline{\hspace{2.5em}}h⁻¹$$
+$$a) \lambda  = \dfrac{1}{50000} = \underline{\hspace{2.5em}}h^{-1}$$
 
 b) R après 1 an (8760h) :  
 
-$$λt = 2 \times 10⁻⁵ \times 8760 = \underline{\hspace{2.5em}}$$
+$$\lambda t = 2 \times 10^{-5} \times 8760 = \underline{\hspace{2.5em}}$$
 
-$$R = e^(-\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+$$R = e^{-\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
 c) Système : [DHT22 (R=0,84)] en série avec [ESP32 (R=0,92)] :  
 
@@ -122,10 +126,10 @@ $$R_{\mathrm{capt}}// = 1 - (1-0{,}84)^2 = 1 - \underline{\hspace{2.5em}} = \und
 
 $$Rs_nouveau = \underline{\hspace{2.5em}} \times 0{,}92 = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
-Gain : _______ points  
+Gain : \_\_\_\_\_\_\_ points  
 
 ??? success "Réponses"
-    a)2×10⁻⁵ b)0,1752/0,839/83,9% c)0,773/77,3% d)0,0256/0,974 · 0,896 · 89,6% · +12,3pts
+    a)$2\times 10^{-5}$ b)0,1752/0,839/83,9% c)0,773/77,3% d)0,0256/0,974 · 0,896 · 89,6% · +12,3pts
 
 ---
 
@@ -158,8 +162,10 @@ c) Quelle violation CEM : condensateur 100nF placé à 15mm de l'ESP32 ?
 d) Plan de masse fendu par une piste d'alimentation : quel problème CEM ?
    ____________________________________________________________________________
 
-Réponses : a)3m/0,15m/15cm b)72Hz c)inductance piste → filtre inefficace à HF d)détour courant→grande boucle→rayonnement
 ```
+
+??? success "Réponses"
+    a)3m/0,15m/15cm b)72Hz c)inductance piste → filtre inefficace à HF d)détour courant→grande boucle→rayonnement
 
 ---
 
@@ -182,25 +188,25 @@ CONFORMITÉ : |Biais| + U ≤ spécification constructeur
 5 mesures d'un capteur (référence = 25,0°C) :  
 25,3 · 24,9 · 25,2 · 25,4 · 25,2  
 
-ei (écarts) : _______ · _______ · _______ · _______ · _______  
+ei (écarts) : \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_  
 
 $$Σei = \underline{\hspace{2.5em}} Σei^2 = \underline{\hspace{2.5em}}$$
 
-Biais = _______ / 5 = _______ °C  
+Biais = \_\_\_\_\_\_\_ / 5 = \_\_\_\_\_\_\_ °C  
 
-$$σ = \sqrt{\underline{\hspace{2.5em}} / 4} = \underline{\hspace{2.5em}} °C$$
+$$\sigma  = \sqrt{\underline{\hspace{2.5em}} / 4} = \underline{\hspace{2.5em}} °C$$
 
 $$u = \underline{\hspace{2.5em}} / \sqrt{5} = \underline{\hspace{2.5em}} °C$$
 
 $$U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
 
 Spécification = ±0,5°C :  
-|Biais| + U = _______ + _______ = _______ °C  
+|Biais| + U = \_\_\_\_\_\_\_ + \_\_\_\_\_\_\_ = \_\_\_\_\_\_\_ °C  
 ☐ CONFORME ☐ NON CONFORME  
 
 ??? success "Réponses"
     ei=+0,3/-0,1/+0,2/+0,4/+0,2 · Σei=+1,0 · Σei²=0,34  
-    Biais=+0,20°C · σ=√(0,34/4)=√0,085=0,291°C · u=0,130°C · U=0,260°C  
+    Biais=+0,20°C · σ=$\sqrt{0,34/4}$=$\sqrt{0,085}$=0,291°C · u=0,130°C · U=0,260°C  
     0,20+0,26=0,46°C ≤ 0,5°C → CONFORME (limite !)
 
 ---

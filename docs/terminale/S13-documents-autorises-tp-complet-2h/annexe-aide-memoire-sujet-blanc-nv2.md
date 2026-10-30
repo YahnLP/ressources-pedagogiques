@@ -46,15 +46,15 @@ Exemple : R_LED = 150Ω (au lieu de 220Ω)
 ## ⚡ Bilan puissance — ordre des calculs
 
 ① I de chaque composant (tableau)  
-② I_LDO = Σ(tous les courants @ 3,3V)  
-③ Pdiss = (Vin − Vout) × I_LDO = 1,7 × I_LDO  
+② $I_{\mathrm{LDO}}$ = Σ(tous les courants @ 3,3V)  
+③ Pdiss = (Vin − Vout) × $I_{\mathrm{LDO}}$ = 1,7 × $I_{\mathrm{LDO}}$  
 ④ Tj = Tamb + Pdiss × Rθja (44 °C/W)  
 ⑤ Marge = 105 − Tj  (OK si > 20°C)  
 
-$$⑥ η = \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
+$$⑥ \eta  = \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
 
 Composants à ne PAS oublier :  
-ESP32 · DHT22 · LED · R_CHARGE (!)  
+ESP32 · DHT22 · LED · $R_{\mathrm{CHARGE}}$ (!)  
 
 ---
 

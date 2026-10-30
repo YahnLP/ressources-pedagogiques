@@ -3,13 +3,16 @@
 # Usage : outils/import_e2/regenerer.sh   (depuis la racine du dépôt)
 set -e
 BASE=5f7a72e
-python3 -I outils/illustrations-e2/render.py /tmp/figs
+[ -n "$SKIP_RENDER" ] || python3 -I outils/illustrations-e2/render.py /tmp/figs
 [ -d /tmp/sym ] || python3 -I outils/illustrations-e2/render.py /tmp/sym >/dev/null
 for f in $(git ls-tree -r --name-only $BASE docs | grep -E "^docs/(seconde|premiere|terminale)/.*\.md$" | grep -v "/images/" | grep -vE "/(README|04-simulateur)\.md$"); do git checkout $BASE -- "$f"; done
 git reset -q
 python3 outils/import_e2/enrichir.py . /tmp/figs /tmp/sym
 python3 outils/import_e2/formules.py .
+python3 outils/import_e2/puissances.py .
+python3 outils/import_e2/inline.py .
 python3 outils/import_e2/nettoyage.py .
+python3 outils/import_e2/corriges.py .
 python3 outils/import_e2/espacement.py .
 python3 - <<'PY'
 import glob, re

@@ -14,8 +14,8 @@
 | **Datasheet** | Document technique officiel du fabricant décrivant les caractéristiques électriques, mécaniques et thermiques d'un composant |
 | **Absolute Maximum Ratings** | Valeurs limites absolues à ne JAMAIS dépasser — dépassement = destruction irréversible du composant |
 | **Typical Operating Conditions** | Valeurs de fonctionnement recommandées pour des performances optimales (différentes des limites absolues) |
-| **h_FE (β)** | Gain en courant d'un transistor bipolaire : rapport I_C / I_B — caractérise l'amplification |
-| **V_CEO** | Tension maximale collecteur-émetteur (base ouverte) d'un transistor — valeur à ne pas dépasser |
+| **$h_{\mathrm{FE}}$ (β)** | Gain en courant d'un transistor bipolaire : rapport $I_{C}$ / $I_{B}$ — caractérise l'amplification |
+| **$V_{\mathrm{CEO}}$** | Tension maximale collecteur-émetteur (base ouverte) d'un transistor — valeur à ne pas dépasser |
 | **Pull-down** | Résistance connectée entre un nœud et la masse pour forcer le niveau logique à 0 V quand aucun signal n'est appliqué |
 | **Pull-up** | Résistance connectée entre un nœud et VCC pour forcer le niveau logique à VCC quand aucun signal n'est appliqué |
 | **Modèle idéal** | Représentation simplifiée d'un composant utilisée par les simulateurs — les valeurs réelles peuvent légèrement différer |
@@ -146,11 +146,11 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 
 | N° | Paramètre | Symbole type | Ce que ça signifie | Pour quoi faire |
 |---|---|---|---|---|
-| 1 | **Tension maximale** | V_CEO, V_DS, V_R | Tension qu'on ne peut pas dépasser aux bornes | Choisir une alimentation compatible |
-| 2 | **Courant maximal** | I_C, I_D, I_F | Courant maximum supporté | Dimensionner les résistances de protection |
-| 3 | **Puissance maximale** | P_D, P_TOT | Puissance dissipée maximale | Vérifier si un radiateur est nécessaire |
-| 4 | **Tension de fonctionnement typique** | V_F, V_CE(sat) | Tension à prévoir dans les calculs | Calculer les résistances du circuit |
-| 5 | **Courant de fonctionnement typique** | I_F, I_C(typ) | Courant dans les conditions normales | Vérifier l'autonomie de la batterie |
+| 1 | **Tension maximale** | $V_{\mathrm{CEO}}$, $V_{\mathrm{DS}}$, $V_{R}$ | Tension qu'on ne peut pas dépasser aux bornes | Choisir une alimentation compatible |
+| 2 | **Courant maximal** | $I_{C}$, $I_{D}$, $I_{F}$ | Courant maximum supporté | Dimensionner les résistances de protection |
+| 3 | **Puissance maximale** | $P_{D}$, $P_{\mathrm{TOT}}$ | Puissance dissipée maximale | Vérifier si un radiateur est nécessaire |
+| 4 | **Tension de fonctionnement typique** | $V_{F}$, $V_{\mathrm{CE}}$(sat) | Tension à prévoir dans les calculs | Calculer les résistances du circuit |
+| 5 | **Courant de fonctionnement typique** | $I_{F}$, $I_{C}$(typ) | Courant dans les conditions normales | Vérifier l'autonomie de la batterie |
 | 6 | **Brochage (Pinout)** | Schéma de boîtier | Quelle broche est quelle fonction | Câbler correctement sans inverser |
 
 ### 3.4 Anglais technique essentiel de la datasheet
@@ -164,12 +164,12 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 | **Collector** | Collecteur | Transistor bipolaire |
 | **Emitter** | Émetteur | Transistor bipolaire |
 | **Base** | Base | Transistor bipolaire |
-| **Forward** | Direct (sens direct de la diode) | V_F, I_F |
-| **Reverse** | Inverse (sens bloquant de la diode) | V_R |
-| **Power Dissipation** | Puissance dissipée | P_D |
-| **Junction Temperature** | Température de jonction | T_J |
-| **Gain** | Gain (amplification) | h_FE, β |
-| **Operating Conditions** | Conditions de fonctionnement | T_C = 25°C standard |
+| **Forward** | Direct (sens direct de la diode) | $V_{F}$, $I_{F}$ |
+| **Reverse** | Inverse (sens bloquant de la diode) | $V_{R}$ |
+| **Power Dissipation** | Puissance dissipée | $P_{D}$ |
+| **Junction Temperature** | Température de jonction | $T_{J}$ |
+| **Gain** | Gain (amplification) | $h_{\mathrm{FE}}$, β |
+| **Operating Conditions** | Conditions de fonctionnement | $T_{C}$ = 25°C standard |
 
 ---
 
@@ -179,22 +179,22 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 
 ![LED commandée par un transistor BC547](images/schema-transistor-led.png)
 
-**Problème** : On veut commander une LED rouge (V_F = 2V, I_F = 20mA) avec un transistor BC547 piloté par une sortie Arduino (V_out = 5V, I_out max = 40mA).
+**Problème** : On veut commander une LED rouge ($V_{F}$ = 2V, $I_{F}$ = 20mA) avec un transistor BC547 piloté par une sortie Arduino ($V_{\mathrm{out}}$ = 5V, $I_{\mathrm{out}}$ max = 40mA).
 
 **Données extraites de la datasheet BC547 :**
 
-- h_FE minimum (gain) = 110 (à I_C = 2mA), typ = 200
-- V_CE(sat) ≈ 0,2 V (transistor saturé)
-- V_BE ≈ 0,6 V (jonction base-émetteur)
-- I_C maximum = 100 mA — on reste bien en-dessous
+- $h_{\mathrm{FE}}$ minimum (gain) = 110 (à $I_{C}$ = 2mA), typ = 200
+- $V_{\mathrm{CE}}$(sat) ≈ 0,2 V (transistor saturé)
+- $V_{\mathrm{BE}}$ ≈ 0,6 V (jonction base-émetteur)
+- $I_{C}$ maximum = 100 mA — on reste bien en-dessous
 
 **Calculs :**
 
 | Étape | Calcul | Résultat |
 |---|---|---|
-| Résistance LED (côté collecteur) | R_C = (V_CC − V_F − V_CE_sat) / I_F = (5 − 2 − 0,2) / 0,02 | **R_C = 140 Ω → choisir 150 Ω** |
-| Courant de base nécessaire | I_B = I_C / h_FE_min = 20mA / 110 | **I_B = 0,18 mA** |
-| Résistance de base | R_B = (V_out − V_BE) / I_B = (5 − 0,6) / 0,00018 | **R_B ≈ 24 kΩ → prendre 10 kΩ** (surpilotage pour saturation assurée) |
+| Résistance LED (côté collecteur) | $R_{\mathrm{C}} = \dfrac{V_{\mathrm{CC}} - V_{\mathrm{F}} - V_{\mathrm{CE\_sat}}}{I_{\mathrm{F}}} = \dfrac{5 - 2 - 0{,}2}{0{,}02}$ | **$R_{C}$ = 140 Ω → choisir 150 Ω** |
+| Courant de base nécessaire | $I_{\mathrm{B}} = \dfrac{I_{\mathrm{C}}}{h_{\mathrm{FE}}}_min = \dfrac{20\,\mathrm{mA}}{110}$ | $I_{\mathrm{B}} = 0{,}18\,\mathrm{mA}$ |
+| Résistance de base | $R_{\mathrm{B}} = \dfrac{V_{\mathrm{out}} - V_{\mathrm{BE}}}{I_{\mathrm{B}}} = \dfrac{5 - 0{,}6}{0{,}00018}$ | **$R_{B}$ ≈ 24 kΩ → prendre 10 kΩ** (surpilotage pour saturation assurée) |
 
 ---
 
@@ -204,7 +204,7 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 |---|---|---|
 | **Temps de réalisation** | Quelques minutes | 30 min à plusieurs heures |
 | **Coût** | Gratuit | Coût des composants + matériel |
-| **Précision** | Modèles idéaux (V_F LED = 2,000 V exactement) | Tolérances réelles (V_F ± 0,2V selon lot) |
+| **Précision** | Modèles idéaux ($V_{F}$ LED = 2,000 V exactement) | Tolérances réelles ($V_{F}$ ± 0,2V selon lot) |
 | **Risques** | Aucun | Composants grillés, courts-circuits |
 | **Pannes simulées** | Limitées (pas de défaut thermique, ESD...) | Toutes les pannes réelles possibles |
 | **Utilité principale** | Valider la logique + pré-dimensionnement | Valider en conditions réelles |
@@ -235,7 +235,7 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 | Respecter les règles de schéma | Fils H/V · Source à gauche · GND en bas · Point noir sur jonction · Étiquettes obligatoires |
 | Simuler un circuit | Tinkercad → Circuits → Nouveau → Glisser composants → Connecter → Simuler |
 | Mesurer en simulation | Voltmètre EN PARALLÈLE · Ampèremètre EN SÉRIE |
-| Lire une datasheet | 6 paramètres : V_max · I_max · P_max · V_typ · I_typ · Brochage |
+| Lire une datasheet | 6 paramètres : $V_{\mathrm{max}}$ · $I_{\mathrm{max}}$ · $P_{\mathrm{max}}$ · $V_{\mathrm{typ}}$ · $I_{\mathrm{typ}}$ · Brochage |
 | Utiliser les limites absolues | Jamais dépasser les "Absolute Maximum Ratings" |
 | Comprendre un transistor NPN | B = Base (commande) · C = Collecteur (charge) · E = Émetteur (GND) |
 

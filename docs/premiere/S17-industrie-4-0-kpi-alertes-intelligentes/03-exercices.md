@@ -3,8 +3,8 @@
 
 ---
 
-> **Nom** : ___________________________ **Groupe** : ___________________________
-> **Date** : ___________________________
+> **Nom** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ **Groupe** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Date** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 > **Durée** : 60 minutes · **Calculatrice obligatoire**
 
 ---
@@ -218,17 +218,17 @@ Interprétation : le DHT22 surestime / sous-estime (entourer) la vraie valeur de
 
 **Q4.c** — Calcule l'**écart-type** des mesures :
 
-Formule : σ = √( Σ(écart²) / (n−1) )  
+Formule : σ = $\sqrt{ Σ(écart²}$ / (n−1) )  
 
-$$σ = \sqrt{ \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} } = \sqrt{ \underline{\hspace{2.5em}} } = \underline{\hspace{2.5em}} °C$$
+$$\sigma  = \sqrt{ \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} } = \sqrt{ \underline{\hspace{2.5em}} } = \underline{\hspace{2.5em}} °C$$
 
 **Q4.d** — Calcule l'**incertitude type** u et l'**incertitude élargie** U (k=2, confiance 95%) :
 
-u = σ / √n = _______ / √10 = _______ / _______ = _______ °C  
+u = σ / $\sqrt{n}$ = \_\_\_\_\_\_\_ / $\sqrt{10}$ = \_\_\_\_\_\_\_ / \_\_\_\_\_\_\_ = \_\_\_\_\_\_\_ °C  
 
 $$U = k \times u = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
 
-Résultat final : T_DHT22 = (22,3 ± _______ ) °C  [intervalle de confiance 95%]  
+Résultat final : T_DHT22 = (22,3 ± \_\_\_\_\_\_\_ ) °C  [intervalle de confiance 95%]  
 
 **Q4.e** — La spécification du DHT22 annonce une précision de ±0,5°C.
 La tenue de cette spécification est-elle vérifiée ?

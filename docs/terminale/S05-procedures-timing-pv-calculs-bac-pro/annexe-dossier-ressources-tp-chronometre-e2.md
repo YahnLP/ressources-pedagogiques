@@ -33,8 +33,8 @@
 
 | Référence | Composant | Valeur nominale | Tolérance |
 |---|---|---|---|
-| R_pullup | Résistance pull-up DHT22 | 10 kΩ | ± 5% |
-| R_LED | Résistance LED | 220 Ω | ± 5% |
+| $R_{\mathrm{pullup}}$ | Résistance pull-up DHT22 | 10 kΩ | ± 5% |
+| $R_{\mathrm{LED}}$ | Résistance LED | 220 Ω | ± 5% |
 | C1 | Condensateur élec. | 100 µF | ± 20% |
 | LED | Diode électroluminescente rouge | Vf = 2,0 V typique | — |
 | D1 | Diode 1N4007 | Vf = 0,7 V typique | — |

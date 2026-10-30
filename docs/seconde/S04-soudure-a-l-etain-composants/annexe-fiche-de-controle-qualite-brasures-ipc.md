@@ -15,8 +15,8 @@
 | **Opérateur (apprenant)** | |
 | **Date de réalisation** | |
 | **Référence PCB / Kit** | |
-| **Lot d'étain utilisé** | SAC305 ☐   Sn63Pb37 ☐   Autre : ______ |
-| **Température fer réglée** | _______ °C |
+| **Lot d'étain utilisé** | SAC305 ☐   Sn63Pb37 ☐   Autre : \_\_\_\_\_\_ |
+| **Température fer réglée** | \_\_\_\_\_\_\_ °C |
 | **Nombre total de brasures à inspecter** | |
 | **Inspecteur (formateur)** | |
 | **Date d'inspection** | |
@@ -71,10 +71,10 @@
 
 | Indicateur | Calcul | Résultat |
 |---|---|---|
-| Nombre total de brasures inspectées | (= lignes du tableau) | _____ |
-| Nombre de brasures conformes (OK) | | _____ |
-| Nombre de brasures non conformes (NOK) | | _____ |
-| **Taux de conformité** | OK / Total × 100 | ______ % |
+| Nombre total de brasures inspectées | (= lignes du tableau) | \_\_\_\_\_ |
+| Nombre de brasures conformes (OK) | | \_\_\_\_\_ |
+| Nombre de brasures non conformes (NOK) | | \_\_\_\_\_ |
+| **Taux de conformité** | OK / Total × 100 | \_\_\_\_\_\_ % |
 
 ### Défauts recensés
 
@@ -96,11 +96,11 @@
 | Test | Méthode | Résultat attendu | Résultat obtenu | Conforme |
 |---|---|---|---|---|
 | Continuité alimentation + → − | Multimètre mode ))) | **Pas de bip** (R ≠ 0 entre + et −) | ☐ Bip ☐ Silence | ☐ |
-| Résistance + → − | Multimètre mode Ω | **R > 1 kΩ** | _______ Ω | ☐ |
+| Résistance + → − | Multimètre mode Ω | **R > 1 kΩ** | \_\_\_\_\_\_\_ Ω | ☐ |
 | LED D2 allumée | Mise sous tension 9V | **LED rouge allumée** | ☐ Oui ☐ Non | ☐ |
 | LED D3 allumée | Mise sous tension 9V | **LED verte allumée** | ☐ Oui ☐ Non | ☐ |
-| Tension V_F D2 | Multimètre DCV | **1,8 – 2,2 V** | _______ V | ☐ |
-| Tension V_F D3 | Multimètre DCV | **2,0 – 2,5 V** | _______ V | ☐ |
+| Tension $V_{F}$ D2 | Multimètre DCV | **1,8 – 2,2 V** | \_\_\_\_\_\_\_ V | ☐ |
+| Tension $V_{F}$ D3 | Multimètre DCV | **2,0 – 2,5 V** | \_\_\_\_\_\_\_ V | ☐ |
 
 ---
 

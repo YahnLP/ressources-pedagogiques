@@ -81,7 +81,7 @@ Exemple : mesurer la résistance d’un fil chauffant pour s’assurer qu’il d
 
 ### ● La puissance électrique
 - La puissance représente le taux de consommation d’énergie par un composant ou un circuit, mesurée en **watts (W)**.
-- Elle est calculée avec : **P = U × I**.
+- Elle est calculée avec : $P = U \times I$.
 
 Exemple : mesurer la puissance consommée par une ampoule pour calculer l’énergie qu’elle utilisera sur une certaine période.
 
@@ -90,8 +90,8 @@ Exemple : mesurer la puissance consommée par une ampoule pour calculer l’éne
 - si **U** augmente ou si **I** augmente, alors **P** augmente.
 - la puissance sert à **dimensionner** : éviter l’échauffement et choisir des composants adaptés (ex : résistance 1/4 W, 1/2 W…).
 - on utilise parfois aussi :  
-  - **P = U² / R** (utile pour une résistance)  
-  - **P = R × I²** (utile si on connaît le courant)
+  - $P = \dfrac{U^2}{R}$ (utile pour une résistance)  
+  - $P = R \times I^2$ (utile si on connaît le courant)
 
 ---
 
@@ -262,7 +262,7 @@ Des champs magnétiques ou des circuits proches peuvent perturber certaines mesu
 ## V. Les mesures de puissance et d’énergie : calculs et applications
 
 ### ● Calcul de la puissance (P)
-**P = U × I**
+$P = U \times I$
 
 Exemple : si U = 5 V et I = 0,01 A, alors P = 0,05 W.
 
@@ -325,6 +325,6 @@ En CIEL, une bonne démarche de diagnostic est souvent :
 | Tension U | V | multimètre | parallèle | mauvais mode AC/DC |
 | Courant I | A | multimètre (A) | série | mesurer I en parallèle (danger) |
 | Résistance R | Ω | multimètre | hors tension | mesurer sous tension |
-| Puissance P | W | calcul | P = U × I | oublier unités / mA↔A |
+| Puissance P | W | calcul | $P = U \times I$ | oublier unités / mA↔A |
 | Signal V(t) | V | oscilloscope | parallèle | mauvais réglage temps/div |
 

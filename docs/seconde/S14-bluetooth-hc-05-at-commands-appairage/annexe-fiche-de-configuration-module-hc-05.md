@@ -3,10 +3,10 @@
 
 ---
 
-> **Nom de l'apprenant** : ___________________________  
-> **Binôme** : ___________________________  
-> **Date** : ___________________________  
-> **N° de matériel** : Module HC-05 n° _____  / Arduino n° _____
+> **Nom de l'apprenant** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+> **Binôme** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+> **Date** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+> **N° de matériel** : Module HC-05 n° \_\_\_\_\_  / Arduino n° \_\_\_\_\_
 
 ---
 
@@ -44,7 +44,7 @@
 | | Direct | TXD | |
 
 **Valeurs du pont diviseur utilisé :**  
-R1 = __________ Ω  |  R2 = __________ Ω  |  Tension calculée = __________ V
+R1 = \_\_\_\_\_\_\_\_\_\_ Ω  |  R2 = \_\_\_\_\_\_\_\_\_\_ Ω  |  Tension calculée = \_\_\_\_\_\_\_\_\_\_ V
 
 **Schéma de câblage** *(croquis ou capture Fritzing à coller ici)* :
 
@@ -79,7 +79,7 @@ R1 = __________ Ω  |  R2 = __________ Ω  |  Tension calculée = __________ V
 | 10 m | ☐ Oui ☐ Non | |
 | > 10 m | ☐ Oui ☐ Non | |
 
-**Portée maximale mesurée** : __________ m
+**Portée maximale mesurée** : \_\_\_\_\_\_\_\_\_\_ m
 
 ---
 
@@ -123,7 +123,7 @@ Solution :
 | Fiche complète et lisible | | |
 | **TOTAL** | **/25** | |
 
-**Signature enseignant** : ___________________________ **Date** : ___________
+**Signature enseignant** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ **Date** : \_\_\_\_\_\_\_\_\_\_\_
 
 ---
 

@@ -101,7 +101,7 @@
 
 > Relever alternativement : étalon puis DHT22 (même instant), noter les deux valeurs.
 
-| N° | Heure | T° Étalon (°C) | T° DHT22 (°C) | Écart ei (°C) | Écart² (°C²) |
+| N° | Heure | T° Étalon (°C) | T° DHT22 (°C) | Écart ei (°C) | Écart² (°$C^{2}$) |
 |---|---|---|---|---|---|
 | 1 | | | | | |
 | 2 | | | | | |
@@ -115,7 +115,7 @@
 | 10 | | | | | |
 | 11 | | | | | |
 | 12 | | | | | |
-| **Σ** | | | | **Σei = ___** | **Σei² = ___** |
+| **Σ** | | | | $Σei = \underline{\hspace{2.5em}}$ | $Σei^2 = \underline{\hspace{2.5em}}$ |
 
 ---
 
@@ -138,8 +138,8 @@ Interprétation :
 
 Formule : σ = √[ Σei² / (n−1) ]  
 
-σ = √[ _______ / _______ ]  
-= √[ _______ ]  
+σ = √[ \_\_\_\_\_\_\_ / \_\_\_\_\_\_\_ ]  
+= √[ \_\_\_\_\_\_\_ ]  
 
 $$= \underline{\hspace{2.5em}} °C$$
 
@@ -165,7 +165,7 @@ $$U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
 
 RÉSULTAT FINAL DE LA MESURE :  
 
-T_DHT22 = _______ ± _______ °C     (k = 2, intervalle de confiance 95%)  
+T_DHT22 = \_\_\_\_\_\_\_ ± \_\_\_\_\_\_\_ °C     (k = 2, intervalle de confiance 95%)  
 
 ---
 

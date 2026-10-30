@@ -23,9 +23,13 @@ Réflexe ⑥  : Dans tous les calculs, utiliser la valeur _______ (pas _______).
 Réflexe ⑦  : Décision PV doit être _______ avec les non-conformités trouvées.
 Réflexe ⑧  : _______ le PV avant de rendre.
 
-Réponses attendues :
-① ÉTEINT · ② AVANT · ③ UNITÉ · ④ e̅ / σ / u / U · ⑤ biais / U / spécification
-⑥ MESURÉE / nominale · ⑦ COHÉRENTE · ⑧ SIGNER
+```
+
+??? success "Réponses"
+    ① ÉTEINT · ② AVANT · ③ UNITÉ · ④ e̅ / σ / u / U · ⑤ biais / U / spécification  
+    ⑥ MESURÉE / nominale · ⑦ COHÉRENTE · ⑧ SIGNER
+
+```
 
 Mon score : ___/8  ☐ Tous acquis → continuer · ☐ Manques → revoir S12-3A_02
 ```
@@ -37,33 +41,31 @@ Mon score : ___/8  ☐ Tous acquis → continuer · ☐ Manques → revoir S12-3
 > Fermer la fiche. Écrire les formules sur une feuille de brouillon.
 
 1. Dissipation d'un régulateur linéaire :  
-Pdiss = ___________________________  
+Pdiss = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 
 2. Température de jonction :  
-Tj = ___________________________  ·  Tj max exploitable = _____ °C  
+Tj = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  ·  Tj max exploitable = \_\_\_\_\_ °C  
 
 3. Courant total LDO :  
-I_LDO = ___________________________________________ (liste les composants)  
+$I_{\mathrm{LDO}}$ = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (liste les composants)  
 
 4. Rendement d'un LDO :  
-η = ___________ (approximation) = _____ % pour 3,3V depuis 5V  
+η = \_\_\_\_\_\_\_\_\_\_\_ (approximation) = \_\_\_\_\_ % pour 3,3V depuis 5V  
 
 5. Autonomie sur batterie avec convertisseur (η_conv = 88%) :  
 
 $$I_{\mathrm{batterie}} = \underline{\hspace{2.5em}}$$
 
-t_réelle   = ___________________________  
+t_réelle   = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 
 ??? success "Réponses"
 
     1. (Vin−Vout) × Iout  2. Tamb + Pdiss × Rθja · 105°C  
-    3. I_ESP32 + I_DHT22 + I_LED + I_charge (ne pas oublier R_charge !)
+    3. I_ESP32 + I_DHT22 + $I_{\mathrm{LED}}$ + $I_{\mathrm{charge}}$ (ne pas oublier $R_{\mathrm{charge}}$ !)  
+    $$4. \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$  
+    5. $I_{\mathrm{moy}}$ / η · Capacité(mAh) / $I_{\mathrm{batterie}}$ × 0,80
 
-$$4. \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
-
-5. I_moy / η · Capacité(mAh) / I_batterie × 0,80  
-
-Mon score : ___/5  ☐ Tous → continuer · ☐ Revoir → S3-3A_06 + S15-3A_06  
+Mon score : \_\_\_/5  ☐ Tous → continuer · ☐ Revoir → S3-3A_06 + S15-3A_06  
 
 ---
 
@@ -82,8 +84,12 @@ Conformité : _______ + _______ ≤ _______
 Rs série    : Rs = _______________________
 Rs parallèle: Rs = _______________________
 
-Réponses :
-e̅=Σei/n · σ=√(Σei²/(n-1)) · u=σ/√n · U=2u · 95%
+```
+
+??? success "Réponses"
+    e̅=Σei/n · σ=√(Σei²/(n-1)) · u=σ/√n · U=2u · 95%
+
+```
 |e̅|+U ≤ spécif · 36,8% · R1×R2×R3 · 1−(1−R1)(1−R2)
 
 Mon score : ___/8  ☐ Tous → excellent · ☐ Revoir → S11-2A_06 + S8-3A_06
@@ -103,7 +109,12 @@ Question flash : sans réfléchir, répondre en 5 secondes chacune.
 5. Commande KiCad pour remplir les zones (plan de masse)?     _______
 6. Émissions conduites : fréquences < _______ MHz
 
-Réponses : 1-6,25mm · 2-159Hz · 3-problème · 4-2mm · 5-B · 6-30MHz
+```
+
+??? success "Réponses"
+    1-6,25mm · 2-159Hz · 3-problème · 4-2mm · 5-B · 6-30MHz
+
+```
 
 Mon score : ___/6  ☐ Tous → continuer · ☐ Revoir → S13-2A_06
 ```

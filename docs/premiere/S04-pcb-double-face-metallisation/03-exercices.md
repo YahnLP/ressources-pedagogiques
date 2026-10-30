@@ -3,8 +3,8 @@
 
 ---
 
-> **Nom** : ___________________________
-> **Date** : ___________________________
+> **Nom** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Date** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 > **Format** : Exercices complémentaires au TP · Fiche de cours autorisée
 
 ---
@@ -26,22 +26,22 @@ Rapport cyclique: D = Th / T = (R1 + R2) / (R1 + 2×R2)
 
 **Q1.1** — Calcule la fréquence avec R1=10kΩ, R2=47kΩ, C1=100µF :
 
-$$T = 0{,}693 \times (10\,000 + 2 \times 47\,000) \times 100 \times 10⁻⁶$$
+$$T = 0{,}693 \times (10\,000 + 2 \times 47\,000) \times 100 \times 10^{-6}$$
 
 $$T = 0{,}693 \times \underline{\hspace{2.5em}} \times 0{,}0001$$
 
 $$T = \underline{\hspace{2.5em}} s$$
 
-$$f = \dfrac{1}{T} = \underline{\hspace{2.5em}} Hz$$
+$$f = \dfrac{1}{T} = \underline{\hspace{2.5em}} \mathrm{Hz}$$
 
-La LED clignote à __________ fois par seconde.  
+La LED clignote à \_\_\_\_\_\_\_\_\_\_ fois par seconde.  
 
 **Q1.2** — Si on remplace C1 par 10µF (valeur ×10 plus petite), que devient la fréquence ?
 
 $$
 \begin{aligned}
 T_{\mathrm{nouveau}} &= \dfrac{T_{\mathrm{ancien}}}{10} = \underline{\hspace{2.5em}} s \\
-f_{\mathrm{nouvelle}} &= \underline{\hspace{2.5em}} Hz
+f_{\mathrm{nouvelle}} &= \underline{\hspace{2.5em}} \mathrm{Hz}
 \end{aligned}
 $$
 
@@ -49,8 +49,8 @@ $$
 
 $$D = \dfrac{10 + 47}{10 + 2 \times 47} = \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
-Interprétation : le signal est HIGH pendant ______% du temps et LOW pendant ______%  
-La LED est allumée pendant ______% de la période → elle semble ☐ plus ☐ moins lumineuse que 50%  
+Interprétation : le signal est HIGH pendant \_\_\_\_\_\_% du temps et LOW pendant \_\_\_\_\_\_%  
+La LED est allumée pendant \_\_\_\_\_\_% de la période → elle semble ☐ plus ☐ moins lumineuse que 50%  
 
 ---
 

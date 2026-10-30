@@ -3,8 +3,8 @@
 
 ---
 
-> **Nom** : ___________________________
-> **Date** : ___________________________
+> **Nom** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Date** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 > **Compétences** : S2.1 · S2.2 · S2.3 · C2.1
 
 ---
@@ -51,7 +51,7 @@ Un bilan mal fait → régulateur sous-dimensionné → surchauffe → panne
 
 Remplir pour chaque composant :
 
-| Composant | Vcc (V) | I_pic (mA) | I_moy (mA) | P_moy (mW) | Mode |
+| Composant | Vcc (V) | $I_{\mathrm{pic}}$ (mA) | $I_{\mathrm{moy}}$ (mA) | $P_{\mathrm{moy}}$ (mW) | Mode |
 |---|---|---|---|---|---|
 | ESP32 WiFi TX | 3,3 | 250 | 80 | 264 | Actif WiFi |
 | DHT22 | 3,3 | 2 | 1 | 3 | Actif |
@@ -238,12 +238,12 @@ Autonomie brute :
 t (heures) = Capacité batterie (mAh) / Courant moyen système (mA)  
 
 Autonomie réelle (facteur de dégradation) :  
-t_réelle = t_brute × 0,80   (80% de la capacité est utilisable en pratique)  
+t_réelle = $t_{\mathrm{brute}}$ × 0,80   (80% de la capacité est utilisable en pratique)  
 → Raisons : décharge non linéaire · vieillissement · température  
 
 Courant moyen si le système a plusieurs modes :  
 
-$$I_{\mathrm{moy}} = \dfrac{I_mode1 \times t1 + I_mode2 \times t2 + ...}{t1 + t2 + ...}$$
+$$I_{\mathrm{moy}} = \dfrac{I_mode1 \times t1 + I_{\mathrm{mode2}} \times t2 + ...}{t1 + t2 + ...}$$
 
 ### Exemple : ESP32 en mode intermittent
 
@@ -280,13 +280,13 @@ Protection optionnelle :
 
 ## 📌 Les essentiels à retenir
 
-> ✅ **Bilan de puissance** = tableau Composant / Vcc / I_pic / I_moy / P_moy — AVANT de choisir l'alimentation
+> ✅ **Bilan de puissance** = tableau Composant / Vcc / $I_{\mathrm{pic}}$ / $I_{\mathrm{moy}}$ / $P_{\mathrm{moy}}$ — AVANT de choisir l'alimentation
 > ✅ **Régulateur linéaire** : Pdiss = **(Vin − Vout) × Iout** — simple mais peu efficace
 > ✅ **Régulateur à découpage** : η = 80-95% — obligatoire sur batterie si Vin-Vout ≥ 2V et Iout ≥ 200mA
 > ✅ **Calcul thermique** : **Tj = Tamb + Pdiss × Rθja** (sans radiateur)
 > ✅ **Radiateur nécessaire** si Tj calculé > Tj_max − 20°C (≥ 105°C en général)
 > ✅ **Avec radiateur** : Tj = Tamb + Pdiss × (Rθjc + Rθcs + Rθsa)
-> ✅ **Autonomie** = Capacité (mAh) / I_moy (mA) × 0,80 (facteur pratique)
+> ✅ **Autonomie** = Capacité (mAh) / $I_{\mathrm{moy}}$ (mA) × 0,80 (facteur pratique)
 > ✅ **Deep sleep** ESP32 = 10-150 µA → multiplier l'autonomie par ×10 à ×100 !
 > ✅ **LDO** = linéaire à faible chute · bon pour Li-ion · bon si signal analogique sensible à côté
 > ✅ **Buck** = découpage abaisseur · excellent rendement · génère du bruit HF

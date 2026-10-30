@@ -44,9 +44,9 @@ MTBFs = 1 / λs
 
 ![Système parallèle : il suffit qu'un composant fonctionne](images/rbd-parallele.png)
 
-$$R_s = 1 - (1 - R_1)(1 - R_2)(1 - R_3)$$
+$$R_{s} = 1 - (1 - R_{1})(1 - R_{2})(1 - R_{3})$$
 
-$R_s > R_{max}$ : le système est plus fiable que le plus fiable de ses composants.
+$R_{s} > R_{max}$ : le système est plus fiable que le plus fiable de ses composants.
 
 ---
 
@@ -61,13 +61,13 @@ MÉTHODE :
 
 ---
 
-## 📊 Valeurs e^(−x) utiles
+## 📊 Valeurs $e^{-x}$ utiles
 
-$$e⁻⁰ \cdot ¹ = 0{,}905 e⁻⁰ \cdot ^2 = 0{,}819 e⁻⁰ \cdot ^3 = 0{,}741$$
+$$e^{-0{,}1} = 0{,}905 \quad e^{-0{,}2} = 0{,}819 \quad e^{-0{,}3} = 0{,}741$$
 
-$$e⁻⁰ \cdot ⁴ = 0{,}670 e⁻⁰ \cdot ⁵ = 0{,}607 e⁻¹ = 0{,}368$$
+$$e^{-0{,}4} = 0{,}670 \quad e^{-0{,}5} = 0{,}607 \quad e^{-1} = 0{,}368$$
 
-e⁻¹·⁵ = 0,223   e⁻²   = 0,135   e⁻³   = 0,050  
+$e^{-1{,}5}$ = 0,223   $e^{-2}$   = 0,135   $e^{-3}$   = 0,050  
 
 ---
 

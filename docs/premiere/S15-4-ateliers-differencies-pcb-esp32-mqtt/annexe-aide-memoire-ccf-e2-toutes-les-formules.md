@@ -88,18 +88,18 @@ from(bucket:"nom") |> range(start:-1h)
 λ = 1/MTBF         MTBF = TO/n      MTTR = TA/n  
 D = MTBF/(MTBF+MTTR)  
 
-$$R(t) = e^(-λt) F(t) = 1-R(t)$$
+$$R(t) = e^{-\lambda t} F(t) = 1-R(t)$$
 
-À t=MTBF : R = e⁻¹ ≈ 0,368 (36,8%)  
+À t=MTBF : R = $e^{-1}$ ≈ 0,368 (36,8%)  
 
 Série    : Rs = R1×R2×R3   λs = λ1+λ2+λ3  
 Parallèle: Rs = 1−(1−R1)(1−R2)  
 
 Valeurs e :  
 
-$$e⁻⁰ \cdot ¹=0{,}905 e⁻⁰ \cdot ^2=0{,}819 e⁻⁰ \cdot ^3=0{,}741$$
+$$e^{-0{,}1}=0{,}905 e^{-0{,}2}=0{,}819 e^{-0{,}3}=0{,}741$$
 
-e⁻⁰·⁵=0,607  e⁻¹=0,368    e⁻²=0,135  
+$e^{-0{,}5}$=0,607  $e^{-1}$=0,368    $e^{-2}$=0,135  
 
 1 an = 8760 h · 1 mois = 730 h  
 

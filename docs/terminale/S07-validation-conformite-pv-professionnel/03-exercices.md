@@ -24,12 +24,12 @@
 
 ### SECTION 1 — IDENTIFICATION ET GESTION
 
-Titre           : _____________________________________________
-Référence DAT   : DAT-ELEC-NE555-___
+Titre           : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Référence DAT   : DAT-ELEC-NE555-\_\_\_
 Version         : 1.0
-Date            : 2026-___-___
+Date            : 2026-\_\_\_-\_\_\_
 Statut          : ☐ Brouillon  ☐ Pour validation  ☐ Validé
-Auteur(s)       : _____________________________________________
+Auteur(s)       : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 Client          : ELECTROPRO SAS
 
 Historique des révisions :
@@ -40,8 +40,8 @@ Historique des révisions :
 
 **Q1.1 *(1 pt)*** — Quel est l'objet et le périmètre de ce DAT en 2 phrases ?
 
-_________________________________________________________________________
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
@@ -61,7 +61,7 @@ Dessinez les 3 blocs principaux et leurs liaisons :
 
 **Q2.1 *(1 pt)*** — Décrivez la fonction générale de la carte en 1 phrase :
 
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Q2.2 *(1 pt)*** — Listez les signaux et connecteurs d'interface :
 
@@ -92,7 +92,7 @@ CALCUL OSCILLATEUR NE555 :
 
 **Q3.2 *(1 pt)*** — Quel document de référence cite-t-on dans la section 3 pour justifier les calculs du NE555 ?
 
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
@@ -151,9 +151,9 @@ Coût total estimé     : _____ € HT
 | | | |
 | .drl | Drill | |
 
-**Q6.2 *(1 pt)*** — La norme appliquée pour l'assemblage est IPC-A-610 Classe ___. Justifiez ce choix.
+**Q6.2 *(1 pt)*** — La norme appliquée pour l'assemblage est IPC-A-610 Classe \_\_\_. Justifiez ce choix.
 
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
@@ -172,11 +172,11 @@ _________________________________________________________________________
 
 ### TC-01 — Vout 7805 : calcul d'incertitude complet
 
-**B1.1 *(2 pts)*** — Calculez la moyenne et u_A :
+**B1.1 *(2 pts)*** — Calculez la moyenne et $u_{A}$ :
 
 $$\bar{V}_{out} = \frac{4,987 + 4,984 + 4,990 + 4,988 + 4,985}{5} = \frac{\_\_\_\_}{5} = \_\_\_\_ \text{ V}$$
 
-| $V_i$ | $V_i - \bar{V}$ | $(V_i - \bar{V})^2$ |
+| $V_{i}$ | $V_{i} - \bar{V}$ | $(V_{i} - \bar{V})^2$ |
 |---|---|---|
 | 4,987 | | |
 | 4,984 | | |
@@ -185,9 +185,9 @@ $$\bar{V}_{out} = \frac{4,987 + 4,984 + 4,990 + 4,988 + 4,985}{5} = \frac{\_\_\_
 | 4,985 | | |
 | Somme | — | |
 
-$$s = \sqrt{\frac{\sum(V_i-\bar{V})^2}{4}} = \_\_\_\_ \text{ V} \qquad u_A = \frac{s}{\sqrt{5}} = \_\_\_\_ \text{ V}$$
+$$s = \sqrt{\frac{\sum(V_{i}-\bar{V})^2}{4}} = \_\_\_\_ \text{ V} \qquad u_{A} = \frac{s}{\sqrt{5}} = \_\_\_\_ \text{ V}$$
 
-**B1.2 *(1 pt)*** — Calculez u_B (résolution et classe Fluke 87V) :
+**B1.2 *(1 pt)*** — Calculez $u_{B}$ (résolution et classe Fluke 87V) :
 
 $$u_{B,rés} = \frac{0,001}{2\sqrt{3}} = \_\_\_\_ \text{ V}$$
 
@@ -195,9 +195,9 @@ $$u_{B,cl} = \frac{0,5 \times \bar{V}}{100\sqrt{3}} = \_\_\_\_ \text{ V}$$
 
 **B1.3 *(1 pt)*** — Incertitude combinée et élargie :
 
-$$u_c = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,cl}^2} = \_\_\_\_ \text{ V}$$
+$$u_{c} = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,cl}^2} = \_\_\_\_ \text{ V}$$
 
-$$U = 2 \times u_c = \_\_\_\_ \text{ V} \rightarrow U_{arrondi} = \_\_\_\_ \text{ V}$$
+$$U = 2 \times u_{c} = \_\_\_\_ \text{ V} \rightarrow U_{arrondi} = \_\_\_\_ \text{ V}$$
 
 $$\boxed{V_{out} = (\_\_\_\_ \pm \_\_\_\_) \text{ V [95\%]}}$$
 
@@ -213,7 +213,7 @@ Conforme ? ☐ Oui  ☐ Non  → Conclusion : _______________
 
 ### TC-02 — Fréquence NE555 (à compléter par l'apprenti)
 
-**B2 *(3 pts)*** — Calculez la moyenne, u_A, u_B, u_c, U et concluez sur la conformité à 1 Hz ±10% [0,9 ; 1,1] Hz :
+**B2 *(3 pts)*** — Calculez la moyenne, $u_{A}$, $u_{B}$, $u_{c}$, U et concluez sur la conformité à 1 Hz ±10% [0,9 ; 1,1] Hz :
 
 ```
 (Calculs à développer)
@@ -226,10 +226,10 @@ Conforme à [0,9 ; 1,1] Hz ? ☐ Oui  ☐ Non
 
 ### TC-03 — Courant LED (mesure unique)
 
-**B3 *(2 pts)*** — Sans répétition, calculez u_B uniquement. Spécification : If ≤ 25 mA.
+**B3 *(2 pts)*** — Sans répétition, calculez $u_{B}$ uniquement. Spécification : If ≤ 25 mA.
 
 Valeur  : 19,3 mA  |  Résolution : 0,1 mA  |  Classe Fluke : 0,5%  
-u_B,rés = _____  |  u_B,cl = _____  |  u_c = _____  |  U = _____  
+$u_{B,\mathrm{rés}}$ = \_\_\_\_\_  |  $u_{B,\mathrm{cl}}$ = \_\_\_\_\_  |  $u_{c}$ = \_\_\_\_\_  |  U = \_\_\_\_\_  
 
 $$I_{\mathrm{LED}} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) mA [95\,\mathrm{\%}]$$
 
@@ -243,15 +243,15 @@ Conforme (≤ 25 mA) ? ☐ Oui  ☐ Non
 
 | **TC#** | **Exigence** | **Résultat ± U** | **Conforme ?** |
 |---|---|---|---|
-| TC-01 | Vout = 5V ±3% = [4,85;5,15]V | | |
-| TC-02 | f = 1Hz ±10% = [0,9;1,1]Hz | | |
+| TC-01 | $V_{out} = 5\,\mathrm{V} \pm 3\,\mathrm{\%} = [4{,}85;5{,}15]V$ | | |
+| TC-02 | $f = 1\,\mathrm{\mathrm{Hz}} \pm 10\,\mathrm{\%} = [0{,}9;1{,}1]\mathrm{Hz}$ | | |
 | TC-03 | If ≤ 25 mA | | |
 | TC-04 | DC ≈ 50% (observation) | À calculer | |
 
 **B5 *(1 pt)*** — Rédigez la conclusion de conformité globale en 2 phrases :
 
-_________________________________________________________________________
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
@@ -279,7 +279,7 @@ Conclusion : ☐ Carte CONFORME  ☐ Carte NON CONFORME — action : ______
 
 **C2 *(1 pt)*** — Quelle est la différence entre "conforme (target)" et "acceptable" dans la terminologie IPC ?
 
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 

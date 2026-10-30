@@ -34,27 +34,27 @@
 
 ## ⚡ Bilan puissance — 6 étapes
 
-① I de chaque composant (inclure R_charge !)  
-② I_LDO = Σ courants  
-③ Pdiss = (Vin − Vout) × I_LDO = 1,7 × I_LDO  
+① I de chaque composant (inclure $R_{\mathrm{charge}}$ !)  
+② $I_{\mathrm{LDO}}$ = Σ courants  
+③ Pdiss = (Vin − Vout) × $I_{\mathrm{LDO}}$ = 1,7 × $I_{\mathrm{LDO}}$  
 ④ Tj = Tamb + Pdiss × 44 · Marge = 105 − Tj  
 
-$$⑤ η = \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
+$$⑤ \eta  = \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
 
 ⑥ Autonomie = Capacité/I_batterie × 0,80  
-I_batterie = I_moy / η (si buck-boost)  
+$I_{\mathrm{batterie}}$ = $I_{\mathrm{moy}}$ / η (si buck-boost)  
 
 ---
 
 ## 🔋 Autonomie — Ordre de calcul
 
-$$I_moy_ESP32 = \dfrac{I_{\mathrm{actif}} \times t1 + I_{\mathrm{sleep}} \times t2}{t1+t2}$$
+$$I_{\mathrm{moy\_ESP32}} = \dfrac{I_{\mathrm{actif}} \times t1 + I_{\mathrm{sleep}} \times t2}{t1+t2}$$
 
-$$I_moy_total = I_moy_ESP32 + I_DHT22 + I_{\mathrm{LED}} + I_{\mathrm{charge}}$$
+$$I_{\mathrm{moy\_total}} = I_{\mathrm{moy\_ESP32}} + I_{\mathrm{DHT22}} + I_{\mathrm{LED}} + I_{\mathrm{charge}}$$
 
-$$I_{\mathrm{batterie}} = I_moy_total / η_convertisseur$$
+$$I_{\mathrm{batterie}} = I_{\mathrm{moy\_total}} / \eta _convertisseur$$
 
-Autonomie   = Capacité(mAh) / I_batterie(mA) × 0,80  
+Autonomie   = Capacité(mAh) / $I_{\mathrm{batterie}}$(mA) × 0,80  
 
 ---
 
@@ -64,9 +64,9 @@ $$x̄ = Σ\dfrac{T°}{n}$$
 
 e̅ = Σei/n     (ei = T°i − T°_réf)  
 
-$$σ = \sqrt{Σ\dfrac{ei^2}{n-1}}$$
+$$\sigma  = \sqrt{Σ\dfrac{ei^2}{n-1}}$$
 
-u = σ/√n  
+u = σ/$\sqrt{n}$  
 
 $$U = 2u$$
 

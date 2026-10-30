@@ -7,26 +7,26 @@
 
 RÉPÉTABILITÉ (EV — même opérateur) :  
 
-$$σ_EV = \dfrac{σ_A + σ_B}{2}$$
+$$\sigma _EV = \dfrac{\sigma _A + \sigma _B}{2}$$
 
 → Bruit de l'instrument  
 
 REPRODUCTIBILITÉ (AV — entre opérateurs) :  
 AV_brut = |x̄_A − x̄_B|  
-σ_AV ≈ AV_brut / √n  
+$σ_{\mathrm{AV}}$ ≈ AV_brut / $\sqrt{n}$  
 
 GRR TOTAL :  
 
-$$σ_GRR = \sqrt{σ_EV^2 + σ_AV^2}$$
+$$\sigma _GRR = \sqrt{\sigma _EV^2 + \sigma _AV^2}$$
 
-%GRR = (5,15 × σ_GRR / Tolérance) × 100  
+%GRR = (5,15 × $σ_{\mathrm{GRR}}$ / Tolérance) × 100  
 
 LIMITE DE DÉTECTION :  
 
-$$LDD = 1{,}65 \times σ_bruit (95\,\mathrm{\%})$$
+$$LDD = 1{,}65 \times \sigma _bruit (95\,\mathrm{\%})$$
 
-LD  = 3,3 × σ_bruit    (pratique)  
-LD ≈ 3 × σ_bruit       (règle 3-sigma)  
+LD  = 3,3 × $σ_{\mathrm{bruit}}$    (pratique)  
+LD ≈ 3 × $σ_{\mathrm{bruit}}$       (règle 3-sigma)  
 
 ---
 
@@ -88,13 +88,13 @@ LD         = plus petite VARIATION détectable
 2. Même objet, même instrument, séparément  
 3. Calculer x̄ et σ de chaque opérateur  
 
-$$4. σ_EV = \dfrac{σ_A + σ_B}{2}$$
+$$4. \sigma _EV = \dfrac{\sigma _A + \sigma _B}{2}$$
 
-5. σ_AV ≈ |x̄_A − x̄_B| / √n  
+5. $σ_{\mathrm{AV}}$ ≈ |x̄_A − x̄_B| / $\sqrt{n}$  
 
-$$6. σ_GRR = \sqrt{EV^2 + AV^2}$$
+$$6. \sigma _GRR = \sqrt{EV^2 + AV^2}$$
 
-7. %GRR = 5,15 × σ_GRR / Tolérance × 100  
+7. %GRR = 5,15 × $σ_{\mathrm{GRR}}$ / Tolérance × 100  
 
 ---
 

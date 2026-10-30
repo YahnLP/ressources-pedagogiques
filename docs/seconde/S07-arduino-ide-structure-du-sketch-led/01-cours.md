@@ -167,14 +167,14 @@ TABLE DE CORRESPONDANCE delay() :
 
 ### 4.1 Calcul de la résistance de protection
 
-L'Arduino Uno fournit **5 V** sur ses broches numériques. La LED externe (V_F = 2V, I_F nominal = 20 mA) nécessite une résistance de limitation comme en S2 :
+L'Arduino Uno fournit **5 V** sur ses broches numériques. La LED externe ($V_{F}$ = 2V, $I_{F}$ nominal = 20 mA) nécessite une résistance de limitation comme en S2 :
 
 $$R = \dfrac{V_{\mathrm{alim}} - V_{\mathrm{F}}}{I_{\mathrm{F}}}$$
 
 $$R = \dfrac{5 - 2{,}0}{0{,}020} = \dfrac{3}{0{,}020} = 150\,\mathrm{\Omega }$$
 
 → Valeur E24 : 150 Ω (valeur exacte dans la série)  
-ou 220 Ω (si on veut une LED moins brillante — I_F = 13,6 mA)  
+ou 220 Ω (si on veut une LED moins brillante — $I_{F}$ = 13,6 mA)  
 
 > 📌 Sur l'Arduino, on utilise souvent **220 Ω** par convention car c'est la valeur E24 la plus proche couramment disponible dans les kits, et elle offre une bonne marge de sécurité pour la broche.
 
@@ -310,7 +310,7 @@ void loop() {
 |---|---|
 | `const int RAPIDE = 100` | Variable constante — centralise la valeur, facile à modifier |
 | `int numeroCycle = 0` | Variable entière — compte le nombre de cycles |
-| `for (int i = 0; i < 3; i++)` | Boucle `for` — répète le bloc 3 fois |
+| $`for (int i = 0; i < 3; i++)`$ | Boucle `for` — répète le bloc 3 fois |
 | `Serial.print("Cycle n° ")` | Affiche le texte sans saut de ligne |
 | `Serial.println(numeroCycle)` | Affiche la valeur de la variable puis retour à la ligne |
 
@@ -354,7 +354,7 @@ void loop() {
 | Éteindre la LED D13 | `digitalWrite(13, LOW);` |
 | Attendre 1 seconde | `delay(1000);` |
 | Envoyer un message | `Serial.println("message");` (après `Serial.begin(9600)` dans setup) |
-| Calculer R pour LED externe | R = (5 − V_F) / I_F → 220 Ω pour LED standard |
+| Calculer R pour LED externe | R = (5 − $V_{F}$) / $I_{F}$ → 220 Ω pour LED standard |
 | Protéger la broche | **Toujours une résistance** entre la broche Arduino et la LED |
 
 ---

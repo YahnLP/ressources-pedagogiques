@@ -184,7 +184,7 @@ Règles de câblage dans un boîtier :
 | **Composant** | **Tmax absolue** | **Tmax recommandée** | **Puissance dissipée** |
 |---|---|---|---|
 | ESP32 (chip) | 125°C | 85°C | ~0,5W en fonctionnement normal |
-| Régulateur 5V AMS1117 | 150°C | 85°C | P = (Vin-Vout) × I = (9V-5V) × 0,5A = 2W |
+| Régulateur 5V AMS1117 | 150°C | 85°C | $P = (V_{in}-V_{out}) \times I = (9\,\mathrm{V}-5\,\mathrm{V}) \times 0{,}5\,\mathrm{A} = 2\,\mathrm{W}$ |
 | DHT22 | 60°C | 40°C | Négligeable |
 | Batterie LiPo | 60°C | 45°C | Génère de la chaleur en charge |
 
@@ -194,7 +194,7 @@ Règles de câblage dans un boîtier :
 
 $$\Delta T \approx \frac{P_{totale}}{k \cdot S}$$
 
-> Où P = puissance dissipée en W, S = surface du boîtier en m², k ≈ 5 W/m²·K (convection naturelle).
+> Où P = puissance dissipée en W, S = surface du boîtier en $m^{2}$, k ≈ 5 W/$m^{2}$·K (convection naturelle).
 
 > **Règle pratique :** Pour 2W dissipés dans un boîtier 100cm² → ΔT ≈ 40°C → si Ta = 25°C → Tint ≈ 65°C. Le régulateur AMS1117 risque de déclencher sa protection thermique !
 
@@ -233,11 +233,11 @@ $$\Delta T \approx \frac{P_{totale}}{k \cdot S}$$
 > 2. Chronomètre : démarrer à l'allumage  
 > 3. Observer le moniteur série ou le broker MQTT  
 > Mesures :  
-> - Délai avant premier message MQTT publié : _____ s  
-> - Contenu du message : _____  
+> - Délai avant premier message MQTT publié : \_\_\_\_\_ s  
+> - Contenu du message : \_\_\_\_\_  
 > Critère d'acceptance : Délai ≤ 10 secondes ET message JSON valide  
 > Résultat : PASS ☐    FAIL ☐  
-> Commentaires : _________________________________________  
+> Commentaires : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 
 ### Familles de tests pour un projet IoT embarqué
 

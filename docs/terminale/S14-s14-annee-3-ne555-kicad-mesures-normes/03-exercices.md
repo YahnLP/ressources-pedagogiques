@@ -19,9 +19,9 @@
 
 $$\bar{x} = \frac{\_\_\_\_+\_\_\_\_+\_\_\_\_+\_\_\_\_+\_\_\_\_}{5} = \frac{\_\_\_\_\_}{5} = \_\_\_\_ \text{ Ω}$$
 
-**A1.2 *(3 pts)*** — Calculez l'écart-type $s$ et l'incertitude type A $u_A$ :
+**A1.2 *(3 pts)*** — Calculez l'écart-type $s$ et l'incertitude type A $u_{A}$ :
 
-| $x_i$ | $x_i - \bar{x}$ | $(x_i - \bar{x})^2$ |
+| $x_{i}$ | $x_{i} - \bar{x}$ | $(x_{i} - \bar{x})^2$ |
 |---|---|---|
 | 4 680 | | |
 | 4 710 | | |
@@ -30,7 +30,7 @@ $$\bar{x} = \frac{\_\_\_\_+\_\_\_\_+\_\_\_\_+\_\_\_\_+\_\_\_\_}{5} = \frac{\_\_\
 | 4 690 | | |
 | **Σ** | | |
 
-$$s = \sqrt{\frac{\sum(x_i-\bar{x})^2}{n-1}} = \text{\_\_\_\_ Ω} \qquad u_A = \frac{s}{\sqrt{5}} = \text{\_\_\_\_ Ω}$$
+$$s = \sqrt{\frac{\sum(x_{i}-\bar{x})^2}{n-1}} = \text{\_\_\_\_ Ω} \qquad u_{A} = \frac{s}{\sqrt{5}} = \text{\_\_\_\_ Ω}$$
 
 **A1.3 *(3 pts)*** — Calculez les incertitudes type B :
 
@@ -40,9 +40,9 @@ $$u_{B,cl} = \frac{1,0 \times \bar{x}}{100\sqrt{3}} = \frac{1,0 \times \text{\_\
 
 **A1.4 *(3 pts)*** — Incertitude combinée et élargie :
 
-$$u_c = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,cl}^2} = \text{\_\_\_\_ Ω}$$
+$$u_{c} = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,cl}^2} = \text{\_\_\_\_ Ω}$$
 
-$$U = 2 \times u_c = \text{\_\_\_\_ Ω} \quad \rightarrow \quad U_{arrondi} = \text{\_\_\_\_ Ω}$$
+$$U = 2 \times u_{c} = \text{\_\_\_\_ Ω} \quad \rightarrow \quad U_{arrondi} = \text{\_\_\_\_ Ω}$$
 
 $$\boxed{R = (\text{\_\_\_\_ ± \_\_\_\_}) \text{ Ω} \quad [95\%]}$$
 
@@ -59,22 +59,22 @@ Conclusion : ☐ Conforme   ☐ Non conforme   ☐ Sous réserve
 
 **A2.1 *(2 pts)*** — `[PIÈGE CLASSIQUE]` Un technicien calcule $u_{B,cl}$ avec la pleine échelle de son multimètre (10 kΩ) au lieu de la valeur mesurée (4 700 Ω). Quelle erreur cela produit-il sur l'incertitude finale ? Est-elle sur- ou sous-estimée ?
 
-_________________________________________________________________________
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **A2.2 *(2 pts)*** — Un PV de mesure indique : `R = 4 700 Ω — conforme`. Citez **3 éléments manquants** qui le rendent non professionnel :
 
-1. _______________  2. _______________  3. _______________
+1. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  2. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  3. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **A2.3 *(2 pts)*** — Expliquez pourquoi le certificat d'étalonnage d'un instrument a une date de validité (durée limitée). Que se passe-t-il si on utilise un instrument dont le certificat est périmé depuis 3 mois ?
 
-_________________________________________________________________________
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **A2.4 *(2 pts)*** — La chaîne de traçabilité métrologique doit être "ininterrompue". Que signifie ce terme et quelle est son importance dans un contexte industriel/légal ?
 
-_________________________________________________________________________
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
@@ -125,7 +125,7 @@ void gererAlarme(float moy) {
 
 **B1.1 *(2 pts)*** — Si les mesures sont prises toutes les 5 secondes, après combien de temps la moyenne mobile sera-t-elle calculée sur N valeurs complètes ? Que renvoie `moyenneMobile()` avant ce délai ?
 
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **B1.2 *(2 pts)*** — Tracez l'état de l'alarme (OK ou CRITIQUE) pour la séquence de moyennes mobiles suivante. Supposez que l'anti-rebond est 0s pour simplifier (répondre uniquement avec la logique SH/SB) :
 
@@ -137,13 +137,13 @@ Etat : _____ / _____ / _____ / _____ / _____ / _____ / _____
 
 **B1.3 *(2 pts)*** — Dans le code, l'anti-rebond de 15 secondes est implémenté avec `millis()`. Expliquez pourquoi `delay(15000)` serait une mauvaise alternative dans un firmware de supervision.
 
-_________________________________________________________________________
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **B1.4 *(2 pts)*** — La variable `debord` est déclarée `static` dans la fonction. Qu'est-ce que `static` signifie ici et pourquoi est-ce indispensable pour l'anti-rebond ?
 
-_________________________________________________________________________
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **B1.5 *(2 pts)*** — Modifiez le seuil haut à SH = 40°C et la bande d'hystérésis à 3°C (SB = SH − 3). Réécrivez les deux lignes const :
 
@@ -164,11 +164,11 @@ const float SB = _____ ;
 
 **B2.1 *(2 pts)*** — Calculez la tendance en °C/heure :
 
-Tendance = (T_finale - T_initiale) / durée_en_heures  
+Tendance = ($T_{\mathrm{finale}}$ - $T_{\mathrm{initiale}}$) / durée_en_heures  
 
 $$= \dfrac{\underline{\hspace{2.5em}} - \underline{\hspace{2.5em}}}{40/60}$$
 
-= _____ °C/heure  
+= \_\_\_\_\_ °C/heure  
 
 **B2.2 *(2 pts)*** — Avec cette tendance, estimez l'heure à laquelle la température dépassera le seuil CRITIQUE de 38°C :
 
@@ -180,13 +180,13 @@ Heure estimée = 08h40 + _____ min = _____
 
 **B2.3 *(2 pts)*** — Quelle est la valeur ajoutée d'une **alarme prédictive** basée sur la tendance par rapport à une alarme simple sur seuil ?
 
-_________________________________________________________________________
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **B2.4 *(2 pts)*** — Le taux d'alarme sur la dernière heure est 15% (9 mesures sur 60 en état CRITIQUE). Formulez une phrase de rapport de maintenance à partir de ce KPI :
 
-_________________________________________________________________________
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **B2.5 *(2 pts)*** — Rédigez la ligne JSON complète que l'ESP32 publierait sur MQTT avec toutes les informations calculées (valeur brute, moyenne mobile, tendance, alarme) :
 
@@ -253,9 +253,9 @@ Nombre d'erreurs ERC restantes : _____
 Liste : _________________________________________________
 ```
 
-**C1.3 *(2 pts)*** — La fréquence de coupure du filtre RC est $f_c = \frac{1}{2\pi R_1 C_1}$. Calculez $f_c$ :
+**C1.3 *(2 pts)*** — La fréquence de coupure du filtre RC est $f_{c} = \frac{1}{2\pi R_{1} C_{1}}$. Calculez $f_{c}$ :
 
-$$f_c = \frac{1}{2\pi \times 10000 \times 100\times10^{-9}} = \frac{1}{2\pi \times \_\_\_\_} = \_\_\_\_ \text{ Hz}$$
+$$f_{c} = \frac{1}{2\pi \times 10000 \times 100\times10^{-9}} = \frac{1}{2\pi \times \_\_\_\_} = \_\_\_\_ \text{ Hz}$$
 
 **C1.4 *(2 pts)*** — Quel est le courant qui circule dans LED1 si la tension à "noeud_RC" est 4,8V (après filtrage) avec Vled = 2V ?
 
@@ -297,20 +297,20 @@ If = (Vnoeud_RC - Vled) / R2 = (_____ - _____) / _____ = _____ mA
 
 **C2.2.1 *(1 pt)*** — Combien de nœuds électriques distincts cette netlist décrit-elle ?
 
-_________
+\_\_\_\_\_\_\_\_\_
 
 **C2.2.2 *(1 pt)*** — La cathode de LED1 (pin K) est connectée à GND. Est-ce correct pour une LED alimentée par pin 3 → R2 → Anode → Cathode → GND ?
 
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **C2.2.3 *(1 pt)*** — Le nœud `noeud_RC` regroupe 3 pins. Identifiez le problème si R2 pin2 n'est **pas** dans ce net mais que l'anode de LED1 y est rattachée.
 
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **C2.3 *(3 pts)*** — Après routage, le DRC signale `Unrouted net : noeud_RC (1 ratsnest)`. Expliquez ce que cela signifie et comment le corriger.
 
-_________________________________________________________________________
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
@@ -347,11 +347,11 @@ _________________________________________________________________________
 
 **D2.1 *(2 pts)*** — Quelle norme s'applique pour vérifier que les clearances de votre PCB KiCad (0,25 mm) sont conformes pour un produit industriel ?
 
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **D2.2 *(2 pts)*** — Une carte IoT pour serre agricole doit résister à 40°C / 85% d'humidité pendant 96 heures. Quelle norme définit cette condition de test ?
 
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
@@ -415,8 +415,8 @@ Câblage : entre _____ et _____
 
 **E1.3 *(3 pts)*** — Citez les 5 points de la checklist obligatoire avant de lancer l'impression 3D du boîtier :
 
-1. _______________  2. _______________  3. _______________
-4. _______________  5. _______________
+1. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  2. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  3. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  5. \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
@@ -424,7 +424,7 @@ Câblage : entre _____ et _____
 
 > La tension Vout est mesurée avec un Fluke 87V (classe 0,5%, résolution 0,001V). Trois mesures : 4,998V / 5,002V / 4,997V.
 
-**E2.1 *(4 pts)*** — Calculez $\bar{V}$, $u_A$, $u_{B,cl}$, $u_c$, $U$ et exprimez le résultat :
+**E2.1 *(4 pts)*** — Calculez $\bar{V}$, $u_{A}$, $u_{B,cl}$, $u_{c}$, $U$ et exprimez le résultat :
 
 (Montrez tous les calculs)  
 
@@ -439,7 +439,7 @@ $$V_{out} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\
 
 **E2.3 *(2 pts)*** — Lors de l'inspection, le remplissage des PTH du connecteur J1 est évalué à 72%. Quelle classification IPC-A-610 Classe 2 ? Quelle action ?
 
-_________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 
@@ -449,8 +449,8 @@ _________________________________________________________________________
 
 | TC# | Exigence | Résultat ± U | Conf. |
 |---|---|---|---|
-| TC-01 | Vout = 5V ±5% = [4,75;5,25]V |  |  |
-| TC-02 | f = 1Hz ±10% = [0,90;1,10]Hz |  |  |
+| TC-01 | $V_{out} = 5\,\mathrm{V} \pm 5\,\mathrm{\%} = [4{,}75;5{,}25]V$ |  |  |
+| TC-02 | $f = 1\,\mathrm{\mathrm{Hz}} \pm 10\,\mathrm{\%} = [0{,}90;1{,}10]\mathrm{Hz}$ |  |  |
 | TC-03 | Assemblage IPC-A-610 Cl.2 |  |  |
 
 **E3.2 *(2 pts)*** — TC-03 est NON CONFORME (remplissage J1 = 72%). Rédigez la conclusion globale du PV :

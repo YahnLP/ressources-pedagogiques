@@ -5,9 +5,9 @@
 
 ## ⚡ Bilan de puissance
 
-Tableau : Composant | Vcc | I_pic | I_moy | P_moy  
+Tableau : Composant | Vcc | $I_{\mathrm{pic}}$ | $I_{\mathrm{moy}}$ | $P_{\mathrm{moy}}$  
 
-I_moy sur cycle :  
+$I_{\mathrm{moy}}$ sur cycle :  
 
 $$I_{\mathrm{moy}} = \dfrac{I_{1} \times t1 + I_{2} \times t2}{t1+t2}$$
 

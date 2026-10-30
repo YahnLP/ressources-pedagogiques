@@ -49,7 +49,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 - Mesurées en **ohms (Ω)**, leur valeur permet de déterminer la quantité de courant qui peut traverser un circuit.
 - Exemple : une résistance peut limiter le courant pour éviter de brûler une ampoule **LED** fragile.
 
-En pratique, on utilise très souvent la loi d’Ohm : **I = U / R**.  
+En pratique, on utilise très souvent la loi d’Ohm : $I = \dfrac{U}{R}$.  
 Donc, si **R** augmente, le courant **I** diminue.  
 C’est exactement ce qu’on veut quand on protège une LED.
 
@@ -269,7 +269,7 @@ Un diviseur de tension utilise **deux résistances en série** pour diviser une 
 On l’utilise beaucoup quand on veut obtenir une tension plus petite, ou quand un capteur change sa résistance (capteurs résistifs).
 
 Formule (niveau attendu standard) :  
-**U_sortie = U_entrée × R2 / (R1 + R2)** (si la sortie est prise sur **R2**).
+$U_{\mathrm{sortie}} = U_{\mathrm{entr}}ée \times \dfrac{R_{2}}{R_{1} + R_{2}}$ (si la sortie est prise sur **R2**).
 
 Application typique CIEL : capteur résistif (**LDR**, **NTC**) → variation de résistance → variation de tension mesurable.
 
@@ -284,7 +284,7 @@ Application typique CIEL : capteur résistif (**LDR**, **NTC**) → variation de
 |---|---|
 | 1 | Je repère **U_entrée** |
 | 2 | Je place **R1** puis **R2** en **série** |
-| 3 | Je prends **U_sortie** sur **R2** (comme sur le schéma) |
+| 3 | Je prends **$U_{\mathrm{sortie}}$** sur **R2** (comme sur le schéma) |
 | 4 | Je vérifie la formule : **R2 / (R1 + R2)** |
 
 ---

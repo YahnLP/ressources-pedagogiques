@@ -1,7 +1,7 @@
 # 🛠️ GUIDE TECHNIQUE — PROJET A2
 ## Industrie 4.0 : Architecture, Code ESP32, MTBF, Dashboard CloudWatch
 
-**Équipe : ________________  Sujet : ___**
+**Équipe : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  Sujet : \_\_\_**
 
 ---
 
@@ -16,11 +16,11 @@
 > [!NOTE] VOTRE ARCHITECTURE
 >
 > [Capteur 1]  
-> nom:_____  ─── I2C / GPIO ─── [ESP32]  ─── Wi-Fi ───► [AWS IoT]  
+> nom:\_\_\_\_\_  ─── I2C / GPIO ─── [ESP32]  ─── Wi-Fi ───► [AWS IoT]  
 > grandeur:__                     │                          │  
 >                             [LED]                    [IoT Rule]  
 > [Capteur 2]                  [Relay/actuateur]             │  
-> nom:_____  ─── GPIO ─────────                         [CloudWatch]  
+> nom:\_\_\_\_\_  ─── GPIO ─────────                         [CloudWatch]  
 > grandeur:__                                                │  
 >                                                      [SNS/SMS]  
 

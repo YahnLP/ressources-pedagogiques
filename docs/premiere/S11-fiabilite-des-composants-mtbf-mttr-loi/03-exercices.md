@@ -3,19 +3,19 @@
 
 ---
 
-> **Nom** : ___________________________
-> **Date** : ___________________________
+> **Nom** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Date** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 > **Durée** : 80 minutes · **Fiche de cours autorisée** · **Calculatrice obligatoire**
 
 ---
 
 ## 📌 Données utiles
 
-$$e⁻⁰ \cdot ¹ = 0{,}905 e⁻⁰ \cdot ^2 = 0{,}819 e⁻⁰ \cdot ^3 = 0{,}741$$
+$$e^{-0{,}1} = 0{,}905 \quad e^{-0{,}2} = 0{,}819 \quad e^{-0{,}3} = 0{,}741$$
 
-$$e⁻⁰ \cdot ⁴ = 0{,}670 e⁻⁰ \cdot ⁵ = 0{,}607 e⁻¹ = 0{,}368$$
+$$e^{-0{,}4} = 0{,}670 \quad e^{-0{,}5} = 0{,}607 \quad e^{-1} = 0{,}368$$
 
-e⁻¹·⁵ = 0,223    e⁻²   = 0,135    e⁻³   = 0,050  
+$e^{-1{,}5}$ = 0,223    $e^{-2}$   = 0,135    $e^{-3}$   = 0,050  
 
 1 an = 8 760 heures · 1 mois ≈ 730 heures · 1 semaine = 168 heures  
 
@@ -122,7 +122,7 @@ La solution la plus proche est : _____________________________________________
 
 ---
 
-## 🟡 BLOC 2 — Loi Exponentielle R(t) = e^(−λt) (30 min)
+## 🟡 BLOC 2 — Loi Exponentielle R(t) = $e^{-\lambda t}$ (30 min)
 
 ### Exercice 2.1 — Capteur DHT22
 
@@ -137,20 +137,20 @@ En notation scientifique : λ = _______ × 10⁻⁵ pannes/heure
 
 **Q2.1.b** — Calcule la fiabilité R(t) pour les durées suivantes :
 
-| Durée t | Calcul λt | R(t) = e^(−λt) | En % |
+| Durée t | Calcul λt | R(t) = $e^{-\lambda t}$ | En % |
 |---|---|---|---|
 | 1 an (8 760 h) | | | |
 | 2 ans (17 520 h) | | | |
 | 5 ans (43 800 h) | | | |
-| MTBF (50 000 h) | | e^(−1) = 0,368 | 36,8% |
+| MTBF (50 000 h) | | $e^{-1}$ = 0,368 | 36,8% |
 
 **Q2.1.c** — Interprète le résultat à t = 1 an :
 
 $$R(8760) = \underline{\hspace{2.5em}} %$$
 
 Signification : sur 1000 capteurs DHT22 mis en service simultanément,  
-après 1 an il en reste _______ encore fonctionnels.  
-Et _______ sont tombés en panne.  
+après 1 an il en reste \_\_\_\_\_\_\_ encore fonctionnels.  
+Et \_\_\_\_\_\_\_ sont tombés en panne.  
 
 **Q2.1.d** — Quelle durée t garantit que R(t) ≥ 90% ?
 
@@ -177,14 +177,14 @@ t ≤ −ln(0,90) / λ = 0,105 / (2×10⁻⁵) = _______ heures = _______ mois
 
 $$
 \begin{aligned}
-λA &= \dfrac{1}{10\,000} = \underline{\hspace{2.5em}} h⁻¹ \\
-λB &= \dfrac{1}{100\,000} = \underline{\hspace{2.5em}} h⁻¹
+\lambda A &= \dfrac{1}{10\,000} = \underline{\hspace{2.5em}} h^{-1} \\
+\lambda B &= \dfrac{1}{100\,000} = \underline{\hspace{2.5em}} h^{-1}
 \end{aligned}
 $$
 
 **Q2.2.b** — Complète le tableau de fiabilité et conclus :
 
-| Durée | R_A(t) | R_B(t) | Δ fiabilité |
+| Durée | $R_{A}$(t) | $R_{B}$(t) | Δ fiabilité |
 |---|---|---|---|
 | 1 000 h | | | |
 | 5 000 h | | | |
@@ -194,13 +194,13 @@ $$
 **Q2.2.c** — Pour une application qui doit fonctionner 2 ans sans maintenance,
 lequel des deux composants est indispensable ? Justifie avec les calculs :
 
-Durée : 2 ans = _______ h  
+Durée : 2 ans = \_\_\_\_\_\_\_ h  
 
-$$R_{\mathrm{A}}(17520) = e^(-0{,}0001 \times 17520) = e^(\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
+$$R_{\mathrm{A}}(17520) = e^{-0{,}0001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
 
-$$R_{\mathrm{B}}(17520) = e^(-0{,}00001 \times 17520) = e^(\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
+$$R_{\mathrm{B}}(17520) = e^{-0{,}00001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
 
-Conclusion : _________________________________________________________________  
+Conclusion : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 
 ---
 
@@ -239,7 +239,7 @@ $$
 
 $$Rs_sans_redondance = \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
-Gain de la redondance CPU : _______ % − _______ % = _______ points  
+Gain de la redondance CPU : \_\_\_\_\_\_\_ % − \_\_\_\_\_\_\_ % = \_\_\_\_\_\_\_ points  
 
 ---
 
@@ -265,7 +265,7 @@ $$
 
 $$
 \begin{aligned}
-Rs &= R_{\mathrm{capteurs}} \times R_ESP32 \times R_{\mathrm{WiFi}} \times R_{\mathrm{NodeRED}} \\
+Rs &= R_{\mathrm{capteurs}} \times R_{\mathrm{ESP32}} \times R_{\mathrm{WiFi}} \times R_{\mathrm{NodeRED}} \\
 &= \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \\
 &= \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %
 \end{aligned}
@@ -287,7 +287,7 @@ Calculer la nouvelle Rs avec votre amélioration : _______ %
 | Calcul MTBF, MTTR, D à partir d'un historique | ☐ | ☐ | ☐ |
 | Conversion heures ↔ années ↔ mois | ☐ | ☐ | ☐ |
 | Calcul λ = 1/MTBF | ☐ | ☐ | ☐ |
-| Calcul R(t) = e^(−λt) avec calculatrice | ☐ | ☐ | ☐ |
+| Calcul R(t) = $e^{-\lambda t}$ avec calculatrice | ☐ | ☐ | ☐ |
 | Fiabilité système série Rs = R1×R2×... | ☐ | ☐ | ☐ |
 | Fiabilité système parallèle Rs = 1−(1−R1)(1−R2) | ☐ | ☐ | ☐ |
 | Décomposer un système mixte série/parallèle | ☐ | ☐ | ☐ |

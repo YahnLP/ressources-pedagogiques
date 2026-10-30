@@ -13,17 +13,17 @@ def f_ex1():
 
 
 def f_cablage_lm35():
-    o = '<g filter="url(#sh)"><rect x="60" y="80" width="330" height="330" rx="16" fill="#1c6c9a"/></g>' + T(225, 125, "Arduino Uno", 22, 800, "#fff")
-    for y, t in ((200, "5V"), (280, "GND"), (360, "A0")): o += f'<rect x="372" y="{y-10}" width="30" height="20" fill="#c0c6cf"/>' + T(350, y + 6, t, 18, 800, "#fff", "end")
-    o += '<g filter="url(#sh)"><path d="M780,120 L780,170 Q780,120 850,120 Q920,120 920,170 L920,200 L780,200 Z" fill="#222"/></g>' + T(850, 168, "LM35", 20, 800, "#fff")
-    for x, n, t, c in ((800, "1", "VCC (+5 V)", RED), (850, "2", "OUT → A0", AMBER), (900, "3", "GND", "#222")):
-        pass
-    pins = [(800, "1", "VCC", RED, 200), (850, "2", "OUT", AMBER, 360), (900, "3", "GND", "#444", 280)]
-    for x, n, t, c, ya in pins:
-        o += f'<rect x="{x-4}" y="200" width="8" height="70" fill="#c0c6cf"/>' + T(x, 300, n, 15, 800, MUTED) + T(x, 322, t, 15, 800, INK)
-        o += f'<path d="M402,{ya} C560,{ya} 640,{270} {x},270" stroke="{c}" stroke-width="6" fill="none" stroke-linecap="round"/>'
-    o += T(850, 100, "face plate vers vous", 15, 700, MUTED) + chip(600, 440, "5V → broche 1 · A0 → broche 2 (OUT) · GND → broche 3", INK, w=760, size=16)
-    return figure(W, 480, o)
+    o = '<g filter="url(#sh)"><rect x="60" y="80" width="330" height="360" rx="16" fill="#1c6c9a"/></g>' + T(225, 125, "Arduino Uno", 22, 800, "#fff")
+    pins = [(220, "5V", RED), (300, "A0", AMBER), (380, "GND", "#222")]
+    for y, t_, c in pins: o += f'<rect x="372" y="{y-10}" width="30" height="20" fill="#c0c6cf"/>' + T(350, y + 6, t_, 18, 800, "#fff", "end")
+    o += '<g filter="url(#sh)"><path d="M770,130 L770,190 L930,190 L930,130 Q930,70 850,70 Q770,70 770,130 Z" fill="#222"/></g>' + T(850, 150, "LM35", 20, 800, "#fff")
+    legs = [(800, "1", "VCC", RED), (850, "2", "OUT", AMBER), (900, "3", "GND", "#222")]
+    for x, n, nm, c in legs: o += f'<rect x="{x-4}" y="190" width="8" height="80" fill="#c0c6cf"/>' + badge(x, 295 if n == "1" else 70 if False else 295, n, "#5d6b86", 11) if False else f'<rect x="{x-4}" y="190" width="8" height="80" fill="#c0c6cf"/>'
+    o += s_wire([(402, 220), (800, 220)], RED, 5) + s_wire([(402, 300), (850, 300), (850, 270)], AMBER, 5) + s_wire([(402, 380), (900, 380), (900, 270)], "#222", 5)
+    o += T(800, 175, "1", 15, 800, "#fff") + T(850, 175, "2", 15, 800, "#fff") + T(900, 175, "3", 15, 800, "#fff")
+    o += T(1000, 150, "1 : VCC (+5 V)", 16, 800, RED, "start") + T(1000, 180, "2 : OUT (vers A0)", 16, 800, "#c98400", "start") + T(1000, 210, "3 : GND", 16, 800, INK, "start") + T(850, 50, "face plate vers vous", 14, 700, MUTED)
+    o += chip(600, 490, "5V → broche 1 · A0 → broche 2 (OUT) · GND → broche 3", INK, w=760, size=16)
+    return figure(W, 530, o)
 
 
 def f_l293d():
