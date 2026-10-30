@@ -94,13 +94,13 @@ Plan FENDU   → grande boucle → fort rayonnement   ✗
 
 ## 📏 Métrologie
 
-```
-Biais = Σei/n
-σ = √(Σei²/(n−1))
-u = σ/√n
-U = 2u  (95% conf.)
-Conformité : |biais| + U ≤ spécif.
-```
+Biais = Σei/n  
+
+$$σ = \sqrt(Σ\dfrac{ei^2}{n-1})$$
+
+u = σ/√n  
+U = 2u  (95% conf.)  
+Conformité : |biais| + U ≤ spécif.  
 
 ---
 

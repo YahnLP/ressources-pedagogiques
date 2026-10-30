@@ -124,33 +124,31 @@ $$\text{Thermique : } \Delta T = \frac{P}{k \times S} \quad (k \approx 5 \text{ 
 
 ## 📋 R01 — MODÈLE PV VIERGE
 
-```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  PROCÈS-VERBAL DE MESURE  |  Réf : PV-[AAAA]-[PROJET]-[NNN]
+PROCÈS-VERBAL DE MESURE  |  Réf : PV-[AAAA]-[PROJET]-[NNN]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Date           :            Lieu           :
 Donneur d'ordre:            Objet          :
 
 EUT (Équipement Sous Test) :
-  Désignation : _______ Référence : _______ N°Série : _______
+Désignation : _______ Référence : _______ N°Série : _______
 
 Instrument de mesure :
-  Appareil    : _______ Marque : _______ Modèle : _______
-  N° série    : _______ Classe : _______ %
-  Certificat  : _______ Date étalonnage : _______ Validité : _______
+Appareil    : _______ Marque : _______ Modèle : _______
+N° série    : _______ Classe : _______ %
+Certificat  : _______ Date étalonnage : _______ Validité : _______
 
 Conditions de mesure :
-  Température : ___°C  Hygrométrie : ___% HR
+Température : ___°C  Hygrométrie : ___% HR
 
 Résultats :
-┌──────────────┬──────────────┬────────────┬──────────────────────────┐
-│  Grandeur    │ Valeur mesurée│ Incertitude│ Résultat [95%]           │
-├──────────────┼──────────────┼────────────┼──────────────────────────┤
-│              │              │            │                          │
-│              │              │            │                          │
-│              │              │            │                          │
-└──────────────┴──────────────┴────────────┴──────────────────────────┘
+| Grandeur | Valeur mesurée | Incertitude | Résultat [95%] |
+|---|---|---|---|
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+
 
 Spécification appliquée :
 Conformité : ☐ Conforme  ☐ Non conforme  ☐ Sous réserve de :
@@ -160,7 +158,6 @@ Remarques :
 Mesureur : ________________   Responsable qualité : ________________
 Date     :                    Signature :
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
 
 ---
 

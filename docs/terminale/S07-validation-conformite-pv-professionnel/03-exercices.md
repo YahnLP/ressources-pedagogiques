@@ -26,7 +26,6 @@
 
 ### SECTION 1 — IDENTIFICATION ET GESTION
 
-```
 Titre           : _____________________________________________
 Référence DAT   : DAT-ELEC-NE555-___
 Version         : 1.0
@@ -36,13 +35,11 @@ Auteur(s)       : _____________________________________________
 Client          : ELECTROPRO SAS
 
 Historique des révisions :
-┌──────────┬────────────┬───────────┬──────────────────────────┐
-│ Version  │    Date    │  Auteur   │ Description              │
-├──────────┼────────────┼───────────┼──────────────────────────┤
-│   0.1    │ 2026-__-__ │           │ Création initiale        │
-│   1.0    │ 2026-__-__ │           │ Version complète         │
-└──────────┴────────────┴───────────┴──────────────────────────┘
-```
+| Version | Date | Auteur | Description |
+|---|---|---|---|
+| 0.1 | 2026-__-__ |  | Création initiale |
+| 1.0 | 2026-__-__ |  | Version complète |
+
 
 **Q1.1 *(1 pt)*** — Quel est l'objet et le périmètre de ce DAT en 2 phrases ?
 

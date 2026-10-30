@@ -28,8 +28,6 @@ Exporter en PDF : File → Print → Save as PDF
 
 ### 1.2 Espace schéma
 
-```
-┌──────────────────────────────────────────────────────────────────────────┐
 │                                                                          │
 │  [INSÉRER LE SCHÉMA KICAD EXPORTÉ ICI]                                  │
 │                                                                          │
@@ -47,8 +45,6 @@ Exporter en PDF : File → Print → Save as PDF
 │                                                                          │
 │  ESP32 ──── GPIO2 ────[R3 220Ω]─── LED ─── GND                         │
 │                                                                          │
-└──────────────────────────────────────────────────────────────────────────┘
-```
 
 ### 1.3 Vérification ERC
 
@@ -108,40 +104,50 @@ Note sur l'alimentation :
 
 ### 3.1 Schéma blocs
 
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
 │                     ARCHITECTURE CLIMASENS                                   │
 │                                                                              │
 │  ┌─────────────┐    ┌─────────────────────────────────────────┐             │
-│  │ DHT22       ├────┤                                         │             │
-│  │ (T° + Hum.) │    │                                         │             │
-│  ├─────────────┤    │           ESP32 DevKit v1               │             │
-│  │ MQ-2        ├────┤  - CPU 240 MHz · 4MB Flash · 520KB RAM  ├──→ WiFi ──→ │
-│  │ (Air/Fumée) │    │  - WiFi 802.11 b/g/n                    │             │
-│  ├─────────────┤    │  - PubSubClient (MQTT)                  │             │
-│  │ LDR         ├────┤  - DHTesp + ArduinoJson                 │             │
-│  │ (Lumino.)   │    │                                         │             │
+|  | DHT22       ├────┤ |  |
+|---|---|---|
+|  | (T° + Hum.) |  |  |  |
+| ├─────────────┤ | ESP32 DevKit v1 |  |
+|  | MQ-2        ├────┤  - CPU 240 MHz · 4MB Flash · 520KB RAM  ├──→ WiFi ──→ |
+|  | (Air/Fumée) |  | - WiFi 802.11 b/g/n |  |
+| ├─────────────┤ | - PubSubClient (MQTT) |  |
+|  | LDR         ├────┤  - DHTesp + ArduinoJson |  |
+|  | (Lumino.) |  |  |  |
+
 │  └─────────────┘    └─────────────────────────────────────────┘             │
-│                                           │ MQTT                            │
+|  | MQTT |
+|---|---|
+
 │                                           ▼                                 │
 │                               ┌─────────────────┐                          │
-│                               │  Broker MQTT    │                          │
-│                               │  (Mosquitto)    │                          │
+|  | Broker MQTT |  |
+|---|---|---|
+|  | (Mosquitto) |  |
+
 │                               └────────┬────────┘                          │
-│                                        │ MQTT Subscribe                    │
+|  | MQTT Subscribe |
+|---|---|
+
 │                                        ▼                                   │
 │                               ┌─────────────────┐                          │
-│                               │    Node-RED     ├──→ Dashboard Web          │
-│                               │  (Orchestration)├──→ Alertes               │
+|  | Node-RED     ├──→ Dashboard Web |
+|---|---|
+|  | (Orchestration)├──→ Alertes |
+
 │                               └────────┬────────┘                          │
-│                                        │                                   │
+|  |  |
+|---|---|
+
 │                                        ▼                                   │
 │                               ┌─────────────────┐                          │
-│                               │    InfluxDB     ├──→ Historique             │
-│                               │  (Stockage)     │                          │
+|  | InfluxDB     ├──→ Historique |
+|---|---|
+|  | (Stockage) |  |
+
 │                               └─────────────────┘                          │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
 
 ### 3.2 Topics MQTT utilisés
 

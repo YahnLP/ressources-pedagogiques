@@ -66,24 +66,23 @@ return [null, null, null];     // Normal → pas d'alerte
 
 ## 📏 PV Métrologie — Calculs
 
-```
-Biais (erreur systématique) :
-  e̅ = Σei / n
+Biais (erreur systématique) :  
+e̅ = Σei / n  
 
-Écart-type (fidélité) :
-  σ = √[ Σ(ei²) / (n−1) ]
+Écart-type (fidélité) :  
+σ = √[ Σ(ei²) / (n−1) ]  
 
-Incertitude type :
-  u = σ / √n
+Incertitude type :  
+u = σ / √n  
 
-Incertitude élargie (k=2 → 95%) :
-  U = 2 × u
+Incertitude élargie (k=2 → 95%) :  
 
-Résultat final :
-  T = (valeur_moyenne ± U) °C
+$$U = 2 \times u$$
 
-Conformité : |e̅| + U ≤ spécification constructeur ?
-```
+Résultat final :  
+T = (valeur_moyenne ± U) °C  
+
+Conformité : |e̅| + U ≤ spécification constructeur ?  
 
 ---
 

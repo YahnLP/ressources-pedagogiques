@@ -13,20 +13,16 @@
 
 ### Diagramme bloc à produire
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│                     VOTRE ARCHITECTURE                               │
-│                                                                      │
-│  [Capteur 1]                                                         │
-│  nom:_____  ─── I2C / GPIO ─── [ESP32]  ─── Wi-Fi ───► [AWS IoT]   │
-│  grandeur:__                     │                          │        │
-│                               [LED]                    [IoT Rule]   │
-│  [Capteur 2]                  [Relay/actuateur]             │        │
-│  nom:_____  ─── GPIO ─────────                         [CloudWatch] │
-│  grandeur:__                                                │        │
-│                                                        [SNS/SMS]    │
-└──────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] VOTRE ARCHITECTURE
+>
+> [Capteur 1]  
+> nom:_____  ─── I2C / GPIO ─── [ESP32]  ─── Wi-Fi ───► [AWS IoT]  
+> grandeur:__                     │                          │  
+>                             [LED]                    [IoT Rule]  
+> [Capteur 2]                  [Relay/actuateur]             │  
+> nom:_____  ─── GPIO ─────────                         [CloudWatch]  
+> grandeur:__                                                │  
+>                                                      [SNS/SMS]  
 
 ### Tableau de décisions techniques (à remplir au démarrage)
 

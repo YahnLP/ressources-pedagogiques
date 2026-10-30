@@ -35,28 +35,28 @@
 
 ### Vue d'ensemble
 
-```
-┌────────────────────────────────────────────────────────────────────┐
 │                        AWS IoT Core                                │
 │                                                                    │
 │  ┌──────────────┐    ┌───────────────┐    ┌─────────────────────┐  │
-│  │   REGISTRY   │    │  MESSAGE      │    │    RULES ENGINE     │  │
-│  │   (Things)   │    │  BROKER       │    │  (SQL-like routing) │  │
-│  │              │    │  (MQTT, WSS)  │    └──────────┬──────────┘  │
-│  │   Policy     │    │               │               │              │
-│  │   Certificat │    │   Topics      │               ▼              │
+|  | REGISTRY |  | MESSAGE |  | RULES ENGINE |  |
+|---|---|---|---|---|---|---|
+|  | (Things) |  | BROKER |  | (SQL-like routing) |  |
+|  |  |  | (MQTT, WSS) | └──────────┬──────────┘ |
+|  | Policy |  |  |  |  |
+|  | Certificat |  | Topics | ▼ |
+
 │  └──────────────┘    └───────────────┘    ┌─────────────────────┐  │
-│                                           │   Services AWS       │  │
-│                                           │   CloudWatch         │  │
-│                                           │   DynamoDB / S3      │  │
-│                                           │   Lambda / SNS       │  │
+|  | Services AWS |  |
+|---|---|---|
+|  | CloudWatch |  |
+|  | DynamoDB / S3 |  |
+|  | Lambda / SNS |  |
+
 │                                           └─────────────────────┘  │
-└────────────────────────────────────────────────────────────────────┘
-         ▲
-         │ MQTT/TLS port 8883
-         │
-   [ESP32 avec certificats X.509]
-```
+▲
+│ MQTT/TLS port 8883
+│
+[ESP32 avec certificats X.509]
 
 ### Les 4 composants fondamentaux
 
@@ -96,24 +96,20 @@ xxxxxxxxxxxxxxx-ats.iot.eu-west-1.amazonaws.com
 
 ### Les 3 fichiers de certificats nécessaires
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  Fichier 1 : AmazonRootCA1.pem                                  │
-│  → Certificat de l'autorité de certification (CA) Amazon        │
-│  → Permet à l'ESP32 de VÉRIFIER que le serveur AWS est légitime │
-│  → Même fichier pour tous les comptes AWS                        │
-│                                                                  │
-│  Fichier 2 : device-certificate.pem.crt                         │
-│  → Certificat du device (clé publique signée par Amazon)        │
-│  → Permet à AWS de VÉRIFIER que l'ESP32 est autorisé            │
-│  → Spécifique à chaque Thing                                    │
-│                                                                  │
-│  Fichier 3 : private.pem.key                                    │
-│  → Clé privée du device                                         │
-│  → Utilisée pour signer la négociation TLS                      │
-│  → ⚠️ À NE JAMAIS PARTAGER ni stocker en clair dans un repo Git │
-└─────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] Fichier 1 : AmazonRootCA1.pem
+> → Certificat de l'autorité de certification (CA) Amazon  
+> → Permet à l'ESP32 de VÉRIFIER que le serveur AWS est légitime  
+> → Même fichier pour tous les comptes AWS  
+>
+> Fichier 2 : device-certificate.pem.crt  
+> → Certificat du device (clé publique signée par Amazon)  
+> → Permet à AWS de VÉRIFIER que l'ESP32 est autorisé  
+> → Spécifique à chaque Thing  
+>
+> Fichier 3 : private.pem.key  
+> → Clé privée du device  
+> → Utilisée pour signer la négociation TLS  
+> → ⚠️ À NE JAMAIS PARTAGER ni stocker en clair dans un repo Git  
 
 ### Authentification mutuelle TLS (Mutual TLS / mTLS)
 

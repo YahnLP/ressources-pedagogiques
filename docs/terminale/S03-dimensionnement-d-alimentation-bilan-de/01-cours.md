@@ -49,24 +49,20 @@ Un bilan mal fait → régulateur sous-dimensionné → surchauffe → panne
 
 ### Méthode : tableau de bilan de puissance
 
-```
 Remplir pour chaque composant :
 
-┌────────────────┬───────────┬──────────┬───────────┬──────────────┬──────────────┐
-│ Composant      │ Vcc (V)   │ I_pic (mA)│ I_moy (mA)│ P_moy (mW)  │ Mode         │
-├────────────────┼───────────┼──────────┼───────────┼──────────────┼──────────────┤
-│ ESP32 WiFi TX  │ 3,3       │ 250       │ 80        │ 264          │ Actif WiFi   │
-│ DHT22          │ 3,3       │ 2         │ 1         │ 3            │ Actif        │
-│ MQ-2 (chauf.)  │ 5,0       │ 150       │ 150       │ 750          │ Toujours ON  │
-│ LED rouge      │ 3,3       │ 20        │ 10        │ 33           │ 50% duty     │
-├────────────────┼───────────┼──────────┼───────────┼──────────────┼──────────────┤
-│ TOTAL @3,3V    │ —         │ 272       │ 91        │ 300          │ —            │
-│ TOTAL @5V      │ —         │ 150       │ 150       │ 750          │ —            │
-└────────────────┴───────────┴──────────┴───────────┴──────────────┴──────────────┘
+| Composant | Vcc (V) | I_pic (mA) | I_moy (mA) | P_moy (mW) | Mode |
+|---|---|---|---|---|---|
+| ESP32 WiFi TX | 3,3 | 250 | 80 | 264 | Actif WiFi |
+| DHT22 | 3,3 | 2 | 1 | 3 | Actif |
+| MQ-2 (chauf.) | 5,0 | 150 | 150 | 750 | Toujours ON |
+| LED rouge | 3,3 | 20 | 10 | 33 | 50% duty |
+| TOTAL @3,3V | — | 272 | 91 | 300 | — |
+| TOTAL @5V | — | 150 | 150 | 750 | — |
+
 
 Note : Le courant du régulateur 3,3V ≈ I_total_3,3V = 91 mA moyen, 272 mA de pointe
-       Le courant du régulateur 5V  ≈ I_total_5V  = 150 mA
-```
+Le courant du régulateur 5V  ≈ I_total_5V  = 150 mA
 
 ### Règle de dimensionnement de la source
 

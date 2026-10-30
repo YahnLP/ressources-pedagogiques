@@ -78,18 +78,14 @@ La poussière, les résidus de flux et les dépôts conducteurs sont des causes 
 
 ### 2.3 Procédure de nettoyage PCB — 6 étapes
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────┐
-│  PROCÉDURE DE NETTOYAGE PCB — Maintenance N1                                        │
-│                                                                                     │
-│  Étape 1 — Mettre hors tension et décharger (attendre 30 s après coupure alim)      │
-│  Étape 2 — Équiper le poste ESD (bracelet + tapis)                                  │
-│  Étape 3 — Air comprimé : souffler la poussière gross, carte inclinée à 45°         │
-│  Étape 4 — Pinceau : brosser délicatement les zones serrées (connecteurs, CI)       │
-│  Étape 5 — IPA sur chiffon : essuyer les zones sales (résidus flux, traces)         │
-│  Étape 6 — Laisser sécher complètement à l'air (15 min) avant remise sous tension   │
-└─────────────────────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] PROCÉDURE DE NETTOYAGE PCB — Maintenance N1
+>
+> Étape 1 — Mettre hors tension et décharger (attendre 30 s après coupure alim)  
+> Étape 2 — Équiper le poste ESD (bracelet + tapis)  
+> Étape 3 — Air comprimé : souffler la poussière gross, carte inclinée à 45°  
+> Étape 4 — Pinceau : brosser délicatement les zones serrées (connecteurs, CI)  
+> Étape 5 — IPA sur chiffon : essuyer les zones sales (résidus flux, traces)  
+> Étape 6 — Laisser sécher complètement à l'air (15 min) avant remise sous tension  
 
 > ⚠️ **Règle absolue** : Ne jamais remettre une carte sous tension tant que l'IPA n'est pas complètement évaporé. L'IPA résiduel peut créer des courts-circuits.
 

@@ -59,13 +59,7 @@
 
 ### Boîtier TO-92 nu (4 broches — vue de face)
 
-```
-       ┌──────────┐
-       │  DHT11   │  ← Face avant avec grille ventilée
-       │          │
-       └──┬─┬─┬─┬┘
-          1 2 3 4
-```
+![DHT11 : face avant et numérotation des broches](images/dht11-brochage.png)
 
 | N° Broche | Nom | Fonction | Connexion Arduino |
 |---|---|---|---|
@@ -86,17 +80,7 @@
 
 ## ⚡ Circuit de câblage recommandé (boîtier nu)
 
-```
-    Arduino 5V ────┬──────────── VCC (broche 1)
-                   │
-                [10kΩ]  ← Résistance pull-up obligatoire
-                   │
-    Arduino Dx ────┴──────────── DATA (broche 2)
-
-    (broche 3) NC  ←  Non connectée
-
-    Arduino GND ──────────────── GND (broche 4)
-```
+![Câblage du DHT11 avec résistance pull-up de 10 kΩ](images/dht11-cablage.png)
 
 **Valeur de la résistance pull-up selon la longueur du câble :**
 

@@ -168,23 +168,20 @@ Valeur centrale arrondie au même rang : _____ V
 
 > Contexte : Vous venez de mesurer Vout = (4,99 ± 0,04) V [95%]. La spécification est 5V ±5% = [4,75 ; 5,25] V. L'inspection IPC-A-610 Cl.2 a révélé un pont de soudure sur C1.
 
-```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  PROCÈS-VERBAL DE VALIDATION — EXERCICE P1
-  Réf. : PVF-REMEDIATION-___  |  Date : 2026-___-___
+PROCÈS-VERBAL DE VALIDATION — EXERCICE P1
+Réf. : PVF-REMEDIATION-___  |  Date : 2026-___-___
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Produit : _______________________  Ref. : _______________________
 Instrument : _____________ Cl.___% Rés.___V N°:_________ Cert.:_____
 
 RÉSULTATS :
-┌──────┬───────────────────────────┬──────────────────┬──────────┐
-│ TC#  │ Exigence                  │ Résultat ± U     │ Conf.    │
-├──────┼───────────────────────────┼──────────────────┼──────────┤
-│TC-01 │ Vout = 5V ±5%             │                  │          │
-├──────┼───────────────────────────┼──────────────────┼──────────┤
-│TC-02 │ Assemblage IPC-A-610 Cl.2 │ Pont soudure C1  │          │
-└──────┴───────────────────────────┴──────────────────┴──────────┘
+| TC# | Exigence | Résultat ± U | Conf. |
+|---|---|---|---|
+| TC-01 | Vout = 5V ±5% |  |  |
+| TC-02 | Assemblage IPC-A-610 Cl.2 | Pont soudure C1 |  |
+
 
 CONCLUSION :
 ☐ CONFORME     ☐ NON CONFORME     ☐ CONFORME AVEC RÉSERVE
@@ -192,7 +189,6 @@ CONCLUSION :
 Justification : ________________________________________________________
 Mesureur : ________________  Date : ________________
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
 
 **P1.3.1** — Pourquoi la conclusion est-elle NON CONFORME et pas CONFORME AVEC RÉSERVE ?
 

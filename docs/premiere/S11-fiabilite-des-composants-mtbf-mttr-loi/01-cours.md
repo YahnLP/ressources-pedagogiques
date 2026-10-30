@@ -267,12 +267,11 @@ Observation : en série, plus on ajoute de composants, PLUS le système est frag
 
 ### Schéma parallèle : un seul composant suffit
 
-```
-     ┌── [C1] ──┐
-     │           │
+┌── [C1] ──┐
+│           │
 ────►├── [C2] ──┼────►
-     │           │
-     └── [C3] ──┘
+│           │
+└── [C3] ──┘
 
 Le système tombe en panne seulement si TOUS les composants tombent en panne
 
@@ -280,8 +279,7 @@ Fiabilité du système parallèle :
 Rs = 1 − (1−R1) × (1−R2) × (1−R3) × ... × (1−Rn)
 
 MTBF approximatif pour 2 composants identiques (R1 = R2 = R) :
-  MTBFs ≈ MTBF × (1 + 1/2) = 1,5 × MTBF  (approximation)
-```
+MTBFs ≈ MTBF × (1 + 1/2) = 1,5 × MTBF  (approximation)
 
 ### Exemple : deux alimentations redondantes
 
@@ -340,19 +338,15 @@ Architecture :
 
 ## 📌 Récapitulatif des formules
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  λ = 1/MTBF                   (taux de panne)                      │
-│  MTBF = TO / n                (temps moyen entre pannes)           │
-│  MTTR = TA / n                (temps moyen de réparation)          │
-│  D = MTBF / (MTBF + MTTR)     (disponibilité)                      │
-│  R(t) = e^(−λt)               (fiabilité à l'instant t)            │
-│  F(t) = 1 − R(t)              (probabilité de panne avant t)       │
-│                                                                     │
-│  SÉRIE   : Rs = R1 × R2 × R3    λs = λ1 + λ2 + λ3                │
-│  PARALLÈLE : Rs = 1−(1−R1)(1−R2)                                   │
-└─────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] λ = 1/MTBF                   (taux de panne)
+> MTBF = TO / n                (temps moyen entre pannes)  
+> MTTR = TA / n                (temps moyen de réparation)  
+> D = MTBF / (MTBF + MTTR)     (disponibilité)  
+> R(t) = e^(−λt)               (fiabilité à l'instant t)  
+> F(t) = 1 − R(t)              (probabilité de panne avant t)  
+>
+> SÉRIE   : Rs = R1 × R2 × R3    λs = λ1 + λ2 + λ3  
+> PARALLÈLE : Rs = 1−(1−R1)(1−R2)  
 
 ---
 

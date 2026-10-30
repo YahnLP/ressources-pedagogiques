@@ -114,28 +114,24 @@ Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bai
 
 #### Procédure de gravure étape par étape
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  PROCÉDURE GRAVURE FeCl₃ — 8 étapes                                 │
-│                                                                     │
-│  EPI AVANT TOUT : gants nitrile + lunettes + tablier                │
-│                                                                     │
-│  1. Vérifier la température du bain : 35–40°C                       │
-│  2. Vérifier la complétude du typon sur l'épitaxiale (pas de        │
-│     trou dans les pistes)                                           │
-│  3. Immerger le PCB FACE CUIVRE VERS LE BAS dans le bac            │
-│     (la gravure est plus homogène, le CuCl₂ tombe par gravité)     │
-│  4. Agiter légèrement le bac toutes les 30 secondes                │
-│  5. Contrôler toutes les 2 min en sortant le PCB brièvement :       │
-│     → Le cuivre nu doit disparaître progressivement                │
-│     → Les pistes sous le toner restent cuivrées                    │
-│  6. ARRÊTER dès que tout le cuivre nu est dissous                  │
-│     (ne pas over-graver les pistes !)                               │
-│  7. Rincer abondamment sous l'eau froide 30 secondes               │
-│  8. Tremper 10 s dans bain bicarbonate (neutralisation)            │
-│     puis rincer à l'eau claire                                      │
-└─────────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] PROCÉDURE GRAVURE FeCl₃ — 8 étapes
+>
+> EPI AVANT TOUT : gants nitrile + lunettes + tablier  
+>
+> 1. Vérifier la température du bain : 35–40°C  
+> 2. Vérifier la complétude du typon sur l'épitaxiale (pas de  
+>   trou dans les pistes)  
+> 3. Immerger le PCB FACE CUIVRE VERS LE BAS dans le bac  
+>   (la gravure est plus homogène, le CuCl₂ tombe par gravité)  
+> 4. Agiter légèrement le bac toutes les 30 secondes  
+> 5. Contrôler toutes les 2 min en sortant le PCB brièvement :  
+>   → Le cuivre nu doit disparaître progressivement  
+>   → Les pistes sous le toner restent cuivrées  
+> 6. ARRÊTER dès que tout le cuivre nu est dissous  
+>   (ne pas over-graver les pistes !)  
+> 7. Rincer abondamment sous l'eau froide 30 secondes  
+> 8. Tremper 10 s dans bain bicarbonate (neutralisation)  
+>   puis rincer à l'eau claire  
 
 #### Anomalies de gravure — Causes et prévention
 

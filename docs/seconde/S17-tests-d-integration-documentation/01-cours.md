@@ -36,19 +36,7 @@ Un **test d'intégration** vérifie que **toutes ces parties fonctionnent correc
 
 ### 1.2 Les niveaux de tests en électronique
 
-```
-[ILLUSTRATION 1]
-Légende : Pyramide des niveaux de tests en électronique, de la base au sommet :
-Base (large) = Tests unitaires (composant par composant),
-Milieu = Tests d'intégration (sous-systèmes assemblés),
-Sommet = Tests système (produit complet en conditions réelles).
-Chaque niveau est coloré différemment (vert, orange, rouge) avec une icône représentative.
-PROMPT ILLUSTRATION : "Clean infographic pyramid showing three levels of electronic testing:
-Bottom (green, wide): 'Tests unitaires' with icon of single LED/resistor.
-Middle (orange): 'Tests d'intégration' with icon of Arduino + HC-05 together.
-Top (red, narrow): 'Tests système' with icon of complete device + smartphone.
-White background, French labels, professional engineering style, flat design."
-```
+![Pyramide des tests : unitaires, intégration, système](images/pyramide-tests.png)
 
 | Niveau | Quoi tester ? | Exemple pour notre projet |
 |---|---|---|
@@ -86,17 +74,7 @@ Chaque ligne du tableau de tests doit contenir :
 
 ### 2.3 Exemple de protocole de tests pour le projet S14-S17
 
-```
-[ILLUSTRATION 2]
-Légende : Extrait de tableau de protocole de tests rempli, montrant 3 lignes avec les colonnes :
-N° test, Fonctionnalité testée, Action, Résultat attendu, Résultat obtenu, Statut (✅/❌).
-La mise en forme est professionnelle, style document technique industriel.
-PROMPT ILLUSTRATION : "Professional test protocol table screenshot showing 3 filled rows:
-Row 1: T-01, Connexion Bluetooth, Tap Connect in app, LED HC-05 solid, LED solid, green checkmark.
-Row 2: T-02, Allumage DEL rouge, Send 'R1', Red LED on + message, Red LED on, green checkmark.
-Row 3: T-03, Commande ETAT, Send 'ETAT', 3 status lines shown, partial result, orange warning.
-Clean spreadsheet style, French headers, professional formatting."
-```
+![Extrait de protocole de tests](images/protocole-tests.png)
 
 | N° | Fonctionnalité | Précondition | Action | Résultat attendu | Résultat obtenu | Statut |
 |---|---|---|---|---|---|---|
@@ -128,18 +106,7 @@ Un schéma électrique permet à **n'importe quel technicien** de comprendre, re
 
 ### 3.2 Conventions à respecter
 
-```
-[ILLUSTRATION 3]
-Légende : Exemples de symboles électroniques normalisés pour les composants du projet :
-résistance (symbole rectangle ou zigzag selon norme), DEL avec flèches lumière, Arduino représenté
-comme un bloc avec ses broches numérotées, module HC-05 comme un bloc rectangulaire avec VCC/GND/TX/RX.
-Chaque symbole est accompagné de son nom et d'un exemple de référence (R1, D1, U1, BT1).
-PROMPT ILLUSTRATION : "Technical electronic schematic symbols reference sheet showing:
-Resistor (European rectangle style, labeled R1=220Ω), LED (triangle+bar with light arrows, labeled D1),
-Arduino UNO (rectangular block with pin labels D4,D5,D6,D10,D11,5V,GND, labeled U1),
-HC-05 module (rectangular block with VCC,GND,TXD,RXD labels, labeled BT1).
-Clean engineering drawing style, black on white, IEC standard symbols."
-```
+![Symboles normalisés des composants du projet](images/symboles-projet.png)
 
 | Élément | Convention |
 |---|---|
@@ -181,17 +148,7 @@ La **BOM** (en français : *nomenclature des composants* ou *liste de matériel*
 
 ### 4.2 Structure d'une BOM professionnelle
 
-```
-[ILLUSTRATION 4]
-Légende : Extrait d'une BOM remplie dans un tableur, avec les colonnes : Référence projet (R1, R2…),
-Désignation (Résistance 220Ω), Quantité, Valeur/Type, Référence fournisseur, Fournisseur,
-Prix unitaire HT, Prix total HT. Deux lignes sont remplies à titre d'exemple. Style tableur professionnel.
-PROMPT ILLUSTRATION : "Screenshot of a professional Bill of Materials spreadsheet with columns:
-Ref Projet | Désignation | Quantité | Valeur/Type | Réf Fournisseur | Fournisseur | PU HT (€) | Total HT (€).
-Rows filled: R1-R4: Résistance 220Ω, 4, 220Ω 1/4W, MRS25000C2200FRP00, Farnell, 0.10€, 0.40€.
-BT1: Module Bluetooth HC-05, 1, HC-05 Maître/Esclave, HC-05-MODULE, Gotronic, 5.50€, 5.50€.
-Professional Excel/LibreOffice style, French headers, color-coded header row."
-```
+![Extrait d'une BOM (nomenclature)](images/bom-extrait.png)
 
 ### 4.3 Modèle de BOM à compléter pour le projet
 
@@ -217,14 +174,16 @@ Professional Excel/LibreOffice style, French headers, color-coded header row."
 Pour ne pas griller une DEL, il faut toujours calculer la résistance de limitation :
 
 > **Formule :**
-> $$> R = \dfrac{V_{cc} - V_{\mathrm{DEL}}}{I_{\mathrm{DEL}}}$$
-> ```  
-> Avec :  
-> - **Vcc** = tension d'alimentation = 5 V  
-> - **V_DEL** = tension de seuil de la DEL ≈ 2 V (rouge) / 2,1 V (jaune) / 2,2 V (verte)  
-> - **I_DEL** = courant nominal ≈ 20 mA = 0,02 A  
+> ```
+> R = (Vcc - V_DEL) / I_DEL
+> ```
+> Avec :
+> - **Vcc** = tension d'alimentation = 5 V
+> - **V_DEL** = tension de seuil de la DEL ≈ 2 V (rouge) / 2,1 V (jaune) / 2,2 V (verte)
+> - **I_DEL** = courant nominal ≈ 20 mA = 0,02 A
 
-**Exemple pour la DEL rouge :**  
+**Exemple pour la DEL rouge :**
+```
 R = (5 - 2) / 0,02 = 3 / 0,02 = 150 Ω → on prend 220 Ω (valeur normalisée supérieure) ✅
 ```
 
@@ -244,21 +203,7 @@ R = (5 - 2) / 0,02 = 3 / 0,02 = 150 Ω → on prend 220 Ω (valeur normalisée s
 
 Lorsqu'un système ne fonctionne pas, il existe une méthode structurée que tout technicien doit connaître :
 
-```
-[ILLUSTRATION 5]
-Légende : Logigramme de la méthode SVARC représenté comme un organigramme à 5 étapes en cascade :
-S = Symptôme (observer et décrire), V = Vérification (mesurer et tester),
-A = Analyse (comparer attendu vs mesuré), R = Remède (apporter la correction),
-C = Contrôle (vérifier que la correction a bien résolu le problème).
-Chaque étape est une boîte colorée reliée par des flèches, avec une icône représentative.
-PROMPT ILLUSTRATION : "Flowchart diagram showing 5-step SVARC troubleshooting method:
-Step 1 (blue): S=Symptôme - magnifying glass icon - 'Observer et décrire le problème'.
-Step 2 (orange): V=Vérification - multimeter icon - 'Mesurer et tester'.
-Step 3 (yellow): A=Analyse - brain icon - 'Comparer attendu vs obtenu'.
-Step 4 (red): R=Remède - wrench icon - 'Apporter la correction'.
-Step 5 (green): C=Contrôle - checkmark icon - 'Vérifier la résolution'.
-Connected by downward arrows, clean flat design, white background."
-```
+![Méthode SVARC : symptôme, vérification, analyse, remède, contrôle](images/svarc-logigramme.png)
 
 | Étape | Nom | Action concrète |
 |---|---|---|
@@ -287,17 +232,7 @@ Connected by downward arrows, clean flat design, white background."
 
 ### 6.1 Le multimètre
 
-```
-[ILLUSTRATION 6]
-Légende : Schéma d'utilisation du multimètre en mode voltmètre pour mesurer la tension aux bornes
-d'une DEL dans un circuit Arduino. La sonde rouge est sur l'anode, la sonde noire sur la cathode.
-La valeur affichée est 2,0V (normal pour une DEL rouge allumée). Les points de mesure sont indiqués
-par des croix rouges sur le schéma de câblage.
-PROMPT ILLUSTRATION : "Technical diagram showing a digital multimeter in voltmeter mode connected
-to measure voltage across an LED in an Arduino circuit. Red probe on LED anode, black probe on cathode.
-Display shows 2.0V. Circuit shows Arduino pin → 220Ω resistor → LED → GND.
-Measurement points marked with red X. Clean engineering illustration style, labeled in French."
-```
+![Mesure de la tension aux bornes d'une LED avec le multimètre](images/voltmetre-led.png)
 
 | Mode | Mesure | Comment l'utiliser |
 |---|---|---|
