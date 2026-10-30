@@ -11,4 +11,5 @@
 | Document | Rôle |
 |---|---|
 | [📖 Cours](01-cours.md) | Fiche de cours élève |
+| [🧩 Familles de composants](02-familles-de-composants.md) | Passifs, actifs, capteurs, actionneurs : rôle, symbole, polarité |
 | [🖥️ Simulateur ElectroLab](04-simulateur.md) | Exercices / TP simulés (fichiers `.json`) |

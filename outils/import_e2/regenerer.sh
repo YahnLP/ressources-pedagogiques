@@ -14,6 +14,7 @@ python3 outils/import_e2/inline.py .
 python3 outils/import_e2/nettoyage.py .
 python3 outils/import_e2/corriges.py .
 python3 outils/import_e2/explications.py .
+python3 outils/import_e2/composants.py .
 python3 outils/import_e2/espacement.py .
 python3 - <<'PY'
 import glob, re
