@@ -340,8 +340,8 @@ Symptôme couvert : ESP32 ne publie plus sur MQTT
 2. Vérifier la connexion MQTT
    Action  : Lire `mqtt.state()` dans le moniteur série
    -2 FAILED : IP broker incorrecte → corriger l'endpoint
-   -7 BAD_CREDENTIALS : Certificats corrompus → régénérer
-   -8 UNAUTHORIZED : Policy IAM → vérifier la console AWS
+   4 BAD_CREDENTIALS : identifiants refusés (certificats corrompus ?) → régénérer
+   5 UNAUTHORIZED : policy ou certificat inactif → vérifier la console AWS
 
 3. Vérifier les métriques CloudWatch
    Action  : Console AWS → CloudWatch → Dashboard

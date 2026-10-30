@@ -33,6 +33,22 @@
 
 > **En BAC PRO CIEL**, la maintenance corrective est la compétence centrale de S14. Mais une bonne réparation intègre toujours une réflexion évolutive : "Comment éviter que ça revienne ?"
 
+
+> [!TIP] 💡 En clair
+> **Préventive** = **avant** la panne (nettoyer, vérifier, remplacer avant l'usure). **Corrective** = **après** la panne (trouver et réparer). **Évolutive** = **améliorer** pour que la panne ne revienne pas. Le technicien CIEL est surtout évalué sur la **corrective**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Un technicien remplace un condensateur gonflé après une panne. Quel type de maintenance ?
+
+??? success "Réponse"
+    **Corrective**.
+
+**Q2.** Il ajoute un watchdog pour que la carte redémarre toute seule en cas de blocage. Quel type ?
+
+??? success "Réponse"
+    **Évolutive** (amélioration).
+
 ---
 
 ## 2️⃣ LA DÉMARCHE DECA
@@ -91,6 +107,29 @@ Causes possibles :
 4. Documenter dans la fiche de maintenance
 5. Réflexion évolutive : comment éviter cette panne à l'avenir ?
 ```
+
+
+> [!TIP] 💡 En clair : DECA, comment ne pas tâtonner
+> **D** : **Décrire** précisément ce qui ne va pas. **E** : **Éliminer** les causes **impossibles** avec ce que tu sais déjà (sans mesurer). **C** : **Cibler** la cause en **coupant le chemin en deux** à chaque mesure (dichotomie). **A** : **Agir** (un seul changement), **valider** puis **documenter**.
+>
+> **Exemple** : « la carte ne publie plus ». D : depuis ce matin, la LED Wi-Fi est allumée. E : Wi-Fi OK, donc pas le réseau. C : le moniteur série montre « MQTT échec rc=5 » (non autorisé) → problème d'**authentification**. A : le certificat était expiré → on le renouvelle, on vérifie que la publication reprend.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - **Changer plusieurs choses à la fois** (on ne sait plus ce qui a réparé).
+> - **Mesurer avant d'avoir décrit** : on mesure au hasard.
+> - **Oublier le test de régression** (réparer un point, en casser un autre).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que signifie « couper le chemin en deux » ?
+
+??? success "Réponse"
+    Choisir un **point au milieu de la chaîne**, le mesurer, et savoir **de quel côté** est la panne (avant ou après).
+
+**Q2.** Pourquoi ne change-t-on qu'un composant à la fois ?
+
+??? success "Réponse"
+    Pour **savoir ce qui a réparé** et ne pas introduire de nouvelle panne.
 
 ---
 
@@ -186,6 +225,10 @@ Serial.println(mqtt.state());             // Code erreur PubSubClient
 | AWS IoT : connexion refusée | Policy IoT trop restrictive | Console AWS → Surveiller → MQTT |
 | Hash de certificat incorrect | CA certificate incorrect (AmazonRootCA1 vs AmazonRootCA3) | Vérifier l'empreinte du certificat |
 
+
+> [!TIP] 💡 En clair : classer pour chercher plus vite
+> Les 8 catégories servent de **liste de contrôle** : la panne vient souvent d'abord de l'**alimentation** (tension, courant), puis des **connexions**, puis du **réseau**, du **logiciel**. **Toujours vérifier l'alimentation en premier** : de nombreux symptômes bizarres en découlent.
+
 ---
 
 ## 4️⃣ INSTRUMENTS DE DIAGNOSTIC : LEQUEL CHOISIR ?
@@ -201,6 +244,10 @@ Problème AWS IoT / certificats → CONSOLE AWS CLOUDWATCH
 ```
 
 > **Règle d'or :** toujours commencer par ce qui ne nécessite pas d'instrument — le **moniteur série** et l'**inspection visuelle**. 80% des pannes IoT se diagnostiquent sans toucher un instrument.
+
+
+> [!TIP] 💡 En clair : quel instrument ?
+> **Multimètre** : tensions, continuité (pannes d'alimentation et de câblage). **Oscilloscope** : voir la **forme** d'un signal. **Analyseur logique** : décoder un **bus** (I²C, SPI, UART). **Moniteur série / logs** : voir ce que le **programme** dit. On part du **plus simple** (multimètre, LED, moniteur série) vers le **plus spécialisé**.
 
 ---
 
@@ -221,12 +268,12 @@ Problème AWS IoT / certificats → CONSOLE AWS CLOUDWATCH
 ├─────────────────────────────────────────────────────────────────────┤
 │  1. SYMPTÔME(S)                                                     │
 │  L'ESP32 ne publie plus sur AWS IoT depuis 14h00. LED Wi-Fi OK.    │
-│  Moniteur série : "Erreur MQTT : -8" en boucle.                    │
+│  Moniteur série : "Erreur MQTT : 5" en boucle.                    │
 ├─────────────────────────────────────────────────────────────────────┤
 │  2. DÉMARCHE DE DIAGNOSTIC                                          │
 │  Étape 1 : Wi-Fi OK (LED + log "WiFi OK → 192.168.1.42")           │
 │  Étape 2 : Ping broker OK → broker joignable                       │
-│  Étape 3 : show crypto ipsec → certificat AWS désactivé ? Non.     │
+│  Étape 3 : Console AWS → certificat actif ? Oui.                    │
 │  Étape 4 : Console AWS → Surveiller → MQTT test → log erreur :     │
 │           "Policy doesn't allow iot:Publish on this resource"       │
 ├─────────────────────────────────────────────────────────────────────┤
@@ -249,6 +296,10 @@ Problème AWS IoT / certificats → CONSOLE AWS CLOUDWATCH
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
+
+> [!TIP] 💡 En clair
+> La **fiche de maintenance** permet à quelqu'un d'**autre** de comprendre la panne **un an plus tard** : symptôme, mesures **avec valeurs**, cause, action, test, date, intervenant. **Sans valeurs mesurées, la fiche n'a aucune valeur.**
+
 ---
 
 ![Logigramme de diagnostic d'un ESP32 qui ne publie plus : le code mqtt.state() oriente la recherche.](images/logigramme-esp32.png)
@@ -259,13 +310,20 @@ Problème AWS IoT / certificats → CONSOLE AWS CLOUDWATCH
 
 | **Code** | **Constante** | **Signification** | **Première action** |
 |---|---|---|---|
-| **-4** | MQTT_CONNECT_BAD_PROTOCOL | Version MQTT rejetée | Vérifier compatibilité bibliothèque/broker |
-| **-3** | MQTT_CONNECT_DISCONNECTED | Déconnecté du broker | Vérifier connectivité réseau |
-| **-2** | MQTT_CONNECT_FAILED | Connexion TCP impossible | Vérifier IP broker + ping |
-| **-1** | MQTT_DISCONNECTED | Client déconnecté (normal avant connect) | Appeler connect() |
+| **-4** | MQTT_CONNECTION_TIMEOUT | Le broker n'a pas répondu à temps | Vérifier réseau, pare-feu, charge du broker |
+| **-3** | MQTT_CONNECTION_LOST | Connexion perdue en cours de route | Vérifier le Wi-Fi, le `keepalive` et `mqtt.loop()` |
+| **-2** | MQTT_CONNECT_FAILED | Connexion TCP impossible | Vérifier IP du broker, port et `ping` |
+| **-1** | MQTT_DISCONNECTED | Client déconnecté (normal avant `connect()`) | Appeler `connect()` |
 | **0** | MQTT_CONNECTED | Connecté ✅ | — |
-| **1** | MQTT_CONNECT_BAD_PROTOCOL | — | — |
-| **5** | MQTT_CONNECT_UNAUTHORIZED | Auth refusée | Vérifier certificats ou user/pass |
+| **1** | MQTT_CONNECT_BAD_PROTOCOL | Version de protocole refusée | Vérifier compatibilité bibliothèque/broker |
+| **2** | MQTT_CONNECT_BAD_CLIENT_ID | Identifiant client refusé | Changer le `client_id` (unique, valide) |
+| **3** | MQTT_CONNECT_UNAVAILABLE | Service du broker indisponible | Vérifier que le broker tourne |
+| **4** | MQTT_CONNECT_BAD_CREDENTIALS | Nom d'utilisateur / mot de passe refusés | Vérifier les identifiants |
+| **5** | MQTT_CONNECT_UNAUTHORIZED | Connexion non autorisée | Vérifier certificats, policy ou droits |
+
+
+> [!NOTE] 🔎 Comment utiliser ce tableau
+> Le code `rc` affiché par `mqtt.state()` oriente le diagnostic : **-4** délai dépassé, **-2** connexion impossible (réseau/serveur), **2** identifiant client refusé, **4** identifiants incorrects, **5** non autorisé. Il **ne remplace pas** le raisonnement DECA : il donne une piste à vérifier.
 
 ---
 
