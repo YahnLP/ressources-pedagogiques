@@ -62,6 +62,25 @@ Alternatives commerciales (pour info) :
   KiCad → 100% GRATUIT, même qualité professionnelle
 ```
 
+
+> [!TIP] 💡 En clair : que fait un logiciel de CAO électronique ?
+> Un schéma dessiné sur papier est une **image** : l'ordinateur ne « comprend » pas qu'un fil relie deux broches. Dans KiCad, chaque symbole est un **objet** qui connaît ses broches, et chaque fil est une **connexion électrique**. Le logiciel peut donc **vérifier** le schéma (ERC), produire la **liste des connexions** (netlist) et la transmettre au **circuit imprimé**. Le fil rouge : **schéma → vérification → PCB → fichiers de fabrication**.
+
+> [!NOTE] 🔎 Schéma et circuit imprimé : deux documents, un seul circuit
+> Le **schéma** dit **ce qui est relié à quoi** (la logique). Le **PCB** dit **où** sont placés les composants et **comment** les pistes passent (la géométrie). Les deux doivent toujours rester **cohérents**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle différence entre un schéma et un PCB ?
+
+??? success "Réponse"
+    Le schéma décrit les **connexions** (logique) ; le PCB décrit la **position** des composants et le **tracé** des pistes (géométrie).
+
+**Q2.** Pourquoi vérifier le schéma avant de passer au PCB ?
+
+??? success "Réponse"
+    Une erreur de connexion non corrigée se **retrouve sur la carte fabriquée** : elle coûte du temps et de l'argent.
+
 ---
 
 ## 2️⃣ — Interface KiCad : vue d'ensemble
@@ -140,6 +159,22 @@ Astuce : utiliser le nom générique (Device:R) pour les composants courants
          plutôt que le modèle exact — l'empreinte sera associée plus tard
 ```
 
+
+> [!TIP] 💡 En clair : symbole, empreinte, valeur
+> Un composant a **trois identités** : son **symbole** (le dessin du schéma, par ex. `Device:R`), sa **valeur** (`150 Ω`, ce que **toi** tu choisis) et son **empreinte** (la forme des pastilles sur le PCB, choisie à l'étape suivante). La **bibliothèque** est le catalogue qui contient les symboles ; chercher dans le catalogue = touche **A** pour ajouter, puis taper le nom (`R`, `LED`, `GND`).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle est la différence entre le symbole et la valeur d'une résistance ?
+
+??? success "Réponse"
+    Le **symbole** est le dessin normalisé « résistance » ; la **valeur** est la grandeur choisie (150 Ω).
+
+**Q2.** Où ira l'information « boîtier traversant ou CMS » ?
+
+??? success "Réponse"
+    Dans l'**empreinte**, associée plus tard au composant.
+
 ---
 
 ## 4️⃣ — Créer un schéma pas à pas
@@ -188,6 +223,34 @@ VÉRIFICATION :
   3. Ctrl+S pour sauvegarder
 ```
 
+
+> [!TIP] 💡 En clair : pourquoi PWR_FLAG ?
+> Dans KiCad, un symbole d'alimentation comme `+5V` **utilise** le net +5V mais ne dit pas qu'une **source** l'alimente. L'ERC suppose donc qu'il peut y avoir un oubli. Le symbole **PWR_FLAG** dit simplement : « ici, une alimentation **externe** est branchée ». Il n'ajoute **aucun composant** sur la carte réelle.
+>
+> **Net label** : donner le **même nom** à deux bouts de fil revient à les **relier**, sans tracer le fil entre eux (pratique pour un schéma lisible).
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Un fil qui **s'arrête à côté** d'une broche (il a l'air connecté mais ne l'est pas) : on repère un **point vert** à l'extrémité du fil quand il est bien connecté.
+> - **Oublier d'annoter** (les composants restent `R?` et créent des doublons).
+> - Croiser deux fils et croire qu'ils sont reliés : sans **jonction** (point), ils **ne sont pas** connectés.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Deux fils se croisent sans point de jonction. Sont-ils reliés ?
+
+??? success "Réponse"
+    **Non** : sans point de jonction, ils se croisent simplement.
+
+**Q2.** Que signifie annoter le schéma ?
+
+??? success "Réponse"
+    Donner à chaque composant une **référence unique** (`R1`, `R2`, `D1`…).
+
+**Q3.** Deux labels `LED_OUT` placés à deux endroits différents : que se passe-t-il ?
+
+??? success "Réponse"
+    Les deux points sont **reliés électriquement** (même net).
+
 ---
 
 ![Schéma de la LED dans KiCad, broches annotées](images/kicad-schema-led.png)
@@ -229,6 +292,24 @@ Ou   : Touche I (Inspect)
 Résultat :   0 erreurs, 0 avertissements = PARFAIT ✓
              Erreurs présentes = cliquer sur chaque pour voir l'emplacement
 ```
+
+
+> [!TIP] 💡 En clair : l'ERC
+> L'**ERC** (*Electrical Rules Check*) est le **correcteur orthographique** du schéma : il repère ce qui est **suspect** (broche en l'air, deux sorties reliées, référence en double). Il ne sait **pas** si ton circuit **fonctionne** : un schéma peut avoir 0 erreur et être faux (mauvaise valeur de résistance). **0 erreur ERC est nécessaire, pas suffisant.**
+>
+> **Méthode** : lire le message → cliquer dessus (KiCad montre l'emplacement) → corriger → relancer, jusqu'à 0 erreur.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Un schéma passe l'ERC sans erreur. Est-il forcément juste ?
+
+??? success "Réponse"
+    **Non** : l'ERC vérifie les règles électriques, pas la **fonction** (valeurs, choix de composants).
+
+**Q2.** Que fais-tu face à 12 erreurs ERC ?
+
+??? success "Réponse"
+    Je les traite **une par une** (en commençant par la première), puis je **relance** l'ERC.
 
 ---
 

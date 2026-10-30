@@ -70,6 +70,10 @@
   → File → Fabrication Outputs → Gerbers
 ```
 
+
+> [!TIP] 💡 En clair : le fil conducteur
+> On passe du **schéma** au **PCB** en cinq gestes : **1** associer une **empreinte** à chaque composant ; **2** importer la **netlist** dans le PCB ; **3** **placer** les composants ; **4** **router** les pistes ; **5** **vérifier** (DRC). On ne route **jamais** avant d'avoir placé : un mauvais placement rend le routage difficile.
+
 ---
 
 ![Du schéma au PCB en 8 étapes](images/flux-schema-pcb.png)
@@ -112,6 +116,22 @@ Raccourcis :
   Barre d'espace → Basculer calque actif
 ```
 
+
+> [!TIP] 💡 En clair : les calques
+> Un PCB est un **sandwich** : cuivre dessus (`F.Cu`), cuivre dessous (`B.Cu`), puis le vernis vert (`Mask`), les écritures blanches (`Silkscreen`) et le contour (`Edge.Cuts`). KiCad **affiche** ces calques **séparément** pour travailler sur un seul à la fois. Chaque calque donnera **un fichier de fabrication** (voir S04).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Sur quel calque dessine-t-on le contour de la carte ?
+
+??? success "Réponse"
+    Sur **Edge.Cuts**.
+
+**Q2.** Les inscriptions blanches (R1, D1…) sont sur quel calque ?
+
+??? success "Réponse"
+    Sur la **sérigraphie** (*Silkscreen*).
+
 ---
 
 ## 3️⃣ — Empreintes : associer composants et PCB
@@ -148,6 +168,25 @@ Méthode 3 — Dans le PCB Editor, après import
   → Double-clic sur le composant → Changer l'empreinte
 ```
 
+
+> [!TIP] 💡 En clair : l'empreinte
+> L'**empreinte** (*footprint*) est le **dessin des pastilles** sur le cuivre : leur nombre, leur taille et leur écartement doivent **correspondre exactement** au boîtier réel du composant. Une résistance traversante 0,25 W a une empreinte à **deux pastilles** espacées de 10,16 mm (`R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal`). Si l'empreinte ne correspond pas au composant acheté, **il ne se soudera pas**.
+
+> [!WARNING] ⚠️ Erreur fréquente
+> **Choisir l'empreinte sans regarder le composant réel** (ou sa datasheet) : vérifier le **boîtier**, l'**écartement** des broches et le **sens** (une LED a une polarité !).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quel est le risque d'une mauvaise empreinte ?
+
+??? success "Réponse"
+    Le composant **ne s'adapte pas** aux pastilles de la carte fabriquée.
+
+**Q2.** Où trouve-t-on les dimensions du boîtier d'un composant ?
+
+??? success "Réponse"
+    Dans la **datasheet**, chapitre « package » / « mechanical data ».
+
 ---
 
 ## 4️⃣ — Placement des composants
@@ -182,6 +221,10 @@ E → Éditer les propriétés
 Ctrl+D → Dupliquer
 X → Sélectionner une piste à tracer
 ```
+
+
+> [!TIP] 💡 En clair : bien placer avant de router
+> Place d'abord les composants **imposés** (connecteurs aux bords), puis ceux qui sont **reliés entre eux** près les uns des autres (le condensateur de découplage tout près de la broche d'alimentation du circuit), en suivant les **fils élastiques** pour les croisements les plus courts. Un bon placement réduit **la longueur des pistes** et **les croisements**.
 
 ---
 
@@ -242,6 +285,29 @@ Configurer dans KiCad :
 ⚠️ Les violations de clearance = erreurs DRC
    Un PCB avec des violations de clearance ne peut pas être fabriqué correctement.
 ```
+
+
+> [!TIP] 💡 En clair : largeur, espacement, via
+> - **Largeur de piste** : plus le courant est fort, plus la piste doit être large (sinon elle **chauffe**). Les valeurs du tableau sont des **règles pratiques** ; pour un fort courant, on vérifie avec un calculateur IPC-2221.
+> - **Clearance** : distance minimale **entre deux conducteurs** pour éviter un **court-circuit** à la fabrication.
+> - **Via** : petit trou **métallisé** qui fait passer une piste de `F.Cu` à `B.Cu`. Son **anneau de cuivre** (0,2 mm ici) garantit la fiabilité.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi une piste d'alimentation est-elle plus large qu'une piste de signal ?
+
+??? success "Réponse"
+    Parce qu'elle transporte **plus de courant** : trop fine, elle **chaufferait** et pourrait fondre.
+
+**Q2.** Un via a un diamètre extérieur de 0,8 mm et un perçage de 0,4 mm. Quel est l'anneau de cuivre ?
+
+??? success "Réponse"
+    (0,8 − 0,4) / 2 = **0,2 mm**.
+
+**Q3.** À quoi sert la clearance ?
+
+??? success "Réponse"
+    À éviter les **courts-circuits** entre deux conducteurs trop proches.
 
 ---
 
@@ -338,6 +404,24 @@ Résultat :
 Astuce : lancer le DRC régulièrement pendant le routage,
          pas seulement à la fin → corriger au fur et à mesure
 ```
+
+
+> [!TIP] 💡 En clair : ERC ou DRC ?
+> L'**ERC** vérifie le **schéma** (la logique électrique). Le **DRC** vérifie le **PCB** (la géométrie : espacements, largeurs, pistes non reliées). **Les deux sont obligatoires** avant fabrication.
+>
+> **Méthode** : lancer le DRC → corriger chaque erreur → ne **jamais** ignorer une erreur sans comprendre pourquoi → viser **0 erreur** et **0 piste non routée**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle différence entre ERC et DRC ?
+
+??? success "Réponse"
+    ERC : règles **électriques du schéma** ; DRC : règles **géométriques du PCB**.
+
+**Q2.** Le DRC signale « unconnected items ». Que cela signifie-t-il ?
+
+??? success "Réponse"
+    Il reste des connexions du schéma **non encore routées** sur le PCB.
 
 ---
 
