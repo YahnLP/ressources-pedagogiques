@@ -129,10 +129,7 @@ Informations utiles une fois connecté :
 
 ---
 
-**🖼️ ILLUSTRATION 1 — Mode STA ESP32**
-> *Légende* : Diagramme réseau montrant l'ESP32 en mode STA. À gauche, la box Internet avec son SSID "MonReseau". Au centre, une flèche bidirectionnelle WiFi entre l'ESP32 et la box. L'ESP32 obtient l'IP 192.168.1.42 par DHCP. À droite, un PC et un smartphone sur le même réseau, également connectés à la box. Une flèche de PC vers ESP32 montre "GET http://192.168.1.42/" et une flèche retour montre "200 OK + HTML". Le moniteur série Arduino affiche "Connecté ! IP: 192.168.1.42".
->
-> **Prompt illustration** : *"ESP32 WiFi Station mode network diagram in French. Left: home router/box with 'SSID: MonReseau' label. Center: ESP32 DevKit board with WiFi signal waves, DHCP label '→ 192.168.1.42'. Right: PC and smartphone on same network. Arrows: PC 'GET http://192.168.1.42/' → ESP32, ESP32 '200 OK + HTML' → PC. Bottom: Arduino Serial Monitor window showing 'Connexion WiFi..... ✓ Connecté ! Adresse IP: 192.168.1.42'. French labels, network diagram style, green WiFi waves"*
+![ESP32 en mode STA](images/wifi-sta.png)
 
 ---
 
@@ -279,10 +276,7 @@ Mode STA + AP simultané :
 
 ---
 
-**🖼️ ILLUSTRATION 2 — Modes WiFi ESP32 comparés**
-> *Légende* : Trois schémas côte à côte. Gauche "Mode STA" : ESP32 connecté à une box Internet, obtient une IP du DHCP de la box. Centre "Mode AP" : ESP32 diffuse son propre SSID, smartphone et PC se connectent dessus, ESP32 est le serveur DHCP (192.168.4.1). Droite "Mode STA+AP" : ESP32 simultanément connecté à la box (STA) ET diffuse son propre réseau (AP) — permet d'accéder à Internet tout en étant configurable localement.
->
-> **Prompt illustration** : *"ESP32 WiFi modes comparison in French. Three side-by-side diagrams. Left 'Mode STA': ESP32 connected to home router, arrow labeled 'DHCP: 192.168.1.42', laptop on same network. Center 'Mode AP': ESP32 as center hub broadcasting 'ESP32_Config' WiFi, smartphone and tablet connecting to it, ESP32 labeled '192.168.4.1 (DHCP)', isolated island (no internet). Right 'Mode STA+AP': ESP32 connected to router (STA) AND broadcasting its own network (AP) simultaneously, two-way connectivity. French labels, colored arrows for different connections, ESP32 chip icon"*
+![Modes Wi-Fi de l'ESP32 : STA, AP et STA + AP](images/wifi-modes.png)
 
 ---
 
@@ -432,10 +426,7 @@ void loop() {
 
 ---
 
-**🖼️ ILLUSTRATION 3 — Architecture MQTT avec ESP32**
-> *Légende* : Diagramme d'architecture MQTT. À gauche, ESP32 Publisher avec une icône thermomètre. Au centre, Broker MQTT (Mosquitto) avec la liste des topics actifs. À droite, deux subscribers : un smartphone avec une app IoT et un PC avec un client MQTT. Les flèches montrent : ESP32 → Broker (publish "23.7°C" sur "ecole/labo/temperature") et Broker → Smartphone + PC (forward du message). Un second flux montre : Smartphone → Broker → ESP32 (commande "ON" sur "ecole/labo/led"). La distinction publisher/subscriber/broker est clairement annotée.
->
-> **Prompt illustration** : *"MQTT architecture diagram in French with ESP32. Left: ESP32 board icon labeled 'Publisher' with thermometer, arrow 'publish()' pointing right. Center: MQTT Broker server icon with topic list: 'ecole/labo/temperature: 23.7°C', 'ecole/labo/led: ON'. Right: two subscribers - smartphone labeled 'App IoT (Subscriber)' and PC labeled 'Client MQTT (Subscriber)', both receiving arrows from broker. Second flow below: smartphone 'Commande LED → publish()' → broker → ESP32 (subscriber). QoS levels (0,1,2) noted. French labels, clean IoT architecture diagram, green arrows for publish, blue for subscribe/forward"*
+![Architecture MQTT avec un ESP32](images/mqtt-esp32.png)
 
 ---
 

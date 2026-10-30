@@ -235,11 +235,9 @@ t ≤ 0,105 / λ = _______ h = _______ mois
 
 ### Exercice C3 — Système mixte (10 min)
 
-```
-Système :  [A (R=0,85)] ─┐
-                          ├──→ [CPU (R=0,95)] ──→ [Réseau (R=0,98)]
-           [B (R=0,80)] ─┘
+![Système à étudier : capteurs A et B en parallèle, puis CPU et réseau en série](images/rbd-exercice.png)
 
+```
 a) R_capteurs (parallèle) = 1 − (1 − _______)(1 − _______) = _______
 
 b) Rs global = _______ × _______ × _______ = _______ = _______ %

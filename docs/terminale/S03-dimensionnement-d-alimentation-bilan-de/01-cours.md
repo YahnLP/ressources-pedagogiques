@@ -118,10 +118,7 @@ LDO (Low Drop-Out) = variante du linéaire :
 
 ---
 
-**🖼️ ILLUSTRATION 1 — Linéaire vs Découpage**
-> *Légende* : Deux schémas côte à côte. Gauche "Régulateur linéaire" : source 9V → boîtier TO-220 avec flèche de chaleur rouge vers le bas · Vout=5V · rendement = 5/9 = 55%. Zone rouge = énergie perdue. Droite "Convertisseur à découpage (Buck)" : source 9V → bobine + condensateur + commutateur avec signal carré · Vout=5V · rendement ≈ 90%. Zone verte dominante = énergie utile. Graphes d'énergie en dessous montrant la différence visuellement.
->
-> **Prompt illustration** : *"Linear regulator vs switching regulator comparison in French. Left panel 'Régulateur Linéaire': 9V source, TO-220 package with red downward arrow 'Chaleur (Pdiss)', output 5V, efficiency formula 'η = 5/9 = 55%', large red zone labeled 'Énergie perdue'. Right panel 'Convertisseur Buck': 9V source, inductor+capacitor+switch circuit with PWM signal, output 5V, efficiency 'η ≈ 90%', large green zone 'Énergie utile', small red zone '10% perdu'. Bar charts below comparing efficiency. French labels, power electronics diagram"*
+![Régulateur linéaire et convertisseur à découpage](images/lineaire-decoupage.png)
 
 ---
 
@@ -230,10 +227,7 @@ Exemple : Même LM7805, Pdiss=3W, Tamb=40°C
 
 ---
 
-**🖼️ ILLUSTRATION 2 — Modèle thermique d'un régulateur**
-> *Légende* : Schéma thermique en circuit analogique. Gauche : source de chaleur Pdiss (W). Chaîne en série de droite à gauche : Rθjc (jonction vers boîtier) → Rθcs (boîtier vers radiateur, avec graisse) → Rθsa (radiateur vers air) → Tamb. Les températures T_jonction, T_boîtier, T_surface_radiateur, T_air sont annotées aux nœuds. Formule globale encadrée : Tj = Tamb + Pdiss × (Rθjc + Rθcs + Rθsa). Un thermomètre visuel montre la progression des températures.
->
-> **Prompt illustration** : *"Thermal resistance model diagram for power regulator in French. Electrical circuit analogy with series resistances. Left to right: 'Pdiss (W)' as current source. Nodes labeled: 'Tj - Jonction', 'Tc - Boîtier', 'Ts - Radiateur', 'Tamb - Ambiant'. Between nodes: resistors labeled 'Rθjc (5°C/W)', 'Rθcs (0.5°C/W graisse)', 'Rθsa (15°C/W)'. Formula box: 'Tj = Tamb + Pdiss × (Rθjc + Rθcs + Rθsa)'. Temperature thermometer on right showing progression 25°C→40°C→60°C→100°C. French labels, thermal engineering diagram style"*
+![Modèle thermique d'un régulateur](images/modele-thermique.png)
 
 ---
 

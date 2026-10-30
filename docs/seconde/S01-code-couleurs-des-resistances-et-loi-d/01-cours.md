@@ -54,9 +54,6 @@
 | Résistance (Ω) | Étroitesse du tuyau |
 | Charge (LED, moteur) | Turbine / Roue à eau |
 
-![Illustration : Deux schémas côte à côte. À gauche : circuit électrique simple avec pile, résistance et LED. À droite : circuit d'eau avec réservoir en hauteur, tuyau étroit et roue à eau. Des flèches relient les éléments équivalents. Style : schéma pédagogique clair avec annotations.]
-
-**Prompt image :** "Illustration comparative électricité vs eau. Côté gauche : circuit électrique simple avec pile rectangulaire, résistance (zigzag), LED (triangle), fil connectant le tout. Côté droit : circuit hydraulique avec château d'eau en hauteur, tuyau étroit descendant, roue à eau en bas. Flèches colorées reliant : pile↔château d'eau, résistance↔tuyau étroit, LED↔roue. Labels clairs. Style : diagramme pédagogique coloré sur fond blanc."
 
 ---
 
@@ -211,19 +208,9 @@ $$
 
 **Méthode :** Pour convertir, déplacer la virgule !
 
-```
-MΩ ← ← ← kΩ ← ← ← Ω
-   × 1000   × 1000
+![Échelle des unités : multiplier ou diviser par 1 000](images/echelle-unites.png)
 
-Exemple : 2,5 kΩ = 2 500 Ω
-```
 
-```
-A → → → mA → → → µA
-   ÷ 1000   ÷ 1000
-
-Exemple : 0,02 A = 20 mA
-```
 
 ---
 
@@ -335,12 +322,12 @@ Une résistance de 1 kΩ ± 5% peut avoir une valeur réelle entre **950 Ω et 1
 
 | **Composant** | **Symbole** | **Rôle** | **Caractéristique** | **Polarité** |
 |--------------|------------|----------|---------------------|--------------|
-| 🟤 **Résistance** | ──▭── | Limiter le courant | Valeur en Ω (code couleurs) | Non |
-| 🔴 **LED** | ──▷\|── | Émettre de la lumière | Tension ~2V, Courant ~20mA | Oui (+ = patte longue) |
-| ⚫ **Diode** | ──▷\|── | Laisser passer le courant dans un seul sens | Bague = cathode (-) | Oui |
-| 🟡 **Condensateur** | ──\|\|── | Stocker de l'énergie électrique | Valeur en F (Farad) | Parfois (électrolytique) |
-| 🔵 **Transistor** | ─┤├─ | Amplifier ou commuter un signal | 3 pattes : B, C, E | Oui |
-| 🔋 **Pile** | ─\|+─ | Fournir une tension | Tension en V | Oui (+ et -) |
+| 🟤 **Résistance** | ![Résistance](images/sym-resistance.png){ width="210" } | Limiter le courant | Valeur en Ω (code couleurs) | Non |
+| 🔴 **LED** | ![LED](images/sym-led.png){ width="210" } | Émettre de la lumière | Tension ~2V, Courant ~20mA | Oui (+ = patte longue) |
+| ⚫ **Diode** | ![Diode](images/sym-diode.png){ width="210" } | Laisser passer le courant dans un seul sens | Bague = cathode (-) | Oui |
+| 🟡 **Condensateur** | ![Condensateur](images/sym-condo.png){ width="210" } | Stocker de l'énergie électrique | Valeur en F (Farad) | Parfois (électrolytique) |
+| 🔵 **Transistor** | ![Transistor](images/sym-npn.png){ width="210" } | Amplifier ou commuter un signal | 3 pattes : B, C, E | Oui |
+| 🔋 **Pile** | ![Pile](images/sym-pile.png){ width="210" } | Fournir une tension | Tension en V | Oui (+ et -) |
 
 ---
 
@@ -367,9 +354,7 @@ $$R_{\mathrm{LED}} = \dfrac{9\,\mathrm{V} - 2\,\mathrm{V}}{0{,}02\,\mathrm{A}} =
 
 → On choisira une résistance de 330 Ω ou 470 Ω (valeur standard)  
 
-![Illustration : Schéma électrique d'un circuit LED avec pile 9V, résistance de protection et LED. Annotations montrant le sens du courant et les valeurs. Style : schéma technique clair et coloré.]
-
-**Prompt image :** "Schéma électrique simple d'un circuit LED. De gauche à droite : pile 9V (rectangle avec + et -), fil, résistance 330Ω (zigzag avec couleurs marron-orange-marron), fil, LED rouge (triangle avec barre). Flèche rouge indiquant le sens du courant. Annotations : '9V', '330Ω', 'LED 2V 20mA'. Style : schéma technique clair sur fond blanc."
+![Circuit LED : pile 9 V, résistance de protection 330 Ω et LED rouge](images/circuit-led-9v.png)
 
 ---
 

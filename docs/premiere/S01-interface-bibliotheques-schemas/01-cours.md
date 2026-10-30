@@ -93,37 +93,35 @@ WORKFLOW KiCad :
 
 ### Le Schematic Editor — zones clés
 
-|  | Barre d'outils horizontale |  |
-|---|---|---|
-| B | ───────────────────────────────────────── | Barre |
-| a |  | verti- |
-| r |  | cale |
-| r | ZONE DE DESSIN | (Pas- |
-| e |  | ser) |
-|  |  |  |
-| g. |  |  |
-
+```
+┌─────┬───────────────────────────────────────┬──────────┐
+│     │  Barre d'outils horizontale             │          │
+│  B  │─────────────────────────────────────────│  Barre  │
+│  a  │                                         │  verti- │
+│  r  │                                         │  cale   │
+│  r  │         ZONE DE DESSIN                  │  (Pas-  │
+│  e  │                                         │  ser)   │
+│     │                                         │          │
+│  g. │                                         │          │
+└─────┴───────────────────────────────────────┴──────────┘
 
 Raccourcis clavier essentiels :
-A → Ajouter un composant (Add Symbol)
-W → Ajouter un fil (Wire)
-P → Ajouter un symbole d'alimentation (Power)
-E → Éditer les propriétés d'un composant
-R → Faire pivoter
-X → Copier
-DEL → Supprimer
-Esc → Annuler l'outil en cours
-Ctrl+Z → Annuler
-Ctrl+S → Sauvegarder
-Molette → Zoom avant/arrière
-Clic droit → Menu contextuel
+  A → Ajouter un composant (Add Symbol)
+  W → Ajouter un fil (Wire)
+  P → Ajouter un symbole d'alimentation (Power)
+  E → Éditer les propriétés d'un composant
+  R → Faire pivoter
+  X → Copier
+  DEL → Supprimer
+  Esc → Annuler l'outil en cours
+  Ctrl+Z → Annuler
+  Ctrl+S → Sauvegarder
+  Molette → Zoom avant/arrière
+  Clic droit → Menu contextuel
+```
 
 ---
 
-**🖼️ ILLUSTRATION 1 — Interface KiCad Schematic Editor**
-> *Légende* : Capture annotée de l'interface KiCad Schematic Editor. La zone de dessin centrale est vide avec la grille visible. La barre d'outils de droite est annotée avec les 8 outils principaux (flèche sélection, fil, bus, label, symbole alimentation, add symbol, texte, ERC). En bas, la barre de coordonnées X/Y. Une infobulle montre le raccourci clavier de chaque outil. La palette de couleurs du schéma est indiquée (fond noir, fils verts, composants bleus).
->
-> **Prompt illustration** : *"KiCad Schematic Editor interface screenshot in French with 8 annotation arrows. Dark background schematic canvas with grid. Right toolbar annotated: 'Sélectionner (S)', 'Fil (W)', 'Bus', 'Label net', 'Alimentation (P)', 'Symbole (A)', 'Texte', 'Vérif ERC'. Bottom status bar showing 'X: 0.00 Y: 0.00'. Keyboard shortcut labels next to each tool. Color scheme: black background, green wires, blue component symbols. French labels, UI screenshot style"*
 
 ---
 
@@ -239,10 +237,6 @@ VÉRIFICATION :
 
 ---
 
-**🖼️ ILLUSTRATION 2 — Schéma LED dans KiCad annoté**
-> *Légende* : Capture d'un schéma KiCad simple sur fond noir montrant : symbole +5V en haut (flèche vers le haut), fil vertical, résistance R1 "150Ω" au centre, fil, LED D1 avec ses flèches de lumière, fil, symbole GND en bas. Les broches sont annotées (Pin 1/Pin 2 de R1, A/K de D1). Des flèches colorées indiquent : la direction du courant conventionnel, où placer les PWR_FLAG, le sens de la LED (A=anode haut, K=cathode bas), la valeur et référence de chaque composant.
->
-> **Prompt illustration** : *"KiCad schematic screenshot in French showing simple LED circuit on dark background. Components from top to bottom: +5V power symbol, wire, R1 resistor (150Ω label), wire, D1 LED (with light arrow symbols), wire, GND symbol. Two PWR_FLAG symbols on VCC and GND. Green wires connecting everything. Annotation arrows: red arrow 'Sens courant conventionnel', blue arrow 'PWR_FLAG obligatoire', orange arrow 'A=Anode (haut), K=Cathode (bas)', yellow arrows on component values '150Ω' and 'LED rouge'. French labels, KiCad dark theme UI style"*
 
 ---
 

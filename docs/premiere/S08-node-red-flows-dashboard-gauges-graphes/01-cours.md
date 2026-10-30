@@ -122,10 +122,6 @@ slider      → Curseur de valeur
 
 ---
 
-**🖼️ ILLUSTRATION 1 — Interface Node-RED avec un flow simple**
-> *Légende* : Capture de l'interface Node-RED avec un flow de 5 nœuds. De gauche à droite : nœud "inject" (bouton manuel), nœud "function" (boîte violette "Simuler données"), nœud "gauge" (jauge dashboard), nœud "chart" (graphe dashboard), nœud "debug" (icône bug). Les fils de connexion sont visibles. Le panneau de débogage à droite montre des messages JSON. En dessous, le bouton "Deploy" rouge.
->
-> **Prompt illustration** : *"Node-RED editor interface screenshot in French. Flow canvas showing 5 connected nodes left-to-right: blue 'inject' node, purple 'function - Simuler données', teal 'gauge - Température', teal 'chart - Historique', green 'debug'. Orange wire connections between nodes. Right panel 'Débogage' showing JSON messages like '{payload: 23.4, topic: temperature}'. Red 'Deploy' button at top. Palette panel on left with node categories. French labels, dark Node-RED theme"*
 
 ---
 
@@ -221,10 +217,6 @@ Pour plusieurs séries sur le même graphe :
 
 ---
 
-**🖼️ ILLUSTRATION 2 — Dashboard Node-RED avec gauge et graphe**
-> *Légende* : Capture du dashboard Node-RED (http://localhost:1880/ui) avec un onglet "Salle E2". À gauche, une grande jauge type compteur de vitesse montrant 24.3°C, avec zones verte (0-25°C), orange (25-35°C), rouge (35-50°C). À droite, un graphe linéaire temporel montrant l'évolution de la température sur les 10 dernières minutes (courbe bleue oscillante entre 20 et 28°C). En bas, un texte "Dernière mise à jour : 14:35:22". Fond sombre du dashboard.
->
-> **Prompt illustration** : *"Node-RED dashboard screenshot in French. Dark background 'node-red-dashboard' style. Tab labeled 'Salle E2'. Left widget: large speedometer gauge 'Température' showing 24.3°C, green sector 0-25°C, orange 25-35°C, red 35-50°C, needle pointing at 24.3. Right widget: line chart 'Historique Température' showing oscillating blue line between 20-28°C over last 10 minutes, x-axis time labels '14:25' to '14:35'. Bottom: text 'Dernière mise à jour: 14:35:22'. Mobile-responsive layout appearance"*
 
 ---
 
@@ -248,21 +240,7 @@ SOLUTION InfluxDB :
 
 ### Structure des données InfluxDB
 
-```
-MEASUREMENT (= "table")  : temperature_salle
-  │
-  ├── TAGS (= labels/index) :
-  │     location = "salle_e2"
-  │     capteur  = "esp32_01"
-  │
-  ├── FIELDS (= valeurs) :
-  │     temp     = 23.5
-  │     humidite = 65.2
-  │
-  └── TIMESTAMP (automatique) : 2024-05-10T14:35:22Z
-
-Un "POINT" = 1 ligne dans InfluxDB = {tags} + {fields} + timestamp
-```
+![Un point InfluxDB : measurement, tags, fields et timestamp](images/influx-point.png)
 
 ### Langage Flux (InfluxDB 2.x)
 
@@ -344,34 +322,20 @@ return msg;
 
 ---
 
-**🖼️ ILLUSTRATION 3 — Flow complet IoT : ESP32 → MQTT → Node-RED → InfluxDB**
-> *Légende* : Flow Node-RED complet en 3 lignes. Ligne 1 (acquisition temps réel) : mqtt-in → json → function "Parser JSON" → [gauge, chart, influxdb-out]. Ligne 2 (alertes) : function "Parser JSON" → switch "temp>30" → [debug "ALERTE", mqtt-out "alerte"]. Ligne 3 (historique) : inject "Toutes les 5min" → influxdb-in "Requête 1h" → chart "Historique InfluxDB". Les fils de connexion sont colorés par type (rouge=alerte, bleu=données, vert=historique).
->
-> **Prompt illustration** : *"Node-RED flow diagram in French showing complete IoT pipeline. Three parallel rows: Row 1 'Temps réel': blue 'mqtt in - esp32/temp' → purple 'json' → purple 'function - Parser' → [teal 'gauge Température', teal 'chart Temps réel', orange 'influxdb out']. Row 2 'Alertes': from function output → yellow 'switch T>30°C' → [red 'debug ALERTE', red 'mqtt out - alertes']. Row 3 'Historique': gray 'inject 5min' → orange 'influxdb in - Query 1h' → teal 'chart Historique'. Colored wires. French node labels, Node-RED dark theme"*
 
 ---
 
 ## 7️⃣ — Architecture complète IoT
 
-```
-┌──────────────────────────────────────────────────────────────────┐
-│                   STACK IOT COMPLÈTE                             │
-│                                                                  │
-│  [ESP32]────MQTT────[Broker]────[Node-RED]────[Dashboard Web]    │
-│                               │     │                           │
-│                               │     └──────[Email/Alerte]       │
-│                               │                                  │
-│                          [InfluxDB]────[Grafana]                 │
-│                          (Stockage)    (Visualisation pro)       │
-└──────────────────────────────────────────────────────────────────┘
+![Stack IoT complète : ESP32, broker, Node-RED, InfluxDB, Grafana](images/stack-iot.png)
 
-Chaque brique :
-  ESP32          : Acquisition + communication (S6)
-  MQTT Broker    : Transport de messages (S6)
-  Node-RED       : Orchestration + dashboard simple (S8 ← ICI)
-  InfluxDB       : Stockage long terme (S8 ← ICI)
-  Grafana        : Dashboard professionnel (bonus S8 / S10)
-```
+**Chaque brique :**
+
+- **ESP32** : acquisition et communication (S6)
+- **Broker MQTT** : transport de messages (S6)
+- **Node-RED** : orchestration et dashboard simple (S8, *ici*)
+- **InfluxDB** : stockage à long terme (S8, *ici*)
+- **Grafana** : dashboard professionnel (bonus S8 / S10)
 
 ---
 

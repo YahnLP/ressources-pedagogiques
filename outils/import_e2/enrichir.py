@@ -14,6 +14,11 @@ BOX = re.compile(r'[┌┐└┘├┤┬┴┼]')
 def D(year, p): return Path(glob.glob(str(REPO / f'docs/{year}/{p}-*'))[0])
 
 
+def P(p, fn):
+    d = D('premiere', p); g = sorted(glob.glob(str(d / (fn + '*'))))
+    return d, (Path(g[0]) if g else None)
+
+
 def q(src, dst):
     dst.parent.mkdir(exist_ok=True)
     Image.open(src).convert('RGBA').quantize(colors=256, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.FLOYDSTEINBERG).save(dst, optimize=True)
@@ -23,17 +28,28 @@ def replace_blocks(f, rules, d):
     t = f.read_text(encoding='utf-8'); n = 0
     for m in sorted(fences.finditer(t), key=lambda m: m.span()[0], reverse=True):
         b = m.body
-        for pred, name, alt in rules:
+        for rule in rules:
+            pred, name, alt = rule[:3]; extra = rule[3] if len(rule) > 3 else ''
             if pred(b):
                 if name is None: r = alt
                 else:
-                    q(FIG / f'{name}.png', d / 'images' / (name.replace('_', '-') + '.png')); r = f'![{alt}](images/{name.replace("_", "-")}.png)'
+                    q(FIG / f'{name}.png', d / 'images' / (name.replace('_', '-') + '.png'))
+                    if '__REST__' in extra: extra = extra.replace('__REST__', '\n'.join(b.split('\n')[3:]).strip())
+                    r = f'![{alt}](images/{name.replace("_", "-")}.png)' + ('\n\n' + extra if extra else '')
                 a, e = m.span(); t = t[:a] + r + t[e:]; n += 1; break
     f.write_text(t, encoding='utf-8'); return n
 
 
 has = lambda *s: (lambda b: all(x in b for x in s))
 RE = re.compile(r'\s*\[ILLUSTRATION')
+
+
+def is_table(b):
+    rows = [l for l in b.split('\n') if l.strip().startswith('│')]
+    seps = [l for l in b.split('\n') if re.match(r'^\s*├[─┼]+┤\s*$', l)]
+    if not rows or not seps or '┼' not in b: return False
+    counts = {l.count('│') for l in rows}
+    return len(counts) == 1 and counts.pop() >= 3 and b.count('┌') == 1
 
 
 def box_to_table(b):
@@ -75,7 +91,7 @@ def convert_boxes(f):
     t = f.read_text(encoding='utf-8'); n = 0
     for m in sorted(fences.finditer(t), key=lambda m: m.span()[0], reverse=True):
         b = m.body; r = None
-        if re.search(r'[┬┼]', b) and '│' in b: r = box_to_table(b)
+        if is_table(b): r = box_to_table(b)
         elif b.lstrip().startswith('┌') and not re.search(r'[├┬┼┴]', b) and b.count('┌') == 1 and b.rstrip().endswith('┘'):
             r = box_to_callout(b)
         if r: a, e = m.span(); t = t[:a] + r + t[e:]; n += 1
@@ -177,7 +193,150 @@ def unfenced(prefix, fname, n, name, alt):
     return 0
 
 
+from premiere_rules import RULES
+
+
+def premiere():
+    n = 0
+    for p, fn, rules in RULES:
+        d, f = P(p, fn)
+        if f: n += replace_blocks(f, rules, d)
+    return n
+
+
+def md_placeholder(prefix, fname, start, name, alt):
+    d = D('seconde', prefix); f = d / fname; L = f.read_text(encoding='utf-8').split('\n')
+    for i, l in enumerate(L):
+        if l.startswith('![Illustration') and start in l:
+            j = i + 1
+            while j < len(L) and L[j].strip() == '': j += 1
+            if j < len(L) and L[j].startswith('**Prompt image'): j += 1
+            if name:
+                q(FIG / f'{name}.png', d / 'images' / (name.replace('_', '-') + '.png')); rep = [f'![{alt}](images/{name.replace("_", "-")}.png)']
+            else: rep = []
+            L[i:j] = rep; f.write_text('\n'.join(L), encoding='utf-8'); return 1
+    return 0
+
+
+def s01_extra():
+    n = md_placeholder('S01', '01-cours.md', 'Deux schémas côte à côte', None, '')
+    n += md_placeholder('S01', '01-cours.md', "Schéma électrique d'un circuit LED", 'circuit_led_9v', 'Circuit LED : pile 9 V, résistance de protection 330 Ω et LED rouge')
+    n += md_placeholder('S10', '01-cours.md', 'Deux schémas de moteur', 'moteur_sens', "Inversion du sens de rotation d'un moteur en inversant la pile")
+    n += md_placeholder('S10', '01-cours.md', 'Schéma de câblage complet', 'cablage_l293d', 'Câblage du L293D : Arduino, moteur et pile 9 V externe')
+    n += md_placeholder('S12', '01-cours.md', 'Multimètre en mode continuité', 'continuite_multimetre', 'Mode continuité : fil intact (bip) et fil coupé (pas de bip)')
+    d = D('seconde', 'S01'); f = d / '01-cours.md'; t = f.read_text(encoding='utf-8')
+    for old, k in (('──▭──', 'resistance'), ('──▷\\|── | Émettre', 'led'), ('──▷\\|── | Laisser', 'diode'), ('──\\|\\|──', 'condo'), ('─┤├─', 'npn'), ('─\\|+─', 'pile')):
+        pass
+    rows = {'🟤 **Résistance**': 'resistance', '🔴 **LED**': 'led', '⚫ **Diode**': 'diode', '🟡 **Condensateur**': 'condo', '🔵 **Transistor**': 'npn', '🔋 **Pile**': 'pile'}
+    L = t.split('\n')
+    for i, l in enumerate(L):
+        for lab, k in rows.items():
+            if l.startswith('| ' + lab):
+                c = l.split(' | ')
+                c[1] = f'![{lab.split("**")[1]}](images/sym-{k}.png){{ width="210" }}'; L[i] = ' | '.join(c); q(SYM / f'sym-{k}.png', d / 'images' / f'sym-{k}.png'); n += 1
+    t = '\n'.join(L)
+    for m in sorted(fences.finditer(t), key=lambda m: m.span()[0], reverse=True):
+        if '← ← ←' in m.body or ('→ → →' in m.body and 'mA' in m.body):
+            a, e_ = m.span(); r = "![Échelle des unités : multiplier ou diviser par 1 000](images/echelle-unites.png)" if '← ← ←' in m.body else ''
+            t = t[:a] + r + t[e_:]
+    q(FIG / 'echelle_unites.png', d / 'images' / 'echelle-unites.png')
+    f.write_text(t, encoding='utf-8'); return n
+
+
+HRULES = [  # (année, séance, fichier, n°, figure ou None = capture à réaliser, alt)
+    ('premiere', 'S01', '01-cours', 1, None, ''), ('premiere', 'S01', '01-cours', 2, None, ''),
+    ('premiere', 'S03', '01-cours', 1, 'flux_schema_pcb', 'Du schéma au PCB en 8 étapes'), ('premiere', 'S03', '01-cours', 2, 'pistes_vias_clearance', 'Pistes, via et clearance'),
+    ('premiere', 'S03', '01-cours', 3, None, ''), ('premiere', 'S03', '01-cours', 4, None, ''),
+    ('premiere', 'S04', '01-cours', 1, 'coupe_pcb_double_face', "Coupe d'un PCB double face"), ('premiere', 'S04', '01-cours', 2, 'cms_traversant', 'Composant traversant (THT) et composant CMS (SMD)'),
+    ('premiere', 'S04', '01-cours', 3, None, ''), ('premiere', 'S04', '01-cours', 4, 'gerber_couches', 'Des calques Gerber au PCB réel'),
+    ('premiere', 'S06', '01-cours', 1, 'wifi_sta', 'ESP32 en mode STA'), ('premiere', 'S06', '01-cours', 2, 'wifi_modes', 'Modes Wi-Fi de l\'ESP32 : STA, AP et STA + AP'), ('premiere', 'S06', '01-cours', 3, 'mqtt_esp32', 'Architecture MQTT avec un ESP32'),
+    ('premiere', 'S08', '01-cours', 1, None, ''), ('premiere', 'S08', '01-cours', 2, None, ''), ('premiere', 'S08', '01-cours', 3, None, ''),
+    ('premiere', 'S11', '01-cours', 1, 'chronologie_mtbf', 'Chronologie MTBF / MTTR'), ('premiere', 'S11', '01-cours', 2, 'courbe_fiabilite', 'Courbe de fiabilité R(t) = e^(−λt)'), ('premiere', 'S11', '01-cours', 3, 'serie_parallele_fiabilite', 'Fiabilité en série et en parallèle'),
+    ('premiere', 'S13', '01-cours', 1, 'couplages_cem', 'Les quatre types de couplage CEM'), ('premiere', 'S13', '01-cours', 2, 'blindage_fente', 'Blindage efficace et effet de fente'), ('premiere', 'S13', '01-cours', 3, 'decouplage_pcb', 'Condensateurs de découplage sur un PCB'),
+    ('premiere', 'S17', '01-cours', 1, 'hysteresis_alerte', "Hystérésis d'une alerte de température"), ('premiere', 'S17', '01-cours', 2, 'exactitude_fidelite', 'Exactitude et fidélité'),
+    ('terminale', 'S03', '01-cours', 1, 'lineaire_decoupage', 'Régulateur linéaire et convertisseur à découpage'), ('terminale', 'S03', '01-cours', 2, 'modele_thermique', "Modèle thermique d'un régulateur"),
+    ('terminale', 'S08', '01-cours', 1, 'cibles_repetabilite', 'Répétabilité et reproductibilité'), ('terminale', 'S08', '01-cours', 2, 'grr_interpretation', 'Interprétation graphique du %GRR')]
+
+
+def heading_placeholders():
+    n = 0; todo = []
+    files = {}
+    for y, s, fn, num, name, alt in HRULES:
+        d = D(y, s); f = sorted(glob.glob(str(d / (fn + '*'))))[0]; f = Path(f)
+        L = files.setdefault(f, (d, f.read_text(encoding='utf-8').split('\n')))[1]
+        for i, l in enumerate(L):
+            if l.startswith(f'**🖼️ ILLUSTRATION {num} '):
+                j = i + 1
+                while j < len(L) and L[j].startswith('>'): j += 1
+                legend = next((x for x in L[i + 1:j] if 'Légende' in x), '')
+                if name:
+                    q(FIG / f'{name}.png', d / 'images' / (name.replace('_', '-') + '.png')); rep = [f'![{alt}](images/{name.replace("_", "-")}.png)']
+                else:
+                    rep = []; todo.append((f.parent.name, l.strip('*'), legend.replace('> *Légende* : ', '')[:300]))
+                L[i:j] = rep; n += 1; break
+    # filet de sécurité : tout placeholder restant est retiré et consigné
+    for f in glob.glob(str(REPO / 'docs/*/*/*.md')):
+        if '/annexes/' in f: continue
+        f = Path(f); t = f.read_text(encoding='utf-8'); L = files[f][1] if f in files else t.split('\n'); ch = f in files
+        i = 0
+        while i < len(L):
+            if re.match(r'^\*\*🖼️ ILLUSTRATION', L[i]):
+                j = i + 1
+                while j < len(L) and L[j].startswith('>'): j += 1
+                legend = next((x for x in L[i + 1:j] if 'Légende' in x), '')
+                todo.append((f.parent.name, L[i].strip('*'), legend.replace('> *Légende* : ', '')[:300])); del L[i:j]; ch = True; n += 1
+            else: i += 1
+        if ch: files[f] = (D('seconde', 'S01') if f not in files else files[f][0], L)
+    for f, (d, L) in files.items(): f.write_text('\n'.join(L), encoding='utf-8')
+    if todo:
+        out = ['# Captures et figures à réaliser', '', 'Captures d\'écran de logiciels (KiCad, Node-RED…) à prendre depuis l\'application réelle, ou figures non encore créées.', '', '| Séance | Figure | Description |', '|---|---|---|']
+        out += [f'| {a} | {b.replace("|", "/")} | {c.replace("|", "/")} |' for a, b, c in todo]
+        (REPO / 'outils' / 'import_e2' / 'captures-a-realiser.md').write_text('\n'.join(out) + '\n', encoding='utf-8')
+    return n, len(todo)
+
+
+CAM = {  # figures réutilisées pour les placeholders 📷 : (année, séance, n°) -> (figure, légende)
+    ('premiere', 'S05', 1): ('chrono_i2c', "Transaction I2C : condition START, adresse sur 7 bits, bit R/W et ACK."),
+    ('premiere', 'S05', 2): ('chrono_spi', "Transaction SPI : CS bas, huit coups d'horloge SCLK, données sur MOSI et MISO."),
+    ('premiere', 'S07', 1): ('mqtt_broker', "Architecture MQTT : le broker est l'unique point de contact entre publishers et subscribers."),
+    ('premiere', 'S09', 1): ('tls_mtls', "Authentification TLS standard et mutuelle (mTLS) avec AWS IoT Core."),
+    ('terminale', 'S04', 1): ('hysteresis_alerte', "Alarme avec hystérésis : seuil haut 30 °C, seuil bas 28 °C, plus de clignotement autour du seuil.")}
+
+
+def camera_placeholders():
+    n = 0; todo = []
+    for f in glob.glob(str(REPO / 'docs/*/*/*.md')):
+        if '/annexes/' in f: continue
+        f = Path(f); L = f.read_text(encoding='utf-8').split('\n'); i = 0; ch = False; k = 0
+        y = f.parts[-3]; s = f.parent.name[:3]
+        while i < len(L):
+            if L[i].startswith('📷 **[ILLUSTRATION'):
+                k += 1; j = i + 1
+                while j < len(L) and (L[j].strip() == '' or L[j].startswith(('*', '>'))) and not L[j].startswith('---'):
+                    if L[j].strip() == '' and j + 1 < len(L) and not L[j + 1].startswith(('*', '>')): break
+                    j += 1
+                block = L[i:j]; leg = next((x for x in block if x.startswith('> **Légende')), '').replace('> **Légende :** ', '')
+                key = (y, s, k)
+                if key in CAM:
+                    name, cap = CAM[key]; d = f.parent
+                    q(FIG / f'{name}.png', d / 'images' / (name.replace('_', '-') + '.png')); rep = [f'![{cap}](images/{name.replace("_", "-")}.png)']
+                else:
+                    rep = []; todo.append((f.parent.name, f'Figure {k}', leg[:300]))
+                L[i:j] = rep; ch = True; n += 1
+            else: i += 1
+        if ch: f.write_text('\n'.join(L), encoding='utf-8')
+    if todo:
+        p = REPO / 'outils' / 'import_e2' / 'captures-a-realiser.md'
+        old = p.read_text(encoding='utf-8') if p.exists() else ''
+        p.write_text(old.rstrip('\n') + '\n' + '\n'.join(f'| {a} | {b} | {c.replace("|", "/")} |' for a, b, c in todo) + '\n', encoding='utf-8')
+    return n, len(todo)
+
+
 def main():
+    print('Placeholders (figures, captures)', heading_placeholders())
+    print('Placeholders 📷', camera_placeholders())
+    print('Seconde extra', s01_extra())
+    print('Première', premiere())
     unfenced('S16', '01-cours.md', 5, 'schema_complet_domotique', 'Schéma électronique complet du système domotique A1')
     print('S01', s01(), '| symboles', symboles(), '| figures', seconde_figures())
     nb = 0

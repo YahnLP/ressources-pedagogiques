@@ -29,70 +29,63 @@
 
 ### MTBF : Mean Time Between Failures
 
-```
-MTBF = Temps total de fonctionnement (TO)
-       ────────────────────────────────────
-          Nombre de pannes (n)
+$$\mathrm{MTBF} = \dfrac{T_O}{n}$$
 
-Exemple :
-  Un disque dur fonctionne 87 600 heures (10 ans) et tombe en panne 3 fois.
-  MTBF = 87 600 / 3 = 29 200 heures ≈ 3,3 ans entre deux pannes
+avec $T_O$ le temps total de fonctionnement et $n$ le nombre de pannes.
 
-Interprétation :
-  MTBF = 50 000 h → en fonctionnement 24h/24 → panne probable dans 5,7 ans
-  MTBF = 500 000 h → panne probable dans 57 ans (quasi immortel !)
-  
-  ⚠️ MTBF ≠ durée de vie garantie
-     C'est un indicateur STATISTIQUE : 50% des composants tomberont en panne
-     AVANT le MTBF, et 50% APRÈS.
-```
+**Exemple :** un disque dur fonctionne 87 600 heures (10 ans) et tombe en panne 3 fois.
+
+$$\mathrm{MTBF} = \dfrac{87\,600}{3} = 29\,200\ \text{heures} \approx 3{,}3\ \text{ans entre deux pannes}$$
+
+**Interprétation :**
+
+- MTBF = 50 000 h → en fonctionnement 24 h/24, panne probable dans 5,7 ans
+- MTBF = 500 000 h → panne probable dans 57 ans (quasi immortel !)
+
+> [!WARNING] MTBF ≠ durée de vie garantie
+> C'est un indicateur **statistique** : 50 % des composants tomberont en panne **avant** le MTBF, et 50 % **après**.
 
 ### MTTR : Mean Time To Repair
 
-```
-MTTR = Temps total d'arrêt (TA)
-       ──────────────────────────
-         Nombre de pannes (n)
+$$\mathrm{MTTR} = \dfrac{T_A}{n}$$
 
-MTTR inclut :
-  → Temps de détection de la panne
-  → Temps d'attente de l'intervention
-  → Temps de diagnostic
-  → Temps de réparation proprement dit
-  → Temps de test et remise en service
+avec $T_A$ le temps total d'arrêt et $n$ le nombre de pannes.
 
-Pour réduire le MTTR :
-  ✓ Avoir des pièces de rechange en stock (gestion de stock)
-  ✓ Former les techniciens aux procédures
-  ✓ Systèmes de diagnostic automatique (alertes, logs)
-  ✓ Modules facilement remplaçables (hot-swap)
-```
+**Le MTTR inclut :**
+
+- le temps de détection de la panne
+- le temps d'attente de l'intervention
+- le temps de diagnostic
+- le temps de réparation proprement dit
+- le temps de test et de remise en service
+
+**Pour réduire le MTTR :**
+
+- ✓ avoir des pièces de rechange en stock (gestion de stock)
+- ✓ former les techniciens aux procédures
+- ✓ utiliser des systèmes de diagnostic automatique (alertes, logs)
+- ✓ prévoir des modules facilement remplaçables (hot-swap)
 
 ### Disponibilité
 
-```
-           MTBF                  TO
-D = ──────────────────  =  ──────────────
-       MTBF + MTTR             TO + TA
+$$D = \dfrac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}} = \dfrac{T_O}{T_O + T_A}$$
 
+**Exemple numérique :** MTBF = 2 500 h et MTTR = 3,6 h.
 
-Exemple numérique :
-  MTBF = 2 500 h · MTTR = 3,6 h
-  D = 2 500 / (2 500 + 3,6) = 2 500 / 2 503,6 = 0,9986 = 99,86%
+$$D = \dfrac{2\,500}{2\,500 + 3{,}6} = \dfrac{2\,500}{2\,503{,}6} = 0{,}9986 = 99{,}86\ \%$$
 
-Classes de disponibilité industrielle :
-  99%       → 3,65 jours d'arrêt / an  (industrie non critique)
-  99,9%     → 8,76 heures / an         ("three nines")
-  99,99%    → 52,6 minutes / an        ("four nines")
-  99,999%   → 5,26 minutes / an        ("five nines" — datacenter Tier IV)
-```
+**Classes de disponibilité industrielle :**
+
+| Disponibilité | Arrêt par an | Usage |
+|---|---|---|
+| 99 % | 3,65 jours | industrie non critique |
+| 99,9 % | 8,76 heures | « three nines » |
+| 99,99 % | 52,6 minutes | « four nines » |
+| 99,999 % | 5,26 minutes | « five nines » (datacenter Tier IV) |
 
 ---
 
-**🖼️ ILLUSTRATION 1 — Chronologie MTBF / MTTR**
-> *Légende* : Frise chronologique horizontale. Le temps s'écoule de gauche à droite. Alternance de zones vertes (fonctionnement = TO) et rouges (arrêt = TA). Les zones vertes sont larges, les rouges sont étroites. Des flèches doubles annotent : "MTBF = temps moyen entre pannes" entre deux zones rouges, "MTTR = durée moyenne de réparation" sur une zone rouge. En dessous, une formule : D = MTBF / (MTBF + MTTR). Les valeurs numériques 2500h et 3,6h sont indiquées.
->
-> **Prompt illustration** : *"MTBF MTTR availability timeline diagram in French. Horizontal timeline with alternating green zones 'Fonctionnement (TO)' and thin red zones 'Arrêt (TA)'. Double-headed arrow between two red zones labeled 'MTBF = temps moyen entre pannes (ex: 2500h)'. Double-headed arrow on single red zone labeled 'MTTR = temps moyen réparation (ex: 3.6h)'. Formula below: 'D = MTBF / (MTBF + MTTR) = 99,86%'. Green=functioning, red=failure. French labels, technical timeline diagram"*
+![Chronologie MTBF / MTTR](images/chronologie-mtbf.png)
 
 ---
 
@@ -100,22 +93,19 @@ Classes de disponibilité industrielle :
 
 ### Le taux de panne λ (lambda)
 
-```
-λ (lambda) = taux de panne = nombre de pannes par unité de temps
+$\lambda$ (lambda) est le **taux de panne** : le nombre de pannes par unité de temps.
 
-           1
-λ = ──────────
-       MTBF
+$$\lambda = \dfrac{1}{\mathrm{MTBF}}$$
 
-Exemples :
-  DHT22 (MTBF = 50 000 h)     → λ = 1/50 000 = 2×10⁻⁵ pannes/heure
-  Disque dur (MTBF = 300 000 h)→ λ = 1/300 000 = 3,3×10⁻⁶ pannes/heure
-  LED (MTBF = 25 000 h)       → λ = 1/25 000 = 4×10⁻⁵ pannes/heure
+**Exemples :**
 
-Unités alternatives :
-  FIT (Failure In Time) = λ × 10⁹ (pannes pour 10⁹ heures)
-  Ex : λ = 2×10⁻⁵ /h → 20 000 FIT (courant pour composants électroniques)
-```
+- DHT22 (MTBF = 50 000 h) → $\lambda = \dfrac{1}{50\,000} = 2 \times 10^{-5}$ panne/heure
+- Disque dur (MTBF = 300 000 h) → $\lambda = \dfrac{1}{300\,000} = 3{,}3 \times 10^{-6}$ panne/heure
+- LED (MTBF = 25 000 h) → $\lambda = \dfrac{1}{25\,000} = 4 \times 10^{-5}$ panne/heure
+
+**Unité alternative :** le FIT (*Failure In Time*), nombre de pannes pour $10^9$ heures.
+
+$$\mathrm{FIT} = \lambda \times 10^{9} \qquad \text{ex. : } \lambda = 2 \times 10^{-5}\ /\mathrm{h} \;\Rightarrow\; 20\,000\ \mathrm{FIT}$$
 
 ### La loi exponentielle de fiabilité
 
@@ -165,44 +155,19 @@ C'est pourquoi MTBF ≠ durée de vie garantie !
 
 ---
 
-**🖼️ ILLUSTRATION 2 — Courbe R(t) = e^(−λt)**
-> *Légende* : Graphe de la fonction R(t) en fonction du temps. L'axe Y va de 0 à 1 (ou 0 à 100%). L'axe X représente le temps en multiples de MTBF (0 à 3×MTBF). La courbe exponentielle décroissante part de R(0)=1 et diminue. Trois points sont annotés : à t=MTBF → R=0,368 (36,8%), à t=2×MTBF → R=0,135 (13,5%), à t=3×MTBF → R=0,050 (5%). Une ligne horizontale en pointillés indique R=0,368. La zone sous la courbe est colorée en vert (fonctionnement probable) et au-dessus de F(t)=1-R(t) en rouge (probabilité de panne). La formule R(t)=e^-λt est inscrite.
->
-> **Prompt illustration** : *"Exponential reliability curve R(t) in French. X-axis labeled 'Temps (multiple du MTBF)' with values 0, MTBF, 2×MTBF, 3×MTBF. Y-axis labeled 'Fiabilité R(t)' from 0 to 1 (or 0% to 100%). Decreasing exponential curve from R(0)=1. Three annotated points: (MTBF, 0.368) labeled '36,8% encore opérationnels', (2×MTBF, 0.135), (3×MTBF, 0.050). Dashed horizontal line at R=0.368. Formula 'R(t) = e^(-λt)' in top right. Green shading under curve, red above for F(t)=1-R(t). French labels, mathematical plot style"*
+![Courbe de fiabilité R(t) = e^(−λt)](images/courbe-fiabilite.png)
 
 ---
 
 ## 3️⃣ — La courbe en baignoire
 
-```
-La durée de vie d'un composant se découpe en 3 phases :
+![Courbe en baignoire : mortalité infantile, vie utile, vieillissement](images/courbe-baignoire.png)
 
-λ (taux de panne)
-│
-│  \               
-│   \  Pannes       ___________  Pannes     /
-│    \  jeunesses  |             d'usure   /
-│     \___________|   Vie utile           /
-│                  (λ constant)          
-└──────────────────────────────────────────→ Temps
+**Phase 1 — Mortalité infantile** ($\lambda$ décroissant) : pannes dues aux défauts de fabrication. Elles se manifestent lors du rodage ou des tests en usine, d'où le « burn-in » des constructeurs.
 
-PHASE 1 — Mortalité infantile (λ décroissant) :
-  Pannes dues aux défauts de fabrication
-  → Se manifeste lors du "rodage" ou des tests en usine
-  → C'est pourquoi les constructeurs font du "burn-in"
+**Phase 2 — Vie utile** ($\lambda$ constant) : pannes aléatoires, indépendantes du temps. La loi exponentielle s'applique ici : c'est la phase normale de fonctionnement, où le MTBF est valable.
 
-PHASE 2 — Vie utile (λ constant) :
-  → Pannes aléatoires, indépendantes du temps
-  → La loi exponentielle s'applique ici
-  → C'est la phase normale de fonctionnement
-  → MTBF est valable dans cette phase
-
-PHASE 3 — Vieillissement (λ croissant) :
-  → Usure normale des matériaux
-  → Les condensateurs électrolytiques vieillissent (ESR augmente)
-  → Les LED perdent de la luminosité
-  → Préconisation : remplacement préventif avant cette phase
-```
+**Phase 3 — Vieillissement** ($\lambda$ croissant) : usure normale des matériaux. Les condensateurs électrolytiques vieillissent (l'ESR augmente), les LED perdent de la luminosité.
 
 ---
 
@@ -210,17 +175,11 @@ PHASE 3 — Vieillissement (λ croissant) :
 
 ### Schéma série : tous les composants doivent fonctionner
 
-```
-[C1] ──── [C2] ──── [C3] ──── ... ──── [Cn]
+![Système série : la panne d'un seul composant arrête tout](images/rbd-serie.png)
 
-Si un seul composant tombe en panne → tout le système est en panne
+$$R_s = R_1 \times R_2 \times R_3 \times \dots \times R_n$$
 
-Fiabilité du système série :
-Rs = R1 × R2 × R3 × ... × Rn
-
-MTBF du système série :
-λs = λ1 + λ2 + λ3 + ... + λn  →  MTBFs = 1/λs
-```
+$$\lambda_s = \lambda_1 + \lambda_2 + \lambda_3 + \dots + \lambda_n \quad\Rightarrow\quad \mathrm{MTBF}_s = \dfrac{1}{\lambda_s}$$
 
 ### Exemple : carte ESP32 avec 4 composants critiques
 
@@ -256,10 +215,7 @@ Observation : en série, plus on ajoute de composants, PLUS le système est frag
 
 ---
 
-**🖼️ ILLUSTRATION 3 — Fiabilité série vs parallèle**
-> *Légende* : Deux diagrammes côte à côte avec des niveaux de fiabilité. Gauche "Série" : 3 blocs en ligne [R=0,9]-[R=0,9]-[R=0,9], flèche vers "Rs = 0,9³ = 0,729" en rouge (72,9%). Droite "Parallèle" : 3 blocs verticaux [R=0,9] en parallèle, flèche vers "Rs = 1-(0,1)³ = 0,999" en vert (99,9%). Un curseur montre visuellement la différence. En bas : "Série = plus fragile · Parallèle = plus fiable".
->
-> **Prompt illustration** : *"Series vs parallel reliability diagram in French. Left panel 'Système Série': three blocks in a row labeled R₁=0.9, R₂=0.9, R₃=0.9 connected by lines, result arrow showing 'Rs = 0.9 × 0.9 × 0.9 = 0.729' in red box, label '72.9% - Moins fiable qu'un seul composant!'. Right panel 'Système Parallèle': three blocks stacked vertically labeled R₁=0.9, R₂=0.9, R₃=0.9 with branching connections, result arrow showing 'Rs = 1-(0.1)³ = 0.999' in green box, label '99.9% - Très fiable!'. Bottom comparison bar. French labels, reliability engineering diagram style"*
+![Fiabilité en série et en parallèle](images/serie-parallele-fiabilite.png)
 
 ---
 
@@ -267,11 +223,12 @@ Observation : en série, plus on ajoute de composants, PLUS le système est frag
 
 ### Schéma parallèle : un seul composant suffit
 
-┌── [C1] ──┐
-│           │
+```
+     ┌── [C1] ──┐
+     │           │
 ────►├── [C2] ──┼────►
-│           │
-└── [C3] ──┘
+     │           │
+     └── [C3] ──┘
 
 Le système tombe en panne seulement si TOUS les composants tombent en panne
 
@@ -279,7 +236,8 @@ Fiabilité du système parallèle :
 Rs = 1 − (1−R1) × (1−R2) × (1−R3) × ... × (1−Rn)
 
 MTBF approximatif pour 2 composants identiques (R1 = R2 = R) :
-MTBFs ≈ MTBF × (1 + 1/2) = 1,5 × MTBF  (approximation)
+  MTBFs ≈ MTBF × (1 + 1/2) = 1,5 × MTBF  (approximation)
+```
 
 ### Exemple : deux alimentations redondantes
 
@@ -313,40 +271,36 @@ Gain en fiabilité : +9,3 points !
 
 ### Exemple : système IoT industriel
 
-```
-Architecture :
-  [Capteur 1 (R=0,90)] ─┐
-  [Capteur 2 (R=0,90)] ─┴→ [CPU (R=0,95)] → [Réseau (R=0,98)] → [Serveur (R=0,99)]
+![Exemple de système mixte : deux capteurs en parallèle puis CPU, réseau et serveur en série](images/rbd-capteurs.png)
 
-ÉTAPE 1 : Fiabilité des 2 capteurs en parallèle
-  R_capteurs = 1 − (1−0,90)(1−0,90)
-             = 1 − 0,10 × 0,10
-             = 1 − 0,01
-             = 0,99
+**Étape 1 : fiabilité des 2 capteurs en parallèle**
 
-ÉTAPE 2 : Système réduit (tout en série)
-  [0,99] → [0,95] → [0,98] → [0,99]
+$$R_{\text{capteurs}} = 1 - (1 - 0{,}90)(1 - 0{,}90) = 1 - 0{,}10 \times 0{,}10 = 1 - 0{,}01 = 0{,}99$$
 
-ÉTAPE 3 : Fiabilité totale
-  Rs = 0,99 × 0,95 × 0,98 × 0,99
-     = 0,99 × 0,95 × 0,98 × 0,99
-     = 0,911
-     = 91,1%
-```
+**Étape 2 : système réduit (tout en série)** : 0,99 → 0,95 → 0,98 → 0,99
+
+**Étape 3 : fiabilité totale**
+
+$$R_s = 0{,}99 \times 0{,}95 \times 0{,}98 \times 0{,}99 \approx 0{,}912 = 91{,}2\ \%$$
 
 ---
 
 ## 📌 Récapitulatif des formules
 
-> [!NOTE] λ = 1/MTBF                   (taux de panne)
-> MTBF = TO / n                (temps moyen entre pannes)  
-> MTTR = TA / n                (temps moyen de réparation)  
-> D = MTBF / (MTBF + MTTR)     (disponibilité)  
-> R(t) = e^(−λt)               (fiabilité à l'instant t)  
-> F(t) = 1 − R(t)              (probabilité de panne avant t)  
->
-> SÉRIE   : Rs = R1 × R2 × R3    λs = λ1 + λ2 + λ3  
-> PARALLÈLE : Rs = 1−(1−R1)(1−R2)  
+$$D = \dfrac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}} = \dfrac{T_O}{T_O + T_A}$$
+
+**Exemple numérique :** MTBF = 2 500 h et MTTR = 3,6 h.
+
+$$D = \dfrac{2\,500}{2\,500 + 3{,}6} = \dfrac{2\,500}{2\,503{,}6} = 0{,}9986 = 99{,}86\ \%$$
+
+**Classes de disponibilité industrielle :**
+
+| Disponibilité | Arrêt par an | Usage |
+|---|---|---|
+| 99 % | 3,65 jours | industrie non critique |
+| 99,9 % | 8,76 heures | « three nines » |
+| 99,99 % | 52,6 minutes | « four nines » |
+| 99,999 % | 5,26 minutes | « five nines » (datacenter Tier IV) |
 
 ---
 

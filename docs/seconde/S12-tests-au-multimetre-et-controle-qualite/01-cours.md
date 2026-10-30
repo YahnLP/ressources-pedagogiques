@@ -76,9 +76,7 @@ Le multimètre considère qu'il y a continuité si la résistance est **inférie
 
 **⚠️ IMPORTANT :** Ne JAMAIS tester avec une alimentation branchée (débrancher la carte avant tout test).
 
-![Illustration : Multimètre en mode continuité testant un fil. À gauche : pointes touchées = BIP. À droite : fil coupé = pas de BIP. Style : schéma pédagogique simple.]
-
-**Prompt image :** "Deux illustrations côte à côte montrant l'utilisation du multimètre en mode continuité. Image gauche : multimètre avec pointes de touche reliées par un fil intact, écran affiche '0.3', note musicale (BIP) au-dessus. Image droite : fil coupé au milieu, multimètre affiche 'OL', croix rouge (pas de son). Style : schéma technique pédagogique avec annotations."
+![Mode continuité : fil intact (bip) et fil coupé (pas de bip)](images/continuite-multimetre.png)
 
 ---
 

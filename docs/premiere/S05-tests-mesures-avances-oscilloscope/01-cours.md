@@ -56,17 +56,7 @@ Voies numériques (D0–D15) :
 
 ### Connexion physique
 
-```
-Analyseur logique USB
-   │
-   ├── CH0 → Signal 1 (ex: SCL)
-   ├── CH1 → Signal 2 (ex: SDA)
-   ├── CH2 → Signal 3 (ex: SCLK SPI)
-   ├── ...
-   └── GND → Masse du circuit (OBLIGATOIRE)
-
-                        ⚠️ GND TOUJOURS CONNECTÉ EN PREMIER
-```
+![Câblage de l'analyseur logique : voies CH0 à CH2 et GND](images/analyseur-cablage.png)
 
 ### Saleae Logic 2 — Interface
 
@@ -105,20 +95,7 @@ $$\boxed{f_{éch} \geq 10 \times f_{bus}}$$
 
 ### Structure d'une trame I2C
 
-```
-Chronogramme :
-
-SCL  ____┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─...
-         │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │
-     ────┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─┘ └─...
-          │←──────── 8 bits adresse+RW ────────→│← ACK →│
-
-SDA  ─┐  ┌─────────────────────...─────────────┐ ┌───────
-      │  │  A6  A5  A4  A3  A2  A1  A0   R/W   │ │  ACK
-      └──┘                                      └─┘
-     START                                      ↑ 9ème coup horloge
-     condition                             SDA=0 (ACK) ou SDA=1 (NACK)
-```
+![Chronogramme I2C : START, adresse sur 7 bits, R/W et ACK](images/chrono-i2c.png)
 
 ### Champs d'une trame I2C lus dans Saleae
 
@@ -134,10 +111,7 @@ SDA  ─┐  ┌─────────────────────.
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Capture d'écran Saleae Logic 2 annotée montrant une transaction I2C complète. Deux voies : CH0=SCL (horloge régulière) et CH1=SDA (données). Sur la voie CH1, les annotations du décodeur indiquent : "S" (start, flèche rouge), puis "0x68 W" (adresse 7 bits + Write, rectangle vert), puis "ACK" (vert), puis "0x6B" (registre, rectangle bleu), "ACK", "0x00" (données, rectangle bleu), "ACK", "P" (stop, flèche rouge). Style capture d'analyseur logique pédagogique, fond sombre.*
-
-> **Légende :** Transaction I2C décodée dans Saleae Logic 2. Le maître (Arduino) écrit la valeur `0x00` dans le registre `0x6B` de l'esclave à l'adresse `0x68` (MPU-6050). Chaque ACK vert confirme que l'esclave a bien reçu l'octet précédent. Un NACK rouge indiquerait que l'esclave n'a pas répondu — typiquement un problème d'adresse, de câblage ou de pull-up manquant.
+![Transaction I2C : condition START, adresse sur 7 bits, bit R/W et ACK.](images/chrono-i2c.png)
 
 ### Configurer le décodeur I2C dans Saleae
 
@@ -187,21 +161,7 @@ $$5. SCL = CH0, SDA = CH1$$
 
 ### Structure d'une transaction SPI
 
-```
-CS    ‾‾‾‾‾‾┐                           ┌‾‾‾‾‾‾‾
-            │                           │
-            └───────────────────────────┘
-            ↑ CS LOW = begin             ↑ CS HIGH = end
-
-SCLK  _____┐_┐_┐_┐_┐_┐_┐_┐_           _
-            │ 1 2 3 4 5 6 7 8 coups d'horloge
-
-MOSI  ──────[  b7 b6 b5 b4 b3 b2 b1 b0 ]───
-              ← Octet envoyé par le maître →
-
-MISO  ──────[  d7 d6 d5 d4 d3 d2 d1 d0 ]───
-              ← Octet reçu de l'esclave →
-```
+![Chronogramme SPI : CS, SCLK, MOSI et MISO](images/chrono-spi.png)
 
 ### Champs d'une trame SPI lus dans Saleae
 
@@ -225,10 +185,7 @@ MISO  ──────[  d7 d6 d5 d4 d3 d2 d1 d0 ]───
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Capture Saleae annotée d'une transaction SPI 3 octets. Quatre voies visibles : CS (ligne haute puis basse puis haute), SCLK (horloge régulière 8 pulses × 3 fois), MOSI (3 rectangles annotés : "0x9F" commande, "-" pause, "-" pause), MISO (3 rectangles : "-" nul, "0xEF" manufacturer ID, "0x30" device ID). Le décodeur affiche en dessous les octets interprétés. Style capture analyseur logique pédagogique, fond sombre.*
-
-> **Légende :** Transaction SPI décodée — lecture de l'ID JEDEC d'une mémoire flash Winbond W25Q32. Le maître envoie la commande `0x9F` sur MOSI. L'esclave répond sur MISO avec son Manufacturer ID (`0xEF`) puis son Device ID. CS est actif bas — tant qu'il est LOW, l'esclave est sélectionné.
+![Transaction SPI : CS bas, huit coups d'horloge SCLK, données sur MOSI et MISO.](images/chrono-spi.png)
 
 ---
 
@@ -249,16 +206,7 @@ MISO  ──────[  d7 d6 d5 d4 d3 d2 d1 d0 ]───
 
 ### Avantage du MSO : corrélation analogique + logique
 
-```
-CH1 (analogique, voie 1) :  ~~~[signal analogique 3.3V]~~~
-D0  (numérique) :           ─────┐ ┌─┐ ┌─┐ ┌─  SCL
-D1  (numérique) :           ──┐  └─┘ └─┘ └─┘   SDA
-
-→ On voit simultanément :
-  - La forme exacte du signal (tension, temps de montée, overshoot)
-  - Le chronogramme logique (hi/low)
-  - La trame décodée (adresse, données)
-```
+![Oscilloscope à signaux mixtes : voie analogique et voies logiques](images/oscillo-logique.png)
 
 ---
 

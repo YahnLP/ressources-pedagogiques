@@ -168,10 +168,6 @@ Sur le schéma :
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma de câblage professionnel d'un ESP32 avec capteur DHT22, batterie LiPo et régulateur de tension. Composants dessinés en vue de face avec numéros de broches. Fils colorés selon IEC 60446 (rouge pour VCC, noir pour GND, violet pour DATA). Étiquettes de repérage aux deux extrémités de chaque fil. Cartouche en bas à droite avec titre, version, date, référence DAT. Légende à gauche. Style schéma technique industriel, fond blanc, épaisseur de trait uniforme.*
-
-> **Légende :** Schéma de câblage au format professionnel. Chaque fil est identifié à ses deux extrémités (format Source-Destination-Numéro). Les couleurs respectent IEC 60446. Le cartouche en bas à droite garantit la traçabilité du document. Un technicien qui n'a jamais vu le projet peut câbler le système sans ambiguïté.
 
 ---
 
@@ -386,10 +382,6 @@ Symptôme couvert : ESP32 ne publie plus sur MQTT
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Comparaison côte à côte de deux DAT. À gauche : "Mauvais DAT" — un unique fichier Word sans structure, schéma en peinture MS Paint sans légende, BOM avec juste "DHT22 x1" sans référence, procédure disant "brancher les composants et téléverser". À droite : "Bon DAT" — sommaire numéroté, schéma Draw.io avec légende et repères de fils, BOM avec références fournisseurs et prix, procédure étape par étape avec case à cocher. Annotations pointant les différences clés. Style document technique comparatif, fond blanc.*
-
-> **Légende :** La différence entre un dossier technique amateur et professionnel. Le bon DAT peut être utilisé par n'importe quel technicien pour installer, vérifier ou maintenir le système sans contacter l'auteur. Le mauvais DAT oblige à contacter l'auteur pour chaque intervention.
 
 ---
 
