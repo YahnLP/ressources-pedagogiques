@@ -1,3 +1,7 @@
+
 arrange:
   - index.md
   - E2
+  - ...
+exclude:
+  - E31
