@@ -23,9 +23,9 @@ def f_coupe_pcb():
     for t, s, c, h in layers:
         cy -= h; ys[t] = cy + h / 2
     for i, (t, s, c, h) in enumerate(layers):
-        ty = 120 + i * 90
+        ty = 120 + (3 - i) * 90
         o += f'<line x1="{xe}" y1="{ys[t]}" x2="830" y2="{ty}" stroke="{MUTED}" stroke-width="2"/><circle cx="{xe}" cy="{ys[t]}" r="5" fill="#fff" stroke="{MUTED}" stroke-width="2.5"/>' + T(840, ty - 2, t, 20, 800, INK, "start") + T(840, ty + 24, s, 15, 500, MUTED, "start")
-    o += callout(440, 200, 300, 90, "trou de perçage traversant\navec son pad de cuivre", "middle", 16, bold=True)
+    o += callout(440, 200, 250, 90, "trou de perçage traversant\navec son pad de cuivre", "middle", 16, bold=True)
     return figure(W, 480, o)
 
 

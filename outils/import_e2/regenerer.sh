@@ -9,6 +9,7 @@ for f in $(git ls-tree -r --name-only $BASE docs | grep -E "^docs/(seconde|premi
 git reset -q
 python3 outils/import_e2/enrichir.py . /tmp/figs /tmp/sym
 python3 outils/import_e2/formules.py .
+python3 outils/import_e2/puissances.py .
 python3 outils/import_e2/nettoyage.py .
 python3 outils/import_e2/espacement.py .
 python3 - <<'PY'

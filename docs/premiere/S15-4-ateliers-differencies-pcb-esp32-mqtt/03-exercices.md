@@ -187,7 +187,7 @@ Q.B.2c — Pour afficher 3 courbes (température, humidité, CO₂) sur UN SEUL 
 ### Rappel express (3 min)
 
 λ = 1/MTBF               MTBF = TO/n           MTTR = TA/n  
-D = MTBF/(MTBF+MTTR)     R(t) = e^(−λt)        F(t) = 1 − R(t)  
+D = MTBF/(MTBF+MTTR)     R(t) = $e^{-\lambda t}$        F(t) = 1 − R(t)  
 
 À t = MTBF : R = e⁻¹ = 0,368 (36,8% encore OK)  
 

@@ -122,7 +122,7 @@ La solution la plus proche est : _____________________________________________
 
 ---
 
-## 🟡 BLOC 2 — Loi Exponentielle R(t) = e^(−λt) (30 min)
+## 🟡 BLOC 2 — Loi Exponentielle R(t) = $e^{-\lambda t}$ (30 min)
 
 ### Exercice 2.1 — Capteur DHT22
 
@@ -137,12 +137,12 @@ En notation scientifique : λ = _______ × 10⁻⁵ pannes/heure
 
 **Q2.1.b** — Calcule la fiabilité R(t) pour les durées suivantes :
 
-| Durée t | Calcul λt | R(t) = e^(−λt) | En % |
+| Durée t | Calcul λt | R(t) = $e^{-\lambda t}$ | En % |
 |---|---|---|---|
 | 1 an (8 760 h) | | | |
 | 2 ans (17 520 h) | | | |
 | 5 ans (43 800 h) | | | |
-| MTBF (50 000 h) | | e^(−1) = 0,368 | 36,8% |
+| MTBF (50 000 h) | | $e^{-1}$ = 0,368 | 36,8% |
 
 **Q2.1.c** — Interprète le résultat à t = 1 an :
 
@@ -287,7 +287,7 @@ Calculer la nouvelle Rs avec votre amélioration : _______ %
 | Calcul MTBF, MTTR, D à partir d'un historique | ☐ | ☐ | ☐ |
 | Conversion heures ↔ années ↔ mois | ☐ | ☐ | ☐ |
 | Calcul λ = 1/MTBF | ☐ | ☐ | ☐ |
-| Calcul R(t) = e^(−λt) avec calculatrice | ☐ | ☐ | ☐ |
+| Calcul R(t) = $e^{-\lambda t}$ avec calculatrice | ☐ | ☐ | ☐ |
 | Fiabilité système série Rs = R1×R2×... | ☐ | ☐ | ☐ |
 | Fiabilité système parallèle Rs = 1−(1−R1)(1−R2) | ☐ | ☐ | ☐ |
 | Décomposer un système mixte série/parallèle | ☐ | ☐ | ☐ |

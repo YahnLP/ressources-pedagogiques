@@ -161,8 +161,12 @@ def f_tinker_multi():
     o = ""
     for k, (x, head, disp, note, c) in enumerate(((30, "Mode voltmètre", "1,98 V", "brancher en PARALLÈLE", BLUE), (620, "Mode ampèremètre", "20,2 mA", "brancher en SÉRIE", GREEN))):
         o += panel(x, 30, 550, 420, head, accent=c) + f'<g filter="url(#sh)"><rect x="{x+190}" y="90" width="170" height="130" rx="14" fill="#2b2f36" stroke="#e2762a" stroke-width="6"/></g><rect x="{x+205}" y="105" width="140" height="56" rx="6" fill="#cfe3c4"/>' + T(x + 275, 148, disp, 34, 700, "#1d2a1a", extra='font-family="monospace"') + f'<circle cx="{x+245}" cy="190" r="9" fill="{RED}"/><circle cx="{x+305}" cy="190" r="9" fill="#111"/>'
-        if k == 0: o += s_wire([(x + 60, 330), (x + 120, 330)]) + sym("R", x + 160, 330) + s_wire([(x + 200, 330), (x + 330, 330)]) + sym("LED", x + 370, 330) + s_wire([(x + 410, 330), (x + 490, 330)]) + s_wire([(x + 245, 199), (x + 245, 270), (x + 330, 270), (x + 330, 330)], RED, 3) + s_wire([(x + 305, 199), (x + 305, 270), (x + 410, 270), (x + 410, 330)], "#111", 3)
-        else: o += s_wire([(x + 60, 330), (x + 120, 330)]) + sym("R", x + 160, 330) + s_wire([(x + 200, 330), (x + 230, 330), (x + 230, 330)]) + s_wire([(x + 245, 199), (x + 245, 330)], RED, 3) + s_wire([(x + 305, 199), (x + 305, 330)], "#111", 3) + s_wire([(x + 305, 330), (x + 330, 330)]) + sym("LED", x + 370, 330) + s_wire([(x + 410, 330), (x + 490, 330)]) + s_wire([(x + 230, 330), (x + 245, 330)])
+        if k == 0:
+            o += s_wire([(x + 60, 330), (x + 120, 330)]) + sym("R", x + 160, 330) + s_wire([(x + 200, 330), (x + 330, 330)]) + sym("LED", x + 370, 330) + s_wire([(x + 410, 330), (x + 490, 330)])
+            o += s_wire([(x + 245, 199), (x + 245, 280), (x + 330, 280), (x + 330, 330)], RED, 4) + s_wire([(x + 305, 199), (x + 305, 250), (x + 410, 250), (x + 410, 330)], "#111", 4) + dot(x + 330, 330, 7, RED) + dot(x + 410, 330, 7, "#111")
+        else:
+            o += s_wire([(x + 60, 330), (x + 120, 330)]) + sym("R", x + 160, 330) + s_wire([(x + 200, 330), (x + 245, 330), (x + 245, 199)], RED, 4) + s_wire([(x + 305, 199), (x + 305, 330), (x + 330, 330)], "#111", 4) + sym("LED", x + 370, 330) + s_wire([(x + 410, 330), (x + 490, 330)])
+            o += dot(x + 245, 330, 7, RED) + dot(x + 305, 330, 7, "#111") + T(x + 275, 372, "le courant passe par l'ampèremètre", 14, 700, MUTED)
         o += chip(x + 275, 410, note, c, w=360, size=17)
     return figure(W, 480, o)
 

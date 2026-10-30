@@ -61,7 +61,7 @@ MÉTHODE :
 
 ---
 
-## 📊 Valeurs e^(−x) utiles
+## 📊 Valeurs $e^{-x}$ utiles
 
 $$e⁻⁰ \cdot ¹ = 0{,}905 e⁻⁰ \cdot ^2 = 0{,}819 e⁻⁰ \cdot ^3 = 0{,}741$$
 

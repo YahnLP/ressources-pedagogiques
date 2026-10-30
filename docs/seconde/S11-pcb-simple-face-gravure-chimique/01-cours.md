@@ -45,7 +45,7 @@
 ### 1.2 Caractéristiques du cuivre standard
 
 35 µm de cuivre sur FR4 :  
-Résistivité : ρ = 1,72 × 10⁻⁸ Ω·m  
+Résistivité : ρ = $1{,}72\times 10^{-8}$ Ω·m  
 Résistance d'une piste de 100 mm × 1 mm × 35 µm :  
 
 $$R = ρ \times \dfrac{L}{l \times e} = 1{,}72 \times 10⁻⁸ \times \dfrac{0{,}1}{0{,}001 \times 35 \times 10⁻⁶} = 0{,}049\,\mathrm{\Omega } \approx 50 m\Omega$$

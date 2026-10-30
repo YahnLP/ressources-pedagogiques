@@ -540,7 +540,7 @@ void loop() {
 | **Analogique** | Signal continu (infinité de valeurs) | Température réelle |
 | **Numérique** | Signal discret (valeurs finies) | Compteur (1, 2, 3...) |
 | **ADC** | Convertisseur Analogique-Digital | Arduino Uno (10 bits) |
-| **Résolution** | Nombre de niveaux (2^n) | 10 bits = 1024 niveaux |
+| **Résolution** | Nombre de niveaux ($2^{n}$) | 10 bits = 1024 niveaux |
 | **LM35** | Capteur température analogique | 10 mV/°C |
 | **Sensibilité** | Variation de sortie par unité | 10 mV/°C |
 | **analogRead()** | Fonction Arduino lire port analogique | analogRead(A0) |
