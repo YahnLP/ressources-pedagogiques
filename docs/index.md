@@ -82,7 +82,7 @@ On n'apprend pas l'électronique en la regardant : **on câble, on mesure, on so
 
 <div align="center">
 
-Formation professionnalisante orientée compétences techniques, autonomie et réussite aux épreuves du BAC PRO CIEL
+Parcours d'électronique BAC PRO CIEL
 
 <br>
 
