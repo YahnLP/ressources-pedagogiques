@@ -2,6 +2,18 @@
 has = lambda *s: (lambda b: all(x in b for x in s))
 M = lambda t: t  # lisibilité
 
+COUPLAGE_TXT = """| Source (émetteur) | Couplage (le chemin) | Victime (récepteur) |
+|---|---|---|
+| Moteur, variateur | par les fils (conduit) | Capteur |
+| Alimentation à découpage | par les ondes (rayonné) | Wi-Fi |
+| ESP32 | par les fils (conduit) | Microcontrôleur voisin |
+| Téléphone | par les ondes (rayonné) | Haut-parleur |
+
+> [!TIP] Trois façons de supprimer une perturbation
+> 1. **Agir sur le couplage** : éloigner, blinder, filtrer. C'est le plus simple.
+> 2. **Améliorer l'immunité de la victime.**
+> 3. **Réduire l'émission de la source.**"""
+
 MTBF = r"""$$\mathrm{MTBF} = \dfrac{T_O}{n}$$
 
 avec $T_O$ le temps total de fonctionnement et $n$ le nombre de pannes.
@@ -119,6 +131,7 @@ RULES = [
                          (has('[C1] ──── [C2]'), 'rbd_serie', 'Système série : la panne d\'un seul composant arrête tout', SERIE), (has('Capteur 1 (R=0,90)'), 'rbd_capteurs', 'Exemple de système mixte : deux capteurs en parallèle puis CPU, réseau et serveur en série', EXEMPLE)]),
     ('S11', 'annexe-ai', [(has('Rs = 1 − (1−R1)'), 'rbd_parallele', 'Système parallèle : il suffit qu\'un composant fonctionne', PARALLELE)]),
     ('S11', '03-exerci', [(has('DHT22 (R=0,88)'), 'rbd_station', 'Station IoT : DHT22 et MQ-2 en parallèle, puis ESP32, Wi-Fi/MQTT et Node-RED en série')]),
+    ('S13', '01-cours', [(has('(Émetteur)', 'Par les fils'), None, COUPLAGE_TXT)]),
     ('S13', 'annexe-ai', [(has('SOURCE ──→ COUPLAGE'), 'cem_couplage', 'CEM : source, couplage, victime'), (has('Sortie filtrée'), 'filtre_rc_cem', 'Filtre RC passe-bas', RC)]),
     ('S14', '01-cours', [(has('Chemin d\'un message MQTT'), 'chemin_message_mqtt', 'Chemin d\'un message MQTT et diagnostic par dichotomie')]),
     ('S15', '03-exerci', [(has('Système :  [A (R=0,85)]'), 'rbd_exercice', 'Système à étudier : capteurs A et B en parallèle, puis CPU et réseau en série', '```\n__REST__\n```')]),

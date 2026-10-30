@@ -53,19 +53,17 @@ DOUBLE EXIGENCE DE LA CEM :
 
 ### Le triangle SOURCE – COUPLAGE – VICTIME
 
-> [!NOTE] SOURCE                COUPLAGE                VICTIME
-> (Émetteur)                                    (Récepteur)  
->
-> Moteur       ──── Par les fils ──────────────► Capteur  
-> Variateur  
-> Alimentation ──── Par les ondes ─────────────► WiFi  
-> à découpage  
-> ESP32        ──── Par les fils ──────────────► µC voisin  
-> Téléphone    ──── Par les ondes ─────────────► Haut-parleur  
->
-> SOLUTION : Agir sur le COUPLAGE (c'est le plus simple !)  
->           Ou améliorer l'IMMUNITE de la victime  
->           Ou réduire l'EMISSION de la source  
+| Source (émetteur) | Couplage (le chemin) | Victime (récepteur) |
+|---|---|---|
+| Moteur, variateur | par les fils (conduit) | Capteur |
+| Alimentation à découpage | par les ondes (rayonné) | Wi-Fi |
+| ESP32 | par les fils (conduit) | Microcontrôleur voisin |
+| Téléphone | par les ondes (rayonné) | Haut-parleur |
+
+> [!TIP] Trois façons de supprimer une perturbation
+> 1. **Agir sur le couplage** : éloigner, blinder, filtrer. C'est le plus simple.
+> 2. **Améliorer l'immunité de la victime.**
+> 3. **Réduire l'émission de la source.**
 
 ### Le marquage CE et la directive CEM
 

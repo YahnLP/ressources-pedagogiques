@@ -121,15 +121,25 @@ def f_serie_para():
 
 def f_couplages():
     o = ""
-    spec = [("Résistif", "impédance commune (fil GND partagé)", RED), ("Capacitif", "capacité parasite entre deux pistes", AMBER), ("Inductif", "champ magnétique d'une boucle de courant", BLUE), ("Rayonné", "ondes dans l'air vers l'antenne Wi-Fi", GREEN)]
-    for i, (t, d, c) in enumerate(spec):
-        x = 30 + i * 295; o += panel(x, 30, 270, 360, t, accent=c) + block(x + 20, 100, 110, 60, "Variateur", None, c) + block(x + 140, 270, 110, 60, "Capteur", None, c)
-        if i == 0: o += s_wire([(x + 75, 160), (x + 75, 230), (x + 195, 230), (x + 195, 270)], c, 5) + T(x + 135, 218, "GND commun", 13, 800, c)
-        if i == 1: o += s_wire([(x + 90, 160), (x + 90, 200)], INK, 5) + s_wire([(x + 190, 270), (x + 190, 215)], INK, 5) + sym("C", x + 140, 207, 0, s=0.6)
-        if i == 2: o += f'<ellipse cx="{x+75}" cy="200" rx="50" ry="30" fill="none" stroke="{c}" stroke-width="4"/><ellipse cx="{x+75}" cy="200" rx="28" ry="16" fill="none" stroke="{c}" stroke-width="3"/>' + s_wire([(x + 195, 270), (x + 195, 235)], c, 4)
-        if i == 3: o += f'<path d="{sine_path(x+40, 230, 190, 14, 3)}" fill="none" stroke="{c}" stroke-width="4"/>'
-        o += T(x + 135, 365, d, 13, 700, INK) if len(d) < 36 else T(x + 135, 365, d, 12, 700, INK)
-    return figure(W, 420, o)
+    spec = [("Résistif", "Impédance commune", "les deux circuits partagent le même fil de masse", RED), ("Capacitif", "Capacité parasite", "deux pistes voisines forment un condensateur", AMBER), ("Inductif", "Champ magnétique", "le courant d'une boucle induit un courant dans l'autre", BLUE), ("Rayonné", "Ondes dans l'air", "la source émet, l'antenne de la victime reçoit", GREEN)]
+    for i, (t_, d1, d2, c) in enumerate(spec):
+        x = 25 + i * 295; cx = x + 135
+        o += panel(x, 25, 275, 470, t_, accent=c) + block(x + 55, 80, 160, 56, "Variateur", None, c) + block(x + 55, 300, 160, 56, "Capteur", None, c)
+        if i == 0:
+            o += s_wire([(cx - 50, 136), (cx - 50, 225), (cx - 26, 225)], c, 5) + s_wire([(cx + 26, 225), (cx + 50, 225), (cx + 50, 300)], c, 5) + sym("R", cx, 225, s=0.65, color=c) + T(cx, 192, "fil de masse (GND) commun", 14, 800, c)
+        if i == 1:
+            o += s_wire([(cx - 50, 136), (cx - 50, 175), (cx + 70, 175)], INK, 4) + s_wire([(cx - 70, 300), (cx - 70, 262), (cx + 50, 262)], INK, 4)
+            o += s_wire([(cx - 10, 175), (cx - 10, 195)], INK, 3) + sym("C", cx - 10, 218, rot=90, s=0.7) + s_wire([(cx - 10, 241), (cx - 10, 262)], INK, 3) + T(cx + 40, 222, "C parasite", 14, 800, c, "start")
+        if i == 2:
+            o += s_wire([(cx - 40, 136), (cx - 40, 160)], INK, 4) + s_wire([(cx + 40, 300), (cx + 40, 280)], INK, 4)
+            o += f'<ellipse cx="{cx-40}" cy="180" rx="40" ry="20" fill="none" stroke="{c}" stroke-width="5"/><ellipse cx="{cx+40}" cy="260" rx="40" ry="20" fill="none" stroke="{c}" stroke-width="5"/>'
+            o += f'<path d="M{cx-10},196 C{cx+10},215 {cx+10},225 {cx+30},242" stroke="{c}" stroke-width="3" stroke-dasharray="6 6" fill="none" marker-end="url(#arr)"/>' + T(cx + 55, 215, "champ B", 14, 800, c, "start")
+        if i == 3:
+            o += s_wire([(cx, 136), (cx, 160)], INK, 4) + f'<path d="M{cx-18},176 L{cx},150 L{cx+18},176 Z" fill="{c}"/>'
+            o += ''.join(f'<path d="M{cx-14-r*10},{190+r*14} Q{cx},{205+r*14} {cx+14+r*10},{190+r*14}" fill="none" stroke="{c}" stroke-width="4"/>' for r in range(3))
+            o += f'<path d="M{cx-18},284 L{cx},258 L{cx+18},284 Z" fill="{c}"/>' + s_wire([(cx, 284), (cx, 300)], INK, 4) + T(cx + 70, 235, "ondes", 14, 800, c, "start")
+        o += T(cx, 400, d1, 17, 800, INK) + T(cx, 428, d2.split(" ")[0] + " " + " ".join(d2.split(" ")[1:5]), 13, 600, MUTED) + T(cx, 448, " ".join(d2.split(" ")[5:]), 13, 600, MUTED)
+    return figure(W, 520, o)
 
 
 def f_blindage():
@@ -144,11 +154,20 @@ def f_blindage():
 
 
 def f_decouplage():
-    o = f'<rect x="40" y="40" width="1120" height="400" rx="16" fill="url(#pcb)"/>' + g(440, 190, dip(8, h=100, pitch=40, soic=True, label="MCU", fs=22), 2.0)
-    o += T(380, 130, "VCC", 20, 800, "#fff") + T(380, 355, "GND", 20, 800, "#fff")
-    for x in (560, 640): o += f'<rect x="{x}" y="285" width="46" height="26" rx="3" fill="#b78b52"/><rect x="{x}" y="285" width="9" height="26" fill="url(#metalH)"/><rect x="{x+37}" y="285" width="9" height="26" fill="url(#metalH)"/>'
-    o += callout(583, 298, 800, 250, "100 nF (0402) collés aux broches VCC / GND", "start", 17, bold=True) + chip(900, 400, "boucle de courant courte = moins de bruit", GREEN, w=500, size=16)
-    return figure(W, 480, o)
+    o = ""
+    for k, (ttl, col, loop, cap_x, msg) in enumerate((("Condensateur trop loin : mauvais", RED, "grande boucle de courant", 90, "la boucle capte et émet du bruit"), ("Condensateur collé au CI : bon", GREEN, "petite boucle de courant", 292, "la boucle est courte : peu de bruit"))):
+        x = 30 + k * 580
+        o += panel(x, 25, 560, 450, ttl, accent=col) + f'<rect x="{x+15}" y="75" width="530" height="385" rx="10" fill="#2f9a68"/>'
+        o += f'<rect x="{x+cap_x}" y="160" width="{x+330-x-cap_x}" height="100" fill="{col}" opacity=".28"/>'
+        o += s_wire([(x + 30, 160), (x + 330, 160)], "#e8c97a", 7) + s_wire([(x + 30, 260), (x + 330, 260)], "#e8c97a", 7)
+        o += f'<rect x="{x+330}" y="125" width="150" height="170" rx="8" fill="#25282e"/>' + T(x + 420, 215, "MCU", 24, 800, "#fff")
+        o += f'<rect x="{x+318}" y="152" width="14" height="16" fill="#c0c6cf"/><rect x="{x+318}" y="252" width="14" height="16" fill="#c0c6cf"/>'
+        o += T(x + 30, 145, "VCC", 18, 800, "#fff", "start") + T(x + 30, 292, "GND", 18, 800, "#fff", "start") + T(x + 345, 168, "broche VCC", 12, 700, "#fff", "start") + T(x + 345, 270, "broche GND", 12, 700, "#fff", "start")
+        cxx = x + cap_x
+        o += s_wire([(cxx, 160), (cxx, 180)], "#e8c97a", 6) + f'<rect x="{cxx-14}" y="180" width="28" height="60" rx="4" fill="#d9b06a" stroke="#7a5a2a" stroke-width="2"/>' + s_wire([(cxx, 240), (cxx, 260)], "#e8c97a", 6) + dot(cxx, 160, 7, "#fff") + dot(cxx, 260, 7, "#fff")
+        o += T(max(cxx, x + 150), 330, "condensateur 100 nF", 15, 800, "#fff") + (arrow(cxx + 20, 200, x + 318 - 10, 200, "#fff", 3) if False else "")
+        o += chip(x + 280, 395, loop, col, w=320, size=15) + T(x + 280, 440, msg, 15, 700, INK)
+    return figure(W, 500, o)
 
 
 def f_hysteresis():
