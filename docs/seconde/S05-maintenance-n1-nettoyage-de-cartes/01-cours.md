@@ -20,6 +20,16 @@
 | **DEEE** | Déchets d'Équipements Électriques et Électroniques — filière légale de recyclage obligatoire (directive européenne WEEE) |
 | **Check-list** | Liste de contrôle structurée à cocher permettant de s'assurer qu'aucun point d'inspection n'est oublié |
 
+
+### 🤔 À ton avis ?
+
+Une machine tombe en panne un lundi matin et bloque toute la production. Aurait-on pu l'éviter ? Comment ?
+
+??? question "Voir une réponse possible"
+    Souvent **oui** : en entretenant la machine **avant** la panne (nettoyage, contrôle visuel, remplacement d'une pièce usée). C'est la **maintenance préventive**.
+    
+    Dans cette séance, tu apprends ce qu'un technicien débutant (niveau N1) peut faire : **nettoyer**, **observer**, **protéger les composants** contre l'électricité statique et **noter** son intervention.
+
 ---
 
 ## 1. Les niveaux de maintenance — Norme AFNOR NF X 60-010
@@ -45,6 +55,38 @@
 |---|---|---|---|---|
 | **Préventive** | Calendrier / fréquence prédéfinie | Réduit les pannes imprévues | Coût même si pas nécessaire | Nettoyage PCB tous les 6 mois |
 | **Corrective** | Apparition d'une panne | Intervient seulement si nécessaire | Arrêt non planifié de la production | Remplacer un condensateur claqué |
+
+
+> [!TIP] 💡 En clair
+> La maintenance est classée en **niveaux** selon la difficulté. Retiens l'idée : **plus le niveau est élevé, plus l'intervenant est spécialisé**.
+>
+> - **N1** : gestes simples (nettoyer, vérifier, régler) ;
+> - **N2** : échange de pièces standard ;
+> - **N3** : diagnostic de pannes complexes ;
+> - **N4** : révision générale, reconstruction.
+>
+> Il existe aussi deux façons d'intervenir : **avant** la panne (**préventive**) ou **après** (**corrective**).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Nettoyer une carte avec un pinceau antistatique : quel niveau de maintenance ?
+
+??? success "Réponse"
+    **N1** : c'est une opération simple de proximité.
+
+**Q2.** Remplacer un condensateur qui a gonflé après une panne : préventif ou correctif ?
+
+??? success "Réponse"
+    **Correctif** : on intervient **après** l'apparition de la panne.
+
+**Q3.** Quel est l'avantage de la maintenance préventive ?
+
+??? success "Réponse"
+    Elle **réduit les pannes imprévues** et les arrêts non planifiés.
+
+> [!SUCCESS] 🧠 À retenir
+> - N1 à N4 : du simple au spécialisé.
+> - Préventive = avant la panne ; corrective = après la panne.
 
 ---
 
@@ -87,6 +129,36 @@ La poussière, les résidus de flux et les dépôts conducteurs sont des causes 
 
 > ⚠️ **Règle absolue** : Ne jamais remettre une carte sous tension tant que l'IPA n'est pas complètement évaporé. L'IPA résiduel peut créer des courts-circuits.
 
+
+> [!TIP] 💡 En clair
+> Une carte **poussiéreuse** chauffe mal et peut créer des **courts-circuits** (la poussière retient l'humidité). On la nettoie **hors tension**, avec les **bons produits** :
+>
+> - **pinceau antistatique** pour la poussière ;
+> - **air comprimé ESD** pour souffler ;
+> - **isopropanol (IPA)** et chiffon **non pelucheux** pour les traces de flux.
+>
+> On n'utilise **jamais d'eau**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi nettoie-t-on la carte hors tension ?
+
+??? success "Réponse"
+    Pour éviter un **court-circuit** ou une **électrocution**, et protéger les composants.
+
+**Q2.** Quel produit dissout les résidus de flux ?
+
+??? success "Réponse"
+    L'**isopropanol (IPA)**.
+
+**Q3.** Pourquoi utilise-t-on un chiffon non pelucheux ?
+
+??? success "Réponse"
+    Pour ne pas laisser de **fibres** sur la carte.
+
+> [!SUCCESS] 🧠 À retenir
+> - Hors tension, avec un pinceau antistatique, de l'air comprimé ESD et de l'IPA.
+
 ---
 
 ## 3. Le diagnostic visuel — La check-list des 9 critères
@@ -114,6 +186,32 @@ Le diagnostic visuel est la **première étape de tout intervention de maintenan
 ### 3.3 La grille de diagnostic visuel à utiliser en TP
 
 > *(Voir fiche dédiée S5_E2_04 — Check-list diagnostic visuel)*
+
+
+> [!TIP] 💡 En clair
+> Avant de toucher à quoi que ce soit, **regarde** : le diagnostic visuel permet de trouver beaucoup de pannes **sans instrument**. Il suit une **check-list de 9 critères** : propreté, composants, brasures, condensateurs, pistes, connecteurs, traces de chaleur, corps des composants, repères.
+>
+> Le réflexe : **observer, noter, puis agir**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Un condensateur électrolytique a le dessus bombé. Que faut-il en conclure ?
+
+??? success "Réponse"
+    Il est **défectueux** (il a gonflé) : il faut le **remplacer**, en respectant la polarité.
+
+**Q2.** Une brasure est mate et granuleuse. Que fait-on ?
+
+??? success "Réponse"
+    C'est une **brasure froide** : on la **refait**.
+
+**Q3.** Pourquoi commencer par un diagnostic visuel ?
+
+??? success "Réponse"
+    Parce qu'il est **rapide, gratuit** et ne risque pas d'endommager la carte.
+
+> [!SUCCESS] 🧠 À retenir
+> - Observer avant d'agir ; 9 critères visuels.
 
 ---
 
@@ -167,6 +265,37 @@ Le dommage **latent** (dégradation partielle) est **invisible** : le composant 
 
 > ⚠️ **Erreur fréquente** : Poser un composant sur le dessus d'un sachet argenté (extérieur du sac). L'extérieur du sac est conducteur — il peut créer une décharge ! Toujours mettre le composant À L'INTÉRIEUR du sachet.
 
+
+> [!TIP] 💡 En clair
+> Quand tu marches sur de la moquette puis que tu touches une poignée, tu reçois une **étincelle** : c'est une **décharge électrostatique** (ESD). Toi, tu ne sens que les décharges **supérieures à 3 000 V**. Un composant, lui, peut être détruit **dès 100 V**. Tu peux donc **détruire un composant sans rien sentir**.
+>
+> La protection : **te mettre au même potentiel que la carte** (bracelet relié à la terre), travailler sur un **tapis antistatique**, ranger les pièces dans des **sachets antistatiques**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi une décharge ESD peut-elle détruire un composant sans qu'on la sente ?
+
+??? success "Réponse"
+    Parce que l'homme ne ressent qu'au-dessus d'environ **3 000 V**, alors qu'un composant peut être détruit **dès 100 V**.
+
+**Q2.** Qu'est-ce qu'un dommage latent ?
+
+??? success "Réponse"
+    Une **dégradation invisible** : le composant fonctionne encore, mais tombera en panne **plus tard**.
+
+**Q3.** Cite deux équipements de protection ESD.
+
+??? success "Réponse"
+    Le **bracelet antistatique** relié à la terre et le **tapis antistatique** (ainsi que les sachets argentés).
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Toucher les broches d'un composant sans protection.
+> - Ranger une carte dans un sachet plastique ordinaire : il charge la carte en électricité statique.
+
+> [!SUCCESS] 🧠 À retenir
+> - Tu peux détruire un composant sans rien sentir.
+> - Bracelet relié à la terre, tapis, sachets antistatiques.
+
 ---
 
 ## 5. L'outillage de base du technicien CIEL
@@ -197,6 +326,22 @@ Le dommage **latent** (dégradation partielle) est **invisible** : le composant 
 | **Observation sous deux angles** | Tourner le PCB pour voir un composant de face puis de profil | Brasures froides (invisible de face, visible de profil) |
 | **Distance focale** | Respecter la distance recommandée par la loupe (3–10 cm pour ×5) | Image nette permettant la lecture des marquages |
 
+
+> [!TIP] 💡 En clair
+> Chaque outil a un **rôle précis** : brucelle (saisir de petites pièces), pince coupante (couper les pattes), loupe (voir les défauts), multimètre (mesurer), tournevis **isolés** (sécurité), bracelet ESD (protéger les composants). **Utiliser le bon outil** évite d'abîmer la carte.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi utilise-t-on des tournevis isolés ?
+
+??? success "Réponse"
+    Pour **éviter un court-circuit** ou un contact avec une partie sous tension.
+
+**Q2.** À quoi sert la loupe ?
+
+??? success "Réponse"
+    À **inspecter** les brasures et les pistes (fissures, ponts, soudures froides).
+
 ---
 
 ## 6. La fiche d'intervention de maintenance N1
@@ -208,6 +353,20 @@ Toute intervention de maintenance, même simple, doit être **tracée** par une 
 - **Pédagogique** : preuve de compétence pour les épreuves E4 et E5
 
 > *(Voir fiche dédiée S5_E2_05 — Fiche d'intervention de maintenance N1)*
+
+
+> [!TIP] 💡 En clair
+> La **fiche d'intervention** est la **trace écrite** de ton travail : **ce que tu as observé**, **ce que tu as fait**, **ce qui reste à faire**. Sans elle, personne ne sait ce qui a été réalisé. Elle sert aussi de **preuve** pour le suivi du matériel.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi remplit-on une fiche d'intervention ?
+
+??? success "Réponse"
+    Pour **garder une trace** : constats, actions réalisées et suites à donner, afin que le suivi soit possible.
+
+> [!SUCCESS] 🧠 À retenir
+> - Écrire ce qu'on observe, ce qu'on fait et ce qui reste à faire.
 
 ---
 

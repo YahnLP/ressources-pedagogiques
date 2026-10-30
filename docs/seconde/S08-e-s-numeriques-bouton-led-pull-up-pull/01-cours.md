@@ -22,6 +22,16 @@
 | **Débogage (debug)** | Processus d'identification et de correction des erreurs dans un programme |
 | **Variable globale** | Variable déclarée en dehors de toute fonction — conserve sa valeur entre les appels à `loop()` |
 
+
+### 🤔 À ton avis ?
+
+Un bouton relié à l'Arduino ne marche pas : parfois la LED s'allume toute seule, parfois non. D'où peut venir le problème, à ton avis ?
+
+??? question "Voir une réponse possible"
+    Quand une entrée n'est **reliée à rien** (ni au + ni au −), elle « flotte » : elle capte les **parasites** et se met à **0 ou à 1 au hasard**. Il faut **forcer** l'entrée à un niveau connu avec une **résistance** : c'est le rôle des résistances **pull-down** et **pull-up**.
+    
+    Dans cette séance, tu apprends à **lire un bouton** proprement et à **déboguer** avec le Serial Monitor.
+
 ---
 
 ## 1. L'entrée numérique Arduino — `digitalRead()`
@@ -58,6 +68,36 @@ int etatBouton = digitalRead(4);
 
 Une broche en `INPUT` sans résistance de rappel présente une impédance très élevée (> 100 MΩ). À cette impédance, le moindre champ électromagnétique (téléphone, éclairage fluorescent, courants de convection, votre propre corps à travers l'air) suffit à faire varier la tension lue entre les seuils 0V et 5V de façon totalement aléatoire.
 
+
+> [!TIP] 💡 En clair
+> Une entrée numérique ne comprend que **deux états** : **HIGH (1)** et **LOW (0)**. Pour l'Arduino Uno :
+>
+> - de 0 à environ **0,8 V** : le niveau est **LOW** (0) ;
+> - au-dessus d'environ **2 V** : le niveau est **HIGH** (1) ;
+> - **entre les deux** : zone **interdite**, le résultat est **imprévisible**.
+>
+> Une entrée **flottante** (reliée à rien) se retrouve **n'importe où** : c'est le piège à éviter.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle valeur lit l'Arduino pour une tension de 4,5 V ?
+
+??? success "Réponse"
+    **HIGH (1)**, car c'est bien au-dessus du seuil haut.
+
+**Q2.** Pourquoi une entrée flottante est-elle problématique ?
+
+??? success "Réponse"
+    Elle capte des **parasites** et prend une valeur **aléatoire** : le programme réagit n'importe comment.
+
+**Q3.** Que renvoie `digitalRead()` ?
+
+??? success "Réponse"
+    **1** (HIGH) ou **0** (LOW).
+
+> [!SUCCESS] 🧠 À retenir
+> - Une entrée numérique doit toujours être **franchement** à 0 ou à 1.
+
 ---
 
 ## 2. La résistance pull-down
@@ -86,6 +126,32 @@ Courant consommé quand bouton appuyé :
 Valeurs acceptables : 4,7 kΩ à 47 kΩ
 Valeur universelle du kit : 10 kΩ
 ```
+
+
+> [!TIP] 💡 En clair
+> La résistance **pull-down** (« tire vers le bas ») relie l'entrée à **GND**. Quand le bouton est **relâché**, l'entrée est tirée à **0 V** : **LOW**. Quand on **appuie**, le bouton envoie le **5 V** sur l'entrée : **HIGH**.
+>
+> Avec une résistance de 10 kΩ, le courant qui passe quand le bouton est appuyé est très faible : $I = \dfrac{5}{10\,000} = 0{,}5\,\mathrm{mA}$, donc **sans danger**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Avec un pull-down, quel niveau lit-on bouton relâché ?
+
+??? success "Réponse"
+    **LOW (0)**.
+
+**Q2.** Avec un pull-down, quel niveau lit-on bouton appuyé ?
+
+??? success "Réponse"
+    **HIGH (1)**.
+
+**Q3.** Pourquoi choisit-on une valeur élevée (10 kΩ) pour la résistance pull-down ?
+
+??? success "Réponse"
+    Pour que le courant dans la résistance reste **très faible** ($0{,}5\,\mathrm{mA}$) quand on appuie.
+
+> [!SUCCESS] 🧠 À retenir
+> - Pull-down : relâché = 0, appuyé = 1.
 
 ---
 
@@ -121,6 +187,35 @@ Avec `INPUT_PULLUP`, le câblage du bouton est simplifié :
 | Logique | APPUYÉ = 1 | APPUYÉ = 0 | APPUYÉ = 0 *(inversée)* |
 | Valeur résistance | 10 kΩ externe | 10 kΩ externe | ~20–50 kΩ (variable) |
 | Recommandé pour | Débutants (logique naturelle) | — | Projets avancés |
+
+
+> [!TIP] 💡 En clair
+> La résistance **pull-up** (« tire vers le haut ») relie l'entrée au **5 V**. **Bouton relâché**, l'entrée est à **1** ; **bouton appuyé**, il relie l'entrée à **GND** : elle passe à **0**. Le comportement est donc **inversé**.
+>
+> L'Arduino possède une résistance pull-up **intégrée** : on l'active avec `pinMode(4, INPUT_PULLUP)`. Il n'y a **plus besoin de résistance externe** : le bouton se branche simplement entre la broche et **GND**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Oublier que la logique est **inversée** : avec `INPUT_PULLUP`, **appuyé = LOW (0)**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Avec `INPUT_PULLUP`, que lit-on bouton relâché ?
+
+??? success "Réponse"
+    **HIGH (1)**.
+
+**Q2.** Que lit-on bouton appuyé ?
+
+??? success "Réponse"
+    **LOW (0)** : le bouton relie la broche à GND.
+
+**Q3.** Quel est l'avantage de `INPUT_PULLUP` ?
+
+??? success "Réponse"
+    On **supprime la résistance externe** : moins de composants et de fils.
+
+> [!SUCCESS] 🧠 À retenir
+> - Pull-up : relâché = 1, appuyé = 0 (logique inversée).
 
 ---
 
@@ -217,6 +312,32 @@ void loop() {
 
 > ⚠️ **Erreur classique** : Déclarer `bool etatLED = false` DANS `loop()`. À chaque tour de boucle, la variable est réinitialisée à `false` — la bascule ne fonctionne jamais. **La variable d'état DOIT être globale (hors de toute fonction).**
 
+
+> [!TIP] 💡 En clair
+> Un programme **prend des décisions** avec `if / else` : **si** la condition est vraie, on fait une chose, **sinon** une autre. Par exemple : *si le bouton est appuyé, allume la LED ; sinon, éteins-la*.
+>
+> Pour **mémoriser** un état (LED allumée ou éteinte), on utilise une **variable** : elle doit être déclarée **en dehors de `loop()`**, sinon elle est remise à zéro à chaque tour.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** À quoi sert `if / else` ?
+
+??? success "Réponse"
+    À **choisir** entre deux actions selon une condition.
+
+**Q2.** Pourquoi déclare-t-on une variable d'état en dehors de `loop()` ?
+
+??? success "Réponse"
+    Parce que sinon elle est **réinitialisée** à chaque exécution de `loop()` et ne mémorise plus rien.
+
+**Q3.** Un bouton fait clignoter la LED au lieu de la basculer. Quelle est la cause possible ?
+
+??? success "Réponse"
+    Le **rebond** du bouton : on ajoute un petit `delay(50)` pour l'ignorer.
+
+> [!SUCCESS] 🧠 À retenir
+> - `if / else` décide ; une variable d'état mémorise ; on la déclare hors de `loop()`.
+
 ---
 
 ## 5. Débogage Serial systématique
@@ -302,6 +423,25 @@ void loop() {
 | **Rebond bouton** | Serial montre 5 ou 10 transitions très rapides à chaque appui | Ajouter `delay(50)` après la détection du front |
 | **`Serial.begin()` absent** | Rien ne s'affiche dans le Serial Monitor | Ajouter `Serial.begin(9600)` dans `setup()` |
 
+
+> [!TIP] 💡 En clair
+> Quand ça ne marche pas, **affiche ce que lit l'Arduino** avec `Serial.println()`. Tu vois alors si le problème vient du **câblage** (valeur incorrecte) ou du **programme** (la valeur est bonne mais la réaction est mauvaise). Pour ne pas inonder l'écran, on affiche **seulement lors d'un changement**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que permet de voir `Serial.println(etatBouton)` ?
+
+??? success "Réponse"
+    La **valeur lue** sur l'entrée (0 ou 1) : on vérifie ainsi le câblage.
+
+**Q2.** Pourquoi n'affiche-t-on qu'en cas de changement ?
+
+??? success "Réponse"
+    Pour **éviter des milliers de lignes** illisibles dans le moniteur.
+
+> [!SUCCESS] 🧠 À retenir
+> - Quand ça ne marche pas : afficher les valeurs avec le Serial Monitor.
+
 ---
 
 ## 6. Récapitulatif des configurations d'entrée
@@ -320,6 +460,22 @@ void loop() {
 >
 > Règle d'or : Choisir l'une des deux et RESTER COHÉRENT dans tout  
 > le sketch. Mélanger les deux = bugs impossibles à diagnostiquer.  
+
+
+> [!TIP] 💡 En clair
+> Pour choisir ton montage : **pull-down externe** = résistance + 5 V sur le bouton (appuyé = 1) ; **pull-up externe** = résistance + GND sur le bouton (appuyé = 0) ; **INPUT_PULLUP** = **aucun composant en plus**, bouton vers GND (appuyé = 0). Le plus simple est **INPUT_PULLUP**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle configuration demande le moins de composants ?
+
+??? success "Réponse"
+    **INPUT_PULLUP** : le bouton est relié directement entre la broche et GND.
+
+**Q2.** Avec quelle configuration lit-on 1 quand on appuie ?
+
+??? success "Réponse"
+    Avec le **pull-down** (bouton relié au 5 V).
 
 ---
 
