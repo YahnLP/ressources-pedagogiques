@@ -10,6 +10,16 @@
 - ✅ Générer une courbe de tendance depuis les données acquises
 - ✅ Rédiger une fiche de mise en service complète et signée
 
+
+### 🤔 À ton avis ?
+
+Une alarme sonne **toutes les 2 secondes** parce qu'une température oscille autour de 30 °C. Est-ce un bon système d'alarme ?
+
+??? question "Voir une réponse possible"
+    **Non** : il **bat** sans arrêt autour du seuil, et plus personne n'y prête attention. Un bon système **filtre** les mesures, **calcule des indicateurs** (KPI) et **n'alerte que quand c'est justifié**.
+    
+    Dans cette séance, tu apprends à **lisser**, à **calculer des KPI**, à **éviter le battement** et à **rédiger une fiche de mise en service**.
+
 ---
 
 ## 1️⃣ DU CLOUD À L'EMBARQUÉ : POURQUOI ?
@@ -25,6 +35,17 @@
 ```
 Avantage : réaction < 1 seconde, même sans Wi-Fi
 ```
+
+
+> [!TIP] 💡 En clair
+> Envoyer **toutes** les mesures vers le cloud coûte cher en énergie et en réseau, et ne fonctionne pas **sans connexion**. L'**intelligence embarquée** décide **localement** : le microcontrôleur filtre, calcule et ne transmet que l'essentiel.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Cite un avantage de la décision locale.
+
+??? success "Réponse"
+    Elle fonctionne **sans réseau**, **réagit vite** et **économise de l'énergie**.
 
 ---
 
@@ -67,6 +88,44 @@ float ajouterEtMoyenner(float nouvelle_valeur) {
 | Réactif aux changements rapides | Très lissé, insensible au bruit |
 | Peut encore être bruité | Répond lentement aux vraies variations |
 | Bon pour détections rapides | Bon pour tendances lentes |
+
+
+> [!TIP] 💡 En clair
+> Un **KPI** résume l'état du système **en un nombre**. Quatre KPI à connaître :
+>
+> - **Moyenne mobile** : moyenne des $N$ dernières mesures, elle **lisse le bruit**. Exemple : 20 ; 22 ; 21 ; 25 donnent $\dfrac{20+22+21+25}{4} = 22$.
+> - **Min / max glissants** : les valeurs extrêmes récentes.
+> - **Taux d'alarme** : $\dfrac{\text{nb d'alarmes}}{\text{nb de mesures}} \times 100$ (en %).
+> - **Tendance** : $\dfrac{x_{\mathrm{dernier}} - x_{\mathrm{premier}}}{(N-1) \times \Delta t}$ (en unité par heure).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle est la moyenne mobile de 18 ; 20 ; 22 ; 24 ?
+
+??? success "Réponse"
+    $\dfrac{18+20+22+24}{4} = 21$.
+
+**Q2.** Sur 50 mesures, 5 étaient en alarme. Quel est le taux d'alarme ?
+
+??? success "Réponse"
+    $\dfrac{5}{50} \times 100 = 10\,\%$.
+
+**Q3.** La température passe de 20 °C à 23 °C en 3 h. Quelle est la tendance ?
+
+??? success "Réponse"
+    $\dfrac{23 - 20}{3} = +1\,°\mathrm{C/h}$ (elle monte).
+
+**Q4.** Quel KPI lisse les pics de bruit ?
+
+??? success "Réponse"
+    La **moyenne mobile**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Utiliser une fenêtre **trop grande** : le système réagit **trop lentement**.
+> - Calculer la tendance avec un $\Delta t$ en secondes alors qu'on veut des **unités par heure**.
+
+> [!SUCCESS] 🧠 À retenir
+> - KPI = moyenne mobile, min/max, taux d'alarme, tendance.
 
 ---
 
@@ -150,6 +209,35 @@ Alarme :  OFF  / ON  / OFF / ON  / OFF / OFF / ON  / OFF
 ```
 
 > Ce comportement génère des fausses alarmes en rafale. Il est inacceptable en production (usure des relais, notifications intempestives, perte de confiance dans le système).
+
+
+> [!TIP] 💡 En clair
+> **Le problème :** autour du seuil, la mesure oscille (30,1 puis 29,9 puis 30,1…) et l'alarme clignote. Deux solutions :
+>
+> - **Hystérésis** : deux seuils. L'alarme se **déclenche** à 30 °C mais ne se **coupe** qu'en dessous de 28 °C.
+> - **Anti-rebond temporel** : l'alarme n'est déclenchée qu'après **plusieurs mesures consécutives** au-dessus du seuil.
+>
+> On distingue ensuite **trois niveaux** : **normal**, **warning** (surveillance), **critical** (action immédiate).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Seuil haut 30 °C, seuil bas 28 °C. La température passe de 30,5 à 29 °C. L'alarme est-elle coupée ?
+
+??? success "Réponse"
+    **Non** : elle ne se coupe qu'en dessous de **28 °C** (hystérésis).
+
+**Q2.** Pourquoi l'hystérésis évite-t-elle le battement ?
+
+??? success "Réponse"
+    Parce que **deux seuils différents** empêchent les va-et-vient autour d'une seule valeur.
+
+**Q3.** À quoi sert l'anti-rebond temporel ?
+
+??? success "Réponse"
+    À **ignorer les dépassements très brefs** (parasites).
+
+> [!SUCCESS] 🧠 À retenir
+> - Hystérésis = deux seuils ; anti-rebond = durée minimale.
 
 ---
 
@@ -303,6 +391,17 @@ void enregistrerPoint(float valeur, float moy_mobile, NiveauAlarme alarme) {
 }
 ```
 
+
+> [!TIP] 💡 En clair
+> La **courbe de tendance** garde en mémoire les dernières mesures (un **buffer circulaire**) pour que le **dashboard** puisse les afficher. On publie les valeurs au format **JSON** : un texte structuré que tout système peut lire.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi utilise-t-on un buffer circulaire ?
+
+??? success "Réponse"
+    Pour **garder seulement les N dernières mesures** avec une mémoire **limitée** et constante.
+
 ---
 
 ## 5️⃣ FICHE DE MISE EN SERVICE (MES)
@@ -381,6 +480,25 @@ void enregistrerPoint(float valeur, float moy_mobile, NiveauAlarme alarme) {
    Client       : ___________  Date : __________
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
+
+
+> [!TIP] 💡 En clair
+> La **fiche de mise en service (MES)** est le document qui **transfère la responsabilité** du prestataire au client. Elle atteste que le système est **installé**, **configuré**, **testé avec résultats mesurés** et **remis opérationnel**. Chaque test y figure avec son **résultat attendu**, son **résultat obtenu** et son **verdict**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que prouve une fiche MES signée ?
+
+??? success "Réponse"
+    Que le système a été **installé, configuré, testé** et **remis opérationnel** au client.
+
+**Q2.** Pourquoi note-t-on les résultats mesurés et pas seulement « OK » ?
+
+??? success "Réponse"
+    Pour avoir une **preuve chiffrée** que l'on peut **vérifier** plus tard.
+
+> [!SUCCESS] 🧠 À retenir
+> - MES = installé, configuré, testé, remis (avec preuves chiffrées).
 
 ---
 

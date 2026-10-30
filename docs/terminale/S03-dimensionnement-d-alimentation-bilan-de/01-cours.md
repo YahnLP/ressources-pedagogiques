@@ -31,6 +31,16 @@
 | **Tj max** | Température maximale tolérée par le composant | °C |
 | **Marge thermique** | Tj max − Tj calculée | °C |
 
+
+### 🤔 À ton avis ?
+
+Tu veux faire fonctionner un capteur ESP32 sur pile **pendant un an**. Comment savoir **à l'avance** si c'est possible, et si ton régulateur va **chauffer** ?
+
+??? question "Voir une réponse possible"
+    Avec trois calculs : le **bilan de puissance** (combien le système consomme), le **calcul thermique** (le régulateur supporte-t-il la chaleur ?) et l'**autonomie** (combien de temps tient la batterie).
+    
+    Dans cette séance, tu apprends à **dimensionner une alimentation** avant de la construire.
+
 ---
 
 ## 1️⃣ — Le bilan de puissance
@@ -71,6 +81,31 @@ COURANT DE LA SOURCE ≥ I_pic_total × 1,25   (marge de sécurité 25%)
 Exemple : I_pic = 272 mA @ 3,3V + 150 mA @ 5V
           → Source 5V : I_requis = 272 mA + 150 mA + (Pdiss régulateur / 5V)
 ```
+
+
+> [!TIP] 💡 En clair
+> Le **bilan de puissance** consiste à **lister chaque composant** avec sa tension, son **courant de pointe** et son **courant moyen**, puis à **additionner**. Le courant de pointe sert à choisir la **source** ; le courant moyen sert à calculer l'**autonomie**. On prend une **marge de 25 %** : $I_{\mathrm{source}} \geq 1{,}25 \times I_{\mathrm{pic}}$.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi distingue-t-on courant de pointe et courant moyen ?
+
+??? success "Réponse"
+    La **pointe** dimensionne la source ; la **moyenne** détermine l'**autonomie** sur batterie.
+
+**Q2.** Un système a un pic de 400 mA. Quelle source minimale ?
+
+??? success "Réponse"
+    $400 \times 1{,}25 = 500\,\mathrm{mA}$.
+
+**Q3.** Un composant 3,3 V consomme 80 mA en moyenne. Quelle puissance moyenne ?
+
+??? success "Réponse"
+    $P = U \times I = 3{,}3 \times 0{,}080 \approx 0{,}26\,\mathrm{W} = 264\,\mathrm{mW}$.
+
+> [!SUCCESS] 🧠 À retenir
+> - $I_{\mathrm{source}} \geq 1{,}25 \times I_{\mathrm{pic}}$.
+> - $P = U \times I$ pour chaque composant, puis on additionne.
 
 ---
 
@@ -114,6 +149,30 @@ LDO (Low Drop-Out) = variante du linéaire :
   (vs 2,5V minimum pour un 78xx classique)
   → Utilisable avec batterie Li-ion en décharge
 ```
+
+
+> [!TIP] 💡 En clair
+> Un **régulateur linéaire** (7805, AMS1117…) abaisse la tension en **dissipant l'excès sous forme de chaleur** : $P_{\mathrm{diss}} = (V_{\mathrm{in}} - V_{\mathrm{out}}) \times I_{\mathrm{out}}$. Son rendement vaut environ $\eta \approx \dfrac{V_{\mathrm{out}}}{V_{\mathrm{in}}}$.
+>
+> **Exemple :** 9 V → 5 V à 100 mA : $P_{\mathrm{diss}} = 4 \times 0{,}1 = 0{,}4\,\mathrm{W}$ et $\eta \approx \dfrac{5}{9} \approx 56\,\%$. Presque la moitié de l'énergie part en **chaleur**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Un régulateur passe de 5 V à 3,3 V avec 300 mA. Quelle puissance dissipe-t-il ?
+
+??? success "Réponse"
+    $(5 - 3{,}3) \times 0{,}3 = 0{,}51\,\mathrm{W}$.
+
+**Q2.** Pourquoi un régulateur linéaire est-il peu efficace quand $V_{\mathrm{in}}$ est bien plus grand que $V_{\mathrm{out}}$ ?
+
+??? success "Réponse"
+    Parce que la différence $V_{\mathrm{in}} - V_{\mathrm{out}}$ est **perdue en chaleur**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Alimenter un 5 V depuis une source de 24 V sans calculer l'échauffement : le régulateur **surchauffe**.
+
+> [!SUCCESS] 🧠 À retenir
+> - $P_{\mathrm{diss}} = (V_{\mathrm{in}} - V_{\mathrm{out}}) \times I_{\mathrm{out}}$.
 
 ---
 
@@ -224,6 +283,32 @@ Exemple : Même LM7805, Pdiss=3W, Tamb=40°C
   Tj = 40 + 3 × (5 + 0,5 + 15) = 40 + 3 × 20,5 = 40 + 61,5 = 101,5°C ← OK !
 ```
 
+
+> [!TIP] 💡 En clair
+> La chaleur produite fait monter la **température de jonction** : $T_j = T_{\mathrm{amb}} + P_{\mathrm{diss}} \times R_{\theta ja}$. On compare à $T_{j,\max}$ (en général **125 °C**) en gardant **20 °C de marge**.
+>
+> **Exemple :** $P = 0{,}4\,\mathrm{W}$, $R_{\theta ja} = 65\,°\mathrm{C/W}$, $T_{\mathrm{amb}} = 25\,°\mathrm{C}$ → $T_j = 25 + 0{,}4 \times 65 = 51\,°\mathrm{C}$ : **OK**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Un régulateur dissipe 1 W avec $R_{\theta ja} = 50\,°\mathrm{C/W}$ à 25 °C. Quelle est $T_j$ ?
+
+??? success "Réponse"
+    $25 + 1 \times 50 = 75\,°\mathrm{C}$.
+
+**Q2.** Quelle est la température maximale à ne pas dépasser si $T_{j,\max} = 125\,°\mathrm{C}$ et marge de 20 °C ?
+
+??? success "Réponse"
+    $125 - 20 = 105\,°\mathrm{C}$.
+
+**Q3.** Que fait un radiateur ?
+
+??? success "Réponse"
+    Il **diminue la résistance thermique** totale, donc la température de jonction pour une même puissance.
+
+> [!SUCCESS] 🧠 À retenir
+> - $T_j = T_{\mathrm{amb}} + P_{\mathrm{diss}} \times R_{\theta}$ ; garder 20 °C de marge sous $T_{j,\max}$.
+
 ---
 
 ![Modèle thermique d'un régulateur](images/modele-thermique.png)
@@ -263,6 +348,35 @@ $$= 12{,}6\,\mathrm{mA}$$
 Batterie Li-ion 18650 (3000 mAh) :  
 t = 3000 / 12,6 = 238 heures = 9,9 jours  
 t_réelle ≈ 238 × 0,80 = 190 heures ≈ 8 jours  
+
+
+> [!TIP] 💡 En clair
+> **Autonomie brute :** $t = \dfrac{\text{capacité (mAh)}}{I_{\mathrm{moy}}\,(\mathrm{mA})}$. En pratique, on ne dispose que de **80 %** de la capacité : $t_{\mathrm{réelle}} = 0{,}8 \times t$.
+>
+> **Exemple :** batterie de 2000 mAh, $I_{\mathrm{moy}} = 12{,}6\,\mathrm{mA}$ → $t = \dfrac{2000}{12{,}6} \approx 159\,\mathrm{h}$, soit $t_{\mathrm{réelle}} \approx 127\,\mathrm{h}$ (environ 5 jours).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Batterie 1000 mAh, système à 50 mA. Quelle autonomie réelle ?
+
+??? success "Réponse"
+    $\dfrac{1000}{50} = 20\,\mathrm{h}$ puis $\times 0{,}8 = 16\,\mathrm{h}$.
+
+**Q2.** Un ESP32 consomme 150 mA pendant 5 s puis 0,1 mA pendant 55 s. Quel courant moyen ?
+
+??? success "Réponse"
+    $\dfrac{150 \times 5 + 0{,}1 \times 55}{60} \approx 12{,}6\,\mathrm{mA}$.
+
+**Q3.** Pourquoi le mode veille profonde est-il si efficace ?
+
+??? success "Réponse"
+    Parce que le système passe **presque tout son temps** à une consommation très faible.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Utiliser le courant de **pointe** au lieu du courant **moyen** pour l'autonomie.
+
+> [!SUCCESS] 🧠 À retenir
+> - $t = \dfrac{\text{capacité}}{I_{\mathrm{moy}}}$ puis $\times 0{,}8$.
 
 ---
 
