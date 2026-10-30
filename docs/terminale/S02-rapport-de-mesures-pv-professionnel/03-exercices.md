@@ -38,7 +38,7 @@ $$\bar{x} = \frac{4718 + 4711 + 4725 + 4709 + 4717}{5} = \frac{\_\_\_\_\_}{5} = 
 
 **A1.2 *(2 pts)*** — Calculez l'écart-type s et l'incertitude de type A :
 
-| $m_i$ | $m_i - \bar{x}$ | $(m_i - \bar{x})^2$ |
+| $m_{i}$ | $m_{i} - \bar{x}$ | $(m_{i} - \bar{x})^2$ |
 |---|---|---|
 | 4718 | | |
 | 4711 | | |
@@ -47,9 +47,9 @@ $$\bar{x} = \frac{4718 + 4711 + 4725 + 4709 + 4717}{5} = \frac{\_\_\_\_\_}{5} = 
 | 4717 | | |
 | **Somme** | — | |
 
-$$s = \sqrt{\frac{\sum(m_i - \bar{x})^2}{n-1}} = \sqrt{\frac{\_\_\_\_\_}{4}} = \_\_\_\_ \text{ Ω}$$
+$$s = \sqrt{\frac{\sum(m_{i} - \bar{x})^2}{n-1}} = \sqrt{\frac{\_\_\_\_\_}{4}} = \_\_\_\_ \text{ Ω}$$
 
-$$u_A = \frac{s}{\sqrt{n}} = \frac{\_\_\_\_}{\sqrt{5}} = \_\_\_\_ \text{ Ω}$$
+$$u_{A} = \frac{s}{\sqrt{n}} = \frac{\_\_\_\_}{\sqrt{5}} = \_\_\_\_ \text{ Ω}$$
 
 ---
 
@@ -67,9 +67,9 @@ $$u_{B,classe} = \frac{0,5 \times \bar{x}}{100 \times \sqrt{3}} = \frac{0,5 \tim
 
 **A1.4 *(2 pts)*** — Calculez l'incertitude combinée et élargie :
 
-$$u_c = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,classe}^2} = \sqrt{(\_\_\_)^2 + (\_\_\_)^2 + (\_\_\_)^2} = \_\_\_\_ \text{ Ω}$$
+$$u_{c} = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,classe}^2} = \sqrt{(\_\_\_)^2 + (\_\_\_)^2 + (\_\_\_)^2} = \_\_\_\_ \text{ Ω}$$
 
-$$U = 2 \times u_c = 2 \times \_\_\_\_ = \_\_\_\_ \text{ Ω}$$
+$$U = 2 \times u_{c} = 2 \times \_\_\_\_ = \_\_\_\_ \text{ Ω}$$
 
 **Arrondir U par excès à 1 chiffre significatif :**
 
@@ -95,7 +95,7 @@ Conclusion : ☐ Conforme   ☐ Non conforme
 
 > La mesure unique de R2 donne : **4 831 Ω** (une seule mesure, pas de répétition).
 
-**A2.1 *(2 pts)*** — Sans répétition possible (u_A = 0), calculez l'incertitude élargie de R2 avec seulement u_B résolution et u_B classe :
+**A2.1 *(2 pts)*** — Sans répétition possible ($u_{A}$ = 0), calculez l'incertitude élargie de R2 avec seulement $u_{B}$ résolution et $u_{B}$ classe :
 
 $$u_{\mathrm{B,rés}} = \underline{\hspace{2.5em}} \Omega$$
 
@@ -203,8 +203,8 @@ _________________________________________________________________________
 
 | **Section** | **Points** |
 |---|---|
-| A1 — Mesures R1 (moyenne, u_A, u_B, u_c, U, conformité) | /10 |
-| A2 — Mesure R2 (u_B, conformité) | /3 |
+| A1 — Mesures R1 (moyenne, $u_{A}$, $u_{B}$, $u_{c}$, U, conformité) | /10 |
+| A2 — Mesure R2 ($u_{B}$, conformité) | /3 |
 | B — Tension 3,3V (incertitude + conformité) | /3 |
 | C — Rapport conformité IPC (classifications + conclusion) | /4 |
 | D — PV complet rédigé | /10 |

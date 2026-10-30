@@ -35,18 +35,18 @@ GPS NEO-6M          : 50 mA @ 3,3V (actif en même temps que l'ESP32)
 LED statut          : 5 mA @ 3,3V (50% duty, toujours)  
 Régulateur LDO      : Vin=3,7V, Vout=3,3V, Rθja=44°C/W, Tamb=30°C  
 
-a) Calcule I_moy ESP32 sur un cycle de 10 min (600s) :  
+a) Calcule $I_{\mathrm{moy}}$ ESP32 sur un cycle de 10 min (600s) :  
 
 $$I_{\mathrm{moy}} = \dfrac{200 \times 30 + 0{,}02 \times 570}{600} = \underline{\hspace{2.5em}} mA$$
 
-b) Calcule I_moy total @ 3,3V :  
-I_moy total = I_ESP32_moy + I_GPS_moy + I_LED_moy  
+b) Calcule $I_{\mathrm{moy}}$ total @ 3,3V :  
+$I_{\mathrm{moy}}$ total = I_ESP32_moy + I_GPS_moy + I_LED_moy  
 
-$$I_GPS_moy = 50 \times \dfrac{30}{600} = \underline{\hspace{2.5em}} mA$$
+$$I_{\mathrm{GPS\_moy}} = 50 \times \dfrac{30}{600} = \underline{\hspace{2.5em}} mA$$
 
-$$I_LED_moy = 5 \times 0{,}5 = \underline{\hspace{2.5em}} mA$$
+$$I_{\mathrm{LED\_moy}} = 5 \times 0{,}5 = \underline{\hspace{2.5em}} mA$$
 
-I_moy total = _______ mA  
+$I_{\mathrm{moy}}$ total = _______ mA  
 
 c) Calcule Pdiss LDO et Tj :  
 Pdiss = (3,7−3,3) × _______ = _______ W  
@@ -93,15 +93,15 @@ Application 3 : Amplificateur audio précision ±15V → ±12V, 100mA
 
 ### Rappel express (5 min)
 
-σ_EV = (σ_A + σ_B) / 2          (répétabilité)  
-σ_AV ≈ |x̄_A − x̄_B| / √n        (reproductibilité)  
+$σ_{\mathrm{EV}}$ = (σ_A + σ_B) / 2          (répétabilité)  
+$σ_{\mathrm{AV}}$ ≈ |x̄_A − x̄_B| / $\sqrt{n}$        (reproductibilité)  
 
-$$σ_GRR = \sqrt{σ_EV^2 + σ_AV^2}$$
+$$\sigma _GRR = \sqrt{\sigma _EV^2 + \sigma _AV^2}$$
 
-%GRR = 5,15 × σ_GRR / Tolérance × 100  
+%GRR = 5,15 × $σ_{\mathrm{GRR}}$ / Tolérance × 100  
 < 10% = excellent · 10-30% = acceptable · > 30% = inacceptable  
 
-$$LD \approx 3 \times σ_bruit$$
+$$LD \approx 3 \times \sigma _bruit$$
 
 ### Exercice B1 — R&R complet (50 min)
 
@@ -119,16 +119,16 @@ Référence : 4,00 bar · Tolérance totale : 0,6 bar
 
 a) Calcule x̄ et σ de chaque capteur :  
 
-$$x̄_1 = \underline{\hspace{2.5em}} bar \cdot σ_1 = \underline{\hspace{2.5em}} bar$$
+$$x̄_1 = \underline{\hspace{2.5em}} bar \cdot \sigma _1 = \underline{\hspace{2.5em}} bar$$
 
-$$x̄_2 = \underline{\hspace{2.5em}} bar \cdot σ_2 = \underline{\hspace{2.5em}} bar$$
+$$x̄_2 = \underline{\hspace{2.5em}} bar \cdot \sigma _2 = \underline{\hspace{2.5em}} bar$$
 
 b) Biais de chaque capteur :  
 Biais_1 = _______ · Biais_2 = _______  
 
-c) σ_EV, σ_AV, σ_GRR, %GRR :  
+c) $σ_{\mathrm{EV}}$, $σ_{\mathrm{AV}}$, $σ_{\mathrm{GRR}}$, %GRR :  
 
-$$σ_EV = \underline{\hspace{2.5em}} \cdot σ_AV = \underline{\hspace{2.5em}} \cdot σ_GRR = \underline{\hspace{2.5em}} \cdot %GRR = \underline{\hspace{2.5em}} %$$
+$$\sigma _EV = \underline{\hspace{2.5em}} \cdot \sigma _AV = \underline{\hspace{2.5em}} \cdot \sigma _GRR = \underline{\hspace{2.5em}} \cdot %GRR = \underline{\hspace{2.5em}} %$$
 
 d) Verdict et recommandation :  
 ☐ Excellent ☐ Acceptable ☐ Inacceptable  
@@ -136,7 +136,7 @@ Recommandation : _______________________________________________
 
 e) LD du capteur 1 :  
 
-$$LD \approx 3 \times σ_1 = \underline{\hspace{2.5em}} bar$$
+$$LD \approx 3 \times \sigma _1 = \underline{\hspace{2.5em}} bar$$
 
 Peut-il détecter une variation de 0,02 bar ? ☐ Oui ☐ Non  
 
@@ -190,14 +190,14 @@ Violation 5 : _______________ · Problème : _______________ · Correction : ___
 
 a) Piste de 18cm : à partir de quelle fréquence se comporte-t-elle comme une antenne ?  
 
-$$L=0{,}18\,\mathrm{m} \cdot L > λ/20 \to λ < 20 \times 0{,}18=3{,}6\,\mathrm{m} \cdot f > 3 \times 10⁸/3{,}6 = \underline{\hspace{2.5em}} MHz$$
+$$L=0{,}18\,\mathrm{m} \cdot L > \lambda /20 \to \lambda  < 20 \times 0{,}18=3{,}6\,\mathrm{m} \cdot f > 3 \times 10^{8}/3{,}6 = \underline{\hspace{2.5em}} \mathrm{MHz}$$
 
 b) Pour le WiFi ESP32 (2,4GHz), λ/20 = _______ mm  
 Toute piste > _______ mm peut rayonner → règle : pistes courtes !  
 
 c) Fente dans un boîtier blindant à 2,4GHz : taille max ?  
 
-$$λ=0{,}125\,\mathrm{m} \to λ/20 = \underline{\hspace{2.5em}} mm$$
+$$\lambda =0{,}125\,\mathrm{m} \to \lambda /20 = \underline{\hspace{2.5em}} mm$$
 
 ### Mini-quiz C (10 min)
 
@@ -390,15 +390,15 @@ Scénario 3 : Câble d'alimentation 5V (2A) cheminant sur 30cm à côté d'un c�
 
 a) Boîtier blindant un ESP32 WiFi (2,4GHz) : taille max des fentes ?  
 
-$$λ = 3 \times 10⁸/2{,}4 \times 10⁹ = \underline{\hspace{2.5em}} m \cdot λ/20 = \underline{\hspace{2.5em}} mm$$
+$$\lambda  = 3 \times 10^{8}/2{,}4 \times 10^{9} = \underline{\hspace{2.5em}} m \cdot \lambda /20 = \underline{\hspace{2.5em}} mm$$
 
 b) Filtre RC pour ADC (signal utile max 20Hz, fc cible 100Hz, R=22kΩ) :  
 
-$$C = \dfrac{1}{2π \times 100 \times 22000} = \underline{\hspace{2.5em}} F = \underline{\hspace{2.5em}} nF$$
+$$C = \dfrac{1}{2\pi  \times 100 \times 22000} = \underline{\hspace{2.5em}} F = \underline{\hspace{2.5em}} nF$$
 
 c) Piste PCB de 22cm : fréquence à partir de laquelle elle devient une antenne ?  
 
-$$λ < 20 \times 0{,}22 = \underline{\hspace{2.5em}} m \cdot f > 3 \times 10⁸/\underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} MHz$$
+$$\lambda  < 20 \times 0{,}22 = \underline{\hspace{2.5em}} m \cdot f > 3 \times 10^{8}/\underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} \mathrm{MHz}$$
 
 d) 8 affirmations : VRAI ou FAUX  
 ___ Plan de masse continu : courant de retour direct sous la piste  
@@ -417,6 +417,6 @@ ___ fc = 1/(2πRC) : formule filtre passe-bas
 3. Fente dans blindage WiFi (2,4GHz) < _______ mm  
 4. Plan fendu → courant de retour _______ → grande _______ → fort _______  
 
-$$5. fc = \dfrac{1}{2π \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$$
+$$5. fc = \dfrac{1}{2\pi  \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$$
 
 ---

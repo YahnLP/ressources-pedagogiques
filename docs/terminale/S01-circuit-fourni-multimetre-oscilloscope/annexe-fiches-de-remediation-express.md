@@ -108,13 +108,13 @@ VALEURS e⁻ˣ : e⁻⁰·¹=0,905 · e⁻⁰·²=0,819 · e⁻⁰·⁵=0,607 ·
 
 Capteur DHT22 : MTBF = 50 000 h  
 
-$$a) λ = \dfrac{1}{50000} = \underline{\hspace{2.5em}}h⁻¹$$
+$$a) \lambda  = \dfrac{1}{50000} = \underline{\hspace{2.5em}}h^{-1}$$
 
 b) R après 1 an (8760h) :  
 
-$$λt = 2 \times 10⁻⁵ \times 8760 = \underline{\hspace{2.5em}}$$
+$$\lambda t = 2 \times 10^{-5} \times 8760 = \underline{\hspace{2.5em}}$$
 
-$$R = e^(-\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+$$R = e^{-\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
 c) Système : [DHT22 (R=0,84)] en série avec [ESP32 (R=0,92)] :  
 
@@ -194,7 +194,7 @@ $$Σei = \underline{\hspace{2.5em}} Σei^2 = \underline{\hspace{2.5em}}$$
 
 Biais = _______ / 5 = _______ °C  
 
-$$σ = \sqrt{\underline{\hspace{2.5em}} / 4} = \underline{\hspace{2.5em}} °C$$
+$$\sigma  = \sqrt{\underline{\hspace{2.5em}} / 4} = \underline{\hspace{2.5em}} °C$$
 
 $$u = \underline{\hspace{2.5em}} / \sqrt{5} = \underline{\hspace{2.5em}} °C$$
 
@@ -206,7 +206,7 @@ Spécification = ±0,5°C :
 
 ??? success "Réponses"
     ei=+0,3/-0,1/+0,2/+0,4/+0,2 · Σei=+1,0 · Σei²=0,34  
-    Biais=+0,20°C · σ=√(0,34/4)=√0,085=0,291°C · u=0,130°C · U=0,260°C  
+    Biais=+0,20°C · σ=$\sqrt{0,34/4}$=$\sqrt{0,085}$=0,291°C · u=0,130°C · U=0,260°C  
     0,20+0,26=0,46°C ≤ 0,5°C → CONFORME (limite !)
 
 ---

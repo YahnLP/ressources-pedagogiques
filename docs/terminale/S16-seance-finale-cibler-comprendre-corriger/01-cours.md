@@ -45,7 +45,7 @@ Lacune 3 : ___________________________________________________________
 
 > Le formateur présente les 5 erreurs les plus fréquentes. Notez ci-dessous la règle correcte pour chaque erreur que vous avez commise.
 
-### Erreur #1 — Calcul u_B,cl
+### Erreur #1 — Calcul $u_{B,\mathrm{cl}}$
 
 ```
 ❌ Ce que j'ai fait : u_B,cl = (classe% × _______________) / (100√3)
@@ -97,11 +97,11 @@ Les 3 formulations acceptées :
 
 > Cinq mesures de la tension de sortie d'un régulateur 3,3V avec un multimètre classe 0,5%, résolution 0,01V : **3,28 / 3,32 / 3,30 / 3,27 / 3,31 V**
 
-**P1.1.1** — Calculez $\bar{x}$, $s$, $u_A$ :
+**P1.1.1** — Calculez $\bar{x}$, $s$, $u_{A}$ :
 
-$$\bar{x} = \_\_\_\_ \text{ V} \qquad s = \_\_\_\_ \text{ V} \qquad u_A = \frac{s}{\sqrt{5}} = \_\_\_\_ \text{ V}$$
+$$\bar{x} = \_\_\_\_ \text{ V} \qquad s = \_\_\_\_ \text{ V} \qquad u_{A} = \frac{s}{\sqrt{5}} = \_\_\_\_ \text{ V}$$
 
-**P1.1.2** — Calculez les deux composantes $u_B$ :
+**P1.1.2** — Calculez les deux composantes $u_{B}$ :
 
 $$u_{B,rés} = \frac{0,01}{2\sqrt{3}} = \_\_\_\_ \text{ V}$$
 
@@ -109,11 +109,11 @@ $$u_{B,cl} = \frac{0,5 \times \bar{x}}{100\sqrt{3}} = \_\_\_\_ \text{ V}$$
 
 *(Attention : utilisez $\bar{x}$, PAS la pleine échelle de l'instrument)*
 
-**P1.1.3** — Calculez $u_c$ et $U$ :
+**P1.1.3** — Calculez $u_{c}$ et $U$ :
 
-$$u_c = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,cl}^2} = \_\_\_\_ \text{ V}$$
+$$u_{c} = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,cl}^2} = \_\_\_\_ \text{ V}$$
 
-$$U = 2 \times u_c = \_\_\_\_ \text{ V} \rightarrow U_{arrondi} = \_\_\_\_ \text{ V}$$
+$$U = 2 \times u_{c} = \_\_\_\_ \text{ V} \rightarrow U_{arrondi} = \_\_\_\_ \text{ V}$$
 
 $$\boxed{V = (\_\_\_\_ \pm \_\_\_\_) \text{ V} \quad [95\%]}$$
 
@@ -133,9 +133,9 @@ Intervalle : [_____ ; _____] V  vs  [3,234 ; 3,366] V → _______________
 
 > Une seule mesure : 4,97V (classe 0,5%, résolution 0,001V). Calculez U.
 
-u_A = 0  (pas de répétition → u_A est nul)  
-u_B,rés = _____  |  u_B,cl = _____  
-u_c = _____  |  U = _____  |  U_arrondi = _____  
+$u_{A}$ = 0  (pas de répétition → $u_{A}$ est nul)  
+$u_{B,\mathrm{rés}}$ = _____  |  $u_{B,\mathrm{cl}}$ = _____  
+$u_{c}$ = _____  |  U = _____  |  $U_{\mathrm{arrondi}}$ = _____  
 
 $$V = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$$
 
@@ -152,7 +152,7 @@ Justification : _________________________________________________
 
 **Cas 3 — Arrondi de U**
 
-> u_c = 0,0143 V. Quel est $U_{arrondi}$ ?
+> $u_{c}$ = 0,0143 V. Quel est $U_{arrondi}$ ?
 
 $$U = 2 \times 0{,}0143 = 0{,}0286\,\mathrm{V}$$
 
@@ -179,7 +179,7 @@ Instrument : _____________ Cl.___% Rés.___V N°:_________ Cert.:_____
 RÉSULTATS :
 | TC# | Exigence | Résultat ± U | Conf. |
 |---|---|---|---|
-| TC-01 | Vout = 5V ±5% |  |  |
+| TC-01 | $V_{out} = 5\,\mathrm{V} \pm 5\,\mathrm{\%}$ |  |  |
 | TC-02 | Assemblage IPC-A-610 Cl.2 | Pont soudure C1 |  |
 
 CONCLUSION :
@@ -207,9 +207,9 @@ Calc 2 : 3 mesures : 22,3 / 22,7 / 22,5°C, classe 0,5%, rés. 0,1°C
 
 $$x̄ = \underline{\hspace{2.5em}} s = \underline{\hspace{2.5em}} u_{\mathrm{A}} = \underline{\hspace{2.5em}}$$
 
-Calc 3 : u_c = √(0,0124² + 0,0058² + 0,0289²) = _____  
+Calc 3 : $u_{c}$ = $\sqrt{0,0124² + 0,0058² + 0,0289²}$ = _____  
 
-Calc 4 : U = 2 × 0,0314 = _____ → U_arrondi = _____  
+Calc 4 : U = 2 × 0,0314 = _____ → $U_{\mathrm{arrondi}}$ = _____  
 si x̄ = 22,53°C : T = (_____ ± _____) °C [95%]  
 
 ---

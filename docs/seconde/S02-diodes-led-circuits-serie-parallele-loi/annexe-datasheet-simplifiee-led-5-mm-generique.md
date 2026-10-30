@@ -25,22 +25,22 @@
 
 | Paramètre | Symbole | Rouge | Vert | Bleu | Unité |
 |---|---|---|---|---|---|
-| Tension directe maximale | V_F max | 2,5 | 2,8 | 3,8 | V |
-| Courant direct continu max | I_F max | 30 | 30 | 30 | mA |
-| Courant en pointe (pulsé) | I_FM | 100 | 100 | 100 | mA |
-| Tension inverse maximale | V_R | 5 | 5 | 5 | V |
-| Puissance dissipée maximale | P_D | 65 | 65 | 80 | mW |
-| Température jonction max | T_J | 125 | 125 | 125 | °C |
+| Tension directe maximale | $V_{F}$ max | 2,5 | 2,8 | 3,8 | V |
+| Courant direct continu max | $I_{F}$ max | 30 | 30 | 30 | mA |
+| Courant en pointe (pulsé) | $I_{\mathrm{FM}}$ | 100 | 100 | 100 | mA |
+| Tension inverse maximale | $V_{R}$ | 5 | 5 | 5 | V |
+| Puissance dissipée maximale | $P_{D}$ | 65 | 65 | 80 | mW |
+| Température jonction max | $T_{J}$ | 125 | 125 | 125 | °C |
 
 ---
 
-## Caractéristiques électro-optiques typiques (T = 25°C, I_F = 20 mA)
+## Caractéristiques électro-optiques typiques (T = 25°C, $I_{F}$ = 20 mA)
 
 | Paramètre | Symbole | Rouge | Vert | Bleu | Unité |
 |---|---|---|---|---|---|
-| **Tension directe typique** | **V_F typ** | **2,0** | **2,1** | **3,3** | **V** |
+| **Tension directe typique** | **$V_{F}$ typ** | **2,0** | **2,1** | **3,3** | **V** |
 | Longueur d'onde dominante | λ_d | 625 | 565 | 470 | nm |
-| Luminosité | I_V | 800 | 800 | 400 | mcd |
+| Luminosité | $I_{V}$ | 800 | 800 | 400 | mcd |
 | Demi-angle d'émission | θ ½ | ±15 | ±15 | ±15 | ° |
 
 ---
@@ -49,7 +49,7 @@
 
 ---
 
-## Courbe caractéristique I_F = f(V_F) — Caractéristique diode
+## Courbe caractéristique $I_{F}$ = f($V_{F}$) — Caractéristique diode
 
 ---
 
@@ -59,31 +59,31 @@
 
 Repère dans le tableau la colonne correspondant à ta LED : Rouge / Vert / Bleu
 
-### Étape 2 — Relever V_F et I_F typiques
+### Étape 2 — Relever $V_{F}$ et $I_{F}$ typiques
 
-| Ma LED est : | V_F à utiliser | I_F à utiliser |
+| Ma LED est : | $V_{F}$ à utiliser | $I_{F}$ à utiliser |
 |---|---|---|
-| Rouge | **2,0 V** | **20 mA = 0,020 A** |
-| Verte | **2,1 V** | **20 mA = 0,020 A** |
-| Bleue | **3,3 V** | **20 mA = 0,020 A** |
+| Rouge | **2,0 V** | $20\,\mathrm{mA} = 0{,}020\,\mathrm{A}$ |
+| Verte | **2,1 V** | $20\,\mathrm{mA} = 0{,}020\,\mathrm{A}$ |
+| Bleue | **3,3 V** | $20\,\mathrm{mA} = 0{,}020\,\mathrm{A}$ |
 
 ### Étape 3 — Calculer la résistance
 
-$$R = \frac{V_{alim} - V_F}{I_F}$$
+$$R = \frac{V_{alim} - V_{F}}{I_F}$$
 
 **Mon calcul :**
 
-| Ma tension d'alimentation | V_alim = _______ V |
+| Ma tension d'alimentation | $V_{\mathrm{alim}} = \underline{\hspace{2.5em}} V$ |
 |---|---|
-| V_F de ma LED | V_F = _______ V |
-| Tension sur la résistance | V_R = V_alim − V_F = _______ V |
-| I_F = 0,020 A | I_F = 0,020 A |
-| **Résistance calculée** | **R = V_R / I_F = _______ Ω** |
-| **Valeur normalisée choisie** | **R_choisie = _______ Ω** |
+| $V_{F}$ de ma LED | $V_{\mathrm{F}} = \underline{\hspace{2.5em}} V$ |
+| Tension sur la résistance | $V_{\mathrm{R}} = V_{\mathrm{alim}} - V_{\mathrm{F}} = \underline{\hspace{2.5em}} V$ |
+| $I_{\mathrm{F}} = 0{,}020\,\mathrm{A}$ | $I_{\mathrm{F}} = 0{,}020\,\mathrm{A}$ |
+| **Résistance calculée** | $R = \dfrac{V_{\mathrm{R}}}{I_{\mathrm{F}}} = \underline{\hspace{2.5em}} \Omega$ |
+| **Valeur normalisée choisie** | $R_{\mathrm{choisie}} = \underline{\hspace{2.5em}} \Omega$ |
 
 ### Étape 4 — Vérifier la puissance de la résistance
 
-$$P = R \times I_F^2$$
+$$P = R \times I_{F}^2$$
 
 Si P < 250 mW → résistance ¼ W standard (la plus courante)  
 Si P > 250 mW → résistance ½ W nécessaire

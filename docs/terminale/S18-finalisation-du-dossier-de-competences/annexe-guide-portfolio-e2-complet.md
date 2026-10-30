@@ -51,7 +51,7 @@
 
 | **Séance** | **Compétence acquise** | **Production representative** | **✓** |
 |---|---|---|---|
-| S2-A3 | PV professionnel + incertitudes + IPC intro | PV avec calcul u_A, u_B, u_c, U | ☐ |
+| S2-A3 | PV professionnel + incertitudes + IPC intro | PV avec calcul $u_{A}$, $u_{B}$, $u_{c}$, U | ☐ |
 | S4-A3 | KPI embarqués + alarmes hystérésis + MES | Code ESP32 + fiche MES | ☐ |
 | S6-A3 | Exercice certifiant KiCad complet (Gerber, BOM) | Fichiers KiCad NE555+7805 | ☐ |
 | S7-A3 | Validation + normes IPC/CEI/ISO + DAT élec. | DAT électronique + PVF | ☐ |
@@ -90,7 +90,7 @@
 | **Code** | **Compétence** | **Niveau** | **Preuve (réf.)** |
 |---|---|---|---|
 | U22-C1 | Rédiger un PV de mesure professionnel | | |
-| U22-C2 | Calculer incertitudes (u_A, u_B, u_c, U) | | |
+| U22-C2 | Calculer incertitudes ($u_{A}$, $u_{B}$, $u_{c}$, U) | | |
 | U22-C3 | Appliquer traçabilité métrologique (COFRAC, LNE) | | |
 | U22-C4 | Appliquer IPC-A-610 Classe 2 | | |
 | U22-C5 | Connaître les normes IPC-2221, CEI, ISO | | |
@@ -188,7 +188,7 @@ LIEN AVEC L'ENTREPRISE (si applicable) :
 | U21-C9 (MTBF) | Tableau MTBF projet S16-A2 avec interprétation | Calcul MTBF annoté |
 | U21-C10 (Projet) | Soutenance S16-A2 ou dossier projet A3 complet | Plan de tests exécuté |
 | U22-C1 (PV) | PV de validation S7-A3 ou S11-A3 signé | PV partiel avec U calculé |
-| U22-C2 (Incertitudes) | Calcul complet u_A + u_B + u_c + U avec tableau | Exercice bloc A S14-A3 |
+| U22-C2 (Incertitudes) | Calcul complet $u_{A}$ + $u_{B}$ + $u_{c}$ + U avec tableau | Exercice bloc A S14-A3 |
 | U22-C3 (Traçabilité) | Preuve du certificat d'étalonnage instrument utilisé | Description chaîne traçabilité |
 | U22-C4 (IPC) | Rapport d'inspection IPC rempli + photos | Tableau IPC 10 cas S14-A3 |
 | U22-C5 (Normes) | DAT avec section "Norme appliquée" + IPC + CEI | Tableau normes S7-A3 |

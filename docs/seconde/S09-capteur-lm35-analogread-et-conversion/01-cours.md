@@ -243,11 +243,11 @@ Tension_OUT (V) = Température (°C) × 0.01 V/°C
 
 | **Température** | **Calcul** | **Tension OUT** |
 |----------------|-----------|----------------|
-| 0°C | 0 × 10 mV | 0 mV = 0.000 V |
-| 10°C | 10 × 10 mV | 100 mV = 0.100 V |
-| 25°C | 25 × 10 mV | 250 mV = 0.250 V |
-| 50°C | 50 × 10 mV | 500 mV = 0.500 V |
-| 100°C | 100 × 10 mV | 1000 mV = 1.000 V |
+| 0°C | 0 × 10 mV | $0\,\mathrm{mV} = 0.000\,\mathrm{V}$ |
+| 10°C | 10 × 10 mV | $100\,\mathrm{mV} = 0.100\,\mathrm{V}$ |
+| 25°C | 25 × 10 mV | $250\,\mathrm{mV} = 0.250\,\mathrm{V}$ |
+| 50°C | 50 × 10 mV | $500\,\mathrm{mV} = 0.500\,\mathrm{V}$ |
+| 100°C | 100 × 10 mV | $1000\,\mathrm{mV} = 1.000\,\mathrm{V}$ |
 
 **💡 Astuce :** Pour trouver la température, il suffit de diviser la tension (en mV) par 10 !
 

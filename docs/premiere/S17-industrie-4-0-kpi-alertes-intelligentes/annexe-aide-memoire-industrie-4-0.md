@@ -73,7 +73,7 @@ e̅ = Σei / n
 σ = √[ Σ(ei²) / (n−1) ]  
 
 Incertitude type :  
-u = σ / √n  
+u = σ / $\sqrt{n}$  
 
 Incertitude élargie (k=2 → 95%) :  
 

@@ -79,9 +79,9 @@ $$U = R \times I \qquad I = \dfrac{U}{R} \qquad R = \dfrac{U}{I}$$
 
 | **Je cherche** | **Je cache** | **Formule** | **Calcul** |
 |---------------|--------------|-------------|------------|
-| **U** (Tension) | U | R et I côte à côte | **U = R × I** |
-| **R** (Résistance) | R | U au-dessus de I | **R = U / I** |
-| **I** (Intensité) | I | U au-dessus de R | **I = U / R** |
+| **U** (Tension) | U | R et I côte à côte | $U = R \times I$ |
+| **R** (Résistance) | R | U au-dessus de I | $R = \dfrac{U}{I}$ |
+| **I** (Intensité) | I | U au-dessus de R | $I = \dfrac{U}{R}$ |
 
 ### 📝 Exemples d'application
 
@@ -160,8 +160,8 @@ $$
 | **Unité** | **Symbole** | **Conversion** | **Exemple** |
 |-----------|------------|----------------|-------------|
 | Ohm | Ω | 1 Ω | Résistance faible |
-| Kilo-ohm | kΩ | 1 kΩ = 1 000 Ω | **Résistance standard** |
-| Méga-ohm | MΩ | 1 MΩ = 1 000 000 Ω | Résistance élevée |
+| Kilo-ohm | kΩ | $1\,\mathrm{k\Omega } = 1\,000\,\mathrm{\Omega }$ | **Résistance standard** |
+| Méga-ohm | MΩ | $1\,\mathrm{M\Omega } = 1\,000\,000\,\mathrm{\Omega }$ | Résistance élevée |
 
 **Conversions utiles :**
 
@@ -177,8 +177,8 @@ $$
 | **Unité** | **Symbole** | **Conversion** | **Exemple** |
 |-----------|------------|----------------|-------------|
 | Ampère | A | 1 A | Moteur électrique |
-| Milliampère | mA | 1 mA = 0,001 A | **LED standard** |
-| Microampère | µA | 1 µA = 0,000001 A | Composants très faibles |
+| Milliampère | mA | $1\,\mathrm{mA} = 0{,}001\,\mathrm{A}$ | **LED standard** |
+| Microampère | µA | $1\,\mathrm{\mu A} = 0{,}000001\,\mathrm{A}$ | Composants très faibles |
 
 **Conversions utiles :**
 
@@ -194,8 +194,8 @@ $$
 | **Unité** | **Symbole** | **Conversion** | **Exemple** |
 |-----------|------------|----------------|-------------|
 | Volt | V | 1 V | Pile |
-| Millivolt | mV | 1 mV = 0,001 V | Signaux faibles |
-| Kilovolt | kV | 1 kV = 1 000 V | Haute tension |
+| Millivolt | mV | $1\,\mathrm{mV} = 0{,}001\,\mathrm{V}$ | Signaux faibles |
+| Kilovolt | kV | $1\,\mathrm{kV} = 1\,000\,\mathrm{V}$ | Haute tension |
 
 **Tensions courantes :**
 
@@ -349,7 +349,7 @@ Une résistance de 1 kΩ ± 5% peut avoir une valeur réelle entre **950 Ω et 1
 
 **Calcul de la résistance de limitation :**
 
-$$R_{\text{LED}} = \dfrac{V_{cc} - V_F}{I_{\text{LED}}}$$
+$$R_{\text{LED}} = \dfrac{V_{cc} - V_{F}}{I_{\text{LED}}}$$
 
 **Exemple :**  
 Alimenter une LED rouge (Vf = 2V) avec une pile de 9V :
@@ -372,6 +372,12 @@ $$R_{\mathrm{LED}} = \dfrac{9\,\mathrm{V} - 2\,\mathrm{V}}{0{,}02\,\mathrm{A}} =
 2. 🟡 Jaune - 🟣 Violet - 🔴 Rouge = _______ Ω = _______ kΩ
 3. 🟢 Vert - 🔵 Bleu - 🟤 Marron = _______ Ω = _______ kΩ
 
+??? success "Réponses"
+
+    1. 12 000 Ω = 12 kΩ  
+    2. 4 700 Ω = 4,7 kΩ  
+    3. 560 Ω = 0,56 kΩ
+
 ---
 
 ### 🧮 Exercice 2 : Loi d'Ohm
@@ -381,6 +387,12 @@ $$R_{\mathrm{LED}} = \dfrac{9\,\mathrm{V} - 2\,\mathrm{V}}{0{,}02\,\mathrm{A}} =
 1. U = 12V, R = 600Ω → I = _______ A = _______ mA
 2. I = 0,05A, R = 200Ω → U = _______ V
 3. U = 9V, I = 0,003A → R = _______ Ω = _______ kΩ
+
+??? success "Réponses"
+
+    1. $I = \dfrac{U}{R} = \dfrac{12}{600} = 0{,}02\,\mathrm{A} = 20\,\mathrm{mA}$  
+    2. $U = R \times I = 200 \times 0{,}05 = 10\,\mathrm{V}$  
+    3. $R = \dfrac{U}{I} = \dfrac{9}{0{,}003} = 3\,000\,\Omega = 3\,\mathrm{k\Omega}$
 
 ---
 
@@ -392,6 +404,13 @@ $$R_{\mathrm{LED}} = \dfrac{9\,\mathrm{V} - 2\,\mathrm{V}}{0{,}02\,\mathrm{A}} =
 2. 0,025 A = _______ mA
 3. 2,2 MΩ = _______ Ω
 4. 150 mA = _______ A
+
+??? success "Réponses"
+
+    1. 4 700 Ω = 4,7 kΩ  
+    2. 0,025 A = 25 mA  
+    3. 2,2 MΩ = 2 200 000 Ω  
+    4. 150 mA = 0,15 A
 
 ---
 

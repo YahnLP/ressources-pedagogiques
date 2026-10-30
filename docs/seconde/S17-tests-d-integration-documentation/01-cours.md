@@ -178,12 +178,12 @@ Pour ne pas griller une DEL, il faut toujours calculer la résistance de limitat
 
 > **Formule :**
 > ```
-> R = (Vcc - V_DEL) / I_DEL
+> R = (Vcc - $V_{\mathrm{DEL}}$) / $I_{\mathrm{DEL}}$
 > ```
 > Avec :
 > - **Vcc** = tension d'alimentation = 5 V
-> - **V_DEL** = tension de seuil de la DEL ≈ 2 V (rouge) / 2,1 V (jaune) / 2,2 V (verte)
-> - **I_DEL** = courant nominal ≈ 20 mA = 0,02 A
+> - **$V_{\mathrm{DEL}}$** = tension de seuil de la DEL ≈ 2 V (rouge) / 2,1 V (jaune) / 2,2 V (verte)
+> - **$I_{\mathrm{DEL}}$** = courant nominal ≈ 20 mA = 0,02 A
 
 **Exemple pour la DEL rouge :**
 ```
@@ -192,7 +192,7 @@ R = (5 - 2) / 0,02 = 3 / 0,02 = 150 Ω → on prend 220 Ω (valeur normalisée s
 
 **Calcule toi-même pour les DEL jaune et verte :**
 
-| DEL | Vcc (V) | V_DEL (V) | I_DEL (A) | R calculée (Ω) | R choisie (Ω) |
+| DEL | Vcc (V) | $V_{\mathrm{DEL}}$ (V) | $I_{\mathrm{DEL}}$ (A) | R calculée (Ω) | R choisie (Ω) |
 |---|---|---|---|---|---|
 | Rouge | 5 | 2,0 | 0,02 | | |
 | Jaune | 5 | 2,1 | 0,02 | | |

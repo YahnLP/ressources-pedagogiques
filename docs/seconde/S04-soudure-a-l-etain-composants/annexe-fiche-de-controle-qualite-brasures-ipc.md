@@ -99,8 +99,8 @@
 | Résistance + → − | Multimètre mode Ω | **R > 1 kΩ** | _______ Ω | ☐ |
 | LED D2 allumée | Mise sous tension 9V | **LED rouge allumée** | ☐ Oui ☐ Non | ☐ |
 | LED D3 allumée | Mise sous tension 9V | **LED verte allumée** | ☐ Oui ☐ Non | ☐ |
-| Tension V_F D2 | Multimètre DCV | **1,8 – 2,2 V** | _______ V | ☐ |
-| Tension V_F D3 | Multimètre DCV | **2,0 – 2,5 V** | _______ V | ☐ |
+| Tension $V_{F}$ D2 | Multimètre DCV | **1,8 – 2,2 V** | _______ V | ☐ |
+| Tension $V_{F}$ D3 | Multimètre DCV | **2,0 – 2,5 V** | _______ V | ☐ |
 
 ---
 

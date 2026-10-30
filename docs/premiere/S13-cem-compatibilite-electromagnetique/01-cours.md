@@ -257,17 +257,17 @@ CODE :
 
 ![Filtre LC](images/filtre-lc.png)
 
-Fréquence de coupure : fc = 1 / (2π√LC)  
+Fréquence de coupure : fc = 1 / (2π$\sqrt{LC}$)  
 
 Exemple : L = 100µH · C = 100nF  
 
-$$fc = \dfrac{1}{2π \times \sqrt{100 \times 10⁻⁶ \times 100 \times 10⁻⁹}}$$
+$$fc = \dfrac{1}{2\pi  \times \sqrt{100 \times 10^{-6} \times 100 \times 10^{-9}}}$$
 
-$$= \dfrac{1}{2π \times \sqrt{10⁻¹¹}}$$
+$$= \dfrac{1}{2\pi  \times \sqrt{10^{-11}}}$$
 
-$$= \dfrac{1}{2π \times 3{,}16 \times 10⁻⁶}$$
+$$= \dfrac{1}{2\pi  \times 3{,}16 \times 10^{-6}}$$
 
-$$= 50\,360\,\mathrm{Hz} \approx 50\,\mathrm{kHz}$$
+$$= 50\,360\,\mathrm{\mathrm{Hz}} \approx 50\,\mathrm{\mathrm{kHz}}$$
 
 → Tout ce qui est > 50 kHz est fortement atténué.  
 

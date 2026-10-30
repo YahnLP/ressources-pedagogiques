@@ -17,7 +17,7 @@ Tout sketch remis en portfolio ou en évaluation doit respecter ces règles :
 | **Constantes nommées** | `const int BROCHE_LED = 13;` | `digitalWrite(13, HIGH);` directement |
 | **Commentaire sur chaque bloc** | `// Séquence 1 : 3 flashs rapides` | Bloc sans explication |
 | **Indentation cohérente** | 2 espaces ou 1 tabulation partout | Mélange aléatoire d'espaces |
-| **Noms de variables explicites** | `int dureeRapide = 100;` | `int d = 100;` |
+| **Noms de variables explicites** | `int dureeRapide = 100;` | $`int d = 100;`$ |
 | **Aucun accent dans le code** | `// Allume la LED` | `// Allumé la LED` *(erreur de compilation)* |
 
 ---
@@ -294,13 +294,13 @@ void loop() {
 | Envoyer texte | `Serial.print("texte")` | `Serial.print("LED ON");` |
 | Envoyer texte + newline | `Serial.println("texte")` | `Serial.println("OK");` |
 | Envoyer nombre | `Serial.println(variable)` | `Serial.println(cycle);` |
-| Boucle comptée | `for(int i=0; i<N; i++)` | `for(int i=0; i<3; i++)` |
+| Boucle comptée | $`for(int i=0; i<N; i++)`$ | $`for(int i=0; i<3; i++)`$ |
 
 ---
 
-## 🔌 Table de câblage LED externe — Valeurs E24 selon V_alim et V_F
+## 🔌 Table de câblage LED externe — Valeurs E24 selon $V_{\mathrm{alim}}$ et $V_{F}$
 
-| V_alim Arduino | V_F LED | I_F cible | R calculée | R E24 choisie |
+| $V_{\mathrm{alim}}$ Arduino | $V_{F}$ LED | $I_{F}$ cible | R calculée | R E24 choisie |
 |---|---|---|---|---|
 | 5 V | 2,0 V (rouge/jaune) | 20 mA | 150 Ω | **150 Ω** |
 | 5 V | 2,0 V (rouge/jaune) | 15 mA | 200 Ω | **220 Ω** *(valeur usuelle)* |
@@ -308,7 +308,7 @@ void loop() {
 | 5 V | 3,3 V (bleue/blanche) | 20 mA | 85 Ω | **82 Ω** |
 | 3,3 V | 2,0 V (rouge) | 20 mA | 65 Ω | **68 Ω** |
 
-> 💡 **En pratique** : Utiliser **220 Ω** pour toute LED rouge/verte sur Arduino 5V est une valeur sûre et universelle dans les kits de formation. Elle donne I_F ≈ 13–15 mA, ce qui est visible et protège la broche.
+> 💡 **En pratique** : Utiliser **220 Ω** pour toute LED rouge/verte sur Arduino 5V est une valeur sûre et universelle dans les kits de formation. Elle donne $I_{F}$ ≈ 13–15 mA, ce qui est visible et protège la broche.
 
 ---
 

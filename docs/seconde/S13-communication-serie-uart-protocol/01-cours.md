@@ -49,7 +49,7 @@ L'Arduino Uno intègre un convertisseur USB-UART (ATmega16U2 ou CH340) qui gère
 | **Start bit** | 0 (LOW) | **104 µs** | Signale le début de la trame |
 | **D0 à D7** | 0 ou 1 | 104 µs chacun | Les 8 bits de données (LSB en premier) |
 | **Stop bit** | 1 (HIGH) | **104 µs** | Termine la trame, retour au repos |
-| **Total 8N1** | — | **10 × 104 µs = 1,04 ms** | Durée de transmission d'un octet |
+| **Total 8N1** | — | $10 \times 104\,\mathrm{\mu s} = 1{,}04\,\mathrm{ms}$ | Durée de transmission d'un octet |
 
 > ✏️ **Calcul de la durée d'un bit :** `T_bit = 1 / baud_rate`
 > À 9600 bauds : `T_bit = 1 / 9600 = 104,2 µs`
@@ -381,7 +381,7 @@ En **mode AT** (broche KEY maintenue à GND ou niveau bas au démarrage), le HC-
 
 | Je dois... | Je retiens... |
 |---|---|
-| Calculer la durée d'un bit | T_bit = 1 / baud_rate (en secondes) |
+| Calculer la durée d'un bit | $T_{\mathrm{bit}}$ = 1 / baud_rate (en secondes) |
 | Structure trame 8N1 | Start(0) + D0..D7 + Stop(1) = 10 bits au total |
 | Lire une commande texte | `readStringUntil('\n')` + `.trim()` + vérifier "Newline" dans le SM |
 | Lire un entier | `Serial.parseInt()` après `Serial.available() > 0` |

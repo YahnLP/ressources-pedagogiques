@@ -84,15 +84,15 @@ Polarité        : obligatoire (+ vers VCC, − vers GND)
 $$U = R \times I (loi d'Ohm)$$
 
 P = U × I                        (puissance)  
-R_LED = (Vcc − Vf) / If          (dimensionnement résistance LED)  
+$R_{\mathrm{LED}}$ = (Vcc − Vf) / If          (dimensionnement résistance LED)  
 I = U / R                        (courant dans une résistance)  
 
 ━━━ ALIMENTATION ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
 Pdiss_LDO = (Vin − Vout) × Iout  (dissipation régulateur)  
 Iout = Σ(courants @ Vout)        (somme de tous les courants)  
 η = Vout / Vin                   (rendement LDO linéaire, approx.)  
-Autonomie = Capacité(mAh) / I_moy(mA) × 0,80   (batterie)  
-I_moy cycle = (I1×t1 + I2×t2) / (t1 + t2)     (courant moyen)  
+Autonomie = Capacité(mAh) / $I_{\mathrm{moy}}$(mA) × 0,80   (batterie)  
+$I_{\mathrm{moy}}$ cycle = (I1×t1 + I2×t2) / (t1 + t2)     (courant moyen)  
 
 ━━━ THERMIQUE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
 Tj = Tamb + Pdiss × Rθja         (température jonction sans radiateur)  
@@ -101,8 +101,8 @@ Marge thermique = 105 − Tj
 
 ━━━ MÉTROLOGIE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
 Biais e̅  = Σei / n  
-Écart-type σ = √(Σei² / (n−1))  
-Incertitude type u = σ / √n  
+Écart-type σ = $\sqrt{Σei² / (n−1}$)  
+Incertitude type u = σ / $\sqrt{n}$  
 Incertitude élargie U = 2 × u    (k=2, confiance 95%)  
 Conformité : |e̅| + U ≤ spécification constructeur  
 

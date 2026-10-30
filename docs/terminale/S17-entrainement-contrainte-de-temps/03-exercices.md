@@ -47,7 +47,7 @@ Pdiss = ___________________________
 Tj = ___________________________  ·  Tj max exploitable = _____ °C  
 
 3. Courant total LDO :  
-I_LDO = ___________________________________________ (liste les composants)  
+$I_{\mathrm{LDO}}$ = ___________________________________________ (liste les composants)  
 
 4. Rendement d'un LDO :  
 η = ___________ (approximation) = _____ % pour 3,3V depuis 5V  
@@ -61,9 +61,9 @@ t_réelle   = ___________________________
 ??? success "Réponses"
 
     1. (Vin−Vout) × Iout  2. Tamb + Pdiss × Rθja · 105°C  
-    3. I_ESP32 + I_DHT22 + I_LED + I_charge (ne pas oublier R_charge !)  
+    3. I_ESP32 + I_DHT22 + $I_{\mathrm{LED}}$ + $I_{\mathrm{charge}}$ (ne pas oublier $R_{\mathrm{charge}}$ !)  
     $$4. \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$  
-    5. I_moy / η · Capacité(mAh) / I_batterie × 0,80
+    5. $I_{\mathrm{moy}}$ / η · Capacité(mAh) / $I_{\mathrm{batterie}}$ × 0,80
 
 Mon score : ___/5  ☐ Tous → continuer · ☐ Revoir → S3-3A_06 + S15-3A_06  
 

@@ -27,7 +27,7 @@ Les composants électroniques sont les éléments fondamentaux d'un circuit éle
 
 ✅ **Compléments utiles :**
 
-- Loi d’Ohm (très utilisée) : **I = U / R** (plus R est grande, plus I diminue).
+- Loi d’Ohm (très utilisée) : $I = \dfrac{U}{R}$ (plus R est grande, plus I diminue).
 - Attention puissance : une résistance peut chauffer (puissance P en watts).
 - Codes couleurs / marquage : utile pour reconnaître la valeur.
 - En pratique, une résistance sert aussi à :
@@ -190,7 +190,7 @@ La plupart des systèmes électroniques fonctionnent en utilisant des associatio
 ✅ **Compléments utiles :**
 
 - Formule (niveau attendu “standard”) :
-  - **U_sortie = U_entrée × R2 / (R1 + R2)** (si sortie prise sur R2)
+  - $U_{\mathrm{sortie}} = U_{\mathrm{entr}}ée \times \dfrac{R_{2}}{R_{1} + R_{2}}$ (si sortie prise sur R2)
 - Application typique CIEL : transformer un capteur résistif (LDR, NTC) en tension mesurable.
 
 <p align="center">

@@ -225,7 +225,7 @@ La maintenance et la réparation nécessitent l’usage d’outils spécialisés
 
 | Outil | À quoi il sert | Exemple concret en atelier |
 |---|---|---|
-| **Multimètre** | U / I / Ω / continuité / test diode | “U_alim = 5V ?”, “diode OK ?” |
+| **Multimètre** | U / I / Ω / continuité / test diode | “$U_{\mathrm{alim}}$ = 5V ?”, “diode OK ?” |
 | **Oscilloscope** | observer un signal dans le temps | signal absent / bruité / déformé |
 | **Fer à souder** | souder / ressouder | reprise soudure froide |
 | **Pompe à dessouder** | retirer l’étain | enlever composant pour le remplacer |

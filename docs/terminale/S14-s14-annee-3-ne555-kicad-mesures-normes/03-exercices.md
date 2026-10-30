@@ -19,9 +19,9 @@
 
 $$\bar{x} = \frac{\_\_\_\_+\_\_\_\_+\_\_\_\_+\_\_\_\_+\_\_\_\_}{5} = \frac{\_\_\_\_\_}{5} = \_\_\_\_ \text{ Ω}$$
 
-**A1.2 *(3 pts)*** — Calculez l'écart-type $s$ et l'incertitude type A $u_A$ :
+**A1.2 *(3 pts)*** — Calculez l'écart-type $s$ et l'incertitude type A $u_{A}$ :
 
-| $x_i$ | $x_i - \bar{x}$ | $(x_i - \bar{x})^2$ |
+| $x_{i}$ | $x_{i} - \bar{x}$ | $(x_{i} - \bar{x})^2$ |
 |---|---|---|
 | 4 680 | | |
 | 4 710 | | |
@@ -30,7 +30,7 @@ $$\bar{x} = \frac{\_\_\_\_+\_\_\_\_+\_\_\_\_+\_\_\_\_+\_\_\_\_}{5} = \frac{\_\_\
 | 4 690 | | |
 | **Σ** | | |
 
-$$s = \sqrt{\frac{\sum(x_i-\bar{x})^2}{n-1}} = \text{\_\_\_\_ Ω} \qquad u_A = \frac{s}{\sqrt{5}} = \text{\_\_\_\_ Ω}$$
+$$s = \sqrt{\frac{\sum(x_{i}-\bar{x})^2}{n-1}} = \text{\_\_\_\_ Ω} \qquad u_{A} = \frac{s}{\sqrt{5}} = \text{\_\_\_\_ Ω}$$
 
 **A1.3 *(3 pts)*** — Calculez les incertitudes type B :
 
@@ -40,9 +40,9 @@ $$u_{B,cl} = \frac{1,0 \times \bar{x}}{100\sqrt{3}} = \frac{1,0 \times \text{\_\
 
 **A1.4 *(3 pts)*** — Incertitude combinée et élargie :
 
-$$u_c = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,cl}^2} = \text{\_\_\_\_ Ω}$$
+$$u_{c} = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,cl}^2} = \text{\_\_\_\_ Ω}$$
 
-$$U = 2 \times u_c = \text{\_\_\_\_ Ω} \quad \rightarrow \quad U_{arrondi} = \text{\_\_\_\_ Ω}$$
+$$U = 2 \times u_{c} = \text{\_\_\_\_ Ω} \quad \rightarrow \quad U_{arrondi} = \text{\_\_\_\_ Ω}$$
 
 $$\boxed{R = (\text{\_\_\_\_ ± \_\_\_\_}) \text{ Ω} \quad [95\%]}$$
 
@@ -164,7 +164,7 @@ const float SB = _____ ;
 
 **B2.1 *(2 pts)*** — Calculez la tendance en °C/heure :
 
-Tendance = (T_finale - T_initiale) / durée_en_heures  
+Tendance = ($T_{\mathrm{finale}}$ - $T_{\mathrm{initiale}}$) / durée_en_heures  
 
 $$= \dfrac{\underline{\hspace{2.5em}} - \underline{\hspace{2.5em}}}{40/60}$$
 
@@ -253,9 +253,9 @@ Nombre d'erreurs ERC restantes : _____
 Liste : _________________________________________________
 ```
 
-**C1.3 *(2 pts)*** — La fréquence de coupure du filtre RC est $f_c = \frac{1}{2\pi R_1 C_1}$. Calculez $f_c$ :
+**C1.3 *(2 pts)*** — La fréquence de coupure du filtre RC est $f_{c} = \frac{1}{2\pi R_{1} C_{1}}$. Calculez $f_{c}$ :
 
-$$f_c = \frac{1}{2\pi \times 10000 \times 100\times10^{-9}} = \frac{1}{2\pi \times \_\_\_\_} = \_\_\_\_ \text{ Hz}$$
+$$f_{c} = \frac{1}{2\pi \times 10000 \times 100\times10^{-9}} = \frac{1}{2\pi \times \_\_\_\_} = \_\_\_\_ \text{ Hz}$$
 
 **C1.4 *(2 pts)*** — Quel est le courant qui circule dans LED1 si la tension à "noeud_RC" est 4,8V (après filtrage) avec Vled = 2V ?
 
@@ -424,7 +424,7 @@ Câblage : entre _____ et _____
 
 > La tension Vout est mesurée avec un Fluke 87V (classe 0,5%, résolution 0,001V). Trois mesures : 4,998V / 5,002V / 4,997V.
 
-**E2.1 *(4 pts)*** — Calculez $\bar{V}$, $u_A$, $u_{B,cl}$, $u_c$, $U$ et exprimez le résultat :
+**E2.1 *(4 pts)*** — Calculez $\bar{V}$, $u_{A}$, $u_{B,cl}$, $u_{c}$, $U$ et exprimez le résultat :
 
 (Montrez tous les calculs)  
 
@@ -449,8 +449,8 @@ _________________________________________________________________________
 
 | TC# | Exigence | Résultat ± U | Conf. |
 |---|---|---|---|
-| TC-01 | Vout = 5V ±5% = [4,75;5,25]V |  |  |
-| TC-02 | f = 1Hz ±10% = [0,90;1,10]Hz |  |  |
+| TC-01 | $V_{out} = 5\,\mathrm{V} \pm 5\,\mathrm{\%} = [4{,}75;5{,}25]V$ |  |  |
+| TC-02 | $f = 1\,\mathrm{\mathrm{Hz}} \pm 10\,\mathrm{\%} = [0{,}90;1{,}10]\mathrm{Hz}$ |  |  |
 | TC-03 | Assemblage IPC-A-610 Cl.2 |  |  |
 
 **E3.2 *(2 pts)*** — TC-03 est NON CONFORME (remplissage J1 = 72%). Rédigez la conclusion globale du PV :

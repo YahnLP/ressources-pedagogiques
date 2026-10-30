@@ -194,7 +194,7 @@ D = MTBF/(MTBF+MTTR)     R(t) = $e^{-\lambda t}$        F(t) = 1 − R(t)
 Série    : Rs = R1 × R2 × R3  
 Parallèle: Rs = 1 − (1−R1)(1−R2)(1−R3)  
 
-$$e⁻⁰ \cdot ¹=0{,}905 e⁻⁰ \cdot ^2=0{,}819 e⁻⁰ \cdot ^3=0{,}741 e⁻⁰ \cdot ⁵=0{,}607 e⁻¹=0{,}368$$
+$$e^{-0} \cdot ^{1}=0{,}905 e^{-0} \cdot ^2=0{,}819 e^{-0} \cdot ^3=0{,}741 e^{-0} \cdot ^{5}=0{,}607 e^{-1}=0{,}368$$
 
 ### Exercice C1 — MTBF/MTTR/D (10 min)
 
@@ -215,19 +215,19 @@ f) Exigence D ≥ 99,9% : ☐ Conforme ☐ Non conforme
 
 Capteur DHT22 : MTBF = 50 000 h  
 
-$$a) λ = \dfrac{1}{50000} = \underline{\hspace{2.5em}} h⁻¹$$
+$$a) \lambda  = \dfrac{1}{50000} = \underline{\hspace{2.5em}} h^{-1}$$
 
 b) R après 1 an (8760h) :  
 
-$$λt = \underline{\hspace{2.5em}} \times 8760 = \underline{\hspace{2.5em}}$$
+$$\lambda t = \underline{\hspace{2.5em}} \times 8760 = \underline{\hspace{2.5em}}$$
 
-$$R(8760) = e^(\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+$$R(8760) = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
 c) Sur 200 capteurs, après 1 an : _______ encore fonctionnels  
 
 d) Pour R(t) ≥ 90% :  
 
-$$e^(-λt) \geq 0{,}90 \to -λt \geq ln(0{,}90) \approx -0{,}105$$
+$$e^{-\lambda t} \geq 0{,}90 \to -\lambda t \geq \ln(0{,}90) \approx -0{,}105$$
 
 t ≤ 0,105 / λ = _______ h = _______ mois  
 
@@ -296,22 +296,22 @@ Situation 3 : Un téléphone 4G posé sur une table perturbe les données WiFi
 a) Un boîtier doit bloquer les rayonnements WiFi (2,4 GHz).  
 Quelle est la taille maximale des fentes d'aération ?  
 
-$$λ = 3 \times 10⁸ / 2{,}4 \times 10⁹ = \underline{\hspace{2.5em}} m = \underline{\hspace{2.5em}} cm$$
+$$\lambda  = 3 \times 10^{8} / 2{,}4 \times 10^{9} = \underline{\hspace{2.5em}} m = \underline{\hspace{2.5em}} cm$$
 
 Fente max = λ/20 = _______ cm = _______ mm  
 
 b) Un filtre RC protège un ADC. Le signal utile est à 5 Hz maximum.  
 On veut fc = 50 Hz. Avec R = 33 kΩ, calculer C :  
 
-$$C = \dfrac{1}{2π \times fc \times R} = \dfrac{1}{2π \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$$
+$$C = \dfrac{1}{2\pi  \times fc \times R} = \dfrac{1}{2\pi  \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$$
 
 C = _______ F = _______ nF (valeur commerciale : _______ nF)  
 
 c) À partir de quelle fréquence une piste de 20 cm se comporte-t-elle comme une antenne ?  
 
-$$L > λ/20 \to λ < 20 \times 0{,}20 = \underline{\hspace{2.5em}} m$$
+$$L > \lambda /20 \to \lambda  < 20 \times 0{,}20 = \underline{\hspace{2.5em}} m$$
 
-$$f > c/λ = 3 \times 10⁸ / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} MHz$$
+$$f > c/\lambda  = 3 \times 10^{8} / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} \mathrm{MHz}$$
 
 ### Exercice D3 — Règles PCB CEM (10 min)
 

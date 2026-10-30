@@ -88,7 +88,7 @@ from(bucket:"nom") |> range(start:-1h)
 λ = 1/MTBF         MTBF = TO/n      MTTR = TA/n  
 D = MTBF/(MTBF+MTTR)  
 
-$$R(t) = e^(-λt) F(t) = 1-R(t)$$
+$$R(t) = e^{-\lambda t} F(t) = 1-R(t)$$
 
 À t=MTBF : R = e⁻¹ ≈ 0,368 (36,8%)  
 
@@ -97,7 +97,7 @@ Parallèle: Rs = 1−(1−R1)(1−R2)
 
 Valeurs e :  
 
-$$e⁻⁰ \cdot ¹=0{,}905 e⁻⁰ \cdot ^2=0{,}819 e⁻⁰ \cdot ^3=0{,}741$$
+$$e^{-0} \cdot ^{1}=0{,}905 e^{-0} \cdot ^2=0{,}819 e^{-0} \cdot ^3=0{,}741$$
 
 e⁻⁰·⁵=0,607  e⁻¹=0,368    e⁻²=0,135  
 

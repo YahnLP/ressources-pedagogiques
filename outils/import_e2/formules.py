@@ -7,7 +7,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fences
 
-REPO = Path(sys.argv[1]); DRY = '--dry' in sys.argv
+REPO = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('.'); DRY = '--dry' in sys.argv
 UNITS = ['kΩ', 'MΩ', 'Ω', 'mV', 'kV', 'V', 'mA', 'µA', 'A', 'kHz', 'MHz', 'Hz', 'mW', 'kW', 'W', 'ms', 'µs', 'ns', 's', 'nF', 'µF', 'pF', 'F', 'mH', 'µH', 'H', '°C', '%', 'kbit/s', 'bit/s', 'Mo', 'Ko', 'ko', 'h', 'min', 'm', 'mm', 'cm', 'km']
 UNITS.sort(key=len, reverse=True)
 UN = '|'.join(re.escape(u) for u in UNITS)
@@ -109,4 +109,6 @@ for(const s of L){try{k.renderToString(s,{throwOnError:true,strict:'ignore'})}ca
     print('blocs convertis', done, 'dans', len(files), 'fichiers')
 
 
-main()
+
+if __name__ == '__main__':
+    main()

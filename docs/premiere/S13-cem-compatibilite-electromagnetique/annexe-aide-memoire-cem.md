@@ -47,7 +47,7 @@ Efficace si :
 Règle fente :  
 Fente < λ/20 (sinon → antenne !)  
 
-$$λ = \dfrac{c}{f} = 3 \times 10⁸ / f$$
+$$\lambda  = \dfrac{c}{f} = 3 \times 10^{8} / f$$
 
 Ex : f = 2,4 GHz → λ = 12,5 cm  
 Fente max = 12,5/20 = 6,25 mm  
@@ -86,11 +86,11 @@ Applications :
 
 ![Filtre RC passe-bas](images/filtre-rc-cem.png)
 
-$$f_c = \dfrac{1}{2\pi R C}$$
+$$f_{c} = \dfrac{1}{2\pi R C}$$
 
 **Exemple :** $R = 10\,\mathrm{k\Omega}$ et $C = 330\,\mathrm{nF}$
 
-$$f_c = \dfrac{1}{2\pi \times 10\,000 \times 330 \times 10^{-9}} \approx 48\ \mathrm{Hz}$$
+$$f_{c} = \dfrac{1}{2\pi \times 10\,000 \times 330 \times 10^{-9}} \approx 48\ \mathrm{\mathrm{Hz}}$$
 
 ---
 

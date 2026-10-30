@@ -218,13 +218,13 @@ Interprétation : le DHT22 surestime / sous-estime (entourer) la vraie valeur de
 
 **Q4.c** — Calcule l'**écart-type** des mesures :
 
-Formule : σ = √( Σ(écart²) / (n−1) )  
+Formule : σ = $\sqrt{ Σ(écart²}$ / (n−1) )  
 
-$$σ = \sqrt{ \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} } = \sqrt{ \underline{\hspace{2.5em}} } = \underline{\hspace{2.5em}} °C$$
+$$\sigma  = \sqrt{ \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} } = \sqrt{ \underline{\hspace{2.5em}} } = \underline{\hspace{2.5em}} °C$$
 
 **Q4.d** — Calcule l'**incertitude type** u et l'**incertitude élargie** U (k=2, confiance 95%) :
 
-u = σ / √n = _______ / √10 = _______ / _______ = _______ °C  
+u = σ / $\sqrt{n}$ = _______ / $\sqrt{10}$ = _______ / _______ = _______ °C  
 
 $$U = k \times u = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
 

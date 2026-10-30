@@ -162,7 +162,7 @@ Après soudure de tous les composants, inspecter chaque brasure avec la loupe :
 | Continuité alimentation | Multimètre mode ))) | Hors tension | BIP de + à − |
 | Absence de court-circuit | Multimètre mode Ω | Hors tension | R > 1 kΩ entre + et − |
 | Fonctionnement LED | Alimentation labo | Sous tension | LED allumée |
-| Tension V_F LED | Multimètre DCV | Sous tension | ≈ 2 V (rouge) |
+| Tension $V_{F}$ LED | Multimètre DCV | Sous tension | ≈ 2 V (rouge) |
 
 ---
 

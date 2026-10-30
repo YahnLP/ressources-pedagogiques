@@ -101,7 +101,7 @@
 
 > Relever alternativement : étalon puis DHT22 (même instant), noter les deux valeurs.
 
-| N° | Heure | T° Étalon (°C) | T° DHT22 (°C) | Écart ei (°C) | Écart² (°C²) |
+| N° | Heure | T° Étalon (°C) | T° DHT22 (°C) | Écart ei (°C) | Écart² (°$C^{2}$) |
 |---|---|---|---|---|---|
 | 1 | | | | | |
 | 2 | | | | | |
@@ -115,7 +115,7 @@
 | 10 | | | | | |
 | 11 | | | | | |
 | 12 | | | | | |
-| **Σ** | | | | **Σei = ___** | **Σei² = ___** |
+| **Σ** | | | | $Σei = \underline{\hspace{2.5em}}$ | $Σei^2 = \underline{\hspace{2.5em}}$ |
 
 ---
 

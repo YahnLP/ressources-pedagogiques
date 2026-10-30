@@ -11,9 +11,9 @@
 
 ## 📌 Données utiles
 
-$$e⁻⁰ \cdot ¹ = 0{,}905 e⁻⁰ \cdot ^2 = 0{,}819 e⁻⁰ \cdot ^3 = 0{,}741$$
+$$e^{-0} \cdot ^{1} = 0{,}905 e^{-0} \cdot ^2 = 0{,}819 e^{-0} \cdot ^3 = 0{,}741$$
 
-$$e⁻⁰ \cdot ⁴ = 0{,}670 e⁻⁰ \cdot ⁵ = 0{,}607 e⁻¹ = 0{,}368$$
+$$e^{-0} \cdot ^{4} = 0{,}670 e^{-0} \cdot ^{5} = 0{,}607 e^{-1} = 0{,}368$$
 
 e⁻¹·⁵ = 0,223    e⁻²   = 0,135    e⁻³   = 0,050  
 
@@ -177,14 +177,14 @@ t ≤ −ln(0,90) / λ = 0,105 / (2×10⁻⁵) = _______ heures = _______ mois
 
 $$
 \begin{aligned}
-λA &= \dfrac{1}{10\,000} = \underline{\hspace{2.5em}} h⁻¹ \\
-λB &= \dfrac{1}{100\,000} = \underline{\hspace{2.5em}} h⁻¹
+\lambda A &= \dfrac{1}{10\,000} = \underline{\hspace{2.5em}} h^{-1} \\
+\lambda B &= \dfrac{1}{100\,000} = \underline{\hspace{2.5em}} h^{-1}
 \end{aligned}
 $$
 
 **Q2.2.b** — Complète le tableau de fiabilité et conclus :
 
-| Durée | R_A(t) | R_B(t) | Δ fiabilité |
+| Durée | $R_{A}$(t) | $R_{B}$(t) | Δ fiabilité |
 |---|---|---|---|
 | 1 000 h | | | |
 | 5 000 h | | | |
@@ -196,9 +196,9 @@ lequel des deux composants est indispensable ? Justifie avec les calculs :
 
 Durée : 2 ans = _______ h  
 
-$$R_{\mathrm{A}}(17520) = e^(-0{,}0001 \times 17520) = e^(\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
+$$R_{\mathrm{A}}(17520) = e^{-0{,}0001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
 
-$$R_{\mathrm{B}}(17520) = e^(-0{,}00001 \times 17520) = e^(\underline{\hspace{2.5em}}) = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
+$$R_{\mathrm{B}}(17520) = e^{-0{,}00001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
 
 Conclusion : _________________________________________________________________  
 
@@ -265,7 +265,7 @@ $$
 
 $$
 \begin{aligned}
-Rs &= R_{\mathrm{capteurs}} \times R_ESP32 \times R_{\mathrm{WiFi}} \times R_{\mathrm{NodeRED}} \\
+Rs &= R_{\mathrm{capteurs}} \times R_{\mathrm{ESP32}} \times R_{\mathrm{WiFi}} \times R_{\mathrm{NodeRED}} \\
 &= \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \\
 &= \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %
 \end{aligned}

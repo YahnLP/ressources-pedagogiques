@@ -70,7 +70,7 @@ La résistance pull-down est connectée entre la **broche Arduino** et **GND**. 
 
 | État du bouton | Tension sur broche | `digitalRead()` renvoie |
 |---|---|---|
-| **Relâché** | 0 V (tiré vers GND par R_PD) | **0 (LOW)** |
+| **Relâché** | 0 V (tiré vers GND par $R_{\mathrm{PD}}$) | **0 (LOW)** |
 | **Appuyé** | 5 V (imposé par VCC via le bouton) | **1 (HIGH)** |
 
 ### 2.2 Calcul de la valeur de pull-down
@@ -97,7 +97,7 @@ La résistance pull-up est connectée entre la **broche Arduino** et **VCC (5V)*
 
 | État du bouton (câblé vers GND) | Tension sur broche | `digitalRead()` renvoie |
 |---|---|---|
-| **Relâché** | 5 V (tiré vers VCC par R_PU) | **1 (HIGH)** |
+| **Relâché** | 5 V (tiré vers VCC par $R_{\mathrm{PU}}$) | **1 (HIGH)** |
 | **Appuyé** | 0 V (tiré vers GND par le bouton) | **0 (LOW)** |
 
 > ⚠️ **Logique inversée** : avec un pull-up, appuyer donne 0 et relâcher donne 1. C'est l'inverse du pull-down. Ajuster le `if()` en conséquence.

@@ -184,7 +184,7 @@ Règles de câblage dans un boîtier :
 | **Composant** | **Tmax absolue** | **Tmax recommandée** | **Puissance dissipée** |
 |---|---|---|---|
 | ESP32 (chip) | 125°C | 85°C | ~0,5W en fonctionnement normal |
-| Régulateur 5V AMS1117 | 150°C | 85°C | P = (Vin-Vout) × I = (9V-5V) × 0,5A = 2W |
+| Régulateur 5V AMS1117 | 150°C | 85°C | $P = (V_{in}-V_{out}) \times I = (9\,\mathrm{V}-5\,\mathrm{V}) \times 0{,}5\,\mathrm{A} = 2\,\mathrm{W}$ |
 | DHT22 | 60°C | 40°C | Négligeable |
 | Batterie LiPo | 60°C | 45°C | Génère de la chaleur en charge |
 
@@ -194,7 +194,7 @@ Règles de câblage dans un boîtier :
 
 $$\Delta T \approx \frac{P_{totale}}{k \cdot S}$$
 
-> Où P = puissance dissipée en W, S = surface du boîtier en m², k ≈ 5 W/m²·K (convection naturelle).
+> Où P = puissance dissipée en W, S = surface du boîtier en $m^{2}$, k ≈ 5 W/$m^{2}$·K (convection naturelle).
 
 > **Règle pratique :** Pour 2W dissipés dans un boîtier 100cm² → ΔT ≈ 40°C → si Ta = 25°C → Tint ≈ 65°C. Le régulateur AMS1117 risque de déclencher sa protection thermique !
 

@@ -246,6 +246,6 @@ Maintenance des installations électriques : mesurer les résistances d’isolem
 | Tension U | V | multimètre | parallèle | mauvais mode AC/DC |
 | Courant I | A | multimètre (A) | série | mesurer I en parallèle (danger) |
 | Résistance R | Ω | multimètre | hors tension | mesurer sous tension |
-| Puissance P | W | calcul | P=U×I | oublier unités |
+| Puissance P | W | calcul | $P=U \times I$ | oublier unités |
 | Signal | V(t) | oscilloscope | parallèle | mauvais réglage temps/div |
 

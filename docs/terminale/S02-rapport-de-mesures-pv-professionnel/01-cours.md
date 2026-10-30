@@ -151,7 +151,7 @@ Ce que contient un certificat d'étalonnage :
 
 > Calculée par répétition de la mesure. Pour n mesures de même grandeur :
 
-$$u_A = \frac{s}{\sqrt{n}} \quad \text{où} \quad s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}$$
+$$u_{A} = \frac{s}{\sqrt{n}} \quad \text{où} \quad s = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_{i} - \bar{x})^2}$$
 
 **Exemple (n=5 mesures de résistance) :**
 
@@ -191,7 +191,7 @@ $$u_{B,classe} = \frac{0,5 \times 4703}{100 \times 1,73} = \frac{23,5}{173} \app
 
 $$\boxed{u_c = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,classe}^2}}$$
 
-$$\boxed{U = k \cdot u_c \quad \text{avec } k=2 \text{ pour 95\% de confiance}}$$
+$$\boxed{U = k \cdot u_{c} \quad \text{avec } k=2 \text{ pour 95\% de confiance}}$$
 
 **Exemple complet :**
 
@@ -269,8 +269,8 @@ Résultat : R = (4 703 ± 30) Ω  [niveau de confiance 95%]
 
 - [ ] Je sais nommer les 10 sections d'un PV de mesure professionnel
 - [ ] Je comprends la chaîne de traçabilité (BIPM → LNE → COFRAC → instrument)
-- [ ] Je sais calculer u_A (statistique), u_B résolution et u_B classe
-- [ ] Je sais calculer u_c (combinée) et U (élargie avec k=2)
+- [ ] Je sais calculer $u_{A}$ (statistique), $u_{B}$ résolution et $u_{B}$ classe
+- [ ] Je sais calculer $u_{c}$ (combinée) et U (élargie avec k=2)
 - [ ] Je sais exprimer un résultat : valeur ± U unité [confiance 95%]
 - [ ] Je connais les 3 classes IPC et leurs applications
 - [ ] Je distingue "conforme", "acceptable" et "non conforme" IPC
@@ -290,8 +290,8 @@ Résultat : R = (4 703 ± 30) Ω  [niveau de confiance 95%]
 | **BIPM** | Bureau International des Poids et Mesures — référence internationale des unités SI |
 | **Incertitude type A** | Incertitude évaluée statistiquement par répétition des mesures |
 | **Incertitude type B** | Incertitude évaluée à partir de données instruments (résolution, classe) |
-| **Incertitude combinée** | $u_c = \sqrt{u_A^2 + u_B^2}$ |
-| **Incertitude élargie** | $U = k \cdot u_c$ avec k=2 (~95% confiance) |
+| **Incertitude combinée** | $u_{c} = \sqrt{u_A^2 + u_{B}^2}$ |
+| **Incertitude élargie** | $U = k \cdot u_{c}$ avec k=2 (~95% confiance) |
 | **Classe d'instrument** | Erreur maximale en % de la pleine échelle ou de la valeur lue |
 | **Résolution** | Plus petit écart affichable par l'instrument (ex: 0,1°C, 1 Ω) |
 | **IPC-A-610** | Norme internationale d'acceptabilité des assemblages électroniques |

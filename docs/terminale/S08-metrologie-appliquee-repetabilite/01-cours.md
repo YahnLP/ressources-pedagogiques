@@ -13,13 +13,13 @@
 
 | Terme | Définition | Symbole |
 |---|---|---|
-| **Répétabilité** | Variabilité d'un même opérateur faisant plusieurs mesures dans les mêmes conditions | σ_EV ou σ_r |
-| **Reproductibilité** | Variabilité entre opérateurs différents mesurant le même objet | σ_AV ou σ_R |
+| **Répétabilité** | Variabilité d'un même opérateur faisant plusieurs mesures dans les mêmes conditions | $σ_{\mathrm{EV}}$ ou σ_r |
+| **Reproductibilité** | Variabilité entre opérateurs différents mesurant le même objet | $σ_{\mathrm{AV}}$ ou σ_R |
 | **Gauge R&R** | Gage Repeatability & Reproducibility — méthode industrielle d'analyse des MSE | %GRR |
 | **MSA** | Measurement System Analysis — analyse du système de mesure (norme IATF) | — |
 | **EV** | Equipment Variation — variation due à l'équipement (= répétabilité) | — |
 | **AV** | Appraiser Variation — variation due à l'opérateur (= reproductibilité) | — |
-| **GRR** | Gauge Repeatability & Reproducibility — combinaison de EV et AV | σ_GRR |
+| **GRR** | Gauge Repeatability & Reproducibility — combinaison de EV et AV | $σ_{\mathrm{GRR}}$ |
 | **%GRR** | Pourcentage de la tolérance consommé par le système de mesure | % |
 | **Étendue R** | max − min d'une série de mesures | Ω, °C... |
 | **LDD** | Limite de Décision de Détection — seuil à 95% de détection | — |
@@ -44,13 +44,13 @@ CAUSES de la non-répétabilité :
 → Variations de l'interface pièce/instrument (contact sondes)  
 
 CALCUL :  
-Effectuer n mesures → calculer σ_EV (écart-type des n mesures)  
+Effectuer n mesures → calculer $σ_{\mathrm{EV}}$ (écart-type des n mesures)  
 
-$$σ_EV = \sqrt{Σ(xi - x̄)^2 / (n-1)}$$
+$$\sigma _EV = \sqrt{Σ(xi - x̄)^2 / (n-1)}$$
 
 Ou méthode des étendues (plus rapide) :  
 
-$$σ_EV = R̄ / d2$$
+$$\sigma _EV = R̄ / d2$$
 
 avec R̄ = étendue moyenne des groupes de mesures  
 et d2 = constante statistique (d2 = 1,128 pour n=2 · 1,693 pour n=3 · 2,059 pour n=5)  
@@ -109,28 +109,28 @@ n = 5 mesures par opérateur
 p = 1 pièce (pour simplifier)  
 
 ÉTAPE 1 — Mesures :  
-Opérateur A : effectue n mesures → calcule x̄_A et σ_A (ou R_A)  
-Opérateur B : effectue n mesures → calcule x̄_B et σ_B (ou R_B)  
+Opérateur A : effectue n mesures → calcule x̄_A et σ_A (ou $R_{A}$)  
+Opérateur B : effectue n mesures → calcule x̄_B et σ_B (ou $R_{B}$)  
 
 ÉTAPE 2 — Répétabilité (EV) :  
-σ_EV = (σ_A + σ_B) / 2   (moyenne des écarts-types des opérateurs)  
+$σ_{\mathrm{EV}}$ = (σ_A + σ_B) / 2   (moyenne des écarts-types des opérateurs)  
 
 Ou avec les étendues :  
-σ_EV = R̄ / d2   avec R̄ = (R_A + R_B)/2 · d2 = 1,693 (pour n=5)  
+$σ_{\mathrm{EV}}$ = R̄ / d2   avec R̄ = ($R_{A}$ + $R_{B}$)/2 · d2 = 1,693 (pour n=5)  
 
 ÉTAPE 3 — Reproductibilité (AV) :  
 AV_brut = |x̄_A − x̄_B|   (différence entre les moyennes)  
-σ_AV = √max( AV_brut²/n − σ_EV²/(n×p) ; 0 )  
+$σ_{\mathrm{AV}}$ = √max( AV_brut²/n − σ_EV²/(n×p) ; 0 )  
 
 Simplification fréquente si 1 seule pièce (p=1) :  
-σ_AV ≈ |x̄_A − x̄_B| / √n   (approximation acceptable)  
+$σ_{\mathrm{AV}}$ ≈ |x̄_A − x̄_B| / $\sqrt{n}$   (approximation acceptable)  
 
 ÉTAPE 4 — GRR total :  
 
-$$σ_GRR = \sqrt{σ_EV^2 + σ_AV^2}$$
+$$\sigma _GRR = \sqrt{\sigma _EV^2 + \sigma _AV^2}$$
 
 ÉTAPE 5 — %GRR :  
-%GRR = (5,15 × σ_GRR / Tolérance) × 100  
+%GRR = (5,15 × $σ_{\mathrm{GRR}}$ / Tolérance) × 100  
 
 Le facteur 5,15 = 2 × 2,575 = couvre 99% de la distribution normale  
 
@@ -149,7 +149,7 @@ On "gaspille" plus de 30% de la tolérance juste en incertitude de mesure.
 
 NDC (Number of Distinct Categories) :  
 
-$$NDC = 1{,}41 \times (σ_pièce / σ_GRR)$$
+$$NDC = 1{,}41 \times (\sigma _pièce / \sigma _GRR)$$
 
 NDC ≥ 5 → instrument capable de distinguer les pièces conformes des non-conformes.  
 
@@ -178,22 +178,22 @@ LA LIMITE DE DÉTECTION :
 
 ### Formules de la limite de détection
 
-À PARTIR DU BRUIT DE FOND σ_bruit = σ_répétabilité (quand on mesure une valeur fixe) :  
+À PARTIR DU BRUIT DE FOND $σ_{\mathrm{bruit}}$ = σ_répétabilité (quand on mesure une valeur fixe) :  
 
 LDD (Limite de Décision de Détection) :  
 
-$$LDD = 1{,}65 \times σ_bruit$$
+$$LDD = 1{,}65 \times \sigma _bruit$$
 
 → Signal au-dessus de LDD : 95% de chance que ce soit un vrai signal  
 
 LD (Limite de Détection) :  
 
-$$LD = 3{,}3 \times σ_bruit$$
+$$LD = 3{,}3 \times \sigma _bruit$$
 
 → Signal au-dessus de LD : erreur < 5% sur la décision de détection  
 
 RÈGLE PRATIQUE SIMPLIFIÉE :  
-LD ≈ 3 × σ_bruit   (règle "3-sigma", très utilisée en pratique)  
+LD ≈ 3 × $σ_{\mathrm{bruit}}$   (règle "3-sigma", très utilisée en pratique)  
 
 Un signal n'est détectable de façon fiable que si sa valeur > LD.  
 
@@ -259,11 +259,11 @@ Ces 3 conditions ENSEMBLE définissent un système de mesure CAPABLE.
 
 ## 📌 Les essentiels à retenir
 
-> ✅ **Répétabilité** = variabilité d'un seul opérateur · calculer σ_EV
-> ✅ **Reproductibilité** = variabilité entre opérateurs · calculer σ_AV
-> ✅ **GRR** = √(σ_EV² + σ_AV²) · **%GRR** = 5,15 × σ_GRR / Tolérance × 100
+> ✅ **Répétabilité** = variabilité d'un seul opérateur · calculer $σ_{\mathrm{EV}}$
+> ✅ **Reproductibilité** = variabilité entre opérateurs · calculer $σ_{\mathrm{AV}}$
+> ✅ **GRR** = $\sqrt{σ_EV² + σ_AV²}$ · **%GRR** = 5,15 × $σ_{\mathrm{GRR}}$ / Tolérance × 100
 > ✅ **%GRR < 10%** = excellent · **10-30%** = acceptable · **> 30%** = inacceptable
-> ✅ **LD ≈ 3 × σ_bruit** (règle pratique des 3 sigma)
+> ✅ **LD ≈ 3 × $σ_{\mathrm{bruit}}$** (règle pratique des 3 sigma)
 > ✅ Un signal n'est détectable que s'il est **> LD**
 > ✅ **Résolution ≠ Précision ≠ Limite de détection** (3 concepts distincts !)
 > ✅ NDC ≥ 5 → instrument peut distinguer les pièces entre elles
