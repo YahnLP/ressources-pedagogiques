@@ -233,11 +233,11 @@ $$\Delta T \approx \frac{P_{totale}}{k \cdot S}$$
 > 2. Chronomètre : démarrer à l'allumage  
 > 3. Observer le moniteur série ou le broker MQTT  
 > Mesures :  
-> - Délai avant premier message MQTT publié : _____ s  
-> - Contenu du message : _____  
+> - Délai avant premier message MQTT publié : \_\_\_\_\_ s  
+> - Contenu du message : \_\_\_\_\_  
 > Critère d'acceptance : Délai ≤ 10 secondes ET message JSON valide  
 > Résultat : PASS ☐    FAIL ☐  
-> Commentaires : _________________________________________  
+> Commentaires : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 
 ### Familles de tests pour un projet IoT embarqué
 

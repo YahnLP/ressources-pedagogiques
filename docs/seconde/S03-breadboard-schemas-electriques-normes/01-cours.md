@@ -185,9 +185,9 @@ Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichoto
 3. Quel courant traverse R1 ? *($I_{\mathrm{total}}$ = U_R1 / R1)*
 4. Quel courant traverse D1 seule ?
 
-*Réponses :*
+??? success "Réponses"
 
-1. _____________ 2. _____________ V   3. _____________ mA   4. _____________ mA
+    1. \_\_\_\_\_\_\_\_\_\_\_\_\_ 2. \_\_\_\_\_\_\_\_\_\_\_\_\_ V   3. \_\_\_\_\_\_\_\_\_\_\_\_\_ mA   4. \_\_\_\_\_\_\_\_\_\_\_\_\_ mA
 
 ### Exercice 2 — Dessiner un schéma (10 min)
 

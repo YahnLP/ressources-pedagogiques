@@ -3,8 +3,8 @@
 
 ---
 
-> **Nom** : ___________________________
-> **Date** : ___________________________
+> **Nom** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Date** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 > **Durée** : 80 minutes · **Fiche de cours autorisée** · **Calculatrice obligatoire**
 
 ---
@@ -149,8 +149,8 @@ En notation scientifique : λ = _______ × 10⁻⁵ pannes/heure
 $$R(8760) = \underline{\hspace{2.5em}} %$$
 
 Signification : sur 1000 capteurs DHT22 mis en service simultanément,  
-après 1 an il en reste _______ encore fonctionnels.  
-Et _______ sont tombés en panne.  
+après 1 an il en reste \_\_\_\_\_\_\_ encore fonctionnels.  
+Et \_\_\_\_\_\_\_ sont tombés en panne.  
 
 **Q2.1.d** — Quelle durée t garantit que R(t) ≥ 90% ?
 
@@ -194,13 +194,13 @@ $$
 **Q2.2.c** — Pour une application qui doit fonctionner 2 ans sans maintenance,
 lequel des deux composants est indispensable ? Justifie avec les calculs :
 
-Durée : 2 ans = _______ h  
+Durée : 2 ans = \_\_\_\_\_\_\_ h  
 
 $$R_{\mathrm{A}}(17520) = e^{-0{,}0001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
 
 $$R_{\mathrm{B}}(17520) = e^{-0{,}00001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
 
-Conclusion : _________________________________________________________________  
+Conclusion : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 
 ---
 
@@ -239,7 +239,7 @@ $$
 
 $$Rs_sans_redondance = \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
-Gain de la redondance CPU : _______ % − _______ % = _______ points  
+Gain de la redondance CPU : \_\_\_\_\_\_\_ % − \_\_\_\_\_\_\_ % = \_\_\_\_\_\_\_ points  
 
 ---
 

@@ -66,6 +66,7 @@ def process(text, boldmap):
                 if parts[k].startswith('$'): parts[k] = fixmath(parts[k])
                 continue
             s = parts[k]
+            s = re.sub(r'_{3,}', lambda m: '\\_' * len(m.group(0)), s)
             s = re.sub(r'\*\*([^*\n]+)\*\*', lambda m: ('$' + boldmap[m.group(1)] + '$') if boldmap.get(m.group(1)) else m.group(0), s)
             parts[k] = tokens(s) if '$' not in s or True else s
         out.append(''.join(parts))

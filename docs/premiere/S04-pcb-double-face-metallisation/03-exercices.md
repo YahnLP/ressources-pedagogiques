@@ -3,8 +3,8 @@
 
 ---
 
-> **Nom** : ___________________________
-> **Date** : ___________________________
+> **Nom** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Date** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 > **Format** : Exercices complémentaires au TP · Fiche de cours autorisée
 
 ---
@@ -34,7 +34,7 @@ $$T = \underline{\hspace{2.5em}} s$$
 
 $$f = \dfrac{1}{T} = \underline{\hspace{2.5em}} \mathrm{Hz}$$
 
-La LED clignote à __________ fois par seconde.  
+La LED clignote à \_\_\_\_\_\_\_\_\_\_ fois par seconde.  
 
 **Q1.2** — Si on remplace C1 par 10µF (valeur ×10 plus petite), que devient la fréquence ?
 
@@ -49,8 +49,8 @@ $$
 
 $$D = \dfrac{10 + 47}{10 + 2 \times 47} = \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
-Interprétation : le signal est HIGH pendant ______% du temps et LOW pendant ______%  
-La LED est allumée pendant ______% de la période → elle semble ☐ plus ☐ moins lumineuse que 50%  
+Interprétation : le signal est HIGH pendant \_\_\_\_\_\_% du temps et LOW pendant \_\_\_\_\_\_%  
+La LED est allumée pendant \_\_\_\_\_\_% de la période → elle semble ☐ plus ☐ moins lumineuse que 50%  
 
 ---
 

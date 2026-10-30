@@ -126,7 +126,7 @@ $$R_{\mathrm{capt}}// = 1 - (1-0{,}84)^2 = 1 - \underline{\hspace{2.5em}} = \und
 
 $$Rs_nouveau = \underline{\hspace{2.5em}} \times 0{,}92 = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
 
-Gain : _______ points  
+Gain : \_\_\_\_\_\_\_ points  
 
 ??? success "Réponses"
     a)$2\times 10^{-5}$ b)0,1752/0,839/83,9% c)0,773/77,3% d)0,0256/0,974 · 0,896 · 89,6% · +12,3pts
@@ -188,11 +188,11 @@ CONFORMITÉ : |Biais| + U ≤ spécification constructeur
 5 mesures d'un capteur (référence = 25,0°C) :  
 25,3 · 24,9 · 25,2 · 25,4 · 25,2  
 
-ei (écarts) : _______ · _______ · _______ · _______ · _______  
+ei (écarts) : \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_  
 
 $$Σei = \underline{\hspace{2.5em}} Σei^2 = \underline{\hspace{2.5em}}$$
 
-Biais = _______ / 5 = _______ °C  
+Biais = \_\_\_\_\_\_\_ / 5 = \_\_\_\_\_\_\_ °C  
 
 $$\sigma  = \sqrt{\underline{\hspace{2.5em}} / 4} = \underline{\hspace{2.5em}} °C$$
 
@@ -201,7 +201,7 @@ $$u = \underline{\hspace{2.5em}} / \sqrt{5} = \underline{\hspace{2.5em}} °C$$
 $$U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
 
 Spécification = ±0,5°C :  
-|Biais| + U = _______ + _______ = _______ °C  
+|Biais| + U = \_\_\_\_\_\_\_ + \_\_\_\_\_\_\_ = \_\_\_\_\_\_\_ °C  
 ☐ CONFORME ☐ NON CONFORME  
 
 ??? success "Réponses"

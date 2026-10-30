@@ -315,11 +315,11 @@ Si non-conformités :
 
 **Contrôleur :** Nom Prénom  
 **Date :** JJ/MM/AAAA  
-**Signature :** _________________
+**Signature :** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Validé par :** (Responsable qualité)  
 **Date :** JJ/MM/AAAA  
-**Signature :** _________________
+**Signature :** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ---
 

@@ -368,9 +368,9 @@ $$R_{\mathrm{LED}} = \dfrac{9\,\mathrm{V} - 2\,\mathrm{V}}{0{,}02\,\mathrm{A}} =
 
 **Décodez les résistances suivantes :**
 
-1. 🟤 Marron - 🔴 Rouge - 🟠 Orange = _______ Ω = _______ kΩ
-2. 🟡 Jaune - 🟣 Violet - 🔴 Rouge = _______ Ω = _______ kΩ
-3. 🟢 Vert - 🔵 Bleu - 🟤 Marron = _______ Ω = _______ kΩ
+1. 🟤 Marron - 🔴 Rouge - 🟠 Orange = \_\_\_\_\_\_\_ Ω = \_\_\_\_\_\_\_ kΩ
+2. 🟡 Jaune - 🟣 Violet - 🔴 Rouge = \_\_\_\_\_\_\_ Ω = \_\_\_\_\_\_\_ kΩ
+3. 🟢 Vert - 🔵 Bleu - 🟤 Marron = \_\_\_\_\_\_\_ Ω = \_\_\_\_\_\_\_ kΩ
 
 ??? success "Réponses"
 
@@ -384,9 +384,9 @@ $$R_{\mathrm{LED}} = \dfrac{9\,\mathrm{V} - 2\,\mathrm{V}}{0{,}02\,\mathrm{A}} =
 
 **Calculez la valeur manquante :**
 
-1. U = 12V, R = 600Ω → I = _______ A = _______ mA
-2. I = 0,05A, R = 200Ω → U = _______ V
-3. U = 9V, I = 0,003A → R = _______ Ω = _______ kΩ
+1. U = 12V, R = 600Ω → I = \_\_\_\_\_\_\_ A = \_\_\_\_\_\_\_ mA
+2. I = 0,05A, R = 200Ω → U = \_\_\_\_\_\_\_ V
+3. U = 9V, I = 0,003A → R = \_\_\_\_\_\_\_ Ω = \_\_\_\_\_\_\_ kΩ
 
 ??? success "Réponses"
 
@@ -400,10 +400,10 @@ $$R_{\mathrm{LED}} = \dfrac{9\,\mathrm{V} - 2\,\mathrm{V}}{0{,}02\,\mathrm{A}} =
 
 **Convertissez les valeurs suivantes :**
 
-1. 4 700 Ω = _______ kΩ
-2. 0,025 A = _______ mA
-3. 2,2 MΩ = _______ Ω
-4. 150 mA = _______ A
+1. 4 700 Ω = \_\_\_\_\_\_\_ kΩ
+2. 0,025 A = \_\_\_\_\_\_\_ mA
+3. 2,2 MΩ = \_\_\_\_\_\_\_ Ω
+4. 150 mA = \_\_\_\_\_\_\_ A
 
 ??? success "Réponses"
 

@@ -138,8 +138,8 @@ Interprétation :
 
 Formule : σ = √[ Σei² / (n−1) ]  
 
-σ = √[ _______ / _______ ]  
-= √[ _______ ]  
+σ = √[ \_\_\_\_\_\_\_ / \_\_\_\_\_\_\_ ]  
+= √[ \_\_\_\_\_\_\_ ]  
 
 $$= \underline{\hspace{2.5em}} °C$$
 
@@ -165,7 +165,7 @@ $$U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
 
 RÉSULTAT FINAL DE LA MESURE :  
 
-T_DHT22 = _______ ± _______ °C     (k = 2, intervalle de confiance 95%)  
+T_DHT22 = \_\_\_\_\_\_\_ ± \_\_\_\_\_\_\_ °C     (k = 2, intervalle de confiance 95%)  
 
 ---
 

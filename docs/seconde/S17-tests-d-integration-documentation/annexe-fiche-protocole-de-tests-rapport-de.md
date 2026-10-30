@@ -3,11 +3,11 @@
 
 ---
 
-> **Nom de l'apprenant** : ___________________________
-> **Binôme** : ___________________________
-> **Date** : ___________________________
-> **N° de projet** : _____
-> **Version du sketch testé** : V _____
+> **Nom de l'apprenant** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Binôme** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **Date** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+> **N° de projet** : \_\_\_\_\_
+> **Version du sketch testé** : V \_\_\_\_\_
 
 ---
 
@@ -23,7 +23,7 @@
 | Baudrate de communication | |
 | Broche RX (SoftwareSerial) | |
 | Broche TX (SoftwareSerial) | |
-| Broches DEL utilisées | Broche ___ (Rouge) / Broche ___ (Jaune) / Broche ___ (Verte) |
+| Broches DEL utilisées | Broche \_\_\_ (Rouge) / Broche \_\_\_ (Jaune) / Broche \_\_\_ (Verte) |
 
 ---
 
@@ -67,7 +67,7 @@
 |---|---|---|---|---|---|---|
 | T-15 | Portée 2 m | 2 m | Envoyer `R1` | Commande exécutée | | |
 | T-16 | Portée 5 m | 5 m | Envoyer `R1` | Commande exécutée | | |
-| T-17 | Portée max | Distance max | Reculer progressivement | Note la distance de rupture | Distance de rupture : ___ m | |
+| T-17 | Portée max | Distance max | Reculer progressivement | Note la distance de rupture | Distance de rupture : \_\_\_ m | |
 
 ---
 
@@ -75,11 +75,11 @@
 
 | Critère | Valeur |
 |---|---|
-| Nombre de tests réalisés | ___ / 17 |
-| Nombre de tests **Conformes** (✅) | ___ |
-| Nombre de tests **Non-conformes** (❌) | ___ |
-| Nombre de tests **Partiels** (⚠️) | ___ |
-| Taux de conformité | ___ % |
+| Nombre de tests réalisés | \_\_\_ / 17 |
+| Nombre de tests **Conformes** (✅) | \_\_\_ |
+| Nombre de tests **Non-conformes** (❌) | \_\_\_ |
+| Nombre de tests **Partiels** (⚠️) | \_\_\_ |
+| Taux de conformité | \_\_\_ % |
 
 **Liste des tests non-conformes et actions correctives :**
 
@@ -109,7 +109,7 @@
 | | |
 | **C — Contrôle** | *Quel test as-tu refait pour confirmer la résolution ? Résultat ?* |
 | | |
-| **Durée de résolution** | ___ min |
+| **Durée de résolution** | \_\_\_ min |
 | **Panne résolue ?** | ☐ Oui ☐ Non ☐ Partiellement |
 
 ---
@@ -123,7 +123,7 @@
 | **A — Analyse** | |
 | **R — Remède** | |
 | **C — Contrôle** | |
-| **Durée de résolution** | ___ min |
+| **Durée de résolution** | \_\_\_ min |
 | **Panne résolue ?** | ☐ Oui ☐ Non ☐ Partiellement |
 
 ---
@@ -152,7 +152,7 @@
 | Rédaction claire et professionnelle | | |
 | **TOTAL** | **/25** | |
 
-**Signature enseignant** : ___________________________ **Date** : ___________
+**Signature enseignant** : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ **Date** : \_\_\_\_\_\_\_\_\_\_\_
 
 ---
 

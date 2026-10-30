@@ -12,13 +12,13 @@
 
 | Champ | Valeur |
 |---|---|
-| **Référence PCB** | PCB-S11-_____ |
-| **Opérateur** | Nom : _____________________ Prénom : _____________________ |
-| **Date de fabrication** | _____ / _____ / ________ |
+| **Référence PCB** | PCB-S11-\_\_\_\_\_ |
+| **Opérateur** | Nom : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Prénom : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| **Date de fabrication** | \_\_\_\_\_ / \_\_\_\_\_ / \_\_\_\_\_\_\_\_ |
 | **Méthode de transfert** | ☐ Toner / fer à repasser ☐ Insolation UV |
 | **Produit de gravure** | ☐ FeCl₃ ☐ Persulfate d'ammonium |
-| **Température du bain** | _______ °C |
-| **Durée de gravure** | _______ minutes |
+| **Température du bain** | \_\_\_\_\_\_\_ °C |
+| **Durée de gravure** | \_\_\_\_\_\_\_ minutes |
 | **EPI portés** | ☐ Gants nitrile ☐ Lunettes ☐ Tablier |
 | **Signature opérateur** | |
 | **Visa formateur** | |
@@ -42,10 +42,10 @@
 
 | Sous-critère | ✓ Conforme | ✗ Non conforme | Localisation si NON |
 |---|---|---|---|
-| Aucun pont de cuivre entre pistes voisines | ☐ | ☐ | Zone : _________ |
-| Aucune piste interrompue visible à la loupe | ☐ | ☐ | Zone : _________ |
-| Pas de résidu de cuivre sur les zones isolées | ☐ | ☐ | Zone : _________ |
-| Surface du cuivre sans piqûres excessives | ☐ | ☐ | Zone : _________ |
+| Aucun pont de cuivre entre pistes voisines | ☐ | ☐ | Zone : \_\_\_\_\_\_\_\_\_ |
+| Aucune piste interrompue visible à la loupe | ☐ | ☐ | Zone : \_\_\_\_\_\_\_\_\_ |
+| Pas de résidu de cuivre sur les zones isolées | ☐ | ☐ | Zone : \_\_\_\_\_\_\_\_\_ |
+| Surface du cuivre sans piqûres excessives | ☐ | ☐ | Zone : \_\_\_\_\_\_\_\_\_ |
 | **Conclusion A2** | ☐ CONFORME | ☐ NON CONFORME | |
 
 ### A3 — Largeur des pistes (critère IPC-A-600 Classe 2 : réduction max 20%)
@@ -54,23 +54,23 @@
 
 | Piste N° | Largeur nominale (plan) | Largeur mesurée | Réduction (%) | Conforme ? |
 |---|---|---|---|---|
-| Piste 1 | _____ mm | _____ mm | _____ % | ☐ OUI ☐ NON |
-| Piste 2 | _____ mm | _____ mm | _____ % | ☐ OUI ☐ NON |
-| Piste 3 | _____ mm | _____ mm | _____ % | ☐ OUI ☐ NON |
-| Piste critique | _____ mm | _____ mm | _____ % | ☐ OUI ☐ NON |
+| Piste 1 | \_\_\_\_\_ mm | \_\_\_\_\_ mm | \_\_\_\_\_ % | ☐ OUI ☐ NON |
+| Piste 2 | \_\_\_\_\_ mm | \_\_\_\_\_ mm | \_\_\_\_\_ % | ☐ OUI ☐ NON |
+| Piste 3 | \_\_\_\_\_ mm | \_\_\_\_\_ mm | \_\_\_\_\_ % | ☐ OUI ☐ NON |
+| Piste critique | \_\_\_\_\_ mm | \_\_\_\_\_ mm | \_\_\_\_\_ % | ☐ OUI ☐ NON |
 
 Formule : `Réduction (%) = (Nominale − Mesurée) / Nominale × 100`
 Limite Classe 2 : ≤ **20%** de réduction
 
-**Conclusion A3 :** ☐ CONFORME ☐ NON CONFORME — Note : _______________
+**Conclusion A3 :** ☐ CONFORME ☐ NON CONFORME — Note : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ### A4 — Espacements entre pistes (critère : espacement min ≥ 0,25 mm en atelier)
 
 | Espace testé | Espacement mesuré | Minimum requis | Conforme ? |
 |---|---|---|---|
-| Entre piste 1 et piste 2 | _____ mm | 0,25 mm | ☐ OUI ☐ NON |
-| Entre piste 2 et piste 3 | _____ mm | 0,25 mm | ☐ OUI ☐ NON |
-| Espacement le plus critique | _____ mm | 0,25 mm | ☐ OUI ☐ NON |
+| Entre piste 1 et piste 2 | \_\_\_\_\_ mm | 0,25 mm | ☐ OUI ☐ NON |
+| Entre piste 2 et piste 3 | \_\_\_\_\_ mm | 0,25 mm | ☐ OUI ☐ NON |
+| Espacement le plus critique | \_\_\_\_\_ mm | 0,25 mm | ☐ OUI ☐ NON |
 
 **Conclusion A4 :** ☐ CONFORME ☐ NON CONFORME
 
@@ -80,10 +80,10 @@ Limite Classe 2 : ≤ **20%** de réduction
 
 | Pad N° | Ø pad (plan) | Ø trou percé | Anneau calculé | Anneau minimum | Anneau complet (360°) | Conforme ? |
 |---|---|---|---|---|---|---|
-| Pad 1 | _____ mm | _____ mm | _____ mm | 0,15 mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
-| Pad 2 | _____ mm | _____ mm | _____ mm | 0,15 mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
-| Pad 3 | _____ mm | _____ mm | _____ mm | 0,15 mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
-| Pad critique | _____ mm | _____ mm | _____ mm | 0,15 mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
+| Pad 1 | \_\_\_\_\_ mm | \_\_\_\_\_ mm | \_\_\_\_\_ mm | 0,15 mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
+| Pad 2 | \_\_\_\_\_ mm | \_\_\_\_\_ mm | \_\_\_\_\_ mm | 0,15 mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
+| Pad 3 | \_\_\_\_\_ mm | \_\_\_\_\_ mm | \_\_\_\_\_ mm | 0,15 mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
+| Pad critique | \_\_\_\_\_ mm | \_\_\_\_\_ mm | \_\_\_\_\_ mm | 0,15 mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
 
 Formule : `Anneau = (Ø_pad − Ø_trou) / 2`
 
@@ -95,12 +95,12 @@ Formule : `Anneau = (Ø_pad − Ø_trou) / 2`
 
 | N° trou | Composant destiné | Ø requis (plan) | Ø mesuré | Perpendiculaire au substrat | Bords nets (sans ébavurage) | Conforme ? |
 |---|---|---|---|---|---|---|
-| 1 | | _____ mm | _____ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
-| 2 | | _____ mm | _____ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
-| 3 | | _____ mm | _____ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
-| 4 | | _____ mm | _____ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
-| 5 | | _____ mm | _____ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
-| 6 | | _____ mm | _____ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
+| 1 | | \_\_\_\_\_ mm | \_\_\_\_\_ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
+| 2 | | \_\_\_\_\_ mm | \_\_\_\_\_ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
+| 3 | | \_\_\_\_\_ mm | \_\_\_\_\_ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
+| 4 | | \_\_\_\_\_ mm | \_\_\_\_\_ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
+| 5 | | \_\_\_\_\_ mm | \_\_\_\_\_ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
+| 6 | | \_\_\_\_\_ mm | \_\_\_\_\_ mm | ☐ OUI ☐ NON | ☐ OUI ☐ NON | ☐ OUI ☐ NON |
 
 **Conclusion Section B :** ☐ CONFORME ☐ NON CONFORME
 
@@ -110,37 +110,37 @@ Formule : `Anneau = (Ø_pad − Ø_trou) / 2`
 
 ### C1 — Test de continuité des pistes (mode ))) buzzer)
 
-*Instrument utilisé :* _________________ *Date étalonnage instrument :* _______________
+*Instrument utilisé :* \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ *Date étalonnage instrument :* \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 | N° test | Net testé (piste) | Point A | Point B | Résistance mesurée | Limite (< 1 Ω) | Résultat |
 |---|---|---|---|---|---|---|
-| C1-1 | | | | _____ Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
-| C1-2 | | | | _____ Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
-| C1-3 | | | | _____ Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
-| C1-4 | | | | _____ Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
-| C1-5 | | | | _____ Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
+| C1-1 | | | | \_\_\_\_\_ Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
+| C1-2 | | | | \_\_\_\_\_ Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
+| C1-3 | | | | \_\_\_\_\_ Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
+| C1-4 | | | | \_\_\_\_\_ Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
+| C1-5 | | | | \_\_\_\_\_ Ω | < 1 Ω | ☐ ✓ ☐ ✗ |
 
-**Conclusion C1 :** ☐ Toutes les pistes continues ☐ _____ piste(s) interrompue(s) — zones : _____
+**Conclusion C1 :** ☐ Toutes les pistes continues ☐ \_\_\_\_\_ piste(s) interrompue(s) — zones : \_\_\_\_\_
 
 ### C2 — Test d'isolation entre pistes (mode MΩ ou )))
 
 | N° test | Piste A | Piste B | Résistance mesurée | Limite (> 1 MΩ) | Résultat |
 |---|---|---|---|---|---|
-| C2-1 | | | _____ MΩ | > 1 MΩ | ☐ ✓ ☐ ✗ |
-| C2-2 | | | _____ MΩ | > 1 MΩ | ☐ ✓ ☐ ✗ |
-| C2-3 | | | _____ MΩ | > 1 MΩ | ☐ ✓ ☐ ✗ |
+| C2-1 | | | \_\_\_\_\_ MΩ | > 1 MΩ | ☐ ✓ ☐ ✗ |
+| C2-2 | | | \_\_\_\_\_ MΩ | > 1 MΩ | ☐ ✓ ☐ ✗ |
+| C2-3 | | | \_\_\_\_\_ MΩ | > 1 MΩ | ☐ ✓ ☐ ✗ |
 
-**Conclusion C2 :** ☐ Toutes les pistes isolées ☐ Court-circuit détecté entre : _______________
+**Conclusion C2 :** ☐ Toutes les pistes isolées ☐ Court-circuit détecté entre : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ### C3 — Test de connectivité pad-piste (mode )))
 
 | N° test | Pad | Piste correspondante | Résistance mesurée | Anneau conducteur ? |
 |---|---|---|---|---|
-| C3-1 | | | _____ Ω | ☐ OUI ☐ NON |
-| C3-2 | | | _____ Ω | ☐ OUI ☐ NON |
-| C3-3 | | | _____ Ω | ☐ OUI ☐ NON |
+| C3-1 | | | \_\_\_\_\_ Ω | ☐ OUI ☐ NON |
+| C3-2 | | | \_\_\_\_\_ Ω | ☐ OUI ☐ NON |
+| C3-3 | | | \_\_\_\_\_ Ω | ☐ OUI ☐ NON |
 
-**Conclusion C3 :** ☐ Tous les pads connectés ☐ Pad(s) déconnecté(s) : _____
+**Conclusion C3 :** ☐ Tous les pads connectés ☐ Pad(s) déconnecté(s) : \_\_\_\_\_
 
 ---
 
@@ -184,7 +184,7 @@ Formule : `Anneau = (Ø_pad − Ø_trou) / 2`
    _______________________________________________________________
 ```
 
-### Durée totale de contrôle qualité : _____ minutes
+### Durée totale de contrôle qualité : \_\_\_\_\_ minutes
 
 ---
 

@@ -41,22 +41,22 @@ Mon score : ___/8  ☐ Tous acquis → continuer · ☐ Manques → revoir S12-3
 > Fermer la fiche. Écrire les formules sur une feuille de brouillon.
 
 1. Dissipation d'un régulateur linéaire :  
-Pdiss = ___________________________  
+Pdiss = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 
 2. Température de jonction :  
-Tj = ___________________________  ·  Tj max exploitable = _____ °C  
+Tj = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  ·  Tj max exploitable = \_\_\_\_\_ °C  
 
 3. Courant total LDO :  
-$I_{\mathrm{LDO}}$ = ___________________________________________ (liste les composants)  
+$I_{\mathrm{LDO}}$ = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (liste les composants)  
 
 4. Rendement d'un LDO :  
-η = ___________ (approximation) = _____ % pour 3,3V depuis 5V  
+η = \_\_\_\_\_\_\_\_\_\_\_ (approximation) = \_\_\_\_\_ % pour 3,3V depuis 5V  
 
 5. Autonomie sur batterie avec convertisseur (η_conv = 88%) :  
 
 $$I_{\mathrm{batterie}} = \underline{\hspace{2.5em}}$$
 
-t_réelle   = ___________________________  
+t_réelle   = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 
 ??? success "Réponses"
 
@@ -65,7 +65,7 @@ t_réelle   = ___________________________
     $$4. \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$  
     5. $I_{\mathrm{moy}}$ / η · Capacité(mAh) / $I_{\mathrm{batterie}}$ × 0,80
 
-Mon score : ___/5  ☐ Tous → continuer · ☐ Revoir → S3-3A_06 + S15-3A_06  
+Mon score : \_\_\_/5  ☐ Tous → continuer · ☐ Revoir → S3-3A_06 + S15-3A_06  
 
 ---
 

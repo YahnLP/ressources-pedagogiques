@@ -46,17 +46,17 @@ $$I_{\mathrm{GPS\_moy}} = 50 \times \dfrac{30}{600} = \underline{\hspace{2.5em}}
 
 $$I_{\mathrm{LED\_moy}} = 5 \times 0{,}5 = \underline{\hspace{2.5em}} mA$$
 
-$I_{\mathrm{moy}}$ total = _______ mA  
+$I_{\mathrm{moy}}$ total = \_\_\_\_\_\_\_ mA  
 
 c) Calcule Pdiss LDO et Tj :  
-Pdiss = (3,7−3,3) × _______ = _______ W  
+Pdiss = (3,7−3,3) × \_\_\_\_\_\_\_ = \_\_\_\_\_\_\_ W  
 
 $$Tj = 30 + \underline{\hspace{2.5em}} \times 44 = \underline{\hspace{2.5em}} °C$$
 
 ☐ OK ☐ Radiateur nécessaire  
 
 d) Autonomie batterie :  
-t = 2000 / _______ × 0,80 = _______ h = _______ jours  
+t = 2000 / \_\_\_\_\_\_\_ × 0,80 = \_\_\_\_\_\_\_ h = \_\_\_\_\_\_\_ jours  
 
 ### Exercice A2 — Choisir le bon régulateur (20 min)
 
@@ -124,7 +124,7 @@ $$x̄_1 = \underline{\hspace{2.5em}} bar \cdot \sigma _1 = \underline{\hspace{2.
 $$x̄_2 = \underline{\hspace{2.5em}} bar \cdot \sigma _2 = \underline{\hspace{2.5em}} bar$$
 
 b) Biais de chaque capteur :  
-Biais_1 = _______ · Biais_2 = _______  
+Biais_1 = \_\_\_\_\_\_\_ · Biais_2 = \_\_\_\_\_\_\_  
 
 c) $σ_{\mathrm{EV}}$, $σ_{\mathrm{AV}}$, $σ_{\mathrm{GRR}}$, %GRR :  
 
@@ -132,7 +132,7 @@ $$\sigma _EV = \underline{\hspace{2.5em}} \cdot \sigma _AV = \underline{\hspace{
 
 d) Verdict et recommandation :  
 ☐ Excellent ☐ Acceptable ☐ Inacceptable  
-Recommandation : _______________________________________________  
+Recommandation : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 
 e) LD du capteur 1 :  
 
@@ -192,8 +192,8 @@ a) Piste de 18cm : à partir de quelle fréquence se comporte-t-elle comme une a
 
 $$L=0{,}18\,\mathrm{m} \cdot L > \lambda /20 \to \lambda  < 20 \times 0{,}18=3{,}6\,\mathrm{m} \cdot f > 3 \times 10^{8}/3{,}6 = \underline{\hspace{2.5em}} \mathrm{MHz}$$
 
-b) Pour le WiFi ESP32 (2,4GHz), λ/20 = _______ mm  
-Toute piste > _______ mm peut rayonner → règle : pistes courtes !  
+b) Pour le WiFi ESP32 (2,4GHz), λ/20 = \_\_\_\_\_\_\_ mm  
+Toute piste > \_\_\_\_\_\_\_ mm peut rayonner → règle : pistes courtes !  
 
 c) Fente dans un boîtier blindant à 2,4GHz : taille max ?  
 
@@ -401,21 +401,21 @@ c) Piste PCB de 22cm : fréquence à partir de laquelle elle devient une antenne
 $$\lambda  < 20 \times 0{,}22 = \underline{\hspace{2.5em}} m \cdot f > 3 \times 10^{8}/\underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} \mathrm{MHz}$$
 
 d) 8 affirmations : VRAI ou FAUX  
-___ Plan de masse continu : courant de retour direct sous la piste  
-___ Ferrite : réfléchit les signaux HF (≠ les absorbe)  
-___ Condensateur découplage à 15mm du CI : efficacité optimale  
-___ Conduites < 30MHz : se propagent par l'air  
-___ Plan fendu : grande boucle → fort rayonnement  
-___ Blindage relié à la masse en 2 points : recommandé  
-___ LDO : génère moins de bruit HF qu'un buck → meilleur pour CEM signal  
-___ fc = 1/(2πRC) : formule filtre passe-bas  
+\_\_\_ Plan de masse continu : courant de retour direct sous la piste  
+\_\_\_ Ferrite : réfléchit les signaux HF (≠ les absorbe)  
+\_\_\_ Condensateur découplage à 15mm du CI : efficacité optimale  
+\_\_\_ Conduites < 30MHz : se propagent par l'air  
+\_\_\_ Plan fendu : grande boucle → fort rayonnement  
+\_\_\_ Blindage relié à la masse en 2 points : recommandé  
+\_\_\_ LDO : génère moins de bruit HF qu'un buck → meilleur pour CEM signal  
+\_\_\_ fc = 1/(2πRC) : formule filtre passe-bas  
 
 ### Mini-quiz F (10 min)
 
-1. 4 types de couplage : _______ · _______ · _______ · _______  
-2. Conduites = < _______ MHz · Rayonnées = > _______ MHz  
-3. Fente dans blindage WiFi (2,4GHz) < _______ mm  
-4. Plan fendu → courant de retour _______ → grande _______ → fort _______  
+1. 4 types de couplage : \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_  
+2. Conduites = < _______ MHz · Rayonnées = > \_\_\_\_\_\_\_ MHz  
+3. Fente dans blindage WiFi (2,4GHz) < \_\_\_\_\_\_\_ mm  
+4. Plan fendu → courant de retour \_\_\_\_\_\_\_ → grande \_\_\_\_\_\_\_ → fort \_\_\_\_\_\_\_  
 
 $$5. fc = \dfrac{1}{2\pi  \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$$
 

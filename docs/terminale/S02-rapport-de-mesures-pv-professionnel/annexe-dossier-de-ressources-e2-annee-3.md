@@ -132,15 +132,15 @@ Date           :            Lieu           :
 Donneur d'ordre:            Objet          :
 
 EUT (Équipement Sous Test) :
-Désignation : _______ Référence : _______ N°Série : _______
+Désignation : \_\_\_\_\_\_\_ Référence : \_\_\_\_\_\_\_ N°Série : \_\_\_\_\_\_\_
 
 Instrument de mesure :
-Appareil    : _______ Marque : _______ Modèle : _______
-N° série    : _______ Classe : _______ %
-Certificat  : _______ Date étalonnage : _______ Validité : _______
+Appareil    : \_\_\_\_\_\_\_ Marque : \_\_\_\_\_\_\_ Modèle : \_\_\_\_\_\_\_
+N° série    : \_\_\_\_\_\_\_ Classe : \_\_\_\_\_\_\_ %
+Certificat  : \_\_\_\_\_\_\_ Date étalonnage : \_\_\_\_\_\_\_ Validité : \_\_\_\_\_\_\_
 
 Conditions de mesure :
-Température : ___°C  Hygrométrie : ___% HR
+Température : \_\_\_°C  Hygrométrie : \_\_\_% HR
 
 Résultats :
 | Grandeur | Valeur mesurée | Incertitude | Résultat [95%] |
@@ -154,7 +154,7 @@ Conformité : ☐ Conforme  ☐ Non conforme  ☐ Sous réserve de :
 
 Remarques :
 
-Mesureur : ________________   Responsable qualité : ________________
+Mesureur : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_   Responsable qualité : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 Date     :                    Signature :
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
