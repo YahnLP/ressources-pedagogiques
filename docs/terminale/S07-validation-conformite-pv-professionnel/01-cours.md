@@ -10,6 +10,16 @@
 - ✅ Appliquer IPC-A-610 Classe 2 à un assemblage réel
 - ✅ Structurer un DAT électronique complet (conception + fabrication + validation)
 
+
+### 🤔 À ton avis ?
+
+Deux fabricants livrent la même carte. Comment le client peut-il **vérifier** qu'elle est bien de bonne qualité, **sans se fier à leur parole** ?
+
+??? question "Voir une réponse possible"
+    En s'appuyant sur des **normes** : des règles communes écrites et reconnues. Un PV de validation indique **quelle norme** et **quel critère** la carte respecte, avec **les mesures** qui le prouvent.
+    
+    Dans cette séance, tu découvres les **normes IPC, CEI et ISO**, tu rédiges un **PV de validation avancé** et tu construis un **DAT** (dossier technique).
+
 ---
 
 ## 1️⃣ POURQUOI DES NORMES EN ÉLECTRONIQUE ?
@@ -23,6 +33,17 @@
 
 > **Une norme n'est pas une contrainte arbitraire — c'est la formalisation de l'expérience industrielle collective.**
 
+
+> [!TIP] 💡 En clair
+> Une **norme** garantit que **tout le monde parle le même langage** : mêmes essais, mêmes critères, mêmes unités. Elle protège le **client** (qualité), le **fabricant** (règles claires) et l'**utilisateur** (sécurité).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi les normes sont-elles utiles à un client ?
+
+??? success "Réponse"
+    Elles permettent de **juger la qualité** avec des critères communs, sans dépendre de la parole du fabricant.
+
 ---
 
 ## 2️⃣ PANORAMA DES NORMES ESSENTIELLES
@@ -30,6 +51,32 @@
 ### Les 3 familles de normes électroniques
 
 ![Les trois familles de normes](images/familles-normes.png)
+
+
+> [!TIP] 💡 En clair
+> Trois familles à ne pas confondre : **IPC** (conception et fabrication des cartes), **CEI** (essais d'environnement et sécurité électrique) et **ISO** (qualité et organisation). Nos cartes de bac pro relèvent de la **classe B** (industriel).
+>
+> **Exemple d'essai CEI :** humidité à **40 °C / 85 % HR pendant 96 h** pour vérifier qu'une carte résiste à un local humide.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle famille de normes décrit les essais d'environnement (chaleur, froid, humidité) ?
+
+??? success "Réponse"
+    La **CEI** (par exemple la série 60068-2).
+
+**Q2.** À quelle classe IPC correspondent nos cartes ?
+
+??? success "Réponse"
+    À la **classe B** (industriel).
+
+**Q3.** Pourquoi teste-t-on une carte à la chaleur ou à l'humidité ?
+
+??? success "Réponse"
+    Pour vérifier qu'elle **tient dans son environnement réel** d'utilisation.
+
+> [!SUCCESS] 🧠 À retenir
+> - IPC = cartes ; CEI = essais ; ISO = qualité ; bac pro = classe B.
 
 ---
 
@@ -160,6 +207,25 @@
 | TC-04 | Rapport cyclique ≈ 50% | Oscilloscope : mesure tHigh / tTotal | 51,8% | ±1,2% | ✅ |
 | TC-05 | Courant LED ≤ 25 mA | Ampèremètre en série avec LED | 19,3 mA | ±0,3 mA | ✅ |
 
+
+> [!TIP] 💡 En clair
+> Un **PV de validation fonctionnelle** relie **chaque exigence** à **une mesure** : exigence (ex. « sortie = 5 V ± 5 % »), méthode, valeur mesurée avec son incertitude, **verdict**. Il doit permettre à un tiers de **rejouer** le test.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quelle tension est acceptable si l'exigence est 5 V ± 5 % ?
+
+??? success "Réponse"
+    De $5 \times 0{,}95 = 4{,}75\,\mathrm{V}$ à $5 \times 1{,}05 = 5{,}25\,\mathrm{V}$.
+
+**Q2.** Mesure : 5,30 V. Verdict ?
+
+??? success "Réponse"
+    **Non conforme** : 5,30 V dépasse 5,25 V.
+
+> [!SUCCESS] 🧠 À retenir
+> - Exigence chiffrée → mesure → verdict.
+
 ---
 
 ![Structure d'un PV de validation fonctionnelle professionnel.](images/pv-validation.png)
@@ -246,6 +312,17 @@ SECTION 10 — ANNEXES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
+
+> [!TIP] 💡 En clair
+> Le **DAT** (dossier technique) regroupe **tout ce qu'il faut pour comprendre, fabriquer, tester et maintenir** une carte : schéma, BOM, plan de test, PV, consignes de maintenance. Un bon DAT permet à **quelqu'un d'autre** de reprendre le travail.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Cite trois éléments d'un DAT.
+
+??? success "Réponse"
+    Par exemple : **schéma**, **BOM**, **plan de test**, **PV**, **consignes de maintenance**.
+
 ---
 
 ![Dossier de livraison : DAT, PV de validation et fiche MES.](images/dossier-livraison.png)
@@ -280,6 +357,17 @@ SECTION 10 — ANNEXES
     7805 Vin max absolu  : 35V (datasheet)
     LED If max           : 30 mA (dommage irréversible au-delà)
 ```
+
+
+> [!TIP] 💡 En clair
+> Les **contraintes de fonctionnement** (température, humidité, alimentation, vibrations) fixent **dans quelles conditions** la carte reste conforme. Elles figurent dans le DAT pour que l'utilisateur **ne dépasse pas** les limites.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi indique-t-on des contraintes de fonctionnement ?
+
+??? success "Réponse"
+    Pour que l'utilisateur sache **jusqu'où** il peut utiliser la carte sans risque de panne.
 
 ---
 

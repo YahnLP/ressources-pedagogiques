@@ -7,6 +7,14 @@
 
 ## 1️⃣ LE FLUX KiCad COMPLET
 
+### 🤔 À ton avis ?
+
+Tu dessines un schéma, tu routes une carte… et KiCad t'affiche **40 erreurs**. Comment éviter ça en travaillant **dans le bon ordre** ?
+
+??? question "Voir une réponse possible"
+    Le flux KiCad est une **chaîne** : **schéma → ERC** (contrôle électrique) **→ empreintes → PCB → DRC** (contrôle géométrique) **→ fichiers Gerber → BOM**. Chaque étape **vérifie** la précédente : on ne passe pas à la suivante tant que la vérification n'est pas propre.
+
+
 > [!NOTE] FLUX KICAD 8 COMPLET
 >
 > 1. EESCHEMA (schéma)  
@@ -34,6 +42,27 @@
 >   → Tools → Generate BOM (dans Eeschema)  
 >   → Compléter avec références fournisseurs et prix  
 
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que contrôle l'ERC ?
+
+??? success "Réponse"
+    Les **règles électriques** du schéma (broches non reliées, alimentations non pilotées, doublons de références).
+
+**Q2.** Que contrôle le DRC ?
+
+??? success "Réponse"
+    Les **règles géométriques** du circuit imprimé (distances, largeurs, perçages).
+
+**Q3.** Pourquoi corrige-t-on l'ERC avant de passer au PCB ?
+
+??? success "Réponse"
+    Une **erreur de schéma** se répercute sur tout le PCB : il est bien plus rapide de la corriger **avant**.
+
+> [!SUCCESS] 🧠 À retenir
+> - ERC = schéma ; DRC = circuit imprimé ; on corrige chaque contrôle avant la suite.
+
 ---
 
 ## 2️⃣ EESCHEMA — POINTS CRITIQUES
@@ -55,6 +84,25 @@
 | `L` | Ajouter net label | `P` | Ajouter alimentation |
 | `E` | Propriétés composant | `Q` | No connect |
 | `G` | Déplacer (avec connexions) | `Ctrl+Z` | Annuler |
+
+
+> [!TIP] 💡 En clair
+> La plupart des erreurs ERC viennent de **cinq oublis** (voir le tableau). Le plus fréquent : l'absence de **PWR_FLAG**. KiCad doit savoir que **ton alimentation est bien une source** : on pose donc un symbole PWR_FLAG sur chaque rail (+VCC et GND).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** L'ERC affiche `power_pin_not_driven`. Que faut-il vérifier ?
+
+??? success "Réponse"
+    La présence d'un **PWR_FLAG** sur le rail d'alimentation et sur la masse.
+
+**Q2.** Une broche volontairement inutilisée génère `pin_not_connected`. Que faire ?
+
+??? success "Réponse"
+    Lui poser un **No Connect** (touche `Q`).
+
+> [!SUCCESS] 🧠 À retenir
+> - PWR_FLAG sur +VCC et GND ; No Connect sur les broches inutilisées.
 
 ---
 
@@ -84,6 +132,20 @@ Connecteurs :       Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm
 ❌ Condensateur non polarisé pour une empreinte CP (vice versa)
 ❌ R_0603 pour une résistance traversante (pastilles trop petites)
 ```
+
+
+> [!TIP] 💡 En clair
+> Une **empreinte** est le dessin des pastilles sur le PCB. Un même composant peut exister en plusieurs boîtiers (traversant, CMS…) : **choisir la mauvaise empreinte** donne une carte où **le composant ne rentre pas**.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Associer une empreinte sans **vérifier le datasheet** (écartement des broches, boîtier).
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi vérifie-t-on l'empreinte avec le datasheet ?
+
+??? success "Réponse"
+    Pour s'assurer que les **cotes des broches** correspondent au vrai composant.
 
 ---
 
@@ -121,6 +183,25 @@ File → Board Setup → Design Rules :
 | `Footprint missing courtyard` | Empreinte sans zone de courtyard | Choisir une empreinte complète |
 | `No copper` | Piste non connectée au cuivre | Relancer le routage |
 
+
+> [!TIP] 💡 En clair
+> Avant de router, règle les **contraintes** : clearance minimale 0,25 mm, piste 0,25 mm, **pistes d'alimentation plus larges** (0,5 mm, car elles portent plus de courant). On place d'abord l'**alimentation**, puis le circuit principal, puis les passifs ; on **route l'alimentation en premier**, puis les signaux.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi les pistes d'alimentation sont-elles plus larges ?
+
+??? success "Réponse"
+    Parce qu'elles transportent **plus de courant** : trop fines, elles chaufferaient.
+
+**Q2.** Dans quel ordre route-t-on ?
+
+??? success "Réponse"
+    **Alimentation d'abord**, puis les signaux.
+
+> [!SUCCESS] 🧠 À retenir
+> - Règles avant routage ; alimentation large et routée en premier.
+
 ---
 
 ## 5️⃣ EXPORT GERBER ET DRILL
@@ -157,6 +238,17 @@ PCBnew → View → Gerber Viewer (ou ouvrir KiCad Gerber Viewer)
   • Pas de piste qui dépasse le contour
 ```
 
+
+> [!TIP] 💡 En clair
+> Les **fichiers Gerber** (un par couche) et le **fichier de perçage** sont ce que le fabricant reçoit. **Vérifie-les dans un visualiseur** avant de les envoyer : c'est ce qui sera réellement fabriqué.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi ouvre-t-on les Gerber dans un visualiseur ?
+
+??? success "Réponse"
+    Pour **voir ce qui sera réellement fabriqué** et détecter une erreur avant commande.
+
 ---
 
 ## 6️⃣ BOM — BILL OF MATERIALS
@@ -176,6 +268,17 @@ Eeschema → Tools → Generate BOM
 |---|---|---|---|---|---|---|---|---|
 | R1 | 4k7 | Résistance | 1 | R_0805 | Mouser | 71-CRCW08054K70FKEA | 0,05€ | 0,05€ |
 | ... | | | | | | | | |
+
+
+> [!TIP] 💡 En clair
+> La **BOM** liste les composants **regroupés** par valeur et boîtier, avec leurs **repères** et la **quantité**. Elle sert à commander et à monter la carte.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Que contient une ligne de BOM ?
+
+??? success "Réponse"
+    Les **repères**, la **valeur**, l'**empreinte** et la **quantité**.
 
 ---
 

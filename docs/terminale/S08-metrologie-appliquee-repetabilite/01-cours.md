@@ -26,6 +26,14 @@
 | **LD** | Limite de Détection — seuil pratique de détectabilité | — |
 | **NDC** | Number of Distinct Categories — nombre de catégories distinctes que peut discerner l'instrument | — |
 
+
+### 🤔 À ton avis ?
+
+Ton capteur affiche 20,0 °C… puis 20,1… puis 19,9. Et un collègue obtient 20,3 avec le **même** capteur. **Peut-on faire confiance** à ce système de mesure ?
+
+??? question "Voir une réponse possible"
+    Pour le savoir, on mesure sa **répétabilité** (ma variation, avec moi-même) et sa **reproductibilité** (la variation d'une personne à l'autre). On compare ensuite ce « bruit » à la **tolérance** à surveiller : c'est le **%GRR**.
+
 ---
 
 ## 1️⃣ — Répétabilité et Reproductibilité
@@ -77,6 +85,25 @@ CALCUL :
     et p = nombre de pièces mesurées
     (si le terme sous la racine est négatif → σ_AV = 0 par convention)
 ```
+
+
+> [!TIP] 💡 En clair
+> **Répétabilité :** un **seul opérateur** mesure **plusieurs fois** le même objet avec le même instrument. **Reproductibilité :** **plusieurs opérateurs** mesurent le même objet avec le même instrument. Dans les deux cas, plus la dispersion est petite, plus le système est **fiable**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Deux opérateurs mesurent la même pièce et trouvent des moyennes différentes. Quelle qualité est en cause ?
+
+??? success "Réponse"
+    La **reproductibilité**.
+
+**Q2.** Un seul opérateur trouve des valeurs qui varient d'une mesure à l'autre. Quelle qualité est en cause ?
+
+??? success "Réponse"
+    La **répétabilité**.
+
+> [!SUCCESS] 🧠 À retenir
+> - Répétabilité = même opérateur ; reproductibilité = opérateurs différents.
 
 ---
 
@@ -153,6 +180,40 @@ $$NDC = 1{,}41 \times (\sigma _pièce / \sigma _GRR)$$
 
 NDC ≥ 5 → instrument capable de distinguer les pièces conformes des non-conformes.  
 
+
+> [!TIP] 💡 En clair
+> Le **Gauge R&R** combine les deux : $\sigma_{\mathrm{GRR}} = \sqrt{\sigma_{\mathrm{EV}}^2 + \sigma_{\mathrm{AV}}^2}$, puis $\%\mathrm{GRR} = \dfrac{5{,}15 \times \sigma_{\mathrm{GRR}}}{\text{tolérance}} \times 100$.
+>
+> **Exemple :** $\sigma_{\mathrm{EV}} = 0{,}03$, $\sigma_{\mathrm{AV}} = 0{,}04$, tolérance 2,0 :
+>
+> $\sigma_{\mathrm{GRR}} = \sqrt{0{,}03^2 + 0{,}04^2} = 0{,}05$ ; $\%\mathrm{GRR} = \dfrac{5{,}15 \times 0{,}05}{2{,}0} \times 100 \approx 12{,}9\,\%$.
+>
+> **Lecture :** moins de 10 % = excellent ; de 10 à 30 % = acceptable sous conditions ; plus de 30 % = inacceptable.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Avec $\sigma_{\mathrm{EV}} = 0{,}10$, $\sigma_{\mathrm{AV}} = 0{,}05$ et une tolérance de 2,0, quel est le %GRR ?
+
+??? success "Réponse"
+    $\sigma_{\mathrm{GRR}} = \sqrt{0{,}01 + 0{,}0025} \approx 0{,}112$ ; $\%\mathrm{GRR} = \dfrac{5{,}15 \times 0{,}112}{2} \times 100 \approx 28{,}8\,\%$ : **acceptable sous conditions**.
+
+**Q2.** Que signifie un %GRR de 40 % ?
+
+??? success "Réponse"
+    **Inacceptable** : 40 % de la tolérance est « consommé » par l'incertitude de mesure.
+
+**Q3.** Pourquoi combine-t-on EV et AV avec une racine carrée de somme de carrés ?
+
+??? success "Réponse"
+    Parce que ce sont des **variations indépendantes** : on les combine **en quadrature**, pas en les additionnant.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - **Additionner** $\sigma_{\mathrm{EV}}$ et $\sigma_{\mathrm{AV}}$ au lieu de les combiner en quadrature.
+> - Oublier de diviser par la **tolérance** : le %GRR n'aurait aucun sens.
+
+> [!SUCCESS] 🧠 À retenir
+> - $\%\mathrm{GRR} = \dfrac{5{,}15 \times \sigma_{\mathrm{GRR}}}{\text{tolérance}} \times 100$ ; < 10 % excellent, 10–30 % acceptable, > 30 % inacceptable.
+
 ---
 
 ![Interprétation graphique du %GRR](images/grr-interpretation.png)
@@ -224,6 +285,17 @@ Exemple :
     de façon fiable que des signaux supérieurs à 15 mV.
 ```
 
+
+> [!TIP] 💡 En clair
+> La **limite de détection** est **la plus petite variation** qu'un instrument sait distinguer du bruit. Si tu veux repérer une dérive de 0,1 °C avec un capteur dont le bruit est de 0,5 °C, **tu ne verras rien** : il faut un instrument plus fin.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Le bruit d'un capteur est de 0,5 °C. Peut-on détecter une variation de 0,1 °C ?
+
+??? success "Réponse"
+    **Non** : la variation est **plus petite que le bruit**.
+
 ---
 
 ## 4️⃣ — Choisir un instrument pour une application
@@ -254,6 +326,20 @@ Un système de mesure est apte si :
 
 Ces 3 conditions ENSEMBLE définissent un système de mesure CAPABLE.
 ```
+
+
+> [!TIP] 💡 En clair
+> Pour **choisir un instrument**, on part du **besoin** : plage de mesure, précision demandée, %GRR visé (< 30 %, idéalement < 10 %), coût. Un instrument « plus précis que nécessaire » coûte cher **sans bénéfice**.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Quels critères doit-on regarder pour choisir un instrument ?
+
+??? success "Réponse"
+    La **plage**, la **précision**, le **%GRR** attendu et le **coût**.
+
+> [!SUCCESS] 🧠 À retenir
+> - On choisit l'instrument à partir du besoin, pas l'inverse.
 
 ---
 
