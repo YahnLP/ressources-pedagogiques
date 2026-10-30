@@ -485,7 +485,7 @@ Une résistance de 1 kΩ ± 5% peut avoir une valeur réelle entre **950 Ω et 1
 >
 > $R = \dfrac{U_{pile} - U_{LED}}{I_{LED}}$
 >
-> Pour une pile de 9 V, une LED rouge ($U_{LED} \approx 2\,\mathrm{V}$) et $I = 20\,\mathrm{mA}$ : $R = \dfrac{9 - 2}{0{,}02} = 350\,\Omega$. On choisit la valeur normalisée **juste au-dessus** (390 Ω) : la LED reçoit un peu moins de courant, donc elle est protégée.
+> Pour une pile de 9 V, une LED rouge ($U_{LED} \approx 2\,\mathrm{V}$) et $I = 20\,\mathrm{mA}$ : $R = \dfrac{9 - 2}{0{,}02} = 350\,\Omega$. On choisit une **valeur normalisée proche**, de préférence **au-dessus** : 390 Ω, ou 470 Ω pour être prudent. Avec 330 Ω, la LED reçoit environ 21 mA : c'est tolérable, mais c'est un peu plus que prévu.
 
 ### ✅ Vérifie que tu as compris
 
@@ -499,7 +499,7 @@ Une résistance de 1 kΩ ± 5% peut avoir une valeur réelle entre **950 Ω et 1
 ??? success "Réponse"
     $R = \dfrac{5 - 2}{0{,}02} = 150\,\Omega$ (valeur normalisée : 150 Ω).
 
-**Q3.** Pourquoi choisit-on la valeur normalisée juste **au-dessus** du résultat ?
+**Q3.** Pourquoi vaut-il mieux choisir une valeur normalisée **au-dessus** du résultat plutôt qu'en dessous ?
 
 ??? success "Réponse"
     Une résistance plus grande donne un courant **plus faible** : la LED reste sous son courant maximal et n'est pas détruite.
@@ -509,6 +509,9 @@ Une résistance de 1 kΩ ± 5% peut avoir une valeur réelle entre **950 Ω et 1
 > - Oublier de retirer la tension de la LED ($U_{LED}$) dans le calcul.
 
 ---
+
+> [!TIP] 🧩 Pour tout savoir sur les composants
+> Passifs, actifs, capteurs, actionneurs : la fiche [Familles de composants](02-familles-de-composants.md) explique le rôle de chaque famille, avec des analogies et des questions de vérification.
 
 ### 🔍 Focus : La LED (Light Emitting Diode)
 

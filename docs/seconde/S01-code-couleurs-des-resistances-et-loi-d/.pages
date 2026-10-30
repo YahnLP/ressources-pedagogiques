@@ -2,4 +2,5 @@ title: "S01 · Code couleurs des résistances et loi d'Ohm"
 nav:
   - README.md
   - "📖 Cours": 01-cours.md
+  - "🧩 Familles de composants": 02-familles-de-composants.md
   - "🖥️ Simulateur ElectroLab": 04-simulateur.md

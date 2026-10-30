@@ -157,17 +157,17 @@ def f_transistors():
 def f_actifs_passifs():
     o = ""
     spec = [("Composants passifs", BLUE, 30,
-             [("Résistance", resistor(lead=18), .5, 0), ("Condensateur", electrolytic(), .62, 50), ("Bobine", inductor_toroid(), .8, 0)],
+             [("Résistance", resistor(lead=18), .5, 0), ("Condensateur", electrolytic(), .62, 5), ("Bobine", inductor_toroid(), .68, -8)],
              "Subissent le circuit : limiter, stocker,\nfiltrer. Ne peuvent ni amplifier ni décider."),
             ("Composants actifs", GREEN, 610,
-             [("Diode / LED", led(), .75, 55), ("Transistor", to92(), .95, 50), ("Circuit intégré", dip(8, h=70, pitch=26, fs=14, label="CI"), .6, -40)],
+             [("Diode / LED", led(), .7, 0), ("Transistor", to92(), .8, 12), ("Circuit intégré", dip(8, h=70, pitch=26, fs=14, label="CI"), .6, -20)],
              "Contrôlent, orientent, amplifient ou traitent\nl'information. Exigent une alimentation.")]
     for t, col, px, items, txt in spec:
         o += panel(px, 40, 560, 470, t, accent=col)
         for i, (name, svg, s, dy) in enumerate(items):
             tx = px + 22 + i * 178
             o += f'<rect x="{tx}" y="100" width="152" height="230" rx="14" fill="#fff" stroke="#dde4f0" stroke-width="2"/>'
-            o += g(tx + 76, 215 + dy * s, svg, s)
+            o += g(tx + 76, 190 + dy * s, svg, s)
             o += T(tx + 76, 312, name, 18, 700, INK)
         o += T(px + 280, 400, txt, 19, 600, INK)
     return figure(W, 540, o)
