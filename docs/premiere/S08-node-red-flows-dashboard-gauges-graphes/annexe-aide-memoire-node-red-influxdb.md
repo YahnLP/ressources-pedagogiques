@@ -132,15 +132,7 @@ from(bucket: "mon_bucket")
 
 ## 🏗️ Architecture IoT complète
 
-```
-ESP32 → MQTT → Node-RED ──→ Dashboard (temps réel)
-                         ──→ InfluxDB (stockage)
-                                  │
-                     Node-RED ←── Requête Flux
-                         │
-                         ▼
-                    Chart historique
-```
+![Flux de données : MQTT, Node-RED, dashboard et InfluxDB](images/flux-nodered.png)
 
 ---
 

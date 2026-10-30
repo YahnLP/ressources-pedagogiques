@@ -70,9 +70,7 @@ Pour inverser le sens de rotation d'un moteur DC, il suffit d'**inverser la pola
 | + sur fil 1, - sur fil 2 | ⟳ Sens horaire |
 | + sur fil 2, - sur fil 1 | ⟲ Sens antihoraire |
 
-![Illustration : Deux schémas de moteur côte à côte. À gauche : pile avec + vers fil 1 du moteur, flèche circulaire sens horaire. À droite : pile inversée avec + vers fil 2, flèche sens antihoraire. Style : schéma pédagogique simple.]
-
-**Prompt image :** "Deux schémas électriques côte à côte montrant l'inversion de sens d'un moteur DC. Schéma gauche : pile 9V avec borne + connectée au fil rouge du moteur, borne - au fil noir, flèche circulaire bleue sens horaire au-dessus du moteur. Schéma droite : même pile mais connexions inversées (+ vers noir, - vers rouge), flèche circulaire rouge sens antihoraire. Labels clairs. Style : diagramme technique pédagogique."
+![Inversion du sens de rotation d'un moteur en inversant la pile](images/moteur-sens.png)
 
 ---
 
@@ -242,9 +240,7 @@ Pile 9V (-) ──────────► GND (commun)
 
 **⚠️ IMPORTANT :** Les GND doivent être **communs** (Arduino GND et Pile GND reliés ensemble).
 
-![Illustration : Schéma de câblage complet montrant Arduino, L293D sur breadboard, moteur et pile 9V externe. Connexions colorées (rouge = alimentation, noir = GND, bleu/vert = signaux). Style : schéma technique clair.]
-
-**Prompt image :** "Schéma de câblage électronique complet. À gauche : Arduino Uno. Au centre : breadboard avec circuit intégré L293D 16 broches. À droite : moteur DC et pile 9V. Fils colorés : rouges (5V et 9V), noirs (GND), bleu (Pin 7 → IN1), vert (Pin 6 → IN2), jaune (Pin 9 → EN1). Labels sur chaque connexion. Style : schéma de montage technique et pédagogique."
+![Câblage du L293D : Arduino, moteur et pile 9 V externe](images/cablage-l293d.png)
 
 ---
 

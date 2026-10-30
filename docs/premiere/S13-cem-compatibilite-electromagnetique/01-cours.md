@@ -139,10 +139,7 @@ Pourquoi 30 MHz est la frontière ?
 
 ---
 
-**🖼️ ILLUSTRATION 1 — Schéma des couplages CEM**
-> *Légende* : Diagramme montrant les 4 types de couplage entre une source (variateur de fréquence) et une victime (capteur analogique). Couplage résistif : flèche via un fil GND partagé. Couplage capacitif : deux pistes PCB parallèles avec le symbole d'un condensateur entre elles. Couplage inductif : une boucle de courant (alimenta tion variateur) avec des lignes de champ magnétique circulaires induisant un courant dans un câble voisin. Couplage rayonné : ondes sinusoïdales dans l'air entre le variateur et l'antenne WiFi proche.
->
-> **Prompt illustration** : *"CEM coupling types diagram in French showing 4 electromagnetic coupling mechanisms between 'Source (Variateur)' and 'Victime (Capteur)'. Top-left: 'Couplage résistif' - shared GND wire with voltage arrows. Top-right: 'Couplage capacitif' - two parallel PCB traces with capacitor symbol between them labeled 'C parasite'. Bottom-left: 'Couplage inductif' - current loop with circular magnetic field lines inducing current in nearby wire, labeled 'M (mutuelle)'. Bottom-right: 'Couplage rayonné' - sinusoidal waves propagating through air labeled 'Onde EM'. French labels, technical EMC diagram style, each quadrant color-coded"*
+![Les quatre types de couplage CEM](images/couplages-cem.png)
 
 ---
 
@@ -205,10 +202,7 @@ Règle pratique :
 
 ---
 
-**🖼️ ILLUSTRATION 2 — Blindage et effet de fente**
-> *Légende* : Deux boîtiers métalliques côte à côte. Boîtier 1 "Blindage efficace" : boîtier sans fente, les ondes EM (ondulations) sont bloquées à l'extérieur, aucune ne pénètre. Boîtier 2 "Fente = antenne" : même boîtier mais avec une fente sur le côté, les ondes rentrent facilement par la fente (flèches). Un graphe en-dessous montre l'atténuation en dB : sans fente = 60 dB · avec fente = seulement 20 dB à la fréquence de résonance.
->
-> **Prompt illustration** : *"EMC shielding effectiveness diagram in French. Left box 'Blindage efficace': solid metal enclosure, EM waves (sinusoidal arrows) blocked at boundary, label '60 dB atténuation'. Right box 'Fente = antenne': same enclosure but with slot/gap, EM waves entering through gap (arrows pointing inward), label '20 dB seulement'. Below each: attenuation vs frequency graph. Red warning label 'Fente de L > λ/2 → antenne efficace!'. French labels, EMC engineering diagram style"*
+![Blindage efficace et effet de fente](images/blindage-fente.png)
 
 ---
 
@@ -261,31 +255,30 @@ CODE :
 
 ### Filtre LC passe-bas (filtre CEM actif)
 
+```
 PRINCIPE :
-L (inductance) en série + C (condensateur) en parallèle vers la masse
+  L (inductance) en série + C (condensateur) en parallèle vers la masse
 
-Signal ──[L]──┬── Signal filtré
-│
-[C]
-│
-GND
+  Signal ──[L]──┬── Signal filtré
+                │
+               [C]
+                │
+               GND
 
 Fréquence de coupure : fc = 1 / (2π√LC)
 
 Exemple : L = 100µH · C = 100nF
-fc = 1 / (2π × √(100×10⁻⁶ × 100×10⁻⁹))
-= 1 / (2π × √(10⁻¹¹))
-= 1 / (2π × 3,16×10⁻⁶)
-= 50 360 Hz ≈ 50 kHz
-
-→ Tout ce qui est > 50 kHz est fortement atténué.
+  fc = 1 / (2π × √(100×10⁻⁶ × 100×10⁻⁹))
+     = 1 / (2π × √(10⁻¹¹))
+     = 1 / (2π × 3,16×10⁻⁶)
+     = 50 360 Hz ≈ 50 kHz
+  
+  → Tout ce qui est > 50 kHz est fortement atténué.
+```
 
 ---
 
-**🖼️ ILLUSTRATION 3 — Condensateurs de découplage sur un PCB**
-> *Légende* : Vue de dessus d'un fragment de PCB montrant un microcontrôleur (boîtier SOIC) avec ses pins VCC et GND. Deux condensateurs 100nF (boîtier 0402) sont placés immédiatement à côté des pins VCC/GND, reliés par des pistes très courtes. À côté, un contre-exemple : même CI mais condensateurs éloignés avec de longues pistes, avec une annotation rouge "INCORRECT - inductance parasite des pistes". En bas, un graphe montrant l'efficacité de filtrage selon la distance condensateur-CI.
->
-> **Prompt illustration** : *"PCB decoupling capacitor placement diagram in French. Left side 'CORRECT': microcontroller IC (SOIC package) with two 100nF capacitors (0402 SMD) placed immediately adjacent to VCC and GND pins, very short traces labeled 'Distance < 1mm', green checkmark. Right side 'INCORRECT': same IC but capacitors far away with long traces, red X, annotation 'Inductance parasite des pistes = filtre inefficace'. Bottom: frequency response graph comparing near vs far placement, showing near placement much more effective at HF. French labels, PCB design diagram"*
+![Condensateurs de découplage sur un PCB](images/decouplage-pcb.png)
 
 ---
 

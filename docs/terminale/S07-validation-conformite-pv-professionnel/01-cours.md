@@ -184,10 +184,6 @@
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Tableau de PV de validation fonctionnelle rempli avec 5 lignes de tests. Colonnes : N° test, Exigence (texte du CdC), Procédure (comment mesurer), Valeur mesurée, Incertitude U [95%], Conforme/Non conforme (icône vert/rouge). En haut : en-tête avec logo entreprise, référence PVF-2026-NE555-001, date, lieu, instruments. En bas : cases à cocher "Conforme / Non conforme / Sous réserve" + deux zones de signature. Style document industriel professionnel, fond blanc, tableau avec alternance de lignes.*
-
-> **Légende :** Structure d'un PV de validation fonctionnelle professionnel. Chaque ligne correspond à une exigence du cahier des charges. La colonne "Incertitude U [95%]" intègre la métrologie vue en S2-A3. La conclusion globale est une décision formelle qui engage contractuellement le validateur et le fabricant.
 
 ---
 
@@ -273,10 +269,6 @@ SECTION 10 — ANNEXES
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Arbre des documents du dossier de livraison industriel. Racine : "Dossier de livraison ELECTROPRO". Trois branches principales : (1) "DAT Électronique" avec sous-branches Schéma KiCad, Fichiers Gerber, BOM, Contraintes. (2) "PV de Validation" avec sous-branches TC-01 à TC-05, Rapport IPC-A-610. (3) "Fiche MES" avec sous-branches Paramètres, Tests, Signatures. Chaque feuille de l'arbre est un fichier réel (extension .pdf, .csv, .kicad_sch). Style arbre de documentation industrielle, fond blanc, couleurs par branche.*
-
-> **Légende :** Structure du dossier de livraison complet remis au client. Le DAT électronique est la mémoire technique de la conception. Le PV de validation est la preuve de conformité. La fiche MES est l'acte de remise. Ensemble, ces trois documents constituent la preuve légale que le prestataire a livré un produit conforme aux exigences définies.
 
 ---
 

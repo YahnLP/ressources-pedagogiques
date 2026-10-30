@@ -72,18 +72,7 @@ Causes possibles :
 
 > Appliquer la **méthode de dichotomie** : couper le chemin de défaut en deux à chaque étape.
 
-```
-Chemin d'un message MQTT :
-
-[Capteur] → [Code Arduino] → [Wi-Fi] → [Réseau] → [Broker] → [Subscriber]
-    │              │             │          │           │           │
-  Mesure 1      Log série     Ping       Traceroute  Console   Logs broker
-
-Dichotomie :
-  Test milieu : "Le broker reçoit-il quelque chose ?"
-    → OUI : problème en aval (subscriber / topic / format)
-    → NON : problème en amont (code / Wi-Fi / réseau / broker)
-```
+![Chemin d'un message MQTT et diagnostic par dichotomie](images/chemin-message-mqtt.png)
 
 ### A — Agir et valider
 
@@ -99,10 +88,6 @@ Dichotomie :
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Diagramme de la démarche DECA représenté comme un entonnoir. En haut : "DÉCRIRE – tous les symptômes" (entonnoir large, avec des bulles : log série, LED, comportement visuel, contexte). Ensuite : "ÉLIMINER – hypothèses improbables" (entonnoir se rétrécit, avec des hypothèses barrées). Puis : "CIBLER – mesures ciblées + dichotomie" (section étroite avec oscilloscope, multimètre, analyseur logique). En bas : "AGIR – réparer + valider" (cible avec flèche au centre : cause racine identifiée). À côté : un arbre de diagnostic avec des nœuds OUI/NON. Style infographie méthode industrielle, fond blanc, couleurs progressives rouge→orange→vert.*
-
-> **Légende :** La démarche DECA transforme un diagnostic aléatoire ("chercher une aiguille dans une botte de foin") en une méthode structurée qui converge vers la cause racine en O(log n) mesures. Chaque étape réduit le champ des possibles jusqu'à l'action corrective précise.
 
 ---
 
@@ -259,10 +244,6 @@ Problème AWS IoT / certificats → CONSOLE AWS CLOUDWATCH
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Logigramme de diagnostic d'un ESP32 qui ne publie plus sur MQTT. Arbre de décision avec nœuds ovales (questions) et rectangles (actions). Première question : "LED Wi-Fi allumée ?" → Non : "Vérifier SSID/password, redémarrer" ; Oui : "Ping broker depuis PC ?" → Non : "Vérifier IP broker, pare-feu" ; Oui : "Moniteur série : mqtt.state() ?" → -2 (FAILED) : "Vérifier IP broker" ; -7 (BAD_CREDENTIALS) : "Vérifier certificats TLS" ; -8 (UNAUTHORIZED) : "Vérifier Policy IoT AWS" ; 0 (CONNECTÉ) : "Vérifier topic (casse exacte)". Style logigramme industriel, fond blanc, couleurs distinctes par branche.*
-
-> **Légende :** Logigramme de diagnostic pour un ESP32 qui ne publie plus. Chaque nœud est une question à laquelle on peut répondre sans ambiguïté (oui/non) ou une mesure précise. Le code de retour `mqtt.state()` est le premier indicateur à lire — il indique directement la catégorie du problème.
 
 ---
 

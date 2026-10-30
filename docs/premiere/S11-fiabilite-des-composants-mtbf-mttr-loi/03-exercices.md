@@ -245,11 +245,7 @@ Gain de la redondance CPU : _______ % − _______ % = _______ points
 
 **Architecture du système CLIMASENS** :
 
-```
-[DHT22 (R=0,88)] ──┐
-                    ├──→ [ESP32 (R=0,92)] → [WiFi/MQTT (R=0,97)] → [Node-RED (R=0,99)]
-[MQ-2  (R=0,85)] ──┘
-```
+![Station IoT : DHT22 et MQ-2 en parallèle, puis ESP32, Wi-Fi/MQTT et Node-RED en série](images/rbd-station.png)
 
 Note : les deux capteurs sont en **parallèle fonctionnel** (un seul suffit pour détecter une anomalie).
 

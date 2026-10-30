@@ -72,10 +72,7 @@
 
 ---
 
-**🖼️ ILLUSTRATION 1 — Flux schéma vers PCB**
-> *Légende* : Infographie en 6 étapes numérotées avec une flèche de progression. Étape 1 : icône Schematic Editor avec symboles R, D, Q. Étape 2 : flèche "Footprint Assignment" avec symbole → empreinte physique. Étape 3 : "Update PCB" avec les composants qui apparaissent en vrac avec le ratsnest (lignes en pointillés). Étape 4 : rectangle Edge.Cuts tracé. Étape 5 : composants placés et organisés dans le rectangle. Étape 6 : pistes de cuivre routées (lignes pleines). Étape 7 : shield vert DRC. Étape 8 : vue 3D finale.
->
-> **Prompt illustration** : *"KiCad PCB design workflow infographic in French with 8 numbered steps with arrows. Step 1: schematic editor icon with R/D/Q symbols labeled 'Schéma ERC=0'. Step 2: symbol-to-footprint arrow labeled 'Empreintes'. Step 3: PCB editor with components in a pile with dashed ratsnest lines labeled 'Import PCB'. Step 4: Edge.Cuts rectangle drawn labeled 'Contour'. Step 5: components neatly placed inside rectangle labeled 'Placement'. Step 6: copper tracks replacing ratsnest lines labeled 'Routage'. Step 7: green DRC shield labeled 'DRC 0 erreurs'. Step 8: 3D render thumbnail labeled 'Vue 3D'. Linear flow with green arrows, French labels, clean infographic style"*
+![Du schéma au PCB en 8 étapes](images/flux-schema-pcb.png)
 
 ---
 
@@ -248,10 +245,7 @@ Configurer dans KiCad :
 
 ---
 
-**🖼️ ILLUSTRATION 2 — Pistes, vias et clearance**
-> *Légende* : Vue agrandie d'un PCB montrant 3 éléments annotés. 1) Une piste mince (0,35mm) étiquetée "Signal 0,35mm". 2) Une piste large (1,5mm) étiquetée "Alimentation GND 1,5mm". 3) Un via entre F.Cu et B.Cu avec les dimensions annotées (D extérieur 0,8mm, perçage 0,4mm). 4) Une flèche double montrant le clearance (0,2mm) entre deux pistes proches. Un calque translucide montre F.Cu en rouge et B.Cu en bleu. Les pads des composants sont visibles en doré.
->
-> **Prompt illustration** : *"PCB close-up view in French showing copper layers. Red copper on F.Cu layer: thin signal track labeled '0.35mm Signal' and wide power track labeled '1.5mm GND/Alim'. Blue copper on B.Cu layer visible through via. Via detail: outer circle '0.8mm ext', inner circle '0.4mm perçage', both layers connected. Double-headed arrow between two nearby tracks labeled 'Clearance 0.2mm'. Pads shown in gold/yellow. Layer label 'F.Cu (rouge)' and 'B.Cu (bleu)'. French text annotations, PCB technical diagram style, zoomed-in perspective"*
+![Pistes, via et clearance](images/pistes-vias-clearance.png)
 
 ---
 
@@ -347,10 +341,6 @@ Astuce : lancer le DRC régulièrement pendant le routage,
 
 ---
 
-**🖼️ ILLUSTRATION 3 — Fenêtre DRC et exemple d'erreur**
-> *Légende* : Interface DRC de KiCad avec la liste d'erreurs sur fond sombre. La fenêtre montre 3 erreurs : "Clearance violation" (flèche rouge entre 2 pistes), "Unconnected items" (flèches jaunes sur les ratsnest), "Courtyard overlap" (zone orange). À côté, vue PCB correspondante avec les erreurs surlignées par des flèches de couleurs. Boutons "Run DRC", "Clear DRC markers", "Close" visibles.
->
-> **Prompt illustration** : *"KiCad DRC (Design Rules Checker) interface in French with error list panel. Dark background panel showing 3 error types: red icon 'Clearance violation - 2 pistes trop proches', yellow icon 'Unconnected items - 3 ratsnest restants', orange icon 'Courtyard overlap - composants R1 et C1'. Adjacent PCB view showing errors highlighted: red arrows on clearance violation, yellow dashed lines on unconnected ratsnest, orange shading on courtyard overlap. Buttons: 'Lancer DRC', 'Effacer marqueurs'. French labels, dark KiCad theme"*
 
 ---
 
@@ -394,10 +384,6 @@ Utilité de la vue 3D :
 
 ---
 
-**🖼️ ILLUSTRATION 4 — Vue 3D KiCad**
-> *Légende* : Rendu 3D KiCad d'un petit PCB avec un transistor BC547, une LED rouge, deux résistances traversantes et un connecteur. Le PCB a un masque vert avec sérigraphie blanche. Les composants ont leurs boîtiers 3D visibles (cylindre noir pour le transistor TO-92, dôme rouge pour la LED, cylindres beige pour les résistances). Les pistes de cuivre dorées sont visibles sous les pastilles. Fond de la vue 3D gris foncé de KiCad.
->
-> **Prompt illustration** : *"KiCad 3D viewer render of small PCB in French. Green PCB board with white silkscreen text. Components visible: black TO-92 transistor body labeled 'Q1 BC547', red 5mm LED dome labeled 'D1', two beige axial resistors labeled 'R1' and 'R2', 2-pin connector. Golden copper pads and tracks visible. Board dimensions approximately 40×30mm. Dark gray 3D viewer background. Perspective view angle showing component heights. KiCad 3D render style, photorealistic PCB appearance"*
 
 ---
 

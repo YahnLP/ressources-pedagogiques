@@ -33,24 +33,7 @@
 
 ### La pyramide de l'information industrielle
 
-```
-                    ┌─────────────┐
-              5 │   │  Décision   │  ← Direction : KPI, tendances, rapports
-                    ├─────────────┤
-              4 │   │  Analyse    │  ← Ingénieurs : dashboards, alertes
-                    ├─────────────┤
-              3 │   │  SCADA/MES  │  ← Superviseurs : Node-RED, InfluxDB, Grafana
-                    ├─────────────┤
-              2 │   │  Contrôle   │  ← Automaticiens : PLC, régulateurs
-                    ├─────────────┤
-              1 │   │  Terrain    │  ← Capteurs, actionneurs, ESP32
-                    └─────────────┘
-
-Votre stack CLIMASENS couvre les niveaux 1, 3 et 4 :
-  Niveau 1 → ESP32 + capteurs (DHT22, MQ-2)
-  Niveau 3 → Node-RED + InfluxDB (supervision)
-  Niveau 4 → Dashboard (analyse et alertes)
-```
+![Niveaux d'une architecture industrielle : de la décision au terrain](images/niveaux-isa.png)
 
 ### Les KPI d'un système de surveillance
 
@@ -159,10 +142,7 @@ return msg;
 
 ---
 
-**🖼️ ILLUSTRATION 1 — Hystérésis d'une alerte température**
-> *Légende* : Graphe temp en fonction du temps. Une courbe sinusoïdale monte et descend entre 27°C et 32°C. Une ligne horizontale rouge en pointillés indique le "Seuil haut = 30°C" et une ligne orange en pointillés indique le "Seuil bas = 28°C". Les zones où la courbe est au-dessus de 30°C sont colorées en rouge avec le label "🔴 ALERTE". Les zones où la courbe redescend entre 28 et 30°C sont en orange (alerte maintenue). Les zones < 28°C sont en vert "🟢 OK". Une alerte naïve sans hystérésis montrerait 6 déclenchements, l'hystérésis n'en montre que 2 propres.
->
-> **Prompt illustration** : *"Temperature alert hysteresis chart in French. X-axis: time in minutes (0 to 20). Y-axis: temperature in °C (25 to 35). Sinusoidal temperature curve oscillating between 27°C and 32°C. Red dashed horizontal line at 30°C labeled 'Seuil haut: 30°C (déclenchement)'. Orange dashed line at 28°C labeled 'Seuil bas: 28°C (désactivation)'. Zones above 30°C shaded red labeled '🔴 ALERTE'. Zones between 28-30°C where alert stays active shaded orange. Zones below 28°C shaded green labeled '🟢 OK'. Comparison: left side shows naive threshold with many toggles, right side shows hysteresis with clean transitions. French labels, technical chart style"*
+![Hystérésis d'une alerte de température](images/hysteresis-alerte.png)
 
 ---
 
@@ -289,10 +269,7 @@ Exemple : T = 23,4 ± 0,6 °C  (P = 95%)
 
 ---
 
-**🖼️ ILLUSTRATION 2 — Exactitude vs Fidélité**
-> *Légende* : Deux cibles circulaires côte à côte. Cible 1 "Exact mais non fidèle" : des points dispersés autour du centre (les mesures varient mais sont centrées sur la valeur vraie). Cible 2 "Fidèle mais non exact" : des points groupés ensemble mais décalés du centre (mesures reproductibles mais biaisées). Une troisième cible (idéal) montre des points groupés au centre. Annotations : "Erreur aléatoire = dispersion" et "Erreur systématique = biais".
->
-> **Prompt illustration** : *"Metrology accuracy vs precision target diagram in French. Three circular targets side by side. Left target 'Exact mais non fidèle': dots scattered around center (good accuracy, poor precision). Middle target 'Fidèle mais non exact': tight cluster of dots off-center (poor accuracy, good precision). Right target 'Idéal (exact et fidèle)': tight cluster at center. Labels: 'Erreur aléatoire = dispersion', 'Erreur systématique = biais'. Arrows pointing to relevant dots. French labels, metrology textbook style"*
+![Exactitude et fidélité](images/exactitude-fidelite.png)
 
 ---
 

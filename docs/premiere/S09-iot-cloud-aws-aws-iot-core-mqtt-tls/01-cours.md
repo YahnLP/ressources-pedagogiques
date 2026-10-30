@@ -35,28 +35,28 @@
 
 ### Vue d'ensemble
 
+```
+┌────────────────────────────────────────────────────────────────────┐
 │                        AWS IoT Core                                │
 │                                                                    │
 │  ┌──────────────┐    ┌───────────────┐    ┌─────────────────────┐  │
-|  | REGISTRY |  | MESSAGE |  | RULES ENGINE |  |
-|---|---|---|---|---|---|---|
-|  | (Things) |  | BROKER |  | (SQL-like routing) |  |
-|  |  |  | (MQTT, WSS) | └──────────┬──────────┘ |
-|  | Policy |  |  |  |  |
-|  | Certificat |  | Topics | ▼ |
-
+│  │   REGISTRY   │    │  MESSAGE      │    │    RULES ENGINE     │  │
+│  │   (Things)   │    │  BROKER       │    │  (SQL-like routing) │  │
+│  │              │    │  (MQTT, WSS)  │    └──────────┬──────────┘  │
+│  │   Policy     │    │               │               │              │
+│  │   Certificat │    │   Topics      │               ▼              │
 │  └──────────────┘    └───────────────┘    ┌─────────────────────┐  │
-|  | Services AWS |  |
-|---|---|---|
-|  | CloudWatch |  |
-|  | DynamoDB / S3 |  |
-|  | Lambda / SNS |  |
-
+│                                           │   Services AWS       │  │
+│                                           │   CloudWatch         │  │
+│                                           │   DynamoDB / S3      │  │
+│                                           │   Lambda / SNS       │  │
 │                                           └─────────────────────┘  │
-▲
-│ MQTT/TLS port 8883
-│
-[ESP32 avec certificats X.509]
+└────────────────────────────────────────────────────────────────────┘
+         ▲
+         │ MQTT/TLS port 8883
+         │
+   [ESP32 avec certificats X.509]
+```
 
 ### Les 4 composants fondamentaux
 
@@ -113,27 +113,11 @@ xxxxxxxxxxxxxxx-ats.iot.eu-west-1.amazonaws.com
 
 ### Authentification mutuelle TLS (Mutual TLS / mTLS)
 
-```
-Connexion TLS standard (HTTPS) :
-  Client ──► Serveur  : "Montre-moi ton certificat"
-  Serveur → Client    : "Voilà mon certificat (signé par CA)"
-  Client vérifie      : "OK, je te fais confiance"
-  → Seul le SERVEUR s'authentifie
-
-Connexion mTLS (AWS IoT) :
-  Client ──► Serveur  : "Montre-moi ton certificat"
-  Serveur → Client    : "Voilà mon cert. Et toi, montre le tien"
-  Client  → Serveur   : "Voilà mon device-certificate"
-  Les DEUX s'authentifient mutuellement
-  → Seuls les devices avec le bon certificat peuvent se connecter
-```
+![TLS standard et mTLS : authentification du serveur seul ou des deux côtés](images/tls-mtls.png)
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Diagramme de l'authentification mutuelle TLS entre un ESP32 et AWS IoT Core. À gauche : ESP32 avec 3 fichiers illustrés (AmazonRootCA1.pem en vert, device-cert en bleu, private-key en rouge avec cadenas). À droite : logo AWS IoT Core avec un certificat signé Amazon. Au centre : une flèche bidirectionnelle annotée "TLS 1.2/1.3 — Port 8883". Deux bulles de dialogue montrent l'échange : ESP32 dit "Je vérifie ton CA → tu es bien AWS" ; AWS dit "Je vérifie ton certificat → tu es bien mon device". Style diagramme sécurité IoT propre, fond blanc.*
-
-> **Légende :** Authentification mutuelle TLS (mTLS) entre l'ESP32 et AWS IoT Core. L'ESP32 vérifie l'identité du serveur AWS grâce au fichier `AmazonRootCA1.pem`. AWS vérifie l'identité du device grâce au `device-certificate.pem.crt`. La clé privée (`private.pem.key`) signe la négociation TLS mais ne quitte jamais le device.
+![Authentification TLS standard et mutuelle (mTLS) avec AWS IoT Core.](images/tls-mtls.png)
 
 ---
 
@@ -313,17 +297,7 @@ void loop() {
 
 > AWS IoT Rules sont des règles SQL-like qui déclenchent des actions quand un message MQTT correspond à un critère. Elles permettent de router les données vers d'autres services AWS sans écrire de code serveur.
 
-```
-ESP32 publie → Broker AWS IoT → Rule Engine analyse le topic/payload
-                                        │
-             ┌──────────────────────────┤
-             ▼                          ▼
-        CloudWatch                  DynamoDB
-        (graphes)                   (historique)
-             ▼                          ▼
-           Lambda                      S3
-        (traitement)               (archivage)
-```
+![AWS IoT : le Rule Engine distribue les messages (CloudWatch, DynamoDB, Lambda, S3)](images/aws-regles.png)
 
 ### Créer une règle IoT vers CloudWatch
 
@@ -382,10 +356,6 @@ Ajouter un 2ème widget :
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Maquette d'un dashboard CloudWatch montrant deux widgets. À gauche : un graphique en courbes "Temperature (°C)" avec une courbe oscillant entre 20°C et 28°C sur les 30 dernières minutes, avec une ligne de seuil d'alarme rouge à 30°C. À droite : une jauge circulaire affichant "23.5°C" dans une zone verte. En bas : un tableau avec les dernières valeurs JSON publiées. Style interface AWS CloudWatch, fond gris foncé, éléments verts/rouges, annotations.*
-
-> **Légende :** Dashboard CloudWatch typique pour un projet IoT ESP32. Le graphique en courbes montre l'historique de la température sur 30 minutes. La jauge affiche la valeur instantanée. Les données proviennent de l'ESP32 via MQTT TLS → AWS IoT Core → IoT Rule → CloudWatch.
 
 ---
 

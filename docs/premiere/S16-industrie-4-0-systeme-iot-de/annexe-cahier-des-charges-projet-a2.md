@@ -15,17 +15,7 @@
 
 ## 📐 ARCHITECTURE GÉNÉRALE REQUISE
 
-```
-[Capteur(s)] ──► [ESP32] ──Wi-Fi──► [AWS IoT Core] ──► [CloudWatch]
-     │                                      │                │
-  Physique                           Règle IoT SQL      Dashboard +
-  (vibration,                       (filtrage,          Alarmes
-   courant,                          enrichissement)
-   niveau...)
-                                           │
-                                    [Notification SMS]
-                                    (si seuil dépassé)
-```
+![Chaîne complète : capteurs, ESP32, AWS IoT Core, CloudWatch et notification SMS](images/chaine-aws.png)
 
 ---
 

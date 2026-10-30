@@ -112,10 +112,6 @@ Vue de dessus du boîtier (exemple) :
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Comparaison de 4 boîtiers : (1) Vue d'un boîtier FDM imprimé en PLA gris avec les couches visibles, une ouverture USB et une fenêtre pour LED, montrant l'intérieur avec l'ESP32 visible. (2) Boîtier découpé laser en acrylique transparent, assemblé avec des vis M3, montrant les couches superposées. (3) Boîtier industriel Hammond en aluminium avec étiquette vinyle et connecteurs panel-mount. (4) Boîtier plastique ABS standard modifié avec perçages additionnels. Sous chaque image : IP typique, coût, délai de fabrication. Style comparaison produits industriels, fond blanc.*
-
-> **Légende :** Quatre approches de boîtier pour un projet IoT ESP32. L'impression 3D FDM offre la plus grande liberté de forme pour un coût très faible mais ne certifie pas un IP. La découpe laser est rapide et précise pour les projets plats. Le boîtier industriel modifié offre la certification IP et la robustesse. Chaque technologie correspond à une étape dans le cycle de vie du produit.
 
 ---
 
@@ -270,10 +266,6 @@ $$\Delta T \approx \frac{P_{totale}}{k \cdot S}$$
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Tableau de bord d'un plan de tests (style feuille de recette industrielle). Six lignes de tests avec colonnes : ID test, Objectif, Mesure attendue, Mesure réelle, Pass/Fail. La ligne TC-003 (thermique) est en rouge (FAIL) avec valeur mesurée 72°C pour critère de 60°C. La ligne TC-005 (réseau) est en orange (CONDITIONAL PASS) avec RSSI -78 dBm pour critère > -80 dBm. Les autres lignes sont en vert (PASS). Style tableau de recette industriel, fond blanc, mise en évidence rouge/orange/vert.*
-
-> **Légende :** Exemple de plan de tests après exécution. Les lignes vertes (PASS) indiquent que les critères sont atteints. Le test TC-003 (thermique) échoue : la température interne dépasse 60°C après 15 minutes en boîtier fermé — il faut ajouter des aérations. Le test TC-005 (Wi-Fi à 15m avec murs) est à la limite — surveiller en production.
 
 ---
 

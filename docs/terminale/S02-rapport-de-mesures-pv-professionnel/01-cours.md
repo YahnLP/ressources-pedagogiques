@@ -135,10 +135,6 @@ Ce que contient un certificat d'étalonnage :
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Diagramme pyramidal de la chaîne de raccordement métrologique. Sommet : BIPM (icône globe, "Définitions SI"). Niveau 2 : LNE France (icône bâtiment officiel, "Étalons primaires nationaux"). Niveau 3 : Laboratoire accrédité COFRAC (icône microscope, "Certificats ISO/CEI 17025"). Niveau 4 : Instrument étalonné (icône multimètre, "Erreur et incertitude connues"). Base : Mesure sur le terrain (icône technicien, "PV de mesure traçable"). Flèches descendantes annotées "Raccordement par comparaison". Style diagramme métrologique industriel, fond blanc, couleurs hiérarchiques du bleu foncé au vert clair.*
-
-> **Légende :** La chaîne de traçabilité métrologique. Chaque niveau est raccordé au niveau supérieur par une comparaison documentée avec incertitude connue. Un PV de mesure réalisé avec un instrument Fluke étalonné COFRAC en 2026 est raccordé au BIPM via cette chaîne — c'est la garantie de sa valeur légale.
 
 ---
 
@@ -216,10 +212,6 @@ Résultat : R = (4 703 ± 30) Ω  [niveau de confiance 95%]
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Diagramme en bâtons montrant la composition de l'incertitude. Sur l'axe X : les 3 sources (u_A statistique en bleu flair, u_B résolution en orange clair, u_B classe en rouge). Sur l'axe Y : les valeurs en Ω. Une 4ème barre montre u_c combinée (plus grande). Une 5ème barre montre U élargie (le double). Annotation centrale : "La classe de l'instrument domine souvent l'incertitude totale". Style graphique bâtons pédagogique, fond blanc, axes annotés.*
-
-> **Légende :** Composition de l'incertitude de mesure. Dans cet exemple, la classe de l'instrument (13,6 Ω) domine largement l'incertitude combinée. L'incertitude statistique (u_A = 1,2 Ω) et la résolution (u_B = 0,3 Ω) sont négligeables face à l'incertitude intrinsèque de l'instrument. Cela montre qu'améliorer le nombre de mesures (réduire u_A) ne sert à rien si l'instrument est de mauvaise classe.
 
 ---
 

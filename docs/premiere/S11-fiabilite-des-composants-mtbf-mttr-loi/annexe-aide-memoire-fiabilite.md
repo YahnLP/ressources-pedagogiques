@@ -42,15 +42,11 @@ MTBFs = 1 / λs
 
 ## 📐 Systèmes parallèle
 
-```
-    ┌─ [C1] ─┐
-────┤  [C2]  ├────
-    └─ [C3] ─┘
+![Système parallèle : il suffit qu'un composant fonctionne](images/rbd-parallele.png)
 
-Rs = 1 − (1−R1)(1−R2)(1−R3)
+$$R_s = 1 - (1 - R_1)(1 - R_2)(1 - R_3)$$
 
-→ Rs > Rmax (plus fiable que le plus fiable !)
-```
+$R_s > R_{max}$ : le système est plus fiable que le plus fiable de ses composants.
 
 ---
 

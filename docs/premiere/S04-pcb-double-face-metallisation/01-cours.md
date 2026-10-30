@@ -67,10 +67,7 @@ Comment le créer dans KiCad :
 
 ---
 
-**🖼️ ILLUSTRATION 1 — Coupe d'un PCB double face**
-> *Légende* : Vue en coupe d'un PCB double face. De haut en bas : sérigraphie F (texte blanc), masque de soudure F (vert), cuivre F.Cu (rouge/doré), substrat FR4 (beige/marron), cuivre B.Cu (bleu/doré), masque de soudure B, sérigraphie B. Un via traversant est montré comme un cylindre creux métallisé en cuivre traversant toutes les couches. À côté, un composant THT dont les pattes traversent le PCB. À droite, un composant SMD posé à plat sur les pads de F.Cu. Épaisseur totale annotée : 1,6 mm standard.
->
-> **Prompt illustration** : *"Cross-section diagram of double-sided PCB in French. Layered structure from top to bottom: white 'Sérigraphie (Silkscreen)', green 'Masque soudure F (Solder Mask)', red/gold 'F.Cu (cuivre face avant)', beige 'Substrat FR4 (1.6mm)', blue/gold 'B.Cu (cuivre face arrière)', green 'Masque soudure B', white 'Sérigraphie B'. Center: metallized through-hole via as copper cylinder with label 'Via traversant - connexion F.Cu ↔ B.Cu'. Left: THT resistor component with leads going through holes, soldered on B side. Right: SMD capacitor sitting flat on F.Cu pads. Total thickness '1.6mm standard'. French labels, technical cross-section diagram style"*
+![Coupe d'un PCB double face](images/coupe-pcb-double-face.png)
 
 ---
 
@@ -152,10 +149,7 @@ SOIC-8    ~5 × 4          NE555 SMD, AO, mémoires
 
 ---
 
-**🖼️ ILLUSTRATION 2 — THT vs SMD comparaison visuelle**
-> *Légende* : Deux colonnes côte à côte. Colonne gauche "THT" : résistance axiale traversante avec pattes dans des trous percés, vue de côté et vue de dessus. Les trous sont cerclés de pads annulaires. La soudure est visible sur la face inférieure (étain). Colonne droite "SMD" : résistance 0805 à plat sur deux pads rectangulaires. Vue de côté et de dessus. Les formats 0402/0603/0805/1206 sont représentés à l'échelle relative. Un fer à souder humain montre la relative difficulté de soudure pour chaque format.
->
-> **Prompt illustration** : *"THT vs SMD visual comparison in French. Left column 'THT (Traversant)': axial resistor with leads going through PCB holes, side view showing legs and solder fillets on bottom, top view showing annular pads with hole center. Label 'Soudure facile à la main'. Right column 'SMD (Surface)': 0805 resistor flat on rectangular pads, side view showing component sitting on pads, top view showing pad geometry. Scale comparison row: 0402(1×0.5mm), 0603(1.6×0.8mm), 0805(2×1.25mm)★ recommended, 1206(3.2×1.6mm). Solder iron difficulty icons. French labels, technical illustration style, blue/orange color coding"*
+![Composant traversant (THT) et composant CMS (SMD)](images/cms-traversant.png)
 
 ---
 
@@ -259,10 +253,6 @@ Enfin : créer un ZIP de tous les fichiers du dossier "gerber/"
 
 ---
 
-**🖼️ ILLUSTRATION 3 — Fenêtre d'export Gerber KiCad**
-> *Légende* : Interface KiCad d'export Gerber avec les calques à cocher. La liste de gauche montre les calques avec des cases à cocher (F.Cu ✓, B.Cu ✓, Edge.Cuts ✓, etc.). À droite, les options (Protel extensions, job file). Le bouton "Run" en bas. À côté, la structure des fichiers générés dans l'explorateur de fichiers avec les extensions .gbr et .drl. Un icône ZIP symbolise l'archive à envoyer au fabricant.
->
-> **Prompt illustration** : *"KiCad Gerber plot dialog in French. Main dialog showing checklist of layers to export: F.Cu ✓ (red), B.Cu ✓ (blue), F.Silkscreen ✓, B.Silkscreen ✓, F.Mask ✓, B.Mask ✓, Edge.Cuts ✓. Options panel right side: 'Protel filename extensions ✓', 'Generate Gerber job file ✓'. 'Run' button at bottom. Right side: file explorer showing generated files: 'circuit-F_Cu.gbr', 'circuit-B_Cu.gbr', 'circuit-F_Mask.gbr', etc. and 'circuit-PTH.drl'. ZIP archive icon with label 'Envoyer au fabricant'. French labels, KiCad UI style"*
 
 ---
 
@@ -323,10 +313,7 @@ Uploader le ZIP directement sur JLCPCB pour voir le rendu :
 
 ---
 
-**🖼️ ILLUSTRATION 4 — Correspondance Gerber → PCB réel**
-> *Légende* : Vue côte à côte en 4 colonnes. Colonne 1 "F.Cu Gerber" : calque cuivre rouge avec pistes. Colonne 2 "F.Mask Gerber" : calque masque avec ouvertures (points noirs) aux emplacements des pads. Colonne 3 "F.Silkscreen Gerber" : textes blancs R1, D1, IC1. Colonne 4 "PCB Réel" : photo/rendu du PCB vert avec les 3 couches superposées visibles. Une flèche "superposition" relie les 3 premières colonnes à la dernière.
->
-> **Prompt illustration** : *"Gerber layers to real PCB correspondence in French, 4-column layout. Column 1 'F.Cu Gerber': red copper tracks and pads on black background. Column 2 'F.Mask Gerber': dark green background with black openings showing pad locations (solder mask openings). Column 3 'F.Silkscreen': white text on black - 'R1', 'D1', 'IC1'. Column 4 'PCB Réel': rendered green PCB showing all layers combined. Arrow 'Superposition' connecting columns 1-3 to column 4. French labels, layered diagram style showing fabrication process"*
+![Des calques Gerber au PCB réel](images/gerber-couches.png)
 
 ---
 

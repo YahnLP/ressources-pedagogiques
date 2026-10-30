@@ -433,7 +433,7 @@ Le **schéma électronique** est le document qui permet à n'importe quel techni
 
 ### 7.2 Les éléments obligatoires d'un schéma de projet
 
-![Schéma électronique complet du système domotique A1](images/schema-complet-domotique.png)
+![Schéma électronique complet du système domotique A1](images/schema-complet-domotique.png)  
 Components as blocks: U1=Arduino UNO (with labeled pins D2, D10, D11, A4, A5, 5V, GND),  
 DHT1=DHT11 sensor (with R1=10kΩ pull-up between VCC and DATA),  
 

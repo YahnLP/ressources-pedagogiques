@@ -9,14 +9,7 @@
 
 ## 🔑 Définition et triangle CEM
 
-```
-CEM = Ne pas perturber + Ne pas être perturbé
-      (Directive européenne 2014/30/UE → Marquage CE)
-
-SOURCE ──→ COUPLAGE ──→ VICTIME
-
-Agir sur le COUPLAGE = solution la plus simple
-```
+![CEM : source, couplage, victime](images/cem-couplage.png)
 
 ---
 
@@ -91,15 +84,13 @@ Applications :
 
 ## 🟩 Filtre RC passe-bas
 
-```
-Signal ──[R]──┬── Sortie filtrée
-              [C]
-              GND
+![Filtre RC passe-bas](images/filtre-rc-cem.png)
 
-fc = 1 / (2π × R × C)
+$$f_c = \dfrac{1}{2\pi R C}$$
 
-Ex : R=10kΩ · C=330nF → fc = 48 Hz
-```
+**Exemple :** $R = 10\,\mathrm{k\Omega}$ et $C = 330\,\mathrm{nF}$
+
+$$f_c = \dfrac{1}{2\pi \times 10\,000 \times 330 \times 10^{-9}} \approx 48\ \mathrm{Hz}$$
 
 ---
 

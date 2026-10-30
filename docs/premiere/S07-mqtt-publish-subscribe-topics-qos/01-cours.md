@@ -45,20 +45,7 @@
 
 ### Architecture
 
-```
-                    ┌──────────────────┐
-  [Capteur Temp]    │                  │    [Dashboard]
-  Publisher ───────►│    B R O K E R   │───►  Subscriber
-                    │   (Mosquitto,    │
-  [Capteur CO2]     │    HiveMQ...)    │    [Alarme SMS]
-  Publisher ───────►│                  │───►  Subscriber
-                    │                  │
-                    └──────────────────┘
-                                ▲
-                         Seul point central
-                         Les publishers et subscribers
-                         ne se connaissent pas
-```
+![MQTT : publishers, broker et subscribers](images/mqtt-broker.png)
 
 ### Les acteurs
 
@@ -116,10 +103,7 @@ Souscription : maison/#
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Schéma d'architecture MQTT. Au centre : un rectangle étiqueté "BROKER (Mosquitto)" avec une icône serveur. À gauche : 3 icônes ESP32/capteurs étiquetées "Publisher 1 → maison/salon/temp", "Publisher 2 → maison/cuisine/temp", "Publisher 3 → usine/ligne1/vib". À droite : 3 icônes étiquetées "Subscriber A (abonné à maison/#)", "Subscriber B (abonné à maison/salon/+)", "Subscriber C (abonné à usine/#)". Des flèches colorées montrent quel subscriber reçoit quels messages selon les topics. Style schéma IoT propre, fond blanc, couleurs distinctes par topic.*
-
-> **Légende :** Architecture MQTT avec 3 publishers et 3 subscribers. Le broker est l'unique point de contact — publishers et subscribers ne communiquent jamais directement. Subscriber A (abonné à `maison/#`) reçoit tous les messages des publishers 1 et 2. Subscriber B (abonné à `maison/salon/+`) reçoit seulement les messages du publisher 1 (salon uniquement, toutes grandeurs). Subscriber C reçoit uniquement les données industrielles.
+![Architecture MQTT : le broker est l'unique point de contact entre publishers et subscribers.](images/mqtt-broker.png)
 
 ---
 
@@ -368,10 +352,6 @@ void loop() {
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Schéma de la chaîne IoT complète de cette séance. De gauche à droite : ESP32 avec capteur DHT22 (température et humidité) → connexion Wi-Fi (ondes) → PC Linux avec Mosquitto (broker, icône serveur) → deux clients : terminal CLI avec mosquitto_sub et Node-RED (icône) abonné. Annotations : "Topic : maison/salon/data", "JSON payload", "QoS 1". Style diagramme IoT moderne, fond blanc, flèches colorées, icônes hardware reconnaissables.*
-
-> **Légende :** Chaîne IoT complète de la séance. L'ESP32 mesure température et humidité via DHT22, les formate en JSON et les publie sur le topic `maison/salon/data` vers le broker Mosquitto local. Deux subscribers écoutent simultanément : le terminal CLI (mosquitto_sub) pour le débogage et Node-RED pour l'affichage graphique. L'ESP32 s'abonne également au topic de commande `maison/salon/led` pour recevoir des ordres depuis le broker.
 
 ---
 

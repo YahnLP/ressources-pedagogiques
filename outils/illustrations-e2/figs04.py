@@ -41,11 +41,11 @@ def dial_label(kind, x, y):
     return ""
 
 
-def multimeter(highlight=None, probes=True):
+def multimeter(highlight=None, probes=True, display="12.34"):
     o = '<g filter="url(#sh)"><rect x="-125" y="-250" width="250" height="500" rx="30" fill="url(#yellow)" stroke="#b78300" stroke-width="3"/></g>'
     o += '<rect x="-108" y="-232" width="216" height="122" rx="14" fill="#2a2d33"/>'
     o += '<rect x="-92" y="-218" width="184" height="84" rx="6" fill="#cfe3c4"/>'
-    o += T(70, -165, "12.34", 54, 700, "#1d2a1a", "end", extra='font-family="monospace"')
+    o += T(70, -165, display, 54, 700, "#1d2a1a", "end", extra='font-family="monospace"')
     o += T(-84, -196, "DC", 14, 800, "#1d2a1a", "start") + T(88, -196, "V", 16, 800, "#1d2a1a", "end")
     o += '<circle cx="0" cy="-8" r="62" fill="url(#knob)" stroke="#111" stroke-width="3"/>'
     o += '<path d="M0,-8 L-34,-40" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="0" cy="-8" r="9" fill="#e9eaee"/>'

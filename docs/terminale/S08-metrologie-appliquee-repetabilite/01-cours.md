@@ -80,10 +80,7 @@ CALCUL :
 
 ---
 
-**🖼️ ILLUSTRATION 1 — Répétabilité vs Reproductibilité**
-> *Légende* : Quatre cibles de tir côte à côte illustrant les 4 combinaisons possibles. Cible 1 "Bonne répétabilité + bonne reproductibilité" : 3 groupes de points serrés, chaque groupe proche du centre (idéal). Cible 2 "Bonne répétabilité + mauvaise reproductibilité" : 3 groupes de points serrés, mais les groupes sont dispersés loin les uns des autres. Cible 3 "Mauvaise répétabilité + bonne reproductibilité" : 3 groupes dispersés mais centrés au même endroit. Cible 4 "Mauvaise répétabilité + mauvaise reproductibilité" : chaos total. Chaque groupe de points a une couleur différente (opérateur A=bleu, B=rouge, C=vert).
->
-> **Prompt illustration** : *"Repeatability vs Reproducibility target diagram in French. Four archery targets side by side. Target 1 'Bonne répétabilité + Reproductibilité': 3 tight clusters of dots near center, each cluster labeled Op.A (blue), Op.B (red), Op.C (green) - ideal. Target 2 'Bonne répétabilité, mauvaise reproductibilité': 3 tight clusters but spread far apart. Target 3 'Mauvaise répétabilité, bonne reproductibilité': 3 spread-out clusters near same center area. Target 4 'Les deux mauvaises': chaotic dots everywhere. French labels under each target. Archery target diagram style with concentric circles"*
+![Répétabilité et reproductibilité](images/cibles-repetabilite.png)
 
 ---
 
@@ -158,10 +155,7 @@ NDC (Number of Distinct Categories) :
 
 ---
 
-**🖼️ ILLUSTRATION 2 — Interprétation graphique du %GRR**
-> *Légende* : Barre horizontale représentant l'intervalle de tolérance total (de −Tol à +Tol). Une zone hachurée rouge à gauche représente la "part de la tolérance consommée par le GRR" (5,15 × σ_GRR). Trois cas superposés : cas 1 (%GRR=8%, zone rouge petite = vert "EXCELLENT"), cas 2 (%GRR=20%, zone rouge plus grande = jaune "ACCEPTABLE"), cas 3 (%GRR=40%, zone rouge occupe presque tout l'intervalle = rouge "INACCEPTABLE"). La zone bleue restante représente "ce qu'il reste pour distinguer les pièces".
->
-> **Prompt illustration** : *"GRR percentage interpretation diagram in French. Horizontal tolerance bar showing total tolerance range. Three stacked scenarios: Case 1 '%GRR=8%': small red hatched zone on left labeled 'Incertitude de mesure' green label 'EXCELLENT ✓✓'. Case 2 '%GRR=20%': medium red zone yellow label 'ACCEPTABLE ✓'. Case 3 '%GRR=40%': large red zone covering most of bar red label 'INACCEPTABLE ✗'. Blue zone labeled 'Marge pour distinguer les pièces'. Threshold lines at 10% and 30%. French labels, quality engineering diagram style"*
+![Interprétation graphique du %GRR](images/grr-interpretation.png)
 
 ---
 

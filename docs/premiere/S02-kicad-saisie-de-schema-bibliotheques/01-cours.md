@@ -62,23 +62,27 @@
 
 ### Zones de l'interface
 
+```
+┌─────────────────────────────────────────────────────────────────┐
 │  BARRE DE MENUS  File / Edit / View / Place / Inspect / Tools   │
-|  |  |
-|---|---|
-| B | Z O N E   D E   T R A V A I L |
-| A | (plan de schéma A4/A3) |
-| R |  |
-| R |  |
-| E |  |
-|  |  |
-| O |  |
-| U |  |
-| T |  |
-| I |  |
-| L |  |
-|  |  |
-
+├──────┬──────────────────────────────────────────────────────────┤
+│      │                                                          │
+│ B    │         Z O N E   D E   T R A V A I L                   │
+│ A    │              (plan de schéma A4/A3)                      │
+│ R    │                                                          │
+│ R    │                                                          │
+│ E    │                                                          │
+│      │                                                          │
+│ O    │                                                          │
+│ U    │                                                          │
+│ T    │                                                          │
+│ I    │                                                          │
+│ L    │                                                          │
+│      │                                                          │
+├──────┴──────────────────────────────────────────────────────────┤
 │  BARRE DE STATUT : coordonnées, grille, zoom                    │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ### Navigation de base
 
@@ -147,10 +151,6 @@
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Capture d'écran annotée d'Eeschema montrant : (1) un composant NE555 placé avec ses broches numérotées et nommées, (2) une résistance R1 avec sa valeur "4k7" visible, (3) une LED avec sa référence LED1, (4) des fils (lignes vertes) reliant les broches, (5) des symboles d'alimentation VCC et GND. Chaque élément est encadré et annoté avec son nom technique. Style capture d'écran annotée, fond sombre type KiCad.*
-
-> **Légende :** Vue typique d'un schéma en cours de saisie dans Eeschema. Les composants sont reliés par des fils verts. Les symboles d'alimentation VCC et GND sont des nœuds globaux — tout ce qui porte le même nom est électriquement connecté, même sans fil visible.
 
 ---
 
@@ -204,10 +204,6 @@ Règle :  1 PWR_FLAG sur le nœud +5V (ou VCC)
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Schéma montrant deux situations : À gauche (SANS PWR_FLAG) : symbole VCC et GND avec une icône d'erreur ERC rouge "power_pin_not_driven". À droite (AVEC PWR_FLAG) : mêmes symboles mais avec un composant PWR_FLAG attaché à chacun, et une icône verte "ERC OK". Style comparaison avant/après pédagogique, fond blanc, annotations claires.*
-
-> **Légende :** Le PWR_FLAG est indispensable pour supprimer les fausses alertes ERC sur les nœuds d'alimentation. Sans lui, l'ERC croit que +5V et GND sont des nœuds "flottants" non pilotés.
 
 ---
 

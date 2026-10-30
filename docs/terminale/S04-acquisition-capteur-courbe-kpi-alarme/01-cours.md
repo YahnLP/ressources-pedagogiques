@@ -270,10 +270,7 @@ NiveauAlarme evaluerNiveau(float temp) {
 
 ---
 
-📷 **[ILLUSTRATION 1]**
-*Graphique temporel montrant l'effet de l'hystérésis sur une alarme. Axe X : temps (0 à 30 min). Axe Y : température (°C). Courbe bleue ondulée de la mesure brute, oscillant entre 31°C et 37°C. Ligne pointillée rouge "SEUIL_HAUT = 35°C". Ligne pointillée orange "SEUIL_BAS = 33°C". Zone grise entre les deux lignes = zone d'hystérésis. Sous le graphique : barre d'état alarme (vert = OFF, rouge = ON). Sans hystérésis (en haut) : barre clignote ON/OFF rapidement. Avec hystérésis (en bas) : barre change d'état une seule fois proprement. Annotation "Battement éliminé". Style graphique supervision industrielle, fond blanc.*
-
-> **Légende :** Comparaison entre une alarme sans et avec hystérésis. Sans hystérésis, la mesure qui oscille de part et d'autre du seuil crée un battement inacceptable. L'hystérésis de 2°C élimine ce phénomène : l'alarme s'active proprement à 35°C et ne se désactive qu'à 33°C.
+![Alarme avec hystérésis : seuil haut 30 °C, seuil bas 28 °C, plus de clignotement autour du seuil.](images/hysteresis-alerte.png)
 
 ---
 
@@ -333,67 +330,71 @@ void enregistrerPoint(float valeur, float moy_mobile, NiveauAlarme alarme) {
 
 ### Structure d'une fiche MES
 
+```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FICHE DE MISE EN SERVICE
+  FICHE DE MISE EN SERVICE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 1. IDENTIFICATION
-Référence MES   : MES-2026-AGRO-001
-Client          : Coopérative AGROSMART – M. LEROUX
-Site            : Serre n°3 – Zone Tomates
-Date            : 2026-03-22
-Intervenant(s)  : A. DUPONT, B. MARTIN — CFA [Ville]
+   Référence MES   : MES-2026-AGRO-001
+   Client          : Coopérative AGROSMART – M. LEROUX
+   Site            : Serre n°3 – Zone Tomates
+   Date            : 2026-03-22
+   Intervenant(s)  : A. DUPONT, B. MARTIN — CFA [Ville]
 
 2. MATÉRIELS INSTALLÉS
-Réf.  │ Désignation          │ N° Série     │ Firmware
-──────┼──────────────────────┼──────────────┼──────────────
-U1    │ ESP32 DevKit v1      │ ESP-2026-043 │ v2.1.0
-U2    │ DHT22 Temp+Hum       │ —            │ —
-U3    │ LED d'alarme Ø5mm    │ —            │ —
+   Réf.  │ Désignation          │ N° Série     │ Firmware
+   ──────┼──────────────────────┼──────────────┼──────────────
+   U1    │ ESP32 DevKit v1      │ ESP-2026-043 │ v2.1.0
+   U2    │ DHT22 Temp+Hum       │ —            │ —
+   U3    │ LED d'alarme Ø5mm    │ —            │ —
 
 3. PARAMÈTRES CONFIGURÉS
-SSID Wi-Fi           : AGRO_PRO_WIFI [réseau interne]
-Broker MQTT          : AWS IoT Core eu-west-1
-Topic publication    : agro/serre3/capteurs
-Fréquence pub.       : 10 secondes
-T° seuil WARNING     : 32°C (hystérésis 1,5°C)
-T° seuil CRITICAL    : 38°C (hystérésis 1,5°C)
-Anti-rebond alarme   : 30 secondes
-Moyenne mobile       : N = 6 points (1 min)
-Notification SMS     : +33 6 XX XX XX XX (M. LEROUX)
+   SSID Wi-Fi           : AGRO_PRO_WIFI [réseau interne]
+   Broker MQTT          : AWS IoT Core eu-west-1
+   Topic publication    : agro/serre3/capteurs
+   Fréquence pub.       : 10 secondes
+   T° seuil WARNING     : 32°C (hystérésis 1,5°C)
+   T° seuil CRITICAL    : 38°C (hystérésis 1,5°C)
+   Anti-rebond alarme   : 30 secondes
+   Moyenne mobile       : N = 6 points (1 min)
+   Notification SMS     : +33 6 XX XX XX XX (M. LEROUX)
 
 4. TESTS DE VALIDATION
-│ Test TC-001 : Connexion Wi-Fi et publication MQTT        │
-│ Résultat : Premier message reçu en 8,3 s    → ✅ PASS   │
-│ Test TC-002 : Lecture capteur DHT22                       │
-│ T° = 24,3°C / HR = 58% — cohérent avec sonde de réf.    │
-│                                                  → ✅ PASS│
-│ Test TC-003 : Déclenchement alarme WARNING (T° simulée)  │
-│ Résultat : LED orange + SMS reçu en 38s     → ✅ PASS   │
-│ Test TC-004 : Dashboard CloudWatch en temps réel         │
-│ Résultat : Courbe visible, KPI affichés      → ✅ PASS  │
-│ Test TC-005 : Fonctionnement hors réseau                 │
-│ Résultat : LED d'alarme locale active          → ✅ PASS │
+   ┌───────────────────────────────────────────────────────────┐
+   │ Test TC-001 : Connexion Wi-Fi et publication MQTT        │
+   │ Résultat : Premier message reçu en 8,3 s    → ✅ PASS   │
+   ├───────────────────────────────────────────────────────────┤
+   │ Test TC-002 : Lecture capteur DHT22                       │
+   │ T° = 24,3°C / HR = 58% — cohérent avec sonde de réf.    │
+   │                                                  → ✅ PASS│
+   ├───────────────────────────────────────────────────────────┤
+   │ Test TC-003 : Déclenchement alarme WARNING (T° simulée)  │
+   │ Résultat : LED orange + SMS reçu en 38s     → ✅ PASS   │
+   ├───────────────────────────────────────────────────────────┤
+   │ Test TC-004 : Dashboard CloudWatch en temps réel         │
+   │ Résultat : Courbe visible, KPI affichés      → ✅ PASS  │
+   ├───────────────────────────────────────────────────────────┤
+   │ Test TC-005 : Fonctionnement hors réseau                 │
+   │ Résultat : LED d'alarme locale active          → ✅ PASS │
+   └───────────────────────────────────────────────────────────┘
 
 5. OBSERVATIONS ET RÉSERVES
-Aucune réserve.
-Prochaine vérification recommandée : dans 6 mois.
+   Aucune réserve.
+   Prochaine vérification recommandée : dans 6 mois.
 
 6. DÉCLARATION DE MISE EN SERVICE
-L'équipement décrit ci-dessus est déclaré :
-☑ OPÉRATIONNEL — conforme aux spécifications définies
+   L'équipement décrit ci-dessus est déclaré :
+   ☑ OPÉRATIONNEL — conforme aux spécifications définies
 
 7. SIGNATURES
-Installateur : ___________  Date : __________
-Client       : ___________  Date : __________
+   Installateur : ___________  Date : __________
+   Client       : ___________  Date : __________
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
 ---
 
-📷 **[ILLUSTRATION 2]**
-*Représentation du flux complet de la séance en 5 blocs connectés. Bloc 1 (rouge) : "Capteur physique" avec icône thermomètre et valeur "34,7°C". Flèche → Bloc 2 (bleu) : "ESP32 — calcul KPI" avec mini-graphique de moyenne mobile. Flèche → Bloc 3 (orange) : "Seuils & Alarmes" avec icône feu et hystérésis représentée. Flèche → Bloc 4 (vert) : "Courbe de tendance" avec graphique temporel. Flèche → Bloc 5 (violet) : "Fiche MES" avec icône document signé. Style diagramme flux industriel IoT, fond blanc, couleurs distinctes par bloc.*
-
-> **Légende :** La chaîne complète de la séance S4-A3 : le capteur physique alimente l'ESP32 qui calcule des KPI, applique une logique d'alarme avec hystérésis, génère une courbe de tendance et documente tout dans une fiche de mise en service signée. Chaque bloc peut fonctionner indépendamment, mais c'est leur enchaînement qui forme un système de supervision professionnel.
 
 ---
 
