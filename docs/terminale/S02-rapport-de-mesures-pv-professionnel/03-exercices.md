@@ -51,6 +51,11 @@ $$s = \sqrt{\frac{\sum(m_{i} - \bar{x})^2}{n-1}} = \sqrt{\frac{\_\_\_\_\_}{4}} =
 
 $$u_{A} = \frac{s}{\sqrt{n}} = \frac{\_\_\_\_}{\sqrt{5}} = \_\_\_\_ \text{ Ω}$$
 
+??? success "Réponses"
+    **A1.1** : $\bar{x} = \dfrac{23\,580}{5} = 4\,716\,\Omega$  
+    **A1.2** : écarts : +2 ; −5 ; +9 ; −7 ; +1 ; carrés : 4 ; 25 ; 81 ; 49 ; 1 ; somme = 160  
+    $s = \sqrt{\dfrac{160}{4}} = \sqrt{40} \approx 6{,}32\,\Omega$ ; $u_A = \dfrac{6{,}32}{\sqrt{5}} \approx 2{,}83\,\Omega$
+
 ---
 
 **A1.3 *(2 pts)*** — Calculez l'incertitude de type B (résolution + classe) :
@@ -62,6 +67,10 @@ $$u_{B,rés} = \frac{\text{résolution}}{2\sqrt{3}} = \frac{1}{2 \times 1,732} =
 Classe 0,5% sur la valeur mesurée :
 
 $$u_{B,classe} = \frac{0,5 \times \bar{x}}{100 \times \sqrt{3}} = \frac{0,5 \times \_\_\_\_}{100 \times 1,732} = \frac{\_\_\_\_}{\_\_\_\_} = \_\_\_\_ \text{ Ω}$$
+
+??? success "Réponses"
+    $u_{B,rés} = \dfrac{1}{2 \times 1{,}732} = \dfrac{1}{3{,}464} \approx 0{,}29\,\Omega$  
+    $u_{B,classe} = \dfrac{0{,}5 \times 4\,716}{100 \times 1{,}732} = \dfrac{23{,}58}{1{,}732} \approx 13{,}6\,\Omega$
 
 ---
 
@@ -79,6 +88,11 @@ $$U_{arrondi} = \_\_\_\_ \text{ Ω}$$
 
 $$\boxed{R_1 = (\text{\_\_\_\_ ± \_\_\_\_}) \text{ Ω } [95\%]}$$
 
+??? success "Réponses"
+    $u_c = \sqrt{2{,}83^2 + 0{,}29^2 + 13{,}6^2} \approx 13{,}9\,\Omega$ ; $U = 2 \times 13{,}9 \approx 27{,}8\,\Omega$  
+    $U_{arrondi} = 30\,\Omega$ (par excès, 1 chiffre significatif)  
+    $R_1 = (4\,716 \pm 30)\,\Omega$ [95 %]
+
 ---
 
 **A1.5 *(1 pt)*** — La spécification est 4,7 kΩ ±5% (soit 4 465 Ω à 4 935 Ω). La mesure est-elle dans la tolérance ?
@@ -88,6 +102,9 @@ Valeur mesurée    : _____ Ω
 Intervalle       : [4 465 ; 4 935] Ω
 Conclusion : ☐ Conforme   ☐ Non conforme
 ```
+
+??? success "Réponses"
+    Valeur mesurée : 4 716 Ω, dans l'intervalle [4 465 ; 4 935] Ω (même avec ± 30 Ω : [4 686 ; 4 746] Ω) : **conforme**.
 
 ---
 
@@ -112,6 +129,11 @@ $$R₂ = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) \Omega [95\
 ```
 Conclusion : ☐ Conforme   ☐ Non conforme   ☐ Sous réserve
 ```
+
+??? success "Réponses"
+    **A2.1** : $u_{B,rés} \approx 0{,}29\,\Omega$ ; $u_{B,classe} = \dfrac{0{,}5 \times 4\,831}{100 \times 1{,}732} \approx 13{,}9\,\Omega$ ; $u_c \approx 13{,}9\,\Omega$ ; $U \approx 27{,}9\,\Omega$ arrondi à 30 Ω  
+    $R_2 = (4\,831 \pm 30)\,\Omega$ [95 %]  
+    **A2.2** : l'intervalle [4 801 ; 4 861] Ω est entièrement dans [4 465 ; 4 935] Ω : **conforme**.
 
 ---
 
@@ -142,6 +164,11 @@ Intervalle de la mesure : [3,287 - U ; 3,287 + U] = [_____ ; _____] V
 3,3 V est dans cet intervalle ? ☐ Oui   ☐ Non
 Conclusion conformité : ☐ Conforme   ☐ Non conforme
 ```
+
+??? success "Réponses"
+    **B1** : $u_{B,rés} = \dfrac{0{,}001}{2 \times \sqrt{3}} \approx 0{,}0003\,\mathrm{V}$ ; $u_{B,classe} = 0{,}5 \times \dfrac{3{,}287}{100 \times \sqrt{3}} \approx 0{,}0095\,\mathrm{V}$ ; $u_c \approx 0{,}0095\,\mathrm{V}$ ; $U \approx 0{,}019\,\mathrm{V}$ arrondi à 0,02 V  
+    $V = (3{,}29 \pm 0{,}02)\,\mathrm{V}$ [95 %]  
+    **B2** : intervalle [3,267 ; 3,307] V ; 3,3 V est dans cet intervalle : **oui**. Il est aussi entièrement dans [3,201 ; 3,399] V : **conforme**.
 
 ---
 
@@ -176,6 +203,17 @@ Conclusion conformité : ☐ Conforme   ☐ Non conforme
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+??? success "Réponses"
+    | Zone | Classification (Cl. 2) | Justification |
+    |---|---|---|
+    | C1 (décalé 30 %) | Non conforme | décalage entre 25 et 50 % : non conforme en classe 2 d'après la grille R02 du dossier de ressources |
+    | R1 (brasure OK) | Conforme | brasure brillante, mouillage excellent |
+    | U1 (icicle pin 12) | Non conforme | pointe de soudure : risque de court-circuit, non conforme en classes 2 et 3 |
+    | J1 (remplissage 72 %) | Non conforme | classe 2 : remplissage ≥ 75 % exigé |
+    | J2 (résidu de flux) | Acceptable | résidu de colophane toléré en classe 2 (nettoyage conseillé) |
+    
+    **C2** : la carte est **non conforme** en classe 2 : trois défauts (C1, U1, J1) imposent une retouche. Après reprise de ces brasures et nouveau contrôle, la carte pourra être déclarée conforme ; le résidu de flux peut être nettoyé à l'isopropanol.
 
 ---
 
