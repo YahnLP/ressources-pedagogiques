@@ -14,21 +14,13 @@
 
 ## 📚 Organisation du site
 
-Le site est organisé **par bloc de compétences**, puis **par année**, puis **par semaine**.
+Le site est organisé **par bloc de compétences**.
 
 | Bloc | Contenu | Statut |
 |---|---|---|
-| **E31** | Réseaux informatiques | 🟢 En ligne (Années 1, 2 et 3) |
-| **E32** | À venir | ⏳ |
-| **E2** | À venir | ⏳ |
-| **E12** | À venir | ⏳ |
+| **E2** | Électronique : composants, schémas, montage, mesures, diagnostic, maintenance, microcontrôleurs | 🟢 En ligne (7 fiches de cours) |
 
-Chaque séance comprend, selon les cas :
-
-* Une **fiche de cours élève**
-* Un **QCM diagnostic** ou des **exercices**
-* Une **fiche de TP** (travaux pratiques)
-* Une **grille d'évaluation**
+Chaque fiche de cours est illustrée de schémas et de planches d'illustrations.
 
 Les corrigés et fiches formateur ne sont pas publiés sur ce site.
 
@@ -39,7 +31,7 @@ Les corrigés et fiches formateur ne sont pas publiés sur ce site.
 ### En classe
 
 ```
-1. Ouvrir la fiche de la semaine
+1. Ouvrir la fiche du jour
 2. Lire les objectifs
 3. Réaliser les activités / le TP
 4. Compléter l'auto-évaluation
@@ -48,7 +40,7 @@ Les corrigés et fiches formateur ne sont pas publiés sur ce site.
 ### En cas d'absence
 
 ```
-1. Consulter la fiche de cours + les exercices
+1. Consulter la fiche de cours
 2. Reproduire les manipulations en autonomie
 3. Faire valider la compréhension au cours suivant
 ```

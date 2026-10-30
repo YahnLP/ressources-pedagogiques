@@ -21,8 +21,8 @@ L’analyse et le diagnostic des pannes consistent à identifier et localiser le
 - Exemple : “LED doit s’allumer” / “sortie doit basculer de 0 à 5V”.
 
 <p align="center">
-  <img src="../images/diagnostic_schema_attendu.png" alt="Schéma + fonctionnement attendu" width="90%"><br>
-  <em>Illustration attendue : schéma simple annoté (où doit-on trouver 5V ? où doit-on trouver 0V ?).</em>
+  <img src="../images/diagnostic_points_de_mesure.png" alt="Schéma annoté : tensions attendues aux points de mesure (5 V, ≈ 2 V, 0 V)." width="90%"><br>
+  <em>Schéma annoté : tensions attendues aux points de mesure (5 V, ≈ 2 V, 0 V).</em>
 </p>
 
 ● Utilisation de la logique et de la déduction : un diagnostic efficace passe par une analyse logique des symptômes observés, en vérifiant étape par étape chaque composant et chaque connexion.
@@ -76,8 +76,8 @@ Les pannes peuvent se manifester de plusieurs façons, et certains signes permet
 - Un oscilloscope permet de voir si le signal est “sale” (bruit, distorsion).
 
 <p align="center">
-  <img src="../images/signal_propre_vs_bruit.png" alt="Signal propre vs bruité à l'oscilloscope" width="90%"><br>
-  <em>Illustration attendue : deux oscillogrammes : (1) signal propre, (2) signal avec bruit/parasites.</em>
+  <img src="../images/signal_propre_bruit.png" alt="Oscillogrammes : signal propre et signal bruité (parasites)." width="90%"><br>
+  <em>Oscillogrammes : signal propre et signal bruité (parasites).</em>
 </p>
 
 ---

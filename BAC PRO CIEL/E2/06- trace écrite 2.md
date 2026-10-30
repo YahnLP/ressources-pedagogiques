@@ -102,8 +102,8 @@ On cherche notamment :
 - **condensateur gonflé** (souvent à remplacer).
 
 <p align="center">
-  <img src="../03-images/condo.jpg" alt="Condensateur gonflé sur carte : signe de vieillissement et risque de panne" width="60%"><br>
-  <em>Illustration attendue : photo d’un condensateur électrolytique bombé/abîmé sur une carte.</em>
+  <img src="../images/condensateur_gonfle.png" alt="Condensateur électrolytique sain et condensateur gonflé qui fuit." width="90%"><br>
+  <em>Condensateur électrolytique sain et condensateur gonflé qui fuit.</em>
 </p>
 
 ### ● Nettoyage
@@ -126,8 +126,8 @@ Exemple : un circuit avec des soudures froides peut générer des coupures inter
 - une bonne soudure : cône propre, brillante, pas de pont
 
 <p align="center">
-  <img src="../03-images/soudure2.png" alt="Soudure correcte vs soudure froide vs pont d'étain : exemples fréquents" width="60%"><br>
-  <em>Illustration attendue : 3 exemples : soudure brillante (OK), soudure mate (froide), pont d’étain (court-circuit).</em>
+  <img src="../images/soudures.png" alt="Soudure correcte, soudure froide et pont d'étain (coupe et vue de dessus)." width="90%"><br>
+  <em>Soudure correcte, soudure froide et pont d'étain (coupe et vue de dessus).</em>
 </p>
 
 ### ● Contrôle des valeurs de tension et de courant

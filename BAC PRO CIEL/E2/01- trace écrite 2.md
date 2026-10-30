@@ -31,8 +31,8 @@ version: "1.0"
 - ou d’une **mauvaise valeur** (résistance trop faible → trop de courant → LED grillée).
 
 <p align="left">
-  <img src="../01-images/01-ouvert_ferme.png" alt="Schéma circuit ouvert et circuit fermé" width="40%"><br>
-  <em>comparaison d’un circuit ouvert (lampe éteinte) et d’un circuit fermé (lampe allumée).</em>
+  <img src="../images/circuit_ouvert_ferme.png" alt="Circuit ouvert (lampe éteinte) et circuit fermé (lampe allumée, le courant circule)." width="90%"><br>
+  <em>Circuit ouvert (lampe éteinte) et circuit fermé (lampe allumée, le courant circule).</em>
 </p>
 
 ---
@@ -62,8 +62,8 @@ On retrouve la résistance dans plusieurs montages classiques :
 - pour stabiliser un signal logique (pull-up / pull-down selon les montages).
 
 <p align="left">
-  <img src="../01-images/couleurs.png" alt="Résistance et code couleur" width="50%"><br>
-  <em>photo d’une résistance + exemple de lecture du code couleur vers une valeur en ohms.</em>
+  <img src="../images/resistance_code_couleurs.png" alt="Lecture du code couleurs : exemple jaune-violet-rouge-or = 4,7 kΩ ± 5 %." width="90%"><br>
+  <em>Lecture du code couleurs : exemple jaune-violet-rouge-or = 4,7 kΩ ± 5 %.</em>
 </p>
 
 **Vocabulaire à maîtriser :** ohm, opposition, limiter, valeur, tolérance.
@@ -96,8 +96,8 @@ On utilise un condensateur pour :
 Si on inverse la polarité, il peut être endommagé et provoquer une panne.
 
 <p align="left">
-  <img src="../01-images/C-polarite.png" alt="Condensateur électrolytique et polarité" width="30%"><br>
-  <em>condensateur électrolytique avec bande “–” + rappel du sens de montage.</em>
+  <img src="../images/condensateur_electrolytique.png" alt="Condensateur électrolytique : bande « − », patte longue « + » et symboles." width="90%"><br>
+  <em>Condensateur électrolytique : bande « − », patte longue « + » et symboles.</em>
 </p>
 
 **Vocabulaire à maîtriser :** farad, capacité, filtrage, pics de tension, polarité.
@@ -127,8 +127,8 @@ On les retrouve notamment dans :
 - des filtres audio (séparation graves/aigus).
 
 <p align="left">
-  <img src="../01-images/inductance.png" alt="Inductance (bobine) sur circuit" width="50%"><br>
-  <em>photo de différentes bobines/inductances (composant traversant ou CMS) et symbole sur schéma.</em>
+  <img src="../images/inductances.png" alt="Différentes bobines (torique, axiale, CMS) et symbole de l'inductance." width="90%"><br>
+  <em>Différentes bobines (torique, axiale, CMS) et symbole de l'inductance.</em>
 </p>
 
 **Vocabulaire à maîtriser :** henry, champ magnétique, filtrage.
@@ -158,8 +158,8 @@ La **LED** est une diode particulière : elle émet de la lumière.
 ⚠️ Piège majeur : une LED doit souvent être protégée par une **résistance** de limitation, sinon elle peut griller.
 
 <p align="left">
-  <img src="../01-images/diode.png" alt="Diode : sens et symbole" width="50%"><br>
-  <em>symbole diode + symbole LED + repérage anode/cathode et sens du courant.</em>
+  <img src="../images/diode_led.png" alt="Diode et LED : repérage anode/cathode, symboles et sens passant du courant." width="90%"><br>
+  <em>Diode et LED : repérage anode/cathode, symboles et sens passant du courant.</em>
 </p>
 
 **Vocabulaire à maîtriser :** sens passant, sens bloqué, anode, cathode, redressement.
@@ -190,8 +190,8 @@ On distingue deux familles fréquentes :
 Quand c’est mal câblé, le résultat est typique : la charge ne s’allume pas, ou reste toujours allumée, ou se comporte de façon instable.
 
 <p align="left">
-  <img src="../01-images/transistors.png" alt="Transistor en interrupteur et en amplificateur" width="45%"><br>
-  <em>Différents transistor.</em>
+  <img src="../images/transistors.png" alt="Symboles des transistors (NPN, PNP, MOSFET), boîtier TO-92 et deux rôles." width="90%"><br>
+  <em>Symboles des transistors (NPN, PNP, MOSFET), boîtier TO-92 et deux rôles.</em>
 </p>
 
 **Vocabulaire à maîtriser :** interrupteur électronique, amplification, commande, signal.
@@ -223,8 +223,8 @@ Les passifs sont indispensables pour :
 Un **circuit intégré (CI)** contient souvent un grand nombre de transistors (et d’autres éléments internes).
 
 <p align="left">
-  <img src="../01-images/composants.png" alt="Actifs vs passifs" width="40%"><br>
-  <em>tableau comparatif passif/actif avec exemples et rôles.</em>
+  <img src="../images/passifs_actifs.png" alt="Composants passifs et composants actifs : exemples et rôles." width="90%"><br>
+  <em>Composants passifs et composants actifs : exemples et rôles.</em>
 </p>
 
 ---
@@ -245,8 +245,8 @@ En série, si un composant se coupe, tout s’arrête : c’est une panne “en 
 En parallèle, une branche peut tomber en panne sans couper les autres : c’est souvent plus fiable pour des systèmes où on veut garder une partie fonctionnelle.
 
 <p align="left">
-  <img src="../01-images/serie.png" alt="Montage série et parallèle" width="50%"><br>
-  <em>deux schémas : série (même courant) et parallèle (même tension).</em>
+  <img src="../images/serie_parallele.png" alt="Montage en série (même courant) et montage en parallèle (même tension)." width="90%"><br>
+  <em>Montage en série (même courant) et montage en parallèle (même tension).</em>
 </p>
 
 **Tableau mémo**
@@ -269,8 +269,8 @@ Formule (niveau attendu standard) :
 Application typique CIEL : capteur résistif (**LDR**, **NTC**) → variation de résistance → variation de tension mesurable.
 
 <p align="left">
-  <img src="../01-images/diviseur.png" alt="Diviseur de tension à deux résistances" width="40%"><br>
-  <em>schéma diviseur avec Ue, R1, R2, Us + flèche de mesure au multimètre.</em>
+  <img src="../images/diviseur_tension.png" alt="Diviseur de tension (Ue, R1, R2, Us) et mesure de Us au voltmètre." width="90%"><br>
+  <em>Diviseur de tension (Ue, R1, R2, Us) et mesure de Us au voltmètre.</em>
 </p>
 
 **Méthode express (diviseur de tension)**
@@ -294,8 +294,8 @@ On l’utilise par exemple pour réduire les parasites et lisser une alimentatio
 On peut retenir simplement : “passe-bas” = cela lisse et adoucit les variations rapides.
 
 <p align="left">
-  <img src="../01-images/gabarit.png" alt="Filtre passe-bas RC" width="40%"><br>
-  <em>Illustration attendue : schéma RC (R en série, C à la masse) + courbe simple montrant atténuation des hautes fréquences.</em>
+  <img src="../images/filtre_rc.png" alt="Filtre passe-bas RC et courbe de gain : les hautes fréquences sont atténuées." width="90%"><br>
+  <em>Filtre passe-bas RC et courbe de gain : les hautes fréquences sont atténuées.</em>
 </p>
 
 ---
@@ -337,8 +337,8 @@ Un circuit intégré se reconnaît souvent à son boîtier multi-broches et à s
 En E2, on attend surtout : identifier le composant et expliquer son rôle global (ce qu’il fait dans le système).
 
 <p align="left">
-  <img src="../01-images/SOIC.jpg" alt="Exemples de boîtiers de circuits intégrés" width="40%"><br>
-  <em>photo DIP/SOIC + repère du détrompeur (encoche) + notion de broche 1.</em>
+  <img src="../images/boitiers_ci.png" alt="Boîtiers DIP (traversant) et SOIC (CMS) : encoche, repère et numérotation des broches." width="90%"><br>
+  <em>Boîtiers DIP (traversant) et SOIC (CMS) : encoche, repère et numérotation des broches.</em>
 </p>
 
 ---
@@ -362,8 +362,8 @@ Très souvent, on a besoin d’un transistor/driver pour commander un actionneur
 Piloter un moteur directement sur une sortie logique est impossible ou dangereux (courant trop important).
 
 <p align="left">
-  <img src="../01-images/capteur.png" alt="Capteur et actionneur : exemples" width="40%"><br>
-  <em>schéma bloc “capteur → traitement → actionneur” (ex : LDR → microcontrôleur → moteur/LED).</em>
+  <img src="../images/chaine_capteur_actionneur.png" alt="Chaîne capteur → traitement → actionneur (ex. LDR → microcontrôleur → LED ou moteur)." width="90%"><br>
+  <em>Chaîne capteur → traitement → actionneur (ex. LDR → microcontrôleur → LED ou moteur).</em>
 </p>
 
 ---
@@ -387,8 +387,8 @@ CMS = miniaturisation : smartphones, objets connectés, cartes modernes.
 La réparation est plus délicate et demande un outillage fin.
 
 <p align="left">
-  <img src="../01-images/CMS.png" alt="CMS vs traversant" width="40%"><br>
-  <em>photo comparative : composant traversant vs composant CMS + indication de taille.</em>
+  <img src="../images/cms_traversant.png" alt="Composant traversant et composant CMS, avec comparaison des tailles réelles." width="90%"><br>
+  <em>Composant traversant et composant CMS, avec comparaison des tailles réelles.</em>
 </p>
 
 ---

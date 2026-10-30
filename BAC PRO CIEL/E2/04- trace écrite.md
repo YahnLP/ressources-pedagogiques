@@ -21,8 +21,8 @@ Les mesures électriques reposent sur des grandeurs de base qui permettent de co
 - En diagnostic, la première mesure est souvent : **U_alimentation** (est-ce que j’ai bien 5V ?).
 
 <p align="center">
-  <img src="../images/dc_ac_exemples.png" alt="Tension DC vs AC" width="85%"><br>
-  <em>Illustration attendue : schéma simple montrant une pile (DC) et une sinusoïde (AC).</em>
+  <img src="../images/courant_continu_alternatif.png" alt="Tension continue (pile) et tension alternative (secteur 230 V, 50 Hz)." width="90%"><br>
+  <em>Tension continue (pile) et tension alternative (secteur 230 V, 50 Hz).</em>
 </p>
 
 ● Le courant électrique :
@@ -68,8 +68,8 @@ Différents outils sont utilisés pour mesurer les grandeurs électriques, chacu
 - Une erreur fréquente : rester branché sur “A” et mesurer une tension → risque.
 
 <p align="center">
-  <img src="../images/multimetre_modes_bornes.png" alt="Multimètre : modes et bornes" width="85%"><br>
-  <em>Illustration attendue : photo/diagramme d’un multimètre avec repères COM, VΩ, mA/A et modes DC/AC.</em>
+  <img src="../images/multimetre.png" alt="Multimètre : écran, sélecteur, bornes COM, VΩ, mA et 10 A." width="90%"><br>
+  <em>Multimètre : écran, sélecteur, bornes COM, VΩ, mA et 10 A.</em>
 </p>
 
 ● L’oscilloscope :
@@ -115,8 +115,8 @@ La façon de mesurer chaque grandeur dépend des propriétés du circuit et de l
 - Pour une alimentation : rouge sur Vcc, noir sur GND.
 
 <p align="center">
-  <img src="../images/mesure_tension_parallele.png" alt="Mesure de tension en parallèle" width="85%"><br>
-  <em>Illustration attendue : schéma d’un composant avec voltmètre branché en parallèle.</em>
+  <img src="../images/mesure_tension.png" alt="Mesure de tension : le voltmètre se branche en parallèle." width="90%"><br>
+  <em>Mesure de tension : le voltmètre se branche en parallèle.</em>
 </p>
 
 ● Mesure du courant :
@@ -128,8 +128,8 @@ La façon de mesurer chaque grandeur dépend des propriétés du circuit et de l
 - C’est la mesure la plus “à risque” : validation enseignant avant branchement.
 
 <p align="center">
-  <img src="../images/mesure_courant_serie.png" alt="Mesure de courant en série" width="85%"><br>
-  <em>Illustration attendue : schéma lampe + ampèremètre inséré en série.</em>
+  <img src="../images/mesure_courant.png" alt="Mesure de courant : l'ampèremètre s'insère en série dans le circuit." width="90%"><br>
+  <em>Mesure de courant : l'ampèremètre s'insère en série dans le circuit.</em>
 </p>
 
 ● Mesure de la résistance :

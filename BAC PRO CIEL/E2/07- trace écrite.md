@@ -12,11 +12,11 @@ Les microcontrôleurs sont des circuits intégrés programmables qui contrôlent
 
 ✅ Complément utile :
 - Un microcontrôleur = “petit ordinateur” dédié à une tâche.
-- Il exécute **un programme** et pilote des broches (pins) reliées à des capteurs/actionneurs. :contentReference[oaicite:5]{index=5}
+- Il exécute **un programme** et pilote des broches (pins) reliées à des capteurs/actionneurs.
 
 <p align="center">
-  <img src="../images/microcontroleur_blocs.png" alt="Blocs d’un microcontrôleur" width="90%"><br>
-  <em>Illustration attendue : schéma en blocs CPU + mémoire + E/S + bus, reliés entre eux.</em>
+  <img src="../images/microcontroleur_blocs.png" alt="Blocs d'un microcontrôleur : CPU, mémoires, entrées/sorties, périphériques, bus." width="90%"><br>
+  <em>Blocs d'un microcontrôleur : CPU, mémoires, entrées/sorties, périphériques, bus.</em>
 </p>
 
 ● Architecture du microcontrôleur :
@@ -128,8 +128,8 @@ La configuration des broches du microcontrôleur est cruciale pour interagir ave
 - Une entrée analogique sert à lire une valeur “progressive” (potentiomètre, LDR…).
 
 <p align="center">
-  <img src="../images/analog_read_0_1023.png" alt="analogRead : 0 à 1023" width="90%"><br>
-  <em>Illustration attendue : jauge 0→1023 associée à une tension 0V→5V.</em>
+  <img src="../images/analogread.png" alt="analogRead : une tension de 0 V à 5 V devient un nombre de 0 à 1023." width="90%"><br>
+  <em>analogRead : une tension de 0 V à 5 V devient un nombre de 0 à 1023.</em>
 </p>
 
 ● Broches spéciales (PWM, I2C, SPI) :
@@ -194,11 +194,11 @@ Les programmes pour microcontrôleur suivent une structure spécifique, organis�
 
 ✅ Complément utile :
 - La broche 13 est souvent reliée à une LED intégrée sur Arduino.
-- Sur la fiche (page 4), l’exemple montre bien la structure setup/loop. :contentReference[oaicite:6]{index=6}
+- Sur la fiche (page 4), l’exemple montre bien la structure setup/loop.
 
 <p align="center">
-  <img src="../images/exemple_blink_setup_loop.png" alt="Exemple Blink : setup/loop" width="90%"><br>
-  <em>Illustration attendue : capture d’écran du code Blink montrant setup() et loop().</em>
+  <img src="../images/blink.png" alt="Exemple Blink : code setup()/loop() et clignotement de la LED." width="90%"><br>
+  <em>Exemple Blink : code setup()/loop() et clignotement de la LED.</em>
 </p>
 
 ---
@@ -239,11 +239,11 @@ Exemples pratiques de programmes pour microcontrôleur
 
 ✅ Complément utile :
 - Le potentiomètre donne 0→1023, le PWM attend 0→255 : on “mappe” (conversion).
-- Sur la fiche (page 6), l’exemple illustre analogRead + map + analogWrite. :contentReference[oaicite:7]{index=7}
+- Sur la fiche (page 6), l’exemple illustre analogRead + map + analogWrite.
 
 <p align="center">
-  <img src="../images/potentiometre_map_pwm.png" alt="Potentiomètre : analogRead + map + PWM" width="90%"><br>
-  <em>Illustration attendue : capture du code montrant analogRead, map, analogWrite.</em>
+  <img src="../images/potentiometre_pwm.png" alt="Potentiomètre : analogRead, map et analogWrite (PWM)." width="90%"><br>
+  <em>Potentiomètre : analogRead, map et analogWrite (PWM).</em>
 </p>
 
 ---

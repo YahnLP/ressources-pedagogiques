@@ -45,8 +45,8 @@ Pour lire un schéma sans se perdre, tu peux appliquer cette méthode simple :
 4) vérifier les **polarités** (LED, diodes, condensateurs polarisés)
 
 <p align="center">
-  <img src="../images/methode_lecture_schema.png" alt="Méthode de lecture d'un schéma avant montage : Vcc/GND, suivi du trajet, jonctions, polarités" width="85%"><br>
-  <em>Illustration attendue : checklist visuelle en 4 étapes (Vcc/GND → connexions → jonctions → polarités).</em>
+  <img src="../images/methode_lecture_schema.png" alt="Méthode de lecture d'un schéma en 4 étapes : alimentation, connexions, jonctions, polarités." width="90%"><br>
+  <em>Méthode de lecture d'un schéma en 4 étapes : alimentation, connexions, jonctions, polarités.</em>
 </p>
 
 ### ● Étudier le plan de câblage
@@ -94,8 +94,8 @@ Sur breadboard :
 - mais si un fil est mal enfoncé ou si le montage est déplacé, une connexion peut se débrancher (panne “bête” mais fréquente).
 
 <p align="center">
-  <img src="../03-images/breadboard.png" alt="Breadboard : rails d'alimentation et rangées connectées (zones de connexions)" width="90%"><br>
-  <em>Illustration attendue : schéma d’une breadboard avec rails +/– et zones de connexions (rangées).</em>
+  <img src="../images/breadboard.png" alt="Breadboard : rails d'alimentation, colonnes de 5 trous reliés, rainure centrale." width="90%"><br>
+  <em>Breadboard : rails d'alimentation, colonnes de 5 trous reliés, rainure centrale.</em>
 </p>
 
 ### ● Montage sur carte de circuit imprimé (PCB)
@@ -117,8 +117,8 @@ La stripboard est solide, et on peut encore adapter le circuit (en coupant des b
 - si une coupure est oubliée, un courant peut passer où il ne faut pas → court-circuit ou fonctionnement étrange.
 
 <p align="center">
-  <img src="../03-images/stripboard.jpg" alt="Stripboard : bandes cuivre et exemple de coupure pour isoler deux zones" width="60%"><br>
-  <em>Illustration attendue : vue d’une stripboard + exemple de bande coupée pour isoler deux zones.</em>
+  <img src="../images/stripboard.png" alt="Plaque à bandes (stripboard) : bandes de cuivre et coupure de piste." width="90%"><br>
+  <em>Plaque à bandes (stripboard) : bandes de cuivre et coupure de piste.</em>
 </p>
 
 ---
@@ -152,8 +152,8 @@ Le bon geste à retenir : **on chauffe la piste + la patte**, puis on dépose l�
 Un “cône” propre est souvent le signe d’une bonne liaison.
 
 <p align="center">
-  <img src="../03-images/soudure.png" alt="Soudure : bonne (brillante) vs soudure froide (mate/granuleuse) vs pont d'étain (court-circuit)" width="90%"><br>
-  <em>Illustration attendue : 3 photos/dessins : soudure brillante (OK), soudure mate/granuleuse (froide), pont d’étain (court-circuit).</em>
+  <img src="../images/soudures.png" alt="Soudure correcte, soudure froide et pont d'étain (coupe et vue de dessus)." width="90%"><br>
+  <em>Soudure correcte, soudure froide et pont d'étain (coupe et vue de dessus).</em>
 </p>
 
 ### ● Inspection des soudures

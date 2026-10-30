@@ -46,8 +46,8 @@ Exemple : mesurer la tension aux bornes d'une pile pour vérifier si elle est en
 ➡️ “Est-ce que j’ai bien 5 V / 3,3 V / 12 V ?”
 
 <p align="center">
-  <img src="../03-images/tension.png" alt="Tension DC vs AC : pile (DC) et sinusoïde (AC)" width="85%"><br>
-  <em> une sinusoïde (AC) et une pile (DC) .</em>
+  <img src="../images/courant_continu_alternatif.png" alt="Tension continue (pile) et tension alternative (secteur 230 V, 50 Hz)." width="90%"><br>
+  <em>Tension continue (pile) et tension alternative (secteur 230 V, 50 Hz).</em>
 </p>
 
 ⚠️ Sécurité : l’AC du secteur est dangereuse. En atelier, on travaille autant que possible en **basse tension**.
@@ -113,8 +113,8 @@ Exemple : mesurer la tension aux bornes d’une batterie en mode voltmètre (V) 
 ➡️ Risque de court-circuit / fusible grillé / appareil abîmé.
 
 <p align="center">
-  <img src="../03-images/multimètre.png" alt="Multimètre : modes et bornes (COM, VΩ, mA/A) et sélection DC/AC" width="90%"><br>
-  <em>Illustration attendue : multimètre avec repères COM, VΩ, mA/A et modes DC/AC.</em>
+  <img src="../images/multimetre.png" alt="Multimètre : écran, sélecteur, bornes COM, VΩ, mA et 10 A." width="90%"><br>
+  <em>Multimètre : écran, sélecteur, bornes COM, VΩ, mA et 10 A.</em>
 </p>
 
 **Astuce de sécurité :**
@@ -177,8 +177,8 @@ Astuce de diagnostic (alimentation) :
 - rouge sur **Vcc**, noir sur **GND**.
 
 <p align="center">
-  <img src="../03-images/V.png" alt="Mesure de tension : voltmètre branché en parallèle sur un composant" width="40%"><br>
-  <em>Illustration attendue : schéma d’un composant avec voltmètre branché en parallèle.</em>
+  <img src="../images/mesure_tension.png" alt="Mesure de tension : le voltmètre se branche en parallèle." width="90%"><br>
+  <em>Mesure de tension : le voltmètre se branche en parallèle.</em>
 </p>
 
 ---
@@ -195,8 +195,8 @@ Exemple : pour mesurer le courant dans une lampe : débrancher un fil, insérer 
 - idéalement, validation enseignant avant le branchement
 
 <p align="center">
-  <img src="../03-images/A.png" alt="Mesure de courant : ampèremètre inséré en série avec une lampe" width="40%"><br>
-  <em>Illustration attendue : schéma lampe + ampèremètre inséré en série.</em>
+  <img src="../images/mesure_courant.png" alt="Mesure de courant : l'ampèremètre s'insère en série dans le circuit." width="90%"><br>
+  <em>Mesure de courant : l'ampèremètre s'insère en série dans le circuit.</em>
 </p>
 
 ---

@@ -45,8 +45,8 @@ Exemples très concrets :
 - “Le moteur doit tourner quand la commande est à 1.”
 
 <p align="center">
-  <img src="../images/diagnostic_schema_attendu.png" alt="Schéma simple annoté : où doit-on trouver 5V, où doit-on trouver 0V (GND)" width="90%"><br>
-  <em>Illustration attendue : schéma simple annoté (où doit-on trouver 5V ? où doit-on trouver 0V ?).</em>
+  <img src="../images/diagnostic_points_de_mesure.png" alt="Schéma annoté : tensions attendues aux points de mesure (5 V, ≈ 2 V, 0 V)." width="90%"><br>
+  <em>Schéma annoté : tensions attendues aux points de mesure (5 V, ≈ 2 V, 0 V).</em>
 </p>
 
 ### ● Utilisation de la logique et de la déduction
@@ -109,8 +109,8 @@ Causes possibles : interférences électromagnétiques, composants mal blindés,
 Un oscilloscope permet de vérifier si le signal est “sale” (bruit, distorsion).
 
 <p align="center">
-  <img src="../03-images/bruit.png" alt="À l'oscilloscope : signal propre comparé à un signal bruité (parasites)" width="60%"><br>
-  <em>Illustration attendue : deux oscillogrammes : (1) signal propre, (2) signal avec bruit/parasites.</em>
+  <img src="../images/signal_propre_bruit.png" alt="Oscillogrammes : signal propre et signal bruité (parasites)." width="90%"><br>
+  <em>Oscillogrammes : signal propre et signal bruité (parasites).</em>
 </p>
 
 ---

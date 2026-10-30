@@ -16,8 +16,8 @@ Les schémas électroniques sont des représentations graphiques des circuits é
 - En E2, on te demande souvent : “Lis le schéma → câble le montage → explique une panne”.
 
 <p align="center">
-  <img src="../images/schema_vs_photo.png" alt="Schéma logique vs montage réel" width="85%"><br>
-  <em>Illustration attendue : comparaison visuelle entre un schéma simple (symboles) et un montage réel sur breadboard.</em>
+  <img src="../images/schema_vs_montage.png" alt="Le même circuit : schéma normalisé et montage sur breadboard." width="90%"><br>
+  <em>Le même circuit : schéma normalisé et montage sur breadboard.</em>
 </p>
 
 ● Symbole : chaque composant est représenté par un symbole standardisé, ce qui permet de rapidement identifier et lire les éléments du circuit.
@@ -27,8 +27,8 @@ Les schémas électroniques sont des représentations graphiques des circuits é
 - Sur un schéma, une résistance “zigzag” ou “rectangle” peut exister selon les conventions : l’idée reste la même.
 
 <p align="center">
-  <img src="../images/symboles_de_base.png" alt="Symboles électroniques de base" width="90%"><br>
-  <em>Illustration attendue : tableau de symboles (R, C, diode, LED, transistor, GND, Vcc).</em>
+  <img src="../images/symboles_de_base.png" alt="Symboles électroniques courants et leurs repères (R, C, D, Q…)." width="90%"><br>
+  <em>Symboles électroniques courants et leurs repères (R, C, D, Q…).</em>
 </p>
 
 ● Fonctions : les schémas permettent de planifier un circuit, de l’analyser pour diagnostiquer d’éventuels problèmes et de guider le montage physique des composants.
@@ -71,8 +71,8 @@ La lecture d'un schéma électronique repose sur l’identification de plusieurs
 - **Avec point = connecté** (jonction).
 
 <p align="center">
-  <img src="../images/croisement_jonction.png" alt="Croisement vs jonction (point)" width="80%"><br>
-  <em>Illustration attendue : 2 schémas : (1) croisement sans point (pas connecté), (2) croisement avec point (connecté).</em>
+  <img src="../images/croisement_jonction.png" alt="Croisement sans point (non connecté), jonction avec point et dérivation en T (connectés)." width="90%"><br>
+  <em>Croisement sans point (non connecté), jonction avec point et dérivation en T (connectés).</em>
 </p>
 
 ● Sources d’alimentation : représentées par des symboles comme Vcc (tension positive) et GND (masse ou zéro volt).
@@ -130,8 +130,8 @@ Exemple : dans un amplificateur audio, le schéma de câblage indiquerait préci
 Exemple : dans une radio, le schéma de bloc pourrait montrer le tuner, l’amplificateur et le haut-parleur comme des blocs distincts.
 
 <p align="center">
-  <img src="../images/schema_de_bloc_exemple.png" alt="Schéma de bloc : capteur → traitement → actionneur" width="90%"><br>
-  <em>Illustration attendue : schéma bloc simple : “capteur” → “traitement” → “actionneur”.</em>
+  <img src="../images/schema_de_bloc.png" alt="Schéma de blocs : capteur (LDR) → traitement (microcontrôleur) → actionneur (LED)." width="90%"><br>
+  <em>Schéma de blocs : capteur (LDR) → traitement (microcontrôleur) → actionneur (LED).</em>
 </p>
 
 ---
@@ -172,8 +172,8 @@ Sur une plaque de montage (breadboard), le plan de câblage peut inclure des lie
 Exemple : une LED placée dans le mauvais sens ne s’allumera pas ; un condensateur polarisé inversé peut causer des courts-circuits.
 
 <p align="center">
-  <img src="../images/polarites_led_condo.png" alt="Polarité LED et condensateur" width="90%"><br>
-  <em>Illustration attendue : LED avec anode/cathode + condensateur avec bande “-” et repère +.</em>
+  <img src="../images/polarites.png" alt="Polarité d'une LED (anode/cathode) et d'un condensateur chimique (bande « − »)." width="90%"><br>
+  <em>Polarité d'une LED (anode/cathode) et d'un condensateur chimique (bande « − »).</em>
 </p>
 
 ---
