@@ -29,13 +29,13 @@ Un filtre laisse passer certains signaux et en bloque d'autres. Comment le **vé
 3. Change le **déclenchement** : front montant puis descendant. Qu'observes-tu ?
 
 ??? success "Valeurs attendues"
-    $T = 1\,\mathrm{ms}$, $f = 1\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{kHz}}}}}$, $U_{pp} = 2\,\mathrm{V}$, $U_{eff} \approx 0{,}71\,\mathrm{V}$. Le déclenchement montant ou descendant décale le **point de départ** du signal à l'écran (le sinus démarre en montée ou en descente).
+    $T = 1\,\mathrm{ms}$, $f = 1\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{kHz}}}}}}$, $U_{pp} = 2\,\mathrm{V}$, $U_{eff} \approx 0{,}71\,\mathrm{V}$. Le déclenchement montant ou descendant décale le **point de départ** du signal à l'écran (le sinus démarre en montée ou en descente).
 
 ## 3. Manipulation B : réponse d'un filtre RC
 
 Monte un filtre : GBF → $R = 10\,\mathrm{k\Omega }$ → point de sortie ; $C = 100\,\mathrm{nF}$ entre le point de sortie et la masse. Voie 1 sur l'entrée du GBF, voie 2 sur la sortie.
 
-**Calcul préalable** : $f_{c} = \dfrac{1}{2\pi R C} \approx 159\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}}$.
+**Calcul préalable** : $f_{c} = \dfrac{1}{2\pi R C} \approx 159\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}}}$.
 
 1. Règle le GBF à une amplitude de 2 $U_{pp}$.
 2. Pour chaque fréquence, relève l'amplitude **de sortie** et calcule le **rapport** $\dfrac{U_{sortie}}{U_{entrée}}$.

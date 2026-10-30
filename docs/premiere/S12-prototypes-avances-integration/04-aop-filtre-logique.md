@@ -44,11 +44,11 @@ $$f_{c} = \frac{1}{2\pi R C}$$
 
 1. $R = 10\,\mathrm{k\Omega}$ et $C = 100\,\mathrm{nF}$ : calcule $f_{c}$.
 2. Un bruit à 5 kHz est-il bien filtré ? Et un signal utile à 10 Hz ?
-3. On veut $f_{c} = 159\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}}}}}$ avec $C = 1\,\mathrm{\mu F}$ : quelle résistance ?
+3. On veut $f_{c} = 159\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}}}}}}$ avec $C = 1\,\mathrm{\mu F}$ : quelle résistance ?
 
 ??? success "Réponses"
 
-    1. $f_{c} = \dfrac{1}{2\pi \times 10\,000 \times 100 \times 10^{-9}} \approx 159\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}}}}}$.
+    1. $f_{c} = \dfrac{1}{2\pi \times 10\,000 \times 100 \times 10^{-9}} \approx 159\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}}}}}}$.
     2. Le bruit à 5 kHz est **très atténué** (bien au-dessus de $f_{c}$) ; le signal à 10 Hz **passe** (bien en dessous de $f_{c}$).
     3. $R = \dfrac{1}{2\pi \times 159 \times 10^{-6}} \approx 1\,\mathrm{k\Omega}$.
 

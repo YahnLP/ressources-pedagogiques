@@ -193,9 +193,9 @@ Coût total estimé     : _____ € HT
 | **TC#** | **Paramètre mesuré** | **Instrument** | **Valeurs brutes (5 mesures)** |
 |---|---|---|---|
 | TC-01 | Vout 7805 (V) | Fluke 87V, Cl.0,5%, Rés. 0,001V | 4,987 / 4,984 / 4,990 / 4,988 / 4,985 |
-| TC-02 | Fréquence NE555 (Hz) | Rigol DS1054Z, Cl.0,1%, Rés. 0,01Hz | 1,02 / 1,01 / 1,03 / 1,02 / 1,01 |
+| TC-02 | Fréquence NE555 (Hz) | Owon SDS5032E-V, Cl.0,1%, Rés. 0,01Hz | 1,02 / 1,01 / 1,03 / 1,02 / 1,01 |
 | TC-03 | Courant LED (mA) | Fluke 87V, Cl.0,5%, Rés. 0,1mA | Mesure unique : 19,3 mA |
-| TC-04 | Rapport cyclique (%) | Rigol DS1054Z, Cl.0,1%, Rés. 0,1% | 51,8 / 52,0 / 51,7 / 51,9 / 51,6 |
+| TC-04 | Rapport cyclique (%) | Owon SDS5032E-V, Cl.0,1%, Rés. 0,1% | 51,8 / 52,0 / 51,7 / 51,9 / 51,6 |
 
 ### TC-01 — Vout 7805 : calcul d'incertitude complet
 

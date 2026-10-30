@@ -26,7 +26,7 @@ Réaliser un **clignoteur à LED** :
 ??? success "Valeurs attendues"
 
     - $R_{3} = \dfrac{5 - 2}{0{,}020} = 150\,\Omega$.
-    - $f = \dfrac{1{,}44}{(10\,000 + 2 \times 68\,000) \times 10 \times 10^{-6}} \approx 0{,}99\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}}}}}$ : **conforme** à 1 Hz ± 10 %.
+    - $f = \dfrac{1{,}44}{(10\,000 + 2 \times 68\,000) \times 10 \times 10^{-6}} \approx 0{,}99\,\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}}}}}}$ : **conforme** à 1 Hz ± 10 %.
     - $DC = \dfrac{78}{146} \approx 53\,\%$.
     - Condensateurs du 7805 : 100 nF à l'entrée, 10 µF à la sortie.
 
