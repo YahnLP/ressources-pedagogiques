@@ -1,8 +1,6 @@
 # 🔬 ATELIER – S7 ANNÉE 3 – E2
 ## Rédaction DAT Électronique + PV de Validation + Inspection IPC-A-610
 
-**Nom : ________________  Prénom : ________________  Date : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS
@@ -40,7 +38,6 @@ Historique des révisions :
 | 0.1 | 2026-__-__ |  | Création initiale |
 | 1.0 | 2026-__-__ |  | Version complète |
 
-
 **Q1.1 *(1 pt)*** — Quel est l'objet et le périmètre de ce DAT en 2 phrases ?
 
 _________________________________________________________________________
@@ -59,7 +56,6 @@ Dessinez les 3 blocs principaux et leurs liaisons :
   - Indicateur (LED clignotante)
 
 [Zone de dessin 10 × 6 cm]
-
 
 ```
 
@@ -221,7 +217,6 @@ Conforme ? ☐ Oui  ☐ Non  → Conclusion : _______________
 
 ```
 (Calculs à développer)
-
 
 Résultat : f = (_____ ± _____) Hz [95%]
 Conforme à [0,9 ; 1,1] Hz ? ☐ Oui  ☐ Non

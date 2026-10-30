@@ -1,8 +1,6 @@
 # 📖 FICHE COURS – S2 ANNÉE 3 – E2
 ## Rapport de Mesures : PV Professionnel, Traçabilité, Incertitudes, Norme IPC
 
-**Nom : ________________  Prénom : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS

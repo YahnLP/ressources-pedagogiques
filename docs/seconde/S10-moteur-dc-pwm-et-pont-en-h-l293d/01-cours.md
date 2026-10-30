@@ -44,6 +44,7 @@ Un **moteur DC** (Direct Current = Courant Continu) est un **actionneur** qui tr
 ```
 
 **Points clés :**
+
 - Plus on augmente la **tension**, plus le moteur tourne **vite**
 - Si on inverse la **polarité** (+ et -), le moteur tourne dans l'**autre sens**
 - Le moteur consomme du **courant** (généralement 100 à 500 mA)
@@ -81,6 +82,7 @@ Pour inverser le sens de rotation d'un moteur DC, il suffit d'**inverser la pola
 Le **PWM** (Modulation de Largeur d'Impulsion) est une technique qui permet de **contrôler la puissance moyenne** envoyée à un composant en l'allumant et l'éteignant très rapidement.
 
 **Analogie :** Le PWM, c'est comme **appuyer sur un interrupteur très rapidement** :
+
 - Si on l'allume 10% du temps → Faible puissance
 - Si on l'allume 50% du temps → Puissance moyenne
 - Si on l'allume 100% du temps → Puissance maximale
@@ -102,6 +104,7 @@ Duty Cycle (%) = (Temps ON / Période totale) × 100
 La **fréquence** du PWM détermine la rapidité des alternances ON/OFF.
 
 **Sur Arduino :**
+
 - Fréquence : **490 Hz** (490 fois par seconde sur la plupart des pins)
 - Le moteur ne voit pas les coupures (trop rapide pour lui)
 - Résultat : Vitesse stable et contrôlée
@@ -126,6 +129,7 @@ analogWrite(pin, valeur);
 ```
 
 **Paramètres :**
+
 - `pin` : Numéro de la broche PWM (doit avoir le symbole ~ : 3, 5, 6, 9, 10, 11)
 - `valeur` : Entre 0 (0%) et 255 (100%)
 
@@ -158,12 +162,14 @@ void loop() {
 | Inversion de sens | ❌ Difficile | ✅ Nécessaire | ⚠️ Complexe |
 
 **Conséquence :** Si on branche un moteur directement sur Arduino :
+
 - ❌ Le moteur ne tournera pas (courant insuffisant)
 - ❌ Ou Arduino sera endommagé (surconsommation)
 
 ### ✅ Solution : Utiliser un driver de moteur (Pont H)
 
 Un **pont H** est un circuit électronique qui permet de :
+
 1. **Amplifier le courant** (Arduino commande, mais ne fournit pas le courant)
 2. **Contrôler le sens** de rotation facilement
 3. **Protéger** Arduino
@@ -175,6 +181,7 @@ Un **pont H** est un circuit électronique qui permet de :
 ### 📖 Présentation
 
 Le **L293D** est un circuit intégré (CI) contenant **deux ponts H** :
+
 - Peut contrôler **2 moteurs DC** indépendamment
 - Ou 1 moteur pas-à-pas
 
@@ -458,6 +465,7 @@ void loop() {
 **⚠️ C'est normal !** Le L293D dissipe de la chaleur.
 
 **Si trop chaud :**
+
 - ✅ Réduire la charge du moteur
 - ✅ Ne pas bloquer le moteur
 - ✅ Ajouter un dissipateur thermique (optionnel)
@@ -497,9 +505,9 @@ Cochez les affirmations vraies :
 - [ ] VCC1 et VCC2 sont la même alimentation
 - [ ] Les GND doivent être communs (Arduino + Pile)
 
-**Réponses :**
-✅ Vrai : 1, 3, 4, 5, 8  
-❌ Faux : 2 (40 mA max par pin), 6 (255 = 100%), 7 (VCC1 = 5V logique, VCC2 = alimentation moteur)
+??? success "Réponses"
+    ✅ Vrai : 1, 3, 4, 5, 8  
+    ❌ Faux : 2 (40 mA max par pin), 6 (255 = 100%), 7 (VCC1 = 5V logique, VCC2 = alimentation moteur)
 
 ---
 
@@ -530,13 +538,6 @@ Cochez les affirmations vraies :
 ✅ **Prototypage** : Création rapide de démonstrateurs  
 ✅ **Maintenance** : Remplacement de drivers de moteurs défectueux  
 ✅ **Domotique** : Volets roulants, portails automatiques  
-
----
-
-**📅 Fiche rédigée le :** 26/02/2026  
-**✍️ Auteur :** Équipe pédagogique CFA  
-**📧 Questions :** formation@cfa-exemple.fr  
-**🔄 Prochaine mise à jour :** Juin 2026
 
 ---
 

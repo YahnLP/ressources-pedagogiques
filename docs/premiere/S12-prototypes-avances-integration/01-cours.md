@@ -1,8 +1,6 @@
 # 📖 FICHE COURS – S12 ANNÉE 2 – E2
 ## Prototypes Avancés : Intégration Mécanique, Boîtiers 3D, Tests en Conditions Réelles
 
-**Nom : ________________  Prénom : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS

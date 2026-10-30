@@ -3,11 +3,6 @@
 
 ---
 
-> **BAC Pro CIEL — 1ère année** | MFR de Pontonx
-> Nom : _________________________ Prénom : _________________________ Date : _________
-
----
-
 ## 🗝️ Vocabulaire clé à maîtriser pour l'examen
 
 | Terme | Définition à retenir |
@@ -35,8 +30,6 @@
 
 ![Station de soudure annotée](images/station-soudure.png)
 
-
-
 | Paramètre | Valeur recommandée | Pourquoi |
 |---|---|---|
 | **Température étain SAC305** | **360–380 °C** | Étain sans plomb a un point de fusion plus élevé (217 °C) que l'étain plombé (183 °C) |
@@ -49,8 +42,6 @@
 ### 1.2 Les matériaux de soudure
 
 ![Fil d'étain, flux et tresse à dessouder](images/materiaux-soudure.png)
-
-
 
 | Matériau | Composition / Type | Rôle | Utilisation |
 |---|---|---|---|
@@ -66,8 +57,6 @@
 ## 2. Technique de soudure — Les 5 étapes
 
 ![Les 5 étapes de la soudure](images/etapes-soudure.png)
-
-
 
 ### Les 5 étapes dans le détail
 
@@ -91,8 +80,6 @@
 
 ![Les trois classes IPC](images/pyramide-ipc.png)
 
-
-
 | Classe | Domaine | Niveau d'exigence | Exemples |
 |---|---|---|---|
 | **Classe 1** | Grand public | Minimal — fonctionnel mais aspect non critique | Jouets, télécommandes, électroménager bas de gamme |
@@ -104,8 +91,6 @@
 ### 3.2 Caractéristiques d'une brasure IPC Classe 2 acceptable
 
 ![Brasure traversante IPC classe 2 acceptable](images/brasure-coupe.png)
-
-
 
 | Critère IPC Classe 2 | Condition ACCEPTABLE | Condition REFUSÉE |
 |---|---|---|
@@ -120,8 +105,6 @@
 ### 3.3 Les 7 défauts IPC les plus courants
 
 ![Les 7 défauts de brasure les plus courants](images/defauts-brasures.png)
-
-
 
 | Défaut IPC | Aspect visuel | Cause principale | Gravité |
 |---|---|---|---|
@@ -139,9 +122,7 @@
 
 ![Ordre d'insertion des composants traversants](images/sequence-insertion.png)
 
-
 L'ordre d'insertion est crucial pour la qualité et la facilité du montage :
-
 
 | Ordre | Type de composant | Hauteur | Raison |
 |---|---|---|---|

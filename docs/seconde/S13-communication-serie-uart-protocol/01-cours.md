@@ -3,11 +3,6 @@
 
 ---
 
-> **BAC Pro CIEL — 1ère année** | MFR de Pontonx
-> Nom : _________________________ Prénom : _________________________ Date : _________
-
----
-
 ## 🗝️ Vocabulaire clé
 
 | Terme | Définition |
@@ -40,8 +35,6 @@
 
 ![Liaison UART : TX et RX croisés](images/uart-tx-rx.png)
 
-
-
 **Règle fondamentale :** TX d'un côté se branche sur RX de l'autre côté. Jamais TX sur TX.
 
 L'Arduino Uno intègre un convertisseur USB-UART (ATmega16U2 ou CH340) qui gère automatiquement cette liaison quand on branche le câble USB. Le Serial Monitor s'y connecte directement.
@@ -49,8 +42,6 @@ L'Arduino Uno intègre un convertisseur USB-UART (ATmega16U2 ou CH340) qui gère
 ### 1.2 Structure d'une trame UART 8N1
 
 ![Trame UART 8N1 : lettre A](images/trame-uart.png)
-
-
 
 | Élément | Valeur logique | Durée à 9600 bauds | Rôle |
 |---|---|---|---|
@@ -214,8 +205,6 @@ void loop() {
 
 ![Paramètres du moniteur série](images/serial-monitor-params.png)
 
-
-
 | Contrôle | Options | Impact sur la réception |
 |---|---|---|
 | **Newline selector** | "No line ending" / "Newline" / "Carriage return" / "Both NL & CR" | Détermine quel(s) caractère(s) sont ajoutés à la fin du texte envoyé. Avec `readStringUntil('\n')` → choisir **"Newline"** |
@@ -255,8 +244,6 @@ Flow control    : None
 
 ![Module HC-05 et brochage](images/hc05-brochage.png)
 
-
-
 | Broche HC-05 | Connexion Arduino | Remarque |
 |---|---|---|
 | VCC | 5V Arduino | Alimentation (régulateur interne 3,3V intégré) |
@@ -269,8 +256,6 @@ Flow control    : None
 ### 4.2 Le diviseur de tension 5V → 3,3V (protection RXD)
 
 ![Diviseur de tension 5 V vers 3,3 V](images/diviseur-tension.png)
-
-
 
 Calcul du diviseur :  
 
@@ -340,8 +325,6 @@ En **mode AT** (broche KEY maintenue à GND ou niveau bas au démarrage), le HC-
 ### 4.5 Schéma de câblage complet Arduino + HC-05
 
 ![Câblage complet Arduino et HC-05](images/cablage-arduino-hc05.png)
-
-
 
 ---
 

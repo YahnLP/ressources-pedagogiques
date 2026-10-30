@@ -2,7 +2,6 @@
 title: "Pack 03 – Montage et assemblage de circuits (fiche B)"
 ---
 
-
 # Montage et assemblage de circuits
 
 ## 🎯 Objectifs (Pour examen E2)
@@ -22,6 +21,7 @@ title: "Pack 03 – Montage et assemblage de circuits (fiche B)"
 En atelier, une grande partie des pannes vient d’une **mauvaise préparation** : on se précipite, on câble “à l’aveugle”, puis on cherche longtemps l’erreur.
 
 ➡️ Deux repères à ne jamais confondre :
+
 - **Schéma** = logique (qui est relié à qui).
 - **Plan de câblage** = placement réel (où je mets les fils / composants).
 
@@ -58,6 +58,7 @@ Il faut s’assurer que l’on comprend la disposition physique des composants, 
 Il faut vérifier les spécifications et la polarité (quand applicable) de chaque composant pour éviter les erreurs au moment de l’assemblage.
 
 Avant de câbler, fais ce double contrôle :
+
 - **valeur** (Ω, µF, etc.)
 - **polarité / sens** (si le composant est polarisé)
 
@@ -89,6 +90,7 @@ Le choix du support se fait souvent selon : **rapidité**, **fiabilité**, **pos
 ○ Exemple : tester un circuit de capteur de température en reliant simplement les composants pour s’assurer du bon fonctionnement avant le montage définitif.
 
 Sur breadboard :
+
 - c’est très rapide et facile à modifier,
 - mais si un fil est mal enfoncé ou si le montage est déplacé, une connexion peut se débrancher (panne “bête” mais fréquente).
 
@@ -103,6 +105,7 @@ Sur breadboard :
 ○ Exemple : un PCB pour une alimentation régulée avec les composants fixés et les pistes optimisées pour minimiser les pertes de courant.
 
 Le PCB est très fiable et compact, mais il demande de la précision :
+
 - soudure plus “propre”,
 - modification difficile après fabrication,
 - besoin de compétence et d’outillage.
@@ -113,6 +116,7 @@ Le PCB est très fiable et compact, mais il demande de la précision :
 ○ Exemple : fabriquer un amplificateur audio simple en soudant chaque composant dans des bandes distinctes, avec des coupures pour ajuster les connexions.
 
 La stripboard est solide, et on peut encore adapter le circuit (en coupant des bandes), mais il faut être très vigilant :
+
 - si une coupure est oubliée, un courant peut passer où il ne faut pas → court-circuit ou fonctionnement étrange.
 
 <p align="center">
@@ -127,6 +131,7 @@ La stripboard est solide, et on peut encore adapter le circuit (en coupant des b
 La soudure est une étape essentielle dans le montage des circuits permanents. Elle permet de fixer les composants et d’assurer une connexion électrique fiable.
 
 L’objectif d’une bonne soudure est double :
+
 - une liaison **mécaniquement solide** (ça ne bouge pas),
 - une liaison **électriquement conductrice** (le courant passe bien).
 
@@ -135,6 +140,7 @@ Il faut un fer à souder, de l’étain (alliage de soudure) et parfois du flux 
 ○ Fer à souder entre 350-400°C pour les composants standards, et une panne fine pour les soudures précises.
 
 Deux erreurs classiques :
+
 - température trop basse → **soudure froide** (mauvaise connexion)
 - trop chaud / trop longtemps → composant abîmé (ou piste décollée)
 
@@ -160,6 +166,7 @@ S’assurer qu’il n’y a pas de “soudure froide” (mauvaise connexion) et 
 
 Une soudure froide peut être trompeuse : elle peut “marcher parfois”, puis lâcher dès qu’on bouge le fil → panne difficile à trouver.  
 On inspecte donc :
+
 - l’aspect (brillant / mat),
 - l’absence de pont (pas de court-circuit),
 - la solidité (ça ne bouge pas).
@@ -174,6 +181,7 @@ Après avoir soudé les composants, il est crucial de vérifier le circuit pour 
 Vérifier à l’aide d’un multimètre que chaque composant est correctement relié à ceux nécessaires, et qu’il n’y a pas de court-circuit.
 
 Avant toute alimentation, fais le réflexe pro :
+
 - vérifier **Vcc ↔ GND** : il ne doit pas y avoir de court-circuit.
 
 ### ● Test de continuité
@@ -193,6 +201,7 @@ Si possible, appliquer une tension inférieure à celle prévue et observer le c
 
 Le but est simple : éviter de “tout griller” en cas d’erreur.  
 Indices d’alerte :
+
 - échauffement,
 - consommation anormale,
 - LED trop forte ou comportement bizarre.
@@ -221,6 +230,7 @@ Réflexe sécurité : si ça chauffe ou sent mauvais, **on coupe tout de suite**
 ○ Exemple : si une LED ne s’allume pas, tester le courant dans la branche pour vérifier la continuité et la polarité de la diode.
 
 Méthode de diagnostic LED (simple et efficace) :
+
 1) vérifier polarité LED  
 2) vérifier résistance (valeur + connexion)  
 3) vérifier continuité  

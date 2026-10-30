@@ -124,7 +124,8 @@ $$Rs_nouveau = \underline{\hspace{2.5em}} \times 0{,}92 = \underline{\hspace{2.5
 
 Gain : _______ points  
 
-Réponses : a)2×10⁻⁵ b)0,1752/0,839/83,9% c)0,773/77,3% d)0,0256/0,974 · 0,896 · 89,6% · +12,3pts  
+??? success "Réponses"
+    a)2×10⁻⁵ b)0,1752/0,839/83,9% c)0,773/77,3% d)0,0256/0,974 · 0,896 · 89,6% · +12,3pts
 
 ---
 
@@ -197,9 +198,10 @@ Spécification = ±0,5°C :
 |Biais| + U = _______ + _______ = _______ °C  
 ☐ CONFORME ☐ NON CONFORME  
 
-Réponses : ei=+0,3/-0,1/+0,2/+0,4/+0,2 · Σei=+1,0 · Σei²=0,34  
-Biais=+0,20°C · σ=√(0,34/4)=√0,085=0,291°C · u=0,130°C · U=0,260°C  
-0,20+0,26=0,46°C ≤ 0,5°C → CONFORME (limite !)  
+??? success "Réponses"
+    ei=+0,3/-0,1/+0,2/+0,4/+0,2 · Σei=+1,0 · Σei²=0,34  
+    Biais=+0,20°C · σ=√(0,34/4)=√0,085=0,291°C · u=0,130°C · U=0,260°C  
+    0,20+0,26=0,46°C ≤ 0,5°C → CONFORME (limite !)
 
 ---
 

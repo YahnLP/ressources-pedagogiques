@@ -1,8 +1,6 @@
 # 📖 FICHE COURS – S2 ANNÉE 2 – E2
 ## KiCad : Saisie de Schéma, Bibliothèques, ERC, Netlist
 
-**Nom : ________________  Prénom : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS

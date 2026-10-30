@@ -27,6 +27,7 @@
 ### 1.1 Présentation
 
 Le **DHT11** est un capteur **numérique** qui mesure simultanément deux grandeurs physiques :
+
 - La **température** de l'air (de 0°C à 50°C, précision ±2°C)
 - L'**humidité relative** de l'air (de 20% à 90%, précision ±5%)
 
@@ -78,6 +79,7 @@ Le DHT11 utilise un protocole de communication **numérique série** propriétai
 | 2 | **DHT sensor library** | Adafruit | ✅ Ensuite |
 
 **Procédure :**
+
 1. `Outils → Gérer les bibliothèques`
 2. Recherche : `DHT sensor library`
 3. Installer `DHT sensor library` par **Adafruit** → accepter l'installation des dépendances si proposé

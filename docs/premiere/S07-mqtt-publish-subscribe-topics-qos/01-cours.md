@@ -1,8 +1,6 @@
 # 📖 FICHE COURS – S7 ANNÉE 2 – E2
 ## MQTT : Publish/Subscribe, Topics, QoS, Mosquitto, ESP32
 
-**Nom : ________________  Prénom : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS

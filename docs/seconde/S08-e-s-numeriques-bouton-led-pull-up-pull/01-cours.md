@@ -3,11 +3,6 @@
 
 ---
 
-> **BAC Pro CIEL — 1ère année** | MFR de Pontonx
-> Nom : _________________________ Prénom : _________________________ Date : _________
-
----
-
 ## 🗝️ Vocabulaire clé
 
 | Terme | Définition |
@@ -35,9 +30,7 @@
 
 ![Niveaux logiques d'une entrée numérique Arduino](images/niveaux-logiques.png)
 
-
 L'Arduino Uno fonctionne en logique **5V TTL compatible**. Une broche en entrée interprète :
-
 
 | Zone de tension | Valeur logique lue | Signification |
 |---|---|---|
@@ -61,8 +54,6 @@ int etatBouton = digitalRead(4);
 
 ![Entrée flottante et résistance pull-down](images/flottant-pulldown.png)
 
-
-
 **Pourquoi une broche flottante est-elle imprévisible ?**
 
 Une broche en `INPUT` sans résistance de rappel présente une impédance très élevée (> 100 MΩ). À cette impédance, le moindre champ électromagnétique (téléphone, éclairage fluorescent, courants de convection, votre propre corps à travers l'air) suffit à faire varier la tension lue entre les seuils 0V et 5V de façon totalement aléatoire.
@@ -75,9 +66,7 @@ Une broche en `INPUT` sans résistance de rappel présente une impédance très 
 
 ![Pull-down : bouton relâché et bouton appuyé](images/pulldown-etats.png)
 
-
 La résistance pull-down est connectée entre la **broche Arduino** et **GND**. Elle "tire" en permanence la broche vers 0V avec un courant faible.
-
 
 | État du bouton | Tension sur broche | `digitalRead()` renvoie |
 |---|---|---|
@@ -117,7 +106,6 @@ La résistance pull-up est connectée entre la **broche Arduino** et **VCC (5V)*
 
 ![Pull-down externe et INPUT_PULLUP](images/pulldown-pullup.png)
 
-
 Arduino possède une résistance pull-up **interne** de 20 à 50 kΩ sur chaque broche numérique. Elle s'active en une ligne de code :
 
 ```cpp
@@ -125,7 +113,6 @@ pinMode(4, INPUT_PULLUP);  // Active le pull-up interne sur D4
 ```
 
 Avec `INPUT_PULLUP`, le câblage du bouton est simplifié :
-
 
 | Critère | Pull-down externe | Pull-up externe | `INPUT_PULLUP` |
 |---|---|---|---|
@@ -237,6 +224,7 @@ void loop() {
 ### 5.1 Pourquoi déboguer avec Serial ?
 
 L'Arduino n'a pas d'écran ni de fenêtre d'inspection. Sans Serial Monitor :
+
 - On ne sait pas si `digitalRead()` retourne ce qu'on attend
 - On ne peut pas distinguer "le bouton ne répond pas" de "le code est faux"
 - Les bugs logiques (logique inversée, variable non initialisée…) sont invisibles
@@ -244,8 +232,6 @@ L'Arduino n'a pas d'écran ni de fenêtre d'inspection. Sans Serial Monitor :
 ### 5.2 Les 4 niveaux de débogage Serial
 
 ![Les 4 niveaux de débogage série](images/pyramide-debug.png)
-
-
 
 ### 5.3 Niveau 1 — Affichage brut (pour démarrer)
 
@@ -307,8 +293,6 @@ void loop() {
 ### 5.6 Les 5 bugs les plus fréquents en S8 et comment les détecter
 
 ![Les 5 bugs les plus fréquents](images/tableau-bugs.png)
-
-
 
 | Bug | Symptôme Serial Monitor | Correction |
 |---|---|---|

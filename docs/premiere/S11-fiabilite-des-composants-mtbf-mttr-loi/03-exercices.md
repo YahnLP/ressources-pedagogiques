@@ -169,6 +169,7 @@ t ≤ −ln(0,90) / λ = 0,105 / (2×10⁻⁵) = _______ heures = _______ mois
 ### Exercice 2.2 — Comparer deux composants
 
 **Données** :
+
 - Composant A : MTBF = 10 000 h (composant économique)
 - Composant B : MTBF = 100 000 h (composant premium, 5× plus cher)
 

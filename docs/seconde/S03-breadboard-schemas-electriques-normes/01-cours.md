@@ -3,11 +3,6 @@
 
 ---
 
-> **BAC Pro CIEL — 1ère année** | MFR de Pontonx  
-> Nom : _________________________ Prénom : _________________________ Date : _________
-
----
-
 ## 🗝️ Vocabulaire clé à maîtriser pour l'examen
 
 | Terme | Définition à retenir |
@@ -33,9 +28,7 @@
 
 ![Structure interne d'une breadboard](images/breadboard.png)
 
-
 La breadboard est divisée en **3 zones fonctionnelles** :
-
 
 | Zone | Couleur repère | Connexion interne | Utilisation |
 |---|---|---|---|
@@ -59,8 +52,6 @@ La breadboard est divisée en **3 zones fonctionnelles** :
 
 ![Câblage correct et câblage incorrect sur breadboard](images/cablage-ok-ko.png)
 
-
-
 ---
 
 ## 2. Les schémas électriques normés IEC
@@ -72,8 +63,6 @@ Un schéma électrique est un **langage universel**. Un technicien en France et 
 ### 2.2 Les symboles IEC à maîtriser
 
 ![Symboles IEC à maîtriser](images/symboles-de-base.png)
-
-
 
 | Composant | Symbole IEC | Remarque |
 |---|---|---|
@@ -104,8 +93,6 @@ Un bon schéma est **lisible, logique et normé**. Voici les règles à respecte
 
 ![Schéma normé IEC : deux LED en parallèle](images/schema-parallele-iec.png)
 
-
-
 ---
 
 ## 3. Lire un schéma et le transposer en montage
@@ -123,8 +110,6 @@ Un bon schéma est **lisible, logique et normé**. Voici les règles à respecte
 ### 3.2 La méthode de transposition schéma → breadboard
 
 ![Du schéma au montage sur breadboard](images/schema-vs-montage.png)
-
-
 
 **Procédure de transposition — 5 étapes pratiques :**
 
@@ -152,9 +137,7 @@ Un bon schéma est **lisible, logique et normé**. Voici les règles à respecte
 
 ![Test de continuité : fil intact et fil coupé](images/continuite-multimetre.png)
 
-
 Le test de continuité envoie un **très faible courant** entre les deux sondes du multimètre. Si le courant peut circuler librement (résistance quasi nulle), le multimètre émet un **signal sonore (bip)**. Si le courant est bloqué (circuit ouvert, fil coupé), il n'y a **pas de bip**.
-
 
 ### 4.2 Utilisation du multimètre — Mode continuité
 
@@ -173,9 +156,7 @@ Le test de continuité envoie un **très faible courant** entre les deux sondes 
 
 ![Arbre de diagnostic par test de continuité](images/arbre-continuite.png)
 
-
 Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichotomie** (on divise le problème en deux à chaque fois) :
-
 
 **Tableau de diagnostic systématique :**
 
@@ -205,6 +186,7 @@ Quand un circuit ne fonctionne pas, on teste de façon **méthodique par dichoto
 4. Quel courant traverse D1 seule ?
 
 *Réponses :*
+
 1. _____________ 2. _____________ V   3. _____________ mA   4. _____________ mA
 
 ### Exercice 2 — Dessiner un schéma (10 min)

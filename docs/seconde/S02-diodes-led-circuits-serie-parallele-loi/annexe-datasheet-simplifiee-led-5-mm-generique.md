@@ -47,11 +47,9 @@
 
 ## Schéma de brochage (Pinout)
 
-
 ---
 
 ## Courbe caractéristique I_F = f(V_F) — Caractéristique diode
-
 
 ---
 

@@ -1,8 +1,6 @@
 # 📖 FICHE COURS – S4 ANNÉE 3 – E2
 ## Acquisition Capteur → Courbe → KPI → Alarme Embarquée
 
-**Nom : ________________  Prénom : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS

@@ -1,8 +1,6 @@
 # 📁 GUIDE PORTFOLIO E2 COMPLET — S18 ANNÉE 3
 ## Finalisation du Dossier de Compétences U21 + U22
 
-**Nom : ________________  Prénom : ________________  Période : A2 + A3 (2024–2026)**
-
 ---
 
 > *Ce dossier rassemble les preuves de votre parcours E2. Il est votre argument lors du CCF et de la soutenance finale. Choisissez vos meilleures preuves — pas les plus nombreuses.*

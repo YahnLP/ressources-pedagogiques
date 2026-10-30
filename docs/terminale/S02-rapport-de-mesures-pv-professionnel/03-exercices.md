@@ -1,8 +1,6 @@
 # 🔬 ATELIER — S2 ANNÉE 3 – E2
 ## Rédaction du PV de Mesure + Calcul des Incertitudes + Rapport IPC
 
-**Nom : ________________  Prénom : ________________  Date : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS DE L'ATELIER

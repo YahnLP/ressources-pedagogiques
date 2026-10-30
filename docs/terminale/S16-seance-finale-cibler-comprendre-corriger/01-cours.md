@@ -1,8 +1,6 @@
 # 🔍 ANALYSE D'ERREURS + PARCOURS DE REMÉDIATION — S16-A3 E2
 ## Séance Finale : Cibler, Comprendre, Corriger
 
-**Nom : ________________  Prénom : ________________  Date : ________________**
-
 ---
 
 ## ÉTAPE 1 — MON BILAN PERSONNEL (10 min, individuel)
@@ -183,7 +181,6 @@ RÉSULTATS :
 |---|---|---|---|
 | TC-01 | Vout = 5V ±5% |  |  |
 | TC-02 | Assemblage IPC-A-610 Cl.2 | Pont soudure C1 |  |
-
 
 CONCLUSION :
 ☐ CONFORME     ☐ NON CONFORME     ☐ CONFORME AVEC RÉSERVE

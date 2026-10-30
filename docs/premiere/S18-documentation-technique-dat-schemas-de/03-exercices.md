@@ -1,13 +1,12 @@
 # 🔬 ATELIER PRODUCTION — S18 ANNÉE 2 – E2
 ## Rédaction Complète du DAT de Votre Projet A2
 
-**Nom : ________________  Prénom : ________________  Date : ________________**
-
 ---
 
 ## 🎯 OBJECTIFS DE L'ATELIER
 
 Produire en 2h30 un **Dossier des Architectures Techniques** complet pour votre projet A2 (S16), qui sera :
+
 - ✅ Réutilisé comme support pour la soutenance S19
 - ✅ Versé dans le dossier de compétences E2
 - ✅ Évalué sur la qualité documentaire (voir grille)

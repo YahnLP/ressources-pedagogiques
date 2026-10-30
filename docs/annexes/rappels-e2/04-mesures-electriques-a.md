@@ -2,7 +2,6 @@
 title: "Pack 04 – Mesures électriques (fiche A)"
 ---
 
-
 # Mesures électriques
 
 ## I. Les grandeurs électriques fondamentales et leur unité de mesure
@@ -15,6 +14,7 @@ Les mesures électriques reposent sur des grandeurs de base qui permettent de co
 ○ Exemple : mesurer la tension aux bornes d'une pile pour vérifier si elle est encore utilisable.
 
 ✅ **Complément utile :**
+
 - “DC” = pile, USB, alimentation de labo (souvent).
 - “AC” = prise secteur (attention : dangereux, on reste en basse tension en atelier).
 - En diagnostic, la première mesure est souvent : **U_alimentation** (est-ce que j’ai bien 5V ?).
@@ -30,6 +30,7 @@ Les mesures électriques reposent sur des grandeurs de base qui permettent de co
 ○ Exemple : vérifier le courant consommé par un appareil électronique pour s’assurer qu’il est dans les limites prévues par le circuit.
 
 ✅ **Complément utile :**
+
 - Le courant dépend de la charge : une LED + résistance consomme peu (mA), un moteur beaucoup plus.
 - Mesurer le courant est plus risqué : il faut **ouvrir le circuit** et se mettre **en série**.
 
@@ -39,6 +40,7 @@ Les mesures électriques reposent sur des grandeurs de base qui permettent de co
 ○ Exemple : mesurer la résistance d’un fil chauffant pour s’assurer qu’il dissipera correctement la chaleur.
 
 ✅ **Complément utile :**
+
 - Ordres de grandeur : 220Ω, 1kΩ, 10kΩ…
 - On mesure une résistance **hors tension** sinon la valeur est fausse et on peut abîmer le multimètre.
 
@@ -48,6 +50,7 @@ Les mesures électriques reposent sur des grandeurs de base qui permettent de co
 ○ Exemple : mesurer la puissance consommée par une ampoule pour calculer l’énergie qu’elle utilisera sur une certaine période.
 
 ✅ **Complément utile :**
+
 - Si U augmente ou si I augmente → P augmente.
 - P sert à dimensionner (éviter échauffement).
 
@@ -63,6 +66,7 @@ Différents outils sont utilisés pour mesurer les grandeurs électriques, chacu
 ○ Exemple d’utilisation : mesurer la tension aux bornes d’une batterie en plaçant le multimètre en mode « voltmètre » et en posant les sondes sur les bornes de la pile.
 
 ✅ **Complément utile :**
+
 - Toujours vérifier les **bornes** : COM (noir) et V/Ω (rouge) ou A/mA (rouge selon mesure).
 - Une erreur fréquente : rester branché sur “A” et mesurer une tension → risque.
 
@@ -77,6 +81,7 @@ Différents outils sont utilisés pour mesurer les grandeurs électriques, chacu
 ○ Exemple : observer le signal de sortie d’un générateur pour vérifier sa fréquence et son amplitude.
 
 ✅ **Complément utile :**
+
 - L’oscilloscope “montre la forme” du signal (carré, sinusoïde…).
 - Deux réglages essentiels :
   - **Volts/div** (hauteur)
@@ -88,6 +93,7 @@ Différents outils sont utilisés pour mesurer les grandeurs électriques, chacu
 ○ Exemple : mesurer le courant consommé par un moteur en intégrant l’ampèremètre dans le circuit d’alimentation.
 
 ✅ **Complément utile :**
+
 - “En série” = dans le chemin du courant.
 - On commence sur le calibre le plus grand si on ne sait pas.
 
@@ -96,6 +102,7 @@ Différents outils sont utilisés pour mesurer les grandeurs électriques, chacu
 ○ Exemple : mesurer la résistance d’isolement d’un câble haute tension pour s’assurer qu’il n’y a pas de risque de fuite électrique.
 
 ✅ **Complément utile :**
+
 - Ce n’est pas l’outil du quotidien en micro-électronique, mais utile en maintenance d’installations.
 
 ---
@@ -110,6 +117,7 @@ La façon de mesurer chaque grandeur dépend des propriétés du circuit et de l
 ○ Exemple : pour mesurer la tension aux bornes d’un composant, placer le multimètre en parallèle avec ce composant en respectant la polarité.
 
 ✅ **Complément utile :**
+
 - “En parallèle” = une pointe de chaque côté du composant.
 - Pour une alimentation : rouge sur Vcc, noir sur GND.
 
@@ -123,6 +131,7 @@ La façon de mesurer chaque grandeur dépend des propriétés du circuit et de l
 ○ Exemple : pour mesurer le courant traversant une lampe, débrancher un fil de la lampe et le relier à l’ampèremètre, puis connecter l’autre borne de l’ampèremètre à la lampe.
 
 ✅ **Complément utile :**
+
 - “En série” = on coupe et on insère l’appareil.
 - C’est la mesure la plus “à risque” : validation enseignant avant branchement.
 
@@ -137,6 +146,7 @@ La façon de mesurer chaque grandeur dépend des propriétés du circuit et de l
 ○ Exemple : pour mesurer la résistance d’une résistance isolée, poser les sondes du multimètre sur chaque extrémité de la résistance en mode « ohmmètre ».
 
 ✅ **Complément utile :**
+
 - Règle : **Ω = hors tension**.
 - Idéalement, mesurer une résistance **isolée** (sinon le circuit influence).
 
@@ -150,6 +160,7 @@ Les valeurs mesurées doivent être interprétées avec précision, en tenant co
 ○ Exemple : si un multimètre a une précision de ±1%, une mesure de 5 V peut varier de ±0,05 V.
 
 ✅ **Complément utile :**
+
 - On compare une mesure à un **ordre de grandeur**, pas au millième.
 - Si la mesure est “impossible” (ex : 0V partout), il y a souvent : GND absent, alimentation coupée, mauvais mode.
 
@@ -157,12 +168,14 @@ Les valeurs mesurées doivent être interprétées avec précision, en tenant co
 ○ Exemple : une résistance chauffée dans un circuit de puissance peut présenter une valeur différente de celle mesurée à température ambiante.
 
 ✅ **Complément utile :**
+
 - En atelier basse tension, l’effet existe mais reste modéré ; on le retient surtout en puissance.
 
 ● Effets des champs magnétiques : en présence de champs magnétiques ou de circuits haute fréquence, les valeurs mesurées peuvent être perturbées.
 ○ Exemple : mesurer le courant dans un circuit de puissance à proximité d’un moteur peut causer des interférences qui faussent les mesures.
 
 ✅ **Complément utile :**
+
 - Parasites possibles : on éloigne les fils, on réduit les boucles, on blinde si nécessaire.
 
 ---
@@ -176,6 +189,7 @@ La puissance et l’énergie consommée par un circuit sont des paramètres clé
 ○ Exemple : calculer la puissance d’une ampoule en multipliant la tension à ses bornes par le courant qu’elle consomme.
 
 ✅ **Complément utile :**
+
 - Exemple LED : si U=5V et I=0,01A → P = 0,05W.
 
 ● Mesure de la puissance en courant alternatif :
@@ -183,6 +197,7 @@ La puissance et l’énergie consommée par un circuit sont des paramètres clé
 ○ Exemple : pour un circuit inductif, comme un moteur, le facteur de puissance peut réduire la puissance réelle, ce qui nécessite un wattmètre pour mesurer précisément la puissance active.
 
 ✅ **Complément utile :**
+
 - Notion importante mais moins centrale ici : on retient “AC + déphasage = mesure plus complexe”.
 
 ● Calcul de l’énergie :
@@ -190,6 +205,7 @@ La puissance et l’énergie consommée par un circuit sont des paramètres clé
 ○ Exemple : pour estimer la consommation d’un appareil de 100 W sur une période de 10 heures, multiplier 100 W par 10 h pour obtenir 1 kWh.
 
 ✅ **Complément utile :**
+
 - 1 kWh = 1000 W pendant 1 heure.
 
 ---
@@ -204,6 +220,7 @@ La sécurité est primordiale lors de la manipulation de circuits sous tension. 
 ● Maintien des distances de sécurité : particulièrement pour les circuits à haute tension, éviter tout contact accidentel avec des parties conductrices.
 
 ✅ **Complément utile :**
+
 - On branche l’alimentation **en dernier**.
 - On ne change pas de mode (V ↔ A) sans couper l’alimentation.
 
@@ -218,6 +235,7 @@ Contrôle de consommation énergétique : mesurer régulièrement la consommatio
 Maintenance des installations électriques : mesurer les résistances d’isolement avec un mégohmmètre pour éviter les fuites de courant dans les câbles et prévenir les risques d’incendie.
 
 ✅ **Complément utile :**
+
 - En CIEL : diagnostic = “je mesure au bon endroit, je compare, je conclus”.
 
 ---

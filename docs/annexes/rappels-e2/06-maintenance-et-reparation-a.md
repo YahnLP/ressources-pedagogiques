@@ -2,7 +2,6 @@
 title: "Pack 06 – Maintenance et réparation (fiche A)"
 ---
 
-
 # Maintenance et réparation
 
 ## I. Principes de la maintenance et de la réparation en électronique
@@ -10,18 +9,21 @@ title: "Pack 06 – Maintenance et réparation (fiche A)"
 La maintenance et la réparation des équipements électroniques consistent à entretenir, diagnostiquer, et réparer les circuits et les systèmes pour prolonger leur durée de vie et garantir leur bon fonctionnement. La maintenance préventive et corrective permet d’éviter les pannes ou de les corriger rapidement en cas de dysfonctionnement.
 
 ✅ Complément utile :
+
 - En entreprise, la maintenance sert à **éviter les arrêts** et à **sécuriser** le matériel.
 - En E2, on attend une démarche : **je décris ce que je fais et pourquoi**.
 
 ● Maintenance préventive : elle vise à anticiper les pannes par des vérifications régulières, le nettoyage, et la vérification des paramètres clés des composants.
 
 ✅ Complément utile :
+
 - Préventif = “je fais avant que ça casse”.
 - Exemples simples : nettoyer, resserrer, vérifier tensions.
 
 ● Maintenance corrective : elle intervient lorsque le système présente une panne ou un dysfonctionnement. Elle consiste en un diagnostic et une réparation pour rétablir le fonctionnement normal du circuit.
 
 ✅ Complément utile :
+
 - Correctif = “je dépanne”.
 - On note toujours : symptôme + mesures + réparation.
 
@@ -36,6 +38,7 @@ La maintenance en électronique peut être classée en plusieurs types, chacun a
 ○ Exemple : vérifier l’état des ventilateurs et des dissipateurs thermiques pour éviter la surchauffe des composants sensibles.
 
 ✅ Complément utile :
+
 - Un ventilateur encrassé = surchauffe = panne probable.
 - Même sur petites cartes : poussière + humidité peuvent créer des défauts.
 
@@ -44,6 +47,7 @@ La maintenance en électronique peut être classée en plusieurs types, chacun a
 ○ Exemple : utiliser un capteur de température pour surveiller les variations sur un circuit de puissance, et agir si la température atteint un seuil critique.
 
 ✅ Complément utile :
+
 - Prédictif = “je surveille” (capteurs, logs, températures).
 - En atelier, on l’illustre avec : température qui monte, signal qui se dégrade.
 
@@ -52,6 +56,7 @@ La maintenance en électronique peut être classée en plusieurs types, chacun a
 ○ Exemple : en cas de panne d’alimentation, vérifier et remplacer les composants défectueux (fusibles, régulateurs, condensensateurs).
 
 ✅ Complément utile :
+
 - Le diagnostic commence presque toujours par l’alimentation : ai-je la bonne tension ?
 
 ---
@@ -65,6 +70,7 @@ La maintenance préventive consiste à effectuer régulièrement des tâches pou
 ○ Exemple : une inspection visuelle d’une carte mère peut révéler des condensateurs bombés, signe de vieillissement.
 
 ✅ Complément utile :
+
 - On cherche : traces de chauffe, composants fissurés, fils abîmés, ponts d’étain.
 - Condensateur “gonflé” = composant à remplacer (risque de panne).
 
@@ -78,6 +84,7 @@ La maintenance préventive consiste à effectuer régulièrement des tâches pou
 ○ Exemple : dans les ordinateurs, nettoyer les ventilateurs et les grilles de dissipation thermique pour éviter la surchauffe.
 
 ✅ Complément utile :
+
 - Nettoyer = meilleure ventilation = composants moins chauds.
 - Attention : pas d’objets métalliques sur la carte.
 
@@ -86,6 +93,7 @@ La maintenance préventive consiste à effectuer régulièrement des tâches pou
 ○ Exemple : un circuit avec des soudures froides peut générer des coupures intermittentes ou des pannes soudaines.
 
 ✅ Complément utile :
+
 - Soudure froide = souvent **panne intermittente**.
 - Une bonne soudure : cône propre, pas de pont.
 
@@ -99,6 +107,7 @@ La maintenance préventive consiste à effectuer régulièrement des tâches pou
 ○ Exemple : mesurer les tensions d’alimentation pour s’assurer que chaque section du circuit reçoit une tension correcte.
 
 ✅ Complément utile :
+
 - Mesures “points clés” : alimentation, sortie régulateur, entrée capteur…
 - Si la tension n’est pas bonne : beaucoup de pannes sont expliquées.
 
@@ -113,6 +122,7 @@ La maintenance corrective est un processus de résolution des pannes qui inclut 
 ○ Exemple : dans un circuit d’amplification audio, des distorsions peuvent indiquer un problème au niveau des transistors de puissance.
 
 ✅ Complément utile :
+
 - Symptôme = ce qu’on constate (ex : “ne s’allume pas”).
 - On le note avant de toucher au circuit.
 
@@ -121,6 +131,7 @@ La maintenance corrective est un processus de résolution des pannes qui inclut 
 ○ Exemple : en cas d’absence de courant, vérifier le fusible et l’interrupteur d’alimentation avant de procéder à des tests plus poussés.
 
 ✅ Complément utile :
+
 - “Tests simples d’abord” = gain de temps.
 - Continuité Vcc→circuit et GND→retour, + pas de court-circuit.
 
@@ -129,6 +140,7 @@ La maintenance corrective est un processus de résolution des pannes qui inclut 
 ○ Exemple : mesurer la résistance d’un composant pour détecter une variation par rapport à sa valeur nominale.
 
 ✅ Complément utile :
+
 - Résistance : Ω (hors tension)
 - Diode/LED : mode test diode
 - Oscilloscope : signal présent/absent/déformé
@@ -138,6 +150,7 @@ La maintenance corrective est un processus de résolution des pannes qui inclut 
 ○ Exemple : remplacer un condensateur défectueux par un modèle avec la même capacité et tension nominale.
 
 ✅ Complément utile :
+
 - Même capacité + tension nominale ≥ (au moins égale).
 - Respect polarité (condensateur électrolytique).
 
@@ -146,6 +159,7 @@ La maintenance corrective est un processus de résolution des pannes qui inclut 
 ○ Exemple : après avoir remplacé une diode de redressement, mesurer la tension de sortie pour confirmer que le courant est correctement redressé.
 
 ✅ Complément utile :
+
 - On refait la checklist : pas de court-circuit, tension OK, fonctionnement OK.
 
 ---
@@ -157,16 +171,19 @@ La maintenance et la réparation nécessitent l’usage d’outils spécialisés
 ● Multimètre : outil de base pour mesurer la tension, le courant et la résistance, essentiel pour diagnostiquer la majorité des pannes.
 
 ✅ Complément utile :
+
 - Mode continuité + test diode = très utiles en atelier.
 
 ● Oscilloscope : utilisé pour observer les signaux variables en fonction du temps, permettant de diagnostiquer les circuits analogiques et les systèmes de fréquence.
 
 ✅ Complément utile :
+
 - Sert à repérer un signal absent, déformé ou bruité.
 
 ● Fer à souder et pompe à dessouder : pour retirer et remplacer des composants sur des circuits imprimés, en assurant des soudures propres et solides.
 
 ✅ Complément utile :
+
 - La pompe aide à enlever l’étain pour retirer un composant.
 
 ● Pince ampèremétrique : pour mesurer le courant sans déconnexion, utile dans les circuits de puissance ou les câbles inaccessibles.
@@ -183,24 +200,28 @@ Travailler sur des circuits électriques présente des risques ; il est essentie
 ○ Exemple : ne jamais toucher aux composants d’un circuit haute tension sans être sûr qu’il est hors tension.
 
 ✅ Complément utile :
+
 - En atelier, même en basse tension : on coupe avant de changer de mode ou de câblage.
 
 ● Utilisation d’équipements de protection : porter des gants isolants, utiliser des outils à isolation renforcée, et travailler sur des surfaces antistatiques pour éviter les chocs électriques.
 ○ Exemple : utiliser une pince isolée pour manipuler les composants sous tension afin d’éviter tout risque de décharge.
 
 ✅ Complément utile :
+
 - Sur surface antistatique : éviter d’abîmer les composants sensibles.
 
 ● Précautions contre les décharges électrostatiques (ESD) : utiliser un bracelet antistatique ou une surface de travail antistatique pour protéger les composants sensibles aux décharges électrostatiques.
 ○ Exemple : lors de la manipulation de circuits intégrés, porter un bracelet antistatique pour éviter de les endommager.
 
 ✅ Complément utile :
+
 - L’ESD peut “tuer” un composant sans que ça se voie.
 
 ● Éviter les courts-circuits accidentels : ne pas poser d’objets métalliques sur la carte électronique, et utiliser des outils avec des protections isolantes.
 ○ Exemple : lors de la soudure, s’assurer qu’aucun excès d’étain ne crée de connexion involontaire entre deux pistes.
 
 ✅ Complément utile :
+
 - Pont d’étain = court-circuit = panne immédiate.
 
 ---
@@ -229,21 +250,25 @@ Une maintenance proactive et une utilisation appropriée permettent d’allonger
 ● Protection contre les surcharges et les surtensions : utiliser des dispositifs de protection (fusibles, disjoncteurs) pour protéger les composants sensibles des variations de tension.
 
 ✅ Complément utile :
+
 - Fusible = “protection” : il saute avant que tout casse.
 
 ● Refroidissement adéquat : garantir une ventilation suffisante pour dissiper la chaleur des circuits de puissance ou des systèmes qui consomment beaucoup d’énergie.
 
 ✅ Complément utile :
+
 - Ventilation = fiabilité.
 
 ● Utilisation d’alimentations stables : utiliser des alimentations filtrées pour éviter les perturbations, particulièrement dans les circuits sensibles (instruments de mesure, ordinateurs).
 
 ✅ Complément utile :
+
 - Alim instable = symptômes difficiles à comprendre.
 
 ● Remplacement préventif des composants : remplacer les composants qui montrent des signes de vieillissement (condensateurs, relais) pour éviter les pannes soudaines.
 
 ✅ Complément utile :
+
 - Remplacer avant panne = éviter immobilisation.
 
 ---

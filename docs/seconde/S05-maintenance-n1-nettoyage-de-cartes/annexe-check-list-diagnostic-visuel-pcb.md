@@ -4,7 +4,6 @@
 ---
 
 > **Document élève — À utiliser à chaque intervention de maintenance**
-> BAC Pro CIEL | S5 Module E2 | MFR de Pontonx
 
 ---
 

@@ -1,8 +1,6 @@
 # 📖 RAPPEL COURS – S6 ANNÉE 3 – E2
 ## Flux KiCad Complet : Schéma → ERC → PCB → DRC → Gerber → BOM
 
-**Nom : ________________  Prénom : ________________**
-
 > *Ce document est votre aide-mémoire pour l'exercice certifiant. Durée de lecture : 30 min maximum.*
 
 ---

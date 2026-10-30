@@ -54,7 +54,6 @@
 | Résistance (Ω) | Étroitesse du tuyau |
 | Charge (LED, moteur) | Turbine / Roue à eau |
 
-
 ---
 
 ## 2️⃣ LA LOI D'OHM
@@ -89,10 +88,12 @@ $$U = R \times I \qquad I = \dfrac{U}{R} \qquad R = \dfrac{U}{I}$$
 #### Exemple 1 : Calculer la tension U
 
 **Données :**
+
 - Résistance : R = 1000 Ω
 - Intensité : I = 0,01 A
 
 **Calcul :**
+
 $$
 \begin{aligned}
 U &= R \times I \\
@@ -101,17 +102,20 @@ U &= 10\,\mathrm{V}
 \end{aligned}
 $$
 
-**Réponse :** La tension est de **10 Volts**.
+??? success "Réponse"
+    La tension est de **10 Volts**.
 
 ---
 
 #### Exemple 2 : Calculer la résistance R
 
 **Données :**
+
 - Tension : U = 12 V
 - Intensité : I = 0,02 A
 
 **Calcul :**
+
 $$
 \begin{aligned}
 R &= \dfrac{U}{I} \\
@@ -120,17 +124,20 @@ R &= 600\,\mathrm{\Omega }
 \end{aligned}
 $$
 
-**Réponse :** La résistance est de **600 Ohms**.
+??? success "Réponse"
+    La résistance est de **600 Ohms**.
 
 ---
 
 #### Exemple 3 : Calculer l'intensité I
 
 **Données :**
+
 - Tension : U = 5 V
 - Résistance : R = 500 Ω
 
 **Calcul :**
+
 $$
 \begin{aligned}
 I &= \dfrac{U}{R} \\
@@ -139,7 +146,8 @@ I &= 0{,}01\,\mathrm{A} = 10\,\mathrm{mA}
 \end{aligned}
 $$
 
-**Réponse :** L'intensité est de **0,01 Ampère** ou **10 milliampères**.
+??? success "Réponse"
+    L'intensité est de **0,01 Ampère** ou **10 milliampères**.
 
 ---
 
@@ -156,6 +164,7 @@ $$
 | Méga-ohm | MΩ | 1 MΩ = 1 000 000 Ω | Résistance élevée |
 
 **Conversions utiles :**
+
 - 100 Ω = 0,1 kΩ
 - 1 000 Ω = 1 kΩ
 - 10 000 Ω = 10 kΩ
@@ -172,6 +181,7 @@ $$
 | Microampère | µA | 1 µA = 0,000001 A | Composants très faibles |
 
 **Conversions utiles :**
+
 - 1 A = 1 000 mA
 - 0,01 A = 10 mA
 - 20 mA = 0,02 A
@@ -188,6 +198,7 @@ $$
 | Kilovolt | kV | 1 kV = 1 000 V | Haute tension |
 
 **Tensions courantes :**
+
 - Pile AA : 1,5 V
 - Pile 9V : 9 V
 - USB : 5 V
@@ -201,8 +212,6 @@ $$
 **Méthode :** Pour convertir, déplacer la virgule !
 
 ![Échelle des unités : multiplier ou diviser par 1 000](images/echelle-unites.png)
-
-
 
 ---
 
@@ -258,7 +267,8 @@ Valeur = (Bague1 × 10 + Bague2) × Multiplicateur
 
 $$(1 \times 10 + 0) \times 100 = 10 \times 100 = 1\,000\,\mathrm{\Omega } = 1\,\mathrm{k\Omega }$$
 
-**Réponse :** **1 000 Ω** ou **1 kΩ**
+??? success "Réponse"
+    **1 000 Ω** ou **1 kΩ**
 
 ---
 
@@ -274,7 +284,8 @@ $$(1 \times 10 + 0) \times 100 = 10 \times 100 = 1\,000\,\mathrm{\Omega } = 1\,\
 
 $$(4 \times 10 + 7) \times 1\,000 = 47 \times 1\,000 = 47\,000\,\mathrm{\Omega } = 47\,\mathrm{k\Omega }$$
 
-**Réponse :** **47 000 Ω** ou **47 kΩ**
+??? success "Réponse"
+    **47 000 Ω** ou **47 kΩ**
 
 ---
 
@@ -290,7 +301,8 @@ $$(4 \times 10 + 7) \times 1\,000 = 47 \times 1\,000 = 47\,000\,\mathrm{\Omega }
 
 $$(1 \times 10 + 0) \times 10\,000 = 10 \times 10\,000 = 100\,000\,\mathrm{\Omega } = 100\,\mathrm{k\Omega }$$
 
-**Réponse :** **100 000 Ω** ou **100 kΩ**
+??? success "Réponse"
+    **100 000 Ω** ou **100 kΩ**
 
 ---
 
@@ -415,9 +427,9 @@ Cochez les affirmations vraies :
 - [ ] L'intensité se mesure en Volts
 - [ ] 20 mA = 0,02 A
 
-**Réponses :**
-✅ Vrai : 2 (U = R × I), 3 (Marron=1, Noir=0, Orange=×1000 → 10 000 Ω = 10 kΩ), 5 (1 kΩ = 1 000 Ω), 8 (20 mA = 0,02 A)  
-❌ Faux : 1 (tension = Volt), 4 (il faut TOUJOURS une résistance de limitation), 6 (patte longue = anode +), 7 (intensité = Ampère)
+??? success "Réponses"
+    ✅ Vrai : 2 (U = R × I), 3 (Marron=1, Noir=0, Orange=×1000 → 10 000 Ω = 10 kΩ), 5 (1 kΩ = 1 000 Ω), 8 (20 mA = 0,02 A)  
+    ❌ Faux : 1 (tension = Volt), 4 (il faut TOUJOURS une résistance de limitation), 6 (patte longue = anode +), 7 (intensité = Ampère)
 
 ---
 
@@ -450,6 +462,7 @@ Cochez les affirmations vraies :
 ✅ **Diagnostiquer une panne** en vérifiant les valeurs de résistances  
 
 **Missions possibles en entreprise cette semaine :**
+
 - Observer les cartes électroniques et identifier les composants
 - Demander au tuteur de montrer un schéma électrique
 - Photographier une carte et annoter les composants
@@ -478,13 +491,6 @@ $$
 ### Résistance de limitation LED
 
 $$R_{\mathrm{LED}} = \dfrac{V_{cc} - V_{\mathrm{F}}}{I_{\mathrm{LED}}}$$
-
----
-
-**📅 Fiche rédigée le :** 26/02/2026  
-**✍️ Auteur :** Équipe pédagogique CFA  
-**📧 Questions :** formation@cfa-exemple.fr  
-**🔄 Prochaine mise à jour :** Juin 2026
 
 ---
 

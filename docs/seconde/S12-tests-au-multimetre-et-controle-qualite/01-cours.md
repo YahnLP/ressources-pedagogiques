@@ -39,6 +39,7 @@ Le **mode continuité** du multimètre permet de vérifier si un **chemin élect
 ### 🔊 Principe de fonctionnement
 
 Le multimètre en mode continuité :
+
 - Envoie un **petit courant** entre les deux pointes
 - Si le courant passe : **BIP sonore** + affichage valeur faible
 - Si le courant ne passe pas : **Pas de BIP** + affichage "OL" (Open Line)
@@ -61,6 +62,7 @@ Sur le multimètre, le mode continuité est représenté par :
 Le multimètre considère qu'il y a continuité si la résistance est **inférieure à ~50 Ω** (dépend des modèles).
 
 **Exemples :**
+
 - Fil de cuivre : 0,1 Ω → **BIP** ✅
 - Résistance 10 Ω : **BIP** ✅
 - Résistance 100 Ω : **Pas de BIP** ❌
@@ -69,6 +71,7 @@ Le multimètre considère qu'il y a continuité si la résistance est **inférie
 ### 🔌 Utilisation pratique
 
 **Procédure :**
+
 1. Sélectionner le mode continuité sur le multimètre (symbole ──▷|─── )))
 2. Toucher les deux pointes ensemble → Doit faire **BIP** (test du multimètre)
 3. Placer les pointes sur les deux points à tester
@@ -90,6 +93,7 @@ Le multimètre considère qu'il y a continuité si la résistance est **inférie
 Une piste sur un PCB doit relier deux points (composant A → composant B). Si la piste est coupée, le courant ne peut pas passer.
 
 **Méthode :**
+
 1. Identifier sur le **schéma** les deux extrémités de la piste
 2. Placer les pointes du multimètre sur ces deux points
 3. Résultat attendu : **BIP** ✅
@@ -107,6 +111,7 @@ Si pas de BIP → Piste coupée !
 ```
 
 **Causes possibles d'une piste coupée :**
+
 - Gravure trop agressive (piste trop fine disparue)
 - Rayure mécanique pendant la manipulation
 - Piste mal conçue (trop fine dès le départ)
@@ -119,11 +124,13 @@ Si pas de BIP → Piste coupée !
 
 **Principe :**
 Un court-circuit, c'est quand deux pistes qui ne devraient PAS se toucher sont reliées. C'est très dangereux car cela peut :
+
 - Créer un chemin de courant non prévu
 - Détruire les composants
 - Créer une surchauffe
 
 **Méthode :**
+
 1. Identifier sur le schéma deux pistes qui doivent être **séparées** (+5V et GND par exemple)
 2. Placer les pointes sur ces deux pistes
 3. Résultat attendu : **PAS DE BIP** ✅
@@ -137,6 +144,7 @@ Un court-circuit, c'est quand deux pistes qui ne devraient PAS se toucher sont r
 | Signal A ↔ Signal B | **PAS DE BIP** | ⚠️ Court-circuit ! |
 
 **Causes possibles d'un court-circuit :**
+
 - Pont de soudure entre deux pistes
 - Fil de soudure qui dépasse et touche une autre piste
 - Pistes trop proches lors de la conception
@@ -157,11 +165,13 @@ Un court-circuit, c'est quand deux pistes qui ne devraient PAS se toucher sont r
 | **Soudure insuffisante** | Composant pas fixé | Pas de BIP ❌ | NOK |
 
 **Test :**
+
 1. Placer une pointe sur la patte du composant
 2. Placer l'autre pointe sur la piste correspondante
 3. Résultat attendu : **BIP stable** ✅
 
 **Si le BIP est intermittent :**
+
 - Bouger légèrement le composant
 - Si le BIP change → **Soudure froide** → Refaire la soudure
 
@@ -364,9 +374,9 @@ Cochez les affirmations vraies :
 - [ ] Il faut toujours tester AVANT d'alimenter
 - [ ] OL sur le multimètre signifie circuit ouvert
 
-**Réponses :**
-✅ Vrai : 1, 3, 4, 6, 7, 8  
-❌ Faux : 2 (JAMAIS tester sous tension), 5 (pas toujours visible)
+??? success "Réponses"
+    ✅ Vrai : 1, 3, 4, 6, 7, 8  
+    ❌ Faux : 2 (JAMAIS tester sous tension), 5 (pas toujours visible)
 
 ---
 
@@ -398,6 +408,7 @@ Cochez les affirmations vraies :
 ✅ **Certification** : Respecter les normes qualité (ISO 9001, IPC)  
 
 **Missions possibles en entreprise :**
+
 - Participer à un contrôle qualité sur une carte
 - Observer la procédure de test de l'entreprise
 - Rédiger un compte-rendu d'intervention
@@ -412,13 +423,6 @@ Cochez les affirmations vraies :
 | Fumée / composant chauffe | Court-circuit | + ↔ - : BIP | Couper le pont |
 | Fonctionnement aléatoire | Soudure froide | BIP intermittent | Refaire soudure |
 | LED ne s'allume pas | LED à l'envers | Visuel | Dessouder et retourner |
-
----
-
-**📅 Fiche rédigée le :** 26/02/2026  
-**✍️ Auteur :** Équipe pédagogique CFA  
-**📧 Questions :** formation@cfa-exemple.fr  
-**🔄 Prochaine mise à jour :** Juin 2026
 
 ---
 
