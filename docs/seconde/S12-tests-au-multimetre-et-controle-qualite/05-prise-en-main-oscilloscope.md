@@ -31,7 +31,7 @@ Le multimètre te donne **une** valeur. Mais comment savoir si une tension **cli
 ??? success "Réponses"
 
     1. $U_{pp} = 4 \times 2 = 8\,\mathrm{V}$.
-    2. $T = 5 \times 2\,\mathrm{ms} = 10\,\mathrm{ms}$ ; $f = \dfrac{1}{0{,}010} = 100\,\mathrm{\mathrm{\mathrm{Hz}}}$.
+    2. $T = 5 \times 2\,\mathrm{ms} = 10\,\mathrm{ms}$ ; $f = \dfrac{1}{0{,}010} = 100\,\mathrm{\mathrm{\mathrm{\mathrm{Hz}}}}$.
     3. Pour que l'image reste **stable** : sans déclenchement correct, le signal « défile » et on ne peut rien lire.
 
 ## 2. La sonde : ×1 ou ×10, et la compensation

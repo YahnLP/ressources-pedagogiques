@@ -15,7 +15,49 @@
 | 3 h | Épreuve blanche complète (mesures, calculs, PV) |
 | 1 h | Correction, bilan personnel et plan de révision |
 
-## 📚 Ressources à utiliser
+## 📖 Le cours en bref
+
+??? question "🤔 À ton avis ?"
+    Tu as 3 heures pour mesurer, calculer et rédiger un PV. Comment ne pas perdre de points ?
+
+    **Réponse** : en **suivant un plan** et en vérifiant les points qui rapportent le plus : unités, tolérances, conclusions.
+
+### 1. Le plan de l'épreuve (3 h)
+
+| Phase | Durée | Je fais |
+|---|---|---|
+| **Lire** | 15 min | tout le sujet, les documents, les consignes |
+| **Préparer** | 30 min | calculs préalables : valeurs attendues et plages |
+| **Mesurer** | 1 h 15 | mesures **dans l'ordre du sujet** ; je note attendu / mesuré |
+| **Analyser** | 30 min | verdicts, calcul de marge, comparaison aux tolérances |
+| **Rédiger** | 30 min | PV propre, conclusion argumentée |
+
+### 2. La liste de contrôle avant de rendre
+
+- [ ] Toutes les valeurs ont leur **unité**.
+- [ ] Chaque mesure est comparée à une **tolérance** chiffrée.
+- [ ] Chaque verdict (**conforme / non conforme**) est **justifié**.
+- [ ] Les **instruments** et leur étalonnage sont indiqués.
+- [ ] Le PV est **daté, signé**, propre.
+- [ ] Les **calculs** sont montrés (formule, application numérique, résultat).
+
+### 3. Les compétences évaluées
+
+- **C03 – Participer à un projet** : respecter le planning, documenter, travailler en équipe.
+- **C07 – Réaliser des maquettes et prototypes** : monter, souder, tester.
+- **C11 – Maintenir un système électronique** : diagnostiquer, réparer, tracer.
+
+### 4. En cas de blocage
+
+- Une mesure **incohérente** : vérifier le **branchement**, le **calibre**, l'**instrument**, puis refaire.
+- Un calcul **bloqué** : passer à la suite et y revenir (ne jamais laisser une partie vide).
+- Un doute sur une **formule** : elle est dans les documents autorisés.
+
+### Bilan personnel
+
+Après l'épreuve blanche, classe tes erreurs : **oublis** (unités, tolérance), **calculs**, **manipulations**, **rédaction**. Révise **d'abord** la catégorie où tu perds le plus de points.
+
+## 📚 Pour approfondir : les séances à consulter
 
 - [Terminale S15 – examen complet 2 h](../S15-document-autorise-examen-complet-2h/README.md)
 - [Terminale S13 – TP complet 2 h](../S13-documents-autorises-tp-complet-2h/README.md)

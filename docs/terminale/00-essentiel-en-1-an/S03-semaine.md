@@ -17,7 +17,62 @@
 | 1 h | Datasheet du BC547 et du NE555 : exercices |
 | 1 h | Auto-test et correction |
 
-## 📚 Ressources à utiliser
+## 📖 Le cours en bref
+
+??? question "🤔 À ton avis ?"
+    On te donne une carte inconnue avec un composant marqué « LM7805 ». Comment savoir comment le brancher sans rien griller ?
+
+    **Réponse** : on lit sa **datasheet** et le **schéma**. Cette semaine, tu apprends à lire ces deux documents, qui sont ta « notice » en électronique.
+
+### 1. Lire un schéma
+
+Un schéma est un **plan** : il montre **comment les composants sont reliés**, pas où ils sont posés.
+
+- Chaque composant a un **repère** : **R**1 (résistance), **C**1 (condensateur), **D**1 (diode), **Q**1 (transistor), **U**1 (circuit intégré), **J**1 (connecteur).
+- Les **traits** sont des fils ; un **point plein** à un croisement veut dire « relié », **sans point** = pas relié.
+- Le **+** est en **haut**, la **masse (GND)** en bas, le signal de **gauche à droite**.
+
+> [!TIP] 💡 En clair
+> Pour comprendre un schéma, **découpe-le en blocs** : alimentation → traitement → sortie. Puis lis bloc par bloc.
+
+### 2. Lire une datasheet
+
+Une datasheet contient toujours les mêmes parties : description, **brochage**, **limites absolues**, **caractéristiques électriques** (min / typ / max), courbes, boîtier.
+
+| À chercher | Pourquoi |
+|---|---|
+| **Brochage** | brancher chaque broche au bon endroit |
+| **Absolute maximum ratings** | limites à **ne jamais dépasser** |
+| **Electrical characteristics** | valeurs **garanties** pour calculer |
+| **Package** | choisir l'empreinte du PCB |
+
+On calcule toujours avec le **cas le plus défavorable** (min ou max), jamais avec la valeur « typique ».
+
+### 3. Exemple : le régulateur 7805
+
+- **Brochage** (boîtier TO-220) : 1 = entrée, 2 = masse, 3 = sortie.
+- **Sortie** : 5 V (garantie de 4,8 à 5,2 V).
+- **Entrée** : de 7 V à 35 V maximum.
+- **Montage type** : un condensateur de 100 nF côté entrée et de 10 µF côté sortie.
+
+### 4. Exemple : le transistor BC547
+
+- Limites : $V_{CE}$ max = 45 V ; $I_C$ max = 100 mA.
+- Gain $h_{FE}$ de 110 à 800 (très dispersé).
+- Saturé : $V_{CE(sat)} \approx 0{,}2\,\mathrm{V}$.
+
+### 5. Exemple : le NE555 en astable
+
+$$f = \frac{1{,}44}{(R_a + 2R_b) \times C} \qquad DC = \frac{R_a + R_b}{R_a + 2R_b}$$
+
+Avec $R_a = 10\,\mathrm{k\Omega}$, $R_b = 68\,\mathrm{k\Omega}$, $C = 10\,\mathrm{\mu F}$ : $f \approx 0{,}99\,\mathrm{Hz}$ et $DC \approx 53\,\%$.
+
+> [!WARNING] ⚠️ Erreurs fréquentes
+> - Utiliser une datasheet du **mauvais composant** (vérifie la référence exacte et le fabricant).
+> - Confondre **limite absolue** et **valeur de fonctionnement**.
+> - Lire le brochage **vu du dessous** au lieu de vu du dessus (le dessin précise le sens).
+
+## 📚 Pour approfondir : les séances à consulter
 
 - [Seconde S03 – schémas normalisés](../../seconde/S03-breadboard-schemas-electriques-normes/01-cours.md)
 - [Seconde S06 – lecture de datasheet](../../seconde/S06-schemas-electriques-normes-tinkercad/01-cours.md)
