@@ -28,27 +28,10 @@ Exporter en PDF : File → Print → Save as PDF
 
 ### 1.2 Espace schéma
 
-```
-┌──────────────────────────────────────────────────────────────────────────┐
-│                                                                          │
-│  [INSÉRER LE SCHÉMA KICAD EXPORTÉ ICI]                                  │
-│                                                                          │
-│  ou dessiner le schéma en respectant les symboles normalisés :           │
-│                                                                          │
-│  ESP32 ──── GPIO4 ───[R1 10kΩ]─── VCC3V3                               │
-│                  └──── DATA DHT22                                        │
-│                                                                          │
-│  ESP32 ──── GPIO34 ─── AO MQ-2                                          │
-│  VCC5V ──────────────  VCC MQ-2                                          │
-│  GND ─────────────── GND MQ-2                                            │
-│                                                                          │
-│  ESP32 ──── GPIO35 ─── ┬─── LDR ─── VCC3V3                             │
-│  GND ──────────────────┴─── R2 10kΩ                                      │
-│                                                                          │
-│  ESP32 ──── GPIO2 ────[R3 220Ω]─── LED ─── GND                         │
-│                                                                          │
-└──────────────────────────────────────────────────────────────────────────┘
-```
+![Schéma de câblage de référence de la station ClimaSens (à reproduire sous KiCad)](images/cablage-climasens.png)
+
+> [!NOTE] À joindre
+> Insérer ici le **schéma KiCad exporté** (ERC = 0) en respectant les symboles normalisés. La figure ci-dessus donne les connexions attendues.
 
 ### 1.3 Vérification ERC
 
@@ -108,40 +91,7 @@ Note sur l'alimentation :
 
 ### 3.1 Schéma blocs
 
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                     ARCHITECTURE CLIMASENS                                   │
-│                                                                              │
-│  ┌─────────────┐    ┌─────────────────────────────────────────┐             │
-│  │ DHT22       ├────┤                                         │             │
-│  │ (T° + Hum.) │    │                                         │             │
-│  ├─────────────┤    │           ESP32 DevKit v1               │             │
-│  │ MQ-2        ├────┤  - CPU 240 MHz · 4MB Flash · 520KB RAM  ├──→ WiFi ──→ │
-│  │ (Air/Fumée) │    │  - WiFi 802.11 b/g/n                    │             │
-│  ├─────────────┤    │  - PubSubClient (MQTT)                  │             │
-│  │ LDR         ├────┤  - DHTesp + ArduinoJson                 │             │
-│  │ (Lumino.)   │    │                                         │             │
-│  └─────────────┘    └─────────────────────────────────────────┘             │
-│                                           │ MQTT                            │
-│                                           ▼                                 │
-│                               ┌─────────────────┐                          │
-│                               │  Broker MQTT    │                          │
-│                               │  (Mosquitto)    │                          │
-│                               └────────┬────────┘                          │
-│                                        │ MQTT Subscribe                    │
-│                                        ▼                                   │
-│                               ┌─────────────────┐                          │
-│                               │    Node-RED     ├──→ Dashboard Web          │
-│                               │  (Orchestration)├──→ Alertes               │
-│                               └────────┬────────┘                          │
-│                                        │                                   │
-│                                        ▼                                   │
-│                               ┌─────────────────┐                          │
-│                               │    InfluxDB     ├──→ Historique             │
-│                               │  (Stockage)     │                          │
-│                               └─────────────────┘                          │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
+![Architecture du projet ClimaSens : capteurs, ESP32, broker MQTT, Node-RED, tableau de bord, InfluxDB](images/architecture-climasens.png)
 
 ### 3.2 Topics MQTT utilisés
 

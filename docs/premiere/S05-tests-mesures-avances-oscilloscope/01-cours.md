@@ -82,21 +82,30 @@ Voies numériques (D0–D15) :
 
 ![Câblage de l'analyseur logique : voies CH0 à CH2 et GND](images/analyseur-cablage.png)
 
-### Saleae Logic 2 — Interface
+### Un exemple d'analyseur professionnel : Saleae Logic 2
 
-```
-┌────────────────────────────────────────────────────────────────┐
-│  BARRE D'OUTILS  Start / Stop / Fréquence échantillonnage      │
-├─────────────────────────────────────────────────────────────────┤
-│  CH0 ────────────────────┐────────────────────────────────────  │
-│  (SCL)                   │                                      │
-│  CH1 ──────────┐─────────┘────────────────────────────────────  │
-│  (SDA)         │                                                 │
-│                └──────────── Trame décodée : [0x68 W][ACK]...   │
-├─────────────────────────────────────────────────────────────────┤
-│  PANNEAU ANALYSEURS   I2C / SPI / UART / 1-Wire / ...          │
-└────────────────────────────────────────────────────────────────┘
-```
+> [!NOTE] Saleae, c'est quoi ?
+> **Saleae** est une société qui fabrique des **analyseurs logiques USB** (gamme *Logic 8*, *Logic Pro 8 / 16*) et leur logiciel **Logic 2**, gratuit. C'est une **référence du marché** : on la rencontre en bureau d'études et en laboratoire. Si votre établissement n'en possède pas, **ce n'est pas un obstacle** : l'analyseur logique d'**ElectroLab** reproduit les mêmes fonctions (déclenchement, seuil, décodeur I²C / SPI / UART) et sert pour tous les exercices.
+
+![Interface du logiciel Saleae Logic 2 : barre d'outils, canaux, chronogrammes décodés, panneau des analyseurs](images/saleae-logic2.png)
+
+### Dans ElectroLab : l'analyseur logique
+
+![Fenêtre de l'analyseur logique d'ElectroLab : chronogrammes D0 à D7, base de temps, déclenchement, seuil, décodeur et trames décodées](images/electrolab-analyseur-i2c.png)
+
+| N° | Zone ElectroLab | Équivalent dans Saleae Logic 2 | Rôle |
+|---|---|---|---|
+| 1 | **Chronogrammes** D0 à D7 | Voies *Channels* | Niveau logique de chaque voie dans le temps |
+| 2 | **Base de temps** (µs/div, ms/div), **RUN / STOP**, **Auto** | Fréquence d'échantillonnage, **Start / Stop** | Régler la durée affichée et figer la capture |
+| 3 | **Déclenchement** : voie + front ↘ ou ↗ | *Trigger* | Caler l'affichage sur le début de la trame |
+| 4 | **Seuil logique** (1,65 V) | *Threshold* du matériel | Tension au-dessus de laquelle on lit « 1 » |
+| 5 | **Décodeur** : protocole + voies (SCL, SDA…) | *Analyzers* → **+** → I2C | Transformer les bits en trames lisibles |
+| 6 | **Trames décodées** | Annotations sur les voies | Lire adresse, R/W, ACK, données |
+
+> [!TIP] 💡 En clair
+> Sur la capture, la ligne décodée `S 48 W ACK 01·A A5·A P` se lit : **S** = START · **48** = adresse de l'esclave (hexadécimal) · **W** = écriture · **ACK** = l'esclave répond · **01** et **A5** = deux octets de données, chacun suivi de **A** (acquittement) · **P** = STOP.
+
+
 
 ### Fréquence d'échantillonnage — Règle de Nyquist
 
@@ -179,17 +188,18 @@ $$\boxed{f_{éch} \geq 10 \times f_{bus}}$$
 
 ---
 
-### Configurer le décodeur I2C dans Saleae
+### Configurer le décodeur I²C (Saleae et ElectroLab)
 
-1. Ouvrir Saleae Logic 2  
-2. Brancher l'analyseur : CH0 → SCL, CH1 → SDA, GND → GND circuit  
-3. Régler la fréquence d'échantillonnage : 8 MHz (pour I2C 400 kHz)  
-4. Analyser → Add Analyzer → I2C  
+1. **Ouvrir l'analyseur** : logiciel Saleae Logic 2, ou, dans ElectroLab, **double-clic** sur l'analyseur logique.
+2. **Brancher** : CH0 (ElectroLab : D0) → SCL ; CH1 (D1) → SDA ; GND de l'analyseur → GND du circuit.
+3. **Régler l'échantillonnage** : 8 MHz pour un bus I²C à 400 kHz (ElectroLab : une base de temps de l'ordre de 20 µs/div).
+4. **Ajouter le décodeur** : Saleae : panneau *Analyzers* → **+** → I2C ; ElectroLab : zone *Décodeur* → Protocole **I²C**.
+5. **Affecter les voies** : **SCL = CH0 (D0)** et **SDA = CH1 (D1)**.
+6. **Lancer une capture** : Start et exécuter le code Arduino (ElectroLab : RUN, avec un déclenchement sur D1, front descendant).
+7. **Zoomer** sur la capture : les trames s'affichent décodées.
 
-$$5. SCL = CH0, SDA = CH1$$
-
-6. Lancer une capture (Start + exécuter le code Arduino)  
-7. Zoom sur la capture → les trames s'affichent décodées  
+> [!NOTE] Si le décodeur affiche des erreurs
+> Tant que les voies ou le seuil sont mal réglés, le décodeur affiche des **erreurs** : c'est normal, c'est un **indice**. Vérifiez d'abord que SCL et SDA ne sont pas inversées, puis la base de temps.
 
 ### Diagnostic I2C — Les problèmes courants
 
@@ -231,14 +241,14 @@ $$5. SCL = CH0, SDA = CH1$$
 
 ### Champs d'une trame SPI lus dans Saleae
 
-| **Champ** | **Valeur dans Saleae** | **Interprétation** |
+| **Champ** | **Valeur dans le décodeur (Saleae, ElectroLab)** | **Interprétation** |
 |---|---|---|
 | CS LOW | Flèche descendante | Début de transaction |
 | MOSI | Valeur hex en rectangle | Commande ou données envoyées |
 | MISO | Valeur hex en rectangle | Réponse de l'esclave |
 | CS HIGH | Flèche montante | Fin de transaction |
 
-### Configurer le décodeur SPI dans Saleae
+### Configurer le décodeur SPI (Saleae et ElectroLab)
 
 ```
 1. Analyser → Add Analyzer → SPI
