@@ -13,7 +13,7 @@ Entraîne-toi d'abord sur le simulateur de **tes deux oscilloscopes** : [▶️ 
 |---|---|
 | 1 · 2 · 3 · 4 | **1** Prise en main · **2** Compenser la sonde · **3** Piège ×1 / ×10 · **4** Lire sur la grille · **16** Pince de masse oubliée |
 | 5 · 6 | **5** Couplage DC / AC / GND · **6** Le déclenchement |
-| 7 · 8 · 9 | **7** Mesures automatiques · **8** Curseurs · **9** NE555 · **10** Pont de diodes (ondulation) · **15** Réduire le bruit |
+| 7 · 8 · 9 | **7** Mesures automatiques · **8** Curseurs · **9** NE555 · **10** Pont de diodes (ondulation) · **15** Réduire le bruit (moyenne) · **17** Le bruit : le reconnaître et l'atténuer |
 | 10 · 11 | **12** Mesurer un déphasage · **13** Mode XY · **14** Capture unique (rebonds) · **11** Charge d'un condensateur |
 
 ## 🖥️ Avant le TP réel : ElectroLab
