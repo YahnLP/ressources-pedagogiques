@@ -162,14 +162,14 @@ $$U = R \times I \qquad I = \dfrac{U}{R} \qquad R = \dfrac{U}{I}$$
 > Si tu connais **deux** grandeurs, tu peux toujours trouver la **troisième**. Pour ne pas te tromper, suis toujours les mêmes étapes :
 >
 > 1. **Écris** ce que tu cherches (U, R ou I).
-> 2. **Choisis** la formule avec le cercle : tu caches la grandeur cherchée.
+> 2. **Choisis** la formule avec le triangle : tu caches la grandeur cherchée.
 > 3. **Convertis** les unités en V, A et Ω (des mA deviennent des A).
 > 4. **Calcule**.
 > 5. **Vérifie** que le résultat est logique (ordre de grandeur).
 
 > [!WARNING] ⚠️ Erreurs fréquentes
 > - Oublier de convertir les mA en A : 20 mA = **0,02 A** (et pas 20).
-> - Mélanger les formules : le cercle sert à retrouver la bonne.
+> - Mélanger les formules : le triangle sert à retrouver la bonne.
 
 ### ✅ Vérifie que tu as compris
 

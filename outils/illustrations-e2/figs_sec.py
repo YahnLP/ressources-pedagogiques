@@ -28,18 +28,22 @@ def formula(cx, y, lhs, rhs, size=42):
 
 
 def wheel(cx, cy, r, top, left, right, hide, colors):
-    """Disque : lettre 'top' en haut, 'left' en bas à gauche, 'right' en bas à droite ; 'hide' = lettre cachée."""
+    """Triangle mnémotechnique : lettre 'top' en haut, 'left' en bas à gauche, 'right' en bas à droite ; 'hide' = lettre cachée."""
     o = ""
-    def sector(path, key, lab, tx, ty):
+    w, H = r * 1.25, r * 2.0
+    A = (cx, cy - H * 0.55); BL = (cx - w, cy + H * 0.45); BR = (cx + w, cy + H * 0.45)
+    ML = ((A[0] + BL[0]) / 2, (A[1] + BL[1]) / 2); MR = ((A[0] + BR[0]) / 2, (A[1] + BR[1]) / 2)
+    M = (cx, ML[1]); MB = (cx, BL[1])
+    def sector(pts, key, lab, tx, ty):
         c = "#cfd5df" if key == hide else colors[key]
-        s = f'<path d="{path}" fill="{c}" stroke="#fff" stroke-width="5"/>'
+        p = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts) + " Z"
+        s = f'<path d="{p}" fill="{c}" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>'
         s += mtext(tx, ty, "?" if key == hide else lab, 52, fill="#6b7587" if key == hide else INK, italic=False if key == hide else True)
         return s
-    topP = f"M{cx-r},{cy} A{r},{r} 0 0 1 {cx+r},{cy} Z"
-    leftP = f"M{cx},{cy} L{cx-r},{cy} A{r},{r} 0 0 0 {cx},{cy+r} Z"
-    rightP = f"M{cx},{cy} L{cx+r},{cy} A{r},{r} 0 0 1 {cx},{cy+r} Z"
-    o += f'<circle cx="{cx}" cy="{cy}" r="{r+4}" fill="#000" opacity=".07" transform="translate(0,5)"/>'
-    o += sector(topP, top, top, cx, cy - r * 0.38) + sector(leftP, left, left, cx - r * 0.45, cy + r * 0.55) + sector(rightP, right, right, cx + r * 0.45, cy + r * 0.55)
+    o += f'<path d="M{A[0]},{A[1]} L{BR[0]},{BR[1]} L{BL[0]},{BL[1]} Z" fill="#000" opacity=".05" transform="translate(0,3)"/>'
+    o += sector([A, MR, ML], top, top, cx, A[1] + (ML[1] - A[1]) * 0.78)
+    o += sector([ML, M, MB, BL], left, left, cx - w * 0.5, ML[1] + (BL[1] - ML[1]) * 0.62)
+    o += sector([M, MR, BR, MB], right, right, cx + w * 0.5, ML[1] + (BL[1] - ML[1]) * 0.62)
     return o
 
 
