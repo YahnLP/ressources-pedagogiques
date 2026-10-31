@@ -301,4 +301,29 @@ def f_thermostat_analogie():
     return figure(W, 480, o)
 
 
-FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "hysteresis_thermostat": f_thermostat_analogie}
+def f_reperage_fils():
+    o = T(600, 52, "Repérage d'un fil : une étiquette identique aux deux extrémités", 22, 800, INK)
+    # format
+    for k, (t, sub, c, x) in enumerate((("SOURCE", "d'où part le fil", BLUE, 90), ("DESTINATION", "où il arrive", GREEN, 450), ("NUMÉRO / SIGNAL", "le distingue des autres", AMBER, 810))):
+        o += f'<rect x="{x}" y="90" width="300" height="86" rx="14" fill="#fff" stroke="{c}" stroke-width="4"/><rect x="{x}" y="90" width="300" height="12" rx="6" fill="{c}"/>' + T(x + 150, 138, t, 20, 800, c) + T(x + 150, 162, sub, 14, 600, MUTED)
+        if k < 2: o += T(x + 330, 144, "–", 40, 800, INK)
+    o += chip(600, 214, "Format : [Source] – [Destination] – [Numéro ou signal]", INK, w=640, size=17)
+    # schéma : deux modules reliés par un fil étiqueté
+    o += f'<rect x="60" y="270" width="250" height="150" rx="14" fill="#fff" stroke="{RED}" stroke-width="4"/><rect x="60" y="270" width="250" height="38" rx="14" fill="{RED}"/>' + T(185, 296, "ESP32", 19, 800, "#fff") + T(150, 350, "3V3", 17, 800, INK, "start") + T(150, 392, "GND", 17, 800, INK, "start")
+    o += f'<rect x="890" y="270" width="250" height="150" rx="14" fill="#fff" stroke="{BLUE}" stroke-width="4"/><rect x="890" y="270" width="250" height="38" rx="14" fill="{BLUE}"/>' + T(1015, 296, "DHT22", 19, 800, "#fff") + T(950, 350, "VCC", 17, 800, INK, "end") + T(950, 392, "GND", 17, 800, INK, "end")
+    o += f'<path d="M310,346 H890" stroke="{RED}" stroke-width="8" stroke-linecap="round"/><path d="M310,388 H890" stroke="#222" stroke-width="8" stroke-linecap="round"/>'
+    for x in (400, 800):
+        o += f'<rect x="{x-65}" y="326" width="130" height="30" rx="6" fill="#fff8d6" stroke="#b59a2c" stroke-width="2"/>' + T(x, 347, "ESP32-DHT22-VCC", 12, 800, INK)
+        o += f'<rect x="{x-65}" y="368" width="130" height="30" rx="6" fill="#fff8d6" stroke="#b59a2c" stroke-width="2"/>' + T(x, 389, "ESP32-DHT22-GND", 12, 800, INK)
+    o += T(600, 332, "fil ROUGE · 20 cm", 15, 800, RED) + T(600, 416, "fil NOIR · 20 cm", 15, 800, "#222")
+    o += arrow(400, 448, 400, 408, MUTED, 2) + T(400, 468, "même étiquette à chaque bout", 14, 700, MUTED) + arrow(800, 448, 800, 408, MUTED, 2) + T(800, 468, "même étiquette à chaque bout", 14, 700, MUTED)
+    # exemples
+    o += f'<rect x="60" y="500" width="1080" height="190" rx="14" fill="{PANEL}" stroke="#d9e0ec" stroke-width="2"/>' + T(90, 534, "Exemples d'étiquettes", 17, 800, INK, "start")
+    ex = (("ESP32-DHT22-VCC", "alimentation 3,3 V de l'ESP32 vers le DHT22"), ("ESP32-DHT22-DATA", "données du DHT22 vers la pin 4 de l'ESP32"), ("BATT-REG-01", "fil n° 01 de la batterie vers le régulateur"), ("REG-ESP32-3V3", "sortie 3,3 V du régulateur vers l'ESP32"))
+    for k, (a, b) in enumerate(ex):
+        y = 556 + k * 32
+        o += f'<rect x="90" y="{y}" width="230" height="26" rx="6" fill="#fff8d6" stroke="#b59a2c" stroke-width="2"/>' + T(205, y + 18, a, 14, 800, INK) + T(340, y + 19, "→  " + b, 15, 600, INK, "start")
+    return figure(W, 730, o)
+
+
+FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "reperage_fils": f_reperage_fils, "hysteresis_thermostat": f_thermostat_analogie}
