@@ -94,8 +94,8 @@ def f_eau():
     o += sym("BAT", 730, 350, 90)
     o += T(730, 112, "Pile = générateur", 17, 700, INK) + g(730, 170, '<rect x="-24" y="-38" width="48" height="76" rx="8" fill="#2d9a4a"/><rect x="-24" y="-38" width="48" height="26" rx="8" fill="#1a1a1a"/><rect x="-11" y="-48" width="22" height="10" rx="3" fill="url(#metalH)"/>' + T(0, -17, "+", 20, 800, "#fff"))
     o += T(870, 195, "résistance R", 16, 700, INK) + T(1030, 360, "lampe", 17, 700, INK, "end") + T(1030, 382, "(charge)", 14, 500, MUTED, "end")
-    o += arrow(940, 200, 1010, 200, GREEN, 5) + T(975, 180, "courant I", 17, 700, GREEN)
-    o += T(790, 355, "tension U", 15, 700, INK, "start")
+    o += i_arrow(940, 230, 1010, 230, "courant I", off=(0, -24), size=17)
+    o += u_arrow(772, 385, 772, 315) + T(786, 355, "tension U", 15, 700, GREEN, "start")
     o += chip(600, 600, "Hauteur d'eau = tension U  ·  Débit = intensité I  ·  Tuyau étroit = résistance R  ·  Pompe = générateur", INK, w=1130, size=17)
     return figure(W, 640, o)
 

@@ -113,7 +113,7 @@ def f_diode_led():
     o += callout(120, 190, 100, 245, "anode (A)", "middle", 17, bold=True)
     o += sym("D", 440, 190, s=1.1)
     o += T(404, 236, "A", 19, 800, INK) + T(476, 236, "K", 19, 800, INK)
-    o += arrow(150, 330, 450, 330, GREEN, 5) + T(300, 312, "sens passant du courant", 18, 700, GREEN)
+    o += i_arrow(150, 330, 450, 330, "sens passant du courant", off=(0, -22), size=18)
     o += T(300, 380, "Le courant passe de A vers K, jamais en sens inverse.", 17, 500, MUTED)
     # carte LED
     o += panel(610, 40, 560, 400, "LED (diode électroluminescente)")
@@ -182,24 +182,24 @@ def f_serie_parallele():
         o += s_wire([(L, 210), (L, 130), (px + 470 if k == 0 else px + 470, 130)])
         o += s_wire([(L, 290), (L, 370), (px + 470, 370)])
         o += sym("BAT", L, 250, 90)
-        o += arrow(px + 38, 300, px + 38, 200, BLUE, 4) + T(px + 26, 255, "U", 22, 800, BLUE, "end")
+        o += u_arrow(px + 38, 300, px + 38, 200, "U", off=(-14, 0), size=22)
         if k == 0:
             R = px + 470
             for j in range(3):
                 o += sym("R", R, 170 + j * 80, 90)
-                o += arrow(R - 52, 195 + j * 80, R - 52, 145 + j * 80, BLUE, 4) + T(R - 66, 175 + j * 80, f"U{j+1}", 19, 800, BLUE, "end")
+                o += u_arrow(R - 52, 195 + j * 80, R - 52, 145 + j * 80, f"U{j+1}", off=(-14, 0), size=19)
                 o += T(R + 48, 176 + j * 80, f"R{j+1}", 20, 800, INK, "start")
-            o += arrow(px + 250, 130 - 16, px + 320, 130 - 16, GREEN, 5) + T(px + 285, 88, "I (identique)", 19, 800, GREEN)
+            o += i_arrow(px + 250, 130, px + 330, 130, "I (identique)", off=(0, -26), size=19)
             fm = "Même courant : I = I₁ = I₂ = I₃\nU = U₁ + U₂ + U₃\nR = R₁ + R₂ + R₃"
         else:
             for j, X in enumerate((px + 250, px + 360, px + 470)):
                 o += s_wire([(X, 130), (X, 210)]) + s_wire([(X, 290), (X, 370)])
                 o += sym("R", X, 250, 90) + T(X + 30, 256, f"R{j+1}", 20, 800, INK, "start")
-                o += arrow(X - 22, 160, X - 22, 195, GREEN, 4) + T(X - 30, 185, f"I{j+1}", 18, 800, GREEN, "end")
+                o += i_arrow(X, 150, X, 190, f"I{j+1}", off=(-14, 0), size=18)
                 if j < 2:
                     o += dot(X, 130) + dot(X, 370)
             o += s_wire([(px + 470, 130), (px + 250, 130)]) + s_wire([(px + 470, 370), (px + 250, 370)])
-            o += arrow(L + 20, 112, L + 90, 112, GREEN, 5) + T(L + 55, 90, "I total", 19, 800, GREEN)
+            o += i_arrow(L + 20, 130, L + 100, 130, "I total", off=(0, -26), size=19)
             fm = "Même tension : U = U₁ = U₂ = U₃\nI = I₁ + I₂ + I₃\n1/R = 1/R₁ + 1/R₂ + 1/R₃"
         o += "</g>"
         o += f'<rect x="{px+40}" y="505" width="480" height="150" rx="14" fill="#fff" stroke="#dde4f0" stroke-width="2"/>'
@@ -212,9 +212,9 @@ def f_diviseur():
     o += s_wire([(200, 150), (200, 145)]) + sym("R", 200, 185, 90) + s_wire([(200, 225), (200, 285)]) + sym("R", 200, 325, 90)
     o += s_wire([(200, 365), (200, 420), (440, 420)]) + gnd(310, 420) + dot(310, 420)
     o += T(240, 190, "R1 = 10 kΩ", 20, 800, INK, "start") + T(240, 330, "R2 = 10 kΩ", 20, 800, INK, "start")
-    o += dot(200, 255) + s_wire([(200, 255), (440, 255)]) + node(440, 255) + T(470, 262, "Us", 24, 800, BLUE, "start")
-    o += arrow(100, 410, 100, 120, BLUE, 4) + T(84, 270, "Ue", 24, 800, BLUE, "end")
-    o += arrow(540, 400, 540, 280, GREEN, 4) + T(560, 345, "Us", 22, 800, GREEN, "start")
+    o += dot(200, 255) + s_wire([(200, 255), (440, 255)]) + node(440, 255) + T(470, 262, "Us", 24, 800, INK, "start")
+    o += u_arrow(100, 410, 100, 120, "Ue", off=(-16, 0), size=24)
+    o += u_arrow(540, 400, 540, 280, "Us", off=(20, 0), size=22)
     o += s_wire([(440, 255), (440, 420)])
     o += g(440, 340, '<circle r="30" fill="#fff" stroke="#1b2742" stroke-width="3.2"/><text y="9" font-size="26" font-weight="800" text-anchor="middle" fill="#1b2742">V</text>')
     o += panel(640, 60, 520, 420)

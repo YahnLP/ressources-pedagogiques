@@ -580,6 +580,22 @@ def arrow(x1, y1, x2, y2, color=BLUE, w=4, dash=None):
     return f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" stroke-width="{w}" stroke-linecap="round" marker-end="url(#arr)"{da}/>'
 
 
+def i_arrow(x1, y1, x2, y2, label="", off=(0, -24), size=20, w=5):
+    """Flèche de COURANT : rouge, posée SUR la piste (convention). off = décalage de l'étiquette."""
+    o = arrow(x1, y1, x2, y2, RED, w)
+    if label:
+        o += T((x1 + x2) / 2 + off[0], (y1 + y2) / 2 + off[1] + 6, label, size, 800, RED, "middle" if abs(off[0]) < 12 else ("end" if off[0] < 0 else "start"))
+    return o
+
+
+def u_arrow(x1, y1, x2, y2, label="", off=(0, -12), size=20, w=4):
+    """Flèche de TENSION : verte, décalée À CÔTÉ du composant, pointe vers le +. Les coordonnées sont déjà hors piste."""
+    o = arrow(x1, y1, x2, y2, GREEN, w)
+    if label:
+        o += T((x1 + x2) / 2 + off[0], (y1 + y2) / 2 + off[1] + 6, label, size, 800, GREEN, "middle" if abs(off[0]) < 12 else ("end" if off[0] < 0 else "start"))
+    return o
+
+
 def varrow_path(d, color=BLUE, w=4, dash=None):
     da = f' stroke-dasharray="{dash}"' if dash else ""
     return f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{w}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"{da}/>'
