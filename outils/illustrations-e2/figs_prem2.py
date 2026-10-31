@@ -232,7 +232,7 @@ def f_thermique():
     o += s_wire([(230, 155), (304, 155)], INK, 4)
     for i, (r, d) in enumerate((("Rθjc", "jonction → boîtier"), ("Rθcs", "boîtier → radiateur (graisse)"), ("Rθsa", "radiateur → air"))):
         xa, xb = nodes[i][2] + 26, nodes[i + 1][2] - 26
-        o += s_wire([(xa, 155), (xa + 40, 155)], INK, 4) + sym("R", (xa + xb) / 2, 155, s=0.9) + s_wire([(xb - 40, 155), (xb, 155)], INK, 4) + T((xa + xb) / 2, 110, r, 19, 800, BLUE) + T((xa + xb) / 2, 250, d, 13, 700, MUTED)
+        mid = (xa + xb) / 2; o += s_wire([(xa, 155), (mid - 24, 155)], INK, 4) + sym("R", mid, 155, s=0.9) + s_wire([(mid + 24, 155), (xb, 155)], INK, 4) + T((xa + xb) / 2, 110, r, 19, 800, BLUE) + T((xa + xb) / 2, 250, d, 13, 700, MUTED)
     o += chip(600, 330, "Tj = Tamb + Pdiss × (Rθjc + Rθcs + Rθsa)", INK, w=760, size=19)
     return figure(W, 380, o)
 
