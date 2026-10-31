@@ -53,6 +53,7 @@
 | **14** Capture unique : rebonds | Single, anti-rebond | 11 | Première S05 |
 | **15** Réduire le bruit | sonde ×1, mode Average | 7 | Première S05 |
 | **16** La pince de masse oubliée | parasite 50 Hz | 1 | Seconde S12 |
+| **17** Le bruit : le reconnaître et l'atténuer | limite 20 MHz, rejet HF, moyennage, sensibilité | 7 · 9 | Première S05 · Essentiel S6 |
 
 > [!TIP] 🏁 La bonne méthode
 > **1)** Réussis d'abord le TP virtuel (cases cochées et questions justes). **2)** Refais la manipulation sur **l'appareil réel**, avec la fiche : [OWON](oscilloscopes/owon-sds5032e.md) ou [RIGOL](oscilloscopes/rigol-ds1104z.md). **3)** Coche la mission du [Passeport oscilloscope](oscilloscopes/tp-passeport-oscilloscope.md).
