@@ -344,22 +344,22 @@ Pour chaque situation, identifie le type de couplage dominant et propose une sol
 a) Un boîtier doit bloquer les rayonnements WiFi (2,4 GHz).  
 Quelle est la taille maximale des fentes d'aération ?  
 
-$$\lambda  = 3 \times 10^{8} / 2{,}4 \times 10^{9} = \underline{\hspace{2.5em}} m = \underline{\hspace{2.5em}} cm$$
+$\displaystyle \lambda  = 3 \times 10^{8} / 2{,}4 \times 10^{9} = \underline{\hspace{2.5em}} m = \underline{\hspace{2.5em}} cm$
 
 Fente max = λ/20 = \_\_\_\_\_\_\_ cm = \_\_\_\_\_\_\_ mm  
 
 b) Un filtre RC protège un ADC. Le signal utile est à 5 Hz maximum.  
 On veut fc = 50 Hz. Avec R = 33 kΩ, calculer C :  
 
-$$C = \dfrac{1}{2\pi  \times fc \times R} = \dfrac{1}{2\pi  \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$$
+$\displaystyle C = \dfrac{1}{2\pi  \times fc \times R} = \dfrac{1}{2\pi  \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$
 
 C = \_\_\_\_\_\_\_ F = \_\_\_\_\_\_\_ nF (valeur commerciale : \_\_\_\_\_\_\_ nF)  
 
 c) À partir de quelle fréquence une piste de 20 cm se comporte-t-elle comme une antenne ?  
 
-$$L > \lambda /20 \to \lambda  < 20 \times 0{,}20 = \underline{\hspace{2.5em}} m$$
+$\displaystyle L > \lambda /20 \to \lambda  < 20 \times 0{,}20 = \underline{\hspace{2.5em}} m$
 
-$$f > c/\lambda  = 3 \times 10^{8} / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} \mathrm{MHz}$$
+$\displaystyle f > c/\lambda  = 3 \times 10^{8} / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} \mathrm{MHz}$
 
 ??? success "Réponses"
     a) $\lambda = \dfrac{3 \times 10^{8}}{2{,}4 \times 10^{9}} = 0{,}125\,\mathrm{m} = 12{,}5\,\mathrm{cm}$ ; fente max $= \dfrac{\lambda}{20} = 0{,}625\,\mathrm{cm} = 6{,}25\,\mathrm{mm}$.  

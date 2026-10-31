@@ -235,13 +235,13 @@ Interprétation : le DHT22 surestime / sous-estime (entourer) la vraie valeur de
 
 Formule : σ = $\sqrt{ Σ(écart²}$ / (n−1) )  
 
-$$\sigma  = \sqrt{ \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} } = \sqrt{ \underline{\hspace{2.5em}} } = \underline{\hspace{2.5em}} °C$$
+$\displaystyle \sigma  = \sqrt{ \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} } = \sqrt{ \underline{\hspace{2.5em}} } = \underline{\hspace{2.5em}} °C$
 
 **Q4.d** — Calcule l'**incertitude type** u et l'**incertitude élargie** U (k=2, confiance 95%) :
 
 u = σ / $\sqrt{n}$ = \_\_\_\_\_\_\_ / $\sqrt{10}$ = \_\_\_\_\_\_\_ / \_\_\_\_\_\_\_ = \_\_\_\_\_\_\_ °C  
 
-$$U = k \times u = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
+$\displaystyle U = k \times u = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$
 
 Résultat final : T_DHT22 = (22,3 ± \_\_\_\_\_\_\_ ) °C  [intervalle de confiance 95%]  
 

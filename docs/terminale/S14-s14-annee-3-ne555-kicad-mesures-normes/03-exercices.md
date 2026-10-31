@@ -199,7 +199,7 @@ const float SB = _____ ;
 
 Tendance = ($T_{\mathrm{finale}}$ - $T_{\mathrm{initiale}}$) / durée_en_heures  
 
-$$= \dfrac{\underline{\hspace{2.5em}} - \underline{\hspace{2.5em}}}{40/60}$$
+$\displaystyle = \dfrac{\underline{\hspace{2.5em}} - \underline{\hspace{2.5em}}}{40/60}$
 
 = \_\_\_\_\_ °C/heure  
 
@@ -518,7 +518,7 @@ Câblage : entre _____ et _____
 
 (Montrez tous les calculs)  
 
-$$V_{out} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$$
+$\displaystyle V_{out} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$
 
 **E2.2 *(2 pts)*** — La fréquence NE555 mesurée à l'oscillo est 0,978 Hz. La spécification est 1 Hz ±10%.
 

@@ -141,7 +141,7 @@ Formule : σ = √[ Σei² / (n−1) ]
 σ = √[ \_\_\_\_\_\_\_ / \_\_\_\_\_\_\_ ]  
 = √[ \_\_\_\_\_\_\_ ]  
 
-$$= \underline{\hspace{2.5em}} °C$$
+$\displaystyle = \underline{\hspace{2.5em}} °C$
 
 Interprétation :  
 → σ représente la dispersion aléatoire des mesures du DHT22  
@@ -161,7 +161,7 @@ Cette incertitude reflète l'instabilité résiduelle sur la moyenne.
 
 Formule : U = k × u    avec k = 2 (facteur d'élargissement, loi normale, 95%)  
 
-$$U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
+$\displaystyle U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$
 
 RÉSULTAT FINAL DE LA MESURE :  
 

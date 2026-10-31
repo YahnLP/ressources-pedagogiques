@@ -114,15 +114,15 @@ Conclusion : ☐ Conforme   ☐ Non conforme
 
 **A2.1 *(2 pts)*** — Sans répétition possible ($u_{A}$ = 0), calculez l'incertitude élargie de R2 avec seulement $u_{B}$ résolution et $u_{B}$ classe :
 
-$$u_{\mathrm{B,rés}} = \underline{\hspace{2.5em}} \Omega$$
+$\displaystyle u_{\mathrm{B,rés}} = \underline{\hspace{2.5em}} \Omega$
 
-$$u_{\mathrm{B,classe}} = \underline{\hspace{2.5em}} \Omega$$
+$\displaystyle u_{\mathrm{B,classe}} = \underline{\hspace{2.5em}} \Omega$
 
-$$u_{\mathrm{c}} = \underline{\hspace{2.5em}} \Omega$$
+$\displaystyle u_{\mathrm{c}} = \underline{\hspace{2.5em}} \Omega$
 
 U = \_\_\_\_\_ Ω → arrondi → \_\_\_\_\_ Ω  
 
-$$R₂ = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) \Omega [95\,\mathrm{\%}]$$
+$\displaystyle R₂ = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) \Omega [95\,\mathrm{\%}]$
 
 **A2.2 *(1 pt)*** — Même spécification ±5%. R2 est-elle conforme ?
 
@@ -147,15 +147,15 @@ Conclusion : ☐ Conforme   ☐ Non conforme   ☐ Sous réserve
 
 **B1 *(2 pts)*** — Calculez l'incertitude élargie sur cette mesure de tension :
 
-$$u_{\mathrm{B,rés}} = \dfrac{0{,}001}{2 \times \sqrt{3}} = \underline{\hspace{2.5em}} V$$
+$\displaystyle u_{\mathrm{B,rés}} = \dfrac{0{,}001}{2 \times \sqrt{3}} = \underline{\hspace{2.5em}} V$
 
-$$u_{\mathrm{B,classe}} = 0{,}5 \times \dfrac{3{,}287}{100 \times \sqrt{3}} = \underline{\hspace{2.5em}} V$$
+$\displaystyle u_{\mathrm{B,classe}} = 0{,}5 \times \dfrac{3{,}287}{100 \times \sqrt{3}} = \underline{\hspace{2.5em}} V$
 
-$$u_{\mathrm{c}} = \sqrt{u_{\mathrm{B,rés}}^2 + u_{\mathrm{B,classe}}^2} = \underline{\hspace{2.5em}} V$$
+$\displaystyle u_{\mathrm{c}} = \sqrt{u_{\mathrm{B,rés}}^2 + u_{\mathrm{B,classe}}^2} = \underline{\hspace{2.5em}} V$
 
 U = 2 × \_\_\_\_\_ = \_\_\_\_\_ V → arrondi → \_\_\_\_\_ V  
 
-$$V = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$$
+$\displaystyle V = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$
 
 **B2 *(1 pt)*** — Avec l'incertitude, l'intervalle de confiance couvre-t-il la valeur nominale de 3,3V ?
 

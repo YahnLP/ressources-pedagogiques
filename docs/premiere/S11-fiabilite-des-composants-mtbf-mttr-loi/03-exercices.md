@@ -168,7 +168,7 @@ En notation scientifique : λ = _______ × 10⁻⁵ pannes/heure
 
 **Q2.1.c** — Interprète le résultat à t = 1 an :
 
-$$R(8760) = \underline{\hspace{2.5em}} %$$
+$\displaystyle R(8760) = \underline{\hspace{2.5em}} %$
 
 Signification : sur 1000 capteurs DHT22 mis en service simultanément,  
 après 1 an il en reste \_\_\_\_\_\_\_ encore fonctionnels.  
@@ -228,9 +228,9 @@ lequel des deux composants est indispensable ? Justifie avec les calculs :
 
 Durée : 2 ans = \_\_\_\_\_\_\_ h  
 
-$$R_{\mathrm{A}}(17520) = e^{-0{,}0001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
+$\displaystyle R_{\mathrm{A}}(17520) = e^{-0{,}0001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$
 
-$$R_{\mathrm{B}}(17520) = e^{-0{,}00001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$$
+$\displaystyle R_{\mathrm{B}}(17520) = e^{-0{,}00001 \times 17520} = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} \to \underline{\hspace{2.5em}} %$
 
 Conclusion : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 
@@ -279,7 +279,7 @@ $$
 
 **Q3.1.c** — Si les CPU n'étaient PAS redondants (1 seul CPU B, R=0,90), quelle serait la fiabilité ?
 
-$$Rs_sans_redondance = \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+$\displaystyle Rs_sans_redondance = \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$
 
 Gain de la redondance CPU : \_\_\_\_\_\_\_ % − \_\_\_\_\_\_\_ % = \_\_\_\_\_\_\_ points  
 

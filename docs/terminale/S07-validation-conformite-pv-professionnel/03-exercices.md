@@ -280,7 +280,7 @@ Conforme à [0,9 ; 1,1] Hz ? ☐ Oui  ☐ Non
 Valeur  : 19,3 mA  |  Résolution : 0,1 mA  |  Classe Fluke : 0,5%  
 $u_{B,\mathrm{rés}}$ = \_\_\_\_\_  |  $u_{B,\mathrm{cl}}$ = \_\_\_\_\_  |  $u_{c}$ = \_\_\_\_\_  |  U = \_\_\_\_\_  
 
-$$I_{\mathrm{LED}} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) mA [95\,\mathrm{\%}]$$
+$\displaystyle I_{\mathrm{LED}} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) mA [95\,\mathrm{\%}]$
 
 Conforme (≤ 25 mA) ? ☐ Oui  ☐ Non  
 
