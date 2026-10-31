@@ -174,7 +174,7 @@ Un thermomètre numérique affiche « 24,3 °C ». Comment un petit circuit peut
 
 | **Paramètre** | **Valeur** |
 |--------------|-----------|
-| **Résolution** | 10 bits (2^10 = 1024 valeurs) |
+| **Résolution** | 10 bits ($2^{10} = 1024$ valeurs) |
 | **Plage d'entrée** | 0V à 5V |
 | **Valeurs de sortie** | 0 à 1023 |
 | **Précision** | 5V / 1024 = 4.88 mV par niveau |
@@ -182,8 +182,8 @@ Un thermomètre numérique affiche « 24,3 °C ». Comment un petit circuit peut
 
 **💡 Résolution 10 bits :**
 
-- 2^10 = 1024 valeurs possibles
-- Chaque niveau représente : 5V / 1024 = **0.00488 V ≈ 4.88 mV**
+- $2^{10} = 1024$ valeurs possibles
+- Chaque niveau représente : $\dfrac{5\,\mathrm{V}}{1024} =$ **0,00488 V ≈ 4,88 mV**
 
 ---
 
