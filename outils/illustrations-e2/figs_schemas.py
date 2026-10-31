@@ -326,4 +326,51 @@ def f_reperage_fils():
     return figure(W, 730, o)
 
 
-FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "reperage_fils": f_reperage_fils, "hysteresis_thermostat": f_thermostat_analogie}
+def f_pv_mesure():
+    o = f'<rect x="40" y="24" width="1120" height="1000" rx="16" fill="#fff" stroke="#c7d0e2" stroke-width="3"/>'
+    o += f'<rect x="40" y="24" width="1120" height="80" rx="16" fill="{INK}"/><rect x="40" y="70" width="1120" height="34" fill="{INK}"/>'
+    o += T(70, 76, "PROCÈS-VERBAL DE MESURE", 28, 800, "#fff", "start") + T(1130, 70, "Réf. PV-2026-ESP32-001", 17, 700, "#cbd5ff", "end")
+    def sec(x, y, w, h, n, title, col, lines, mono=False):
+        r = f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="12" fill="{col}" opacity=".06"/><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="12" fill="none" stroke="{col}" stroke-width="2.5"/>'
+        r += badge(x + 26, y + 28, n, col, 15) + T(x + 52, y + 34, title, 16, 800, col, "start")
+        for k, (a, b) in enumerate(lines):
+            yy = y + 66 + k * 25
+            if b is None: r += T(x + 18, yy, a, 15, 600, INK, "start")
+            else: r += T(x + 18, yy, a, 14, 700, MUTED, "start") + T(x + 170, yy, b, 14, 700, INK, "start")
+        return r
+    L, R, w = 70, 620, 520
+    o += sec(L, 124, w, 168, 1, "EN-TÊTE ET IDENTIFICATION", BLUE, [("Référence PV", "PV-2026-ESP32-001"), ("Date", "2026-03-20"), ("Lieu", "Labo électronique – CFA [Ville]"), ("Donneur d'ordre", "INDUSTECH SAS – M. DUBOIS")])
+    o += sec(R, 124, w, 168, 2, "OBJET DE LA MESURE", GREEN, [("Vérification des résistances de pull-up I2C", None), ("sur carte ESP32", None)])
+    o += sec(L, 312, w, 168, 3, "ÉQUIPEMENT SOUS TEST (EUT)", AMBER, [("Désignation", "Carte ESP32 IoT AGROSMART"), ("Référence", "ASM-001-REV2"), ("N° de série", "SN20260320-03")])
+    o += sec(R, 312, w, 168, 5, "CONDITIONS DE MESURE", "#7c3aed", [("Température", "22 °C ± 2 °C"), ("Hygrométrie", "45 % HR ± 10 %"), ("Réseau électrique", "mesure hors tension (Ω)")])
+    o += sec(L, 500, 1070, 168, 4, "INSTRUMENTS UTILISÉS", RED, [("Appareil", "Multimètre numérique Fluke 87V"), ("N° de série", "7435280"), ("Calibration", "2026-01-15 · Certificat n° LAB-2026-0047"), ("Classe · validité", "0,5  ·  valable jusqu'au 2027-01-14")])
+    o += f'<rect x="760" y="548" width="360" height="92" rx="10" fill="#fff" stroke="{RED}" stroke-width="2" stroke-dasharray="6 5"/>' + T(940, 584, "L'étalonnage doit être", 15, 700, RED) + T(940, 606, "VALIDE le jour de la mesure", 15, 800, RED)
+    o += sec(L, 688, 340, 120, 6, "RÉSULTATS DE MESURE", BLUE, [("voir le tableau de la", None), ("section suivante", None)])
+    o += sec(420, 688, 340, 120, 7, "INCERTITUDES", GREEN, [("voir le calcul de la", None), ("section suivante", None)])
+    o += sec(770, 688, 370, 120, 8, "CONCLUSION / CONFORMITÉ", AMBER, [("☐ Conforme   ☐ Non conforme", None), ("☐ Sous réserve", None)])
+    o += sec(L, 828, 520, 120, 9, "REMARQUES ET OBSERVATIONS", "#7c3aed", [("", None)])
+    o += sec(R, 828, 520, 120, 10, "SIGNATURES", RED, [("", None)])
+    o += T(640, 900, "Mesureur :", 14, 700, MUTED, "start") + f'<line x1="730" y1="902" x2="1110" y2="902" stroke="#9aa4b8" stroke-width="2"/>' + T(640, 930, "Resp. qualité :", 14, 700, MUTED, "start") + f'<line x1="760" y1="932" x2="1110" y2="932" stroke="#9aa4b8" stroke-width="2"/>'
+    o += chip(600, 990, "10 rubriques, toujours dans le même ordre : n'importe qui retrouve l'information en quelques secondes", INK, w=1060, size=15)
+    return figure(W, 1050, o)
+
+
+def f_chaine_raccordement():
+    o = T(600, 44, "La chaîne de raccordement métrologique", 22, 800, INK)
+    levels = (("BIPM", "Bureau International des Poids et Mesures (Sèvres)", "définit le SI : le mètre, l'ampère, le kelvin…", "NIVEAU INTERNATIONAL", "#7c3aed"),
+              ("LNE", "Laboratoire National de Métrologie et d'Essais (France)", "détient les étalons primaires nationaux", "NIVEAU NATIONAL", BLUE),
+              ("Laboratoire accrédité COFRAC", "accrédité selon la norme ISO/CEI 17025", "émet un certificat d'étalonnage", "NIVEAU LABORATOIRE", GREEN),
+              ("Votre multimètre", "étalonné : sa calibration est datée", "mesure avec une incertitude connue", "NIVEAU ATELIER", AMBER),
+              ("VOTRE PV DE MESURE", "le résultat est traçable", "jusqu'aux étalons internationaux", "VOTRE TRAVAIL", RED))
+    for k, (t, sub, act, tag, c) in enumerate(levels):
+        y = 80 + k * 116
+        x = 90 + k * 40; w = 1020 - k * 80
+        o += f'<rect x="{x}" y="{y}" width="{w}" height="86" rx="14" fill="#fff" stroke="{c}" stroke-width="4"/><rect x="{x}" y="{y}" width="12" height="86" rx="6" fill="{c}"/>'
+        o += T(x + 34, y + 34, t, 21, 800, c, "start") + T(x + 34, y + 60, sub, 15, 600, MUTED, "start")
+        o += f'<rect x="{x+w-250}" y="{y+16}" width="226" height="26" rx="13" fill="{c}"/>' + T(x + w - 137, y + 34, tag, 12, 800, "#fff") + T(x + w - 24, y + 66, act, 14, 700, INK, "end")
+        if k < 4: o += arrow(600, y + 90, 600, y + 126, INK, 4)
+    o += T(600, 676, "Chaque maillon est comparé au précédent : la chaîne ne doit JAMAIS être interrompue", 16, 800, RED)
+    return figure(W, 710, o)
+
+
+FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "reperage_fils": f_reperage_fils, "pv_mesure": f_pv_mesure, "chaine_raccordement": f_chaine_raccordement, "hysteresis_thermostat": f_thermostat_analogie}
