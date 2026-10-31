@@ -40,9 +40,10 @@ def motor_panel(px, cw, label, col):
     o += T(L + 36, 200 if cw else 345, "+", 26, 800, INK) if False else ""
     o += T(L + 40, 232 if cw else 312, "+", 24, 800, RED, "start") + T(L + 40, 312 if cw else 232, "−", 26, 800, INK, "start")
     o += g(px + 320, 150, '<circle r="34" fill="#fff" stroke="#1b2742" stroke-width="3.2"/><text y="9" font-size="26" font-weight="800" text-anchor="middle" fill="#1b2742">M</text>')
-    o += T(px + 280, 128, "fil 1", 14, 800, MUTED) + T(px + 460, 128, "fil 2", 14, 800, MUTED, "end")
+    o += T(px + 215, 128, "fil 1", 14, 800, MUTED) + T(px + 460, 128, "fil 2", 14, 800, MUTED, "end")
     cx, r, sweep = px + 320, 56, (1 if cw else 0)
-    o += f'<path d="M{cx-r*0.85},{150-r*0.5} A{r},{r} 0 1 {sweep} {cx+r*0.85},{150-r*0.5}" fill="none" stroke="{col}" stroke-width="5" marker-end="url(#arr)"/>'
+    x0, x1 = (cx + r * 0.85, cx - r * 0.85) if cw else (cx - r * 0.85, cx + r * 0.85)
+    o += f'<path d="M{x0},{150-r*0.5} A{r},{r} 0 1 {sweep} {x1},{150-r*0.5}" fill="none" stroke="{col}" stroke-width="5" marker-end="url(#arr)"/>'
     return o + "</g>"
 
 
