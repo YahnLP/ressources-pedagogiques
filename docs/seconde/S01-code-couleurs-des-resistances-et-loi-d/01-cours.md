@@ -142,17 +142,17 @@ $$U = R \times I \qquad I = \dfrac{U}{R} \qquad R = \dfrac{U}{I}$$
 - Résistance : R = 1000 Ω
 - Intensité : I = 0,01 A
 
-**Calcul :**
-
-$$
-\begin{aligned}
-U &= R \times I \\
-U &= 1000 \times 0{,}01 \\
-U &= 10\,\mathrm{V}
-\end{aligned}
-$$
-
 ??? success "Réponse"
+    **Calcul :**
+
+    $$
+    \begin{aligned}
+    U &= R \times I \\
+    U &= 1000 \times 0{,}01 \\
+    U &= 10\,\mathrm{V}
+    \end{aligned}
+    $$
+
     La tension est de **10 Volts**.
 
 
@@ -201,17 +201,17 @@ $$
 - Tension : U = 12 V
 - Intensité : I = 0,02 A
 
-**Calcul :**
-
-$$
-\begin{aligned}
-R &= \dfrac{U}{I} \\
-R &= \dfrac{12}{0{,}02} \\
-R &= 600\,\mathrm{\Omega }
-\end{aligned}
-$$
-
 ??? success "Réponse"
+    **Calcul :**
+
+    $$
+    \begin{aligned}
+    R &= \dfrac{U}{I} \\
+    R &= \dfrac{12}{0{,}02} \\
+    R &= 600\,\mathrm{\Omega }
+    \end{aligned}
+    $$
+
     La résistance est de **600 Ohms**.
 
 ---
@@ -223,17 +223,17 @@ $$
 - Tension : U = 5 V
 - Résistance : R = 500 Ω
 
-**Calcul :**
-
-$$
-\begin{aligned}
-I &= \dfrac{U}{R} \\
-I &= \dfrac{5}{500} \\
-I &= 0{,}01\,\mathrm{A} = 10\,\mathrm{mA}
-\end{aligned}
-$$
-
 ??? success "Réponse"
+    **Calcul :**
+
+    $$
+    \begin{aligned}
+    I &= \dfrac{U}{R} \\
+    I &= \dfrac{5}{500} \\
+    I &= 0{,}01\,\mathrm{A} = 10\,\mathrm{mA}
+    \end{aligned}
+    $$
+
     L'intensité est de **0,01 Ampère** ou **10 milliampères**.
 
 ---
@@ -416,11 +416,11 @@ Valeur = (Bague1 × 10 + Bague2) × Multiplicateur
 | Bague 2 | ⚫ Noir | 0 |
 | Bague 3 | 🔴 Rouge | × 100 |
 
-**Calcul :**
-
-$$(1 \times 10 + 0) \times 100 = 10 \times 100 = 1\,000\,\mathrm{\Omega } = 1\,\mathrm{k\Omega }$$
-
 ??? success "Réponse"
+    **Calcul :**
+
+    $$(1 \times 10 + 0) \times 100 = 10 \times 100 = 1\,000\,\mathrm{\Omega } = 1\,\mathrm{k\Omega }$$
+
     **1 000 Ω** ou **1 kΩ**
 
 ---
@@ -433,11 +433,11 @@ $$(1 \times 10 + 0) \times 100 = 10 \times 100 = 1\,000\,\mathrm{\Omega } = 1\,\
 | Bague 2 | 🟣 Violet | 7 |
 | Bague 3 | 🟠 Orange | × 1 000 |
 
-**Calcul :**
-
-$$(4 \times 10 + 7) \times 1\,000 = 47 \times 1\,000 = 47\,000\,\mathrm{\Omega } = 47\,\mathrm{k\Omega }$$
-
 ??? success "Réponse"
+    **Calcul :**
+
+    $$(4 \times 10 + 7) \times 1\,000 = 47 \times 1\,000 = 47\,000\,\mathrm{\Omega } = 47\,\mathrm{k\Omega }$$
+
     **47 000 Ω** ou **47 kΩ**
 
 ---
@@ -450,11 +450,11 @@ $$(4 \times 10 + 7) \times 1\,000 = 47 \times 1\,000 = 47\,000\,\mathrm{\Omega }
 | Bague 2 | ⚫ Noir | 0 |
 | Bague 3 | 🟡 Jaune | × 10 000 |
 
-**Calcul :**
-
-$$(1 \times 10 + 0) \times 10\,000 = 10 \times 10\,000 = 100\,000\,\mathrm{\Omega } = 100\,\mathrm{k\Omega }$$
-
 ??? success "Réponse"
+    **Calcul :**
+
+    $$(1 \times 10 + 0) \times 10\,000 = 10 \times 10\,000 = 100\,000\,\mathrm{\Omega } = 100\,\mathrm{k\Omega }$$
+
     **100 000 Ω** ou **100 kΩ**
 
 ---
