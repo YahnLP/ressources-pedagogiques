@@ -1,12 +1,15 @@
-# 🔭 Fiche d'utilisation : RIGOL DS1104Z (Plus)
+# 🔭 Fiche d'utilisation : RIGOL DS1054Z
 
-> **Oscilloscope numérique 4 voies, 100 MHz, de la série DS1000Z.**
-> Cette fiche se suit **l'appareil sous les yeux**. Elle s'applique aussi au **DS1054Z** (même famille, même face avant, 50 MHz).
+> **Oscilloscope numérique 4 voies, 50 MHz (DS1054Z) ou 100 MHz (DS1104Z), de la série DS1000Z.**
+> Cette fiche se suit **l'appareil sous les yeux**. Le **DS1054Z** et le DS1104Z ont la même famille et la même face avant.
 >
 > *Source des illustrations : « Guide d'utilisation d'un oscilloscope numérique, cas du RIGOL DS1054Z », Abdallah Darkawi, Polytech Nantes, 2016 (archive ouverte HAL, cel-01359571), et documentation RIGOL de la série DS1000Z.*
 
 > [!NOTE] 🔎 À propos de cette fiche
 > L'appareil peut être réglé en **français** ou en **anglais** (menu Utility) : les noms de menus de cette fiche sont donnés dans les **deux langues** quand c'est utile.
+
+> [!TIP] 🔬 T'entraîner d'abord sur le simulateur
+> **OscilloLab** reproduit cet appareil (face avant, menus, réactions) : [ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/) puis suivre le **pas à pas** des TP, avec le bouton **👆 Montre-moi**. Mode d'emploi : [Utiliser OscilloLab](../oscillolab.md).
 
 ## 🎯 Ce que tu sauras faire avec cette fiche
 
@@ -23,7 +26,7 @@
 | Caractéristique | Valeur |
 |---|---|
 | **Voies analogiques** | **4** (CH1 à CH4), **masse commune** |
-| **Bande passante** | **100 MHz** (DS1104Z Plus) ; 50 MHz pour le DS1054Z |
+| **Bande passante** | **50 MHz** (DS1054Z) ; 100 MHz pour le DS1104Z Plus |
 | **Échantillonnage** | **1 GSa/s** avec **1 voie**, **500 MSa/s** avec 2 voies, **250 MSa/s** avec 3 ou 4 voies |
 | **Écran** | LCD 7 pouces (800 × 480) |
 | **Fonctions** | Autoset, mesures et **statistiques**, curseurs, FFT, mathématiques, enregistrement, impression rapide |
@@ -40,7 +43,7 @@
 
 ## 2. Découvrir la face avant
 
-![Face avant du RIGOL DS1104Z : 18 repères](images/rigol-face-avant.png)
+![Face avant du RIGOL DS1054Z : 18 repères](images/rigol-face-avant.png)
 
 | N° | Élément | À quoi ça sert |
 |---|---|---|

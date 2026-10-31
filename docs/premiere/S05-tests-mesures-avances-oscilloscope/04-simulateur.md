@@ -1,5 +1,7 @@
 # 🖥️ Exercices et TP sur le simulateur ElectroLab
 
+> [!TIP] 🔬 Pour l'oscilloscope lui-même (réglages, sonde, déclenchement, curseurs, déphasage), utilise aussi [OscilloLab](https://yahnlp.github.io/OscilloLab/) : [mode d'emploi](../../ressources/oscillolab.md).
+
 > [!NOTE]
 > **Comment faire ?** 1) Télécharge le fichier `.json` (clic droit → *Enregistrer le lien sous*). 2) Dans [ElectroLab](https://yahnlp.github.io/ElectroLab/), clique sur **Ouvrir** et choisis ce fichier. 3) Réponds aux questions sur ta feuille ou dans ton portfolio. Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
 

@@ -1,9 +1,20 @@
 # 🧪 TP « Passeport oscilloscope » : 13 missions
 
-> **Durée** : 2 h à 3 h (en 2 séances) · **Matériel** : un oscilloscope (OWON SDS5032E ou RIGOL DS1104Z), une sonde ×1/×10, un générateur de fonctions (GBF), un circuit RC (10 kΩ et 100 nF), une alimentation, une clé USB.
+> **Durée** : 2 h à 3 h (en 2 séances) · **Matériel** : un oscilloscope (OWON SDS5032E ou RIGOL DS1054Z), une sonde ×1/×10, un générateur de fonctions (GBF), un circuit RC (10 kΩ et 100 nF), une alimentation, une clé USB.
 > **Fiches à avoir sous la main** : [OWON](owon-sds5032e.md) ou [RIGOL](rigol-ds1104z.md).
 >
 > Fais ce TP **dans l'ordre**. Chaque mission a un **résultat à obtenir** : coche la case quand tu l'as **réussi seul(e)**.
+
+## 🔬 Avant le TP réel : OscilloLab
+
+Entraîne-toi d'abord sur le simulateur de **tes deux oscilloscopes** : [▶️ OscilloLab](https://yahnlp.github.io/OscilloLab/) ([mode d'emploi](../oscillolab.md)). Commence par **📖 Les bases de l'oscilloscope**, puis :
+
+| Missions | TP OscilloLab |
+|---|---|
+| 1 · 2 · 3 · 4 | **1** Prise en main · **2** Compenser la sonde · **3** Piège ×1 / ×10 · **4** Lire sur la grille · **16** Pince de masse oubliée |
+| 5 · 6 | **5** Couplage DC / AC / GND · **6** Le déclenchement |
+| 7 · 8 · 9 | **7** Mesures automatiques · **8** Curseurs · **9** NE555 · **10** Pont de diodes (ondulation) · **15** Réduire le bruit |
+| 10 · 11 | **12** Mesurer un déphasage · **13** Mode XY · **14** Capture unique (rebonds) · **11** Charge d'un condensateur |
 
 ## 🖥️ Avant le TP réel : ElectroLab
 

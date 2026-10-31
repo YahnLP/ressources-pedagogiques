@@ -136,6 +136,8 @@ $$I_{moy} = \frac{150 \times 5 + 0{,}1 \times 55}{60} \approx 12{,}6\,\mathrm{mA
 
 ### 7. Mesurer l'ondulation à l'oscilloscope
 
+> [!TIP] 🔬 S'entraîner avant : dans [OscilloLab](https://yahnlp.github.io/OscilloLab/), **TP 10** (pont de diodes : tension redressée, puis ondulation en couplage AC) et **TP 5** (couplage).
+
 > [!TIP] 📘 Besoin d'aide pour les réglages ?
 > Consulte la fiche de ton appareil : [OWON](../ressources/oscilloscopes/owon-sds5032e.md) ou [RIGOL](../ressources/oscilloscopes/rigol-ds1104z.md), et la mission 9 du [TP Passeport oscilloscope](../ressources/oscilloscopes/tp-passeport-oscilloscope.md).
 

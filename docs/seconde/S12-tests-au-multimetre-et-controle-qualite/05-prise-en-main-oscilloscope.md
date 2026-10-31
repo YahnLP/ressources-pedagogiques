@@ -3,7 +3,10 @@
 > **Matériel visé** : oscilloscope numérique 2 voies de 30 MHz (type Owon SDS5032E-V). Le nom exact des menus peut varier d'un modèle à l'autre ; les touches principales (Autoset, Run/Stop, Trigger, Measure, Cursor) existent partout.
 
 > [!TIP] 📘 Fiches détaillées de ton oscilloscope
-> Pour voir **chaque bouton**, **chaque réglage** et **chaque menu**, avec captures d'écran : [🔭 Fiche OWON SDS5032E(V)](../../ressources/oscilloscopes/owon-sds5032e.md) · [🔭 Fiche RIGOL DS1104Z](../../ressources/oscilloscopes/rigol-ds1104z.md). Pour t'entraîner : [🧪 TP « Passeport oscilloscope »](../../ressources/oscilloscopes/tp-passeport-oscilloscope.md) (missions 1 à 8).
+> Pour voir **chaque bouton**, **chaque réglage** et **chaque menu**, avec captures d'écran : [🔭 Fiche OWON SDS5032E(V)](../../ressources/oscilloscopes/owon-sds5032e.md) · [🔭 Fiche RIGOL DS1054Z](../../ressources/oscilloscopes/rigol-ds1104z.md). Pour t'entraîner : [🧪 TP « Passeport oscilloscope »](../../ressources/oscilloscopes/tp-passeport-oscilloscope.md) (missions 1 à 8).
+
+> [!TIP] 🔬 T'entraîner d'abord sur [OscilloLab](https://yahnlp.github.io/OscilloLab/)
+> Le simulateur reproduit **ton oscilloscope** (OWON ou RIGOL) avec des TP corrigés automatiquement. Commence par **📖 Les bases de l'oscilloscope**, puis fais les TP **1** (prise en main), **2** (compenser la sonde), **3** (piège ×1 / ×10), **4** (lire sur la grille), **5** (couplage) et **16** (pince de masse oubliée). Le bouton **👆 Montre-moi** fait clignoter la touche à utiliser. Mode d'emploi : [Utiliser OscilloLab](../../ressources/oscillolab.md). **Réussis d'abord le TP virtuel, puis refais la manipulation sur l'appareil réel.**
 
 ## 🤔 À ton avis ?
 
