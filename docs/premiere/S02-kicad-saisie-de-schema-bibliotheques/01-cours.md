@@ -124,14 +124,11 @@
 
 ### Les 3 moyens de créer des connexions
 
+![Les 3 moyens de connecter des broches dans KiCad : fil, étiquette de réseau, symbole d'alimentation](images/kicad-trois-connexions.png)
+
 **1. Le fil (Wire) — Raccourci : `W`**
 
 > Connexion physique visible entre deux broches proches. Cliquer sur la broche de départ, tracer, cliquer sur la broche d'arrivée.
-
-```
-[Broche_A]────────────[Broche_B]
-            fil (vert)
-```
 
 > ⚠️ Le fil doit se terminer exactement sur une broche ou rejoindre un autre fil. Un bout de fil "dans le vide" crée une erreur ERC.
 
@@ -139,21 +136,11 @@
 
 > Nom logique attribué à un nœud. Deux étiquettes portant le même nom sont électriquement connectées, même si elles sont loin l'une de l'autre sur le schéma.
 
-```
-[Broche_A]── NET_SIGNAL ───    ... ailleurs sur le schéma ...    ─── NET_SIGNAL ──[Broche_B]
-```
-
 > **Utilisation typique :** relier la sortie d'un CI à l'entrée d'un autre sans faire traverser un fil à tout le schéma.
 
 **3. Le symbole d'alimentation (Power Symbol) — Raccourci : `P`**
 
 > Symboles spéciaux pour les rails d'alimentation. Tous les composants raccordés au même symbole (ex: GND) sont reliés ensemble globalement.
-
-```
-     +5V          GND
-      │             │
-  [R1 haut]    [R1 bas]
-```
 
 ---
 
@@ -163,10 +150,8 @@
 >
 > **Solution :** Placer un **PWR_FLAG** (dans la bibliothèque `power`) sur chaque rail d'alimentation. Ce symbole dit à l'ERC : "Ce nœud est piloté par une source externe (connecteur, régulateur…)".
 
-```
-Règle :  1 PWR_FLAG sur le nœud +5V (ou VCC)
-         1 PWR_FLAG sur le nœud GND
-```
+> [!TIP] Règle des PWR_FLAG
+> **1 PWR_FLAG** sur le nœud **+5V** (ou VCC) et **1 PWR_FLAG** sur le nœud **GND**.
 
 ---
 
