@@ -212,6 +212,10 @@ Pour le sinus de 1 kHz et 2 V crête-à-crête, mesure $U_{pp}$ et la **fréquen
 
 **À obtenir** : un fichier image **nommé** (par exemple `mission8_carre25.bmp`) intégré à ton compte rendu.
 
+??? tip "💡 Aides"
+    - **OWON** : touche **Save** → *Type* **Image** → nom du fichier (**H4**) → le fichier est enregistré en **BMP**.
+    - **RIGOL** : clé USB en **FAT32**, puis touche **Quick Print** (à côté de **Help**). Pour un **fond blanc** (idéal pour imprimer) : Utility → Print Set → palette **Gray Scale**, puis **Invert : ON**.
+
 - [ ] Réussi
 
 ### Mission 13 : mini compte rendu de mesure

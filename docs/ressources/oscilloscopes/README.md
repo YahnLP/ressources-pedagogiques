@@ -11,11 +11,11 @@
 | Fiche | [🔭 Fiche OWON](owon-sds5032e.md) | [🔭 Fiche RIGOL](rigol-ds1104z.md) |
 | Réglage vertical | **2 jeux** de boutons (un par voie) | **1 jeu** de boutons, agit sur la **voie sélectionnée** |
 | Réglage automatique | **Autoset** | **AUTO** |
-| Choisir une option de menu | touches **H1 à H5** et **F1 à F5** | touches autour de l'écran + **bouton multifonction** |
+| Choisir une option de menu | touches **H1 à H5** (sous l'écran) et **F1 à F5** (à droite) | touches à **droite de l'écran** + **bouton multifonction** |
 | Mesures | **Measure** (8 mesures au plus) | **Measure** (5 mesures en même temps, **statistiques**) |
 | Curseurs | **Cursor** | **Cursor** |
 | Capture unique | **Single** | **SINGLE** |
-| Sauvegarde d'image | **Save** → Image, en **BMP** sur clé USB | **Storage** → Image, sur clé USB |
+| Sauvegarde d'image | **Save** → Image, en **BMP** sur clé USB (ou touche **Copy**) | touche **Quick Print** (clé USB en **FAT32**) ou **Storage** |
 
 ## Les mêmes gestes sur les deux appareils
 
@@ -32,7 +32,7 @@
 | **Capturer une seule fois** | **Single** | **SINGLE** |
 | **Mesurer automatiquement** | **Measure** → *Add* | **Measure** |
 | **Mesurer avec des curseurs** | **Cursor** | **Cursor** |
-| **Compenser la sonde** | sortie 5 V / 1 kHz | sortie de compensation 1 kHz |
+| **Compenser la sonde** | sortie 5 V / 1 kHz + borne de masse | sortie de compensation + borne de masse (à côté) |
 
 ## Les cinq règles d'or (valables pour tous les oscilloscopes)
 
