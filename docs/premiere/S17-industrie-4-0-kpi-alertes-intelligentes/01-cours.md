@@ -93,33 +93,32 @@ Affichage dans Node-RED :
 
 ## 2️⃣ — Alertes intelligentes : au-delà du seuil simple
 
+### Avant tout : l'hystérésis, c'est quoi ?
+
+> [!TIP] 💡 En clair
+> Un système a de l'**hystérésis** lorsque son **changement d'état ne se fait pas au même seuil** dans un sens et dans l'autre. On **déclenche** à un seuil, mais on ne **revient en arrière** qu'à un **autre seuil**, volontairement décalé. Entre les deux seuils, le système **garde son état** : il « se souvient » de ce qu'il faisait.
+
+Exemple de la vie courante : le **thermostat d'un chauffage**.
+
+![Chauffage à seuil unique, thermostat à hystérésis et ce qu'on retient](images/hysteresis-thermostat.png)
+
+**À retenir pour la suite :** pour une alerte, on utilise un **seuil haut** pour la **déclencher** et un **seuil bas** pour la **désactiver**. La zone entre les deux s'appelle la **bande morte**.
+
 ### Problème des alertes naïves
 
-```
-ALERTE NAÏVE (seuil fixe) :
-  IF température > 30°C → ALERTE
-  
-  Problème : si la température oscille entre 29,8°C et 30,2°C
-  → L'alerte se déclenche et s'annule des dizaines de fois par minute
-  → Fausses alertes, notification flooding, opérateur qui ignore tout
+Une alerte **naïve** n'utilise qu'**un seul seuil** : `SI température > 30 °C ALORS alerte`.
 
-SOLUTION 1 — Hystérésis (bande morte) :
-  Seuil HAUT de déclenchement : 30°C
-  Seuil BAS  de désactivation : 28°C
-  
-  → L'alerte se déclenche à 30°C et ne s'annule qu'à 28°C
-  → Évite les oscillations autour du seuil
-  → Standard industriel pour tous les systèmes de régulation
+**Le problème** : si la température oscille entre 29,8 °C et 30,2 °C, l'alerte se déclenche et s'annule **des dizaines de fois par minute**. Conséquences : fausses alertes, **notifications en rafale**, et un opérateur qui finit par **tout ignorer**.
 
-SOLUTION 2 — Temporisation :
-  L'alerte n'est déclenchée que si la condition est vraie pendant Δt secondes
-  → Filtre les pics transitoires (ex: coup de chaleur de 2 secondes)
+![Mêmes mesures avec un seul seuil, puis avec hystérésis : nombre de changements d'état de l'alerte](images/hysteresis-courbes.png)
 
-SOLUTION 3 — Alerte sur dérivée :
-  IF ΔT/Δt > 2°C/min → ALERTE (montée rapide de température)
-  → Détecte les tendances AVANT que le seuil soit atteint
-  → Maintenance prédictive
-```
+### Trois solutions
+
+| Solution | Principe | Exemple | Intérêt |
+|---|---|---|---|
+| **1 · Hystérésis** (bande morte) | Deux seuils : déclenchement **haut**, désactivation **bas** | Alerte à 30 °C, annulée seulement à 28 °C | Évite les oscillations autour du seuil ; standard des systèmes de régulation |
+| **2 · Temporisation** | L'alerte part seulement si la condition reste vraie pendant $\Delta t$ secondes | Coup de chaleur de 2 s ignoré | Filtre les pics transitoires |
+| **3 · Dérivée** | On surveille la **vitesse** de variation : $\dfrac{\Delta T}{\Delta t} > 2\ ^{\circ}\mathrm{C/min}$ | Montée rapide de température | Détecte la tendance **avant** que le seuil soit atteint ; sert à la maintenance prédictive |
 
 ### Implémentation Node-RED — Hystérésis
 
@@ -179,7 +178,7 @@ return msg;
 
 
 > [!TIP] 💡 En clair : pourquoi l'hystérésis ?
-> Imagine un thermostat qui allume le chauffage à 19,0 °C et l'éteint à 19,0 °C : il **claquerait** sans arrêt dès que la température flotte autour de 19,0. On sépare donc le seuil de **déclenchement** (30 °C) de celui de **retour à la normale** (28 °C) : entre les deux, **l'état ne change pas**.
+> Rappel : on sépare le seuil de **déclenchement** (30 °C) de celui de **retour à la normale** (28 °C) ; entre les deux, **l'état ne change pas**, comme pour le thermostat vu plus haut.
 >
 > **Suivons le code** avec des mesures successives (état initial : pas d'alerte) :
 >
