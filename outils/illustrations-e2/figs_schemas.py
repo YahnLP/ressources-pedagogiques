@@ -125,15 +125,15 @@ def f_climasens_archi():
     sens = (("DHT22", "température + humidité", BLUE), ("MQ-2", "air / fumée", AMBER), ("LDR", "luminosité", GREEN))
     for k, (n, sub, c) in enumerate(sens):
         o += block(40, 80 + k * 130, 200, 100, n, sub, c)
-        o += arrow(244, 130 + k * 130, 330, 255, INK, 3)
+        o += arrow(244, 130 + k * 130, 326, 255, INK, 2)
     o += block(330, 170, 270, 170, "ESP32 DevKit v1", "WiFi · PubSubClient (MQTT)", RED) + T(465, 330, "DHTesp + ArduinoJson", 14, 600, MUTED)
-    o += arrow(604, 255, 690, 255, INK, 5) + T(647, 236, "WiFi", 15, 800, INK) + T(647, 282, "MQTT", 13, 700, MUTED)
+    o += arrow(604, 255, 690, 255, INK, 2.5) + T(647, 236, "WiFi", 15, 800, INK) + T(647, 282, "MQTT", 13, 700, MUTED)
     o += block(690, 190, 190, 130, "Broker MQTT", "Mosquitto", AMBER)
-    o += arrow(884, 255, 940, 255, INK, 5)
+    o += arrow(884, 255, 940, 255, INK, 2.5)
     o += block(940, 190, 220, 130, "Node-RED", "orchestration", RED)
-    o += arrow(1050, 324, 1050, 380, INK, 5)
-    o += block(940, 384, 220, 90, "InfluxDB", "stockage", BLUE) + arrow(940, 430, 880, 430, INK, 5) + block(690, 384, 190, 90, "Historique", "courbes dans le temps", GREEN)
-    o += arrow(1050, 186, 1050, 140, INK, 5) + block(940, 70, 220, 66, "Dashboard web", None, GREEN)
+    o += arrow(1050, 324, 1050, 380, INK, 2.5)
+    o += block(940, 384, 220, 90, "InfluxDB", "stockage", BLUE) + arrow(940, 430, 880, 430, INK, 2.5) + block(690, 384, 190, 90, "Historique", "courbes dans le temps", GREEN)
+    o += arrow(1050, 186, 1050, 140, INK, 2.5) + block(940, 70, 220, 66, "Dashboard web", None, GREEN)
     o += chip(790, 520, "Alertes (seuils dépassés)", RED, w=330, size=15) + arrow(1000, 520, 1000, 486, RED, 3) if False else ""
     o += chip(800, 540, "+ Alertes lorsque un seuil est dépassé (Node-RED)", RED, w=520, size=15)
     o += chip(250, 540, "capteurs → ESP32 → réseau → serveur → affichage", INK, w=470, size=15)
@@ -368,7 +368,7 @@ def f_chaine_raccordement():
         o += f'<rect x="{x}" y="{y}" width="{w}" height="86" rx="14" fill="#fff" stroke="{c}" stroke-width="4"/><rect x="{x}" y="{y}" width="12" height="86" rx="6" fill="{c}"/>'
         o += T(x + 34, y + 34, t, 21, 800, c, "start") + T(x + 34, y + 60, sub, 15, 600, MUTED, "start")
         o += f'<rect x="{x+w-250}" y="{y+16}" width="226" height="26" rx="13" fill="{c}"/>' + T(x + w - 137, y + 34, tag, 12, 800, "#fff") + T(x + w - 24, y + 66, act, 14, 700, INK, "end")
-        if k < 4: o += arrow(600, y + 90, 600, y + 126, INK, 4)
+        if k < 4: o += arrow(600, y + 92, 600, y + 124, INK, 2)
     o += T(600, 676, "Chaque maillon est comparé au précédent : la chaîne ne doit JAMAIS être interrompue", 16, 800, RED)
     return figure(W, 710, o)
 
