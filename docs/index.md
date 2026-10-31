@@ -57,7 +57,7 @@ On n'apprend pas l'électronique en la regardant : **on câble, on mesure, on so
 [**Mode d'emploi →**](ressources/electrolab.md){ .go }
 
 ### Simulateur OscilloLab
-**Les deux oscilloscopes du laboratoire (OWON et RIGOL)** : face avant fidèle, 17 TP corrigés automatiquement, pas à pas avec bouton « Montre-moi ». [▶️ Ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/)
+**Les deux oscilloscopes du laboratoire (OWON et RIGOL)** : face avant fidèle, 20 TP corrigés automatiquement, pas à pas avec bouton « Montre-moi ». [▶️ Ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/)
 
 [**Mode d'emploi →**](ressources/oscillolab.md){ .go }
 

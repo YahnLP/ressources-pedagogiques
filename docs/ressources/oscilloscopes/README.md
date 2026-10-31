@@ -3,7 +3,7 @@
 > Deux fiches d'utilisation illustrées pour **maîtriser** les oscilloscopes du laboratoire, et **un TP** qui fonctionne avec les deux.
 
 > [!TIP] 🔬 Nouveau : le simulateur **OscilloLab**
-> Entraîne-toi sur une **copie fidèle des deux oscilloscopes** (face avant, menus, réactions réelles) avec **17 TP corrigés automatiquement**, un pas à pas touche par touche et un bouton **👆 Montre-moi**. [▶️ Ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/) · [Mode d'emploi et TP par séance](../oscillolab.md)
+> Entraîne-toi sur une **copie fidèle des deux oscilloscopes** (face avant, menus, réactions réelles) avec **20 TP corrigés automatiquement**, un pas à pas touche par touche et un bouton **👆 Montre-moi**. [▶️ Ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/) · [Mode d'emploi et TP par séance](../oscillolab.md)
 
 ## Quel oscilloscope as-tu devant toi ?
 

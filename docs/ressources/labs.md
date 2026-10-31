@@ -7,7 +7,7 @@ Un **Lab** est un simulateur qui fonctionne **dans un navigateur**, **sans insta
 | Lab | À quoi il sert | Ouvrir | Mode d'emploi |
 |---|---|---|---|
 | **ElectroLab** | Câbler et simuler des circuits : lois fondamentales, composants, alimentations, dépannage, circuits intégrés, communication série. Multimètre, oscilloscope, analyseur logique intégrés. | [▶️ Ouvrir ElectroLab](https://yahnlp.github.io/ElectroLab/) | [Utiliser ElectroLab](electrolab.md) |
-| **OscilloLab** | **Apprendre à régler les deux oscilloscopes du laboratoire** (OWON SDS5032E et RIGOL DS1054Z) : sonde, déclenchement, mesures, curseurs, déphasage. 17 TP avec pas à pas et bouton « Montre-moi ». | [▶️ Ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/) | [Utiliser OscilloLab](oscillolab.md) |
+| **OscilloLab** | **Apprendre à régler les deux oscilloscopes du laboratoire** (OWON SDS5032E et RIGOL DS1054Z) : sonde, déclenchement, mesures, curseurs, déphasage. 20 TP avec pas à pas et bouton « Montre-moi ». | [▶️ Ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/) | [Utiliser OscilloLab](oscillolab.md) |
 
 > [!TIP] 🏁 Comment les utiliser ensemble
 > **ElectroLab** pour comprendre un montage et le mesurer dans un circuit ; **OscilloLab** pour savoir **régler l'oscilloscope** lui-même. Dans les deux cas : réussis d'abord le TP virtuel, puis refais la manipulation sur le **matériel réel**.

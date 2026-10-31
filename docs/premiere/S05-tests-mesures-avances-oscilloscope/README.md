@@ -13,4 +13,4 @@
 | [📖 Cours](01-cours.md) | Fiche de cours élève |
 | [🛠️ TP](02-tp.md) | Fiche de TP |
 | [🖥️ Simulateur ElectroLab](04-simulateur.md) | Exercices / TP simulés (fichiers `.json`) |
-| [🔬 OscilloLab](../../ressources/oscillolab.md) | Simulateur de l'oscilloscope (TP 6 à 17) |
+| [🔬 OscilloLab](../../ressources/oscillolab.md) | Simulateur de l'oscilloscope (TP 6 à 20) |
