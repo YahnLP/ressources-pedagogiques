@@ -227,10 +227,10 @@ def f_cloudwatch():
 def f_eeschema():
     o = f'<g filter="url(#sh)"><rect x="40" y="20" width="1120" height="470" rx="10" fill="#fdfcf3" stroke="#9aa4b8" stroke-width="2"/></g>' + grid(60, 40, 1080, 430)
     Gc, Rc = "#1f9d4a", "#a33"
-    o += f'<path d="M300,120 V180 M300,260 V300 M300,360 H520 M520,300 V360" fill="none" stroke="{Gc}" stroke-width="4"/><path d="M300,120 H520 V200" fill="none" stroke="{Gc}" stroke-width="4"/><path d="M520,280 V300" stroke="{Gc}" stroke-width="4"/>'
+    o += f'<path d="M300,120 V180 M300,260 V300 M300,340 V360 H410" fill="none" stroke="{Gc}" stroke-width="4"/>'
     o += f'<rect x="282" y="180" width="36" height="80" fill="none" stroke="{Rc}" stroke-width="3"/>' + T(335, 222, "R1  150Ω", 17, 700, "#7a2a2a", "start")
-    o += f'<path d="M500,200 H540 L520,236 Z M500,238 H540" fill="none" stroke="{Rc}" stroke-width="3"/><path d="M544,208 L564,190 M552,224 L572,206" stroke="{Rc}" stroke-width="2.5" marker-end="url(#arr)"/>' + T(585, 230, "D1", 17, 700, "#7a2a2a", "start")
-    o += f'<path d="M520,238 V280" stroke="{Gc}" stroke-width="4"/>' + f'<path d="M300,60 V120 M282,60 H318" stroke="{Rc}" stroke-width="3"/>' + T(300, 48, "VCC", 17, 800, "#1d5fd1") + f'<path d="M410,360 V400 M388,400 H432 M398,410 H422" stroke="{Rc}" stroke-width="3"/>' + T(410, 440, "GND", 17, 800, "#1d5fd1")
+    o += f'<path d="M280,300 H320 L300,336 Z M280,340 H320" fill="none" stroke="{Rc}" stroke-width="3"/><path d="M324,308 L344,290 M332,324 L352,306" stroke="{Rc}" stroke-width="2.5" marker-end="url(#arr)"/>' + T(365, 332, "D1", 17, 700, "#7a2a2a", "start")
+    o += f'<path d="M300,60 V120 M282,60 H318" stroke="{Rc}" stroke-width="3"/>' + T(300, 48, "VCC", 17, 800, "#1d5fd1") + f'<path d="M410,360 V400 M388,400 H432 M398,410 H422" stroke="{Rc}" stroke-width="3"/>' + T(410, 440, "GND", 17, 800, "#1d5fd1")
     o += callout(300, 90, 700, 90, "VCC : nœud global", "start", 17, bold=True) + callout(410, 405, 700, 400, "GND : nœud global", "start", 17, bold=True) + callout(410, 360, 700, 300, "fils verts (connexions)", "start", 17, bold=True)
     o += chip(900, 450, "même nom = même nœud, même sans fil", INK, w=470, size=15)
     return figure(W, 520, o)
