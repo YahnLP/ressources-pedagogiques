@@ -5,11 +5,14 @@ nav:
   - "Semaine 1 · Composants, lois de base et sécurité": S01-semaine.md
   - "Semaine 2 · Multimètre et alimentation de laboratoire": S02-semaine.md
   - "Semaine 3 · Générateur, oscilloscope et signaux": S03-semaine.md
-  - "Semaine 4 · Schéma, datasheet, montage et soudure": S04-semaine.md
-  - "Semaine 5 · Alimentation et commande de charges": S05-semaine.md
-  - "Semaine 6 · Microcontrôleur, capteurs et traitement du signal": S06-semaine.md
-  - "Semaine 7 · Système communicant : UART, I²C, WiFi, MQTT": S07-semaine.md
-  - "Semaine 8 · Du schéma au PCB": S08-semaine.md
-  - "Semaine 9 · Du PCB à la carte soudée": S09-semaine.md
-  - "Semaine 10 · Tester, valider et dépanner": S10-semaine.md
-  - "Semaine 11 · L'épreuve E2": S11-semaine.md
+  - "Semaine 4 · Schéma, datasheet et plaque d'essai": S04-semaine.md
+  - "Semaine 5 · Souder et contrôler la qualité": S05-semaine.md
+  - "Semaine 6 · Alimenter un montage": S06-semaine.md
+  - "Semaine 7 · Commander des charges": S07-semaine.md
+  - "Semaine 8 · Microcontrôleur et capteurs": S08-semaine.md
+  - "Semaine 9 · Filtrer, amplifier et décider": S09-semaine.md
+  - "Semaine 10 · Système communicant : UART, I²C, WiFi, MQTT": S10-semaine.md
+  - "Semaine 11 · Du schéma au PCB": S11-semaine.md
+  - "Semaine 12 · Du PCB à la carte soudée": S12-semaine.md
+  - "Semaine 13 · Mesurer, valider, dépanner et documenter": S13-semaine.md
+  - "Semaine 14 · L'épreuve E2": S14-semaine.md

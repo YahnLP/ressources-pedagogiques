@@ -108,7 +108,7 @@ Le **pont diviseur** abaisse une tension : avec $R_1$ vers le +, $R_2$ vers la m
 | **Diode** | laisse passer le courant dans **un seul sens** | tension de seuil ≈ 0,7 V |
 | **LED** | diode qui éclaire | seuil ≈ 2 V ; **toujours** une résistance en série |
 | **Condensateur** | stocke de l'énergie, lisse les tensions | en farads ; les « chimiques » sont **polarisés** |
-| **Transistor** | interrupteur commandé par un petit courant | broches B, C, E (semaine 5) |
+| **Transistor** | interrupteur commandé par un petit courant | broches B, C, E (semaine 7) |
 
 ![Diode et LED : repérage de l'anode et de la cathode](images/diode-led.png)
 
