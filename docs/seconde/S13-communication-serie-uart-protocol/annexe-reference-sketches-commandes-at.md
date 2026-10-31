@@ -360,42 +360,16 @@ Format de réponse   : +<COMMANDE>:<valeur>\r\n  puis  OK\r\n
 
 ### Configuration TP4 — Arduino + HC-05 mode AT
 
-```
-Arduino Uno          Breadboard          HC-05
-                                         ┌─────────┐
-5V ──────────────────────────────────── VCC (3,3-5V)
-GND ────────────────────────────────── GND
-                                         │
-D11 (TX) ── [1kΩ] ─── nœud ─── [2kΩ] ─ RXD (3.3V MAX)
-                                 │
-                               GND
+![Câblage Arduino – HC-05 en mode AT : KEY reliée au 3,3 V](images/cablage-hc05-mode-at.png)
 
-D10 (RX) ─────────────────────────── TXD
-3,3V ──────────────────────────────── KEY  (mode AT)
-                                         └─────────┘
-
-         DIVISEUR : V_out = 5V × 2kΩ/(1kΩ+2kΩ) = 3.33V ✓
-```
+Diviseur de tension sur RXD : $V_{\mathrm{out}} = 5 \times \dfrac{2\,\mathrm{k\Omega}}{1\,\mathrm{k\Omega} + 2\,\mathrm{k\Omega}} = 3{,}33\ \mathrm{V}$ ✓
 
 ### Configuration S14 — Communication Bluetooth normale
 
-```
-Arduino Uno          Breadboard          HC-05
-                                         ┌─────────┐
-5V ─────────────────────────────────── VCC
-GND ───────────────────────────────── GND
-                                         │
-D11 (TX) ── [1kΩ] ─── nœud ─── [2kΩ] ─ RXD
-                                 │
-                               GND
+![Câblage Arduino – HC-05 en communication normale : KEY libre](images/cablage-hc05-normal.png)
 
-D10 (RX) ──────────────────────────── TXD
-NC ────────────────────────────────── KEY  (NON relié → mode communication)
-                                         └─────────┘
-
-Note : En mode communication normale, KEY doit être LIBRE (non relié au 3,3 V)
-       HC-05 baud rate doit correspondre à btSerial.begin(X)
-```
+> [!NOTE] Mode communication normale
+> **KEY** doit rester **libre** (non reliée au 3,3 V). Le débit du HC-05 doit correspondre à `btSerial.begin(X)`.
 
 ---
 

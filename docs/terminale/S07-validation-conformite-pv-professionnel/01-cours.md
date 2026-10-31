@@ -149,53 +149,7 @@ Deux fabricants livrent la même carte. Comment le client peut-il **vérifier** 
 
 ### Structure du PV de validation fonctionnelle
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  PROCÈS-VERBAL DE VALIDATION FONCTIONNELLE
-  Réf : PVF-2026-NE555-001
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-1. IDENTIFICATION DU PRODUIT
-   Produit         : Carte minuterie LED NE555/7805
-   Référence       : ASM-DEMO-001 / Rev.1
-   N° lot          : LOT-20260322-003
-   Client          : ELECTROPRO SAS
-
-2. RÉFÉRENTIELS APPLIQUÉS
-   Cahier des charges : CdC-DEMO-001 Rev.A
-   Norme assemblage   : IPC-A-610 Classe 2
-   Norme conception   : IPC-2221 Classe B
-   Norme essais       : Procédure interne PROC-TEST-001
-
-3. CONDITIONS D'ESSAI
-   Date            : 2026-03-22
-   Lieu            : Labo électronique CFA
-   Température     : 22°C ± 2°C
-   Hygrométrie     : 48% HR ± 10%
-
-4. INSTRUMENTS UTILISÉS
-   Multimètre      : Fluke 87V  |  N°7435280  |  Classe 0,5%
-   Oscilloscope    : Owon SDS5032E-V  |  N°SDS5032-2026-09
-   Alimentation    : PS305D  |  N°ALI-2026-05  |  Classe 1%
-   Tous les instruments sont dans leur période d'étalonnage valide.
-
-5. RÉSULTATS DE VALIDATION
-   (voir tableau section suivante)
-
-6. INSPECTION VISUELLE IPC-A-610
-   (voir section dédiée)
-
-7. CONCLUSION GLOBALE
-   ☐ CONFORME au cahier des charges
-   ☐ NON CONFORME — défauts :
-   ☐ CONFORME AVEC RÉSERVE
-
-8. SIGNATURES
-   Validateur      : ________________  Date : ________________
-   Responsable Q.  : ________________  Date : ________________
-   Client          : ________________  Date : ________________
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+![Procès-verbal de validation fonctionnelle : 8 rubriques avec l'exemple de la carte minuterie NE555/7805](images/pv-validation.png)
 
 ### Tableau de résultats de validation (section 5)
 

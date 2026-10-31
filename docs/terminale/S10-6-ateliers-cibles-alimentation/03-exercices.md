@@ -404,31 +404,25 @@ e⁻⁰·¹=0,905 · e⁻⁰·²=0,819 · e⁻⁰·⁵=0,607 · e⁻¹=0,368
 
 ### Exercice E1 — Système IoT industriel (50 min)
 
-```
-Architecture d'un système de pesée industrielle :
-  [Capteur A (R=0,88)] ─┐
-                         ├──→ [IHM (R=0,97)] ──→ [Réseau (R=0,99)]
-  [Capteur B (R=0,82)] ─┘
+**Architecture d'un système de pesée industrielle :**
 
-Données : Capteur A MTBF=60000h · Capteur B MTBF=40000h · Tamb=25°C
+![Système de pesée : capteurs A et B en parallèle, puis IHM et réseau en série](images/rbd-pesee.png)
 
-a) Fiabilité bloc capteurs en parallèle :
-   R_capt = 1−(1−0,88)(1−0,82) = _______ = _______%
+**Données :** capteur A $\mathrm{MTBF} = 60\,000$ h · capteur B $\mathrm{MTBF} = 40\,000$ h · $T_{\mathrm{amb}} = 25\ ^{\circ}\mathrm{C}$
 
-b) Rs global :
-   Rs = _______ × 0,97 × 0,99 = _______ = _______%
+**a)** Fiabilité du bloc capteurs en parallèle : $R_{\text{capt}} = 1 - (1 - 0{,}88)(1 - 0{,}82) =$ \_\_\_\_\_\_\_ $=$ \_\_\_\_\_\_\_ %
 
-c) R après 1 an (8760h) si on utilise uniquement Capteur A (MTBF=60000h) :
-   λA = 1/60000 = _______ h⁻¹
-   λA × t = _______ × 8760 = _______
-   R_A(8760) = e^(_______) = _______ = _______%
+**b)** $R_s$ global : $R_s =$ \_\_\_\_\_\_\_ $\times\ 0{,}97 \times 0{,}99 =$ \_\_\_\_\_\_\_ $=$ \_\_\_\_\_\_\_ %
 
-d) Sur 200 capteurs A mis en service simultanément, combien fonctionnent encore après 1 an ?
-   _______ × 200 = _______ capteurs
+**c)** Fiabilité après 1 an (8760 h) avec le seul capteur A ($\mathrm{MTBF} = 60\,000$ h) :
 
-e) Système de pesée MTBF=10000h, MTTR=4h :
-   D = 10000 / (10000+4) = _______ = _______%
-```
+- $\lambda_A = \dfrac{1}{60\,000} =$ \_\_\_\_\_\_\_ $\mathrm{h^{-1}}$
+- $\lambda_A \times t =$ \_\_\_\_\_\_\_ $\times\ 8760 =$ \_\_\_\_\_\_\_
+- $R_A(8760) = e^{-\lambda_A t} =$ \_\_\_\_\_\_\_ $=$ \_\_\_\_\_\_\_ %
+
+**d)** Sur 200 capteurs A mis en service simultanément, combien fonctionnent encore après 1 an ? \_\_\_\_\_\_\_ $\times\ 200 =$ \_\_\_\_\_\_\_ capteurs
+
+**e)** Système de pesée avec $\mathrm{MTBF} = 10\,000$ h et $\mathrm{MTTR} = 4$ h : $D = \dfrac{10\,000}{10\,000 + 4} =$ \_\_\_\_\_\_\_ $=$ \_\_\_\_\_\_\_ %
 
 ??? success "Réponses"
     a) $R_{capt} = 1 - 0{,}12 \times 0{,}18 = 0{,}9784 = 97{,}84\,\%$.  
