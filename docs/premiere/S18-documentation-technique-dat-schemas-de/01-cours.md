@@ -168,25 +168,9 @@ HISTORIQUE DES RÉVISIONS
 
 ### Repérage des fils
 
-> Chaque fil est identifié par une **étiquette placée aux deux extrémités**, selon le format :
+Chaque fil est identifié par une **étiquette placée aux deux extrémités**, selon le format **[Source] – [Destination] – [Numéro ou signal]**.
 
-$$\boxed{[Source]-[Destination]-[Numéro]}$$
-
-```
-Exemples :
-  ESP32-DHT22-VCC    → Alimentation 3,3V de l'ESP32 vers le DHT22
-  ESP32-DHT22-DATA   → Données DHT22 → pin 4 de l'ESP32
-  BATT-REG-01        → Fil 01 batterie → régulateur
-  REG-ESP32-3V3      → Sortie 3,3V du régulateur vers ESP32
-
-Sur le schéma :
-  ┌─────────────────────────────────────────────────────────┐
-  │ Fil 1 : ▷ESP32-DHT22-VCC◁                              │
-  │         ESP32 (3V3) ────────────────── DHT22 (VCC)      │
-  │                     [ROUGE, 20cm]                       │
-  └─────────────────────────────────────────────────────────┘
-```
-
+![Repérage d'un fil : format de l'étiquette, exemple ESP32 vers DHT22 et exemples d'étiquettes](images/reperage-fils.png)
 
 > [!TIP] 💡 En clair : un schéma de câblage lisible
 > Chaque fil est **repéré aux deux extrémités**, chaque connecteur est **nommé**, les **couleurs** suivent une **convention** (rouge = +, noir = masse), et une **légende** explique les symboles. Un schéma sans repères est **illisible** pour un tiers, même s'il est correct.
