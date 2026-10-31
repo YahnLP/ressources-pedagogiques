@@ -263,42 +263,7 @@ Conclusion finale  : ☐ CONFORME ☐ NON CONFORME ☐ SOUS RÉSERVE
 
 > Votre dossier doit être organisé comme suit sur Drive ou clé USB :
 
-```
-Dossier_E2_A2A3_[VotreNom]/
-│
-├── 00_PageDeGarde.pdf
-├── 01_Auto_Evaluation_Finale.pdf
-├── 02_Fresque_Parcours.pdf
-│
-├── Preuves_U21/
-│   ├── U21-C1_KiCad_[description].pdf
-│   ├── U21-C2_Mesures_[description].png
-│   ├── U21-C3_Firmware_[description].ino
-│   ├── U21-C4_MQTT_[description].png
-│   ├── U21-C5_AWS_[description].png
-│   ├── U21-C6_Boitier_[description].pdf
-│   ├── U21-C7_Maintenance_[description].pdf
-│   ├── U21-C8_DAT_[description].pdf
-│   ├── U21-C9_MTBF_[description].xlsx
-│   └── U21-C10_Projet_[description].pdf
-│
-├── Preuves_U22/
-│   ├── U22-C1_PV_[description].pdf
-│   ├── U22-C2_Incertitudes_[description].pdf
-│   ├── U22-C3_Tracabilite_[description].pdf
-│   ├── U22-C4_IPC_[description].pdf
-│   ├── U22-C5_Normes_[description].pdf
-│   ├── U22-C6_DAT_Electronique_[description].pdf
-│   ├── U22-C7_PVF_[description].pdf
-│   └── U22-C8_Dossier_Livraison_[description].pdf
-│
-└── Projet_A3_NE555_7805/
-    ├── DAT_NE555_7805_v1.0.pdf
-    ├── PVF_NE555_7805_v1.0.pdf
-    ├── BOM_NE555_7805.csv
-    ├── Gerbers/
-    └── KiCad_files/
-```
+![Arborescence du dossier de compétences E2 : preuves U21, preuves U22, projet A3](images/arbre-dossier-e2.png)
 
 ---
 

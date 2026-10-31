@@ -1,4 +1,5 @@
 """Suite des schémas « manuel » : HC-05 AT/normal, grille oscillo vierge, RBD pesée."""
+import re
 from hl import *
 from figs07 import block
 from figs_prem import mk_rbd
@@ -166,4 +167,119 @@ def f_grr():
     return doc_figure("ÉTUDE GAUGE R&R — DHT22", "Opérateur A : ________ · B : ________", cards, 190)
 
 
-FIGS = {"hc05_cablage_at": f_hc05_at, "hc05_cablage_normal": f_hc05_normal, "grille_oscillo_vierge": f_grille_oscillo, "rbd_pesee": f_rbd_pesee, "pv_validation": f_pv_validation, "config_dat": f_config_dat, "station_sonde": f_station_sonde, "station_nv2": f_station_nv2, "station_final": f_station_final, "mes_vierge": f_mes_vierge, "page_garde": f_page_garde, "fiche_preuve": f_fiche_preuve, "grr_synthese": f_grr}
+EXT = {"pdf": RED, "png": GREEN, "ino": BLUE, "xlsx": GREEN, "csv": GREEN, "md": "#475569", "odt": BLUE, "json": AMBER, "zip": AMBER}
+
+
+def tree_figure(root, nodes, col_w=540):
+    """nodes = [(niveau, nom, est_dossier)] ; deux colonnes si long."""
+    rows = [(0, root, True)] + nodes
+    lh = 30
+    per = (len(rows) + 1) // 2 if len(rows) > 24 else len(rows)
+    cols = [rows[:per], rows[per:]] if per < len(rows) else [rows]
+    H = 80 + per * lh + 30
+    o = ""
+    for ci, col in enumerate(cols):
+        x0 = 60 + ci * 580
+        for k, (lvl, name, isdir) in enumerate(col):
+            y = 60 + k * lh
+            x = x0 + lvl * 28
+            if lvl > 0: o += f'<line x1="{x-14}" y1="{y-lh/2}" x2="{x-14}" y2="{y}" stroke="#c0c8d8" stroke-width="2"/><line x1="{x-14}" y1="{y}" x2="{x}" y2="{y}" stroke="#c0c8d8" stroke-width="2"/>'
+            if isdir:
+                c = [INK, BLUE, GREEN, AMBER, "#7c3aed"][min(lvl, 4)] if lvl else INK
+                o += f'<rect x="{x}" y="{y-12}" width="24" height="18" rx="3" fill="{c}"/><rect x="{x}" y="{y-16}" width="11" height="6" rx="2" fill="{c}"/>' + T(x + 32, y + 4, name, 15, 800, c, "start")
+            else:
+                ext = name.rsplit(".", 1)[-1].lower() if "." in name else ""
+                c = EXT.get(ext, MUTED)
+                o += f'<rect x="{x}" y="{y-12}" width="18" height="22" rx="3" fill="#fff" stroke="{c}" stroke-width="2"/>' + T(x + 9, y + 3, ext[:3].upper(), 6, 800, c) + T(x + 28, y + 4, name, 14, 600, INK, "start")
+    return figure(W, H + 20, o)
+
+
+def _parse_tree(text):
+    nodes = []
+    for l in text.strip("\n").split("\n"):
+        m = re.match(r'^((?:[│ ]   )*)(?:[├└]── )?(.*)$', l)
+        if not l.strip() or set(l.strip()) <= set("│"): continue
+        pre = l[:len(l) - len(l.lstrip("│ ├└─"))]
+        lvl = len(pre) // 4
+        name = l.lstrip("│ ├└─").strip()
+        nodes.append((lvl, name, name.endswith("/")))
+    return nodes
+
+
+TREE_S02 = """
+├── 00_NAVIGATION.md
+├── R01_METROLOGIE/
+│   ├── Formules_incertitudes.pdf
+│   ├── Exemple_PV_reference.pdf
+│   ├── Modele_PV_vierge.odt
+│   └── Fiche_codes_multimetre.pdf
+├── R02_NORME_IPC/
+│   ├── IPC-A-610_resume_classes.pdf
+│   ├── Photos_defauts_brasures.zip
+│   ├── Grille_inspection_IPC.xlsx
+│   └── Lexique_IPC.md
+├── R03_ELECTRONIQUE/
+│   ├── Datasheet_ESP32_WROOM32D.pdf
+│   ├── Datasheet_ADXL345.pdf
+│   ├── Datasheet_DHT22.pdf
+│   ├── Datasheet_AMS1117.pdf
+│   └── Codage_couleurs_resistances.pdf
+├── R04_OUTILS_LOGICIELS/
+│   ├── Raccourcis_KiCad8.md
+│   ├── Raccourcis_FreeCAD.md
+│   ├── Templates_Drawio/
+│   ├── ArduinoIDE_shortcuts.md
+│   └── Saleae_LogicAnalyzer_tips.md
+├── R05_AWS_IOT/
+│   ├── Checklist_connexion_AWS.md
+│   ├── Codes_erreur_MQTT.md
+│   ├── Modele_Policy_IoT.json
+│   └── Regle_SQL_examples.md
+├── R06_FORMULES/
+│   ├── Formules_incertitudes_type_A_B.md
+│   ├── Formules_electronique.md
+│   └── Calculs_thermiques_boitier.md
+└── R07_PROJETS/
+    ├── DAT_template_vierge.odt
+    ├── BOM_template.xlsx
+    ├── Plan_de_tests_template.xlsx
+    └── Fiche_maintenance_template.odt
+"""
+
+TREE_S18 = """
+├── 00_PageDeGarde.pdf
+├── 01_Auto_Evaluation_Finale.pdf
+├── 02_Fresque_Parcours.pdf
+├── Preuves_U21/
+│   ├── U21-C1_KiCad_[description].pdf
+│   ├── U21-C2_Mesures_[description].png
+│   ├── U21-C3_Firmware_[description].ino
+│   ├── U21-C4_MQTT_[description].png
+│   ├── U21-C5_AWS_[description].png
+│   ├── U21-C6_Boitier_[description].pdf
+│   ├── U21-C7_Maintenance_[description].pdf
+│   ├── U21-C8_DAT_[description].pdf
+│   ├── U21-C9_MTBF_[description].xlsx
+│   └── U21-C10_Projet_[description].pdf
+├── Preuves_U22/
+│   ├── U22-C1_PV_[description].pdf
+│   ├── U22-C2_Incertitudes_[description].pdf
+│   ├── U22-C3_Tracabilite_[description].pdf
+│   ├── U22-C4_IPC_[description].pdf
+│   ├── U22-C5_Normes_[description].pdf
+│   ├── U22-C6_DAT_Electronique_[description].pdf
+│   ├── U22-C7_PVF_[description].pdf
+│   └── U22-C8_Dossier_Livraison_[description].pdf
+└── Projet_A3_NE555_7805/
+    ├── DAT_NE555_7805_v1.0.pdf
+    ├── PVF_NE555_7805_v1.0.pdf
+    ├── BOM_NE555_7805.csv
+    ├── Gerbers/
+    └── KiCad_files/
+"""
+
+def f_arbre_s02(): return tree_figure("Ressources_E2_A3_[VotreNom]/", _parse_tree(TREE_S02))
+def f_arbre_s18(): return tree_figure("Dossier_E2_A2A3_[VotreNom]/", _parse_tree(TREE_S18))
+
+
+FIGS = {"hc05_cablage_at": f_hc05_at, "hc05_cablage_normal": f_hc05_normal, "grille_oscillo_vierge": f_grille_oscillo, "rbd_pesee": f_rbd_pesee, "pv_validation": f_pv_validation, "config_dat": f_config_dat, "station_sonde": f_station_sonde, "station_nv2": f_station_nv2, "station_final": f_station_final, "mes_vierge": f_mes_vierge, "page_garde": f_page_garde, "fiche_preuve": f_fiche_preuve, "grr_synthese": f_grr, "arbre_ressources_a3": f_arbre_s02, "arbre_dossier_e2": f_arbre_s18}

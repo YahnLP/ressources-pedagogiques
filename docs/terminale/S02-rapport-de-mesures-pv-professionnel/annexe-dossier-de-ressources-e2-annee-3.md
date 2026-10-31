@@ -8,54 +8,7 @@
 
 ## 🗂️ STRUCTURE DU DOSSIER DE RESSOURCES
 
-```
-Ressources_E2_A3_[VotreNom]/
-│
-├── 00_NAVIGATION.md (ce fichier)
-│
-├── R01_METROLOGIE/
-│   ├── Formules_incertitudes.pdf
-│   ├── Exemple_PV_reference.pdf
-│   ├── Modele_PV_vierge.odt
-│   └── Fiche_codes_multimetre.pdf
-│
-├── R02_NORME_IPC/
-│   ├── IPC-A-610_resume_classes.pdf
-│   ├── Photos_defauts_brasures.zip
-│   ├── Grille_inspection_IPC.xlsx
-│   └── Lexique_IPC.md
-│
-├── R03_ELECTRONIQUE/
-│   ├── Datasheet_ESP32_WROOM32D.pdf
-│   ├── Datasheet_ADXL345.pdf
-│   ├── Datasheet_DHT22.pdf
-│   ├── Datasheet_AMS1117.pdf
-│   └── Codage_couleurs_resistances.pdf
-│
-├── R04_OUTILS_LOGICIELS/
-│   ├── Raccourcis_KiCad8.md
-│   ├── Raccourcis_FreeCAD.md
-│   ├── Templates_Drawio/
-│   ├── ArduinoIDE_shortcuts.md
-│   └── Saleae_LogicAnalyzer_tips.md
-│
-├── R05_AWS_IOT/
-│   ├── Checklist_connexion_AWS.md
-│   ├── Codes_erreur_MQTT.md
-│   ├── Modele_Policy_IoT.json
-│   └── Règle_SQL_examples.md
-│
-├── R06_FORMULES/
-│   ├── Formules_incertitudes_type_A_B.md  (ce document)
-│   ├── Formules_electronique.md
-│   └── Calculs_thermiques_boitier.md
-│
-└── R07_PROJETS/
-    ├── DAT_template_vierge.odt
-    ├── BOM_template.xlsx
-    ├── Plan_de_tests_template.xlsx
-    └── Fiche_maintenance_template.odt
-```
+![Arborescence du dossier de ressources E2 année 3 (R01 à R07)](images/arbre-ressources-a3.png)
 
 ---
 
