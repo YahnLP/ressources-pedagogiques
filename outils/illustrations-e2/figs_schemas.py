@@ -373,4 +373,24 @@ def f_chaine_raccordement():
     return figure(W, 710, o)
 
 
-FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "reperage_fils": f_reperage_fils, "pv_mesure": f_pv_mesure, "chaine_raccordement": f_chaine_raccordement, "hysteresis_thermostat": f_thermostat_analogie}
+def f_regulateur_lineaire():
+    o = panel(30, 30, 1140, 250, "Principe : le transistor de passage est TOUJOURS conducteur", accent=BLUE)
+    # schéma
+    o += s_wire([(90, 170), (330, 170)]) + T(90, 140, "Vin", 20, 800, RED, "start") + T(90, 200, "ex. 9 V", 14, 700, MUTED, "start")
+    o += f'<rect x="330" y="125" width="260" height="90" rx="12" fill="#fff" stroke="{BLUE}" stroke-width="4"/>' + T(460, 164, "Transistor de passage", 18, 800, BLUE) + T(460, 190, "bipolaire ou MOS", 14, 600, MUTED)
+    o += s_wire([(590, 170), (830, 170)]) + T(830, 140, "Vout", 20, 800, GREEN, "end") + T(830, 200, "fixe, ex. 5 V", 14, 700, MUTED, "end")
+    # chaleur
+    o += arrow(460, 220, 460, 262, RED, 4) + T(500, 252, "chaleur : (Vin − Vout) × Iout", 16, 800, RED, "start")
+    o += f'<path d="M455,225 q-10,-8 0,-16 q10,-8 0,-16" fill="none" stroke="{RED}" stroke-width="0"/>'
+    o += f'<rect x="880" y="100" width="260" height="150" rx="12" fill="#fff6e6" stroke="{AMBER}" stroke-width="3"/>' + T(1010, 132, "Il dissipe l'excès", 17, 800, AMBER) + T(1010, 156, "d'énergie sous forme", 15, 700, INK) + T(1010, 178, "de chaleur", 15, 700, INK) + T(1010, 216, "≈ 4 V × 1 A = 4 W", 15, 800, RED) + T(1010, 236, "pour 9 V → 5 V à 1 A", 13, 600, MUTED)
+    o += panel(30, 300, 560, 250, "Avantages", accent=GREEN) + panel(610, 300, 560, 250, "Inconvénients", accent=RED)
+    for k, t in enumerate(("Simple : peu de composants externes", "Tension de sortie très stable (pas de bruit HF)", "Très bon marché (moins de 0,50 €)", "Pas d'émissions CEM")):
+        y = 370 + k * 48
+        o += f'<circle cx="68" cy="{y-5}" r="14" fill="{GREEN}"/>' + T(68, y + 1, "✓", 16, 800, "#fff") + T(94, y, t, 17, 700, INK, "start")
+    for k, t in enumerate(("Faible rendement si Vin ≫ Vout", "Forte dissipation thermique : il chauffe", "Gaspille l'énergie : mauvais pour les batteries")):
+        y = 370 + k * 48
+        o += f'<circle cx="648" cy="{y-5}" r="14" fill="{RED}"/>' + T(648, y + 1, "✗", 16, 800, "#fff") + T(674, y, t, 17, 700, INK, "start")
+    return figure(W, 580, o)
+
+
+FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "reperage_fils": f_reperage_fils, "pv_mesure": f_pv_mesure, "regulateur_lineaire": f_regulateur_lineaire, "chaine_raccordement": f_chaine_raccordement, "hysteresis_thermostat": f_thermostat_analogie}

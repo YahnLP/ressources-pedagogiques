@@ -123,42 +123,24 @@ Exemple : I_pic = 272 mA @ 3,3V + 150 mA @ 5V
 
 ### Régulateur linéaire
 
-```
-PRINCIPE :
-  Le composant de passage (transistor bipolaire ou MOS) est toujours conducteur.
-  Il dissipe l'excès d'énergie sous forme de chaleur.
-  
-  Vin ────[Transistor passant]──── Vout (fixe)
-                  │
-               Chaleur ↓
-  
-FORMULE CLÉ :
-  Pdiss = (Vin − Vout) × Iout
+![Régulateur linéaire : principe, avantages et inconvénients](images/regulateur-lineaire.png)
 
-RENDEMENT :
-  η = Vout × Iout / (Vin × Iin) ≈ Vout / Vin  (pour Iin ≈ Iout)
+> [!NOTE] Formule clé
+> $$P_{\mathrm{diss}} = (V_{\mathrm{in}} - V_{\mathrm{out}}) \times I_{\mathrm{out}}$$
 
-EXEMPLES :
-  LM7805 : 9V → 5V, 1A, boîtier TO-220, Rθja = 65°C/W
-  LM1117-3.3 : 5V → 3,3V, 0,8A, SOT-223, Rθja = 50°C/W
-  AMS1117-3.3 : 5V → 3,3V, 1A, SOT-223, Rθja = 44°C/W
+> [!NOTE] Rendement
+> $$\eta = \dfrac{V_{\mathrm{out}} \times I_{\mathrm{out}}}{V_{\mathrm{in}} \times I_{\mathrm{in}}} \approx \dfrac{V_{\mathrm{out}}}{V_{\mathrm{in}}} \quad (\text{car } I_{\mathrm{in}} \approx I_{\mathrm{out}})$$
 
-AVANTAGES :
-  ✓ Simple (peu de composants externes)
-  ✓ Tension de sortie très stable (pas de bruit HF)
-  ✓ Très bon marché (< 0,50€)
-  ✓ Pas d'émissions CEM
+**Trois régulateurs courants :**
 
-INCONVÉNIENTS :
-  ✗ Faible rendement si Vin >> Vout
-  ✗ Forte dissipation thermique → chauffe
-  ✗ Gaspille de l'énergie → mauvais pour les batteries
+| Régulateur | Conversion | Courant | Boîtier | $R_{\theta ja}$ |
+|---|---|---|---|---|
+| LM7805 | 9 V → 5 V | 1 A | TO-220 | 65 °C/W |
+| LM1117-3.3 | 5 V → 3,3 V | 0,8 A | SOT-223 | 50 °C/W |
+| AMS1117-3.3 | 5 V → 3,3 V | 1 A | SOT-223 | 44 °C/W |
 
-LDO (Low Drop-Out) = variante du linéaire :
-  Tension minimale Vin − Vout ≥ 0,3 à 1,5 V (selon le modèle)
-  (vs 2,5V minimum pour un 78xx classique)
-  → Utilisable avec batterie Li-ion en décharge
-```
+> [!TIP] LDO (Low Drop-Out) : une variante du linéaire
+> Un **LDO** accepte une **tension d'entrée à peine supérieure à la sortie** : il suffit que $V_{\mathrm{in}} - V_{\mathrm{out}} \geq 0{,}3$ à $1{,}5\ \mathrm{V}$ selon le modèle, contre environ $2{,}5\ \mathrm{V}$ pour un 78xx classique. On peut donc l'utiliser avec une **batterie Li-ion presque déchargée**.
 
 
 > [!TIP] 💡 En clair
