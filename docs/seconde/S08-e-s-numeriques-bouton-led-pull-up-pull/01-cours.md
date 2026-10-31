@@ -17,7 +17,7 @@
 | **`if / else`** | Structure de contrôle conditionnelle : exécute un bloc si la condition est vraie, un autre bloc sinon |
 | **`bool`** | Type de variable booléenne ne pouvant valoir que `true` (1) ou `false` (0) |
 | **Variable d'état** | Variable mémorisant la condition actuelle d'un système (LED allumée/éteinte, bouton appuyé/relâché) |
-| **Rebond (bouncing)** | Phénomène mécanique : à l'appui d'un bouton, les contacts rebondissent et génèrent plusieurs transitions rapides (1-2 ms) |
+| **Rebond (bouncing)** | Phénomène mécanique : à l'appui d'un bouton, les contacts rebondissent et génèrent plusieurs transitions rapides (quelques ms, parfois jusqu'à une vingtaine) |
 | **Anti-rebond (debounce)** | Technique logicielle ou matérielle éliminant les transitions parasites dues aux rebonds |
 | **Débogage (debug)** | Processus d'identification et de correction des erreurs dans un programme |
 | **Variable globale** | Variable déclarée en dehors de toute fonction — conserve sa valeur entre les appels à `loop()` |
@@ -333,7 +333,7 @@ void loop() {
 **Q3.** Un bouton fait clignoter la LED au lieu de la basculer. Quelle est la cause possible ?
 
 ??? success "Réponse"
-    Le **rebond** du bouton : on ajoute un petit `delay(50)` pour l'ignorer.
+    Le **rebond** du bouton : on ajoute un petit `delay(50)` pour l'ignorer. (Les autres solutions, dont `millis()` et le filtre RC, sont vues en S09, §1.3.)
 
 > [!SUCCESS] 🧠 À retenir
 > - `if / else` décide ; une variable d'état mémorise ; on la déclare hors de `loop()`.

@@ -93,6 +93,61 @@ def scope_(x, y, w, h, pts, col):
     o = f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="#10151b"/>' + ''.join(f'<line x1="{x}" y1="{y+h*i/4}" x2="{x+w}" y2="{y+h*i/4}" stroke="#1f2a33"/>' for i in range(1, 4))
     return o + f'<polyline points="{" ".join(f"{x+px*w:.0f},{y+h-py*h*0.8-h*0.1:.0f}" for px, py in pts)}" fill="none" stroke="{col}" stroke-width="3"/>'
 
+def _bounce_pts():
+    """Tension au bouton (pull-up) : repos 1, appui = 0, avec rebonds."""
+    ev = [(0, 1), (.30, 1), (.30, 0), (.33, 0), (.33, 1), (.37, 1), (.37, 0), (.395, 0), (.395, 1), (.41, 1), (.41, 0), (1, 0)]
+    return ev
+
+
+def f_rebonds():
+    o = duo(0, 0, "Ce qu'on imagine", "Ce qui se passe vraiment", GREEN, RED, h=470)
+    clean = [(0, 1), (.30, 1), (.30, 0), (1, 0)]
+    for x0, pts, col in ((60, clean, "#4ade80"), (650, _bounce_pts(), "#ff6b6b")):
+        o += scope_(x0, 130, 480, 220, pts, col)
+        o += T(x0 + 12, 165, "5 V · relâché", 14, 700, "#9fb0b8", "start") + T(x0 + 12, 338, "0 V · appuyé", 14, 700, "#9fb0b8", "start")
+        o += T(x0 + 470, 372, "temps", 14, 700, MUTED, "end")
+    zx = 650 + .30 * 480; zw = (.43 - .30) * 480
+    o += f'<rect x="{zx-6:.0f}" y="130" width="{zw:.0f}" height="220" rx="6" fill="{RED}" opacity=".22"/>' + T(zx + zw / 2, 118, "rebonds : quelques ms", 16, 800, RED)
+    o += T(300, 405, "1 appui = 1 seule transition", 20, 800, GREEN) + T(890, 405, "1 appui = PLUSIEURS transitions !", 20, 800, RED)
+    o += T(890, 440, "Un compteur ou une bascule réagit à chaque rebond", 16, 600, MUTED)
+    o += chip(600, 540, "L'Arduino lit une broche en quelques microsecondes : il voit chaque rebond comme un nouvel appui", AMBER, w=1100, size=17)
+    return figure(W, 590, o)
+
+
+def f_antirebond():
+    o = panel(30, 40, 520, 520, "Anti-rebond matériel : filtre RC + Schmitt", accent=BLUE)
+    o += T(140, 112, "+5 V", 20, 800, RED) + s_wire([(140, 124), (140, 160)], RED) + sym("R", 140, 200, rot=90) + T(170, 206, "R 10 kΩ", 17, 800, INK, "start")
+    o += s_wire([(140, 240), (140, 330)]) + dot(140, 300) + s_wire([(140, 300), (320, 300)]) + dot(240, 300)
+    o += sym("BP", 140, 370, rot=90) + T(185, 376, "S1", 17, 800, INK, "start") + s_wire([(140, 410), (140, 450)]) + gnd(140, 450)
+    o += s_wire([(240, 300), (240, 330)]) + sym("C", 240, 370, rot=90) + T(270, 376, "C 100 nF", 17, 800, INK, "start") + s_wire([(240, 410), (240, 450)]) + gnd(240, 450)
+    o += f'<rect x="320" y="268" width="120" height="64" rx="8" fill="#fff" stroke="{INK}" stroke-width="3"/>' + T(380, 296, "74HC14", 17, 800, INK) + T(380, 318, "Schmitt", 14, 700, MUTED)
+    o += s_wire([(440, 300), (510, 300)]) + T(480, 282, "vers", 14, 700, MUTED) + T(480, 330, "D2", 17, 800, INK)
+    o += T(290, 515, "τ = R × C = 10 kΩ × 100 nF = 1 ms", 18, 800, BLUE)
+    o += panel(570, 40, 600, 520, "Les trois signaux", accent=GREEN)
+    # simulation
+    dt, tau, tend = 0.05, 1.0, 12.0
+    closed = lambda t: (2.0 <= t < 2.4) or (2.8 <= t < 3.1) or t >= 3.3
+    v, vin, vc, vo, out = 1.0, [], [], [], 0
+    n = int(tend / dt)
+    for i in range(n + 1):
+        t = i * dt
+        c = closed(t)
+        v = v * 0.03 if c else v + (1 - v) * dt / tau
+        if v < .35: out = 1
+        elif v > .6: out = 0
+        x = t / tend
+        vin.append((x, 0 if c else 1)); vc.append((x, v)); vo.append((x, out))
+    labs = (("① Sur le bouton : rebonds", RED, vin, "#ff6b6b"), ("② Aux bornes de C : rebonds lissés", AMBER, vc, "#fbbf24"), ("③ Sortie du 74HC14 (inversée) : 1 seul front", GREEN, vo, "#4ade80"))
+    for k, (lab, lc, pts, col) in enumerate(labs):
+        y0 = 135 + k * 140
+        o += T(600, y0 - 10, lab, 16, 800, lc, "start") + scope_(600, y0, 540, 100, pts, col)
+    # seuils sur ②
+    for frac, nm in ((.6, "seuil haut"), (.35, "seuil bas")):
+        yy = 275 + 100 - frac * 100 * 0.8 - 100 * 0.1
+        o += f'<line x1="600" y1="{yy:.0f}" x2="1140" y2="{yy:.0f}" stroke="#fff" stroke-width="1.5" stroke-dasharray="6 5" opacity=".75"/>' + T(1134, yy - 4, nm, 12, 700, "#fff", "end")
+    return figure(W, 600, o)
+
+
 
 def f_flottant():
     import random
@@ -174,5 +229,5 @@ def f_serial_params():
 
 
 FIGS = {"arduino_uno_annote": f_uno, "arduino_ide": f_ide, "setup_loop": f_setup_loop, "schema_led_d13": f_schema_d13, "cablage_uno_breadboard": f_cablage_uno, "serial_monitor_ide": f_serial_monitor,
-        "niveaux_logiques": f_niveaux, "flottant_pulldown": f_flottant, "pulldown_etats": f_pulldown_etats, "pulldown_pullup": f_pulldown_pullup, "pyramide_debug": f_pyr_debug, "tableau_bugs": f_bugs,
+        "niveaux_logiques": f_niveaux, "flottant_pulldown": f_flottant, "rebonds_bouton": f_rebonds, "antirebond_rc": f_antirebond, "pulldown_etats": f_pulldown_etats, "pulldown_pullup": f_pulldown_pullup, "pyramide_debug": f_pyr_debug, "tableau_bugs": f_bugs,
         "uart_tx_rx": f_uart_tx_rx, "trame_uart": f_trame_uart, "serial_monitor_params": f_serial_params}
