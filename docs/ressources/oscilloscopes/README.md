@@ -2,12 +2,15 @@
 
 > Deux fiches d'utilisation illustrées pour **maîtriser** les oscilloscopes du laboratoire, et **un TP** qui fonctionne avec les deux.
 
+> [!TIP] 🔬 Nouveau : le simulateur **OscilloLab**
+> Entraîne-toi sur une **copie fidèle des deux oscilloscopes** (face avant, menus, réactions réelles) avec **16 TP corrigés automatiquement**, un pas à pas touche par touche et un bouton **👆 Montre-moi**. [▶️ Ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/) · [Mode d'emploi et TP par séance](../oscillolab.md)
+
 ## Quel oscilloscope as-tu devant toi ?
 
-| | **OWON SDS5032E(V)** | **RIGOL DS1104Z (Plus)** |
+| | **OWON SDS5032E(V)** | **RIGOL DS1054Z** |
 |---|---|---|
 | Voies | **2** | **4** |
-| Bande passante | 30 MHz | 100 MHz |
+| Bande passante | 30 MHz | 50 MHz (DS1054Z) |
 | Fiche | [🔭 Fiche OWON](owon-sds5032e.md) | [🔭 Fiche RIGOL](rigol-ds1104z.md) |
 | Réglage vertical | **2 jeux** de boutons (un par voie) | **1 jeu** de boutons, agit sur la **voie sélectionnée** |
 | Réglage automatique | **Autoset** | **AUTO** |
@@ -19,7 +22,7 @@
 
 ## Les mêmes gestes sur les deux appareils
 
-| Je veux… | OWON SDS5032E | RIGOL DS1104Z |
+| Je veux… | OWON SDS5032E | RIGOL DS1054Z |
 |---|---|---|
 | **Tout remettre à zéro** | Utility → Function → Adjust → *Default* | Storage → *Default* |
 | **Régler la sonde** | interrupteur 10X **et** MENU CH1 → *Probe* X10 | interrupteur 10X **et** CHx → *Probe* 10X |

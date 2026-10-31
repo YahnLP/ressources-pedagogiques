@@ -19,6 +19,10 @@
 | 1 h 15 | Atelier réel : générateur et oscilloscope (avec la fiche de ton appareil) |
 | 45 min | Exercices et auto-test |
 
+## 🔬 TP virtuel dans OscilloLab : à faire avant le TP réel
+
+Ouvre [OscilloLab](https://yahnlp.github.io/OscilloLab/), choisis **ton oscilloscope** (OWON ou RIGOL), lis **📖 Les bases de l'oscilloscope** (10 minutes), puis fais, dans l'ordre : **TP 1** prise en main · **TP 2** compenser la sonde · **TP 3** piège ×1 / ×10 · **TP 4** lire sur la grille · **TP 5** couplage DC / AC / GND · **TP 16** pince de masse oubliée. Chaque TP explique la notion, donne le **pas à pas touche par touche** (avec **👆 Montre-moi**) et se **corrige automatiquement**. Mode d'emploi : [Utiliser OscilloLab](../ressources/oscillolab.md).
+
 ## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
 
 Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
@@ -31,7 +35,7 @@ Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 > [!TIP] 📘 Les fiches de ton oscilloscope
 > Deux fiches illustrées expliquent **tous les boutons, les réglages, la lecture de l'écran, les mesures et la capture** pour les oscilloscopes du laboratoire :
 > - [🔭 Fiche OWON SDS5032E(V)](../ressources/oscilloscopes/owon-sds5032e.md) (2 voies, 30 MHz) ;
-> - [🔭 Fiche RIGOL DS1104Z](../ressources/oscilloscopes/rigol-ds1104z.md) (4 voies, 100 MHz).
+> - [🔭 Fiche RIGOL DS1054Z](../ressources/oscilloscopes/rigol-ds1104z.md) (4 voies, 100 MHz).
 >
 > Pour t'entraîner pas à pas : [🧪 TP « Passeport oscilloscope »](../ressources/oscilloscopes/tp-passeport-oscilloscope.md) (13 missions).
 

@@ -5,6 +5,9 @@
 >
 > *Source des illustrations : manuel d'utilisation OWON SDS5032E(V), édition V1.5.3 (© Lilliput / OWON).*
 
+> [!TIP] 🔬 T'entraîner d'abord sur le simulateur
+> **OscilloLab** reproduit cet appareil (face avant, menus, réactions) : [ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/) puis suivre le **pas à pas** des TP, avec le bouton **👆 Montre-moi**. Mode d'emploi : [Utiliser OscilloLab](../oscillolab.md).
+
 ## 🎯 Ce que tu sauras faire avec cette fiche
 
 - allumer l'appareil, le **remettre à zéro** et **compenser ta sonde** ;

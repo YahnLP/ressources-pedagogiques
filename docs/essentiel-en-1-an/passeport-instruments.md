@@ -27,7 +27,7 @@ Un geste est **acquis** quand tu le réalises **seul(e)**, sans aide, devant l'e
 ## Oscilloscope (semaine 3)
 
 > [!TIP] 📘 Fiches de l'appareil
-> [🔭 OWON SDS5032E(V)](../ressources/oscilloscopes/owon-sds5032e.md) · [🔭 RIGOL DS1104Z](../ressources/oscilloscopes/rigol-ds1104z.md) · [🧪 TP Passeport oscilloscope (13 missions)](../ressources/oscilloscopes/tp-passeport-oscilloscope.md)
+> [🔬 OscilloLab (simulateur)](https://yahnlp.github.io/OscilloLab/) · [🔭 OWON SDS5032E(V)](../ressources/oscilloscopes/owon-sds5032e.md) · [🔭 RIGOL DS1054Z](../ressources/oscilloscopes/rigol-ds1104z.md) · [🧪 TP Passeport oscilloscope (13 missions)](../ressources/oscilloscopes/tp-passeport-oscilloscope.md)
 
 
 - [ ] Connecter et **compenser** la sonde (×1 / ×10)
