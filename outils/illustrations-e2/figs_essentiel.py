@@ -173,7 +173,7 @@ def f_relais_transistor():
     o += f'<rect x="385" y="170" width="70" height="100" rx="8" fill="#fff" stroke="{INK}" stroke-width="3.5"/>' + T(420, 228, "K1", 22, 800, INK)
     o += T(360, 215, "bobine du relais", 16, 600, MUTED, "end")
     o += s_wire([(420, 270), (420, 320)])
-    o += s_wire([(420, 170), (540, 170), (540, 210)]) + sym("D", 540, 250, rot=270) + s_wire([(540, 290), (540, 320), (420, 320)])
+    o += s_wire([(420, 170), (540, 170), (540, 320), (420, 320)]) + f'<path d="M522,262 L558,262 L540,232 Z" fill="{INK}" stroke="{INK}" stroke-width="2" stroke-linejoin="round"/><path d="M520,228 H560" stroke="{INK}" stroke-width="4"/>'
     o += dot(420, 320) + T(590, 255, "diode de roue libre", 18, 800, RED, "start")
     o += npn(398, 380, 1.0) + s_wire([(420, 320), (420, 336)])
     o += s_wire([(420, 424), (420, 470)]) + gnd(420, 470)
