@@ -10,26 +10,17 @@
 
 ## R1 — Schéma du circuit STATION_E2_FINAL
 
-```
-                    ┌──────────────────────────────────────────────────────┐
-                    │               ESP32 DevKit v1                         │
-                    │                                                       │
-  3V3 ─[R_pull]──┬─ GPIO4       GPIO2 ─[R_LED]─[LED_R]─ GND               │
-                 │                                                          │
-                DHT22            GPIO5 ─[R_pot = 10kΩ potentiomètre] ─ GND │
-                 │                                                          │
-                GND              GPIO34 ─ curseur potentiomètre             │
-                    │                                                       │
-  USB_5V ─[AMS1117]─ 3V3 ─ [C1] ─ GND                                    │
-              │        └─ [R_charge = 68 Ω] ─ GND                         │
-              └─────────────────────────────────────────────────────────────┘
+![Schéma du circuit STATION_E2_FINAL : ESP32, DHT22, LED, potentiomètre, alimentation AMS1117](images/schema-station-final.png)
 
-Valeurs NOMINALES déclarées dans le cahier des charges :
-  R_pull    : 10 kΩ  ±5%
-  R_LED     : 220 Ω  ±5%   ← À VÉRIFIER
-  C1        : 100 µF ±20%  ← À VÉRIFIER
-  R_charge  : 68 Ω   ±5%
-```
+**Valeurs nominales déclarées dans le cahier des charges :**
+
+| Composant | Valeur nominale | Remarque |
+|---|---|---|
+| R_pullup (« R_pull ») | 10 kΩ ± 5 % | |
+| R_LED | 220 Ω ± 5 % | à vérifier |
+| C_dec (« C1 ») | 100 µF ± 20 % | à vérifier |
+| R_charge | 68 Ω ± 5 % | |
+| R_pot | potentiomètre 10 kΩ | |
 
 ---
 

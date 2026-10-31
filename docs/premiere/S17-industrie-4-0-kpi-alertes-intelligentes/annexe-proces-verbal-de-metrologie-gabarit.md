@@ -45,55 +45,57 @@
 
 ## SECTION 1 — OBJET ET DOMAINE D'APPLICATION
 
-```
-1.1 Objet du contrôle :
-    Ce procès-verbal a pour objet de vérifier la conformité du capteur
-    de température DHT22, utilisé dans la station IoT CLIMASENS, par rapport
-    aux spécifications du fabricant.
+**1.1 Objet du contrôle**
 
-1.2 Spécifications du DHT22 (extrait datasheet) :
-    ┌────────────────────────────────────────────────────────────────┐
-    │ Grandeur mesurée   : Température                               │
-    │ Plage de mesure    : −40°C à +80°C                            │
-    │ Précision déclarée : ± 0,5°C                                  │
-    │ Résolution         : 0,1°C                                    │
-    │ Temps de réponse   : < 5 secondes (63% de la variation)       │
-    │ Alimentation       : 3,3V ou 5V (± 5%)                        │
-    └────────────────────────────────────────────────────────────────┘
+Ce procès-verbal a pour objet de vérifier la conformité du capteur de température **DHT22**, utilisé dans la station IoT CLIMASENS, par rapport aux spécifications du fabricant.
 
-1.3 Critère de conformité retenu :
-    Le capteur est déclaré CONFORME si :
-    │Biais│ + U élargie (k=2) ≤ 0,5°C (spécification constructeur)
-```
+**1.2 Spécifications du DHT22** (extrait de la datasheet)
+
+| Grandeur | Valeur |
+|---|---|
+| Grandeur mesurée | Température |
+| Plage de mesure | −40 °C à +80 °C |
+| Précision déclarée | ± 0,5 °C |
+| Résolution | 0,1 °C |
+| Temps de réponse | < 5 secondes (63 % de la variation) |
+| Alimentation | 3,3 V ou 5 V (± 5 %) |
+
+**1.3 Critère de conformité retenu**
+
+> [!NOTE] Critère
+> Le capteur est déclaré **CONFORME** si : $|\bar{e}| + U_{\text{élargie}}\ (k=2) \leq 0{,}5\ ^{\circ}\mathrm{C}$ (spécification constructeur).
 
 ---
 
 ## SECTION 2 — CONDITIONS DE MESURE
 
-```
-2.1 Environnement de mesure :
-    Date et heure    : ___________________________
-    Lieu             : ___________________________
-    Température ambiante de la pièce : _______ °C
-    Humidité relative de la pièce    : _______ %
-    Pression atmosphérique           : _______ hPa
-    Stabilité thermique              : ☐ Stable (±0,2°C sur 10 min) ☐ Variable
+**2.1 Environnement de mesure**
 
-2.2 Montage de mesure :
-    ┌──────────────────────────────────────────────────────────────┐
-    │  [Thermomètre étalon] ──┐                                    │
-    │                          ├── [Point de mesure commun]        │
-    │  [DHT22 sur ESP32]    ──┘                                    │
-    │                                                              │
-    │  [ESP32] ── MQTT ── [Node-RED] ── [Tableau de relevés]       │
-    └──────────────────────────────────────────────────────────────┘
-    Distance étalon / DHT22 : _______ cm
-    Temps de stabilisation avant première mesure : _______ minutes
+| Paramètre | Valeur |
+|---|---|
+| Date et heure | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| Lieu | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| Température ambiante de la pièce | \_\_\_\_\_\_\_ °C |
+| Humidité relative de la pièce | \_\_\_\_\_\_\_ % |
+| Pression atmosphérique | \_\_\_\_\_\_\_ hPa |
+| Stabilité thermique | ☐ Stable (± 0,2 °C sur 10 min)  ☐ Variable |
 
-2.3 Fréquence d'acquisition :
-    Une mesure toutes les : _______ secondes
-    Nombre de mesures : _______ (minimum 10 requis)
+**2.2 Montage de mesure**
+
+```mermaid
+flowchart LR
+    E["Thermomètre étalon"] --> P["Point de mesure commun"]
+    D["DHT22 sur ESP32"] --> P
+    D2["ESP32"] -- MQTT --> N["Node-RED"] --> T["Tableau de relevés"]
 ```
+
+- Distance étalon / DHT22 : \_\_\_\_\_\_\_ cm
+- Temps de stabilisation avant la première mesure : \_\_\_\_\_\_\_ minutes
+
+**2.3 Fréquence d'acquisition**
+
+- Une mesure toutes les \_\_\_\_\_\_\_ secondes
+- Nombre de mesures : \_\_\_\_\_\_\_ (minimum 10 requis)
 
 ---
 
@@ -173,18 +175,14 @@ T_DHT22 = \_\_\_\_\_\_\_ ± \_\_\_\_\_\_\_ °C     (k = 2, intervalle de confian
 
 ### 5.1 Tableau de synthèse
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  Grandeur         │ Valeur calculée │ Spécification │ Statut        │
-├─────────────────────────────────────────────────────────────────────┤
-│  Biais │e̅│         │ _______ °C      │               │               │
-│  Écart-type σ     │ _______ °C      │               │               │
-│  Incertitude U    │ _______ °C      │               │               │
-│  ERREUR TOTALE    │ _______ °C      │   ≤ 0,5°C     │ ☐ OK  ☐ FAIL  │
-│  (│e̅│ + U)        │                 │               │               │
-└─────────────────────────────────────────────────────────────────────┘
-Erreur totale = │e̅│ + U = _______ + _______ = _______ °C
-```
+| Grandeur | Valeur calculée | Spécification | Statut |
+|---|---|---|---|
+| Biais $\lvert\bar{e}\rvert$ | \_\_\_\_\_\_\_ °C | | |
+| Écart-type $\sigma$ | \_\_\_\_\_\_\_ °C | | |
+| Incertitude $U$ | \_\_\_\_\_\_\_ °C | | |
+| **ERREUR TOTALE** $\lvert\bar{e}\rvert + U$ | \_\_\_\_\_\_\_ °C | $\leq 0{,}5\ ^{\circ}\mathrm{C}$ | ☐ OK  ☐ FAIL |
+
+$$\text{Erreur totale} = |\bar{e}| + U = \_\_\_\_\_ + \_\_\_\_\_ = \_\_\_\_\_\ ^{\circ}\mathrm{C}$$
 
 ### 5.2 Décision de conformité
 

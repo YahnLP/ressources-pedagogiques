@@ -11,26 +11,16 @@
 
 ## R1 — Schéma du circuit STATION_E2_NV2
 
-```
-                    ┌────────────────────────────────────────────────┐
-                    │              ESP32 DevKit v1                    │
-                    │                                                 │
-  3V3 ─[R_pullup]─┬─ GPIO4                  GPIO2 ─[R_LED]─[LED]─ GND
-                  │                                                   │
-                 DHT22                       GPIO5 ─[R_IR]─[LED_IR]─ GND
-                  │                                                   │
-                 GND                                                  │
-                    │                                                 │
-  USB_5V ─[AMS1117]─ 3V3 ─[C_dec=100µF]─ GND                       │
-              │        └─[R_charge]─ GND                             │
-              └──────────────────────────────────────────────────────┘
+![Schéma du circuit STATION_E2_NV2](images/schema-station-nv2.png)
 
-Valeurs NOMINALES déclarées :
-  R_pullup   : 10 kΩ ±5%
-  R_LED      : 220 Ω ±5%   ← À vérifier par mesure
-  R_charge   : 100 Ω ±1%
-  C_dec      : 100 µF ±20%
-```
+**Valeurs nominales déclarées :**
+
+| Composant | Valeur nominale | Remarque |
+|---|---|---|
+| R_pullup | 10 kΩ ± 5 % | |
+| R_LED | 220 Ω ± 5 % | à vérifier par mesure |
+| R_charge | 100 Ω ± 1 % | |
+| C_dec | 100 µF ± 20 % | |
 
 ---
 
