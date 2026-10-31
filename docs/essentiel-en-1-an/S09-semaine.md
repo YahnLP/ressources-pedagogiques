@@ -121,6 +121,9 @@ Les circuits numériques ne connaissent que **0** (≈ 0 V) et **1** (≈ 5 V ou
 
 **Matériel** : plaque d'essai, AOP LM358, résistances, condensateurs, GBF, oscilloscope, alimentation 5 V.
 
+> [!TIP] 📘 Deux voies et déphasage
+> Pour afficher deux voies, mesurer un **retard** et en déduire un **déphasage**, suis la mission 10 du [TP Passeport oscilloscope](../ressources/oscilloscopes/tp-passeport-oscilloscope.md) et la fiche de ton appareil ([OWON](../ressources/oscilloscopes/owon-sds5032e.md) ou [RIGOL](../ressources/oscilloscopes/rigol-ds1104z.md)).
+
 1. **Filtre RC** : $R = 10\,\mathrm{kΩ}$, $C = 100\,\mathrm{nF}$. Calcule $f_c$. Applique un signal sinusoïdal de 1 V crête et mesure le gain à 16 Hz, 160 Hz et 1,6 kHz.
 2. **Amplificateur** : monte un non inverseur de gain 11 ($R_f = 10\,\mathrm{kΩ}$, $R_g = 1\,\mathrm{kΩ}$) alimenté en 5 V. Applique 100 mV : mesure la sortie.
 3. Augmente l'entrée jusqu'à **500 mV** : que se passe-t-il ?

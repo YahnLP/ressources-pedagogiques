@@ -2,6 +2,9 @@
 
 > **Matériel visé** : oscilloscope numérique 2 voies de 30 MHz (type Owon SDS5032E-V). Le nom exact des menus peut varier d'un modèle à l'autre ; les touches principales (Autoset, Run/Stop, Trigger, Measure, Cursor) existent partout.
 
+> [!TIP] 📘 Fiches détaillées de ton oscilloscope
+> Pour voir **chaque bouton**, **chaque réglage** et **chaque menu**, avec captures d'écran : [🔭 Fiche OWON SDS5032E(V)](../../ressources/oscilloscopes/owon-sds5032e.md) · [🔭 Fiche RIGOL DS1104Z](../../ressources/oscilloscopes/rigol-ds1104z.md). Pour t'entraîner : [🧪 TP « Passeport oscilloscope »](../../ressources/oscilloscopes/tp-passeport-oscilloscope.md) (missions 1 à 8).
+
 ## 🤔 À ton avis ?
 
 Le multimètre te donne **une** valeur. Mais comment savoir si une tension **clignote**, à quelle **vitesse**, et si elle est **propre** ?

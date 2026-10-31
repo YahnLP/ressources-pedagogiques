@@ -112,7 +112,7 @@ Un driver comme le **L293D** intègre le pont en H et les diodes de roue libre (
 
 1. **LED commandée par transistor** : charge de 20 mA (LED + résistance), commande à 5 V. Calcule $R_b$, monte le circuit, mesure $V_{CE}$ saturé.
 2. **Relais** : bobine 5 V / 70 mA commandée à 5 V. Choisis le transistor et calcule $R_b$. Monte avec la diode de roue libre.
-3. **Test** : retire la diode, que se passe-t-il à l'oscilloscope quand on coupe la commande ? (Si disponible)
+3. **Test** : retire la diode, que se passe-t-il à l'oscilloscope quand on coupe la commande ? (Capture avec **Single** : voir la [fiche OWON](../ressources/oscilloscopes/owon-sds5032e.md) ou la [fiche RIGOL](../ressources/oscilloscopes/rigol-ds1104z.md), partie « Capturer un événement unique »)
 4. Calcule la **puissance** dissipée par le transistor saturé dans le cas du relais.
 
 ??? success "Résultats attendus"
