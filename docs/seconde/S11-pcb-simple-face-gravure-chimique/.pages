@@ -2,4 +2,5 @@ title: "S11 · PCB Simple Face : Gravure Chimique & Perçage · Contrôle Qualit
 nav:
   - README.md
   - "📖 Cours": 01-cours.md
+  - "🛠️ Fiche PAS À PAS — Fraisage CNC 3018": annexe-fiche-fraisage-cnc-3018.md
   - "📎 Fiche DE contrôle qualité PCB": annexe-fiche-de-controle-qualite-pcb.md
