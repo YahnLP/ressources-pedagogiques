@@ -100,7 +100,101 @@ Un thermomètre numérique affiche « 24,3 °C ». Comment un petit circuit peut
 
 ---
 
-### 1.3 Tableau comparatif
+### 1.3 Un signal numérique « sale » : les rebonds d'un bouton
+
+Un signal numérique devrait passer **proprement** de 0 à 1. Avec un **interrupteur** ou un **bouton poussoir**, ce n'est pas toujours le cas.
+
+> [!TIP] 💡 En clair
+> Un bouton est un **contact mécanique** : deux petites lames métalliques qui se rapprochent. Au moment de l'appui, elles **rebondissent** l'une sur l'autre, comme une balle sur le sol. Pendant quelques millisecondes (de moins d'1 ms à une vingtaine de ms selon le bouton), le contact **s'ouvre et se ferme plusieurs fois** avant de se stabiliser.
+>
+> Pour toi, c'est **un seul appui**. Pour l'Arduino, qui lit la broche en quelques **microsecondes**, ce sont **plusieurs appuis**.
+
+![Rebonds d'un bouton : ce qu'on imagine et ce qui se passe vraiment](images/rebonds-bouton.png)
+
+**Conséquences possibles :**
+
+- un compteur d'appuis qui **augmente de 3 ou 4** au lieu de 1 ;
+- une LED « bascule » qui **s'allume puis s'éteint** aussitôt (elle change d'état à chaque rebond) ;
+- un menu qui **saute** plusieurs choix d'un coup.
+
+**Comment s'en protéger ? Trois solutions :**
+
+| Solution | Principe | Avantage | Limite |
+|---|---|---|---|
+| **Logiciel simple** | `delay(20)` à `delay(50)` après la détection du front | Très facile | Le programme est **bloqué** pendant le délai |
+| **Logiciel propre** | On n'accepte un nouvel état que s'il est **stable depuis 50 ms** (avec `millis()`) | Le programme **continue** de tourner | Un peu plus de code |
+| **Matériel** | Un **condensateur** lisse les rebonds, puis une porte à **trigger de Schmitt** remet le signal au propre | Aucun code ; utile pour un signal très sensible | Composants en plus sur le montage |
+
+**Solution logicielle sans blocage** (la fonction `millis()` donne le temps écoulé depuis le démarrage, en ms) :
+
+```cpp
+const int BROCHE_BTN = 2;
+const unsigned long DELAI_REBOND = 50;   // ms : durée de stabilité exigée
+
+int etatStable = HIGH;                   // dernier état validé (HIGH = relâché)
+int derniereLecture = HIGH;              // dernière lecture brute
+unsigned long dernierChangement = 0;     // instant du dernier changement brut
+int compteur = 0;
+
+void setup() {
+  pinMode(BROCHE_BTN, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int lecture = digitalRead(BROCHE_BTN);
+
+  if (lecture != derniereLecture) {      // ça bouge : on relance le chronomètre
+    dernierChangement = millis();
+    derniereLecture = lecture;
+  }
+
+  if (millis() - dernierChangement > DELAI_REBOND && lecture != etatStable) {
+    etatStable = lecture;                // stable depuis 50 ms : on valide
+    if (etatStable == LOW) {             // appui validé (INPUT_PULLUP : appui = LOW)
+      compteur++;
+      Serial.println(compteur);
+    }
+  }
+}
+```
+
+**Solution matérielle** : un condensateur de 100 nF est branché **en parallèle du bouton**. Il se décharge instantanément quand le contact se ferme, mais **se recharge lentement** par la résistance : les brefs rebonds ne lui laissent pas le temps de remonter. La porte **74HC14** (trigger de Schmitt, qui **inverse** le signal) remet ensuite un front net.
+
+![Anti-rebond matériel : filtre RC et trigger de Schmitt](images/antirebond-rc.png)
+
+> [!NOTE] Pour voir les rebonds
+> À l'**oscilloscope**, déclenché sur le **front descendant** de la broche du bouton (avec `INPUT_PULLUP`), on observe plusieurs fronts rapprochés à chaque appui. Le sketch de bascule de la séance S08 (`annexe-reference-sketches`, sketch 3) utilise l'anti-rebond logiciel simple.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Qu'est-ce qu'un rebond ?
+
+??? success "Réponse"
+    Les lames du contact **rebondissent** à l'appui : le contact s'ouvre et se ferme plusieurs fois en quelques ms avant de se stabiliser.
+
+**Q2.** Un compteur d'appuis affiche 4 alors que tu as appuyé une seule fois. Pourquoi ?
+
+??? success "Réponse"
+    L'Arduino a vu **plusieurs fronts** (les rebonds) et les a comptés comme des appuis séparés.
+
+**Q3.** Quel est le défaut de `delay(50)` comme anti-rebond ?
+
+??? success "Réponse"
+    Il **bloque tout le programme** pendant 50 ms : rien d'autre ne s'exécute (autres boutons, mesures, clignotement…). La version avec `millis()` évite ce blocage.
+
+**Q4.** Pour le filtre RC avec R = 10 kΩ et C = 100 nF, calcule la constante de temps $\tau = R \times C$.
+
+??? success "Réponse"
+    $\tau = 10\,000 \times 100 \times 10^{-9} = 0{,}001$ s, soit **1 ms**, du même ordre que la durée d'un rebond.
+
+> [!SUCCESS] 🧠 À retenir
+> - Un bouton **rebondit** : 1 appui peut donner **plusieurs transitions**.
+> - Remèdes : **attendre la stabilité** (logiciel, avec `delay` ou mieux `millis()`) ou **filtrer** (condensateur + trigger de Schmitt).
+
+---
+
+### 1.4 Tableau comparatif
 
 | **Critère** | **Analogique** | **Numérique** |
 |-------------|----------------|---------------|
@@ -113,7 +207,7 @@ Un thermomètre numérique affiche « 24,3 °C ». Comment un petit circuit peut
 
 ---
 
-### 1.4 Le problème : Arduino est numérique, les capteurs sont souvent analogiques
+### 1.5 Le problème : Arduino est numérique, les capteurs sont souvent analogiques
 
 **Situation :**
 
@@ -174,7 +268,7 @@ Un thermomètre numérique affiche « 24,3 °C ». Comment un petit circuit peut
 
 | **Paramètre** | **Valeur** |
 |--------------|-----------|
-| **Résolution** | 10 bits (2^10 = 1024 valeurs) |
+| **Résolution** | 10 bits ($2^{10} = 1024$ valeurs) |
 | **Plage d'entrée** | 0V à 5V |
 | **Valeurs de sortie** | 0 à 1023 |
 | **Précision** | 5V / 1024 = 4.88 mV par niveau |
@@ -182,8 +276,8 @@ Un thermomètre numérique affiche « 24,3 °C ». Comment un petit circuit peut
 
 **💡 Résolution 10 bits :**
 
-- 2^10 = 1024 valeurs possibles
-- Chaque niveau représente : 5V / 1024 = **0.00488 V ≈ 4.88 mV**
+- $2^{10} = 1024$ valeurs possibles
+- Chaque niveau représente : $\dfrac{5\,\mathrm{V}}{1024} =$ **0,00488 V ≈ 4,88 mV**
 
 ---
 

@@ -130,13 +130,6 @@ NODE-RED :
 > Ce code contient 4 erreurs. Identifie-les et corrige-les.
 
 ```cpp
-??? success "Réponses"
-    1. `Serial.begin(9600)` : sur ESP32, utiliser **115200** (messages de démarrage lisibles).  
-    2. `while (WiFi.status() == WL_CONNECTED)` : condition **inversée** ; il faut `!=`.  
-    3. `mqtt.connect("ESP32")` : identifiant **non unique** et connexion **non testée** ; utiliser un ID unique et vérifier le retour de `connect`.  
-    4. `delay(5000)` + absence de `mqtt.loop()` : le client MQTT n'est jamais entretenu ; appeler `mqtt.loop()` à chaque tour de `loop()` et remplacer `delay` par `millis()`.  
-    *(Le repérage exact des 4 erreurs est une proposition à valider par l'enseignant.)*
-
 #include <WiFi.h>
 #include <PubSubClient.h>
 
@@ -164,6 +157,14 @@ void loop() {
   delay(5000);                       // Erreur 4 : _________________________
 }
 ```
+
+??? success "Réponses"
+    1. `Serial.begin(9600)` : sur ESP32, utiliser **115200** (messages de démarrage lisibles).  
+    2. `while (WiFi.status() == WL_CONNECTED)` : condition **inversée** ; il faut `!=`.  
+    3. `mqtt.connect("ESP32")` : identifiant **non unique** et connexion **non testée** ; utiliser un ID unique et vérifier le retour de `connect`.  
+    4. `delay(5000)` + absence de `mqtt.loop()` : le client MQTT n'est jamais entretenu ; appeler `mqtt.loop()` à chaque tour de `loop()` et remplacer `delay` par `millis()`.  
+    *(Le repérage exact des 4 erreurs est une proposition à valider par l'enseignant.)*
+
 
 ```
 Erreur 1 : _____________________ · Correction : ______________________________

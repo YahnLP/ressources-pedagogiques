@@ -137,17 +137,6 @@ Le DHT11 utilise un protocole de communication **numérique série** propriétai
 ### 3.2 Initialisation dans le sketch
 
 ```cpp
-
-> [!TIP] 💡 En clair
-> La bibliothèque **s'occupe du protocole** à ta place : toi, tu appelles simplement `dht.readTemperature()` et `dht.readHumidity()`. **Teste** toujours si le résultat est valide (`isnan`) avant de l'afficher.
-
-### ✅ Vérifie que tu as compris
-
-**Q1.** Pourquoi teste-t-on avec `isnan` ?
-
-??? success "Réponse"
-    Pour **détecter une lecture ratée** et ne pas afficher une valeur absurde.
-
 #include <DHT.h>
 
 #define BROCHE_DHT  2       // Broche numérique connectée à DATA du DHT11
@@ -159,6 +148,17 @@ void setup() {
   dht.begin();    // Initialisation du capteur
 }
 ```
+
+
+> [!TIP] 💡 En clair
+> La bibliothèque **s'occupe du protocole** à ta place : toi, tu appelles simplement `dht.readTemperature()` et `dht.readHumidity()`. **Teste** toujours si le résultat est valide (`isnan`) avant de l'afficher.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi teste-t-on avec `isnan` ?
+
+??? success "Réponse"
+    Pour **détecter une lecture ratée** et ne pas afficher une valeur absurde.
 
 ### 3.3 Fonctions essentielles
 
@@ -252,10 +252,6 @@ Le LCD 16×2 permet d'afficher **2 lignes de 16 caractères**. Pour afficher T°
 ### 5.2 Sketch d'affichage DHT11 + LCD
 
 ```cpp
-
-> [!TIP] 💡 En clair
-> Pour afficher **deux grandeurs** sur un écran 16×2, on utilise **une ligne par grandeur** : la température sur la ligne 0, l'humidité sur la ligne 1.
-
 #include <LiquidCrystal_I2C.h>
 #include <DHT.h>
 
@@ -313,6 +309,10 @@ void loop() {
 }
 ```
 
+
+> [!TIP] 💡 En clair
+> Pour afficher **deux grandeurs** sur un écran 16×2, on utilise **une ligne par grandeur** : la température sur la ligne 0, l'humidité sur la ligne 1.
+
 ---
 
 ## 6. Le système domotique complet : architecture et sketch
@@ -329,20 +329,6 @@ void loop() {
 // DHT11 + LCD I2C + HC-05 Bluetooth
 // Auteur : [Ton nom]   Date : [Date S16]
 // ================================================
-
-
-> [!TIP] 💡 En clair
-> Un système domotique complet suit une **chaîne** : **capteur → Arduino → affichage / Bluetooth**. Découpe-le en **blocs** : tu programmes et tu testes **chaque bloc séparément**, puis tu les assembles.
-
-### ✅ Vérifie que tu as compris
-
-**Q1.** Cite les trois blocs d'un système domotique simple.
-
-??? success "Réponse"
-    **Acquisition** (capteur), **traitement** (Arduino), **communication / affichage**.
-
-> [!SUCCESS] 🧠 À retenir
-> - Un système = des blocs testés séparément, puis assemblés.
 
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
@@ -524,6 +510,20 @@ void afficherAccueil() {
   lcd.clear();
 }
 ```
+
+> [!TIP] 💡 En clair
+> Un système domotique complet suit une **chaîne** : **capteur → Arduino → affichage / Bluetooth**. Découpe-le en **blocs** : tu programmes et tu testes **chaque bloc séparément**, puis tu les assembles.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Cite les trois blocs d'un système domotique simple.
+
+??? success "Réponse"
+    **Acquisition** (capteur), **traitement** (Arduino), **communication / affichage**.
+
+> [!SUCCESS] 🧠 À retenir
+> - Un système = des blocs testés séparément, puis assemblés.
+
 
 ---
 

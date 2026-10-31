@@ -221,3 +221,5 @@ void setup() {
 void loop() {
   // programme en continu
 }
+
+```

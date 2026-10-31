@@ -159,6 +159,19 @@ Le protocole **I2C** (Inter-Integrated Circuit, prononcé "I-deux-C" ou "I-carr�
 ### 3.2 Initialisation dans le sketch
 
 ```cpp
+#include <LiquidCrystal_I2C.h>
+
+// LiquidCrystal_I2C(adresse, colonnes, lignes)
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+//                     ^^^^   ^^  ^
+//                     adresse  colonnes  lignes
+
+void setup() {
+  lcd.init();         // Initialise le LCD
+  lcd.backlight();    // Active le rétroéclairage
+}
+```
+
 
 > [!TIP] 💡 En clair
 > Une **bibliothèque** est du code **déjà écrit** que tu réutilises. Avec `LiquidCrystal_I2C`, trois instructions suffisent : `lcd.init()` pour démarrer, `lcd.backlight()` pour allumer le rétro-éclairage, `lcd.print()` pour écrire.
@@ -177,19 +190,6 @@ Le protocole **I2C** (Inter-Integrated Circuit, prononcé "I-deux-C" ou "I-carr�
 
 > [!SUCCESS] 🧠 À retenir
 > - `init()` démarre, `backlight()` allume, `print()` écrit.
-
-#include <LiquidCrystal_I2C.h>
-
-// LiquidCrystal_I2C(adresse, colonnes, lignes)
-LiquidCrystal_I2C lcd(0x27, 16, 2);
-//                     ^^^^   ^^  ^
-//                     adresse  colonnes  lignes
-
-void setup() {
-  lcd.init();         // Initialise le LCD
-  lcd.backlight();    // Active le rétroéclairage
-}
-```
 
 > ⚠️ Si rien ne s'affiche : remplace `0x27` par `0x3F` et retente.
 
@@ -277,17 +277,6 @@ float temperature = tension * 100.0;            // Conversion en °C
 // Affichage de la température en temps réel
 // ============================================
 
-
-> [!TIP] 💡 En clair
-> On **assemble** deux briques que tu connais : **mesurer** la température (S09) puis l'**afficher** (LCD). Pour éviter que d'anciens caractères restent à l'écran, on **efface** la ligne ou on réécrit des **espaces** avant d'afficher la nouvelle valeur.
-
-### ✅ Vérifie que tu as compris
-
-**Q1.** Pourquoi efface-t-on l'écran avant d'écrire une nouvelle valeur ?
-
-??? success "Réponse"
-    Pour ne pas garder d'**anciens caractères** (par exemple « 100 » devenant « 99 » laisserait un « 0 »).
-
 #include <LiquidCrystal_I2C.h>
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);   // ← adapter l'adresse si nécessaire
@@ -332,6 +321,17 @@ void loop() {
 }
 ```
 
+> [!TIP] 💡 En clair
+> On **assemble** deux briques que tu connais : **mesurer** la température (S09) puis l'**afficher** (LCD). Pour éviter que d'anciens caractères restent à l'écran, on **efface** la ligne ou on réécrit des **espaces** avant d'afficher la nouvelle valeur.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi efface-t-on l'écran avant d'écrire une nouvelle valeur ?
+
+??? success "Réponse"
+    Pour ne pas garder d'**anciens caractères** (par exemple « 100 » devenant « 99 » laisserait un « 0 »).
+
+
 ---
 
 ## 6. Intégration complète : LM35 + LCD + HC-05
@@ -348,20 +348,6 @@ void loop() {
 // LM35 + LCD I2C + HC-05 Bluetooth
 // Auteur : [Ton nom]   Date : [Date S15]
 // ================================================
-
-
-> [!TIP] 💡 En clair
-> Quand on assemble **LM35 + LCD + HC-05**, la règle d'or est **d'ajouter un élément à la fois** et de **tester** à chaque étape : si tout est branché d'un coup et que ça ne marche pas, on ne sait plus où chercher.
-
-### ✅ Vérifie que tu as compris
-
-**Q1.** Pourquoi ajoute-t-on les modules un par un ?
-
-??? success "Réponse"
-    Pour **localiser** facilement la cause d'un problème.
-
-> [!SUCCESS] 🧠 À retenir
-> - Assembler = un module à la fois, test à chaque étape.
 
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
@@ -456,6 +442,20 @@ void loop() {
   delay(500);
 }
 ```
+
+> [!TIP] 💡 En clair
+> Quand on assemble **LM35 + LCD + HC-05**, la règle d'or est **d'ajouter un élément à la fois** et de **tester** à chaque étape : si tout est branché d'un coup et que ça ne marche pas, on ne sait plus où chercher.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi ajoute-t-on les modules un par un ?
+
+??? success "Réponse"
+    Pour **localiser** facilement la cause d'un problème.
+
+> [!SUCCESS] 🧠 À retenir
+> - Assembler = un module à la fois, test à chaque étape.
+
 
 ### 6.3 Tableau de câblage complet du proto maquette
 

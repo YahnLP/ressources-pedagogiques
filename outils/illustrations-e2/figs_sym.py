@@ -34,17 +34,29 @@ def i_capteur():
 def i_regulateur():
     o = f'<rect x="85" y="14" width="90" height="56" fill="#fff" stroke="{INK}" stroke-width="3.2"/>' + s_wire([(60, 32), (85, 32)]) + s_wire([(175, 32), (200, 32)]) + s_wire([(130, 70), (130, 90)])
     return icon(o + T(95, 38, "IN", 13, 800, INK, "start") + T(165, 38, "OUT", 13, 800, INK, "end") + T(130, 62, "78xx", 15, 800, MUTED) + T(142, 88, "GND", 11, 800, INK, "start"))
-def i_relais():
-    o = s_wire([(40, 50), (62, 50)]) + f'<rect x="62" y="36" width="56" height="28" fill="#fff" stroke="{INK}" stroke-width="3.2"/>' + s_wire([(118, 50), (140, 50)])
-    o += f'<path d="M90,36 V22 H168 V32" stroke="{MUTED}" stroke-width="2.5" stroke-dasharray="5 4" fill="none"/>'
-    o += s_wire([(156, 80), (180, 80)]) + s_wire([(210, 80), (234, 80)]) + s_wire([(180, 80), (206, 56)]) + f'<circle cx="180" cy="80" r="4" fill="#fff" stroke="{INK}" stroke-width="2.5"/><circle cx="210" cy="80" r="4" fill="#fff" stroke="{INK}" stroke-width="2.5"/>'
-    return icon(o)
-def i_opto():
-    o = f'<rect x="50" y="10" width="160" height="80" fill="none" stroke="{INK}" stroke-width="2.5" stroke-dasharray="7 5"/>'
-    o += g(105, 50, '<path d="M0,-22 V22" stroke="#1b2742" stroke-width="3.5"/><path d="M0,-18 L0,18 L-22,0Z" fill="none" stroke="#1b2742" stroke-width="0"/><path d="M-20,-18 L-20,18 L0,0 Z" fill="#fff" stroke="#1b2742" stroke-width="3" transform="rotate(0)"/>', 0.9)
-    o += f'<path d="M122,38 L140,28 M122,52 L140,42" stroke="{INK}" stroke-width="2.5" marker-end="url(#arr)"/>'
-    o += g(170, 50, f'<path d="M-4,-18 V18" stroke="{INK}" stroke-width="4"/><path d="M-4,-8 L16,-20 M-4,8 L16,20" stroke="{INK}" stroke-width="3"/><path d="M12,16 L4,15 L9,8Z" fill="{INK}"/>', 1)
-    return icon(o)
+def relais_body():
+    """Relais CEI : bobine (rectangle) + contact commandé, liés par un trait mécanique en pointillés."""
+    o = s_wire([(30, 26), (60, 26)]) + s_wire([(130, 26), (160, 26)])
+    o += f'<rect x="60" y="12" width="70" height="28" fill="#fff" stroke="{INK}" stroke-width="3.2"/>'
+    o += s_wire([(40, 80), (82, 80)]) + s_wire([(172, 80), (214, 80)])
+    o += f'<path d="M82,80 L166,58" stroke="{INK}" stroke-width="3.2" stroke-linecap="round"/>'
+    o += f'<path d="M95,40 V74" stroke="{INK}" stroke-width="2.5" stroke-dasharray="5 4" fill="none"/>'
+    o += f'<circle cx="82" cy="80" r="4.5" fill="#fff" stroke="{INK}" stroke-width="2.5"/><circle cx="172" cy="80" r="4.5" fill="#fff" stroke="{INK}" stroke-width="2.5"/>'
+    return o
+def opto_body():
+    """Optocoupleur CEI : LED (anode en haut) + phototransistor NPN (sans base), dans un cadre en pointillés."""
+    o = f'<rect x="52" y="14" width="150" height="74" fill="none" stroke="{INK}" stroke-width="2.5" stroke-dasharray="7 5"/>'
+    # LED
+    o += s_wire([(95, 3), (95, 36)]) + s_wire([(95, 62), (95, 97)])
+    o += f'<path d="M82,36 H108 L95,62 Z" fill="#fff" stroke="{INK}" stroke-width="3" stroke-linejoin="round"/><path d="M80,62 H110" stroke="{INK}" stroke-width="3.5"/>'
+    # rayonnement LED -> base
+    o += f'<path d="M114,40 H140" stroke="{INK}" stroke-width="2.5" marker-end="url(#arr)"/><path d="M114,56 H140" stroke="{INK}" stroke-width="2.5" marker-end="url(#arr)"/>'
+    # phototransistor
+    o += f'<path d="M152,34 V66" stroke="{INK}" stroke-width="4.5"/><path d="M152,44 L177,31 V3 M152,56 L177,69 V97" fill="none" stroke="{INK}" stroke-width="3" stroke-linejoin="round"/>'
+    o += f'<path d="M172,67 L162,66 L165,58 Z" fill="{INK}"/>'
+    return o
+def i_relais(): return icon(relais_body())
+def i_opto(): return icon(opto_body())
 
 
 ICONS = {

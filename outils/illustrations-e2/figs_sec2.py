@@ -90,7 +90,7 @@ def f_dht11():
     for i in range(7): o += f'<rect x="{190+i*22}" y="130" width="12" height="90" rx="4" fill="#2878a8"/>'
     for i in range(4): o += f'<rect x="{185+i*45}" y="250" width="8" height="90" fill="url(#metalH)"/>' + badge(189 + i * 45, 365, i + 1, BLUE, 15)
     for i, l in enumerate(("VCC", "DATA", "NC", "GND")): o += T(189 + i * 45, 405, l, 14, 700, INK)
-    o += s_wire([(189, 440), (189, 480), (234, 480)]) + sym("R", 270, 480, s=0.6) + T(270, 462, "10 kΩ", 13, 700, INK) + s_wire([(306, 480), (324, 480), (324, 440)], INK, 3)
+    o += s_wire([(189, 440), (189, 480), (246, 480)]) + sym("R", 270, 480, s=0.6) + T(270, 462, "10 kΩ", 13, 700, INK) + s_wire([(294, 480), (324, 480), (324, 440)], INK, 3)
     o += T(300, 520, "résistance pull-up entre VCC et DATA", 14, 600, MUTED)
     o += f'<g filter="url(#shs)"><rect x="740" y="130" width="300" height="190" rx="8" fill="#2f9a68"/></g><rect x="800" y="150" width="120" height="110" rx="8" fill="#3b9bd6"/>'
     for i in range(5): o += f'<rect x="{818+i*20}" y="165" width="10" height="70" rx="3" fill="#2878a8"/>'
@@ -177,12 +177,12 @@ def f_moniteur():
 
 
 def f_cablage_hc05():
-    o = block(60, 50, 280, 480, "", None, BLUE) + block(860, 50, 280, 480, "", None, AMBER) + T(130, 90, "Arduino UNO", 22, 800, INK) + T(1070, 90, "HC-05", 22, 800, INK)
+    o = block(60, 50, 280, 480, "", None, BLUE) + block(860, 50, 280, 480, "", None, AMBER) + T(200, 90, "Arduino UNO", 22, 800, INK) + T(1000, 90, "HC-05", 22, 800, INK)
     for l, y in (("5V", 120), ("GND", 200), ("D11 (TX)", 290), ("D10 (RX)", 460)): o += T(330, y + 6, l, 20, 800, INK, "end")
     for l, y in (("VCC", 120), ("GND", 200), ("RXD", 290), ("TXD", 460), ("EN / KEY", 510)): o += T(870, y + 6, l, 20, 800, INK, "start")
     o += s_wire([(340, 120), (860, 120)], RED) + s_wire([(340, 200), (860, 200)], "#222")
-    o += s_wire([(340, 290), (460, 290)]) + sym("R", 500, 290, s=0.8) + s_wire([(540, 290), (860, 290)]) + dot(640, 290) + T(500, 262, "1 kΩ", 16, 800, INK)
-    o += s_wire([(640, 290), (640, 320)]) + sym("R", 640, 360, 90, s=0.8) + s_wire([(640, 400), (640, 410)]) + gnd(640, 410) + T(680, 366, "2 kΩ", 16, 800, INK, "start")
+    o += s_wire([(340, 290), (460, 290)]) + sym("R", 500, 290) + s_wire([(540, 290), (860, 290)]) + dot(640, 290) + T(500, 256, "1 kΩ", 16, 800, INK)
+    o += s_wire([(640, 290), (640, 320)]) + sym("R", 640, 360, 90) + s_wire([(640, 400), (640, 410)]) + gnd(640, 410) + T(680, 366, "2 kΩ", 16, 800, INK, "start")
     o += s_wire([(860, 460), (340, 460)], GREEN)
     o += T(1000, 560, "EN / KEY laissée non connectée (mode normal)", 15, 600, MUTED)
     o += T(600, 40, "pont diviseur 1 kΩ / 2 kΩ : 5 V → 3,3 V", 17, 800, INK)

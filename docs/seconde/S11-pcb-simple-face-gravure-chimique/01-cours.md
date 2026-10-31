@@ -184,6 +184,24 @@ Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bai
 > - Laisser la plaque trop longtemps dans le bain : sur-gravure, les pistes deviennent trop fines.
 > - Ne pas assez graver : des **ponts de cuivre** restent entre les pistes (court-circuits).
 
+### 2.5 Méthode 3 : le fraisage CNC (fraiseuse CNC 3018)
+
+Nous disposons d'une **fraiseuse numérique CNC 3018**. Au lieu de **dissoudre** le cuivre, la machine le **fraise** : une fraise en V très fine **creuse une rainure autour des pistes** pour les **isoler** (*isolation routing*), puis un foret perce les trous et une fraise découpe la carte.
+
+| | Toner + perchlorure | Insolation UV + perchlorure | **Fraisage CNC** |
+|---|---|---|---|
+| **Principe** | Le cuivre non protégé est **dissous** | Idem, avec un film photosensible | La fraise **enlève** le cuivre autour des pistes |
+| **Produits chimiques** | Oui (perchlorure) | Oui (révélateur + perchlorure) | **Non** |
+| **Fichier de départ** | Impression du circuit | Typon (film) | **Fichiers Gerber** de KiCad |
+| **Perçage** | À la perceuse à colonne | À la perceuse à colonne | **Par la machine** (même programme) |
+| **Contraintes de dessin** | Pistes assez larges | Pistes fines possibles | Isolation **≥ 0,4 mm** ; pistes **≥ 0,6 mm** |
+| **Poussière** | Non | Non | **Oui** (fibre de verre) : aspiration et masque |
+
+> [!TIP] 💡 En clair
+> Même carte, **autre procédé** : pas de bain chimique, mais une chaîne **KiCad → FlatCAM → G-code → machine**. Attention à deux choses nouvelles : le **miroir** (si le cuivre est sur la couche du dessous) et la **largeur de la rainure**, qui dépend de la profondeur de la fraise.
+>
+> Toutes les étapes, les fraises et les réglages de départ sont dans la [fiche pas à pas CNC 3018](annexe-fiche-fraisage-cnc-3018.md).
+
 ### ✅ Vérifie que tu as compris
 
 **Q1.** Pourquoi le cuivre protégé par le toner n'est-il pas attaqué ?
@@ -201,6 +219,11 @@ Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bai
 ??? success "Réponse"
     Des **gants** et des **lunettes** de protection (et une blouse, dans un local aéré).
 
+**Q4.** Avec la fraiseuse CNC, le cuivre est-il dissous ? Que fait la fraise en V ?
+
+??? success "Réponse"
+    Non. La fraise en V **creuse une fine rainure autour des pistes** pour les **isoler** les unes des autres ; le reste du cuivre demeure mais n'est relié à rien.
+
 > [!SUCCESS] 🧠 À retenir
 > - Le toner protège le cuivre ; le chlorure ferrique dissout le reste.
 > - Sécurité obligatoire : gants, lunettes, aération.
@@ -208,6 +231,9 @@ Le bain devient progressivement vert-brun (CuCl₂ + FeCl₂ accumulés) → bai
 ---
 
 ## 3. Le perçage des PCB
+
+> [!NOTE] Avec la CNC 3018
+> Le **perçage est exécuté par la machine** avec le même fichier que les pistes (foret 0,8 mm). Les diamètres ci-dessous restent valables ; voir la [fiche CNC](annexe-fiche-fraisage-cnc-3018.md).
 
 ### 3.1 Outillage et paramètres
 
@@ -450,6 +476,7 @@ Si silence : L'anneau de cuivre a été sectionné par le foret (trou trop déca
 | Diamètre de perçage | Ø broche + 0,2 à 0,4 mm · Standard : 0,8 mm pour THT courant |
 | Contrôler la qualité | 5 critères IPC : largeur piste (-20% max) · espacement (≥0,25mm) · anneau (≥0,15mm) · surface · trou |
 | Tester au multimètre | Continuité piste < 1Ω · Isolation inter-piste > 1MΩ · Pad-piste < 1Ω |
+| Fraiser avec la CNC 3018 | KiCad → Gerber + perçage → **FlatCAM** → G-code → machine · Fraise V 30° pointe 0,1 mm · **Miroir si cuivre sur B.Cu** · Isolation → perçage → contour |
 | Gérer les déchets | FeCl₃ usagé = déchet dangereux · Jamais dans le réseau d'égout |
 
 ---
