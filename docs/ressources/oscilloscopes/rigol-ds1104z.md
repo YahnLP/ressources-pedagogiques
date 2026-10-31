@@ -1,18 +1,20 @@
 # 🔭 Fiche d'utilisation : RIGOL DS1104Z (Plus)
 
 > **Oscilloscope numérique 4 voies, 100 MHz, de la série DS1000Z.**
-> Cette fiche se suit **l'appareil sous les yeux**. Les noms de touches sont ceux de la série DS1000Z.
+> Cette fiche se suit **l'appareil sous les yeux**. Elle s'applique aussi au **DS1054Z** (même famille, même face avant, 50 MHz).
+>
+> *Source des illustrations : « Guide d'utilisation d'un oscilloscope numérique, cas du RIGOL DS1054Z », Abdallah Darkawi, Polytech Nantes, 2016 (archive ouverte HAL, cel-01359571), et documentation RIGOL de la série DS1000Z.*
 
-> [!NOTE] 🔎 À propos des sources de cette fiche
-> Les schémas ci-dessous ont été **dessinés** d'après la documentation de la série DS1000Z (*MSO1000Z/DS1000Z User's Guide*). Le fichier fourni au projet ne contient que la **page de garde** du manuel : les captures d'écran du constructeur seront ajoutées lorsque le manuel complet sera disponible. En cas de doute sur le **nom exact d'un menu**, regarde l'écran de ton appareil : il peut varier légèrement selon la version du logiciel interne.
+> [!NOTE] 🔎 À propos de cette fiche
+> L'appareil peut être réglé en **français** ou en **anglais** (menu Utility) : les noms de menus de cette fiche sont donnés dans les **deux langues** quand c'est utile.
 
 ## 🎯 Ce que tu sauras faire avec cette fiche
 
 - allumer, **remettre à zéro** et **compenser ta sonde** ;
 - **régler** sensibilité, base de temps, déclenchement et couplage ;
-- **lire** l'écran et **mesurer** (carreaux, mesures automatiques, curseurs, statistiques) ;
+- **lire** l'écran et **mesurer** (carreaux, mesures rapides, curseurs, statistiques) ;
 - utiliser **plusieurs voies** à la fois ;
-- **capturer** un signal unique et **sauvegarder** une image.
+- **capturer** un signal unique, **enregistrer** une image ou un fichier CSV sur clé USB.
 
 ---
 
@@ -21,11 +23,14 @@
 | Caractéristique | Valeur |
 |---|---|
 | **Voies analogiques** | **4** (CH1 à CH4), **masse commune** |
-| **Bande passante** | 100 MHz |
-| **Échantillonnage** | jusqu'à 1 GSa/s ; **la cadence diminue** quand on utilise plus de voies ou une base de temps lente |
-| **Fonctions** | Autoset, mesures automatiques et **statistiques**, curseurs, FFT, mathématiques, mode XY, enregistrement |
+| **Bande passante** | **100 MHz** (DS1104Z Plus) ; 50 MHz pour le DS1054Z |
+| **Échantillonnage** | **1 GSa/s** avec **1 voie**, **500 MSa/s** avec 2 voies, **250 MSa/s** avec 3 ou 4 voies |
+| **Écran** | LCD 7 pouces (800 × 480) |
+| **Fonctions** | Autoset, mesures et **statistiques**, curseurs, FFT, mathématiques, enregistrement, impression rapide |
 | **Voies logiques** | **uniquement** sur un modèle **MSO** (ou avec l'option MSO et la sonde logique 16 voies) |
 | **Décodage série** (RS232, I²C, SPI) | souvent **en option** : vérifie sur ton appareil |
+
+![Le RIGOL DS1054Z, de la même famille que le DS1104Z](images/rigol-photo-ds1054z.png)
 
 > [!WARNING] ⚠️ Sécurité
 > - Les **quatre voies partagent la même masse** : les pinces de masse se branchent sur **le même point** du circuit.
@@ -35,51 +40,97 @@
 
 ## 2. Découvrir la face avant
 
-![Face avant : les zones de commande (schéma)](images/osc_rigol_panneau.png)
+![Face avant du RIGOL DS1104Z : 18 repères](images/rigol-face-avant.png)
 
-| Zone | Contenu |
-|---|---|
-| **Vertical** | touches **CH1 à CH4** (chaque voie a sa couleur), **MATH**, **REF**, et **deux boutons** : **POSITION** et **SCALE**. Ils agissent sur **la voie sélectionnée** (celle dont le menu est ouvert) |
-| **Horizontal** | **MENU**, bouton **POSITION** (déplace le déclenchement), bouton **SCALE** (base de temps) |
-| **Déclenchement** | **MODE** (Auto, Normal, Single), bouton **LEVEL** (niveau), **FORCE**, **MENU** |
-| **Exécution** | **CLEAR** (efface l'écran), **AUTO** (réglage automatique), **RUN/STOP**, **SINGLE** |
-| **Menus** | **Measure**, **Acquire**, **Storage**, **Cursor**, **Display**, **Utility** |
-| **Menus à l'écran** | les touches **sous l'écran** choisissent les options du menu affiché ; le **bouton multifonction** parcourt les listes et ajuste les valeurs |
+| N° | Élément | À quoi ça sert |
+|---|---|---|
+| 1 | **Touches de mesure rapide** (à gauche de l'écran) | afficher d'un appui des mesures usuelles : période, fréquence, temps de montée… (la touche **MENU** en haut change de série de mesures) |
+| 2 | **Écran** | tracés, mesures, menus |
+| 3 | **Bouton multifonction** | parcourir une liste, ajuster une valeur ; **un appui valide** |
+| 4 | **Touches de menu** | **Measure, Acquire, Storage, Cursor, Display, Utility** |
+| 5 | **CLEAR** | efface les tracés de l'écran |
+| 6 | **AUTO** | réglage automatique (équivalent de l'Autoset) |
+| 7 | **RUN/STOP** | lance ou fige l'acquisition |
+| 8 | **SINGLE** | une seule acquisition, puis arrêt |
+| 9 | **Help** et **Quick Print** | aide en ligne ; **capture rapide de l'écran** sur clé USB |
+| 10 | **Interrupteur** | allumer / éteindre |
+| 11 | **USB HOST** | clé USB |
+| 12 | **Touches de menu à l'écran** (à droite de l'écran) | choisir une option du menu affiché |
+| 13 | **Entrées CH1 à CH4** | voies analogiques (BNC) |
+| 14 | **Source** | générateur de signal (modèles « -S » uniquement) |
+| 15 | **VERTICAL** | touches **CH1 à CH4**, **MATH**, **REF**, boutons **POSITION** (haut) et **SCALE** (bas) |
+| 16 | **HORIZONTAL** | bouton **POSITION**, touche **MENU**, bouton **SCALE** |
+| 17 | **TRIGGER** | touche **MODE** (Auto, Normal, Single : un voyant indique le mode), bouton **LEVEL**, touche **MENU**, touche **FORCE** |
+| 18 | **Sortie de compensation** et **borne de masse** | pour compenser la sonde |
 
-> [!TIP] 💡 Le principe commun
-> Appuie sur une touche de menu (par exemple **Measure**) : un menu **s'affiche à l'écran** ; les touches placées sous ou à côté de l'écran choisissent les options. Le **bouton multifonction** sert à **faire défiler** et à **régler**. **Menu off** (ou un second appui) referme le menu.
+> [!TIP] 💡 Les deux jeux de boutons verticaux
+> Il y a **un seul bouton POSITION et un seul SCALE** pour les quatre voies : ils agissent sur **la voie sélectionnée** (celle dont la touche CH est allumée). Chaque voie a **sa couleur** : CH1 **jaune**, CH2 **cyan**, CH3 **magenta**, CH4 **bleu**.
 
 ## 3. Lire l'écran
 
-![Écran de l'oscilloscope : barre d'état, tracés, voies, déclenchement (schéma)](images/osc_rigol_ecran.png)
+![Écran annoté : 22 repères (exemple sur un modèle avec voies logiques)](images/rigol-ecran-annote.png)
 
 | N° | Zone | Ce que tu lis |
 |---|---|---|
-| 1 | **État** | **RUN** (en acquisition), **STOP**, **AUTO**, **WAIT** (attend le déclenchement), **T'D** (déclenché) |
-| 2 | **Base de temps** | temps par carreau (H) |
-| 3 | **Échantillonnage** | cadence et profondeur de mémoire |
-| 4 | **Décalage du déclenchement** | position du déclenchement par rapport au centre de l'écran |
-| 5 | **Voies** | **couleur de la voie**, **couplage** et **sensibilité** par carreau |
-| 6 | **Déclenchement** | type, source, pente et niveau |
-| 7 | **Repère du zéro** | niveau 0 V de chaque voie |
-| 8 | **Fréquence** | fréquence du signal qui déclenche |
+| 1 | Mesures rapides | colonne de touches virtuelles à gauche : période, fréquence, temps de montée… |
+| 2 | Voies logiques | **uniquement** sur un modèle MSO |
+| 3 | **État** | **RUN**, **STOP**, **T'D** (déclenché), **WAIT** (attend le déclenchement), **AUTO** |
+| 4 | **Base de temps** | temps par carreau (H) |
+| 5 | **Échantillonnage** | cadence (par exemple 500 MSa/s) et nombre de points |
+| 6 | **Mémoire** | taille du signal enregistré par rapport à l'écran |
+| 7 | **Position du déclenchement** | repère T |
+| 8 | **Position horizontale** | décalage (D) |
+| 9 | **Type de déclenchement** | par exemple front montant |
+| 10 | **Source** du déclenchement | numéro de la voie |
+| 11 | **Niveau** du déclenchement | en volts |
+| 12 | **Sensibilité de CH1** | volts par carreau |
+| 13 | **Voie et couleur** | repère du zéro de la voie |
+| 14 à 16 | **Sensibilité de CH2, CH3, CH4** | volts par carreau |
+| 17 | **Bulle de message** | messages de l'appareil |
+| 18 | État des entrées **logiques** | n'existe pas sur le DS1054Z / DS1104Z Plus sans option |
+| 19 et 20 | **Formes de la source 1 et 2** | générateur de signal (modèles « -S ») |
+| 21 | **Zone de notification** | clé USB, son |
+| 22 | **Menu** | les options du menu en cours, sur le côté droit |
 
 > [!TIP] 💡 Le réflexe de lecture
-> **Avant de lire le tracé**, lis toujours la **sensibilité** (V par carreau) et la **base de temps** (s par carreau).
+> **Avant de lire le tracé**, lis toujours la **sensibilité** (V par carreau, repères 12 à 16) et la **base de temps** (repère 4).
 
 ---
 
 ## 4. La mise en route en 6 étapes
 
 1. **Allume** l'appareil (interrupteur de la face avant).
-2. **Remets les réglages d'usine** : menu **Storage** puis **Default** (selon la version, une touche dédiée peut exister).
+2. **Remets les réglages d'usine** : touche **Storage**, puis **Default**.
 3. **Règle le coefficient de la sonde** : appuie sur **CH1**, puis dans le menu de la voie choisis **Probe : 10X** (la même valeur que l'interrupteur de la sonde).
-4. **Branche la sonde** sur la **sortie de compensation** de la face avant (carré de **1 kHz**) et la pince de masse sur la borne de masse.
+4. **Branche la sonde** : la **pointe** sur la **sortie de compensation** (*Compensation Signal Output Terminal*), la **pince de masse** sur la **borne de masse** placée juste à côté (*Ground Terminal*).
 5. Appuie sur **AUTO** : un **carré** apparaît.
-6. **Compense la sonde** : avec un petit tournevis, tourne le trimmer de la sonde jusqu'à avoir un **carré bien droit** (sans bosse ni arrondi sur les angles).
+6. **Compense la sonde** si le carré n'est pas droit.
+
+![Les deux bornes : sortie de compensation et borne de masse](images/rigol-borne-compensation.png)
+
+![Résultat attendu : un carré bien droit](images/rigol-signal-carre.png)
+
+### La compensation de la sonde
+
+Une sonde **non compensée** ou **mal compensée** provoque des erreurs de mesure. Compare le signal aux trois formes ci-dessous :
+
+![Sur-compensée, parfaitement compensée, sous-compensée](images/rigol-compensation-3cas.png)
+
+Avec un **outil non métallique** (petit tournevis plastique), ajuste le trimmer de la sonde jusqu'à obtenir un **carré parfait**. Recommence pour **chaque voie** utilisée.
 
 > [!WARNING] ⚠️ L'erreur n° 1
 > Sonde sur **10X** mais menu de la voie sur **1X** : toutes les tensions affichées sont **10 fois trop petites**. Les deux réglages doivent **toujours** être identiques.
+
+### Les 8 gestes à faire dans cet ordre
+
+1. Allumer l'oscilloscope.
+2. Régler la luminosité de l'affichage si besoin.
+3. Régler la **sensibilité verticale** (calibre).
+4. Régler la **base de temps** (sensibilité horizontale).
+5. Choisir la **source** du déclenchement (la voie à surveiller).
+6. Choisir le **couplage** du déclenchement (AC ou DC).
+7. Régler le **niveau** du déclenchement.
+8. **Lire**, interpréter et **enregistrer** les données.
 
 ---
 
@@ -119,7 +170,11 @@
 | **LEVEL** | règle le **niveau** de déclenchement |
 | **MODE** | passe entre **Auto**, **Normal** et **Single** |
 | **FORCE** | force un déclenchement |
-| **MENU** | ouvre le menu de déclenchement : **type** (Edge, Pulse, Slope, Video, …), **source**, **pente**, **couplage**, **holdoff** |
+| **MENU** | ouvre le menu de déclenchement : **type** (*Bord* / Edge, *Impulsion* / Pulse, *Pente* / Slope, *Vidéo*, *Motif* / Pattern, *Durée*…), **source**, **pente**, **mode**, **réglages** |
+
+![Le menu de déclenchement (appareil réglé en français)](images/rigol-menu-declenchement.png)
+
+La **source** peut être une des voies (CH1 à CH4) ou le **réseau 50 Hz** (*AC Line*). La **pente** peut être **montante** (valeur par défaut), **descendante** ou **les deux**.
 
 **Les trois modes** :
 
@@ -139,6 +194,10 @@
 ### Par lecture des carreaux
 
 $U_{pp} = \text{carreaux (hauteur)} \times \text{V/div}$ ; $T = \text{carreaux (largeur d'une période)} \times \text{s/div}$ ; $f = \dfrac{1}{T}$.
+
+### Par les mesures rapides (touches à gauche de l'écran)
+
+Les touches placées **à gauche de l'écran** affichent d'un appui des mesures usuelles (**période**, **fréquence**, **temps de montée**, **temps de descente**, **largeur positive**, **largeur négative**…). La touche **MENU** en haut de cette colonne permet de passer à une autre série de mesures.
 
 ### Par les mesures automatiques (touche Measure)
 
@@ -190,14 +249,44 @@ Les modes disponibles : **Manual** (tu places toi-même les curseurs A et B), **
 3. Appuie sur **SINGLE** : l'état passe à **WAIT** (en attente), puis à **STOP** après le déclenchement.
 4. **RUN/STOP** relance l'acquisition.
 
-### Sauvegarder une image
+### Enregistrer une image de l'écran : la touche Quick Print
 
-1. Insère une **clé USB** dans le port **USB** de la face avant.
-2. **Storage** → type **Image**, puis **format** (BMP, PNG…) et **nom** de fichier.
-3. Variante rapide : si l'appareil dispose d'une touche **Print**, la clé étant insérée, un appui enregistre l'image.
+1. Insère une **clé USB** formatée en **FAT32** dans le port **USB HOST**.
+2. Appuie sur la touche d'**impression rapide** (*Quick Print*, à côté de **Help**).
+
+![La touche d'impression rapide, à côté de la touche Help](images/rigol-touche-impression.png)
+
+Par défaut, l'image est enregistrée **telle qu'elle est**, avec un **fond noir**.
+
+### Enregistrer une image à fond blanc (pour un document ou une impression)
+
+1. Touche **Utility** (page 1/3), puis la **flèche vers le bas** (page 2/3) : choisis **Print Set**.
+2. Règle la **palette** sur **Gray Scale** (niveaux de gris).
+3. Page 2/2 : active **Invert : ON** (inversion des couleurs).
+
+![Menu Utility, page 2 : Print Set](images/rigol-utility-print-set.png)
+
+![Palette : Gray Scale](images/rigol-print-palette-gris.png)
+
+![Invert ON : fond blanc](images/rigol-print-fond-blanc.png)
+
+### Enregistrer les données en CSV (pour un tableur)
+
+1. Insère la clé USB (FAT32).
+2. **Storage** (page 1/2), puis l'option de **stockage**.
+3. Choisis **CSV** à la place de *Image*.
+4. Dans le **gestionnaire de disque**, choisis la **clé USB** (et non la mémoire interne).
+5. Choisis le **type de fichier** : *.csv.
+6. **New File** pour créer un fichier à la racine de la clé (ou **New Folder** pour un dossier), puis **OK**.
+
+![Menu Storage : choix du format CSV](images/rigol-storage-csv.png)
+
+![Choix du type de fichier : *.csv](images/rigol-storage-type-fichier.png)
 
 > [!TIP] 💡 Aussi disponible
-> **Storage** permet de sauvegarder les **traces** (CSV pour un tableur), les **réglages** (*Setup*) et de les **recharger**.
+> **Storage** permet de sauvegarder les **traces**, les **réglages** (*Setup*) et de les **recharger**.
+
+---
 
 ## 9. Les voies logiques (modèles MSO uniquement)
 
