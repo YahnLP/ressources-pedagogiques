@@ -316,17 +316,27 @@ def f_alim_secteur():
             o += arrow(x + 224, 155, x + 276, 155, INK, 4)
     # formes d'onde sous chaque bloc
     legs = ["Alternatif 12 V (valeur efficace)", "Redressé : que des « bosses »", "Lissé, avec une ondulation", "Continu stable : 5 V"]
+    Vp = 15.6 / 17   # crête après le pont, en fraction de 17 V (échelle commune à toutes les courbes)
+    def lisse(t):
+        u = (t * 4) % 1
+        mont = Vp * math.sin(math.pi * u) if u < 0.5 else 0
+        desc = Vp * math.exp(-0.35 * ((u - 0.5) % 1))
+        return max(mont, desc)
     wf = [
         lambda t: math.sin(2 * math.pi * 2 * t),
-        lambda t: abs(math.sin(2 * math.pi * 2 * t)) * 2 - 1,
-        lambda t: 0.30 + 0.62 * max(abs(math.sin(math.pi * ((t * 4) % 1))), math.exp(-(((t * 4) % 1) - 0.5) * 1.5) if ((t * 4) % 1) > 0.5 else 0),
-        lambda t: 0.1,
+        lambda t: abs(math.sin(2 * math.pi * 2 * t)) * Vp,
+        lisse,
+        lambda t: 5 / 17,
     ]
     for i, x in enumerate(xs):
         o += f'<rect x="{x}" y="250" width="220" height="190" rx="10" fill="#0f1b2f"/>'
         o += f'<line x1="{x+8}" y1="345" x2="{x+212}" y2="345" stroke="#2a3b57" stroke-width="2"/>'
         o += _wave(x + 10, 262, 200, 166, wf[i], "#ffd34d", sw=4.5)
+        o += T(x + 14, 340, "0 V", 12, 700, "#9fb0d0", "start")
         o += T(x + 110, 475, legs[i], 15.5, 700, INK)
+    o += T(1010, 262 + 83 - 5 / 17 * 83 - 8, "5 V", 14, 800, "#ffd34d") if False else ""
+    o += T(1010, 240, "même échelle verticale pour les 4 écrans", 13, 600, MUTED) if False else ""
+    o += T(600, 572, "Les 4 écrans ont la même échelle verticale : la tension régulée (5 V) est bien plus basse que la crête filtrée.", 14.5, 600, MUTED)
     o += cl(60, 520, "Tension de crête = 12 × √2 ≈ 17 V", BLUE, w=330, size=16)
     o += cl(420, 520, "Perte dans le pont : environ 1,4 V", AMBER, w=330, size=16)
     o += cl(780, 520, "ΔU ≈ I / (100 Hz × C)", GREEN, w=300, size=16)
