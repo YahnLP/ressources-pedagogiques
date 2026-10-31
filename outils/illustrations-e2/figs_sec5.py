@@ -9,7 +9,7 @@ def f_led_serie():
     o = o.replace("", "")
     o += s_wire([(L, Tp), (R, Tp)]) if False else ""
     o += hrun(Tp, L, R, [(430, "R", "R", {}), (680, "LED", "LED 1", {"below": True}), (900, "LED", "LED 2", {"below": True})]) + s_wire([(R, Tp), (R, B)]) + s_wire([(R, B), (L, B)])
-    o += arrow(220, Tp - 30, 360, Tp - 30, RED, 5) + T(290, Tp - 40, "I", 20, 800, RED) + arrow(R + 40, 170, R + 40, 280, RED, 5) if False else arrow(250, Tp - 56, 360, Tp - 56, RED, 5) + T(300, Tp - 66, "I", 22, 800, RED)
+    o += arrow(220, Tp - 30, 360, Tp - 30, RED, 5) + T(290, Tp - 40, "I", 20, 800, RED) + arrow(R + 40, 170, R + 40, 280, RED, 5) if False else i_arrow(250, Tp, 360, Tp, "I", off=(0, -26), size=22)
     o += T(600, 235, "le même courant I traverse tous les composants", 20, 700, RED)
     o += f'<rect x="130" y="370" width="940" height="130" rx="14" fill="{PANEL}" stroke="#d9e0ec" stroke-width="2"/>'
     o += T(600, 412, "Les tensions s'additionnent : 12 V = U_R + V_F1 + V_F2", 21, 700, INK) + T(600, 452, "R = (12 − 2 − 2) / 0,020 = 400 Ω", 24, 800, BLUE) + T(600, 484, "avec V_F = 2 V par LED rouge et I = 20 mA", 16, 500, MUTED)
@@ -22,8 +22,8 @@ def f_led_parallele():
     for x, nm in ((X1, "LED 1"), (X2, "LED 2")):
         o += s_wire([(J, Tp), (x, Tp)]) + vrun(x, Tp, B, [(230, "LED", nm, {})], 1, 60) + (dot(x, Tp) if x == X1 else "") + (dot(x, B) if x == X1 else "")
     o += s_wire([(L, B), (X2, B)])
-    o += arrow(220, Tp - 56, 330, Tp - 56, RED, 5) + T(262, Tp - 66, "I total", 19, 800, RED)
-    o += arrow(X1 - 40, 160, X1 - 40, 200, RED, 4) + T(X1 - 70, 188, "I1", 18, 800, RED) + arrow(X2 - 40, 160, X2 - 40, 200, RED, 4) + T(X2 - 70, 188, "I2", 18, 800, RED)
+    o += i_arrow(195, Tp, 265, Tp, "I total", off=(0, -26), size=19)
+    o += i_arrow(X1, 150, X1, 190, "I1", off=(-14, 0), size=18, w=4) + i_arrow(X2, 150, X2, 190, "I2", off=(-14, 0), size=18, w=4)
     o += f'<rect x="130" y="385" width="940" height="125" rx="14" fill="{PANEL}" stroke="#d9e0ec" stroke-width="2"/>'
     o += T(600, 425, "Même tension V_F aux bornes de chaque branche · I total = I1 + I2", 20, 700, INK) + T(600, 465, "R = (9 − 2) / (2 × 0,020) = 175 Ω", 24, 800, BLUE) + T(600, 495, "la résistance commune supporte le courant des deux LED", 16, 500, MUTED)
     return figure(W, 540, o)
@@ -41,13 +41,21 @@ def f_cablage_ok_ko():
         def wire(p, q, col): return f'<path d="M{p[0]},{p[1]} L{q[0]},{q[1]}" stroke="{col}" stroke-width="5" stroke-linecap="round"/>'
         def res(p, q): return f'<rect x="{p[0]-2}" y="{p[1]-6}" width="{q[0]-p[0]+4}" height="12" rx="4" fill="#e9d4a3" stroke="#a88"/>' + f'<rect x="{p[0]+14}" y="{p[1]-6}" width="4" height="12" fill="#7a4320"/><rect x="{p[0]+24}" y="{p[1]-6}" width="4" height="12" fill="#000"/><rect x="{p[0]+34}" y="{p[1]-6}" width="4" height="12" fill="#7a4320"/>'
         def resv(p, q): return f'<rect x="{p[0]-6}" y="{p[1]-2}" width="12" height="{q[1]-p[1]+4}" rx="4" fill="#e9d4a3" stroke="#a88"/>' + ''.join(f'<rect x="{p[0]-6}" y="{p[1]+10+i*10}" width="12" height="4" fill="{c}"/>' for i, c in enumerate(("#7a4320", "#000", "#7a4320")))
-        def led(a, k): 
+        def led(a, k):
             cx = (a[0] + k[0]) / 2
-            return f'<path d="M{a[0]},{a[1]} V{a[1]-12} M{k[0]},{k[1]} V{k[1]-12}" stroke="#bbb" stroke-width="3"/><circle cx="{cx}" cy="{a[1]-18}" r="13" fill="#e5353b" stroke="#a11"/>'
+            by = min(a[1], k[1]) - 26          # base du boîtier
+            hw = 10                            # demi-largeur du boîtier
+            xa, xk = (cx - 6, cx + 6) if a[0] <= k[0] else (cx + 6, cx - 6)
+            ya, yk = a[1] - 8, k[1] - 8
+            legs = (f'<path d="M{a[0]},{a[1]} V{ya} L{xa},{by}" fill="none" stroke="#aaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'
+                    f'<path d="M{k[0]},{k[1]} V{yk} L{xk},{by}" fill="none" stroke="#aaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>')
+            body = (f'<path d="M{cx-hw},{by} V{by-6} A{hw},{hw} 0 0 1 {cx+hw},{by-6} V{by} Z" fill="#e5353b" stroke="#a11" stroke-width="1.5"/>'
+                    f'<rect x="{cx-hw-2}" y="{by-2}" width="{2*hw+4}" height="4" rx="2" fill="#c42a30" stroke="#a11" stroke-width="1"/>')
+            return legs + body
         if ok:
             inner += wire(bb.rail(0, "T+"), xy(2, "a"), RED) + res(xy(2, "c"), xy(6, "c")) + led(xy(6, "a"), xy(9, "a")) + wire(xy(9, "b"), bb.rail(10, "T-"), "#111")
         else:
-            inner += wire(bb.rail(0, "T-"), xy(2, "a"), "#111") + resv(xy(2, "b"), xy(2, "e")) + led(xy(6, "a"), xy(6, "b")) + wire(xy(9, "b"), bb.rail(10, "T+"), RED)
+            inner += wire(bb.rail(0, "T+"), xy(2, "a"), "#111") + resv(xy(2, "b"), xy(2, "e")) + led(xy(6, "a"), xy(6, "b")) + wire(xy(9, "b"), bb.rail(10, "T-"), RED)
         return g(ox + 60, 90, inner, s)
     o += duo(0, 0, "Câblage CORRECT", "Câblage INCORRECT", GREEN, RED, h=770, wa=570)
     o += board(40, True) + board(630, False)

@@ -92,6 +92,7 @@ def f_mesure_tension():
     o += s_wire([(760, 300), (760, 340), (600, 340)]) + dot(600, 340)
     o += f'<rect x="570" y="165" width="220" height="190" rx="14" fill="none" stroke="{GREEN}" stroke-width="3" stroke-dasharray="8 6"/>'
     o += T(680, 395, "branché EN PARALLÈLE", 18, 800, GREEN)
+    o += u_arrow(545, 300, 545, 220, "U2", off=(-14, 0), size=20)
     o += panel(850, 60, 300, 380, "Mesure de tension", accent=BLUE)
     o += T(1000, 130, "1  circuit sous tension,\non ne le coupe pas", 17, 600, INK)
     o += T(1000, 215, "2  cordon noir sur COM,\nrouge sur VΩ", 17, 600, INK)
@@ -107,7 +108,7 @@ def f_mesure_courant():
     o += s_wire([(600, 290), (600, 400), (130, 400), (130, 280)]) + sym("BAT", 130, 250, 90)
     o += f'<rect x="270" y="105" width="120" height="70" rx="14" fill="none" stroke="{GREEN}" stroke-width="3" stroke-dasharray="8 6"/>'
     o += T(330, 215, "ampèremètre EN SÉRIE", 18, 800, GREEN)
-    o += arrow(420, 124, 520, 124, GREEN, 5) + T(470, 100, "I", 22, 800, GREEN)
+    o += i_arrow(420, 140, 520, 140, "I", off=(0, -24), size=22)
     o += panel(850, 60, 300, 380, "Mesure de courant", accent=GREEN)
     o += T(1000, 130, "1  ouvrir le circuit\npuis insérer l'appareil", 17, 600, INK)
     o += T(1000, 215, "2  cordon noir sur COM,\nrouge sur mA (ou 10 A)", 17, 600, INK)

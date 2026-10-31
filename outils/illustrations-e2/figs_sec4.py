@@ -10,7 +10,7 @@ def f_circuit_led():
     o = s_wire([(160, 250), (160, 130), (400, 130)]) + sym("R", 440, 130) + s_wire([(480, 130), (820, 130), (820, 200)])
     o += sym("LED", 820, 250, 90, s=1.2) + s_wire([(820, 298), (820, 370), (160, 370), (160, 330)]) + sym("BAT", 160, 290, 90, s=1.2)
     o += T(120, 292, "9 V", 28, 800, INK, "end") + T(440, 90, "330 Ω", 26, 800, INK) + T(440, 62, "marron · orange · marron", 15, 600, MUTED) + T(880, 252, "LED rouge", 22, 800, RED, "start") + T(880, 280, "2 V · 20 mA", 18, 700, INK, "start")
-    o += arrow(560, 108, 720, 108, RED, 6) + T(640, 82, "sens du courant", 17, 800, RED)
+    o += i_arrow(560, 130, 720, 130, "sens du courant", off=(0, -26), size=17, w=6)
     o += T(215, 270, "+", 26, 800, INK) if False else ""
     o += g(440, 210, '<rect x="-60" y="-14" width="120" height="28" rx="14" fill="url(#beige)" stroke="#a88f5a" stroke-width="2"/>' + ''.join(f'<rect x="{x-5}" y="-14" width="10" height="28" fill="{COLORS[c]}"/>' for x, c in ((-34, "marron"), (-8, "orange"), (18, "marron"))) + f'<rect x="38" y="-14" width="8" height="28" fill="{COLORS["or"]}"/>', 1)
     o += T(440, 255, "la résistance réelle", 14, 600, MUTED)
