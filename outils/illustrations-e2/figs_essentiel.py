@@ -257,15 +257,18 @@ def f_station():
 
 
 def f_parcours():
-    o = T(40, 52, "Le parcours : 10 semaines de formation + 1 semaine pour l'épreuve", 28, 800, INK, "start")
+    o = T(40, 52, "Le parcours : 13 semaines de formation + 1 semaine pour l'épreuve", 28, 800, INK, "start")
     sem = [("1", "Bases : composants,\nloi d'Ohm, sécurité", BLUE), ("2", "Mesurer (1) :\nmultimètre, alimentation", BLUE), ("3", "Mesurer (2) :\ngénérateur, oscilloscope", BLUE),
-           ("4", "Schéma, datasheet,\nplaque d'essai, soudure", GREEN), ("5", "Alimentation et\ncommande de charges", GREEN), ("6", "Microcontrôleur,\ncapteurs, signaux", AMBER),
-           ("7", "Communication\net supervision", AMBER), ("8", "De l'idée au\nschéma et au PCB", "#8a56d0"), ("9", "Gerber, fabrication,\ncarte soudée", "#8a56d0"),
-           ("10", "Tester, valider,\ndépanner", RED), ("11", "L'épreuve E2 :\ncomprendre et réussir", INK)]
+           ("4", "Schéma, datasheet,\nplaque d'essai", GREEN), ("5", "Souder et contrôler\nla qualité (IPC, ESD)", GREEN), ("6", "Alimenter un\nmontage", AMBER),
+           ("7", "Commander des\ncharges", AMBER), ("8", "Microcontrôleur\net capteurs", "#0e9aa7"), ("9", "Filtrer, amplifier,\ndécider", "#0e9aa7"),
+           ("10", "Communication\net supervision", "#8a56d0"), ("11", "Du schéma\nau PCB", "#8a56d0"), ("12", "Du PCB à la\ncarte soudée", "#8a56d0"),
+           ("13", "Mesurer, valider,\ndépanner, documenter", RED), ("14", "L'épreuve E2 :\ncomprendre et réussir", INK)]
     for i, (n, t, c) in enumerate(sem):
-        x = 40 + (i % 3) * 380; y = 100 + (i // 3) * 120
-        o += f'<rect x="{x}" y="{y}" width="360" height="100" rx="14" fill="#fff" stroke="{c}" stroke-width="3.5"/><rect x="{x}" y="{y}" width="70" height="100" rx="14" fill="{c}"/>' + T(x + 35, y + 62, n, 34, 800, "#fff") + T(x + 86, y + 44, t, 18, 800, INK, "start")
-    return figure(W, 100 + 4 * 120 + 20, o)
+        x = 40 + (i % 3) * 380; y = 100 + (i // 3) * 118
+        o += f'<rect x="{x}" y="{y}" width="360" height="100" rx="14" fill="#fff" stroke="{c}" stroke-width="3.5"/><rect x="{x}" y="{y}" width="70" height="100" rx="14" fill="{c}"/>' + T(x + 35, y + 62, n, 32, 800, "#fff")
+        for k, ln in enumerate(t.split("\n")):
+            o += T(x + 86, y + 42 + k * 28, ln, 18, 800, INK, "start")
+    return figure(W, 100 + 5 * 118 + 20, o)
 
 
 def f_epreuve():
@@ -294,6 +297,98 @@ def f_tension_panne():
     return figure(W, 600, o)
 
 
+def _wave(x, y, w, h, fn, col, n=120, sw=5):
+    """Trace fn(t) (t de 0 a 1, valeur de -1 a 1) dans une boite (x,y,w,h)."""
+    pts = " ".join(f"{x + w*i/n:.1f},{y + h/2 - fn(i/n)*h/2:.1f}" for i in range(n + 1))
+    return f'<polyline points="{pts}" fill="none" stroke="{col}" stroke-width="{sw}" stroke-linejoin="round"/>'
+
+
+def f_alim_secteur():
+    o = panel(30, 30, 1140, 560, "De la prise de courant au 5 V : la chaîne d'alimentation", accent=BLUE)
+    xs = [60, 340, 620, 900]
+    noms = [("Transformateur", "230 V → 12 V"), ("Redressement", "pont de 4 diodes"), ("Filtrage", "condensateur"), ("Régulation", "7805")]
+    cols = [BLUE, AMBER, GREEN, RED]
+    for i, (x, (n, sub)) in enumerate(zip(xs, noms)):
+        o += f'<rect x="{x}" y="100" width="220" height="110" rx="14" fill="#fff" stroke="{cols[i]}" stroke-width="4"/>'
+        o += T(x + 110, 150, n, 23, 800, cols[i]) + T(x + 110, 182, sub, 17, 600, MUTED)
+        if i < 3:
+            o += arrow(x + 224, 155, x + 276, 155, INK, 4)
+    # formes d'onde sous chaque bloc
+    legs = ["Alternatif 12 V (valeur efficace)", "Redressé : que des « bosses »", "Lissé, avec une ondulation", "Continu stable : 5 V"]
+    wf = [
+        lambda t: math.sin(2 * math.pi * 2 * t),
+        lambda t: abs(math.sin(2 * math.pi * 2 * t)) * 2 - 1,
+        lambda t: 0.30 + 0.62 * max(abs(math.sin(math.pi * ((t * 4) % 1))), math.exp(-(((t * 4) % 1) - 0.5) * 1.5) if ((t * 4) % 1) > 0.5 else 0),
+        lambda t: 0.1,
+    ]
+    for i, x in enumerate(xs):
+        o += f'<rect x="{x}" y="250" width="220" height="190" rx="10" fill="#0f1b2f"/>'
+        o += f'<line x1="{x+8}" y1="345" x2="{x+212}" y2="345" stroke="#2a3b57" stroke-width="2"/>'
+        o += _wave(x + 10, 262, 200, 166, wf[i], "#ffd34d", sw=4.5)
+        o += T(x + 110, 475, legs[i], 15.5, 700, INK)
+    o += cl(60, 520, "Tension de crête = 12 × √2 ≈ 17 V", BLUE, w=330, size=16)
+    o += cl(420, 520, "Perte dans le pont : environ 1,4 V", AMBER, w=330, size=16)
+    o += cl(780, 520, "ΔU ≈ I / (100 Hz × C)", GREEN, w=300, size=16)
+    return figure(W, 620, o)
+
+
+def f_pont_h():
+    o = panel(30, 30, 1140, 520, "Pont en H : deux sens de rotation", accent=BLUE)
+    def pont(x0, sens, titre, col):
+        r = ""
+        r += T(x0 + 240, 100, titre, 22, 800, col)
+        xl, xr = x0 + 100, x0 + 380
+        r += T(x0 + 240, 138, "+V moteur", 17, 800, RED) + s_wire([(xl, 150), (xr, 150)], RED)
+        r += s_wire([(xl, 150), (xl, 190)], RED) + s_wire([(xr, 150), (xr, 190)], RED)
+        ct = {"S1": (xl, 220), "S2": (xr, 220), "S3": (xl, 380), "S4": (xr, 380)}
+        ferm = {"S1", "S4"} if sens == 1 else {"S2", "S3"}
+        for k, (cx, cy) in ct.items():
+            on = k in ferm
+            r += s_wire([(cx, 190), (cx, 220 - 40)] if cy == 220 else [(cx, 340 - 0), (cx, 380 - 40)], INK) if False else ""
+            r += sym("SW", cx, cy, rot=90, closed=on, color=(GREEN if on else MUTED))
+            r += T(cx - 56 if cx == xl else cx + 56, cy + 7, k, 20, 800, GREEN if on else MUTED)
+        r += s_wire([(xl, 190), (xl, 180)]) 
+        r += s_wire([(xl, 260), (xl, 300)]) + s_wire([(xr, 260), (xr, 300)])
+        r += s_wire([(xl, 300), (xl, 340)]) + s_wire([(xr, 300), (xr, 340)])
+        r += s_wire([(xl, 300), (xl + 100, 300)]) + sym("MOTOR", x0 + 240, 300, rot=0, s=1.3) + s_wire([(xr - 100, 300), (xr, 300)])
+        r += s_wire([(xl, 420), (xl, 460)]) + s_wire([(xr, 420), (xr, 460)]) + s_wire([(xl, 460), (xr, 460)]) + gnd(x0 + 240, 460)
+        # trajet du courant
+        if sens == 1:
+            path = [(xl, 190), (xl, 300), (xr, 300), (xr, 460)]
+        else:
+            path = [(xr, 190), (xr, 300), (xl, 300), (xl, 460)]
+        pts = " ".join(f"{a},{b}" for a, b in path)
+        r += f'<polyline points="{pts}" fill="none" stroke="{col}" stroke-width="7" stroke-dasharray="14 9" stroke-linejoin="round" opacity="0.8"/>'
+        return r
+    o += pont(60, 1, "Sens 1 : S1 et S4 fermés", GREEN)
+    o += pont(600, 2, "Sens 2 : S2 et S3 fermés", BLUE)
+    o += T(600, 520, "Jamais S1 et S3 (ou S2 et S4) fermés ensemble : court-circuit de l'alimentation !", 18, 800, RED)
+    return figure(W, 580, o)
+
+
+def f_comparateur():
+    o = panel(30, 30, 1140, 520, "Comparateur : la sortie dit « au-dessus » ou « en dessous » du seuil", accent=BLUE)
+    o += f'<polygon points="140,220 140,360 260,290" fill="#fff" stroke="{INK}" stroke-width="4" stroke-linejoin="round"/>'
+    o += T(155, 252, "+", 26, 800, INK, "start") + T(155, 338, "−", 28, 800, INK, "start")
+    o += s_wire([(60, 245), (140, 245)]) + T(52, 252, "Ve", 20, 800, BLUE, "end")
+    o += s_wire([(60, 335), (140, 335)]) + T(52, 342, "Vref", 20, 800, RED, "end")
+    o += s_wire([(260, 290), (330, 290)]) + T(342, 297, "Vs", 20, 800, GREEN, "start")
+    o += T(200, 440, "Vref = 2,5 V (diviseur 2 × 10 kΩ)", 17, 700, MUTED)
+    x0, w = 440, 680
+    o += f'<rect x="{x0}" y="90" width="{w}" height="190" rx="10" fill="#0f1b2f"/>'
+    o += f'<rect x="{x0}" y="310" width="{w}" height="130" rx="10" fill="#0f1b2f"/>'
+    tri = lambda t: 1 - 4 * abs(((t * 2) % 1) - 0.5)
+    o += _wave(x0 + 10, 100, w - 20, 170, lambda t: tri(t), "#ffd34d")
+    o += f'<line x1="{x0}" y1="185" x2="{x0+w}" y2="185" stroke="{RED}" stroke-width="3.5" stroke-dasharray="10 7"/>' + T(x0 + w - 8, 176, "seuil Vref", 17, 800, RED, "end")
+    o += T(x0 + 14, 112, "Ve", 18, 800, "#ffd34d", "start")
+    sq = lambda t: 0.8 if tri(t) > 0 else -0.8
+    o += _wave(x0 + 10, 320, w - 20, 110, sq, "#46e08a")
+    o += T(x0 + 14, 340, "Vs", 18, 800, "#46e08a", "start")
+    o += T(x0 + w / 2, 490, "Ve > Vref → Vs haut  |  Ve < Vref → Vs bas", 20, 800, INK)
+    return figure(W, 580, o)
+
+
 FIGS = {"ess_oscillo_ecran": f_oscillo_ecran, "ess_instruments_labo": f_instruments_labo, "ess_mesure_v_a": f_mesure_v_a, "ess_alim_cv_cc": f_alim_cv_cc,
         "ess_serie_parallele": f_serie_parallele, "ess_diviseur": f_diviseur, "ess_aop": f_aop, "ess_relais_transistor": f_relais_transistor, "ess_rc_bode": f_rc_bode,
-        "ess_ne555_chrono": f_ne555_chrono, "ess_marges": f_marges, "ess_station": f_station, "ess_parcours": f_parcours, "ess_epreuve": f_epreuve, "ess_tension_panne": f_tension_panne}
+        "ess_ne555_chrono": f_ne555_chrono, "ess_marges": f_marges, "ess_station": f_station, "ess_parcours": f_parcours, "ess_epreuve": f_epreuve, "ess_tension_panne": f_tension_panne,
+        "ess_alim_secteur": f_alim_secteur, "ess_pont_h": f_pont_h, "ess_comparateur": f_comparateur}

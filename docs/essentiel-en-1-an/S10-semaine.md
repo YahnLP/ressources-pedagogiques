@@ -1,156 +1,149 @@
-# Semaine 10 : Tester, valider et dépanner
+# Semaine 10 : Communication et supervision
 
-> **Durée** : 4 h · **Compétences E2** : C11, C03
+> **Durée** : 4 h · **Compétences E2** : C07, C11
 
 ## 🎯 À la fin de la semaine, je sais…
 
-- comparer une mesure à une **tolérance** en tenant compte de sa **marge** ;
-- rédiger un **procès-verbal (PV)** de validation ;
-- appliquer une **méthode de dépannage** et trouver une panne avec un **tableau de tensions** ;
-- remplir une **fiche d'intervention** ;
-- appliquer les règles de **sécurité** pendant un dépannage.
+- expliquer la chaîne **capteur → microcontrôleur → réseau → supervision** ;
+- **lire une trame UART** et calculer sa durée ;
+- reconnaître un **bus I²C** et son adresse ;
+- décrire un échange **MQTT** (broker, topic, JSON) ;
+- **superviser** une mesure (moyenne mobile, seuil avec hystérésis) ;
+- **diagnostiquer** une liaison qui ne fonctionne pas.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | TP virtuels ElectroLab : dépannage |
-| 1 h | Cours : tolérance, marge, PV, traçabilité |
-| 1 h | Cours : méthode de dépannage, tableau de tensions |
-| 1 h | Atelier réel : valider puis dépanner la carte clignoteur |
+| 1 h | TP virtuels ElectroLab (analyseur logique, UART, I²C) |
+| 1 h 15 | Cours : UART, I²C |
+| 1 h | Cours : WiFi, MQTT, supervision |
+| 45 min | Atelier, exercices et auto-test |
 
 ## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
 
 Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 
-- **Dépannage d'une platine transistor + LED (6 pannes)** (1 h 30)
-- **Dépannage d'une alimentation 5 V (7 pannes)** (2 h)
-- **Dépannage d'un amplificateur inverseur à AOP (4 pannes)** (1 h 30)
-- **Dépannage d'une platine logique NAND + inverseur (5 pannes)** (1 h 30)
-
-Puis, pour ta carte, ouvre ces sujets (bouton **Ouvrir**) :
-
-- [`clignoteur.json`](tp/clignoteur.json) : la carte saine de référence ;
-- [`clignoteur-panne-A.json`](tp/clignoteur-panne-A.json) : panne A, rien ne s'allume ;
-- [`clignoteur-panne-B.json`](tp/clignoteur-panne-B.json) : panne B, LED toujours allumée ;
-- [`clignoteur-panne-C.json`](tp/clignoteur-panne-C.json) : panne C, même symptôme que B, autre cause.
+- **Prise en main de l'analyseur logique (chronogrammes d'un compteur)** (45 min)
+- **Analyse d'une liaison série UART / RS-232 (5 variantes)** (1 h 30)
+- **Analyse d'un bus I²C : adresse, ACK, résistances de rappel (4 cas)** (1 h 45)
 
 ---
 
 ## 📖 Le cours
 
-**🤔 À ton avis ?** Tu mesures 4,80 V sur une sortie censée être 5 V ± 5 %. Est-ce conforme ?
+**🤔 À ton avis ?** Ton capteur de température est dans une salle, ton écran de contrôle dans un bureau. Comment la valeur voyage-t-elle jusqu'à lui ?
 
 ??? question "Réponse"
-    Oui : 4,80 V est dans la plage de 4,75 V à 5,25 V. **Mais** si ta mesure a une marge de ± 0,1 V, la vraie valeur pourrait être 4,70 V : **hors tolérance**. On doit donc tenir compte de la **marge de mesure**.
+    Par une **liaison** (série, I²C, WiFi) qui suit un **protocole** : des règles communes de format et de vitesse. On étudie les plus courantes.
 
-### 1. La tolérance et la plage
+### 1. La chaîne de communication
 
-« 5 V ± 5 % » signifie de $5 \times 0{,}95 = 4{,}75\,\mathrm{V}$ à $5 \times 1{,}05 = 5{,}25\,\mathrm{V}$. Tout ce qui est dans cette plage est **conforme**.
+![Fil rouge 2 : la station de mesure communicante](images/ess_station.png)
 
-### 2. La marge de mesure et la conclusion
+Chaque maillon doit **parler la même langue** que le suivant : c'est le rôle des **protocoles**.
 
-La marge se calcule avec la **précision du constructeur** (voir semaine 2) : $(5{,}02 \pm 0{,}05)\,\mathrm{V}$. On compare **toute la plage** « valeur ± marge » à la tolérance :
+### 2. La liaison série UART
 
-![Conformité : on compare la plage valeur ± marge à la tolérance](images/ess_marges.png)
+Les bits partent **un par un** sur un fil, à une vitesse commune : le **baud rate** (par exemple 9600). Une trame **8N1** contient **10 bits** : 1 bit de départ (0), 8 bits de données (le moins significatif d'abord), 1 bit d'arrêt (1).
 
-- toute la plage dedans → **conforme** ;
-- une partie dehors → **non garanti** (à justifier ou à refaire avec un meilleur instrument) ;
-- toute la plage dehors → **non conforme**.
+![Trame UART 8N1 : bit de départ, 8 bits de données, bit d'arrêt](images/trame-uart.png)
 
-### 3. Le procès-verbal (PV)
+$$T_{bit} = \frac{1}{\text{baud}} \qquad \text{à 9600 bauds : } T_{bit} \approx 104\,\mathrm{\mu s}\ ;\ \text{un octet} \approx 1{,}04\,\mathrm{ms}$$
 
-Un PV est la **preuve écrite** d'un contrôle.
+**Câblage** : TX d'un côté vers **RX** de l'autre (et inversement) + **masse commune**. Même vitesse des deux côtés, sinon : caractères absurdes.
 
-![Structure d'un procès-verbal de validation](images/pv-validation.png)
+![Câblage UART : TX vers RX, RX vers TX](images/uart-tx-rx.png)
 
-Il contient : **identification** (carte, date, opérateur) ; **instruments** (modèle, numéro de série, **étalonnage valide**) ; **méthode** ; **résultats** (attendu, mesuré, marge, verdict) ; **conclusion** avec le critère ; **signature**.
+### 3. Le bus I²C
 
-> [!TIP] 💡 La traçabilité
-> Un instrument est **comparé régulièrement** à une référence (étalonnage). Si son étalonnage est **périmé**, ses mesures ne sont plus valables dans un PV.
+Deux fils seulement : **SDA** (données) et **SCL** (horloge), partagés par plusieurs appareils. Chacun a une **adresse** (par exemple `0x27` pour un écran LCD). Les deux lignes ont des **résistances de rappel** (≈ 4,7 kΩ) vers le +V.
 
-### 4. La méthode de dépannage
+![Bus I²C : SDA, SCL, résistances de rappel, adresses](images/bus-i2c.png)
 
-![La démarche DECA : décrire, éliminer, cibler, agir](images/deca-entonnoir.png)
+### 4. WiFi et MQTT avec l'ESP32
 
-1. **Décrire** le symptôme : ce qui marche, ce qui ne marche pas.
-2. **Sécuriser** : tension, chaleur, odeur de brûlé.
-3. **Vérifier l'alimentation** sur la carte.
-4. **Dresser un tableau de tensions** : point de mesure, valeur attendue, valeur mesurée, verdict.
-5. **Isoler** : couper le circuit en deux pour savoir de quel côté est la panne (dichotomie).
-6. **Réparer** (un seul changement), **retester**, **tracer** (fiche d'intervention).
+![Carte ESP32 : caractéristiques et niveaux de tension](images/esp32-caracteristiques.png)
 
-### 5. Trouver la panne avec les tensions
+L'**ESP32** se connecte au WiFi (mode **station**) ou crée son propre réseau (mode **point d'accès**, adresse 192.168.4.1). Ses broches fonctionnent en **3,3 V** : ne jamais y appliquer 5 V (on abaisse avec un diviseur).
 
-![Tableau de tensions : la première valeur anormale désigne la panne](images/ess_tension_panne.png)
+![Diviseur de tension 5 V vers 3,3 V](images/diviseur-tension.png)
 
-La panne est à la **première valeur** qui ne correspond pas à l'attendu, en partant de l'alimentation.
+**MQTT** : un **broker** (serveur) reçoit les messages d'un **publisher** et les redistribue aux **subscribers** abonnés au même **topic**.
 
-| Symptôme mesuré | Cause probable |
-|---|---|
-| entrée de $R_b$ à 5 V, base à 0 V | résistance de base coupée |
-| signal d'entrée à 0 V | problème **en amont** du circuit |
-| collecteur à 0 V même sans commande | transistor en court-circuit |
-| base normale mais collecteur à 1,8 V | transistor qui ne sature pas ($R_b$ trop grande) |
+![MQTT : un broker, des publishers, des subscribers](images/mqtt-broker.png)
 
-**Hors tension** : mesurer les résistances **retirées du circuit** ; tester les transistors et diodes avec le **test diode** (≈ 0,6 V dans un sens, rien dans l'autre) ; vérifier les pistes à la **continuité**.
+- Exemple de topic : `salle1/temperature`. Les topics sont **sensibles à la casse**.
+- Jokers : `+` (un niveau) et `#` (tous les niveaux suivants).
+- Port **1883** (8883 avec TLS). Contenu souvent en **JSON** : `{"temp": 23.5}`.
 
-### 6. Maintenance et fiche d'intervention
+![Chemin d'un message MQTT du capteur à la supervision](images/chemin-message-mqtt.png)
 
-![Maintenance préventive et corrective](images/preventive-corrective.png)
+### 5. Superviser : moyenne, seuil, hystérésis
 
-La **maintenance corrective** répare une panne ; la **préventive** l'évite. On trace l'intervention sur une **fiche** : équipement, date, intervenant · symptôme · mesures (attendu / mesuré) · cause · action · test après réparation · préconisation.
+- **Moyenne mobile** des N dernières mesures : elle lisse le bruit (20, 22, 21, 25 → 22).
+- **Seuil avec hystérésis** : l'alarme se **déclenche** à 30 °C mais ne se **coupe** qu'en dessous de 28 °C : on évite le battement autour d'un seul seuil.
+
+![Hystérésis : deux seuils pour éviter le battement de l'alarme](images/hysteresis-alerte.png)
+
+### 6. Diagnostiquer une liaison
+
+Dans l'ordre : **alimentation** ; **câblage** (TX ↔ RX croisés, masse commune) ; **vitesse** identique ; **niveaux** de tension (3,3 V / 5 V) ; **adresse** I²C ; **IP du broker** et **topic** (casse !) pour MQTT. Outils : le **moniteur série** et l'**analyseur logique**.
 
 > [!WARNING] ⚠️ Erreurs fréquentes
-> - Mesurer une résistance **sous tension**.
-> - Changer **plusieurs** composants à la fois.
-> - Oublier de **retester** (la panne a-t-elle disparu ? autre chose est-il en panne ?).
-> - Intervenir seul sur une installation **au-dessus de 50 V AC / 120 V DC** sans habilitation.
+> - Deux vitesses différentes : caractères illisibles.
+> - TX relié à TX (au lieu de RX).
+> - Un signal de 5 V sur une broche de l'ESP32 (3,3 V maximum).
+> - `Salle1/temp` et `salle1/temp` : deux topics **différents**.
 
 ---
 
-## 🛠️ Atelier réel : valider puis dépanner le clignoteur
+## 🛠️ Atelier : trames, topics et supervision
 
-1. **Valide** ta carte : tension d'alimentation (5 V ± 5 %), fréquence (1 Hz ± 10 %), rapport cyclique, courant dans la LED. Rédige le **PV** (attendu / mesuré / marge / verdict).
-2. Dans **ElectroLab**, ouvre `clignoteur.json` puis les trois pannes. Pour chacune : **décris**, **mesure** (tensions, puis résistances hors tension), **conclus**.
-3. Remplis une **fiche d'intervention** pour chaque panne.
+1. **Trame UART** : écris la trame de la lettre `A` (code `0x41`) en 8N1.
+2. **Durées** : durée d'un octet à 9600 bauds, puis à 115 200 bauds.
+3. **Topics MQTT** : propose les topics de 3 salles et le topic qui permet de s'abonner aux 3.
+4. **Hystérésis** : seuils 30 °C (déclenchement) et 28 °C (retour) ; mesures 29,5 ; 30,5 ; 29,5 ; 28,5 ; 27,9. État de l'alarme pour chaque mesure ?
+5. **Niveaux** : un signal de 5 V doit entrer dans l'ESP32 : propose un diviseur 1 kΩ / 2 kΩ et calcule la tension.
 
 ??? success "Résultats attendus"
-    - **Carte saine** : $V_{CC} \approx 5\,\mathrm{V}$ ; période ≈ 1,01 s ($f \approx 0{,}99\,\mathrm{Hz}$, conforme à 0,9–1,1 Hz) ; rapport cyclique ≈ 55 %. La sortie du NE555 bipolaire n'atteint qu'environ **3,1 V** à l'état haut : le courant LED est d'environ **9 mA** avec 150 Ω (pour 20 mA, il faudrait environ 56 Ω).
-    - **Panne A** : aucune tension sur la carte : le **fusible F1** est grillé (mesure de la tension avant et après le fusible).
-    - **Pannes B et C** : LED **toujours allumée**, broches 2 et 6 à environ 0 V : le condensateur **ne peut plus se charger**. Même symptôme, deux causes : on **départage hors tension** en mesurant la résistance. **B** : $R_b$ coupée ; **C** : $R_a$ coupée.
+    1. `0x41` = 01000001 ; bits envoyés : **0** (départ), **1 0 0 0 0 0 1 0**, **1** (arrêt).
+    2. 9600 bauds : environ **1,04 ms** ; 115 200 bauds : environ **87 µs**.
+    3. `salle/1/temperature`, `salle/2/temperature`, `salle/3/temperature` ; abonnement `salle/+/temperature`.
+    4. OK, **ALARME**, ALARME, ALARME, **OK**.
+    5. $5 \times \dfrac{2}{1 + 2} \approx 3{,}33\,\mathrm{V}$.
 
 ## ✍️ Exercices
 
-1. Mesure $(5{,}20 \pm 0{,}08)\,\mathrm{V}$ pour 5 V ± 5 % : verdict ?
-2. Mesure $(0{,}93 \pm 0{,}02)\,\mathrm{Hz}$ pour 1 Hz ± 10 % : verdict ?
-3. Citez trois éléments obligatoires d'un PV.
-4. La sortie d'un 7805 est à 0 V alors que l'entrée est à 12 V. Hypothèses ?
-5. Une panne disparaît quand on touche la carte : quelle famille de défauts ?
+1. Combien de bits dans une trame 8N1 ?
+2. Quelle différence entre UART et I²C ?
+3. Moyenne mobile de 18, 20, 22, 24 ?
+4. Quel port utilise MQTT sans chiffrement ?
+5. Un ESP32 reçoit 5 V sur une broche : quel risque ?
 
 ??? success "Corrigés"
-    1. Plage 5,12 à 5,28 V, qui **dépasse** 5,25 V : **non garanti**.
-    2. Plage 0,91 à 0,95 Hz, dans [0,90 ; 1,10] : **conforme**.
-    3. Par exemple : **identification**, **instruments avec étalonnage**, **résultats avec verdict**, **conclusion**, **signature**.
-    4. Régulateur défectueux, court-circuit en aval, ou masse du régulateur coupée.
-    5. Un défaut **intermittent** : soudure froide ou mauvais contact.
+    1. **10 bits**.
+    2. L'**UART** relie **deux** appareils (TX/RX, vitesse commune) ; l'**I²C** relie **plusieurs** appareils sur 2 fils grâce aux **adresses**.
+    3. $\dfrac{84}{4} = 21$.
+    4. **1883**.
+    5. Les broches sont en **3,3 V** : la puce peut être **détruite**.
 
 ## ✅ Auto-test
 
-1. Que veut dire « non garanti » dans un verdict ?
-2. Quelle est la première étape d'un dépannage ?
-3. Combien de composants change-t-on à la fois ?
-4. Pourquoi un instrument hors étalonnage invalide-t-il un PV ?
+1. Que signifie « baud rate » ?
+2. À quoi sert l'adresse I²C ?
+3. Quels sont les trois acteurs de MQTT ?
+4. Pourquoi une hystérésis ?
 
 ??? success "Réponses"
-    1. La plage « valeur ± marge » **dépasse en partie** la tolérance.
-    2. **Décrire** le symptôme (puis vérifier l'alimentation).
-    3. **Un seul**, puis on reteste.
-    4. Sa mesure n'est plus **garantie** ni **traçable**.
+    1. La **vitesse** de transmission (symboles par seconde).
+    2. À **repérer** chaque appareil sur le bus.
+    3. **Broker**, **publisher**, **subscriber**.
+    4. Pour éviter que l'alarme **batte** autour d'un seul seuil.
 
 ## 📦 Livrable
 
-PV complet de la carte clignoteur et fiche d'intervention d'une panne diagnostiquée.
+Schéma de la chaîne de ta station (capteur, microcontrôleur, protocole, topic MQTT) avec les valeurs choisies.
 
 > [!NOTE] 📚 Pour approfondir (facultatif)
-> Ce parcours se suffit à lui-même. Pour aller plus loin : Terminale S02, S07, S11 et S12 (PV, validation, dépannage), Première S14 (maintenance corrective) et Seconde S05 et S17.
+> Ce parcours se suffit à lui-même. Pour aller plus loin : Seconde S13 et S15 (UART, I²C), Première S06 et S07 (ESP32, MQTT), Terminale S04 (KPI et alarmes).

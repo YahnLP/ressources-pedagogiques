@@ -30,14 +30,18 @@ Un geste est **acquis** quand tu le réalises **seul(e)**, sans aide, devant l'e
 - [ ] Régler **base de temps**, **sensibilité**, **déclenchement**
 - [ ] Mesurer **période, fréquence, amplitude, rapport cyclique**
 - [ ] Choisir le couplage **DC / AC**
+- [ ] Mesurer une **ondulation** sur une alimentation
 
-## Soudure (semaines 4 et 9)
+## Soudure (semaines 5 et 12)
 
 - [ ] Souder un composant **traversant** selon les critères IPC
 - [ ] Reconnaître une soudure **froide** ou **excessive**
+- [ ] **Dessouder** (tresse ou pompe) et reprendre une brasure
 - [ ] Respecter les règles **ESD** et de sécurité
 
-## Dépannage (semaine 10)
+## Dépannage et mesure fiable (semaine 13)
 
 - [ ] Dresser un **tableau de tensions** et trouver la première valeur anormale
+- [ ] Calculer une **incertitude** et l'exprimer « valeur ± U »
 - [ ] Rédiger un **PV** et une **fiche d'intervention**
+- [ ] Calculer une **incertitude** (type A et B) et écrire « valeur ± U »

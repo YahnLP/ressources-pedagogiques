@@ -1,9 +1,9 @@
 # ⚡ L'essentiel en 1 an
 
-> **Formation express, autonome** : 10 semaines de 4 h + 1 semaine pour comprendre et réussir l'épreuve E2.
+> **Formation express, autonome** : 13 semaines de 4 h + 1 semaine pour comprendre et réussir l'épreuve E2 (épreuve terminale unique, sans contrôle continu).
 > Utilisable **en classe** par un enseignant ou **seul(e)** par un élève, sans avoir suivi la Seconde ni la Première.
 
-![Le parcours en 11 semaines](images/ess_parcours.png)
+![Le parcours en 14 semaines](images/ess_parcours.png)
 
 ## 🎯 Objectif
 
@@ -11,24 +11,27 @@
 
 ## 🧵 Deux fils rouges
 
-1. **La carte clignoteur NE555** : on la calcule, la simule, la dessine, la fabrique, la soude, la valide, puis on la dépanne (semaines 4, 8, 9, 10).
-2. **La station de mesure communicante** : capteur → microcontrôleur → UART/I²C → ESP32 → MQTT → supervision (semaines 6 et 7).
+1. **La carte clignoteur NE555** : on la calcule, la simule, la dessine, la fabrique, la soude, la valide, puis on la dépanne (semaines 4, 5, 6, 11, 12 et 13).
+2. **La station de mesure communicante** : capteur → microcontrôleur → UART/I²C → ESP32 → MQTT → supervision (semaines 8 et 10).
 
-## 🗓️ Les 11 semaines
+## 🗓️ Les 14 semaines
 
 | Semaine | Thème | Tu sauras… |
 |---|---|---|
 | [1](S01-semaine.md) | Composants, lois de base, sécurité | lire un schéma simple, calculer avec la loi d'Ohm, lire les couleurs d'une résistance |
 | [2](S02-semaine.md) | Multimètre et alimentation de laboratoire | mesurer U, I, R, continuité ; régler la limitation de courant |
 | [3](S03-semaine.md) | GBF, oscilloscope, signaux | régler un oscilloscope et mesurer période, fréquence, amplitude |
-| [4](S04-semaine.md) | Schéma, datasheet, montage, soudure | lire une datasheet, câbler, souder selon IPC |
-| [5](S05-semaine.md) | Alimentation et charges | dimensionner une alimentation, piloter une charge avec un transistor |
-| [6](S06-semaine.md) | Microcontrôleur, capteurs, signal | programmer une entrée/sortie, lire un capteur, filtrer |
-| [7](S07-semaine.md) | Système communicant | faire communiquer des modules et diagnostiquer une liaison |
-| [8](S08-semaine.md) | Du schéma au PCB | dessiner un schéma, passer l'ERC, router une carte |
-| [9](S09-semaine.md) | Du PCB à la carte soudée | passer le DRC, produire les Gerber, souder et mettre sous tension |
-| [10](S10-semaine.md) | Tester, valider, dépanner | rédiger un PV, dépanner par la méthode |
-| [11](S11-semaine.md) | L'épreuve E2 | comprendre l'évaluation et réussir une épreuve blanche |
+| [4](S04-semaine.md) | Schéma, datasheet, plaque d'essai | lire un schéma et une datasheet, monter et vérifier un circuit |
+| [5](S05-semaine.md) | Souder et contrôler la qualité | souder, dessouder, contrôler selon IPC, se protéger des ESD |
+| [6](S06-semaine.md) | Alimenter un montage | dimensionner une alimentation, calculer chaleur et autonomie |
+| [7](S07-semaine.md) | Commander des charges | piloter une charge (transistor, relais, MOSFET, moteur) |
+| [8](S08-semaine.md) | Microcontrôleur et capteurs | programmer une entrée/sortie, lire un capteur, utiliser le PWM |
+| [9](S09-semaine.md) | Filtrer, amplifier, décider | calculer un filtre RC, un montage à AOP, un comparateur, une porte logique |
+| [10](S10-semaine.md) | Système communicant | faire communiquer des modules et diagnostiquer une liaison |
+| [11](S11-semaine.md) | Du schéma au PCB | dessiner un schéma, passer l'ERC, router une carte |
+| [12](S12-semaine.md) | Du PCB à la carte soudée | passer le DRC, produire les Gerber, souder et mettre sous tension |
+| [13](S13-semaine.md) | Mesurer, valider, dépanner, documenter | calculer une incertitude, rédiger un PV, dépanner, estimer la fiabilité, documenter |
+| [14](S14-semaine.md) | L'épreuve E2 | comprendre l'évaluation et réussir une épreuve blanche de 3 h |
 
 ## 🧰 Comment suivre le parcours
 

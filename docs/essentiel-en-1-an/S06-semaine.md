@@ -1,190 +1,201 @@
-# Semaine 6 : Microcontrôleur, capteurs et traitement du signal
+# Semaine 6 : Alimenter un montage
 
 > **Durée** : 4 h · **Compétences E2** : C07, C11
 
 ## 🎯 À la fin de la semaine, je sais…
 
-- écrire et lire un **programme Arduino** simple (entrées, sorties, moniteur série) ;
-- **lire un capteur analogique** (LM35) et convertir la valeur en grandeur physique ;
-- produire un signal **PWM** ;
-- **filtrer** un signal (filtre RC), l'**amplifier** (AOP) et lire une **table de vérité**.
+- décrire la **chaîne d'alimentation** d'un appareil (transformateur, redressement, filtrage, régulation) ;
+- faire un **bilan de puissance** et prévoir une marge ;
+- calculer la **puissance dissipée** et la **température** d'un régulateur linéaire ;
+- choisir entre régulateur **linéaire** et **à découpage** ;
+- estimer **l'autonomie** d'une batterie ;
+- **protéger** une alimentation (diode, fusible, découplage) et **mesurer** son ondulation.
 
 ## 🗓️ Déroulé
 
 | Durée | Activité |
 |---|---|
-| 1 h | TP virtuels ElectroLab (AOP, filtre RC, portes, diviseur) |
-| 1 h 15 | Cours : programme Arduino, entrées et sorties |
-| 1 h | Cours : capteur LM35 et conversion ; filtre, AOP, logique |
-| 45 min | Atelier réel et auto-test |
+| 1 h 15 | TP virtuels ElectroLab (redressement, filtrage, régulation) |
+| 1 h | Cours : de la prise au 5 V |
+| 1 h | Cours : bilan de puissance, chaleur, autonomie |
+| 45 min | Atelier réel : mesure de l'alimentation du clignoteur |
 
 ## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
 
 Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 
-- **Amplificateur inverseur à AOP : gain et saturation** (1 h 30)
-- **Filtre RC passe-bas : gain et fréquence de coupure** (1 h 30)
-- **Portes logiques : tables de vérité, alimentation, CMOS / TTL** (1 h 15)
-- **Diviseur de tension et influence du voltmètre** (1 h)
+- **Le transformateur : rapport de transformation** (1 h)
+- **Redressement simple et double alternance** (1 h 30)
+- **Filtrage par condensateur : choix de C** (1 h 30)
+- **Régulation linéaire avec un 7805** (1 h 30)
+- **Diode Zener : stabilisation de tension** (1 h 15), pour aller plus loin
 
 ---
 
 ## 📖 Le cours
 
-**🤔 À ton avis ?** Un capteur délivre une tension de 0,25 V. Comment l'Arduino peut-il en faire « 25 °C » sur un écran ?
+**🤔 À ton avis ?** Un régulateur 7805 alimenté en 12 V pour fournir 5 V à 500 mA devient brûlant. Où va l'énergie « en trop » ?
 
 ??? question "Réponse"
-    Il **convertit** la tension en un nombre (convertisseur ADC), puis le programme applique une **formule**. On apprend chaque étape.
+    Elle est **transformée en chaleur** dans le régulateur. On va apprendre à la calculer.
 
-### 1. Un microcontrôleur, c'est quoi ?
+### 1. De la prise au 5 V : la chaîne d'alimentation
 
-Un **microcontrôleur** est un petit ordinateur sur une puce : il lit des **entrées**, exécute un **programme** et pilote des **sorties**. Les cartes **Arduino Uno** (5 V) ou **ESP32** (3,3 V) en sont équipées.
+Un appareil branché au secteur transforme les 230 V alternatifs en une **tension continue stable**, en quatre étapes.
 
-![Carte Arduino Uno annotée : broches numériques, entrées analogiques, alimentation](images/arduino-uno-annote.png)
+![Chaîne d'alimentation : transformateur, redressement, filtrage, régulation](images/ess_alim_secteur.png)
 
-### 2. Le programme : `setup()` et `loop()`
+| Étape | Rôle | Composant |
+|---|---|---|
+| **Transformateur** | abaisser la tension alternative (isolement du secteur) | transformateur |
+| **Redressement** | ne garder qu'un seul sens (le « + ») | pont de 4 diodes |
+| **Filtrage** | lisser les « bosses » | gros condensateur |
+| **Régulation** | fournir une tension **stable** quelle que soit la charge | 7805 |
 
-![Structure d'un programme : setup une fois, loop en boucle](images/setup-loop.png)
+**Rapport de transformation** : $\dfrac{U_2}{U_1} = \dfrac{N_2}{N_1}$. Un transformateur 230 V → 12 V a un rapport de $\dfrac{12}{230} \approx 0{,}052$ (environ 1/19). Le **12 V est une valeur efficace** : la crête vaut $12 \times \sqrt{2} \approx 17\,\mathrm{V}$.
 
-```cpp
-void setup() {            // exécuté UNE fois au démarrage
-  pinMode(13, OUTPUT);    // broche 13 = sortie
-  Serial.begin(9600);     // moniteur série à 9600 bauds
-}
-void loop() {             // répété en boucle
-  digitalWrite(13, HIGH); // sortie à 5 V
-  delay(500);             // attendre 500 ms
-  digitalWrite(13, LOW);
-  delay(500);
-}
-```
+**Après le pont de diodes**, la tension de crête perd environ **1,4 V** (deux diodes en série conduisent à chaque instant) : $17 - 1{,}4 \approx 15{,}6\,\mathrm{V}$.
 
-| Instruction | Rôle |
-|---|---|
-| `pinMode(p, OUTPUT / INPUT / INPUT_PULLUP)` | choisir le rôle d'une broche |
-| `digitalWrite(p, HIGH / LOW)` | mettre une sortie à 5 V / 0 V |
-| `digitalRead(p)` | lire une entrée (HIGH ou LOW) |
-| `analogRead(A0)` | lire une tension de 0 à 5 V : nombre de **0 à 1023** |
-| `analogWrite(p, 0…255)` | signal **PWM** |
-| `Serial.println(x)` | afficher x sur le moniteur série |
+**Le condensateur de filtrage** se charge à la crête puis se décharge dans la charge. L'ondulation (variation crête-à-crête) est d'autant plus faible que $C$ est grand et le courant faible :
 
-![Montage d'une LED sur la broche 13 avec sa résistance](images/schema-led-d13.png)
+$$\Delta U \approx \frac{I}{f_{ond} \times C} \qquad (f_{ond} = 100\,\mathrm{Hz} \text{ en double alternance})$$
 
-**Bouton poussoir** : avec `INPUT_PULLUP`, une résistance interne tire l'entrée à 5 V. Le bouton relié à la masse donne **LOW quand on appuie**.
+**Exemple** : $I = 100\,\mathrm{mA}$, $C = 1000\,\mathrm{\mu F}$ : $\Delta U = \dfrac{0{,}1}{100 \times 10^{-3}} = 1\,\mathrm{V}$. Le régulateur placé derrière **supprime** cette ondulation, à condition que la tension d'entrée reste **au moins 2 V au-dessus** de sa sortie, même au creux de l'ondulation.
 
-![Entrée avec résistance de rappel (pull-up / pull-down)](images/pulldown-pullup.png)
+### 2. Le bilan de puissance
 
-![Le moniteur série de l'environnement Arduino](images/serial-monitor-ide.png)
+Avant de choisir une alimentation, on **additionne les courants** de tous les composants :
 
-### 3. Lire un capteur : la conversion analogique-numérique
+| Composant | Tension | Courant |
+|---|---|---|
+| Microcontrôleur | 3,3 V | 80 mA |
+| Capteur | 3,3 V | 2 mA |
+| LED | 3,3 V | 10 mA |
+| **Total** | | **92 mA** |
 
-Le convertisseur **ADC** de l'Arduino a **10 bits** : $2^{10} = 1\,024$ valeurs (0 à 1023) pour 0 à 5 V. Un pas vaut $\dfrac{5}{1023} \approx 4{,}9\,\mathrm{mV}$.
+On prévoit une **marge de 25 %** : $I_{source} \geq 1{,}25 \times I_{total}$, soit ici 115 mA minimum.
 
-![Conversion analogique-numérique : de la tension à la valeur](images/adc-conversion.png)
+### 3. Le régulateur linéaire et la chaleur
 
-$$U = \text{valeur} \times \frac{5}{1023}$$
+![Régulateur linéaire et régulateur à découpage](images/lineaire-decoupage.png)
 
-**Capteur de température LM35** : **10 mV par °C**, donc $T = U \times 100$.
+Un régulateur linéaire « mange » l'excès de tension **en chaleur** :
 
-![Brochage du capteur LM35](images/lm35-brochage.png)
+$$P_{diss} = (V_{in} - V_{out}) \times I_{out} \qquad \eta \approx \frac{V_{out}}{V_{in}}$$
 
-![Câblage du LM35 sur l'Arduino](images/cablage-lm35.png)
+**Exemple** : 12 V → 5 V à 500 mA : $P = 7 \times 0{,}5 = 3{,}5\,\mathrm{W}$ et $\eta \approx 42\,\%$ : plus de la moitié de l'énergie part en chaleur. Si l'écart est grand ou le courant fort, on utilise un **convertisseur à découpage** (rendement 85 à 90 %).
 
-```cpp
-void loop() {
-  int brut = analogRead(A0);
-  float tension = brut * 5.0 / 1023.0;
-  float temperature = tension * 100.0;
-  Serial.println(temperature);
-  delay(1000);
-}
-```
+| | Linéaire (7805) | À découpage (buck) |
+|---|---|---|
+| Rendement | faible si l'écart est grand | **85 à 95 %** |
+| Chaleur | importante | faible |
+| Bruit | **très faible** | plus élevé (commutation) |
+| Complexité | 1 composant + 2 condensateurs | module ou circuit + bobine |
+| Usage typique | faible courant, signal sensible | fort courant, batterie |
 
-**Exemple** : `brut = 51` → $U \approx 0{,}249\,\mathrm{V}$ → $T \approx 24{,}9\,°\mathrm{C}$. Un pas de l'ADC correspond à environ 0,5 °C : c'est la **résolution** de la mesure.
+![Chaîne d'alimentation avec condensateurs de découplage](images/chaine-alimentation-decouplage.png)
 
-**PWM** : `analogWrite(9, 64)` donne un rapport cyclique de $\dfrac{64}{255} \approx 25\,\%$ à environ 490 Hz.
+Les **condensateurs de découplage** (100 nF près de chaque circuit intégré, 10 à 100 µF sur l'alimentation) fournissent localement les pointes de courant.
 
-### 4. Filtrer et amplifier un signal
+### 4. La température du composant
 
-**Le filtre RC passe-bas** laisse passer les basses fréquences et atténue les hautes :
+![Modèle thermique d'un régulateur](images/modele-thermique.png)
 
-$$f_c = \frac{1}{2\pi R C}$$
+$$T_j = T_{amb} + P_{diss} \times R_{\theta ja}$$
 
-![Réponse d'un filtre RC passe-bas : gain en fonction de la fréquence](images/ess_rc_bode.png)
+Pour un 7805 sans radiateur, $R_{\theta ja} \approx 65\,°\mathrm{C/W}$. On vise **moins de 105 °C** (125 °C maximum moins 20 °C de marge).
 
-**L'amplificateur opérationnel** (AOP) amplifie un petit signal. En montage **non inverseur** : $G = 1 + \dfrac{R_f}{R_g}$.
+**Exemple** : $P = 1{,}2\,\mathrm{W}$ à 25 °C ambiants : $T_j = 25 + 1{,}2 \times 65 = 103\,°\mathrm{C}$ : à la limite, il faut un **radiateur**. Avec 3,5 W, $T_j$ dépasserait 250 °C : destruction.
 
-![Montage non inverseur d'un amplificateur opérationnel](images/ess_aop.png)
+**Choisir un radiateur** : on calcule la résistance thermique **maximale** acceptable $R_{\theta,tot} = \dfrac{T_{j,max} - T_{amb}}{P}$. Pour 3 W, 105 °C et 25 °C : $\dfrac{80}{3} \approx 27\,°\mathrm{C/W}$ : le 7805 seul (65 °C/W) ne suffit pas, il faut un **radiateur** qui ramène la résistance thermique totale **sous 27 °C/W**.
 
-### 5. La logique
+### 5. L'autonomie sur batterie
 
-Les circuits numériques ne connaissent que **0** (≈ 0 V) et **1** (≈ 5 V ou 3,3 V).
+$$t = \frac{\text{capacité (mAh)}}{I_{moy}\,(\mathrm{mA})} \times 0{,}8$$
 
-![Niveaux logiques et zone interdite](images/niveaux-logiques.png)
+Le 0,8 tient compte du fait qu'on n'utilise pas toute la capacité. **Exemple** : 1000 mAh à 50 mA : $t = 20 \times 0{,}8 = 16\,\mathrm{h}$.
 
-| A | B | ET | OU | NON-ET |
-|---|---|---|---|---|
-| 0 | 0 | 0 | 0 | 1 |
-| 0 | 1 | 0 | 1 | 1 |
-| 1 | 0 | 0 | 1 | 1 |
-| 1 | 1 | 1 | 1 | 0 |
+Avec une **mise en veille** : 150 mA pendant 5 s puis 0,1 mA pendant 55 s :
+
+$$I_{moy} = \frac{150 \times 5 + 0{,}1 \times 55}{60} \approx 12{,}6\,\mathrm{mA}$$
+
+### 6. Protéger l'alimentation
+
+| Protection | Rôle | Remarque |
+|---|---|---|
+| **Diode en série** | empêche l'inversion de polarité | perd environ 0,7 V |
+| **Fusible** | coupe en cas de surintensité | calibre ≈ 1,5 × courant normal |
+| **Découplage** | absorbe les pointes de courant | au plus près du circuit |
+| **Diode Zener / TVS** | écrête les surtensions | selon le cas |
 
 > [!WARNING] ⚠️ Erreurs fréquentes
-> - Oublier `Serial.begin(9600)` ou régler le moniteur sur une autre vitesse : texte illisible.
-> - Diviser des entiers (`brut / 1023`) : le résultat est tronqué. Écrire `1023.0`.
-> - Brancher un capteur analogique sur une broche **numérique** au lieu de A0…
-> - Alimenter un AOP en 5 V en attendant une sortie de 8 V.
+> - Utiliser le courant de **pointe** au lieu du courant **moyen** pour l'autonomie.
+> - Oublier la **chute de tension** (diode : 0,7 V ; régulateur : 2 V).
+> - Confondre tension **efficace** et tension de **crête** après un transformateur.
+> - Mesurer une ondulation en couplage **DC** : on ne voit que la valeur moyenne ; il faut le couplage **AC**.
+
+### 7. Mesurer l'ondulation à l'oscilloscope
+
+On place la sonde sur la sortie de l'alimentation en couplage **AC**, base de temps de 5 ms, sensibilité de 20 mV/div ; on lit l'amplitude **crête-à-crête**.
+
+![Écran d'oscilloscope : lire une amplitude et une période](images/ess_oscillo_ecran.png)
+
+Une alimentation à découpage donne des **pointes brèves** (haute fréquence) ; une alimentation linéaire filtrée donne une **dent de scie** à 100 Hz.
 
 ---
 
-## 🛠️ Atelier réel : la station de mesure
+## 🛠️ Atelier réel
 
-**Fil rouge 2.** Matériel : Arduino (ou ESP32), LM35, LED, bouton, résistance 220 Ω.
+**Fil rouge 1 : alimentation du clignoteur.**
 
-1. Câble la **LED** sur la broche 13 avec 220 Ω. Téléverse le programme de clignotement (500 ms).
-2. Câble le **bouton** entre la broche 2 et la masse (`INPUT_PULLUP`) : la LED s'allume tant qu'on appuie.
-3. Câble le **LM35** (+5 V, A0, GND). Écris le programme de lecture et affiche la température sur le moniteur série (9600 bauds).
-4. Combien de clignotements par seconde avec `delay(250)` ?
-5. Place la LED sur une broche PWM (9) et fais varier l'intensité avec `analogWrite`.
+1. **Bilan** : NE555 ≈ 10 mA, LED = 20 mA : total ?
+2. **7805 sous 12 V** : puissance dissipée, puis $T_j$ ($R_{\theta ja} = 65\,°\mathrm{C/W}$, 25 °C ambiants).
+3. Même calcul sous **9 V** : que gagne-t-on ?
+4. **Autonomie** sur une pile 9 V de 500 mAh.
+5. Faut-il un **radiateur** ? Justifie.
+6. **Mesure** : alimente le clignoteur en 9 V via le 7805 et mesure la tension de sortie, puis l'ondulation à l'oscilloscope (couplage AC).
 
 ??? success "Résultats attendus"
-    1. La LED clignote à **1 Hz**.
-    2. LED allumée **quand on appuie** (bouton relié à la masse : LOW).
-    3. La **température ambiante** (par exemple 22 à 25 °C), qui monte si on touche le capteur.
-    4. Période 500 ms → **2 clignotements par seconde**.
-    5. Intensité proportionnelle au rapport cyclique ($64/255 \approx 25\,\%$ : faible ; 255 : maximale).
+    1. $I_{total} = 30\,\mathrm{mA}$ ; avec 25 % de marge : 37,5 mA minimum côté source.
+    2. $P = (12 - 5) \times 0{,}03 = 0{,}21\,\mathrm{W}$ ; $T_j = 25 + 0{,}21 \times 65 \approx 38{,}7\,°\mathrm{C}$.
+    3. $P = 4 \times 0{,}03 = 0{,}12\,\mathrm{W}$ : moins de chaleur.
+    4. $t = \dfrac{500}{30} \times 0{,}8 \approx 13\,\mathrm{h}$.
+    5. **Non** : 38,7 °C est très inférieur aux 105 °C exploitables.
+    6. Sortie entre **4,8 et 5,2 V** (garantie du 7805) ; ondulation de l'ordre de **quelques millivolts** sur une pile (pas de secteur redressé).
 
 ## ✍️ Exercices
 
-1. Combien de valeurs distinctes peut renvoyer `analogRead` ?
-2. `analogRead` renvoie 102 pour un LM35 : quelle température ?
-3. Quel rapport cyclique donne `analogWrite(9, 128)` ?
-4. Avec `INPUT_PULLUP`, que lit-on quand le bouton relié à la masse est appuyé ?
-5. Gain d'un AOP non inverseur avec $R_f = 10\,\mathrm{kΩ}$ et $R_g = 1\,\mathrm{kΩ}$ ? Fréquence de coupure d'un filtre RC (10 kΩ, 100 nF) ?
+1. Un 7805 alimenté en 24 V débite 100 mA. Que se passe-t-il ?
+2. Un convertisseur à découpage de rendement 90 % délivre 5 V sous 100 mA. Quelle puissance prélève-t-il ?
+3. Pic de consommation de 220 mA : quelle source minimale ?
+4. Courant moyen d'un système à 150 mA pendant 5 s puis 0,1 mA pendant 55 s ?
+5. Un transformateur 230 V → 9 V alimente un pont de diodes. Quelle est la tension de crête **après** le pont (2 diodes de 0,7 V) ?
+6. Filtrage : $I = 200\,\mathrm{mA}$, $C = 2200\,\mathrm{\mu F}$, redressement double alternance (100 Hz). Quelle ondulation ?
 
 ??? success "Corrigés"
-    1. $2^{10} = 1\,024$ valeurs (0 à 1023).
-    2. $U = 102 \times \dfrac{5}{1023} \approx 0{,}50\,\mathrm{V}$ ; $T \approx 49{,}9\,°\mathrm{C}$.
-    3. $\dfrac{128}{255} \approx 50\,\%$.
-    4. **LOW** (0).
-    5. $G = 1 + 10 = 11$ ; $f_c = \dfrac{1}{2\pi \times 10^{4} \times 10^{-7}} \approx 159\,\mathrm{Hz}$.
+    1. $P = 19 \times 0{,}1 = 1{,}9\,\mathrm{W}$ ; $T_j = 25 + 1{,}9 \times 65 \approx 148{,}5\,°\mathrm{C}$ : **supérieur à 125 °C**, le composant est détruit. Il faut un découpage ou un radiateur.
+    2. $P_{in} = \dfrac{5 \times 0{,}1}{0{,}9} \approx 0{,}556\,\mathrm{W}$ (pertes ≈ 0,056 W).
+    3. $220 \times 1{,}25 = 275\,\mathrm{mA}$.
+    4. $\dfrac{750 + 5{,}5}{60} \approx 12{,}6\,\mathrm{mA}$.
+    5. Crête : $9 \times 1{,}414 \approx 12{,}7\,\mathrm{V}$ ; après le pont : $12{,}7 - 1{,}4 \approx 11{,}3\,\mathrm{V}$.
+    6. $\Delta U = \dfrac{0{,}2}{100 \times 2{,}2 \times 10^{-3}} \approx 0{,}91\,\mathrm{V}$.
 
 ## ✅ Auto-test
 
-1. Que fait `analogRead(A0)` ?
-2. Pourquoi écrire `5.0 / 1023.0` ?
-3. Que font les basses fréquences dans un filtre RC passe-bas ?
-4. Sortie d'une porte NON-ET avec A = 1 et B = 1 ?
+1. Quelle formule donne la puissance dissipée par un régulateur linéaire ?
+2. Dans quel ordre trouve-t-on les quatre blocs d'une alimentation secteur ?
+3. À quoi sert la marge de 25 % ?
+4. Pourquoi un régulateur linéaire chauffe-t-il ?
 
 ??? success "Réponses"
-    1. Il lit une tension de 0 à 5 V et renvoie un nombre de **0 à 1023**.
-    2. Pour forcer un calcul **décimal**.
-    3. Elles **passent** ; les hautes fréquences sont atténuées.
-    4. **0**.
+    1. $P_{diss} = (V_{in} - V_{out}) \times I_{out}$.
+    2. **Transformateur → redressement → filtrage → régulation**.
+    3. À absorber les **pointes** de consommation et le vieillissement.
+    4. Il **dissipe en chaleur** la différence $V_{in} - V_{out}$.
 
 ## 📦 Livrable
 
-Programme commenté qui lit un capteur de température et affiche la valeur en °C sur le moniteur série.
+Bilan de puissance du clignoteur (tableau, $P_{diss}$, $T_j$, autonomie) et relevé de la tension de sortie avec son ondulation.
 
 > [!NOTE] 📚 Pour approfondir (facultatif)
-> Ce parcours se suffit à lui-même. Pour aller plus loin : Seconde S07 à S09 (Arduino, entrées numériques, LM35) et Première S12 (AOP, filtre RC, portes logiques).
+> Ce parcours se suffit à lui-même. Pour aller plus loin : Terminale S03 (dimensionnement d'alimentation) et S10 (atelier alimentation), Seconde S12 (tests et alimentation).
