@@ -596,6 +596,22 @@ def u_arrow(x1, y1, x2, y2, label="", off=(0, -12), size=20, w=4):
     return o
 
 
+def led_top(a, k, lift=15):
+    """LED 5 mm sur platine, VUE DE DESSUS : boîtier rond dont le MÉPLAT (détrompeur) est côté cathode K ;
+    les pattes (anode a, cathode k) rejoignent le boîtier."""
+    import math as _m
+    cx, cy = (a[0] + k[0]) / 2, min(a[1], k[1]) - lift
+    ang = _m.degrees(_m.atan2(k[1] - a[1], k[0] - a[0]))
+    if abs(a[0] - k[0]) < 1: ea, ek = (cx - 5, cy + 10), (cx + 5, cy + 10)
+    else: ea, ek = (cx + (a[0] - cx) * .35, cy + 12), (cx + (k[0] - cx) * .35, cy + 10)
+    legs = "".join(f'<path d="M{p[0]},{p[1]} V{p[1]-10} L{e[0]},{e[1]}" fill="none" stroke="#b9bec8" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>' for p, e in ((a, ea), (k, ek)))
+    rim = "M16,-11.5 A19.5,19.5 0 1 0 16,11.5 Z"
+    dome = "M13,-9.5 A16,16 0 1 0 13,9.5 Z"
+    body = (f'<g transform="translate({cx},{cy}) rotate({ang}) scale(.82)"><path d="{rim}" fill="#c42a30" stroke="#8f1a1f" stroke-width="1.4"/>'
+            f'<path d="{dome}" fill="#e5353b"/><ellipse cx="-5" cy="-5" rx="6" ry="4" fill="#fff" opacity=".35" transform="rotate(-30 -5 -5)"/></g>')
+    return legs + body
+
+
 def varrow_path(d, color=BLUE, w=4, dash=None):
     da = f' stroke-dasharray="{dash}"' if dash else ""
     return f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{w}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"{da}/>'
