@@ -259,17 +259,6 @@ Les **commandes AT** (du mot « ATtention ») sont un langage de configuration i
 // Auteur : [Ton nom]    Date : [Date]
 // ============================================
 
-
-> [!TIP] 💡 En clair
-> Dans le sketch, on **lit** ce qui arrive du HC-05 pour **commander** quelque chose (par exemple une LED), et on **renvoie** une réponse au téléphone. Teste chaque partie **séparément** avant de les assembler.
-
-### ✅ Vérifie que tu as compris
-
-**Q1.** Pourquoi teste-t-on le sketch par morceaux ?
-
-??? success "Réponse"
-    Pour **localiser** facilement l'erreur si ça ne marche pas.
-
 #include <SoftwareSerial.h>      // Bibliothèque pour créer un port série logiciel
 
 // Déclaration du port série logiciel
@@ -318,6 +307,17 @@ void loop() {
   }
 }
 ```
+
+> [!TIP] 💡 En clair
+> Dans le sketch, on **lit** ce qui arrive du HC-05 pour **commander** quelque chose (par exemple une LED), et on **renvoie** une réponse au téléphone. Teste chaque partie **séparément** avant de les assembler.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi teste-t-on le sketch par morceaux ?
+
+??? success "Réponse"
+    Pour **localiser** facilement l'erreur si ça ne marche pas.
+
 
 ---
 

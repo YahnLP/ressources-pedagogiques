@@ -295,14 +295,6 @@ $$\lambda =0{,}125\,\mathrm{m} \to \lambda /20 = \underline{\hspace{2.5em}} mm$$
 ```cpp
 // Ce code a 5 erreurs. Trouve-les et corrige-les.
 
-??? success "Réponses"
-    1. `Serial.begin(9600)` : sur ESP32, on utilise **115200** (messages de démarrage), et il manque `pinMode(2, OUTPUT)`.  
-    2. `while (WiFi.status() == WL_CONNECTED)` : condition **inversée** ; il faut `!=`.  
-    3. `mqtt.connect("ESP32")` : identifiant **non unique** (deux cartes se déconnectent) et connexion **non testée / pas de reconnexion**.  
-    4. `setCallback` doit être appelé **avant** `connect` et `subscribe` ; de plus, dans le callback le `payload` n'est pas terminé par `\0` (copier `l` octets).  
-    5. `delay(5000)` **bloque** `mqtt.loop()` (qui n'est d'ailleurs pas appelé) : utiliser `millis()` et appeler `mqtt.loop()` à chaque tour.  
-    *(Le repérage exact des 5 erreurs dépend de la lecture du code : à valider par l'enseignant.)*
-
 #include <WiFi.h>
 #include <PubSubClient.h>
 
@@ -330,6 +322,15 @@ void loop() {
   mqtt.publish("salle/temp", "23.5");
 }
 ```
+
+??? success "Réponses"
+    1. `Serial.begin(9600)` : sur ESP32, on utilise **115200** (messages de démarrage), et il manque `pinMode(2, OUTPUT)`.  
+    2. `while (WiFi.status() == WL_CONNECTED)` : condition **inversée** ; il faut `!=`.  
+    3. `mqtt.connect("ESP32")` : identifiant **non unique** (deux cartes se déconnectent) et connexion **non testée / pas de reconnexion**.  
+    4. `setCallback` doit être appelé **avant** `connect` et `subscribe` ; de plus, dans le callback le `payload` n'est pas terminé par `\0` (copier `l` octets).  
+    5. `delay(5000)` **bloque** `mqtt.loop()` (qui n'est d'ailleurs pas appelé) : utiliser `millis()` et appeler `mqtt.loop()` à chaque tour.  
+    *(Le repérage exact des 5 erreurs dépend de la lecture du code : à valider par l'enseignant.)*
+
 
 ### Exercice D2 — Node-RED flow (30 min)
 

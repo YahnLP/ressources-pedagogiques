@@ -341,25 +341,6 @@ $$V_{\mathrm{out}} = 5 \times \dfrac{2000}{1000 + 2000} = 5 \times \dfrac{2}{3} 
 ### 4.3 SoftwareSerial — Utiliser des broches alternatives pour UART
 
 ```cpp
-
-> [!TIP] 💡 En clair
-> Le **HC-05** fonctionne en **3,3 V** : sa broche **RXD** ne supporte pas les 5 V de l'Arduino. On place donc un **diviseur de tension** : avec 1 kΩ et 2 kΩ, $U_{\mathrm{RXD}} = 5 \times \dfrac{2}{1+2} \approx 3{,}33\,\mathrm{V}$.
-
-### ✅ Vérifie que tu as compris
-
-**Q1.** Pourquoi un diviseur sur la broche RXD du HC-05 ?
-
-??? success "Réponse"
-    Parce que RXD ne supporte que **3,3 V** et que l'Arduino envoie **5 V**.
-
-**Q2.** Calcule la tension obtenue avec R1 = 1 kΩ et R2 = 2 kΩ (entrée 5 V).
-
-??? success "Réponse"
-    $5 \times \dfrac{2}{3} \approx 3{,}33\,\mathrm{V}$.
-
-> [!SUCCESS] 🧠 À retenir
-> - HC-05 : logique 3,3 V ; diviseur 1 kΩ / 2 kΩ sur RXD.
-
 #include <SoftwareSerial.h>
 
 // Créer un port série logiciel sur D10 (RX) et D11 (TX)
@@ -383,6 +364,25 @@ void loop() {
   }
 }
 ```
+
+
+> [!TIP] 💡 En clair
+> Le **HC-05** fonctionne en **3,3 V** : sa broche **RXD** ne supporte pas les 5 V de l'Arduino. On place donc un **diviseur de tension** : avec 1 kΩ et 2 kΩ, $U_{\mathrm{RXD}} = 5 \times \dfrac{2}{1+2} \approx 3{,}33\,\mathrm{V}$.
+
+### ✅ Vérifie que tu as compris
+
+**Q1.** Pourquoi un diviseur sur la broche RXD du HC-05 ?
+
+??? success "Réponse"
+    Parce que RXD ne supporte que **3,3 V** et que l'Arduino envoie **5 V**.
+
+**Q2.** Calcule la tension obtenue avec R1 = 1 kΩ et R2 = 2 kΩ (entrée 5 V).
+
+??? success "Réponse"
+    $5 \times \dfrac{2}{3} \approx 3{,}33\,\mathrm{V}$.
+
+> [!SUCCESS] 🧠 À retenir
+> - HC-05 : logique 3,3 V ; diviseur 1 kΩ / 2 kΩ sur RXD.
 
 > 📌 Ce sketch "passerelle" relaie tout entre le Serial Monitor et le HC-05 — permettant de taper des commandes AT dans le Serial Monitor et de voir les réponses du module.
 

@@ -243,18 +243,20 @@ La **BOM** (en français : *nomenclature des composants* ou *liste de matériel*
 Pour ne pas griller une DEL, il faut toujours calculer la résistance de limitation :
 
 > **Formule :**
-> ```
-> R = (Vcc - $V_{\mathrm{DEL}}$) / $I_{\mathrm{DEL}}$
-> ```
+>
+> $$R = \dfrac{V_{\mathrm{cc}} - V_{\mathrm{DEL}}}{I_{\mathrm{DEL}}}$$
+>
 > Avec :
-> - **Vcc** = tension d'alimentation = 5 V
-> - **$V_{\mathrm{DEL}}$** = tension de seuil de la DEL ≈ 2 V (rouge) / 2,1 V (jaune) / 2,2 V (verte)
-> - **$I_{\mathrm{DEL}}$** = courant nominal ≈ 20 mA = 0,02 A
+>
+> - $V_{\mathrm{cc}}$ = tension d'alimentation = 5 V
+> - $V_{\mathrm{DEL}}$ = tension de seuil de la DEL ≈ 2 V (rouge) / 2,1 V (jaune) / 2,2 V (verte)
+> - $I_{\mathrm{DEL}}$ = courant nominal ≈ 20 mA = 0,02 A
 
 **Exemple pour la DEL rouge :**
-```
-R = (5 - 2) / 0,02 = 3 / 0,02 = 150 Ω → on prend 220 Ω (valeur normalisée supérieure) ✅
-```
+
+$$R = \dfrac{5 - 2}{0{,}02} = \dfrac{3}{0{,}02} = 150\ \Omega$$
+
+→ on prend **220 Ω** (valeur normalisée supérieure) ✅
 
 **Calcule toi-même pour les DEL jaune et verte :**
 
