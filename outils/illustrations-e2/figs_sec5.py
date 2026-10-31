@@ -41,17 +41,7 @@ def f_cablage_ok_ko():
         def wire(p, q, col): return f'<path d="M{p[0]},{p[1]} L{q[0]},{q[1]}" stroke="{col}" stroke-width="5" stroke-linecap="round"/>'
         def res(p, q): return f'<rect x="{p[0]-2}" y="{p[1]-6}" width="{q[0]-p[0]+4}" height="12" rx="4" fill="#e9d4a3" stroke="#a88"/>' + f'<rect x="{p[0]+14}" y="{p[1]-6}" width="4" height="12" fill="#7a4320"/><rect x="{p[0]+24}" y="{p[1]-6}" width="4" height="12" fill="#000"/><rect x="{p[0]+34}" y="{p[1]-6}" width="4" height="12" fill="#7a4320"/>'
         def resv(p, q): return f'<rect x="{p[0]-6}" y="{p[1]-2}" width="12" height="{q[1]-p[1]+4}" rx="4" fill="#e9d4a3" stroke="#a88"/>' + ''.join(f'<rect x="{p[0]-6}" y="{p[1]+10+i*10}" width="12" height="4" fill="{c}"/>' for i, c in enumerate(("#7a4320", "#000", "#7a4320")))
-        def led(a, k):
-            cx = (a[0] + k[0]) / 2
-            by = min(a[1], k[1]) - 26          # base du boîtier
-            hw = 10                            # demi-largeur du boîtier
-            xa, xk = (cx - 6, cx + 6) if a[0] <= k[0] else (cx + 6, cx - 6)
-            ya, yk = a[1] - 8, k[1] - 8
-            legs = (f'<path d="M{a[0]},{a[1]} V{ya} L{xa},{by}" fill="none" stroke="#aaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'
-                    f'<path d="M{k[0]},{k[1]} V{yk} L{xk},{by}" fill="none" stroke="#aaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>')
-            body = (f'<path d="M{cx-hw},{by} V{by-6} A{hw},{hw} 0 0 1 {cx+hw},{by-6} V{by} Z" fill="#e5353b" stroke="#a11" stroke-width="1.5"/>'
-                    f'<rect x="{cx-hw-2}" y="{by-2}" width="{2*hw+4}" height="4" rx="2" fill="#c42a30" stroke="#a11" stroke-width="1"/>')
-            return legs + body
+        led = led_top
         if ok:
             inner += wire(bb.rail(0, "T+"), xy(2, "a"), RED) + res(xy(2, "c"), xy(6, "c")) + led(xy(6, "a"), xy(9, "a")) + wire(xy(9, "b"), bb.rail(10, "T-"), "#111")
         else:

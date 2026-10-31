@@ -57,14 +57,14 @@ def f_cablage_uno():
     r1, r2 = xy(3, "c"), xy(8, "c")
     inner += f'<rect x="{r1[0]-2}" y="{r1[1]-6}" width="{r2[0]-r1[0]+4}" height="12" rx="4" fill="#e9d4a3" stroke="#a88"/><rect x="{r1[0]+20}" y="{r1[1]-6}" width="4" height="12" fill="#d32f2f"/><rect x="{r1[0]+30}" y="{r1[1]-6}" width="4" height="12" fill="#d32f2f"/><rect x="{r1[0]+40}" y="{r1[1]-6}" width="4" height="12" fill="#7a4320"/>'
     a, k = xy(8, "a"), xy(11, "a")
-    inner += f'<path d="M{a[0]},{a[1]} V{a[1]-14} M{k[0]},{k[1]} V{k[1]-10}" stroke="#bbb" stroke-width="3"/><circle cx="{(a[0]+k[0])/2}" cy="{a[1]-20}" r="13" fill="#e5353b" stroke="#a11"/>'
+    inner += led_top(a, k)
     o += g(520, 60, inner, s)
     def wp(p, q, col): return f'<path d="M{p[0]},{p[1]} C{p[0]+120},{p[1]} {q[0]-120},{q[1]} {q[0]},{q[1]}" stroke="{col}" stroke-width="6" fill="none" stroke-linecap="round"/>'
     P0 = lambda p: (520 + p[0] * s, 60 + p[1] * s)
     o += wp((90, 212), P0(xy(3, "a")), RED) + wp((90, 322), P0(xy(11, "b")), "#222")
     o += callout(*P0(xy(5, "c")), 560, 560, "R = 220 Ω", "start", 17, bold=True) if False else ""
-    o += chip(200, 600, "fil rouge : signal D13", RED, w=280, size=15) + chip(480, 600, "fil noir : GND", "#222", w=200, size=15) + T(720, 595, "R = 220 Ω", 18, 800, INK, "start") + T(720, 622, "LED : patte longue = anode (+), courte = cathode (−)", 15, 700, INK, "start")
-    return figure(W, 650, o)
+    o += chip(200, 600, "fil rouge : signal D13", RED, w=280, size=15) + chip(480, 600, "fil noir : GND", "#222", w=200, size=15) + T(720, 595, "R = 220 Ω", 18, 800, INK, "start") + T(720, 622, "LED : patte longue = anode (+), courte = cathode (−)", 15, 700, INK, "start") + T(720, 645, "vue de dessus : le méplat du boîtier est côté cathode (−)", 15, 700, INK, "start")
+    return figure(W, 670, o)
 
 
 def f_serial_monitor():
