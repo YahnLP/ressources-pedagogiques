@@ -37,21 +37,21 @@ Régulateur LDO      : Vin=3,7V, Vout=3,3V, Rθja=44°C/W, Tamb=30°C
 
 a) Calcule $I_{\mathrm{moy}}$ ESP32 sur un cycle de 10 min (600s) :  
 
-$$I_{\mathrm{moy}} = \dfrac{200 \times 30 + 0{,}02 \times 570}{600} = \underline{\hspace{2.5em}} mA$$
+$\displaystyle I_{\mathrm{moy}} = \dfrac{200 \times 30 + 0{,}02 \times 570}{600} = \underline{\hspace{2.5em}} mA$
 
 b) Calcule $I_{\mathrm{moy}}$ total @ 3,3V :  
 $I_{\mathrm{moy}}$ total = I_ESP32_moy + I_GPS_moy + I_LED_moy  
 
-$$I_{\mathrm{GPS\_moy}} = 50 \times \dfrac{30}{600} = \underline{\hspace{2.5em}} mA$$
+$\displaystyle I_{\mathrm{GPS\_moy}} = 50 \times \dfrac{30}{600} = \underline{\hspace{2.5em}} mA$
 
-$$I_{\mathrm{LED\_moy}} = 5 \times 0{,}5 = \underline{\hspace{2.5em}} mA$$
+$\displaystyle I_{\mathrm{LED\_moy}} = 5 \times 0{,}5 = \underline{\hspace{2.5em}} mA$
 
 $I_{\mathrm{moy}}$ total = \_\_\_\_\_\_\_ mA  
 
 c) Calcule Pdiss LDO et Tj :  
 Pdiss = (3,7−3,3) × \_\_\_\_\_\_\_ = \_\_\_\_\_\_\_ W  
 
-$$Tj = 30 + \underline{\hspace{2.5em}} \times 44 = \underline{\hspace{2.5em}} °C$$
+$\displaystyle Tj = 30 + \underline{\hspace{2.5em}} \times 44 = \underline{\hspace{2.5em}} °C$
 
 ☐ OK ☐ Radiateur nécessaire  
 
@@ -143,16 +143,16 @@ Référence : 4,00 bar · Tolérance totale : 0,6 bar
 
 a) Calcule x̄ et σ de chaque capteur :  
 
-$$x̄_1 = \underline{\hspace{2.5em}} bar \cdot \sigma _1 = \underline{\hspace{2.5em}} bar$$
+$\displaystyle x̄_1 = \underline{\hspace{2.5em}} bar \cdot \sigma _1 = \underline{\hspace{2.5em}} bar$
 
-$$x̄_2 = \underline{\hspace{2.5em}} bar \cdot \sigma _2 = \underline{\hspace{2.5em}} bar$$
+$\displaystyle x̄_2 = \underline{\hspace{2.5em}} bar \cdot \sigma _2 = \underline{\hspace{2.5em}} bar$
 
 b) Biais de chaque capteur :  
 Biais_1 = \_\_\_\_\_\_\_ · Biais_2 = \_\_\_\_\_\_\_  
 
 c) $σ_{\mathrm{EV}}$, $σ_{\mathrm{AV}}$, $σ_{\mathrm{GRR}}$, %GRR :  
 
-$$\sigma _EV = \underline{\hspace{2.5em}} \cdot \sigma _AV = \underline{\hspace{2.5em}} \cdot \sigma _GRR = \underline{\hspace{2.5em}} \cdot %GRR = \underline{\hspace{2.5em}} %$$
+$\displaystyle \sigma _EV = \underline{\hspace{2.5em}} \cdot \sigma _AV = \underline{\hspace{2.5em}} \cdot \sigma _GRR = \underline{\hspace{2.5em}} \cdot %GRR = \underline{\hspace{2.5em}} %$
 
 d) Verdict et recommandation :  
 ☐ Excellent ☐ Acceptable ☐ Inacceptable  
@@ -160,7 +160,7 @@ Recommandation : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\
 
 e) LD du capteur 1 :  
 
-$$LD \approx 3 \times \sigma _1 = \underline{\hspace{2.5em}} bar$$
+$\displaystyle LD \approx 3 \times \sigma _1 = \underline{\hspace{2.5em}} bar$
 
 Peut-il détecter une variation de 0,02 bar ? ☐ Oui ☐ Non  
 
@@ -241,14 +241,14 @@ Violation 5 : _______________ · Problème : _______________ · Correction : ___
 
 a) Piste de 18cm : à partir de quelle fréquence se comporte-t-elle comme une antenne ?  
 
-$$L=0{,}18\,\mathrm{m} \cdot L > \lambda /20 \to \lambda  < 20 \times 0{,}18=3{,}6\,\mathrm{m} \cdot f > 3 \times 10^{8}/3{,}6 = \underline{\hspace{2.5em}} \mathrm{MHz}$$
+$\displaystyle L=0{,}18\,\mathrm{m} \cdot L > \lambda /20 \to \lambda  < 20 \times 0{,}18=3{,}6\,\mathrm{m} \cdot f > 3 \times 10^{8}/3{,}6 = \underline{\hspace{2.5em}} \mathrm{MHz}$
 
 b) Pour le WiFi ESP32 (2,4GHz), λ/20 = \_\_\_\_\_\_\_ mm  
 Toute piste > \_\_\_\_\_\_\_ mm peut rayonner → règle : pistes courtes !  
 
 c) Fente dans un boîtier blindant à 2,4GHz : taille max ?  
 
-$$\lambda =0{,}125\,\mathrm{m} \to \lambda /20 = \underline{\hspace{2.5em}} mm$$
+$\displaystyle \lambda =0{,}125\,\mathrm{m} \to \lambda /20 = \underline{\hspace{2.5em}} mm$
 
 ??? success "Réponses"
     a) $f > \dfrac{3 \times 10^{8}}{3{,}6} \approx 83\,\mathrm{MHz}$.  
@@ -502,15 +502,15 @@ Scénario 3 : Câble d'alimentation 5V (2A) cheminant sur 30cm à côté d'un c�
 
 a) Boîtier blindant un ESP32 WiFi (2,4GHz) : taille max des fentes ?  
 
-$$\lambda  = 3 \times 10^{8}/2{,}4 \times 10^{9} = \underline{\hspace{2.5em}} m \cdot \lambda /20 = \underline{\hspace{2.5em}} mm$$
+$\displaystyle \lambda  = 3 \times 10^{8}/2{,}4 \times 10^{9} = \underline{\hspace{2.5em}} m \cdot \lambda /20 = \underline{\hspace{2.5em}} mm$
 
 b) Filtre RC pour ADC (signal utile max 20Hz, fc cible 100Hz, R=22kΩ) :  
 
-$$C = \dfrac{1}{2\pi  \times 100 \times 22000} = \underline{\hspace{2.5em}} F = \underline{\hspace{2.5em}} nF$$
+$\displaystyle C = \dfrac{1}{2\pi  \times 100 \times 22000} = \underline{\hspace{2.5em}} F = \underline{\hspace{2.5em}} nF$
 
 c) Piste PCB de 22cm : fréquence à partir de laquelle elle devient une antenne ?  
 
-$$\lambda  < 20 \times 0{,}22 = \underline{\hspace{2.5em}} m \cdot f > 3 \times 10^{8}/\underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} \mathrm{MHz}$$
+$\displaystyle \lambda  < 20 \times 0{,}22 = \underline{\hspace{2.5em}} m \cdot f > 3 \times 10^{8}/\underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} \mathrm{MHz}$
 
 d) 8 affirmations : VRAI ou FAUX  
 \_\_\_ Plan de masse continu : courant de retour direct sous la piste  
@@ -535,7 +535,7 @@ d) 8 affirmations : VRAI ou FAUX
 3. Fente dans blindage WiFi (2,4GHz) < \_\_\_\_\_\_\_ mm  
 4. Plan fendu → courant de retour \_\_\_\_\_\_\_ → grande \_\_\_\_\_\_\_ → fort \_\_\_\_\_\_\_  
 
-$$5. fc = \dfrac{1}{2\pi  \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$$
+$\displaystyle 5. fc = \dfrac{1}{2\pi  \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$
 
 ??? success "Réponses"
 

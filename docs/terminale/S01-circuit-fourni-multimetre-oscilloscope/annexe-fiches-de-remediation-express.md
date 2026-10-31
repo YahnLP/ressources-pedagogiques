@@ -108,23 +108,23 @@ VALEURS e⁻ˣ : e⁻⁰·¹=0,905 · e⁻⁰·²=0,819 · e⁻⁰·⁵=0,607 ·
 
 Capteur DHT22 : MTBF = 50 000 h  
 
-$$a) \lambda  = \dfrac{1}{50000} = \underline{\hspace{2.5em}}h^{-1}$$
+$\displaystyle \textbf{a)}\ \lambda  = \dfrac{1}{50000} = \underline{\hspace{2.5em}}h^{-1}$
 
 b) R après 1 an (8760h) :  
 
-$$\lambda t = 2 \times 10^{-5} \times 8760 = \underline{\hspace{2.5em}}$$
+$\displaystyle \lambda t = 2 \times 10^{-5} \times 8760 = \underline{\hspace{2.5em}}$
 
-$$R = e^{-\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+$\displaystyle R = e^{-\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$
 
 c) Système : [DHT22 (R=0,84)] en série avec [ESP32 (R=0,92)] :  
 
-$$Rs = \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+$\displaystyle Rs = \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$
 
 d) Même système mais DHT22 en double (2 capteurs parallèle) :  
 
-$$R_{\mathrm{capt}}// = 1 - (1-0{,}84)^2 = 1 - \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}}$$
+$\displaystyle R_{\mathrm{capt}}// = 1 - (1-0{,}84)^2 = 1 - \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}}$
 
-$$Rs_nouveau = \underline{\hspace{2.5em}} \times 0{,}92 = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+$\displaystyle Rs_nouveau = \underline{\hspace{2.5em}} \times 0{,}92 = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$
 
 Gain : \_\_\_\_\_\_\_ points  
 
@@ -190,15 +190,15 @@ CONFORMITÉ : |Biais| + U ≤ spécification constructeur
 
 ei (écarts) : \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_ · \_\_\_\_\_\_\_  
 
-$$Σei = \underline{\hspace{2.5em}} Σei^2 = \underline{\hspace{2.5em}}$$
+$\displaystyle Σei = \underline{\hspace{2.5em}} Σei^2 = \underline{\hspace{2.5em}}$
 
 Biais = \_\_\_\_\_\_\_ / 5 = \_\_\_\_\_\_\_ °C  
 
-$$\sigma  = \sqrt{\underline{\hspace{2.5em}} / 4} = \underline{\hspace{2.5em}} °C$$
+$\displaystyle \sigma  = \sqrt{\underline{\hspace{2.5em}} / 4} = \underline{\hspace{2.5em}} °C$
 
-$$u = \underline{\hspace{2.5em}} / \sqrt{5} = \underline{\hspace{2.5em}} °C$$
+$\displaystyle u = \underline{\hspace{2.5em}} / \sqrt{5} = \underline{\hspace{2.5em}} °C$
 
-$$U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$$
+$\displaystyle U = 2 \times \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} °C$
 
 Spécification = ±0,5°C :  
 |Biais| + U = \_\_\_\_\_\_\_ + \_\_\_\_\_\_\_ = \_\_\_\_\_\_\_ °C  

@@ -54,7 +54,7 @@ $I_{\mathrm{LDO}}$ = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\
 
 5. Autonomie sur batterie avec convertisseur (η_conv = 88%) :  
 
-$$I_{\mathrm{batterie}} = \underline{\hspace{2.5em}}$$
+$\displaystyle I_{\mathrm{batterie}} = \underline{\hspace{2.5em}}$
 
 t_réelle   = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 

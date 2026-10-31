@@ -14,18 +14,18 @@
 
 ### Rappel express (5 min)
 
-```
-FLUX KICAD en 30 secondes :
-  Schéma (ERC=0) → Empreintes → Update PCB → Contour → Placement → Routage → DRC → Gerber
-
-CALQUES ESSENTIELS :
-  F.Cu = pistes avant (rouge)  ·  B.Cu = pistes arrière (bleu)
-  Edge.Cuts = contour (jaune)  ·  F.Silkscreen = sérigraphie (blanc)
-
-RÈGLES MINIMALES :
-  Clearance ≥ 0,2 mm  ·  Piste signal : 0,35 mm  ·  Piste power : 0,8 mm
-  Via : 0,8 mm ext / 0,4 mm perçage
-```
+> [!NOTE] Mémo KiCad en 30 secondes
+>
+> **Flux de travail** : Schéma (ERC = 0) → Empreintes → Update PCB → Contour → Placement → Routage → DRC → Gerber
+>
+> | Calque | Rôle | Couleur |
+> |---|---|---|
+> | F.Cu | pistes face avant | rouge |
+> | B.Cu | pistes face arrière | bleu |
+> | Edge.Cuts | contour de la carte | jaune |
+> | F.Silkscreen | sérigraphie | blanc |
+>
+> **Règles minimales** : clearance $\geq 0{,}2$ mm · piste de signal $0{,}35$ mm · piste de puissance $0{,}8$ mm · via : $0{,}8$ mm extérieur / $0{,}4$ mm de perçage.
 
 ### Exercice A1 — Identifier les erreurs dans ce schéma KiCad (10 min)
 
@@ -33,25 +33,23 @@ RÈGLES MINIMALES :
 
 ![Schéma contenant quatre erreurs à trouver](images/schema-erreurs-erc.png)
 
-```
-Erreurs à trouver (il y en a 4) :
+**Erreurs à trouver (il y en a 4).** Pour chacune, indique le problème et la correction :
 
-  1. La résistance R1 n'a pas de valeur saisie (champ Value vide)
-     → Problème : ___________________________________________________________
-     → Correction : __________________________________________________________
+1. La résistance R1 n'a pas de valeur saisie (champ *Value* vide).  
+   Problème : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+   Correction : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-  2. Il n'y a pas de PWR_FLAG sur le net +5V
-     → Problème visible : ____________________________________________________
-     → Correction : __________________________________________________________
+2. Il n'y a pas de PWR_FLAG sur le net +5V.  
+   Problème visible : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+   Correction : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-  3. La LED D1 est branchée avec la cathode vers le +5V (sens inversé)
-     → Problème : ___________________________________________________________
-     → Correction : __________________________________________________________
+3. La LED D1 est branchée avec la cathode vers le +5V (sens inversé).  
+   Problème : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+   Correction : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-  4. ERC signale "Pin not connected" sur la broche "K" de la LED
-     → Raison : ______________________________________________________________
-     → Correction : __________________________________________________________
-```
+4. L'ERC signale « Pin not connected » sur la broche « K » de la LED.  
+   Raison : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+   Correction : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ??? success "Réponses"
 
@@ -62,37 +60,36 @@ Erreurs à trouver (il y en a 4) :
 
 ### Exercice A2 — Calculer la clearance (5 min)
 
-```
-Un PCB a :
-  Piste A : largeur 0,35 mm
-  Piste B : largeur 0,35 mm
-  Distance bord à bord entre les deux pistes : 0,12 mm
+Un PCB comporte deux pistes :
 
-La clearance configurée est 0,20 mm.
+| Piste A | Piste B | Distance bord à bord | Clearance configurée |
+|---|---|---|---|
+| largeur 0,35 mm | largeur 0,35 mm | **0,12 mm** | **0,20 mm** |
 
-Y a-t-il une violation DRC ? ☐ Oui ☐ Non
-De combien ? _______ mm (si violation)
-Que fait le DRC dans ce cas : ________________________________________________
-```
+- Y a-t-il une violation DRC ? ☐ Oui ☐ Non
+- De combien ? \_\_\_\_\_\_\_ mm (s'il y a violation)
+- Que fait le DRC dans ce cas ? \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ??? success "Réponses"
     **Oui**, il y a violation : $0{,}20 - 0{,}12 = 0{,}08\,\mathrm{mm}$ de moins que le minimum. Le DRC place un **marqueur d'erreur** sur le PCB à cet endroit ; il ne bloque pas la fabrication, mais la carte n'est pas conforme tant que l'erreur n'est pas corrigée (écarter les pistes).
 
 ### Exercice A3 — Questions gerber (10 min)
 
-```
-Q.A.3a — Quels fichiers Gerber sont obligatoires pour commander un PCB chez JLCPCB ?
-Citer au moins 5 :
-  1. ___________________________  4. ___________________________
-  2. ___________________________  5. ___________________________
-  3. ___________________________
+**Q.A.3a** — Quels fichiers Gerber sont obligatoires pour commander un PCB chez JLCPCB ? Citer au moins 5 :
 
-Q.A.3b — Après export, quelle étape de vérification est recommandée avant d'envoyer au fabricant ?
-_______________________________________________________________________________
+1. \_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+2. \_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+3. \_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+4. \_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+5. \_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-Q.A.3c — Dans GerbView, que signifient les zones NOIRES sur le calque F.Mask ?
-_______________________________________________________________________________
-```
+**Q.A.3b** — Après export, quelle étape de vérification est recommandée avant d'envoyer au fabricant ?
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+**Q.A.3c** — Dans GerbView, que signifient les zones NOIRES sur le calque F.Mask ?
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ??? success "Réponses"
     **Q.A.3a** — F.Cu, B.Cu, F.Mask, B.Mask, F.Silkscreen, Edge.Cuts, plus le fichier de perçage (.drl).  
@@ -107,23 +104,19 @@ _______________________________________________________________________________
 
 ### Rappel express (5 min)
 
-```
-ESP32 :
-  Mode STA   : WiFi.begin(ssid, pass)  → IP par DHCP
-  Mode AP    : WiFi.softAP(ssid, pass) → IP = 192.168.4.1
-  WebServer  : server.on("/route", handler)  +  server.handleClient() dans loop()
-
-MQTT :
-  3 acteurs : Publisher · Subscriber · Broker
-  mqtt.connect(client_id) · mqtt.subscribe(topic) · mqtt.publish(topic, msg)
-  mqtt.loop() dans loop() = OBLIGATOIRE
-  Client ID UNIQUE par ESP32 !
-
-NODE-RED :
-  msg.payload = la donnée  ·  msg.topic = nom de la série (chart)
-  Deploy = valider les modifications
-  Dashboard : http://localhost:1880/ui
-```
+> [!NOTE] Mémo ESP32 · MQTT · Node-RED
+>
+> **ESP32**
+>
+> | Mode / outil | Instruction | Résultat |
+> |---|---|---|
+> | Station (STA) | `WiFi.begin(ssid, pass)` | IP attribuée par DHCP |
+> | Point d'accès (AP) | `WiFi.softAP(ssid, pass)` | IP = 192.168.4.1 |
+> | WebServer | `server.on("/route", handler)` + `server.handleClient()` dans `loop()` | Page servie par l'ESP32 |
+>
+> **MQTT** : 3 acteurs (*Publisher*, *Subscriber*, *Broker*) · `mqtt.connect(client_id)` · `mqtt.subscribe(topic)` · `mqtt.publish(topic, msg)` · **`mqtt.loop()` dans `loop()` est OBLIGATOIRE** · **client ID UNIQUE** par ESP32.
+>
+> **Node-RED** : `msg.payload` = la donnée · `msg.topic` = nom de la série (chart) · *Deploy* = valider les modifications · tableau de bord : `http://localhost:1880/ui`
 
 ### Exercice B1 — Corriger ce code Arduino (15 min)
 
@@ -166,40 +159,36 @@ void loop() {
     *(Le repérage exact des 4 erreurs est une proposition à valider par l'enseignant.)*
 
 
-```
-Erreur 1 : _____________________ · Correction : ______________________________
-Erreur 2 : _____________________ · Correction : ______________________________
-Erreur 3 : _____________________ · Correction : ______________________________
-Erreur 4 : _____________________ · Correction : ______________________________
-```
+| Erreur | Ce qui ne va pas | Correction |
+|---|---|---|
+| 1 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| 2 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| 3 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| 4 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
 
 ### Exercice B2 — Node-RED (10 min)
 
-```
-Q.B.2a — Décris le flow minimum pour recevoir un message MQTT et afficher
-          la valeur de "temperature" sur une gauge dashboard :
-  
-  Nœud 1 : ____________________ → Rôle : ______________________________________
-  Nœud 2 : ____________________ → Rôle : ______________________________________
-  Nœud 3 : ____________________ → Rôle : ______________________________________
-  Nœud 4 : ____________________ → Rôle : ______________________________________
+**Q.B.2a** — Décris le flow minimum pour recevoir un message MQTT et afficher la valeur de « temperature » sur une gauge du dashboard :
 
-Q.B.2b — Un apprenant constate que sa gauge ne se met pas à jour.
-          Le debug montre que msg.payload = '{"temperature":23.5}'.
-          Que faut-il ajouter entre mqtt-in et la gauge ?
+| Nœud | Nom du nœud | Rôle |
+|---|---|---|
+| 1 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| 2 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| 3 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| 4 | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
 
-  → Problème : msg.payload est de type _____________ (pas un nombre)
-  → Solution : ajouter le nœud __________________ puis un nœud function :
-    msg.payload = __________________________________;
-    return msg;
+**Q.B.2b** — Un apprenant constate que sa gauge ne se met pas à jour. Le debug montre que `msg.payload = '{"temperature":23.5}'`. Que faut-il ajouter entre *mqtt-in* et la gauge ?
 
-Q.B.2c — Pour afficher 3 courbes (température, humidité, CO₂) sur UN SEUL chart,
-          que doit contenir msg.topic dans chaque flow ?
+- Problème : `msg.payload` est de type \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (ce n'est pas un nombre).
+- Solution : ajouter le nœud \_\_\_\_\_\_\_\_\_\_\_\_\_\_, puis un nœud *function* : `msg.payload = \_\_\_\_\_\_\_\_; return msg;`
 
-  Flow 1 (temp) → msg.topic = "_______________"
-  Flow 2 (hum)  → msg.topic = "_______________"
-  Flow 3 (CO₂)  → msg.topic = "_______________"
-```
+**Q.B.2c** — Pour afficher 3 courbes (température, humidité, CO₂) sur **un seul** chart, que doit contenir `msg.topic` dans chaque flow ?
+
+| Flow | Grandeur | `msg.topic` |
+|---|---|---|
+| 1 | température | « \_\_\_\_\_\_\_\_\_\_\_\_\_\_ » |
+| 2 | humidité | « \_\_\_\_\_\_\_\_\_\_\_\_\_\_ » |
+| 3 | CO₂ | « \_\_\_\_\_\_\_\_\_\_\_\_\_\_ » |
 
 ??? success "Réponses"
     **Q.B.2a** — Nœud 1 : `mqtt in` → reçoit le message ; nœud 2 : `json` → convertit la chaîne en objet ; nœud 3 : `function` → extrait `msg.payload.temperature` ; nœud 4 : `ui_gauge` → affiche la valeur.  
@@ -214,30 +203,43 @@ Q.B.2c — Pour afficher 3 courbes (température, humidité, CO₂) sur UN SEUL 
 
 ### Rappel express (3 min)
 
-λ = 1/MTBF               MTBF = TO/n           MTTR = TA/n  
-D = MTBF/(MTBF+MTTR)     R(t) = $e^{-\lambda t}$        F(t) = 1 − R(t)  
+| Grandeur | Formule |
+|---|---|
+| Taux de panne | $\lambda = \dfrac{1}{\mathrm{MTBF}}$ |
+| MTBF (temps moyen entre pannes) | $\mathrm{MTBF} = \dfrac{TO}{n}$ |
+| MTTR (temps moyen de réparation) | $\mathrm{MTTR} = \dfrac{TA}{n}$ |
+| Disponibilité | $D = \dfrac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}}$ |
+| Fiabilité à l'instant $t$ | $R(t) = e^{-\lambda t}$ |
+| Défiabilité | $F(t) = 1 - R(t)$ |
+| À $t = \mathrm{MTBF}$ | $R = e^{-1} \approx 0{,}368$ (36,8 % encore en état de marche) |
+| Système en **série** | $R_s = R_1 \times R_2 \times R_3$ |
+| Système en **parallèle** | $R_s = 1 - (1 - R_1)(1 - R_2)(1 - R_3)$ |
 
-À t = MTBF : R = $e^{-1}$ = 0,368 (36,8% encore OK)  
+**Valeurs utiles de $e^{-x}$ :**
 
-Série    : Rs = R1 × R2 × R3  
-Parallèle: Rs = 1 − (1−R1)(1−R2)(1−R3)  
-
-$$e^{-0{,}1}=0{,}905 e^{-0{,}2}=0{,}819 e^{-0{,}3}=0{,}741 e^{-0{,}5}=0{,}607 e^{-1}=0{,}368$$
+| $x$ | 0,1 | 0,2 | 0,3 | 0,5 | 1 |
+|---|---|---|---|---|---|
+| $e^{-x}$ | 0,905 | 0,819 | 0,741 | 0,607 | 0,368 |
 
 ### Exercice C1 — MTBF/MTTR/D (10 min)
 
-Un automate industriel a fonctionné 2 ans (24h/24) et a subi 5 pannes :  
-Panne 1 : 2h00   Panne 2 : 30 min   Panne 3 : 45 min  
-Panne 4 : 3h15   Panne 5 : 1h30  
+Un automate industriel a fonctionné 2 ans (24 h/24) et a subi 5 pannes :
 
-a) TA total = \_\_\_\_\_\_\_ h  
+| Panne 1 | Panne 2 | Panne 3 | Panne 4 | Panne 5 |
+|---|---|---|---|---|
+| 2 h 00 | 30 min | 45 min | 3 h 15 | 1 h 30 |
 
-$$b) TO = 2 \times 8760 - TA = \underline{\hspace{2.5em}} h$$
+**a)** $TA_{\text{total}} =$ \_\_\_\_\_\_\_ h
 
-c) MTBF = TO / n = \_\_\_\_\_\_\_ h = \_\_\_\_\_\_\_ jours  
-d) MTTR = TA / n = \_\_\_\_\_\_\_ h  
-e) D = MTBF / (MTBF + MTTR) = \_\_\_\_\_\_\_  = \_\_\_\_\_\_\_ %  
-f) Exigence D ≥ 99,9% : ☐ Conforme ☐ Non conforme  
+**b)** $TO = 2 \times 8760 - TA =$ \_\_\_\_\_\_\_ h
+
+**c)** $\mathrm{MTBF} = \dfrac{TO}{n} =$ \_\_\_\_\_\_\_ h $=$ \_\_\_\_\_\_\_ jours
+
+**d)** $\mathrm{MTTR} = \dfrac{TA}{n} =$ \_\_\_\_\_\_\_ h
+
+**e)** $D = \dfrac{\mathrm{MTBF}}{\mathrm{MTBF} + \mathrm{MTTR}} =$ \_\_\_\_\_\_\_ $=$ \_\_\_\_\_\_\_ %
+
+**f)** Exigence $D \geq 99{,}9\ \%$ : ☐ Conforme ☐ Non conforme
 
 ??? success "Réponses"
     a) $TA = 2 + 0{,}5 + 0{,}75 + 3{,}25 + 1{,}5 = 8\,\mathrm{h}$.  
@@ -249,23 +251,20 @@ f) Exigence D ≥ 99,9% : ☐ Conforme ☐ Non conforme
 
 ### Exercice C2 — Loi exponentielle (10 min)
 
-Capteur DHT22 : MTBF = 50 000 h  
+Capteur DHT22 : $\mathrm{MTBF} = 50\,000$ h
 
-$$a) \lambda  = \dfrac{1}{50000} = \underline{\hspace{2.5em}} h^{-1}$$
+**a)** $\lambda = \dfrac{1}{50\,000} =$ \_\_\_\_\_\_\_ $\mathrm{h^{-1}}$
 
-b) R après 1 an (8760h) :  
+**b)** Fiabilité après 1 an (8760 h) :
 
-$$\lambda t = \underline{\hspace{2.5em}} \times 8760 = \underline{\hspace{2.5em}}$$
+- $\lambda t =$ \_\_\_\_\_\_\_ $\times\ 8760 =$ \_\_\_\_\_\_\_
+- $R(8760) = e^{-\lambda t} = e^{-\ldots} =$ \_\_\_\_\_\_\_ $=$ \_\_\_\_\_\_\_ %
 
-$$R(8760) = e^{\underline{\hspace{2.5em}}} = \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+**c)** Sur 200 capteurs, après 1 an : \_\_\_\_\_\_\_ encore fonctionnels
 
-c) Sur 200 capteurs, après 1 an : \_\_\_\_\_\_\_ encore fonctionnels  
+**d)** Pour $R(t) \geq 90\ \%$ : $e^{-\lambda t} \geq 0{,}90 \Rightarrow \lambda t \leq -\ln(0{,}90) \approx 0{,}105$
 
-d) Pour R(t) ≥ 90% :  
-
-$$e^{-\lambda t} \geq 0{,}90 \to -\lambda t \geq \ln(0{,}90) \approx -0{,}105$$
-
-t ≤ 0,105 / λ = \_\_\_\_\_\_\_ h = \_\_\_\_\_\_\_ mois  
+$t \leq \dfrac{0{,}105}{\lambda} =$ \_\_\_\_\_\_\_ h $=$ \_\_\_\_\_\_\_ mois
 
 ??? success "Réponses"
     a) $\lambda = \dfrac{1}{50\,000} = 2 \times 10^{-5}\,\mathrm{h^{-1}}$.  
@@ -277,19 +276,18 @@ t ≤ 0,105 / λ = \_\_\_\_\_\_\_ h = \_\_\_\_\_\_\_ mois
 
 ![Système à étudier : capteurs A et B en parallèle, puis CPU et réseau en série](images/rbd-exercice.png)
 
-```
-a) R_capteurs (parallèle) = 1 − (1 − _______)(1 − _______) = _______
+**a)** $R_{\text{capteurs}} = 1 - (1 - \ldots)(1 - \ldots) =$ \_\_\_\_\_\_\_ *(branches en parallèle)*
 
-b) Rs global = _______ × _______ × _______ = _______ = _______ %
+**b)** $R_s = \ldots \times \ldots \times \ldots =$ \_\_\_\_\_\_\_ $=$ \_\_\_\_\_\_\_ %
 
-c) Quel est le maillon le plus faible ? _________ (R = _______)
+**c)** Quel est le maillon le plus faible ? \_\_\_\_\_\_\_\_\_ ($R =$ \_\_\_\_\_\_\_)
 
-d) Si on ajoute un C identique à B en parallèle :
-   R_B-nouveau = 1 − (0,20)(0,20) = _______
-   R_capteurs-nouveau = 1 − (0,15)(______) = _______
-   Rs-nouveau = _______ × 0,95 × 0,98 = _______ %
-   Gain : _______ points
-```
+**d)** On ajoute un capteur C identique à B, en parallèle :
+
+- $R_{B,\text{nouveau}} = 1 - (0{,}20)(0{,}20) =$ \_\_\_\_\_\_\_
+- $R_{\text{capteurs,nouveau}} = 1 - (0{,}15)(\ldots) =$ \_\_\_\_\_\_\_
+- $R_{s,\text{nouveau}} = \ldots \times 0{,}95 \times 0{,}98 =$ \_\_\_\_\_\_\_ %
+- Gain : \_\_\_\_\_\_\_ points
 
 ??? success "Réponses"
     a) $R_{capteurs} = 1 - (1 - 0{,}85)(1 - 0{,}80) = 1 - 0{,}15 \times 0{,}20 = 0{,}97$.  
@@ -305,39 +303,35 @@ d) Si on ajoute un C identique à B en parallèle :
 
 ### Rappel express (3 min)
 
-```
-3 acteurs : Source → Couplage → Victime
-4 couplages : Résistif (masse commune) · Capacitif (pistes proches)
-              Inductif (boucle courant) · Rayonné (ondes EM)
-
-Conduit < 30 MHz (câbles) · Rayonné > 30 MHz (ondes)
-
-Blindage : continu + mis à la masse · fente < λ/20
-Découplage : 100nF + 10µF au plus près du CI (<1mm)
-Ferrite : absorbe l'énergie HF sur les câbles
-Plan de masse : continu → courant de retour direct → petite boucle → peu de rayonnement
-Fente dans le plan → détour → grande boucle → fort rayonnement !
-
-fc filtre RC = 1 / (2π × R × C)
-```
+> [!NOTE] Mémo CEM
+>
+> - **3 acteurs** : Source → Couplage → Victime.
+> - **4 couplages** : résistif (masse commune) · capacitif (pistes proches) · inductif (boucle de courant) · rayonné (ondes EM).
+> - **Conduit** $< 30$ MHz (câbles) · **rayonné** $> 30$ MHz (ondes).
+> - **Blindage** : continu et mis à la masse ; fente $< \lambda/20$.
+> - **Découplage** : 100 nF + 10 µF au plus près du CI ($< 1$ mm).
+> - **Ferrite** : absorbe l'énergie HF sur les câbles.
+> - **Plan de masse** continu → courant de retour direct → petite boucle → peu de rayonnement ; **fente** dans le plan → détour → grande boucle → fort rayonnement.
+> - **Filtre RC** : $f_c = \dfrac{1}{2\pi R C}$
 
 ### Exercice D1 — Couplages (10 min)
 
-```
 Pour chaque situation, identifie le type de couplage dominant et propose une solution :
 
-Situation 1 : Une piste UART (transitions à 115200 baud) passe parallèle
-              sur 8 cm à côté d'une piste de capteur analogique.
-  Couplage : ________________   Solution : ______________________________________
+**Situation 1.** Une piste UART (transitions à 115 200 baud) passe parallèle, sur 8 cm, à côté d'une piste de capteur analogique.
 
-Situation 2 : Un relais 12V commute un moteur. Le courant du moteur passe
-              dans le même fil de masse que le microcontrôleur voisin.
-  Couplage : ________________   Solution : ______________________________________
+- Couplage : \_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- Solution : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-Situation 3 : Un téléphone 4G posé sur une table perturbe les données WiFi
-              d'un ESP32 situé à 30 cm.
-  Couplage : ________________   Solution : ______________________________________
-```
+**Situation 2.** Un relais 12 V commute un moteur. Le courant du moteur passe dans le même fil de masse que le microcontrôleur voisin.
+
+- Couplage : \_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- Solution : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+**Situation 3.** Un téléphone 4G posé sur une table perturbe les données WiFi d'un ESP32 situé à 30 cm.
+
+- Couplage : \_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- Solution : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ??? success "Réponses"
 
@@ -350,22 +344,22 @@ Situation 3 : Un téléphone 4G posé sur une table perturbe les données WiFi
 a) Un boîtier doit bloquer les rayonnements WiFi (2,4 GHz).  
 Quelle est la taille maximale des fentes d'aération ?  
 
-$$\lambda  = 3 \times 10^{8} / 2{,}4 \times 10^{9} = \underline{\hspace{2.5em}} m = \underline{\hspace{2.5em}} cm$$
+$\displaystyle \lambda  = 3 \times 10^{8} / 2{,}4 \times 10^{9} = \underline{\hspace{2.5em}} m = \underline{\hspace{2.5em}} cm$
 
 Fente max = λ/20 = \_\_\_\_\_\_\_ cm = \_\_\_\_\_\_\_ mm  
 
 b) Un filtre RC protège un ADC. Le signal utile est à 5 Hz maximum.  
 On veut fc = 50 Hz. Avec R = 33 kΩ, calculer C :  
 
-$$C = \dfrac{1}{2\pi  \times fc \times R} = \dfrac{1}{2\pi  \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$$
+$\displaystyle C = \dfrac{1}{2\pi  \times fc \times R} = \dfrac{1}{2\pi  \times \underline{\hspace{2.5em}} \times \underline{\hspace{2.5em}}}$
 
 C = \_\_\_\_\_\_\_ F = \_\_\_\_\_\_\_ nF (valeur commerciale : \_\_\_\_\_\_\_ nF)  
 
 c) À partir de quelle fréquence une piste de 20 cm se comporte-t-elle comme une antenne ?  
 
-$$L > \lambda /20 \to \lambda  < 20 \times 0{,}20 = \underline{\hspace{2.5em}} m$$
+$\displaystyle L > \lambda /20 \to \lambda  < 20 \times 0{,}20 = \underline{\hspace{2.5em}} m$
 
-$$f > c/\lambda  = 3 \times 10^{8} / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} \mathrm{MHz}$$
+$\displaystyle f > c/\lambda  = 3 \times 10^{8} / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} \mathrm{MHz}$
 
 ??? success "Réponses"
     a) $\lambda = \dfrac{3 \times 10^{8}}{2{,}4 \times 10^{9}} = 0{,}125\,\mathrm{m} = 12{,}5\,\mathrm{cm}$ ; fente max $= \dfrac{\lambda}{20} = 0{,}625\,\mathrm{cm} = 6{,}25\,\mathrm{mm}$.  
@@ -374,22 +368,23 @@ $$f > c/\lambda  = 3 \times 10^{8} / \underline{\hspace{2.5em}} = \underline{\hs
 
 ### Exercice D3 — Règles PCB CEM (10 min)
 
-```
-Classe chaque affirmation comme VRAIE (V) ou FAUSSE (F) :
+Classe chaque affirmation comme **VRAIE (V)** ou **FAUSSE (F)** :
 
-___ 1. Un plan de masse avec une fente améliore le blindage entre les deux zones.
-___ 2. Le condensateur de découplage doit être au plus près du CI pour être efficace.
-___ 3. Les émissions conduites se propagent par les ondes radio.
-___ 4. Une ferrite absorbe l'énergie HF et la dissipe en chaleur.
-___ 5. GND (masse logique) et Terre (PE) sont toujours le même conducteur.
-___ 6. Plus une boucle de courant est grande, plus elle rayonne.
-___ 7. Un filtre RC passe-bas laisse passer les fréquences inférieures à fc.
-___ 8. En mode AP, l'ESP32 peut aussi être connecté à un réseau WiFi (STA) simultanément.
+| N° | Affirmation | V / F |
+|---|---|---|
+| 1 | Un plan de masse avec une fente améliore le blindage entre les deux zones. | \_\_\_ |
+| 2 | Le condensateur de découplage doit être au plus près du CI pour être efficace. | \_\_\_ |
+| 3 | Les émissions conduites se propagent par les ondes radio. | \_\_\_ |
+| 4 | Une ferrite absorbe l'énergie HF et la dissipe en chaleur. | \_\_\_ |
+| 5 | GND (masse logique) et Terre (PE) sont toujours le même conducteur. | \_\_\_ |
+| 6 | Plus une boucle de courant est grande, plus elle rayonne. | \_\_\_ |
+| 7 | Un filtre RC passe-bas laisse passer les fréquences inférieures à $f_c$. | \_\_\_ |
+| 8 | En mode AP, l'ESP32 peut aussi être connecté à un réseau WiFi (STA) simultanément. | \_\_\_ |
 
-Pour chaque FAUSSE : corriger en une phrase :
-  N°___ : ____________________________________________________________________
-  N°___ : ____________________________________________________________________
-```
+Pour chaque affirmation FAUSSE, corrige-la en une phrase :
+
+- N° \_\_\_ : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- N° \_\_\_ : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ??? success "Réponses"
     1 **F** ; 2 **V** ; 3 **F** ; 4 **V** ; 5 **F** ; 6 **V** ; 7 **V** ; 8 **V**.  

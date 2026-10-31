@@ -28,11 +28,11 @@ Rapport cyclique: D = Th / T = (R1 + R2) / (R1 + 2×R2)
 
 $$T = 0{,}693 \times (10\,000 + 2 \times 47\,000) \times 100 \times 10^{-6}$$
 
-$$T = 0{,}693 \times \underline{\hspace{2.5em}} \times 0{,}0001$$
+$\displaystyle T = 0{,}693 \times \underline{\hspace{2.5em}} \times 0{,}0001$
 
-$$T = \underline{\hspace{2.5em}} s$$
+$\displaystyle T = \underline{\hspace{2.5em}} s$
 
-$$f = \dfrac{1}{T} = \underline{\hspace{2.5em}} \mathrm{Hz}$$
+$\displaystyle f = \dfrac{1}{T} = \underline{\hspace{2.5em}} \mathrm{Hz}$
 
 La LED clignote à \_\_\_\_\_\_\_\_\_\_ fois par seconde.  
 
@@ -47,7 +47,7 @@ $$
 
 **Q1.3** — Calcule le rapport cyclique pour R1=10kΩ, R2=47kΩ :
 
-$$D = \dfrac{10 + 47}{10 + 2 \times 47} = \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$$
+$\displaystyle D = \dfrac{10 + 47}{10 + 2 \times 47} = \underline{\hspace{2.5em}} / \underline{\hspace{2.5em}} = \underline{\hspace{2.5em}} %$
 
 Interprétation : le signal est HIGH pendant \_\_\_\_\_\_% du temps et LOW pendant \_\_\_\_\_\_%  
 La LED est allumée pendant \_\_\_\_\_\_% de la période → elle semble ☐ plus ☐ moins lumineuse que 50%  

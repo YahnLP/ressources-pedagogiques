@@ -87,7 +87,7 @@ Exemple : SH=35, SB=33 → à 34°C, l'alarme est ☐ Active ☐ Inactive
 
 ### Erreur #3 — NE555 pin 4
 
-$$Pin 4 = \underline{\hspace{2.5em}}$$
+$\displaystyle Pin 4 = \underline{\hspace{2.5em}}$
 
 Doit être connectée à : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
 Si non connectée : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
@@ -180,7 +180,7 @@ $u_{A}$ = 0  (pas de répétition → $u_{A}$ est nul)
 $u_{B,\mathrm{rés}}$ = \_\_\_\_\_  |  $u_{B,\mathrm{cl}}$ = \_\_\_\_\_  
 $u_{c}$ = \_\_\_\_\_  |  U = \_\_\_\_\_  |  $U_{\mathrm{arrondi}}$ = \_\_\_\_\_  
 
-$$V = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$$
+$\displaystyle V = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$
 
 **Cas 2 — Quand U vaut plus que la tolérance**
 
@@ -201,7 +201,7 @@ $$U = 2 \times 0{,}0143 = 0{,}0286\,\mathrm{V}$$
 
 1er chiffre significatif de U = \_\_\_  → règle : arrondir par excès à 1 chiffre sig  
 
-$$U_{\mathrm{arrondi}} = \underline{\hspace{2.5em}} V$$
+$\displaystyle U_{\mathrm{arrondi}} = \underline{\hspace{2.5em}} V$
 
 Valeur centrale arrondie au même rang : \_\_\_\_\_ V  
 
@@ -257,11 +257,11 @@ Mesureur : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  Date : \_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 Calc 1 : classe 1,0%, valeur = 12,3V, résolution = 0,1V  
 
-$$u_{\mathrm{B,cl}} = \underline{\hspace{2.5em}} u_{\mathrm{B,rés}} = \underline{\hspace{2.5em}}$$
+$\displaystyle u_{\mathrm{B,cl}} = \underline{\hspace{2.5em}} u_{\mathrm{B,rés}} = \underline{\hspace{2.5em}}$
 
 Calc 2 : 3 mesures : 22,3 / 22,7 / 22,5°C, classe 0,5%, rés. 0,1°C  
 
-$$x̄ = \underline{\hspace{2.5em}} s = \underline{\hspace{2.5em}} u_{\mathrm{A}} = \underline{\hspace{2.5em}}$$
+$\displaystyle x̄ = \underline{\hspace{2.5em}} s = \underline{\hspace{2.5em}} u_{\mathrm{A}} = \underline{\hspace{2.5em}}$
 
 Calc 3 : $u_{c}$ = $\sqrt{0,0124² + 0,0058² + 0,0289²}$ = \_\_\_\_\_  
 
@@ -500,11 +500,11 @@ Recommandation boîtier : IP\_\_\_\_\_
 
 7.4 Tensions absolues max :  
 
-$$NE555 V_{cc} max = \underline{\hspace{2.5em}}V$$
+$\displaystyle NE555 V_{cc} max = \underline{\hspace{2.5em}}V$
 
-$$7805 V_{in} max = \underline{\hspace{2.5em}}V$$
+$\displaystyle 7805 V_{in} max = \underline{\hspace{2.5em}}V$
 
-$$LED I_{\mathrm{F}} max = \underline{\hspace{2.5em}} mA$$
+$\displaystyle LED I_{\mathrm{F}} max = \underline{\hspace{2.5em}} mA$
 
 **P3.3.1** — Pourquoi la section 7 est-elle juridiquement cruciale dans un DAT livré au client ?
 
