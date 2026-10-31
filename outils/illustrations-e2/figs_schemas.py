@@ -393,4 +393,39 @@ def f_regulateur_lineaire():
     return figure(W, 580, o)
 
 
-FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "reperage_fils": f_reperage_fils, "pv_mesure": f_pv_mesure, "regulateur_lineaire": f_regulateur_lineaire, "chaine_raccordement": f_chaine_raccordement, "hysteresis_thermostat": f_thermostat_analogie}
+def f_fiche_mes():
+    o = f'<rect x="40" y="24" width="1120" height="1060" rx="16" fill="#fff" stroke="#c7d0e2" stroke-width="3"/>'
+    o += f'<rect x="40" y="24" width="1120" height="80" rx="16" fill="{INK}"/><rect x="40" y="70" width="1120" height="34" fill="{INK}"/>' + T(70, 76, "FICHE DE MISE EN SERVICE", 28, 800, "#fff", "start") + T(1130, 70, "MES-2026-AGRO-001", 17, 700, "#cbd5ff", "end")
+    def card(x, y, w, h, n, title, col):
+        return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="12" fill="{col}" opacity=".06"/><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="12" fill="none" stroke="{col}" stroke-width="2.5"/>' + badge(x + 26, y + 28, n, col, 15) + T(x + 52, y + 34, title, 16, 800, col, "start"))
+    def kv(x, y, rows, kw=170):
+        r = ""
+        for k, (a, b) in enumerate(rows): r += T(x, y + k * 25, a, 14, 700, MUTED, "start") + T(x + kw, y + k * 25, b, 14, 700, INK, "start")
+        return r
+    # 1
+    o += card(70, 124, 520, 196, 1, "IDENTIFICATION", BLUE) + kv(88, 190, [("Référence MES", "MES-2026-AGRO-001"), ("Client", "Coopérative AGROSMART – M. LEROUX"), ("Site", "Serre n°3 – Zone Tomates"), ("Date", "2026-03-22"), ("Intervenant(s)", "A. DUPONT, B. MARTIN – CFA")], 150)
+    # 3
+    o += card(610, 124, 530, 356, 3, "PARAMÈTRES CONFIGURÉS", "#7c3aed") + kv(628, 190, [("SSID Wi-Fi", "AGRO_PRO_WIFI [réseau interne]"), ("Broker MQTT", "AWS IoT Core eu-west-1"), ("Topic publication", "agro/serre3/capteurs"), ("Fréquence pub.", "10 secondes"), ("Seuil WARNING", "32 °C (hystérésis 1,5 °C)"), ("Seuil CRITICAL", "38 °C (hystérésis 1,5 °C)"), ("Anti-rebond alarme", "30 secondes"), ("Moyenne mobile", "N = 6 points (1 min)"), ("Notification SMS", "+33 6 XX XX XX XX")], 175)
+    # 2
+    o += card(70, 340, 520, 140, 2, "MATÉRIELS INSTALLÉS", AMBER)
+    o += f'<rect x="84" y="384" width="492" height="22" rx="4" fill="#fff0c9"/>' + T(94, 400, "Réf.", 13, 800, INK, "start") + T(146, 400, "Désignation", 13, 800, INK, "start") + T(350, 400, "N° série", 13, 800, INK, "start") + T(478, 400, "Firmware", 13, 800, INK, "start")
+    for k, (a_, b_, c_, d_) in enumerate((("U1", "ESP32 DevKit v1", "ESP-2026-043", "v2.1.0"), ("U2", "DHT22 temp + hum", "—", "—"), ("U3", "LED d'alarme Ø 5 mm", "—", "—"))):
+        y = 428 + k * 20
+        o += T(94, y, a_, 13, 800, AMBER, "start") + T(146, y, b_, 13, 700, INK, "start") + T(350, y, c_, 13, 700, INK, "start") + T(478, y, d_, 13, 700, INK, "start")
+    # 4 tests (pleine largeur)
+    o += card(70, 500, 1070, 330, 4, "TESTS DE VALIDATION", GREEN)
+    tests = (("TC-001", "Connexion Wi-Fi et publication MQTT", "Premier message reçu en 8,3 s"), ("TC-002", "Lecture du capteur DHT22", "T = 24,3 °C · HR = 58 % : cohérent avec la sonde de référence"), ("TC-003", "Déclenchement de l'alarme WARNING (T simulée)", "LED orange + SMS reçu en 38 s"), ("TC-004", "Tableau de bord CloudWatch en temps réel", "Courbe visible, KPI affichés"), ("TC-005", "Fonctionnement hors réseau", "LED d'alarme locale active"))
+    for k, (c, t, r) in enumerate(tests):
+        y = 546 + k * 56
+        o += f'<rect x="88" y="{y}" width="1034" height="46" rx="8" fill="#fff" stroke="#cfe5d8" stroke-width="2"/><rect x="88" y="{y}" width="86" height="46" rx="8" fill="{GREEN}" opacity=".15"/>' + T(131, y + 29, c, 14, 800, GREEN) + T(190, y + 20, t, 15, 800, INK, "start") + T(190, y + 38, "Résultat : " + r, 13, 600, MUTED, "start")
+        o += f'<rect x="1020" y="{y+9}" width="86" height="28" rx="14" fill="{GREEN}"/>' + T(1063, y + 28, "PASS ✓", 14, 800, "#fff")
+    # 5, 6, 7
+    o += card(70, 850, 520, 100, 5, "OBSERVATIONS ET RÉSERVES", AMBER) + T(88, 914, "Aucune réserve.", 15, 700, INK, "start") + T(88, 936, "Prochaine vérification recommandée : dans 6 mois.", 14, 600, MUTED, "start")
+    o += card(610, 850, 530, 100, 6, "DÉCLARATION DE MISE EN SERVICE", GREEN) + T(628, 908, "L'équipement décrit ci-dessus est déclaré :", 14, 600, MUTED, "start") + f'<rect x="628" y="918" width="494" height="28" rx="14" fill="{GREEN}"/>' + T(875, 938, "☑  OPÉRATIONNEL : conforme aux spécifications définies", 14, 800, "#fff")
+    o += card(70, 970, 1070, 90, 7, "SIGNATURES", RED)
+    o += T(100, 1032, "Installateur :", 14, 700, MUTED, "start") + f'<line x1="200" y1="1034" x2="470" y2="1034" stroke="#9aa4b8" stroke-width="2"/>' + T(490, 1032, "Date :", 14, 700, MUTED, "start") + f'<line x1="540" y1="1034" x2="600" y2="1034" stroke="#9aa4b8" stroke-width="2"/>'
+    o += T(640, 1032, "Client :", 14, 700, MUTED, "start") + f'<line x1="705" y1="1034" x2="930" y2="1034" stroke="#9aa4b8" stroke-width="2"/>' + T(950, 1032, "Date :", 14, 700, MUTED, "start") + f'<line x1="1000" y1="1034" x2="1120" y2="1034" stroke="#9aa4b8" stroke-width="2"/>'
+    return figure(W, 1110, o)
+
+
+FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "reperage_fils": f_reperage_fils, "pv_mesure": f_pv_mesure, "fiche_mes": f_fiche_mes, "regulateur_lineaire": f_regulateur_lineaire, "chaine_raccordement": f_chaine_raccordement, "hysteresis_thermostat": f_thermostat_analogie}

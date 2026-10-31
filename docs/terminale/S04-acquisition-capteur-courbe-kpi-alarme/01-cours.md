@@ -418,68 +418,7 @@ void enregistrerPoint(float valeur, float moy_mobile, NiveauAlarme alarme) {
 
 ### Structure d'une fiche MES
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  FICHE DE MISE EN SERVICE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-1. IDENTIFICATION
-   Référence MES   : MES-2026-AGRO-001
-   Client          : Coopérative AGROSMART – M. LEROUX
-   Site            : Serre n°3 – Zone Tomates
-   Date            : 2026-03-22
-   Intervenant(s)  : A. DUPONT, B. MARTIN — CFA [Ville]
-
-2. MATÉRIELS INSTALLÉS
-   Réf.  │ Désignation          │ N° Série     │ Firmware
-   ──────┼──────────────────────┼──────────────┼──────────────
-   U1    │ ESP32 DevKit v1      │ ESP-2026-043 │ v2.1.0
-   U2    │ DHT22 Temp+Hum       │ —            │ —
-   U3    │ LED d'alarme Ø5mm    │ —            │ —
-
-3. PARAMÈTRES CONFIGURÉS
-   SSID Wi-Fi           : AGRO_PRO_WIFI [réseau interne]
-   Broker MQTT          : AWS IoT Core eu-west-1
-   Topic publication    : agro/serre3/capteurs
-   Fréquence pub.       : 10 secondes
-   T° seuil WARNING     : 32°C (hystérésis 1,5°C)
-   T° seuil CRITICAL    : 38°C (hystérésis 1,5°C)
-   Anti-rebond alarme   : 30 secondes
-   Moyenne mobile       : N = 6 points (1 min)
-   Notification SMS     : +33 6 XX XX XX XX (M. LEROUX)
-
-4. TESTS DE VALIDATION
-   ┌───────────────────────────────────────────────────────────┐
-   │ Test TC-001 : Connexion Wi-Fi et publication MQTT        │
-   │ Résultat : Premier message reçu en 8,3 s    → ✅ PASS   │
-   ├───────────────────────────────────────────────────────────┤
-   │ Test TC-002 : Lecture capteur DHT22                       │
-   │ T° = 24,3°C / HR = 58% — cohérent avec sonde de réf.    │
-   │                                                  → ✅ PASS│
-   ├───────────────────────────────────────────────────────────┤
-   │ Test TC-003 : Déclenchement alarme WARNING (T° simulée)  │
-   │ Résultat : LED orange + SMS reçu en 38s     → ✅ PASS   │
-   ├───────────────────────────────────────────────────────────┤
-   │ Test TC-004 : Dashboard CloudWatch en temps réel         │
-   │ Résultat : Courbe visible, KPI affichés      → ✅ PASS  │
-   ├───────────────────────────────────────────────────────────┤
-   │ Test TC-005 : Fonctionnement hors réseau                 │
-   │ Résultat : LED d'alarme locale active          → ✅ PASS │
-   └───────────────────────────────────────────────────────────┘
-
-5. OBSERVATIONS ET RÉSERVES
-   Aucune réserve.
-   Prochaine vérification recommandée : dans 6 mois.
-
-6. DÉCLARATION DE MISE EN SERVICE
-   L'équipement décrit ci-dessus est déclaré :
-   ☑ OPÉRATIONNEL — conforme aux spécifications définies
-
-7. SIGNATURES
-   Installateur : ___________  Date : __________
-   Client       : ___________  Date : __________
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+![Fiche de mise en service : les 7 rubriques, avec l'exemple de la serre AGROSMART](images/fiche-mes.png)
 
 
 > [!TIP] 💡 En clair
