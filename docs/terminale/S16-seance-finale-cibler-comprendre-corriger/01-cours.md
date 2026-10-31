@@ -228,7 +228,7 @@ Instrument : \_\_\_\_\_\_\_\_\_\_\_\_\_ Cl.\_\_\_% Rés.\_\_\_V N°:\_\_\_\_\_\_
 RÉSULTATS :
 | TC# | Exigence | Résultat ± U | Conf. |
 |---|---|---|---|
-| TC-01 | $V_{out} = 5\,\mathrm{V} \pm 5\,\mathrm{\%}$ |  |  |
+| TC-01 | $U_{out} = 5\,\mathrm{V} \pm 5\,\mathrm{\%}$ |  |  |
 | TC-02 | Assemblage IPC-A-610 Cl.2 | Pont soudure C1 |  |
 
 CONCLUSION :
@@ -502,7 +502,7 @@ Recommandation boîtier : IP\_\_\_\_\_
 
 $\displaystyle NE555 V_{cc} max = \underline{\hspace{2.5em}}V$
 
-$\displaystyle 7805 V_{in} max = \underline{\hspace{2.5em}}V$
+$\displaystyle 7805 U_{in} max = \underline{\hspace{2.5em}}V$
 
 $\displaystyle LED I_{\mathrm{F}} max = \underline{\hspace{2.5em}} mA$
 

@@ -19,7 +19,7 @@ $$f = \frac{1{,}44}{(R_a + 2R_b)\,C} \quad t_H = 0{,}693\,(R_a + R_b)\,C \quad t
 
 ## 2. Le régulateur 7805
 
-Le **7805** abaisse une tension d'entrée (au moins ≈ 7 V) à **5 V**. La différence est **perdue en chaleur** : $P = (V_{in} - V_{out}) \times I$. Les condensateurs recommandés à l'entrée et à la sortie évitent les oscillations.
+Le **7805** abaisse une tension d'entrée (au moins ≈ 7 V) à **5 V**. La différence est **perdue en chaleur** : $P = (U_{in} - U_{out}) \times I$. Les condensateurs recommandés à l'entrée et à la sortie évitent les oscillations.
 
 ## 3. La méthode du TP
 
@@ -31,7 +31,7 @@ Le **7805** abaisse une tension d'entrée (au moins ≈ 7 V) à **5 V**. La diff
 6. **Chercher l'anomalie** : écart le plus grand → composant suspect → impact chiffré → recommandation.
 
 ??? tip "💡 Aide : ordres de grandeur pour vérifier ton travail"
-    - **Sortie du 7805** : à $V_{in} = 12\,\mathrm{V}$, attends **4,8 à 5,2 V**.
+    - **Sortie du 7805** : à $U_{in} = 12\,\mathrm{V}$, attends **4,8 à 5,2 V**.
     - **Régulation** : en passant de 9 V à 15 V en entrée, la sortie varie de **quelques dizaines de mV**.
     - **Fréquence NE555** : la mesure s'écarte souvent de la théorie de **5 à 15 %** à cause des **tolérances** des composants ; au-delà, cherche un composant défectueux.
     - **Sortie du NE555 (broche 3)** : le niveau haut est **un peu en dessous** de $V_{CC}$ (environ 1 V de moins pour un NE555 bipolaire).

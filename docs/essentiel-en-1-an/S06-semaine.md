@@ -81,7 +81,7 @@ On prévoit une **marge de 25 %** : $I_{source} \geq 1{,}25 \times I_{total}$, s
 
 Un régulateur linéaire « mange » l'excès de tension **en chaleur** :
 
-$$P_{diss} = (V_{in} - V_{out}) \times I_{out} \qquad \eta \approx \frac{V_{out}}{V_{in}}$$
+$$P_{diss} = (U_{in} - U_{out}) \times I_{out} \qquad \eta \approx \frac{U_{out}}{U_{in}}$$
 
 **Exemple** : 12 V → 5 V à 500 mA : $P = 7 \times 0{,}5 = 3{,}5\,\mathrm{W}$ et $\eta \approx 42\,\%$ : plus de la moitié de l'énergie part en chaleur. Si l'écart est grand ou le courant fort, on utilise un **convertisseur à découpage** (rendement 85 à 90 %).
 
@@ -191,10 +191,10 @@ Une alimentation à découpage donne des **pointes brèves** (haute fréquence) 
 4. Pourquoi un régulateur linéaire chauffe-t-il ?
 
 ??? success "Réponses"
-    1. $P_{diss} = (V_{in} - V_{out}) \times I_{out}$.
+    1. $P_{diss} = (U_{in} - U_{out}) \times I_{out}$.
     2. **Transformateur → redressement → filtrage → régulation**.
     3. À absorber les **pointes** de consommation et le vieillissement.
-    4. Il **dissipe en chaleur** la différence $V_{in} - V_{out}$.
+    4. Il **dissipe en chaleur** la différence $U_{in} - U_{out}$.
 
 ## 📦 Livrable
 

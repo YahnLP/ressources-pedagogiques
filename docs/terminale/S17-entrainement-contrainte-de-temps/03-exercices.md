@@ -62,7 +62,7 @@ t_réelle   = \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
     1. (Vin−Vout) × Iout  2. Tamb + Pdiss × Rθja · 105°C  
     3. I_ESP32 + I_DHT22 + $I_{\mathrm{LED}}$ + $I_{\mathrm{charge}}$ (ne pas oublier $R_{\mathrm{charge}}$ !)  
-    $$4. \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$  
+    $$4. \dfrac{U_{out}}{U_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$  
     5. $I_{\mathrm{moy}}$ / η · Capacité(mAh) / $I_{\mathrm{batterie}}$ × 0,80
 
 Mon score : \_\_\_/5  ☐ Tous → continuer · ☐ Revoir → S3-3A_06 + S15-3A_06  

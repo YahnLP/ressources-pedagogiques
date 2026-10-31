@@ -54,7 +54,7 @@ Ouvre la datasheet de chaque composant (site du fabricant) et complète. Les val
 1. Quelle est la tension de sortie typique ? Entre quelles valeurs est-elle garantie ?
 2. Quelle est la tension d'entrée maximale absolue ?
 3. Quelle est la chute de tension minimale (dropout) ?
-4. Avec $V_{in} = 9\,\mathrm{V}$ et un courant de 300 mA, calcule la puissance dissipée, puis $T_{j}$ si $R_{\theta ja} = 65\,°\mathrm{C/W}$ et $T_{amb} = 25\,°\mathrm{C}$.
+4. Avec $U_{in} = 9\,\mathrm{V}$ et un courant de 300 mA, calcule la puissance dissipée, puis $T_{j}$ si $R_{\theta ja} = 65\,°\mathrm{C/W}$ et $T_{amb} = 25\,°\mathrm{C}$.
 
 ??? success "Valeurs attendues"
 

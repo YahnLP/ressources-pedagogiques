@@ -362,7 +362,7 @@ Format de réponse   : +<COMMANDE>:<valeur>\r\n  puis  OK\r\n
 
 ![Câblage Arduino – HC-05 en mode AT : KEY reliée au 3,3 V](images/cablage-hc05-mode-at.png)
 
-Diviseur de tension sur RXD : $V_{\mathrm{out}} = 5 \times \dfrac{2\,\mathrm{k\Omega}}{1\,\mathrm{k\Omega} + 2\,\mathrm{k\Omega}} = 3{,}33\ \mathrm{V}$ ✓
+Diviseur de tension sur RXD : $U_{\mathrm{out}} = 5 \times \dfrac{2\,\mathrm{k\Omega}}{1\,\mathrm{k\Omega} + 2\,\mathrm{k\Omega}} = 3{,}33\ \mathrm{V}$ ✓
 
 ### Configuration S14 — Communication Bluetooth normale
 
