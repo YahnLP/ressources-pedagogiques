@@ -17,9 +17,9 @@ Le dossier contient le **schéma**, des **extraits de datasheet**, les **formule
 
 1. **Courant de chaque composant** (n'oublie pas la **charge** et la LED).
 2. **Courant total** demandé au régulateur.
-3. **Puissance dissipée** $P = (V_{in} - V_{out}) \times I$.
+3. **Puissance dissipée** $P = (U_{in} - U_{out}) \times I$.
 4. **Température de jonction** $T_j = T_{amb} + P \times R_{\theta ja}$ et **marge** par rapport au maximum.
-5. **Rendement** $\eta = \dfrac{V_{out}}{V_{in}}$.
+5. **Rendement** $\eta = \dfrac{U_{out}}{U_{in}}$.
 6. **Autonomie** (si batterie).
 
 ## 3. L'autonomie en quatre lignes
@@ -44,7 +44,7 @@ Un composant **hors tolérance** (par exemple un condensateur mesuré 150 µF po
 
 ??? tip "💡 Aide : ordres de grandeur pour vérifier tes calculs"
     - **Chaleur d'un LDO** : avec un courant total de **quelques dizaines à une centaine de mA** et une chute de 1,5 à 2 V, la puissance est de l'ordre de **0,1 à 0,3 W** ; $T_j$ reste **sous 60 °C**.
-    - **Rendement d'un LDO** : $\dfrac{V_{out}}{V_{in}}$ ; un 5 V → 3,3 V donne **66 %**.
+    - **Rendement d'un LDO** : $\dfrac{U_{out}}{U_{in}}$ ; un 5 V → 3,3 V donne **66 %**.
     - **Autonomie** : si tu trouves **quelques heures** pour un capteur en veille profonde, ou **plusieurs années**, **recompte** les courants (la charge oubliée est l'erreur n° 1).
     - **Métrologie** : $U$ est de l'ordre de **0,1 à 0,3 °C** pour 6 mesures d'un DHT22 stable.
     - **Incohérence** : si ton PV conclut « conforme » alors que tu as trouvé un composant hors tolérance, **reprends la décision**.

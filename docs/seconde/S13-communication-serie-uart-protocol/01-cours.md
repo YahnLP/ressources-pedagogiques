@@ -334,9 +334,9 @@ Flow control    : None
 
 Calcul du diviseur :  
 
-$$V_{\mathrm{out}} = V_{\mathrm{in}} \times \dfrac{R_{2}}{R_{1} + R_{2}}$$
+$$U_{\mathrm{out}} = U_{\mathrm{in}} \times \dfrac{R_{2}}{R_{1} + R_{2}}$$
 
-$$V_{\mathrm{out}} = 5 \times \dfrac{2000}{1000 + 2000} = 5 \times \dfrac{2}{3} = 3{,}33\,\mathrm{V} \;\checkmark$$
+$$U_{\mathrm{out}} = 5 \times \dfrac{2000}{1000 + 2000} = 5 \times \dfrac{2}{3} = 3{,}33\,\mathrm{V} \;\checkmark$$
 
 ### 4.3 SoftwareSerial — Utiliser des broches alternatives pour UART
 

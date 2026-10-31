@@ -126,10 +126,10 @@ Exemple : I_pic = 272 mA @ 3,3V + 150 mA @ 5V
 ![Régulateur linéaire : principe, avantages et inconvénients](images/regulateur-lineaire.png)
 
 > [!NOTE] Formule clé
-> $$P_{\mathrm{diss}} = (V_{\mathrm{in}} - V_{\mathrm{out}}) \times I_{\mathrm{out}}$$
+> $$P_{\mathrm{diss}} = (U_{\mathrm{in}} - U_{\mathrm{out}}) \times I_{\mathrm{out}}$$
 
 > [!NOTE] Rendement
-> $$\eta = \dfrac{V_{\mathrm{out}} \times I_{\mathrm{out}}}{V_{\mathrm{in}} \times I_{\mathrm{in}}} \approx \dfrac{V_{\mathrm{out}}}{V_{\mathrm{in}}} \quad (\text{car } I_{\mathrm{in}} \approx I_{\mathrm{out}})$$
+> $$\eta = \dfrac{U_{\mathrm{out}} \times I_{\mathrm{out}}}{U_{\mathrm{in}} \times I_{\mathrm{in}}} \approx \dfrac{U_{\mathrm{out}}}{U_{\mathrm{in}}} \quad (\text{car } I_{\mathrm{in}} \approx I_{\mathrm{out}})$$
 
 **Trois régulateurs courants :**
 
@@ -140,11 +140,11 @@ Exemple : I_pic = 272 mA @ 3,3V + 150 mA @ 5V
 | AMS1117-3.3 | 5 V → 3,3 V | 1 A | SOT-223 | 44 °C/W |
 
 > [!TIP] LDO (Low Drop-Out) : une variante du linéaire
-> Un **LDO** accepte une **tension d'entrée à peine supérieure à la sortie** : il suffit que $V_{\mathrm{in}} - V_{\mathrm{out}} \geq 0{,}3$ à $1{,}5\ \mathrm{V}$ selon le modèle, contre environ $2{,}5\ \mathrm{V}$ pour un 78xx classique. On peut donc l'utiliser avec une **batterie Li-ion presque déchargée**.
+> Un **LDO** accepte une **tension d'entrée à peine supérieure à la sortie** : il suffit que $U_{\mathrm{in}} - U_{\mathrm{out}} \geq 0{,}3$ à $1{,}5\ \mathrm{V}$ selon le modèle, contre environ $2{,}5\ \mathrm{V}$ pour un 78xx classique. On peut donc l'utiliser avec une **batterie Li-ion presque déchargée**.
 
 
 > [!TIP] 💡 En clair
-> Un **régulateur linéaire** (7805, AMS1117…) abaisse la tension en **dissipant l'excès sous forme de chaleur** : $P_{\mathrm{diss}} = (V_{\mathrm{in}} - V_{\mathrm{out}}) \times I_{\mathrm{out}}$. Son rendement vaut environ $\eta \approx \dfrac{V_{\mathrm{out}}}{V_{\mathrm{in}}}$.
+> Un **régulateur linéaire** (7805, AMS1117…) abaisse la tension en **dissipant l'excès sous forme de chaleur** : $P_{\mathrm{diss}} = (U_{\mathrm{in}} - U_{\mathrm{out}}) \times I_{\mathrm{out}}$. Son rendement vaut environ $\eta \approx \dfrac{U_{\mathrm{out}}}{U_{\mathrm{in}}}$.
 >
 > **Exemple :** 9 V → 5 V à 100 mA : $P_{\mathrm{diss}} = 4 \times 0{,}1 = 0{,}4\,\mathrm{W}$ et $\eta \approx \dfrac{5}{9} \approx 56\,\%$. Presque la moitié de l'énergie part en **chaleur**.
 
@@ -155,16 +155,16 @@ Exemple : I_pic = 272 mA @ 3,3V + 150 mA @ 5V
 ??? success "Réponse"
     $(5 - 3{,}3) \times 0{,}3 = 0{,}51\,\mathrm{W}$.
 
-**Q2.** Pourquoi un régulateur linéaire est-il peu efficace quand $V_{\mathrm{in}}$ est bien plus grand que $V_{\mathrm{out}}$ ?
+**Q2.** Pourquoi un régulateur linéaire est-il peu efficace quand $U_{\mathrm{in}}$ est bien plus grand que $U_{\mathrm{out}}$ ?
 
 ??? success "Réponse"
-    Parce que la différence $V_{\mathrm{in}} - V_{\mathrm{out}}$ est **perdue en chaleur**.
+    Parce que la différence $U_{\mathrm{in}} - U_{\mathrm{out}}$ est **perdue en chaleur**.
 
 > [!WARNING] ⚠️ Erreurs fréquentes
 > - Alimenter un 5 V depuis une source de 24 V sans calculer l'échauffement : le régulateur **surchauffe**.
 
 > [!SUCCESS] 🧠 À retenir
-> - $P_{\mathrm{diss}} = (V_{\mathrm{in}} - V_{\mathrm{out}}) \times I_{\mathrm{out}}$.
+> - $P_{\mathrm{diss}} = (U_{\mathrm{in}} - U_{\mathrm{out}}) \times I_{\mathrm{out}}$.
 
 ---
 

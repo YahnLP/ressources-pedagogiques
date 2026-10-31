@@ -155,7 +155,7 @@ Deux fabricants livrent la même carte. Comment le client peut-il **vérifier** 
 
 | **TC#** | **Exigence** | **Procédure** | **Résultat** | **U (95%)** | **Conforme ?** |
 |---|---|---|---|---|---|
-| TC-01 | $V_{out} 7805 = 5\,\mathrm{V} \pm 3\,\mathrm{\%}$ | Mesure multimètre entre Vout et GND | 4,987 V | ±0,030 V | ✅ |
+| TC-01 | $U_{out} 7805 = 5\,\mathrm{V} \pm 3\,\mathrm{\%}$ | Mesure multimètre entre Vout et GND | 4,987 V | ±0,030 V | ✅ |
 | TC-02 | Fréquence = 1 Hz ±10% | Oscilloscope sur pin 3 NE555 | 1,02 Hz | ±0,02 Hz | ✅ |
 | TC-03 | LED clignote visuellement | Observation à Vin = 12V | Clignote régulièrement | — | ✅ |
 | TC-04 | Rapport cyclique ≈ 50% | Oscilloscope : mesure tHigh / tTotal | 51,8% | ±1,2% | ✅ |

@@ -108,11 +108,11 @@ $$\text{Expression : } \boxed{X = (\bar{x} \pm U) \text{ unité [95\%]}}$$
 
 ### Électronique
 
-$$V = R \times I \quad [\text{V} = \Omega \times \text{A}]$$
+$$U = R \times I \quad [\text{V} = \Omega \times \text{A}]$$
 
-$$P = V \times I = \frac{V^2}{R} = R \times I^2 \quad [\text{W}]$$
+$$P = U \times I = \frac{U^2}{R} = R \times I^2 \quad [\text{W}]$$
 
-$$\text{Diviseur de tension : } V_{out} = V_{in} \times \frac{R_2}{R_1 + R_{2}}$$
+$$\text{Diviseur de tension : } U_{out} = U_{in} \times \frac{R_2}{R_1 + R_{2}}$$
 
 $$\text{Filtre RC : } f_{c} = \frac{1}{2\pi RC}$$
 

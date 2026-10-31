@@ -39,7 +39,7 @@
 ③ Pdiss = (Vin − Vout) × $I_{\mathrm{LDO}}$ = 1,7 × $I_{\mathrm{LDO}}$  
 ④ Tj = Tamb + Pdiss × 44 · Marge = 105 − Tj  
 
-$$⑤ \eta  = \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
+$$⑤ \eta  = \dfrac{U_{out}}{U_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
 
 ⑥ Autonomie = Capacité/I_batterie × 0,80  
 $I_{\mathrm{batterie}}$ = $I_{\mathrm{moy}}$ / η (si buck-boost)  

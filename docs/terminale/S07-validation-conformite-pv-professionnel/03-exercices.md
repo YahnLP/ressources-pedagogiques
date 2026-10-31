@@ -143,7 +143,7 @@ Coût total estimé     : _____ € HT
 ??? success "Réponses"
     Valeurs types à confirmer avec les datasheets utilisées :  
     - Alimentation : nominale **12 V DC** ; minimum environ **7 V** (le 7805 a besoin d'environ 2 V de marge : en dessous, la sortie n'est plus régulée à 5 V) ; maximum absolu **35 V** à l'entrée du 7805 (au-delà : destruction) ; polarité **non protégée** sans diode série.  
-    - Limites des composants : NE555 $V_{CC}$ max environ **16 V** ; 7805 $V_{in}$ max absolu **35 V** ; LED $I_f$ max **25 mA** (spécification de ce TP).
+    - Limites des composants : NE555 $V_{CC}$ max environ **16 V** ; 7805 $U_{in}$ max absolu **35 V** ; LED $I_f$ max **25 mA** (spécification de ce TP).
 
 ---
 
@@ -226,7 +226,7 @@ $$u_{c} = \sqrt{u_A^2 + u_{B,rés}^2 + u_{B,cl}^2} = \_\_\_\_ \text{ V}$$
 
 $$U = 2 \times u_{c} = \_\_\_\_ \text{ V} \rightarrow U_{arrondi} = \_\_\_\_ \text{ V}$$
 
-$$\boxed{V_{out} = (\_\_\_\_ \pm \_\_\_\_) \text{ V [95\%]}}$$
+$$\boxed{U_{out} = (\_\_\_\_ \pm \_\_\_\_) \text{ V [95\%]}}$$
 
 **B1.4 *(1 pt)*** — Spécification : 5V ±3% → [4,85 V ; 5,15 V]. La mesure est-elle conforme ?
 
@@ -250,7 +250,7 @@ Conforme ? ☐ Oui  ☐ Non  → Conclusion : _______________
     
     $s = \sqrt{\dfrac{22{,}8 \times 10^{-6}}{4}} \approx 0{,}00239\,\mathrm{V}$ ; $u_A = \dfrac{0{,}00239}{\sqrt{5}} \approx 0{,}00107\,\mathrm{V}$.  
     **B1.2** — $u_{B,rés} = \dfrac{0{,}001}{2\sqrt{3}} \approx 0{,}00029\,\mathrm{V}$ ; $u_{B,cl} = \dfrac{0{,}5 \times 4{,}9868}{100\sqrt{3}} \approx 0{,}01440\,\mathrm{V}$.  
-    **B1.3** — $u_c = \sqrt{0{,}00107^2 + 0{,}00029^2 + 0{,}0144^2} \approx 0{,}01444\,\mathrm{V}$ ; $U = 2 \times 0{,}01444 = 0{,}0289\,\mathrm{V}$, arrondi par excès à **0,029 V** (2 chiffres car elle commence par 2). $V_{out} = (4{,}987 \pm 0{,}029)\,\mathrm{V}$ [95 %].  
+    **B1.3** — $u_c = \sqrt{0{,}00107^2 + 0{,}00029^2 + 0{,}0144^2} \approx 0{,}01444\,\mathrm{V}$ ; $U = 2 \times 0{,}01444 = 0{,}0289\,\mathrm{V}$, arrondi par excès à **0,029 V** (2 chiffres car elle commence par 2). $U_{out} = (4{,}987 \pm 0{,}029)\,\mathrm{V}$ [95 %].  
     **B1.4** — Intervalle mesuré : $[4{,}987 - 0{,}029\,;\,4{,}987 + 0{,}029] = [4{,}958\,;\,5{,}016]\,\mathrm{V}$, entièrement dans $[4{,}850\,;\,5{,}150]$ : **conforme**.
 
 ---
@@ -296,7 +296,7 @@ Conforme (≤ 25 mA) ? ☐ Oui  ☐ Non
 
 | **TC#** | **Exigence** | **Résultat ± U** | **Conforme ?** |
 |---|---|---|---|
-| TC-01 | $V_{out} = 5\,\mathrm{V} \pm 3\,\mathrm{\%} = [4{,}85;5{,}15]V$ | | |
+| TC-01 | $U_{out} = 5\,\mathrm{V} \pm 3\,\mathrm{\%} = [4{,}85;5{,}15]V$ | | |
 | TC-02 | $f = 1\,\mathrm{\mathrm{Hz}} \pm 10\,\mathrm{\%} = [0{,}9;1{,}1]\mathrm{Hz}$ | | |
 | TC-03 | If ≤ 25 mA | | |
 | TC-04 | DC ≈ 50% (observation) | À calculer | |
@@ -309,7 +309,7 @@ Conforme (≤ 25 mA) ? ☐ Oui  ☐ Non
 ??? success "Réponses"
     | TC# | Exigence | Résultat ± U | Conforme ? |
     |---|---|---|---|
-    | TC-01 | $V_{out} = 5\,\mathrm{V} \pm 3\,\%$ | $(4{,}987 \pm 0{,}029)\,\mathrm{V}$ | Oui |
+    | TC-01 | $U_{out} = 5\,\mathrm{V} \pm 3\,\%$ | $(4{,}987 \pm 0{,}029)\,\mathrm{V}$ | Oui |
     | TC-02 | $f = 1\,\mathrm{Hz} \pm 10\,\%$ | $(1{,}02 \pm 0{,}01)\,\mathrm{Hz}$ | Oui |
     | TC-03 | $I_f \leq 25\,\mathrm{mA}$ | $(19{,}30 \pm 0{,}13)\,\mathrm{mA}$ | Oui |
     | TC-04 | $DC \approx 50\,\%$ (observation) | $(51{,}8 \pm 0{,}17)\,\%$ | Observation : proche de 50 % |

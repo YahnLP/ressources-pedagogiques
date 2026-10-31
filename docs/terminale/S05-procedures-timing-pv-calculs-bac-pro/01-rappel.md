@@ -23,9 +23,9 @@ Tu as 2 heures, un sujet de 4 parties et un PV à rendre. Par quoi commences-tu 
 | Formule | Sens | Exemple (autres valeurs que le TP) |
 |---|---|---|
 | $I_{LED} = \dfrac{V_{CC} - V_F}{R}$ | Courant qui traverse la LED | $V_{CC}=5\,\mathrm{V}$, $V_F=2\,\mathrm{V}$, $R=330\,Ω$ → $9{,}1\,\mathrm{mA}$ |
-| $P = (V_{in} - V_{out}) \times I$ | Chaleur dissipée par un régulateur linéaire | $(5 - 3{,}3) \times 0{,}12 = 0{,}20\,\mathrm{W}$ |
+| $P = (U_{in} - U_{out}) \times I$ | Chaleur dissipée par un régulateur linéaire | $(5 - 3{,}3) \times 0{,}12 = 0{,}20\,\mathrm{W}$ |
 | $T_j = T_{amb} + P \times R_{\theta ja}$ | Température de la puce | $25 + 0{,}20 \times 44 \approx 34\,°\mathrm{C}$ |
-| $\eta = \dfrac{V_{out}}{V_{in}}$ | Rendement du régulateur linéaire | $\dfrac{3{,}3}{5} = 66\,\%$ |
+| $\eta = \dfrac{U_{out}}{U_{in}}$ | Rendement du régulateur linéaire | $\dfrac{3{,}3}{5} = 66\,\%$ |
 
 **Métrologie dans l'ordre** : écart $e_i$ de chaque mesure à la référence → biais $\bar{e}$ (moyenne des écarts) → écart-type $\sigma$ → $u = \dfrac{\sigma}{\sqrt{n}}$ → $U = 2u$ → **conforme si $|\bar{e}| + U \le$ tolérance**.
 

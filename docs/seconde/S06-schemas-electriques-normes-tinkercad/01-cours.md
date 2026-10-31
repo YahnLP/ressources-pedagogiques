@@ -316,7 +316,7 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 
 ![LED commandée par un transistor BC547](images/schema-transistor-led.png)
 
-**Problème** : On veut commander une LED rouge ($V_{F}$ = 2V, $I_{F}$ = 20mA) avec un transistor BC547 piloté par une sortie Arduino ($V_{\mathrm{out}}$ = 5V, $I_{\mathrm{out}}$ max = 40mA).
+**Problème** : On veut commander une LED rouge ($V_{F}$ = 2V, $I_{F}$ = 20mA) avec un transistor BC547 piloté par une sortie Arduino ($U_{\mathrm{out}}$ = 5V, $I_{\mathrm{out}}$ max = 40mA).
 
 **Données extraites de la datasheet BC547 :**
 
@@ -331,7 +331,7 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 |---|---|---|
 | Résistance LED (côté collecteur) | $R_{\mathrm{C}} = \dfrac{V_{\mathrm{CC}} - V_{\mathrm{F}} - V_{\mathrm{CE\_sat}}}{I_{\mathrm{F}}} = \dfrac{5 - 2 - 0{,}2}{0{,}02}$ | **$R_{C}$ = 140 Ω → choisir 150 Ω** |
 | Courant de base nécessaire | $I_{\mathrm{B}} = \dfrac{I_{\mathrm{C}}}{h_{\mathrm{FE}}}_min = \dfrac{20\,\mathrm{mA}}{110}$ | $I_{\mathrm{B}} = 0{,}18\,\mathrm{mA}$ |
-| Résistance de base | $R_{\mathrm{B}} = \dfrac{V_{\mathrm{out}} - V_{\mathrm{BE}}}{I_{\mathrm{B}}} = \dfrac{5 - 0{,}6}{0{,}00018}$ | **$R_{B}$ ≈ 24 kΩ → prendre 10 kΩ** (surpilotage pour saturation assurée) |
+| Résistance de base | $R_{\mathrm{B}} = \dfrac{U_{\mathrm{out}} - V_{\mathrm{BE}}}{I_{\mathrm{B}}} = \dfrac{5 - 0{,}6}{0{,}00018}$ | **$R_{B}$ ≈ 24 kΩ → prendre 10 kΩ** (surpilotage pour saturation assurée) |
 
 
 > [!TIP] 💡 En clair
