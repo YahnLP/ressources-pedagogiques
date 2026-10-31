@@ -14,7 +14,7 @@ def f_uno():
     o += '<rect x="150" y="360" width="60" height="40" rx="4" fill="#cfd6df"/>' + T(350, 330, "UNO", 28, 800, "#ffffffaa") + '<rect x="300" y="150" width="60" height="26" rx="4" fill="#2a2d33"/>'
     items = [(75, 175, "Connecteur USB type B"), (80, 390, "Jack d'alimentation 5,5/2,1 mm"), (290, 262, "Microcontrôleur ATmega328P"), (520, 140, "LED « L » reliée à D13 (celle de Blink)"), (545, 140, "LED TX (orange)"), (570, 140, "LED RX (orange)"), (595, 140, "LED PWR (verte)"), (190, 150, "Bouton Reset"), (420, 80, "Broches numériques D0 à D13"), (380, 459, "Broches analogiques A0 à A5"), (560, 459, "Alimentation : 3,3 V, 5 V, GND, Vin"), (180, 380, "Régulateur de tension 5 V")]
     for n, (px, py, t) in enumerate(items, 1):
-        y = 70 + (n - 1) * 36; o += badge(720, y, n, BLUE, 14) + T(745, y + 6, t, 15, 700, INK, "start") + f'<line x1="{px}" y1="{py}" x2="706" y2="{y}" stroke="{BLUE}" stroke-width="1.3" opacity=".35"/>' + badge(px, py, n, BLUE, 11)
+        y = 70 + (n - 1) * 36; o += badge(720, y, n, BLUE, 14) + T(745, y + 6, t, 15, 700, INK, "start") + f'<circle cx="{px}" cy="{py}" r="14" fill="#fff"/>' + badge(px, py, n, BLUE, 11)
     return figure(W, 540, o)
 
 
