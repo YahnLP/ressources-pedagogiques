@@ -363,6 +363,9 @@ def f_pont_h():
         r += s_wire([(xl, 300), (xl, 340)]) + s_wire([(xr, 300), (xr, 340)])
         r += s_wire([(xl, 300), (xl + 100, 300)]) + sym("MOTOR", x0 + 240, 300, rot=0, s=1.3) + s_wire([(xr - 100, 300), (xr, 300)])
         r += s_wire([(xl, 420), (xl, 460)]) + s_wire([(xr, 420), (xr, 460)]) + s_wire([(xl, 460), (xr, 460)]) + gnd(x0 + 240, 460)
+        # alimentation : pile reliée au +V (haut) et à la masse (bas)
+        xb = x0 + 480
+        r += s_wire([(xr, 150), (xb, 150), (xb, 255)], RED) + sym("BAT", xb, 300, 90, s=1.0) + s_wire([(xb, 345), (xb, 460), (xr, 460)]) + T(xb + 38, 312, "Source", 14, 800, RED, "start") + T(xb + 38, 331, "moteur", 14, 800, RED, "start")
         # trajet du courant
         if sens == 1:
             path = [(xl, 190), (xl, 300), (xr, 300), (xr, 460)]
