@@ -541,7 +541,7 @@ Le **schéma électronique** est le document qui permet à n'importe quel techni
 Components as blocks: U1=Arduino UNO (with labeled pins D2, D10, D11, A4, A5, 5V, GND),  
 DHT1=DHT11 sensor (with R1=10kΩ pull-up between VCC and DATA),  
 
-$$LCD1=LCD I2C 16x2 (SDA to A4, SCL to A5),$$
+LCD1=LCD I2C 16x2 (SDA to A4, SCL to A5),
 
 BT1=HC-05 (with voltage divider R2=1kΩ + R3=2kΩ on RXD pin).  
 Power rails +5V and GND labeled. Title block bottom-right with project title, author, date, version.  

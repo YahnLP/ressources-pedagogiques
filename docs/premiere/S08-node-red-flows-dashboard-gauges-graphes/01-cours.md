@@ -74,25 +74,9 @@ AVEC NODE-RED :
 
 ### Interface Node-RED
 
-```
-URL : http://localhost:1880
+![Interface de Node-RED : palette de nœuds, zone de flow, panneau de débogage et bouton Déployer](images/interface-node-red.png)
 
-┌─────────────────────────────────────────────────────────────┐
-│  Palette  │         Zone de flow              │  Info/Debug │
-│  (nœuds   │                                   │             │
-│  disponib)│    [inject]──[function]──[debug]  │  Logs ici   │
-│           │                                   │             │
-│  inject   │    [mqtt in]──[json]──[gauge]      │             │
-│  debug    │                                   │             │
-│  function │                                   │             │
-│  mqtt in  │                                   │             │
-│  mqtt out │                                   │             │
-│  http in  ├───────────────────────────────────┤             │
-│  ...      │   [Deploy] ← Valider les flows    │             │
-└─────────────────────────────────────────────────────────────┘
-
-Dashboard : http://localhost:1880/ui
-```
+Éditeur : `http://localhost:1880` · Tableau de bord : `http://localhost:1880/ui`
 
 
 #### Suivre un message pas à pas

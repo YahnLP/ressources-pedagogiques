@@ -259,42 +259,7 @@ Problème AWS IoT / certificats → CONSOLE AWS CLOUDWATCH
 
 ### Structure standardisée
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  FICHE DE MAINTENANCE CORRECTIVE                                    │
-├─────────────────────────────────────────────────────────────────────┤
-│  Équipement : esp32-station-météo-01    Date : 2026-03-15           │
-│  Intervenant : Alice DUPONT             Durée intervention : 45 min │
-├─────────────────────────────────────────────────────────────────────┤
-│  1. SYMPTÔME(S)                                                     │
-│  L'ESP32 ne publie plus sur AWS IoT depuis 14h00. LED Wi-Fi OK.    │
-│  Moniteur série : "Erreur MQTT : 5" en boucle.                    │
-├─────────────────────────────────────────────────────────────────────┤
-│  2. DÉMARCHE DE DIAGNOSTIC                                          │
-│  Étape 1 : Wi-Fi OK (LED + log "WiFi OK → 192.168.1.42")           │
-│  Étape 2 : Ping broker OK → broker joignable                       │
-│  Étape 3 : Console AWS → certificat actif ? Oui.                    │
-│  Étape 4 : Console AWS → Surveiller → MQTT test → log erreur :     │
-│           "Policy doesn't allow iot:Publish on this resource"       │
-├─────────────────────────────────────────────────────────────────────┤
-│  3. CAUSE IDENTIFIÉE                                                │
-│  La Policy IoT AWS a été modifiée par erreur (suppression de        │
-│  l'action iot:Publish lors d'une mise à jour de sécurité).          │
-├─────────────────────────────────────────────────────────────────────┤
-│  4. ACTION CORRECTIVE                                               │
-│  Ajout de "iot:Publish" dans la Policy IoT via console AWS.         │
-├─────────────────────────────────────────────────────────────────────┤
-│  5. VALIDATION                                                      │
-│  Messages visibles dans console AWS MQTT Test : ✅                  │
-│  CloudWatch : nouvelles métriques température : ✅                  │
-│  Durée sans incident depuis : > 24h ✅                               │
-├─────────────────────────────────────────────────────────────────────┤
-│  6. AMÉLIORATION PRÉVENTIVE                                         │
-│  Créer une alarme CloudWatch sur l'absence de métriques > 15 min.  │
-│  Ajouter politique de gestion des changements (validation avant     │
-│  toute modification de Policy IoT en production).                   │
-└─────────────────────────────────────────────────────────────────────┘
-```
+![Fiche de maintenance corrective complétée : symptôme, démarche de diagnostic, cause, action, validation, amélioration préventive](images/fiche-maintenance.png)
 
 
 > [!TIP] 💡 En clair

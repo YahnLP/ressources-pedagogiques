@@ -104,17 +104,7 @@ Prenons **trois appareils** : un ESP32 avec un capteur de température, un PC qu
 
 **Étape 4. Le broker redistribue.** Il regarde sa liste : qui est abonné à ce topic ? Il **recopie** le message vers chacun des abonnés. Le tableau de bord reçoit `22.5`.
 
-```
-   ESP32                    BROKER                  Tableau de bord
-     │── CONNECT ───────────▶│                          │
-     │◀── CONNACK ───────────│                          │
-     │                       │◀──── CONNECT ────────────│
-     │                       │───── CONNACK ───────────▶│
-     │                       │◀──── SUBSCRIBE ──────────│  « je veux maison/salon/temperature »
-     │                       │───── SUBACK ────────────▶│
-     │── PUBLISH 22.5 ──────▶│                          │  topic : maison/salon/temperature
-     │                       │───── PUBLISH 22.5 ──────▶│  le broker redistribue
-```
+![Séquence MQTT : connexion, abonnement puis publication entre l'ESP32, le broker et le tableau de bord](images/sequence-mqtt.png)
 
 > [!TIP] 💡 À retenir sur l'ordre
 > L'abonnement doit avoir lieu **avant** la publication pour recevoir le message en direct. Un abonné qui arrive après **rate** les messages déjà passés (sauf s'ils ont été « retenus », voir la partie 5).
