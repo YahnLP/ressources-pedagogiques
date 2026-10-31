@@ -518,7 +518,7 @@ Câblage : entre _____ et _____
 
 (Montrez tous les calculs)  
 
-$\displaystyle V_{out} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$
+$\displaystyle U_{out} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5em}}) V [95\,\mathrm{\%}]$
 
 **E2.2 *(2 pts)*** — La fréquence NE555 mesurée à l'oscillo est 0,978 Hz. La spécification est 1 Hz ±10%.
 
@@ -532,7 +532,7 @@ $\displaystyle V_{out} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5e
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 ??? success "Réponses"
-    **E2.1** — $\bar{V} = 4{,}999\,\mathrm{V}$ ; $s \approx 0{,}00265$ ; $u_A \approx 0{,}00153$ ; $u_{B,rés} \approx 0{,}00029$ ; $u_{B,cl} = \dfrac{0{,}5 \times 4{,}999}{100\sqrt{3}} \approx 0{,}01443$ ; $u_c \approx 0{,}01451$ ; $U \approx 0{,}0290$ → **0,029 V**. $V_{out} = (4{,}999 \pm 0{,}029)\,\mathrm{V}$ [95 %].  
+    **E2.1** — $\bar{V} = 4{,}999\,\mathrm{V}$ ; $s \approx 0{,}00265$ ; $u_A \approx 0{,}00153$ ; $u_{B,rés} \approx 0{,}00029$ ; $u_{B,cl} = \dfrac{0{,}5 \times 4{,}999}{100\sqrt{3}} \approx 0{,}01443$ ; $u_c \approx 0{,}01451$ ; $U \approx 0{,}0290$ → **0,029 V**. $U_{out} = (4{,}999 \pm 0{,}029)\,\mathrm{V}$ [95 %].  
     **E2.2** — $0{,}978 \in [0{,}90\,;\,1{,}10]$ : **conforme** ; écart $= \dfrac{0{,}978 - 1}{1} \times 100 = -2{,}2\,\%$.  
     **E2.3** — 72 % est **inférieur à 75 %** : **non conforme** en classe 2. Action : **retoucher** la brasure (refusion avec apport de soudure) puis contrôler à nouveau.
 
@@ -544,7 +544,7 @@ $\displaystyle V_{out} = (\underline{\hspace{2.5em}} \pm \underline{\hspace{2.5e
 
 | TC# | Exigence | Résultat ± U | Conf. |
 |---|---|---|---|
-| TC-01 | $V_{out} = 5\,\mathrm{V} \pm 5\,\mathrm{\%} = [4{,}75;5{,}25]V$ |  |  |
+| TC-01 | $U_{out} = 5\,\mathrm{V} \pm 5\,\mathrm{\%} = [4{,}75;5{,}25]V$ |  |  |
 | TC-02 | $f = 1\,\mathrm{\mathrm{Hz}} \pm 10\,\mathrm{\%} = [0{,}90;1{,}10]\mathrm{Hz}$ |  |  |
 | TC-03 | Assemblage IPC-A-610 Cl.2 |  |  |
 
@@ -569,7 +569,7 @@ Conclusion : _____________________________________________________________
     
     | TC# | Exigence | Résultat ± U | Conf. |
     |---|---|---|---|
-    | TC-01 | $V_{out} = 5\,\mathrm{V} \pm 5\,\%$ | $(4{,}999 \pm 0{,}029)\,\mathrm{V}$ | Oui |
+    | TC-01 | $U_{out} = 5\,\mathrm{V} \pm 5\,\%$ | $(4{,}999 \pm 0{,}029)\,\mathrm{V}$ | Oui |
     | TC-02 | $f = 1\,\mathrm{Hz} \pm 10\,\%$ | $0{,}978\,\mathrm{Hz}$ (écart −2,2 %) | Oui |
     | TC-03 | Assemblage IPC-A-610 Cl. 2 | Remplissage J1 = 72 % | **Non** |
     

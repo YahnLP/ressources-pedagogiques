@@ -63,7 +63,7 @@ Associe une empreinte à **chaque** composant (vérifie les dimensions avec la d
 
 Une fois la carte montée et alimentée en 12 V :
 
-1. Mesure $V_{out}$ du 7805 : **4,75 V à 5,25 V** attendu.
+1. Mesure $U_{out}$ du 7805 : **4,75 V à 5,25 V** attendu.
 2. Mesure la **fréquence** à l'oscilloscope : **0,9 Hz à 1,1 Hz** attendu.
 3. Mesure le courant dans la LED : **≤ 30 mA** (cible 20 mA).
 4. Rédige le **PV** : valeur attendue, valeur mesurée, verdict pour chaque test, conclusion.

@@ -229,7 +229,7 @@ Règles de câblage dans un boîtier :
 | **Composant** | **Tmax absolue** | **Tmax recommandée** | **Puissance dissipée** |
 |---|---|---|---|
 | ESP32 (chip) | 125°C | 85°C | ~0,5W en fonctionnement normal |
-| Régulateur 5V AMS1117 | 150°C | 85°C | $P = (V_{in}-V_{out}) \times I = (9\,\mathrm{V}-5\,\mathrm{V}) \times 0{,}5\,\mathrm{A} = 2\,\mathrm{W}$ |
+| Régulateur 5V AMS1117 | 150°C | 85°C | $P = (U_{in}-U_{out}) \times I = (9\,\mathrm{V}-5\,\mathrm{V}) \times 0{,}5\,\mathrm{A} = 2\,\mathrm{W}$ |
 | DHT22 | 60°C | 40°C | Négligeable |
 | Batterie LiPo | 60°C | 45°C | Génère de la chaleur en charge |
 

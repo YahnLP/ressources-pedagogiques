@@ -51,7 +51,7 @@ Exemple : R_LED = 150Ω (au lieu de 220Ω)
 ④ Tj = Tamb + Pdiss × Rθja (44 °C/W)  
 ⑤ Marge = 105 − Tj  (OK si > 20°C)  
 
-$$⑥ \eta  = \dfrac{V_{out}}{V_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
+$$⑥ \eta  = \dfrac{U_{out}}{U_{in}} = \dfrac{3{,}3}{5} = 66\,\mathrm{\%}$$
 
 Composants à ne PAS oublier :  
 ESP32 · DHT22 · LED · $R_{\mathrm{CHARGE}}$ (!)  

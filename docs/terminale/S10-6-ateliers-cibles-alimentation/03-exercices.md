@@ -99,7 +99,7 @@ Application 3 : Amplificateur audio précision ±15V → ±12V, 100mA
 
 ??? success "Réponses"
 
-    1. $P_{diss} = (V_{in} - V_{out}) \times I_{out}$.  
+    1. $P_{diss} = (U_{in} - U_{out}) \times I_{out}$.  
     2. 110 °C dépasse 105 °C : ajouter un **radiateur**, réduire la puissance dissipée ou passer à un **découpage**.  
     3. Un **meilleur rendement** donc une **autonomie plus longue**.  
     4. $t = \dfrac{\text{capacité}}{I_{moy}} \times 0{,}80$.  
