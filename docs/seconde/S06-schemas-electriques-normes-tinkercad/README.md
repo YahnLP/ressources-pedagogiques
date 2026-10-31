@@ -11,4 +11,4 @@
 | Document | Rôle |
 |---|---|
 | [📖 Cours](01-cours.md) | Fiche de cours élève |
-| [📎 Guide PAS À PAS — Tinkercad Circuits](annexe-guide-pas-a-pas-tinkercad-circuits.md) | Document de référence |
+| [📎 Guide PAS À PAS — ElectroLab et Tinkercad Circuits](annexe-guide-pas-a-pas-tinkercad-circuits.md) | Document de référence |
