@@ -268,44 +268,7 @@ Chaque fil est identifié par une **étiquette placée aux deux extrémités**, 
 
 ### Exemple de table de configuration complète
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 8 — CONFIGURATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-8.1 RÉSEAU ET CONNECTIVITÉ
-  SSID Wi-Fi       : [NOM_RESEAU]  ← Ne pas mettre le mot de passe en clair
-  Fréquence        : 2,4 GHz (IEEE 802.11 b/g/n)
-  Adresse IP       : DHCP (IP assignée dynamiquement)
-  Hostname         : industech-machine-01
-
-8.2 AWS IOT CORE
-  Endpoint         : xxxxxx-ats.iot.eu-west-1.amazonaws.com
-  Port             : 8883 (MQTT TLS)
-  Client ID        : industech-machine-01
-  Certificats      : Stockés dans le firmware (voir Annexe A)
-  Région AWS       : eu-west-1 (Paris)
-  
-8.3 TOPICS MQTT
-  Publication data : industech/machine01/capteurs
-  Publication status: industech/machine01/status
-  Subscription cmd : industech/machine01/commande
-  LWT              : industech/machine01/status → {"status":"offline"}
-  QoS Publication  : 1 (at least once)
-
-8.4 SEUILS DE MAINTENANCE
-  Seuil alerte     : vibration > 2,5 g (RMS)
-  Seuil critique   : vibration > 4,0 g (arrêt préventif recommandé)
-  MTBF cible       : > 60 min (niveau surveillance normale)
-  Fréquence publication : 5 secondes
-  
-8.5 CLOUDWATCH
-  Espace de noms   : Industrie40/CIEL
-  Métriques        : Vibration, Temperature, MTBF_min, NbAlarmes
-  Alarme           : Vibration > 2.5 pendant 2 périodes consécutives → SNS
-  Dashboard        : Dashboard-IoT-CIEL-Machine01
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+![Exemple de table de configuration complète (section 8 du DAT) : réseau, AWS IoT Core, topics MQTT, seuils, CloudWatch](images/config-dat.png)
 
 
 > [!TIP] 💡 En clair : la section configuration
@@ -321,82 +284,91 @@ SECTION 8 — CONFIGURATION
 
 ### Procédure d'installation type
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PROCÉDURE D'INSTALLATION — REF: PROC-INSTALL-001
-Date création : 2026-03-20  Version : 1.0
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
+> [!NOTE] PROCÉDURE D'INSTALLATION — REF: PROC-INSTALL-001
+> Date création : 2026-03-20  Version : 1.0
 PRÉREQUIS :
-  ☐ Compte AWS actif avec droits IoT Core
-  ☐ Arduino IDE 2.x installé avec bibliothèques PubSubClient, Wire
-  ☐ Driver USB-Serial CP210x installé
-  ☐ Accès Wi-Fi 2.4 GHz disponible
+- ☐ Compte AWS actif avec droits IoT Core
+- ☐ Arduino IDE 2.x installé avec bibliothèques PubSubClient, Wire
+- ☐ Driver USB-Serial CP210x installé
+- ☐ Accès Wi-Fi 2.4 GHz disponible
 
 ÉTAPES :
-  1. Câblage hardware
-     ☐ 1.1 Connecter ADXL345 : SDA→GPIO21, SCL→GPIO22, VCC→3.3V, GND→GND
-     ☐ 1.2 Connecter DHT22 : DATA→GPIO4, VCC→3.3V, GND→GND
-     ☐ 1.3 Insérer résistances pull-up 4.7kΩ : SDA→3.3V, SCL→3.3V
-     Validation : Vérifier continuité au multimètre sur chaque connexion
 
-  2. Configuration AWS IoT Core
-     ☐ 2.1 Créer le Thing "industech-machine-01" dans la console AWS
-     ☐ 2.2 Générer et télécharger les 3 certificats X.509
-     ☐ 2.3 Attacher la Policy "iot-ciel-lab-policy" au certificat
-     ☐ 2.4 Relever l'endpoint AWS IoT Core
-     Validation : Le Thing apparaît dans la liste, statut "actif"
+**1. Câblage hardware**
 
-  3. Chargement du firmware
-     ☐ 3.1 Ouvrir TP_AWS_IoT_ESP32.ino dans Arduino IDE
-     ☐ 3.2 Coller les 3 certificats dans les variables ca_cert / device_cert / private_key
-     ☐ 3.3 Renseigner SSID, password, endpoint, client_id
-     ☐ 3.4 Compiler et téléverser (115200 bauds)
-     Validation : Moniteur série affiche "Connecté !" et "✓ {...}"
+- ☐ 1.1 Connecter ADXL345 : SDA→GPIO21, SCL→GPIO22, VCC→3.3V, GND→GND
+- ☐ 1.2 Connecter DHT22 : DATA→GPIO4, VCC→3.3V, GND→GND
+- ☐ 1.3 Insérer résistances pull-up 4.7kΩ : SDA→3.3V, SCL→3.3V
+- ✅ **Validation :** Vérifier continuité au multimètre sur chaque connexion
 
-  4. Vérification cloud
-     ☐ 4.1 Console AWS → IoT Core → MQTT Test → Subscribe "industech/#"
-     ☐ 4.2 Attendre 10 secondes, vérifier réception des messages
-     ☐ 4.3 Vérifier Dashboard CloudWatch → métriques alimentées
-     Validation : ≥ 3 messages reçus dans la console MQTT test
 
-  5. Test d'alarme
-     ☐ 5.1 Agiter l'ADXL345 au-dessus du seuil (2,5g)
-     ☐ 5.2 Vérifier "alarme": true dans le payload JSON
-     ☐ 5.3 Vérifier le déclenchement de l'alarme CloudWatch
-     Validation : Alarme CloudWatch passe en état IN_ALARM
+**2. Configuration AWS IoT Core**
 
-RÉSULTAT ATTENDU : Système opérationnel, données visibles dans CloudWatch
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+- ☐ 2.1 Créer le Thing "industech-machine-01" dans la console AWS
+- ☐ 2.2 Générer et télécharger les 3 certificats X.509
+- ☐ 2.3 Attacher la Policy "iot-ciel-lab-policy" au certificat
+- ☐ 2.4 Relever l'endpoint AWS IoT Core
+- ✅ **Validation :** Le Thing apparaît dans la liste, statut "actif"
+
+
+**3. Chargement du firmware**
+
+- ☐ 3.1 Ouvrir TP_AWS_IoT_ESP32.ino dans Arduino IDE
+- ☐ 3.2 Coller les 3 certificats dans les variables ca_cert / device_cert / private_key
+- ☐ 3.3 Renseigner SSID, password, endpoint, client_id
+- ☐ 3.4 Compiler et téléverser (115200 bauds)
+- ✅ **Validation :** Moniteur série affiche "Connecté !" et "✓ {...}"
+
+
+**4. Vérification cloud**
+
+- ☐ 4.1 Console AWS → IoT Core → MQTT Test → Subscribe "industech/#"
+- ☐ 4.2 Attendre 10 secondes, vérifier réception des messages
+- ☐ 4.3 Vérifier Dashboard CloudWatch → métriques alimentées
+- ✅ **Validation :** ≥ 3 messages reçus dans la console MQTT test
+
+
+**5. Test d'alarme**
+
+- ☐ 5.1 Agiter l'ADXL345 au-dessus du seuil (2,5g)
+- ☐ 5.2 Vérifier "alarme": true dans le payload JSON
+- ☐ 5.3 Vérifier le déclenchement de l'alarme CloudWatch
+- ✅ **Validation :** Alarme CloudWatch passe en état IN_ALARM
+
+
+> [!SUCCESS] RÉSULTAT ATTENDU : Système opérationnel, données visibles dans CloudWatch
+
 
 ### Procédure de maintenance corrective type
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PROCÉDURE MAINTENANCE — REF: PROC-MAINT-001
-Symptôme couvert : ESP32 ne publie plus sur MQTT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+> [!NOTE] PROCÉDURE MAINTENANCE — REF: PROC-MAINT-001
+> Symptôme couvert : ESP32 ne publie plus sur MQTT
 
-1. Vérifier la connectivité Wi-Fi
-   Action  : Ouvrir le moniteur série, observer RSSI et état Wi-Fi
-   Si OK   : Passer à l'étape 2
-   Si NON  : Vérifier SSID/password — relancer `WiFi.begin()`
+**1. Vérifier la connectivité Wi-Fi**
 
-2. Vérifier la connexion MQTT
-   Action  : Lire `mqtt.state()` dans le moniteur série
-   -2 FAILED : IP broker incorrecte → corriger l'endpoint
-   4 BAD_CREDENTIALS : identifiants refusés (certificats corrompus ?) → régénérer
-   5 UNAUTHORIZED : policy ou certificat inactif → vérifier la console AWS
+- **Action :** Ouvrir le moniteur série, observer RSSI et état Wi-Fi
+- **Si OK :** Passer à l'étape 2
+- **Si NON :** Vérifier SSID/password — relancer `WiFi.begin()`
 
-3. Vérifier les métriques CloudWatch
-   Action  : Console AWS → CloudWatch → Dashboard
-   Si vide depuis > 15 min → règle IoT désactivée ou rôle IAM révoqué
 
-4. Validation après correction
-   Action  : Confirmer réception de ≥ 3 messages dans MQTT Test
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+**2. Vérifier la connexion MQTT**
+
+- **Action :** Lire `mqtt.state()` dans le moniteur série
+- `-2 FAILED` : IP broker incorrecte → corriger l'endpoint
+- `4 BAD_CREDENTIALS` : identifiants refusés (certificats corrompus ?) → régénérer
+- `5 UNAUTHORIZED` : policy ou certificat inactif → vérifier la console AWS
+
+
+**3. Vérifier les métriques CloudWatch**
+
+- **Action :** Console AWS → CloudWatch → Dashboard
+- **Si vide depuis > 15 min** → règle IoT désactivée ou rôle IAM révoqué
+
+
+**4. Validation après correction**
+
+- **Action :** Confirmer réception de ≥ 3 messages dans MQTT Test
+
 
 
 > [!TIP] 💡 En clair : écrire une procédure que n'importe qui peut suivre

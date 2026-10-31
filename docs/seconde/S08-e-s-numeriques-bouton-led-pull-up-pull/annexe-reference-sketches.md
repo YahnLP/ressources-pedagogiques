@@ -328,26 +328,12 @@ void loop() {
 
 ## 🔌 Récapitulatif câblage — Vue d'ensemble
 
-```
-CONFIGURATION PULL-DOWN (logique naturelle)
-─────────────────────────────────────────────
-  D4 ─────────────┬───── [Bouton] ──── 5V
-                  │
-                [10kΩ]   ← Résistance pull-down
-                  │
-                 GND
+![Bouton avec pull-down externe (10 kΩ) ou avec INPUT_PULLUP interne](images/pulldown-pullup.png)
 
-  État relâché : D4 → GND via 10kΩ → digitalRead = 0
-  État appuyé  : D4 → 5V via bouton → digitalRead = 1
-
-CONFIGURATION INPUT_PULLUP (économique, logique inversée)
-──────────────────────────────────────────────────────────
-  D4 ── [~25kΩ interne] ── 5V    (résistance interne activée)
-  D4 ──────────────────────────── [Bouton] ──── GND
-
-  État relâché : D4 → 5V via résistance interne → digitalRead = 1
-  État appuyé  : D4 → GND via bouton → digitalRead = 0
-```
+| Configuration | Bouton relâché | Bouton appuyé |
+|---|---|---|
+| **Pull-down externe** (10 kΩ vers GND, bouton vers 5 V) | D4 → GND via 10 kΩ : `digitalRead` = **0** | D4 → 5 V via le bouton : `digitalRead` = **1** |
+| **INPUT_PULLUP** (résistance interne ≈ 25 kΩ vers 5 V, bouton vers GND) | D4 → 5 V via la résistance interne : `digitalRead` = **1** | D4 → GND via le bouton : `digitalRead` = **0** |
 
 ---
 
