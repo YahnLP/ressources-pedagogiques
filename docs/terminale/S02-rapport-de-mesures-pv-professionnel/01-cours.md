@@ -101,17 +101,7 @@ Tu mesures 5,02 V sur une alimentation. Le client te demande : « Êtes-vous **s
 
 > La **traçabilité métrologique** garantit qu'une mesure peut être reliée, par une chaîne ininterrompue de comparaisons, aux étalons nationaux et internationaux.
 
-```
-BIPM (Bureau International des Poids et Mesures — Sèvres)
-  ↓ Définition SI (le métre, l'ampère, le kelvin...)
-LNE (Laboratoire National de Métrologie et d'Essais — France)
-  ↓ Étalons primaires nationaux
-Laboratoire accrédité COFRAC
-  ↓ Certificat d'étalonnage ISO/CEI 17025
-Votre multimètre étalonné
-  ↓ Mesure avec incertitude connue
-VOTRE PV DE MESURE
-```
+![Chaîne de raccordement : BIPM, LNE, laboratoire COFRAC, votre multimètre, votre PV](images/chaine-raccordement.png)
 
 > **Sans cette chaîne**, votre mesure ne peut pas être opposée à une norme, un contrat ou un tribunal.
 

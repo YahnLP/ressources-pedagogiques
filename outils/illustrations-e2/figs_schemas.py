@@ -355,4 +355,22 @@ def f_pv_mesure():
     return figure(W, 1050, o)
 
 
-FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "reperage_fils": f_reperage_fils, "pv_mesure": f_pv_mesure, "hysteresis_thermostat": f_thermostat_analogie}
+def f_chaine_raccordement():
+    o = T(600, 44, "La chaîne de raccordement métrologique", 22, 800, INK)
+    levels = (("BIPM", "Bureau International des Poids et Mesures (Sèvres)", "définit le SI : le mètre, l'ampère, le kelvin…", "NIVEAU INTERNATIONAL", "#7c3aed"),
+              ("LNE", "Laboratoire National de Métrologie et d'Essais (France)", "détient les étalons primaires nationaux", "NIVEAU NATIONAL", BLUE),
+              ("Laboratoire accrédité COFRAC", "accrédité selon la norme ISO/CEI 17025", "émet un certificat d'étalonnage", "NIVEAU LABORATOIRE", GREEN),
+              ("Votre multimètre", "étalonné : sa calibration est datée", "mesure avec une incertitude connue", "NIVEAU ATELIER", AMBER),
+              ("VOTRE PV DE MESURE", "le résultat est traçable", "jusqu'aux étalons internationaux", "VOTRE TRAVAIL", RED))
+    for k, (t, sub, act, tag, c) in enumerate(levels):
+        y = 80 + k * 116
+        x = 90 + k * 40; w = 1020 - k * 80
+        o += f'<rect x="{x}" y="{y}" width="{w}" height="86" rx="14" fill="#fff" stroke="{c}" stroke-width="4"/><rect x="{x}" y="{y}" width="12" height="86" rx="6" fill="{c}"/>'
+        o += T(x + 34, y + 34, t, 21, 800, c, "start") + T(x + 34, y + 60, sub, 15, 600, MUTED, "start")
+        o += f'<rect x="{x+w-250}" y="{y+16}" width="226" height="26" rx="13" fill="{c}"/>' + T(x + w - 137, y + 34, tag, 12, 800, "#fff") + T(x + w - 24, y + 66, act, 14, 700, INK, "end")
+        if k < 4: o += arrow(600, y + 90, 600, y + 126, INK, 4)
+    o += T(600, 676, "Chaque maillon est comparé au précédent : la chaîne ne doit JAMAIS être interrompue", 16, 800, RED)
+    return figure(W, 710, o)
+
+
+FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "reperage_fils": f_reperage_fils, "pv_mesure": f_pv_mesure, "chaine_raccordement": f_chaine_raccordement, "hysteresis_thermostat": f_thermostat_analogie}
