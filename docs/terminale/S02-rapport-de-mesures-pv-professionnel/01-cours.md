@@ -68,54 +68,7 @@ Tu mesures 5,02 V sur une alimentation. Le client te demande : « Êtes-vous **s
 
 ### Les 10 sections d'un PV complet
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  PROCÈS-VERBAL DE MESURE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-1. EN-TÊTE ET IDENTIFICATION
-   Référence PV    : PV-2026-ESP32-001
-   Date            : 2026-03-20
-   Lieu            : Labo électronique – CFA [Ville]
-   Donneur d'ordre : INDUSTECH SAS – M. DUBOIS
-
-2. OBJET DE LA MESURE
-   Vérification des résistances de pull-up I2C sur carte ESP32
-
-3. ÉQUIPEMENT SOUS TEST (EUT)
-   Désignation     : Carte ESP32 IoT AGROSMART
-   Référence       : ASM-001-REV2
-   N° de série     : SN20260320-03
-
-4. INSTRUMENTS UTILISÉS
-   ┌───────────────────────────────────────────────────────┐
-   │  Appareil    : Multimètre numérique Fluke 87V        │
-   │  N° de série : 7435280                               │
-   │  Calibration : 2026-01-15 – Cert. N° LAB-2026-0047  │
-   │  Classe      : 0,5                                   │
-   │  Validité    : 2027-01-14                            │
-   └───────────────────────────────────────────────────────┘
-
-5. CONDITIONS DE MESURE
-   Température ambiante : 22°C ± 2°C
-   Hygrométrie          : 45% HR ± 10%
-   Réseau électrique    : Mesure hors tension (Ω)
-
-6. RÉSULTATS DE MESURE
-   (voir tableau section suivante)
-
-7. INCERTITUDES
-   (voir calcul section suivante)
-
-8. CONCLUSION / CONFORMITÉ
-   ☐ Conforme    ☐ Non conforme    ☐ Sous réserve
-
-9. REMARQUES ET OBSERVATIONS
-
-10. SIGNATURES
-    Mesureur : ________________    Responsable qualité : ________________
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+![Procès-verbal de mesure : les 10 rubriques d'un PV complet, avec l'exemple d'une vérification des pull-up I2C](images/pv-mesure-10-sections.png)
 
 
 > [!TIP] 💡 En clair
