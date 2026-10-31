@@ -79,15 +79,36 @@ def f_kicad_drc():
 
 
 def f_kicad_3d():
-    o = f'<rect x="40" y="30" width="1120" height="470" rx="12" fill="url(#bg3d)"/><defs><linearGradient id="bg3d" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fb4d4"/><stop offset="1" stop-color="#e6edf7"/></linearGradient></defs>'
+    o = f'<rect x="40" y="30" width="1120" height="470" rx="12" fill="url(#bg3d)"/><defs><linearGradient id="bg3d" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fb4d4"/><stop offset="1" stop-color="#e6edf7"/></linearGradient><linearGradient id="rbody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4e7c3"/><stop offset=".55" stop-color="#e2cb93"/><stop offset="1" stop-color="#b79d62"/></linearGradient></defs>'
+    # carte (dessus + tranches)
     o += '<polygon points="300,300 760,260 960,360 480,420" fill="#1c7a46" stroke="#0e4a2a" stroke-width="3"/><polygon points="300,300 480,420 480,436 300,316" fill="#115c33"/><polygon points="480,420 960,360 960,376 480,436" fill="#0e4a2a"/>'
-    o += T(640, 360, "R1   D1   Q1", 18, 800, "#e8f5ec", extra='transform="rotate(-6 640 360)"')
-    def cyl(x, y, w, h, c): return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{h/2}" fill="{c}" stroke="#7a6a45" stroke-width="2"/>'
-    o += cyl(420, 330, 120, 26, "#e6d3a3") + cyl(470, 380, 120, 26, "#e6d3a3")
-    o += g(700, 320, '<path d="M-30,0 L-30,-30 Q-30,-56 0,-56 Q30,-56 30,-30 L30,0 Z" fill="url(#black)"/><rect x="-22" y="0" width="5" height="22" fill="#c9cfd8"/><rect x="-2" y="0" width="5" height="22" fill="#c9cfd8"/><rect x="18" y="0" width="5" height="22" fill="#c9cfd8"/>', 1.1)
-    o += g(820, 330, '<path d="M-26,0 L-26,-26 A26,26 0 0 1 26,-26 L26,0 Z" fill="#e5353b"/><rect x="-32" y="-4" width="64" height="8" fill="#c22"/>', 1.0)
-    o += f'<rect x="860" y="300" width="80" height="30" fill="#222" transform="skewY(18)"/>' + "".join(f'<rect x="{868+i*17}" y="{302+i*0}" width="8" height="10" fill="#d9a441" transform="skewY(18)"/>' for i in range(4))
-    o += callout(700, 270, 940, 130, "Transistor BC547", "start", 17, bold=True) + callout(820, 305, 940, 190, "LED rouge", "start", 17, bold=True) + callout(500, 345, 150, 150, "Résistances traversantes", "start", 17, bold=True) + callout(900, 345, 940, 250, "Connecteur", "start", 17, bold=True)
+    # pistes (cuivre sous masque) et pastilles
+    o += '<g opacity=".55"><path d="M440,332 L520,360 L560,372" stroke="#8fd19e" stroke-width="3" fill="none"/><path d="M560,372 L640,345 L690,330" stroke="#8fd19e" stroke-width="3" fill="none"/></g>'
+    def hole(x, y): return f'<ellipse cx="{x}" cy="{y}" rx="7" ry="3.6" fill="#d9a441" stroke="#8a6a1c" stroke-width="1"/><ellipse cx="{x}" cy="{y}" rx="3" ry="1.5" fill="#0b2d1a"/>'
+    def resistor(cx, cy, ang, c1, c2, c3):
+        """résistance traversante : corps cylindrique + 2 pattes plongeant dans les trous"""
+        import math as m
+        dx, dy = m.cos(m.radians(ang)), m.sin(m.radians(ang))
+        L = 62; lift = 22
+        x1, y1, x2, y2 = cx - dx * L, cy - dy * L, cx + dx * L, cy + dy * L
+        r = hole(x1, y1) + hole(x2, y2)
+        r += f'<path d="M{x1},{y1} V{y1-lift} H{x1+dx*24} M{x2},{y2} V{y2-lift} H{x2-dx*24}" stroke="#c9cfd8" stroke-width="3" fill="none" stroke-linejoin="round"/>'
+        r += f'<g transform="translate({cx},{cy-lift}) rotate({ang})"><rect x="-38" y="-9" width="76" height="18" rx="9" fill="url(#rbody)" stroke="#7a6a45" stroke-width="1.6"/>'
+        for bx, col in ((-20, c1), (-8, c2), (4, c3)): r += f'<rect x="{bx}" y="-9" width="6" height="18" fill="{col}"/>'
+        r += '<rect x="24" y="-9" width="5" height="18" fill="#c9a227"/></g>'
+        return r
+    o += resistor(470, 345, -4, "#7a4320", "#000", "#d32f2f") + resistor(560, 392, -4, "#d32f2f", "#d32f2f", "#7a4320")
+    # transistor TO-92 (pattes dans la carte)
+    o += g(690, 318, '<path d="M-30,0 L-30,-30 Q-30,-56 0,-56 Q30,-56 30,-30 L30,0 Z" fill="url(#black)"/><rect x="-22" y="0" width="5" height="16" fill="#c9cfd8"/><rect x="-2" y="0" width="5" height="16" fill="#c9cfd8"/><rect x="18" y="0" width="5" height="16" fill="#c9cfd8"/>', 1.1)
+    o += hole(668, 337) + hole(691, 337) + hole(713, 337)
+    # LED rouge
+    o += g(800, 322, '<path d="M-26,0 L-26,-26 A26,26 0 0 1 26,-26 L26,0 Z" fill="#e5353b"/><rect x="-32" y="-4" width="64" height="8" fill="#c22"/><rect x="-14" y="4" width="3" height="12" fill="#c9cfd8"/><rect x="11" y="4" width="3" height="12" fill="#c9cfd8"/>', 1.0)
+    # connecteur 4 broches (barrette sécable)
+    o += '<polygon points="842,318 928,318 932,333 846,333" fill="#2a2d33"/><polygon points="846,333 932,333 932,345 846,345" fill="#15171b"/>' + "".join(f'<rect x="{854+i*19}" y="{300}" width="5" height="19" fill="#d9a441"/>' for i in range(4))
+    # sérigraphie
+    o += T(445, 372, "R1", 14, 800, "#e8f5ec") + T(537, 418, "R2", 14, 800, "#e8f5ec") + T(690, 358, "Q1", 14, 800, "#e8f5ec") + T(800, 350, "D1", 14, 800, "#e8f5ec") + T(890, 362, "J1", 14, 800, "#e8f5ec")
+    # légendes
+    o += callout(470, 328, 150, 150, "Résistances traversantes", "start", 17, bold=True) + callout(690, 262, 940, 130, "Transistor BC547", "start", 17, bold=True) + callout(800, 296, 940, 190, "LED rouge", "start", 17, bold=True) + callout(890, 312, 940, 250, "Connecteur", "start", 17, bold=True)
     o += chip(600, 470, "Vue 3D : masque vert, sérigraphie blanche", INK, w=520, size=16)
     return figure(W, 530, o)
 
