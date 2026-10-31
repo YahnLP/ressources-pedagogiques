@@ -130,15 +130,14 @@ def f_sym_avances():
 
 def f_schema_bp_led():
     L, Tp, B = 130, 110, 400
-    o = vrun(L, Tp, B, [(255, "BAT", "5 V", {})], -1) + s_wire([(L, Tp), (900, Tp)]) + dot(300, Tp) + dot(520, Tp)
+    o = vrun(L, Tp, B, [(255, "BAT", "5 V", {})], -1) + s_wire([(L, Tp), (300, Tp), (300, 255)])
     o += vrun(300, Tp, 255, [(180, "R", "R1 10 kΩ", {})], 1, 60) + dot(300, 255) if False else ""
-    o += vrun(300, Tp, 255, [(180, "R", "R1 10 kΩ", {})], 1, 52) + dot(300, 255) + s_wire([(300, 255), (300, 255)])
     o += s_wire([(300, 255), (330, 255)]) if False else ""
     o += hrun(255, 300, 520, [(410, "BP", "S1 (NO)", {"below": True})]) + dot(520, 255)
     o += vrun(520, 255, 400, [(330, "R", "R3 10 kΩ", {})], 1, 52) if False else vrun(520, 255, B, [(330, "R", "R3 10 kΩ", {})], 1, 52)
     o += hrun(255, 520, 880, [(660, "R", "R2 390 Ω", {}), (820, "LED", "D1", {"below": True})]) if False else hrun(255, 520, 900, [(650, "R", "R2 390 Ω", {}), (820, "LED", "D1 rouge", {"below": True})])
     o += s_wire([(900, 255), (900, B)]) + s_wire([(L, B), (900, B)]) + dot(520, B) + gnd(520, B) if False else s_wire([(900, 255), (900, B)]) + s_wire([(L, B), (900, B)]) + gnd(L + 300, B) + T(L + 300, B + 60, "GND", 17, 800, INK)
-    o += T(300, 90, "+5 V", 17, 800, RED) + T(520, 214, "nœud", 14, 600, MUTED) + chip(600, 490, "R1 : tirage vers +5 V · R3 : pull-down vers GND · R2 limite le courant de la LED", INK, w=900, size=15)
+    o += T(300, 90, "+5 V", 17, 800, RED) + T(520, 214, "nœud", 14, 600, MUTED) + chip(600, 490, "S1 appuyé : le nœud passe à +5 V · R3 : pull-down vers GND (0 V au repos) · R2 limite le courant de la LED", INK, w=900, size=15)
     return figure(W, 530, o)
 
 
