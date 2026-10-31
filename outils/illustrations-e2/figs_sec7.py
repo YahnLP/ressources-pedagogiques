@@ -98,7 +98,9 @@ def f_flottant():
     import random
     rnd = random.Random(7)
     o = duo(0, 0, "SANS résistance (entrée flottante)", "AVEC résistance pull-down 10 kΩ", RED, GREEN, h=450)
-    o += f'<rect x="60" y="120" width="120" height="70" rx="8" fill="#e6efff" stroke="{BLUE}" stroke-width="3"/>' + T(120, 162, "D4", 22, 800, INK) + s_wire([(180, 155), (300, 155)]) + ''.join(f'<path d="M{310+i*20},{125+(i%2)*60} q10,-20 20,0" stroke="{RED}" stroke-width="2" fill="none"/>' for i in range(4))
+    o += f'<rect x="60" y="120" width="120" height="70" rx="8" fill="#e6efff" stroke="{BLUE}" stroke-width="3"/>' + T(120, 162, "D4", 22, 800, INK) + s_wire([(180, 155), (300, 155)]) + f'<circle cx="306" cy="155" r="6" fill="#fff" stroke="{INK}" stroke-width="3"/>' + T(240, 122, "broche en l'air", 16, 700, MUTED) \
+        + ''.join(f'<path d="M{470-r*0.9:.0f},{155-r*0.55:.0f} A{r},{r} 0 0 0 {470-r*0.9:.0f},{155+r*0.55:.0f}" stroke="{RED}" stroke-width="3" fill="none" stroke-linecap="round"/>' for r in (34, 58, 82)) \
+        + f'<path d="M488,128 L470,158 L484,158 L470,186 L506,148 L490,148 L504,128 Z" fill="{RED}"/>' + T(440, 105, "parasites (50 Hz, radio, main…)", 15, 700, RED)
     o += scope_(60, 230, 480, 150, [(i / 40, rnd.random()) for i in range(41)], "#ff6b6b") + T(300, 420, "IMPRÉVISIBLE", 24, 800, RED)
     o += f'<rect x="650" y="120" width="120" height="70" rx="8" fill="#e6efff" stroke="{BLUE}" stroke-width="3"/>' + T(710, 162, "D4", 22, 800, INK) + hrun(155, 770, 1000, [(880, "BP", "S1", {})]) + s_wire([(840, 155), (840, 215)]) + sym("R", 840, 235, rot=90) + gnd(840, 275) + T(870, 240, "10 kΩ", 17, 800, INK, "start")
     pts = [(0, 0), (.45, 0), (.45, 1), (.8, 1), (.8, 0), (1, 0)]
