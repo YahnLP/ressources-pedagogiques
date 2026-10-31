@@ -54,9 +54,15 @@
 | **15** Réduire le bruit | sonde ×1, mode Average | 7 | Première S05 |
 | **16** La pince de masse oubliée | parasite 50 Hz | 1 | Seconde S12 |
 | **17** Le bruit : le reconnaître et l'atténuer | limite 20 MHz, rejet HF, moyennage, sensibilité | 7 · 9 | Première S05 · Essentiel S6 |
+| **18** Décoder une liaison série UART / RS-232 *(RIGOL)* | vitesse, seuil, polarité, ASCII | — | Première S05 · Terminale |
+| **19** Décoder un bus I²C *(RIGOL)* | Start, adresse, R/W, données, ACK | — | Première S05 · Terminale |
+| **20** Décoder un bus SPI *(RIGOL)* | CS, SCLK, MOSI / MISO | — | Première S05 · Terminale |
 
 > [!TIP] 🏁 La bonne méthode
 > **1)** Réussis d'abord le TP virtuel (cases cochées et questions justes). **2)** Refais la manipulation sur **l'appareil réel**, avec la fiche : [OWON](oscilloscopes/owon-sds5032e.md) ou [RIGOL](oscilloscopes/rigol-ds1104z.md). **3)** Coche la mission du [Passeport oscilloscope](oscilloscopes/tp-passeport-oscilloscope.md).
+
+> [!NOTE] 🔌 Décodeur série du RIGOL
+> Les **TP 18 à 20** utilisent le décodeur de bus série du RIGOL DS1054Z (**MATH → Decode1**). C'est une **option logicielle** de l'appareil (SA-DS1000Z) : vérifie qu'elle est active sur ton oscilloscope. L'OWON n'a pas de décodeur.
 
 ## Limites
 OscilloLab ne remplace pas le matériel : certains menus rarement utilisés ne sont pas simulés (déclenchements spéciaux, FFT, décodage série). Détail dans le [dépôt](https://github.com/YahnLP/OscilloLab).
