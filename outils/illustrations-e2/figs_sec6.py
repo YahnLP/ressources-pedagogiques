@@ -1,5 +1,6 @@
 """Seconde S05 et S06 : figures manquantes."""
 from hl import *
+from figs_sym import relais_body, opto_body
 import math
 
 
@@ -118,8 +119,8 @@ def f_sym_avances():
     o = ""
     cells = [(npn(0, 0, 0.85), "Transistor NPN", "B, C, E · flèche sortante"), (npn(0, 0, 0.85, "pnp"), "Transistor PNP", "flèche entrante"), (sym("FUSE", 0, 0), "Fusible", "protège contre les surintensités"),
              ('<rect x="-44" y="-30" width="88" height="60" fill="#fff" stroke="#1b2742" stroke-width="3"/><path d="M-70,-12 H-44 M44,-12 H70 M0,30 V52" stroke="#1b2742" stroke-width="3"/>' + T(-30, -8, "IN", 14, 800) + T(30, -8, "OUT", 14, 800) + T(0, 20, "ADJ", 12, 700, MUTED, extra=""), "Régulateur de tension", "IN, OUT, ADJ/GND"),
-             (sym("CP", 0, 0), "Condensateur polarisé", "+ côté barre droite"), ('<circle cx="-30" cy="0" r="0"/>' + sym("L", -30, -22, s=.8) + '<path d="M10,22 H-8 M54,22 H72" stroke="#1b2742" stroke-width="3"/><circle cx="-8" cy="22" r="4" fill="#fff" stroke="#1b2742" stroke-width="3"/><path d="M-8,22 L46,6" stroke="#1b2742" stroke-width="3"/><path d="M-30,-4 V8 M-16,8 V-4" stroke="none"/><path d="M-80,-22 H-70 M-18,-22 H-10" stroke="#1b2742" stroke-width="3"/><path d="M-30,-4 L10,22" stroke="#1b2742" stroke-width="2" stroke-dasharray="4 4"/>', "Relais", "bobine + contact commandé"),
-             ('<rect x="-60" y="-34" width="120" height="68" rx="4" fill="none" stroke="#1b2742" stroke-width="3" stroke-dasharray="7 5"/>' + sym("LED", -30, 6, rot=90, s=.5) + '<path d="M18,-20 V20 M18,0 L46,-18 M18,0 L46,18" stroke="#1b2742" stroke-width="3"/><path d="M46,18 l-10,0 l8,-8" fill="#1b2742" stroke="#1b2742" stroke-width="2"/><path d="M-30,-34 V-48 M46,-18 V-48 M46,18 V48" stroke="#1b2742" stroke-width="3"/>', "Optocoupleur", "LED + phototransistor"),
+             (sym("CP", 0, 0), "Condensateur polarisé", "+ côté barre droite"), (g(0, 0, g(-130, -50, relais_body(), 1), 0.62), "Relais", "bobine + contact commandé"),
+             (g(0, 0, g(-130, -50, opto_body(), 1), 0.62), "Optocoupleur", "LED + phototransistor"),
              ('<rect x="-34" y="-46" width="68" height="92" rx="6" fill="#fff" stroke="#1b2742" stroke-width="3"/><path d="M-18,-30 H18 M-18,-30 V-2 M18,-30 V-2 M-18,0 H18 M-18,0 V28 M18,0 V28 M-18,28 H18" stroke="#c0392b" stroke-width="5" stroke-linecap="round"/>', "Afficheur 7 segments", "7 segments commandés")]
     for i, (k, n, s) in enumerate(cells):
         x = 25 + (i % 4) * 292; y = 25 + (i // 4) * 185
