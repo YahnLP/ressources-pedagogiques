@@ -252,4 +252,53 @@ def f_fiche_maintenance():
     o += chip(330, 740, "Une fiche bien remplie évite de rechercher deux fois la même panne", INK, w=520, size=14)
     return figure(W, 910, o)
 
-FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance}
+
+def f_hysteresis():
+    import math
+    o = panel(30, 30, 560, 480, "SANS hystérésis : un seul seuil à 30 °C", accent=RED) + panel(610, 30, 560, 480, "AVEC hystérésis : haut 30 °C, bas 28 °C", accent=GREEN)
+    def graph(x0, hyst):
+        gx, gy, gw, gh = x0 + 70, 110, 460, 220
+        ty = lambda v: gy + gh - (v - 27) / 5 * gh
+        r = f'<rect x="{gx}" y="{gy}" width="{gw}" height="{gh}" fill="#fff" stroke="#c7d0e2" stroke-width="2"/>'
+        r += f'<line x1="{gx}" y1="{ty(30):.0f}" x2="{gx+gw}" y2="{ty(30):.0f}" stroke="{RED}" stroke-width="2" stroke-dasharray="7 5"/>' + T(gx + 6, ty(30) - 6, "30 °C", 13, 800, RED, "start")
+        if hyst: r += f'<line x1="{gx}" y1="{ty(28):.0f}" x2="{gx+gw}" y2="{ty(28):.0f}" stroke="{GREEN}" stroke-width="2" stroke-dasharray="7 5"/>' + T(gx + 6, ty(28) - 6, "28 °C", 13, 800, GREEN, "start")
+        N = 150
+        pts = [(i / N, 28.9 + 1.5 * math.sin(math.pi * (i / N)) ** 1.2 - 1.7 * (i / N) ** 4 + 0.32 * math.sin(i * 1.7)) for i in range(N + 1)]
+        r += f'<polyline points="{" ".join(f"{gx+t*gw:.0f},{ty(v):.0f}" for t, v in pts)}" fill="none" stroke="{BLUE}" stroke-width="3"/>'
+        r += T(gx - 8, gy + 14, "T (°C)", 12, 700, MUTED, "end") + T(gx + gw, gy + gh + 18, "temps →", 12, 700, MUTED, "end")
+        st = []; cur = False
+        for t, v in pts:
+            if not cur and v >= 30: cur = True
+            elif cur and v < (28 if hyst else 30): cur = False
+            st.append(cur)
+        by = gy + gh + 34
+        r += T(gx - 8, by + 17, "alerte", 13, 800, INK, "end")
+        i = 0
+        while i < len(st):
+            j = i
+            while j + 1 < len(st) and st[j + 1] == st[i]: j += 1
+            xa = gx + pts[i][0] * gw; xb = gx + pts[min(j + 1, N)][0] * gw
+            r += f'<rect x="{xa:.0f}" y="{by}" width="{max(xb-xa,2):.0f}" height="26" fill="{RED if st[i] else "#d8e3d8"}"/>'
+            i = j + 1
+        trans = sum(1 for k in range(1, len(st)) if st[k] != st[k - 1])
+        r += T(gx + gw / 2, by + 62, f"{trans} changement{'s' if trans>1 else ''} d'état de l'alerte", 17, 800, GREEN if hyst else RED)
+        return r
+    o += graph(30, False) + graph(610, True)
+    o += chip(600, 560, "Hystérésis : on déclenche à un seuil haut, on ne désactive qu'à un seuil plus bas", INK, w=1000, size=17)
+    return figure(W, 610, o)
+
+
+def f_thermostat_analogie():
+    o = panel(30, 30, 370, 400, "1 · Chauffage à seuil unique", accent=RED) + panel(415, 30, 370, 400, "2 · Thermostat à hystérésis", accent=GREEN) + panel(800, 30, 370, 400, "3 · Ce qu'on retient", accent=BLUE)
+    def therm(cx, v):
+        return (f'<rect x="{cx-14}" y="100" width="28" height="190" rx="14" fill="#fff" stroke="{INK}" stroke-width="3"/><circle cx="{cx}" cy="300" r="26" fill="{RED}" stroke="{INK}" stroke-width="3"/><rect x="{cx-7}" y="{290-v}" width="14" height="{v+10}" fill="{RED}"/>')
+    o += therm(85, 110) + T(130, 150, "Chauffage ALLUMÉ", 15, 800, INK, "start") + T(130, 172, "si T < 19 °C", 15, 800, INK, "start") + T(130, 206, "ÉTEINT dès que", 15, 800, INK, "start") + T(130, 228, "T ≥ 19 °C", 15, 800, INK, "start")
+    o += T(215, 360, "Il s'allume et s'éteint sans cesse", 15, 800, RED) + T(215, 384, "autour de 19 °C", 15, 700, MUTED)
+    o += therm(470, 110) + T(515, 150, "ALLUMÉ si T < 18 °C", 15, 800, GREEN, "start") + T(515, 180, "ÉTEINT si T > 20 °C", 15, 800, GREEN, "start") + T(515, 222, "Entre 18 et 20 °C :", 14, 700, INK, "start") + T(515, 244, "il garde son état", 14, 700, INK, "start")
+    o += T(600, 360, "Peu de cycles, fonctionnement stable", 15, 800, GREEN)
+    o += T(985, 110, "Hystérésis", 24, 800, BLUE) + T(985, 150, "le système « se souvient »", 16, 700, INK) + T(985, 174, "de son état précédent", 16, 700, INK)
+    o += T(985, 230, "Entre les deux seuils,", 15, 600, MUTED) + T(985, 252, "on ne change PAS d'état", 15, 800, INK) + T(985, 306, "Alerte : seuil HAUT pour déclencher,", 15, 600, MUTED) + T(985, 328, "seuil BAS pour désactiver", 15, 800, INK)
+    return figure(W, 480, o)
+
+
+FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance, "hysteresis_courbes": f_hysteresis, "hysteresis_thermostat": f_thermostat_analogie}
