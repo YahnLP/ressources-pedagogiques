@@ -136,6 +136,9 @@ $$I_{moy} = \frac{150 \times 5 + 0{,}1 \times 55}{60} \approx 12{,}6\,\mathrm{mA
 
 ### 7. Mesurer l'ondulation à l'oscilloscope
 
+> [!TIP] 📘 Besoin d'aide pour les réglages ?
+> Consulte la fiche de ton appareil : [OWON](../ressources/oscilloscopes/owon-sds5032e.md) ou [RIGOL](../ressources/oscilloscopes/rigol-ds1104z.md), et la mission 9 du [TP Passeport oscilloscope](../ressources/oscilloscopes/tp-passeport-oscilloscope.md).
+
 On place la sonde sur la sortie de l'alimentation en couplage **AC**, base de temps de 5 ms, sensibilité de 20 mV/div ; on lit l'amplitude **crête-à-crête**.
 
 ![Écran d'oscilloscope : lire une amplitude et une période](images/ess_oscillo_ecran.png)

@@ -1,0 +1,6 @@
+title: "🔭 Oscilloscopes"
+nav:
+  - README.md
+  - "OWON SDS5032E(V)": owon-sds5032e.md
+  - "RIGOL DS1104Z": rigol-ds1104z.md
+  - "TP Passeport oscilloscope": tp-passeport-oscilloscope.md

@@ -16,7 +16,7 @@
 |---|---|
 | 1 h | TP virtuels ElectroLab (lire un signal, rapport cyclique, couplage AC/DC) |
 | 1 h | Cours : signaux, réglages de l'oscilloscope, lecture |
-| 1 h 15 | Atelier réel : générateur et oscilloscope |
+| 1 h 15 | Atelier réel : générateur et oscilloscope (avec la fiche de ton appareil) |
 | 45 min | Exercices et auto-test |
 
 ## 🖥️ TP virtuel dans ElectroLab : à faire avant le TP réel
@@ -27,6 +27,13 @@ Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 - **Signaux périodiques : GBF, oscilloscope et multimètre** (1 h 15)
 - **Signal rectangulaire : rapport cyclique, temps haut, valeur moyenne (5 signaux)** (1 h 15)
 - **Couplage AC / DC : mesurer une ondulation sur une tension continue** (1 h)
+
+> [!TIP] 📘 Les fiches de ton oscilloscope
+> Deux fiches illustrées expliquent **tous les boutons, les réglages, la lecture de l'écran, les mesures et la capture** pour les oscilloscopes du laboratoire :
+> - [🔭 Fiche OWON SDS5032E(V)](../ressources/oscilloscopes/owon-sds5032e.md) (2 voies, 30 MHz) ;
+> - [🔭 Fiche RIGOL DS1104Z](../ressources/oscilloscopes/rigol-ds1104z.md) (4 voies, 100 MHz).
+>
+> Pour t'entraîner pas à pas : [🧪 TP « Passeport oscilloscope »](../ressources/oscilloscopes/tp-passeport-oscilloscope.md) (13 missions).
 
 ---
 
@@ -93,6 +100,7 @@ Certains oscilloscopes ont des **voies numériques** (analyseur logique) : on vo
 
 **Matériel** : oscilloscope, sonde ×10, générateur de fonctions.
 
+0. **Ouvre la fiche** de ton oscilloscope et suis la **mise en route en 6 étapes** (réglages d'usine, sonde, compensation).
 1. Règle la sonde sur ×10 (et la voie aussi). Branche-la au **signal de test** de la façade, appuie sur **Autoset**, puis **compense** la sonde.
 2. Règle le générateur : **sinus, 1 kHz, 2 V crête à crête**. Branche-le sur la voie 1. Relève $T$, $f$ et $U_{pp}$ **à la main**, puis avec les **mesures automatiques**.
 3. Passe en **carré 500 Hz**. Règle un **rapport cyclique de 25 %** : relève $t_{haut}$.

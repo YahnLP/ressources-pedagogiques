@@ -196,7 +196,7 @@ Un produit sans documentation est un produit que **personne d'autre ne peut main
 1. **Valide** ta carte : tension d'alimentation (5 V ± 5 %), fréquence (1 Hz ± 10 %), rapport cyclique, courant dans la LED. Rédige le **PV** (attendu / mesuré / marge / verdict).
 2. Dans **ElectroLab**, ouvre `clignoteur.json` puis les trois pannes. Pour chacune : **décris**, **mesure** (tensions, puis résistances hors tension), **conclus**.
 3. Remplis une **fiche d'intervention** pour chaque panne.
-4. **Incertitude** : mesure 6 fois la fréquence (au chronomètre ou à l'oscilloscope) et exprime-la sous la forme $(f \pm U)$.
+4. **Incertitude** : mesure 6 fois la fréquence (avec les **mesures automatiques** ou les **statistiques** de ton oscilloscope : voir sa [fiche](../ressources/oscilloscopes/README.md)) (au chronomètre ou à l'oscilloscope) et exprime-la sous la forme $(f \pm U)$.
 5. **Fiabilité** : le clignoteur a une MTBF estimée à 20 000 h et un MTTR de 2 h : calcule sa disponibilité.
 6. **Documentation** : rédige la **BOM** du clignoteur (au moins 8 lignes avec références, quantités, total).
 
