@@ -259,23 +259,7 @@ Problème AWS IoT / certificats → CONSOLE AWS CLOUDWATCH
 
 ### Structure standardisée
 
-> [!NOTE] FICHE DE MAINTENANCE CORRECTIVE
->
-> | | |
-> |---|---|
-> | **Équipement** | esp32-station-météo-01 |
-> | **Date** | 2026-03-15 |
-> | **Intervenant** | Alice DUPONT |
-> | **Durée d'intervention** | 45 min |
-
-| Rubrique | Contenu |
-|---|---|
-| **1. Symptôme(s)** | L'ESP32 ne publie plus sur AWS IoT depuis 14 h 00. LED Wi-Fi OK. Moniteur série : « Erreur MQTT : 5 » en boucle. |
-| **2. Démarche de diagnostic** | **Étape 1** : Wi-Fi OK (LED + log « WiFi OK → 192.168.1.42 »).<br>**Étape 2** : ping du broker OK → broker joignable.<br>**Étape 3** : console AWS → certificat actif ? Oui.<br>**Étape 4** : console AWS → Surveiller → test MQTT → erreur : « Policy doesn't allow iot:Publish on this resource ». |
-| **3. Cause identifiée** | La *Policy IoT* AWS a été modifiée par erreur (suppression de l'action `iot:Publish` lors d'une mise à jour de sécurité). |
-| **4. Action corrective** | Ajout de `iot:Publish` dans la Policy IoT via la console AWS. |
-| **5. Validation** | ✅ Messages visibles dans la console AWS (test MQTT).<br>✅ CloudWatch : nouvelles métriques de température.<br>✅ Aucun incident depuis plus de 24 h. |
-| **6. Amélioration préventive** | Créer une alarme CloudWatch sur l'absence de métriques > 15 min.<br>Ajouter une politique de gestion des changements (validation avant toute modification de Policy IoT en production). |
+![Fiche de maintenance corrective complétée : symptôme, démarche de diagnostic, cause, action, validation, amélioration préventive](images/fiche-maintenance.png)
 
 
 > [!TIP] 💡 En clair

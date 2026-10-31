@@ -164,16 +164,29 @@ def f_climasens_cablage():
 
 
 def f_cem_pcb_defaillant():
-    o = f'<rect x="60" y="50" width="1080" height="440" rx="14" fill="#1c7a46" stroke="#0e4a2a" stroke-width="4"/>' + T(100, 84, "PCB défaillant — vue de dessus (F.Cu)", 17, 800, "#e8f5ec", "start")
-    cu = "#d9a441"
-    o += f'<rect x="560" y="150" width="170" height="110" rx="8" fill="#15171b"/>' + T(645, 212, "ESP32", 22, 800, "#fff")
-    o += f'<path d="M110,170 H560" stroke="{cu}" stroke-width="12" fill="none"/>' + T(300, 150, "VCC", 16, 800, "#e8f5ec") + f'<path d="M730,170 H900 V210" stroke="{cu}" stroke-width="10" fill="none"/><circle cx="900" cy="230" r="20" fill="#e5353b"/>' + T(960, 236, "LED", 15, 800, "#e8f5ec", "start") + f'<path d="M900,250 V300 H1100" stroke="{cu}" stroke-width="10" fill="none"/>' + T(1100, 292, "GND", 16, 800, "#e8f5ec", "end")
-    o += f'<path d="M110,330 H250 V420 H420 V330 H560 V250" stroke="{cu}" stroke-width="8" fill="none" stroke-linejoin="round"/>' + T(110, 320, "Capteur ADC", 15, 800, "#e8f5ec", "start") + T(335, 450, "longue piste ≈ 15 cm : antenne !", 16, 800, "#ffd9d9")
-    o += f'<rect x="600" y="360" width="60" height="30" rx="6" fill="#4a90e2"/>' + T(630, 380, "C", 16, 800, "#fff") + f'<path d="M630,360 V270" stroke="{cu}" stroke-width="3" stroke-dasharray="5 5"/>' + T(560, 420, "condensateur 100 µF à 5 cm du CI", 15, 800, "#ffd9d9")
-    o += f'<rect x="100" y="470" width="480" height="14" fill="#2f2f2f" opacity=".0"/>'
-    o += f'<rect x="760" y="330" width="170" height="100" fill="#8a6a1c" opacity=".55"/><rect x="940" y="330" width="170" height="100" fill="#8a6a1c" opacity=".55"/><rect x="930" y="322" width="10" height="116" fill="#e5353b"/>' + T(935, 458, "fente dans le plan de masse (B.Cu)", 15, 800, "#ffd9d9") + T(1025, 350, "plan de masse", 13, 700, "#ffe9a8")
-    for x, y, t in ((330, 195, "1"), (645, 360 - 34, "2"), (935, 440, "3")): pass
-    o += chip(250, 520, "1  piste longue sensible", RED, w=300, size=14) + chip(600, 520, "2  découplage trop loin", RED, w=300, size=14) + chip(950, 520, "3  plan de masse coupé", RED, w=300, size=14)
+    cu = "#d9a441"; lbl = "#e8f5ec"
+    o = f'<rect x="60" y="50" width="1080" height="470" rx="14" fill="#1c7a46" stroke="#0e4a2a" stroke-width="4"/>' + T(100, 84, "PCB — vue de dessus (couche F.Cu)", 17, 800, lbl, "start")
+    # circuit intégré
+    o += f'<rect x="560" y="140" width="170" height="120" rx="8" fill="#15171b"/>' + T(645, 208, "ESP32", 22, 800, "#fff") + "".join(f'<rect x="{548}" y="{160+k*22}" width="14" height="8" fill="{cu}"/><rect x="{728}" y="{160+k*22}" width="14" height="8" fill="{cu}"/>' for k in range(5))
+    # alimentation
+    o += f'<path d="M110,164 H550" stroke="{cu}" stroke-width="12" fill="none"/>' + T(130, 146, "VCC", 16, 800, lbl, "start")
+    # LED CMS entre le CI et la masse (pastilles + corps)
+    o += f'<path d="M742,164 H880" stroke="{cu}" stroke-width="9" fill="none"/>'
+    o += f'<rect x="866" y="150" width="36" height="34" rx="4" fill="{cu}"/><rect x="866" y="236" width="36" height="34" rx="4" fill="{cu}"/>'
+    o += f'<rect x="868" y="178" width="32" height="64" rx="5" fill="#e5353b" stroke="#a11" stroke-width="2"/><rect x="873" y="186" width="22" height="10" rx="3" fill="#fff" opacity=".4"/>' + T(920, 214, "LED", 15, 800, lbl, "start")
+    o += f'<path d="M884,270 V300 H1090" stroke="{cu}" stroke-width="9" fill="none"/>' + T(1090, 288, "GND", 16, 800, lbl, "end")
+    # entrée capteur ADC : piste en U
+    o += f'<path d="M110,330 H250 V430 H430 V330 H560 V268" stroke="{cu}" stroke-width="8" fill="none" stroke-linejoin="round"/>' + T(110, 318, "Capteur ADC", 15, 800, lbl, "start") + T(560, 296, "GPIO34", 14, 800, lbl, "start")
+    o += T(340, 462, "longueur de la piste : 15 cm", 15, 800, "#fff7d6")
+    # condensateur de découplage, éloigné
+    o += f'<rect x="610" y="400" width="70" height="34" rx="6" fill="#4a90e2" stroke="#2b5fa3" stroke-width="2"/>' + T(645, 423, "100 µF", 15, 800, "#fff")
+    o += f'<path d="M645,400 V292" stroke="{cu}" stroke-width="3" stroke-dasharray="5 5"/><path d="M590,262 H700" stroke="none"/>'
+    o += T(645, 458, "distance au CI : 5 cm", 15, 800, "#fff7d6")
+    # plan de masse (B.Cu) vu en transparence, avec une coupure
+    o += f'<rect x="760" y="340" width="150" height="130" fill="#8a6a1c" opacity=".55"/><rect x="930" y="340" width="150" height="130" fill="#8a6a1c" opacity=".55"/>' + T(920, 332, "plan de masse (couche B.Cu)", 14, 700, "#ffe9a8")
+    o += f'<path d="M920,340 V470" stroke="#fff" stroke-width="2" stroke-dasharray="3 5" opacity=".6"/>'
+    # échelle
+    o += f'<line x1="100" y1="500" x2="260" y2="500" stroke="#fff" stroke-width="3"/><line x1="100" y1="494" x2="100" y2="506" stroke="#fff" stroke-width="3"/><line x1="260" y1="494" x2="260" y2="506" stroke="#fff" stroke-width="3"/>' + T(180, 490, "5 cm", 13, 800, "#fff")
     return figure(W, 570, o)
 
 
@@ -196,4 +209,47 @@ def f_grille_boitier():
     return figure(W, 610, o)
 
 
-FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier}
+
+
+def f_fiche_maintenance():
+    o = f'<rect x="40" y="26" width="1120" height="860" rx="18" fill="#fff" stroke="#c7d0e2" stroke-width="3"/>'
+    o += f'<rect x="40" y="26" width="1120" height="74" rx="18" fill="{BLUE}"/><rect x="40" y="70" width="1120" height="30" fill="{BLUE}"/>'
+    o += T(70, 74, "FICHE DE MAINTENANCE CORRECTIVE", 26, 800, "#fff", "start") + T(1130, 74, "à remplir à CHAQUE intervention", 16, 600, "#dbe6ff", "end")
+    meta = (("Équipement", "esp32-station-météo-01"), ("Date", "2026-03-15"), ("Intervenant", "Alice DUPONT"), ("Durée", "45 min"))
+    for k, (a, b) in enumerate(meta):
+        x = 70 + k * 270
+        o += f'<rect x="{x}" y="116" width="250" height="58" rx="10" fill="#eef2fb"/>' + T(x + 14, 140, a, 13, 700, MUTED, "start") + T(x + 14, 163, b, 17, 800, INK, "start")
+    def card(x, y, w, h, n, title, col):
+        return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="{col}" opacity=".07"/>'
+                f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="none" stroke="{col}" stroke-width="3"/>' + badge(x + 28, y + 30, n, col, 16) + T(x + 56, y + 37, title, 19, 800, col, "start"))
+    # 1 symptôme
+    o += card(70, 196, 520, 150, 1, "SYMPTÔME(S)", RED)
+    o += T(90, 252, "L'ESP32 ne publie plus sur AWS IoT depuis 14 h 00.", 16, 600, INK, "start") + T(90, 278, "LED Wi-Fi allumée : la connexion Wi-Fi est correcte.", 16, 600, INK, "start")
+    o += f'<rect x="90" y="298" width="480" height="34" rx="8" fill="#1b2742"/>' + T(104, 321, "Moniteur série :  « Erreur MQTT : 5 »  en boucle", 15, 700, "#fca5a5", "start", extra='font-family="monospace"')
+    # 2 démarche
+    o += card(70, 362, 520, 330, 2, "DÉMARCHE DE DIAGNOSTIC", BLUE)
+    steps = (("Wi-Fi", "OK : LED + log « WiFi OK → 192.168.1.42 »", GREEN, "✓"), ("Broker", "ping OK : le broker est joignable", GREEN, "✓"), ("Certificat", "console AWS : certificat actif ? Oui", GREEN, "✓"), ("Journal AWS", "test MQTT → erreur :  « Policy doesn't allow iot:Publish on this resource »", RED, "✗"))
+    o += f'<line x1="106" y1="430" x2="106" y2="640" stroke="#9fb4e8" stroke-width="3" stroke-dasharray="5 5"/>'
+    for k, (t, d, c, ic) in enumerate(steps):
+        y = 426 + k * 66
+        o += f'<circle cx="106" cy="{y+4}" r="15" fill="{c}"/>' + T(106, y + 10, ic, 18, 800, "#fff") + T(136, y - 2, f"Étape {k+1} · {t}", 15, 800, INK, "start")
+        if k < 3: o += T(136, y + 22, d, 14, 600, MUTED, "start")
+        else: o += T(136, y + 22, "test MQTT → erreur :", 14, 600, MUTED, "start") + T(136, y + 42, "« Policy doesn't allow iot:Publish on this resource »", 13, 700, RED, "start", extra='font-family="monospace"')
+    # 3 cause
+    o += card(610, 196, 520, 150, 3, "CAUSE IDENTIFIÉE", AMBER)
+    o += T(630, 252, "La Policy IoT AWS a été modifiée par erreur :", 16, 600, INK, "start") + T(630, 278, "l'action iot:Publish a été supprimée lors", 16, 600, INK, "start") + T(630, 304, "d'une mise à jour de sécurité.", 16, 600, INK, "start")
+    # 4 action
+    o += card(610, 362, 520, 110, 4, "ACTION CORRECTIVE", GREEN)
+    o += T(630, 420, "Ajout de « iot:Publish » dans la Policy IoT", 16, 600, INK, "start") + T(630, 446, "via la console AWS.", 16, 600, INK, "start")
+    # 5 validation
+    o += card(610, 488, 520, 150, 5, "VALIDATION", GREEN)
+    for k, tx in enumerate(("Messages visibles dans la console AWS (test MQTT)", "CloudWatch : nouvelles métriques de température", "Aucun incident depuis plus de 24 h")):
+        y = 548 + k * 30
+        o += f'<circle cx="636" cy="{y-5}" r="11" fill="{GREEN}"/>' + T(636, y + 1, "✓", 14, 800, "#fff") + T(658, y, tx, 15, 600, INK, "start")
+    # 6 prévention
+    o += card(610, 654, 520, 150, 6, "AMÉLIORATION PRÉVENTIVE", "#7c3aed")
+    o += T(630, 710, "• Alarme CloudWatch si aucune métrique pendant plus de 15 min", 15, 600, INK, "start") + T(630, 738, "• Validation obligatoire avant toute modification de", 15, 600, INK, "start") + T(644, 762, "Policy IoT en production", 15, 600, INK, "start")
+    o += chip(330, 740, "Une fiche bien remplie évite de rechercher deux fois la même panne", INK, w=520, size=14)
+    return figure(W, 910, o)
+
+FIGS = {"saleae_logic2": f_saleae, "mqtt_sequence": f_mqtt_seq, "nodered_interface": f_nodered_ui, "climasens_architecture": f_climasens_archi, "climasens_cablage": f_climasens_cablage, "cem_pcb_defaillant": f_cem_pcb_defaillant, "grille_boitier": f_grille_boitier, "fiche_maintenance": f_fiche_maintenance}
