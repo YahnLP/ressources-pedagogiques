@@ -16,7 +16,7 @@
 |---|---|
 | **Schéma électrique normé** | Représentation graphique standardisée d'un circuit électrique utilisant les symboles IEC 60617 et respectant des conventions de dessin strictes |
 | **CAO** | Conception Assistée par Ordinateur — utilisation d'un logiciel pour dessiner des schémas ou concevoir des PCB |
-| **Simulateur de circuit** | Logiciel calculant le comportement d'un circuit électronique sans câblage physique (ex : Tinkercad, LTSpice) |
+| **Simulateur de circuit** | Logiciel calculant le comportement d'un circuit électronique sans câblage physique (ex : ElectroLab, Tinkercad, LTSpice) |
 | **Netlist** | Liste des connexions entre composants générée par un logiciel de schématique — utilisée pour fabriquer le PCB |
 | **Datasheet** | Document technique officiel du fabricant décrivant les caractéristiques électriques, mécaniques et thermiques d'un composant |
 | **Absolute Maximum Ratings** | Valeurs limites absolues à ne JAMAIS dépasser — dépassement = destruction irréversible du composant |
@@ -33,9 +33,9 @@
 Un ingénieur veut tester son circuit avant de le fabriquer. Peut-il le faire sans acheter un seul composant ?
 
 ??? question "Voir une réponse possible"
-    Oui, grâce à un **simulateur** comme **Tinkercad Circuits** : on construit et on teste le montage **à l'écran**, sans risque de griller un composant.
+    Oui, grâce à un **simulateur** comme **ElectroLab** ou **Tinkercad Circuits** : on construit et on teste le montage **à l'écran**, sans risque de griller un composant.
     
-    Mais attention : la simulation n'est pas la réalité. Dans cette séance, tu apprends à **dessiner un schéma normalisé**, à **simuler** dans Tinkercad, à **lire une datasheet** et à **dimensionner** un circuit, puis à comprendre les **limites** de la simulation.
+    Mais attention : la simulation n'est pas la réalité. Dans cette séance, tu apprends à **dessiner un schéma normalisé**, à **simuler** dans ElectroLab et Tinkercad, à **lire une datasheet** et à **dimensionner** un circuit, puis à comprendre les **limites** de la simulation.
 
 ---
 
@@ -101,9 +101,38 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ---
 
-## 2. Tinkercad Circuits — Prise en main
+## 2. Simuler un circuit : ElectroLab, puis Tinkercad Circuits
 
-### 2.1 Présentation de Tinkercad
+### 2.1 ElectroLab — le simulateur de la formation (à utiliser en premier)
+
+**ElectroLab** est le simulateur créé pour cette formation. Il fonctionne **dans le navigateur, sans compte ni installation** : [ouvrir ElectroLab](https://yahnlp.github.io/ElectroLab/). Ses schémas utilisent des **symboles normalisés (CEI)**, comme ceux que tu dessines sur papier.
+
+![Interface d'ElectroLab, avec les zones numérotées](images/electrolab-interface.png)
+
+| N° | Zone | À quoi ça sert |
+|---|---|---|
+| 1 | **Fichier** : Nouveau · Ouvrir · Enregistrer · TP ▾ | Repartir de zéro, reprendre un travail, charger un TP |
+| 2 | **Simulation** : Pause · Reset · Vitesse | La simulation tourne toute seule ; on peut la mettre en pause |
+| 3 | **Options** : Grandeurs affichées · Thermographie · Aide | Afficher U, I, P des composants ; voir leur échauffement |
+| 4 | **Outils** : Sélection · Fil · Pointes · Supprimer · Pivoter | Choisir ce que fait la souris |
+| 5 | **Palette** de composants | Cliquer sur un composant pour le poser |
+| 6 | **Zone de travail** (grille) | Le schéma se construit ici |
+| 7 | **Propriétés** / **Sujet de TP** | Régler un composant ; lire la consigne du TP |
+| 8 | **Journal** / **Carnet de mesures** | Messages du simulateur (composant détruit…) ; mesures notées |
+
+![Premier circuit dans ElectroLab : alimentation, résistance, LED, masse, multimètre](images/electrolab-circuit.png)
+
+*① alimentation de labo (5 V) · ② résistance 330 Ω · ③ LED rouge · ④ masse (0 V) · ⑤ multimètre en voltmètre, branché **en parallèle** de la LED · ⑥ fil de retour vers le « − ».*
+
+> [!TIP] 💡 En clair
+> Dans ElectroLab, tu travailles comme au labo : une **alimentation**, des **composants**, des **fils** et des **instruments**. Il n'y a pas de bouton « Démarrer » : le circuit est **calculé en continu**. Si tu oublies la **masse** (0 V), un bandeau orange te le rappelle.
+>
+> Le détail des gestes (poser, câbler, mesurer, enregistrer) est dans le [guide pas à pas](annexe-guide-pas-a-pas-tinkercad-circuits.md).
+
+> [!NOTE] Tracer des pistes lisibles
+> Un schéma doit rester **lisible** : place les composants pour que les fils soient **courts et droits**, ne fais **pas passer un fil sous un composant ou une étiquette**, et évite que deux fils se **chevauchent**. On peut déplacer un segment en le **glissant**, ou **retracer** automatiquement un fil par **double-clic**.
+
+### 2.2 Présentation de Tinkercad
 
 ![Interface de Tinkercad Circuits (maquette)](images/tinkercad-interface.png)
 
@@ -122,7 +151,7 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 | **Instruments** | Voltmètre, ampèremètre, oscilloscope virtuels | Placer dans le circuit comme un composant réel |
 | **Partager** | Génère un lien URL partageable | Utiliser pour remettre au formateur |
 
-### 2.2 Procédure de création d'un circuit — 5 étapes
+### 2.3 Procédure de création d'un circuit — 5 étapes
 
 > [!NOTE] CRÉER UN CIRCUIT SUR TINKERCAD — Procédure standard
 >
@@ -135,7 +164,7 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 > 6. Cliquer "Démarrer la simulation" pour tester  
 > 7. Sauvegarder (Ctrl+S ou auto-save)  
 
-### 2.3 Composants disponibles dans Tinkercad — Les essentiels
+### 2.4 Composants disponibles dans Tinkercad — Les essentiels
 
 | Composant | Nom dans Tinkercad | Catégorie |
 |---|---|---|
@@ -148,7 +177,7 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 | Ampèremètre | Multimètre (mode courant) | Instruments |
 | Arduino Uno | Arduino Uno R3 | Microcontrôleurs |
 
-### 2.4 Les instruments de mesure virtuels
+### 2.5 Les instruments de mesure virtuels
 
 ![Multimètre virtuel : voltmètre en parallèle, ampèremètre en série](images/tinkercad-multimetre.png)
 
@@ -184,6 +213,11 @@ Ces règles ne sont pas optionnelles. Un schéma professionnel non conforme peut
 
 ??? success "Réponse"
     Oui, Tinkercad signale certaines erreurs (LED sans résistance), mais pas toutes les pannes de la vraie vie.
+
+**Q4.** Dans ElectroLab, un bandeau orange signale « Aucune masse (0 V) dans le montage ». Que faut-il faire ?
+
+??? success "Réponse"
+    Ajouter le composant **Masse (0 V)** (catégorie *Divers*) et le relier au **« − »** de l'alimentation : il fixe la référence 0 V du circuit.
 
 > [!SUCCESS] 🧠 À retenir
 > - Poser, relier, régler, simuler, observer.
@@ -333,16 +367,17 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 
 ---
 
-## 5. Simulation vs réalité — Comprendre les limites de Tinkercad
+## 5. Simulation vs réalité — Comprendre les limites des simulateurs
 
-| Aspect | Tinkercad (simulation) | Circuit réel |
-|---|---|---|
-| **Temps de réalisation** | Quelques minutes | 30 min à plusieurs heures |
-| **Coût** | Gratuit | Coût des composants + matériel |
-| **Précision** | Modèles idéaux ($V_{F}$ LED = 2,000 V exactement) | Tolérances réelles ($V_{F}$ ± 0,2V selon lot) |
-| **Risques** | Aucun | Composants grillés, courts-circuits |
-| **Pannes simulées** | Limitées (pas de défaut thermique, ESD...) | Toutes les pannes réelles possibles |
-| **Utilité principale** | Valider la logique + pré-dimensionnement | Valider en conditions réelles |
+| Aspect | Tinkercad (simulation) | ElectroLab (simulation) | Circuit réel |
+|---|---|---|---|
+| **Temps de réalisation** | Quelques minutes | Quelques minutes | 30 min à plusieurs heures |
+| **Coût** | Gratuit, en ligne (compte) | Gratuit, sans compte, utilisable hors ligne | Coût des composants + matériel |
+| **Précision** | Modèles idéaux ($V_{F}$ LED = 2,000 V exactement) | Modèles de fiches constructeur ($V_{F}$ d'une LED rouge ≈ 1,9 V) ; **tolérances** des résistances tirées au hasard (±1 %, ±5 %, ±10 %) | Tolérances réelles ($V_{F}$ ± 0,2V selon lot) |
+| **Risques** | Aucun | Aucun pour toi, mais un composant en surcharge est **détruit** et signalé dans le journal | Composants grillés, courts-circuits |
+| **Pannes simulées** | Limitées (pas de défaut thermique, ESD...) | Pannes **injectables** (circuit ouvert, court-circuit, dérive, électrolytique séché…), échauffement visible en **thermographie** | Toutes les pannes réelles possibles |
+| **Instruments** | Multimètre, oscilloscope | Multimètre, oscilloscope 2 voies, analyseur logique | Instruments du labo |
+| **Utilité principale** | Valider la logique + pré-dimensionnement (Arduino) | S'entraîner aux **mesures** et au **dépannage**, TP corrigés automatiquement | Valider en conditions réelles |
 
 > 📌 **Conclusion** : La simulation est une étape de **pré-validation**, pas un remplacement de l'expérimentation réelle. On simule pour s'assurer de la logique et du dimensionnement, puis on câble pour valider dans les conditions réelles.
 
@@ -387,7 +422,7 @@ Pour tout composant actif, extraire ces 6 paramètres avant de l'utiliser dans u
 | Je dois... | Je retiens... |
 |---|---|
 | Respecter les règles de schéma | Fils H/V · Source à gauche · GND en bas · Point noir sur jonction · Étiquettes obligatoires |
-| Simuler un circuit | Tinkercad → Circuits → Nouveau → Glisser composants → Connecter → Simuler |
+| Simuler un circuit | ElectroLab : Nouveau → poser les composants → câbler → masse → mesurer · Tinkercad → Circuits → Nouveau → Glisser composants → Connecter → Simuler |
 | Mesurer en simulation | Voltmètre EN PARALLÈLE · Ampèremètre EN SÉRIE |
 | Lire une datasheet | 6 paramètres : $V_{\mathrm{max}}$ · $I_{\mathrm{max}}$ · $P_{\mathrm{max}}$ · $V_{\mathrm{typ}}$ · $I_{\mathrm{typ}}$ · Brochage |
 | Utiliser les limites absolues | Jamais dépasser les "Absolute Maximum Ratings" |
