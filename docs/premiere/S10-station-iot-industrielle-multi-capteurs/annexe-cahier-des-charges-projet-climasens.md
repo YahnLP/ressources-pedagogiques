@@ -62,26 +62,7 @@ QUALITÉ AIR (MQ-2) :
 
 ### Architecture matérielle
 
-```
-                    ┌────────────────────────────────────┐
-                    │        ESP32 DevKit v1              │
-                    │                                     │
-  DHT22 ────────── GPIO4 (DATA)                          │
-  MQ-2  ────────── GPIO34 (ADC)                          │
-  LDR   ────────── GPIO35 (ADC)                          │
-  LED Status ───── GPIO2 (OUTPUT)                        │
-                    │     WiFi 802.11 b/g/n               │
-                    └───────────────────────────────────┘
-                           │ MQTT/WiFi
-                           ▼
-                    [Broker MQTT]
-                           │
-                           ▼
-                    [Node-RED] ──→ [Dashboard web]
-                           │
-                           ▼
-                    [InfluxDB] ──→ [Historique]
-```
+![Architecture du projet ClimaSens : capteurs, ESP32, broker MQTT, Node-RED, tableau de bord, InfluxDB](images/architecture-climasens.png)
 
 ### Topic MQTT
 
