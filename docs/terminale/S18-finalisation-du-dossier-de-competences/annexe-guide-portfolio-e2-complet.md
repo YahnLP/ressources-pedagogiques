@@ -11,21 +11,7 @@
 
 ## 1.1 — Page de garde
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  DOSSIER DE COMPÉTENCES E2
-  Module : Systèmes Embarqués et Électronique
-  Unités : U21 – Systèmes embarqués   |   U22 – Qualité et métrologie
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Apprenti(e)   : ___________________________
-  Formation     : BAC PRO CIEL — CFA ___________________________
-  Entreprise    : ___________________________
-  Tuteur        : ___________________________
-  Formateur E2  : ___________________________
-  Période       : Septembre 2024 – Juin 2026 (A2 + A3)
-  Version       : 1.0 – Date : ___________________________
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+![Page de garde du dossier de compétences E2](images/page-garde-dossier-e2.png)
 
 ---
 
@@ -148,28 +134,7 @@ Ce que je retiens pour mon travail en entreprise :
 
 ## Fiche de preuve type (à reproduire pour chaque compétence)
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  FICHE DE PREUVE — Compétence ___________________________________
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Document/Fichier : _____________________________________________
-Séance d'origine : ___-A_ (ex: S6-A3)
-Date de production: 2026-___-___
-
-CE QUE ÇA PROUVE :
-  Cette preuve démontre que je sais ___________________________
-  ___________________________________________________________ car
-  ___________________________________________________________.
-
-CE QUI ÉTAIT DIFFICILE ET COMMENT J'AI SURMONTÉ :
-  ___________________________________________________________.
-
-LIEN AVEC L'ENTREPRISE (si applicable) :
-  J'ai utilisé/vu cette compétence en entreprise lors de ________
-  ___________________________________________________________.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+![Fiche de preuve à remplir pour chaque compétence](images/fiche-de-preuve.png)
 
 ---
 

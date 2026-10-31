@@ -47,7 +47,8 @@ def doc_figure(title, ref, cards, kw=190):
     o = ""
     y_left = y_right = 124
     placed = []
-    for idx, (n, t, lines, full) in enumerate(cards):
+    for idx, card in enumerate(cards):
+        n, t, lines, full = card[:4]; ckw = card[4] if len(card) > 4 else kw
         col = PAL[idx % len(PAL)]
         h = 58 + max(len(lines), 1) * 25 + 16
         if full:
@@ -57,17 +58,17 @@ def doc_figure(title, ref, cards, kw=190):
             y, x, w = y_left, LX, CW; y_left += h + 18
         else:
             y, x, w = y_right, RX, CW; y_right += h + 18
-        placed.append((x, y, w, h, n, t, lines, col))
+        placed.append((x, y, w, h, n, t, lines, col, ckw))
     total = max(y_left, y_right)
     o += f'<rect x="40" y="24" width="1120" height="{total-4}" rx="16" fill="#fff" stroke="#c7d0e2" stroke-width="3"/>'
     o += f'<rect x="40" y="24" width="1120" height="80" rx="16" fill="{INK}"/><rect x="40" y="70" width="1120" height="34" fill="{INK}"/>' + T(70, 76, title, 26, 800, "#fff", "start") + T(1130, 70, ref, 16, 700, "#cbd5ff", "end")
-    for x, y, w, h, n, t, lines, col in placed:
+    for x, y, w, h, n, t, lines, col, ckw in placed:
         o += f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="12" fill="{col}" opacity=".06"/><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="12" fill="none" stroke="{col}" stroke-width="2.5"/>'
         o += badge(x + 26, y + 28, n, col, 15) + T(x + 52, y + 34, t, 16, 800, col, "start")
         for k, (a, b) in enumerate(lines):
             yy = y + 66 + k * 25
             if b is None: o += T(x + 18, yy, a, 15, 600, INK, "start")
-            else: o += T(x + 18, yy, a, 14, 700, MUTED, "start") + T(x + 18 + kw, yy, b, 14, 700, INK, "start")
+            else: o += T(x + 18, yy, a, 14, 700, MUTED, "start") + T(x + 18 + ckw, yy, b, 14, 700, INK, "start")
     return figure(W, total + 24, o)
 
 
@@ -97,4 +98,72 @@ def f_config_dat():
     return doc_figure("SECTION 8 — CONFIGURATION", "DAT · exemple de table de configuration", cards, 190)
 
 
-FIGS = {"hc05_cablage_at": f_hc05_at, "hc05_cablage_normal": f_hc05_normal, "grille_oscillo_vierge": f_grille_oscillo, "rbd_pesee": f_rbd_pesee, "pv_validation": f_pv_validation, "config_dat": f_config_dat}
+def _station(nv2, cname="C_dec"):
+    o = f'<rect x="440" y="70" width="320" height="400" rx="14" fill="#fff" stroke="{RED}" stroke-width="4"/><rect x="440" y="70" width="320" height="40" rx="14" fill="{RED}"/>' + T(600, 98, "ESP32 DevKit v1", 18, 800, "#fff")
+    pins_l = (("GPIO4", 170), ("3V3", 380)); pins_r = [("GPIO2", 170)] + ([("GPIO5", 260)] if nv2 else [])
+    for n, y in pins_l: o += s_wire([(400, y), (440, y)]) + T(452, y + 6, n, 15, 800, INK, "start")
+    for n, y in pins_r: o += s_wire([(760, y), (800, y)]) + T(748, y + 6, n, 15, 800, INK, "end")
+    o += s_wire([(400, 170), (260, 170)]) + dot(300, 170) + s_wire([(300, 170), (300, 142)]) + sym("R", 300, 112, 90) + T(335, 118, "R_pullup", 14, 800, INK, "start") + s_wire([(300, 92), (300, 70)], RED) + f'<line x1="276" y1="70" x2="324" y2="70" stroke="{RED}" stroke-width="4"/>' + T(300, 58, "3V3", 14, 800, RED)
+    o += s_wire([(300, 170), (300, 200)]) + block(230, 200, 140, 70, "DHT22", "capteur", BLUE) + s_wire([(300, 270), (300, 290)]) + gnd(300, 290)
+    def led(y, rn, ln):
+        return s_wire([(800, y), (850, y)]) + sym("R", 890, y) + T(890, y - 26, rn, 14, 800, INK) + s_wire([(930, y), (990, y)]) + sym("LED", 1030, y, s=1.1) + T(1030, y - 54, ln, 14, 800, INK) + s_wire([(1074, y), (1130, y), (1130, y + 20)]) + gnd(1130, y + 20)
+    o += led(170, "R_LED", "LED")
+    if nv2: o += led(260, "R_IR", "LED_IR")
+    o += T(40, 386, "USB 5 V", 15, 800, RED, "start") + s_wire([(120, 380), (150, 380)], RED) + block(150, 345, 120, 70, "AMS1117", "régulateur", AMBER) + s_wire([(270, 380), (440, 380)])
+    o += dot(320, 380) + s_wire([(320, 380), (320, 410)]) + sym("C", 320, 445, 90) + T(278, 450, cname, 14, 800, INK, "end") + s_wire([(320, 465), (320, 480)]) + gnd(320, 480)
+    if nv2: o += dot(390, 380) + s_wire([(390, 380), (390, 410)]) + sym("R", 390, 445, 90) + T(390, 538, "R_charge", 14, 800, INK) + s_wire([(390, 465), (390, 480)]) + gnd(390, 480)
+    return o
+
+
+def f_station_final():
+    o = _station(False)
+    o += s_wire([(760, 250), (940, 250), (940, 308)]) + T(748, 256, "GPIO34", 15, 800, INK, "end") + T(960, 250, "curseur du potentiomètre", 14, 700, MUTED, "start")
+    o += s_wire([(760, 340), (906, 340)]) + T(748, 346, "GPIO5", 15, 800, INK, "end") + sym("POT", 940, 340) + T(940, 400, "R_pot = potentiomètre 10 kΩ", 14, 800, INK) + s_wire([(974, 340), (1130, 340), (1130, 360)]) + gnd(1130, 360)
+    o += dot(390, 380) + s_wire([(390, 380), (390, 410)]) + sym("R", 390, 445, 90) + T(390, 538, "R_charge", 14, 800, INK) + s_wire([(390, 465), (390, 480)]) + gnd(390, 480)
+    return figure(W, 570, o)
+
+
+def f_station_sonde(): return figure(W, 570, _station(False, "C1"))
+def f_station_nv2(): return figure(W, 570, _station(True))
+
+
+def f_mes_vierge():
+    b = "_______"
+    cards = [
+        (1, "IDENTIFICATION", [("Client", "Coopérative AGROSMART"), ("Site", "Serre n°3 – TP Labo"), ("Date d'installation", "2026-___-___"), ("Intervenant(s)", "__________________")], False),
+        (2, "MATÉRIELS INSTALLÉS", [("U1", "ESP32 DevKit v1 · n° série " + b + " · v____"), ("U2", "_____________ · n° série " + b), ("U3", "LED ×3 (V / O / R)")], False, 40),
+        (3, "PARAMÈTRES CONFIGURÉS", [("Seuil WARNING, activation", "T > ____ °C"), ("Seuil WARNING, désactivation", "T < ____ °C (hystérésis)"), ("Seuil CRITICAL, activation", "T > ____ °C"), ("Seuil CRITICAL, désactivation", "T < ____ °C"), ("Anti-rebond", "____ secondes"), ("Moyenne mobile", "N = ____ points"), ("Fréquence de publication", "____ secondes")], False),
+        (4, "TESTS DE VALIDATION", [("TC-001 · Lecture du capteur", "affiché ____ °C · réf. ____ °C · écart ____ °C  ☐ PASS (< 1 °C)  ☐ FAIL"), ("TC-002 · Alarme WARNING (T > 32 °C simulée)", "délai mesure → LED orange : ____ s  ☐ PASS  ☐ FAIL"), ("TC-003 · Retour à NORMAL", "LED verte à ____ °C  ☐ PASS  ☐ FAIL"), ("TC-004 · KPI moyenne mobile", "t_raw = ____ °C · t_moy = ____ °C · cohérent ?  ☐ Oui  ☐ Non"), ("TC-005 · Courbe de tendance", "☐ générée dans le tableur   ☐ tendance visible")], True, 400),
+        (5, "OBSERVATIONS", [("______________________________________", None), ("______________________________________", None)], False),
+        (6, "DÉCLARATION", [("☐  OPÉRATIONNEL : tous les tests validés", None), ("☐  OPÉRATIONNEL AVEC RÉSERVE : ____________", None), ("☐  NON OPÉRATIONNEL : défauts ____________", None)], False),
+        (7, "SIGNATURES", [("Installateur", "______________   Date : ________"), ("Validateur", "______________   Date : ________")], False),
+    ]
+    return doc_figure("FICHE DE MISE EN SERVICE (à remplir)", "Réf. MES-2026-SERRE-___", cards, 270)
+
+
+def f_page_garde():
+    cards = [(1, "IDENTITÉ", [("Apprenti(e)", "_______________________"), ("Formation", "BAC PRO CIEL — CFA ______________"), ("Entreprise", "_______________________"), ("Tuteur", "_______________________"), ("Formateur E2", "_______________________")], False),
+             (2, "DOSSIER", [("Module", "Systèmes embarqués, électronique"), ("Unités", "U21 systèmes embarqués · U22 qualité"), ("Période", "Sept. 2024 – Juin 2026 (A2 + A3)"), ("Version", "1.0 — Date : ________")], False, 90)]
+    return doc_figure("DOSSIER DE COMPÉTENCES E2", "Page de garde", cards, 150)
+
+
+def f_fiche_preuve():
+    cards = [(1, "DOCUMENT / FICHIER", [("Document / fichier", "________________________________"), ("Séance d'origine", "___-A_ (ex. S6-A3)"), ("Date de production", "2026-___-___")], False),
+             (2, "CE QUE ÇA PROUVE", [("Cette preuve démontre que je sais ____________________________", None), ("______________________________________ car", None), ("______________________________________.", None)], False),
+             (3, "CE QUI ÉTAIT DIFFICILE ET COMMENT J'AI SURMONTÉ", [("______________________________________________________", None), ("______________________________________________________", None)], True),
+             (4, "LIEN AVEC L'ENTREPRISE (si applicable)", [("J'ai utilisé / vu cette compétence en entreprise lors de ______________", None), ("______________________________________________________", None)], True)]
+    return doc_figure("FICHE DE PREUVE", "Compétence : ______________________________", cards, 170)
+
+
+def f_grr():
+    b = "_______"
+    cards = [(1, "RÉPÉTABILITÉ (EV)", [("σ_A", b + " °C"), ("σ_B", b + " °C"), ("σ_EV", b + " °C")], False),
+             (2, "REPRODUCTIBILITÉ (AV)", [("x̄_A", b + " °C"), ("x̄_B", b + " °C"), ("AV", b + " °C"), ("σ_AV", b + " °C")], False),
+             (3, "GRR TOTAL", [("σ_GRR", b + " °C"), ("%GRR", b + " %"), ("Verdict", "☐ EXCELLENT  ☐ ACCEPTABLE  ☐ INACCEPTABLE")], False, 80),
+             (4, "LIMITE DE DÉTECTION", [("σ_bruit", b + " °C"), ("LD", b + " °C"), ("Apte à détecter ± 1 °C", "☐ OUI  ☐ NON")], False),
+             (5, "CONCLUSION", [("Le DHT22 est  ☐ APTE  ☐ NON APTE  pour surveiller la salle technique", None)], True),
+             (6, "SIGNATURE", [("Signature", "___________________   Date : _______________")], True)]
+    return doc_figure("ÉTUDE GAUGE R&R — DHT22", "Opérateur A : ________ · B : ________", cards, 190)
+
+
+FIGS = {"hc05_cablage_at": f_hc05_at, "hc05_cablage_normal": f_hc05_normal, "grille_oscillo_vierge": f_grille_oscillo, "rbd_pesee": f_rbd_pesee, "pv_validation": f_pv_validation, "config_dat": f_config_dat, "station_sonde": f_station_sonde, "station_nv2": f_station_nv2, "station_final": f_station_final, "mes_vierge": f_mes_vierge, "page_garde": f_page_garde, "fiche_preuve": f_fiche_preuve, "grr_synthese": f_grr}

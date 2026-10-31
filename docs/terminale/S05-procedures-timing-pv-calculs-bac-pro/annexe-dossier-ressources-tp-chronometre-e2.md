@@ -11,23 +11,7 @@
 
 ## R1 — Schéma du circuit SONDE_E2_A3
 
-```
-                          ┌─────────────────────────────────────┐
-                          │           ESP32 DevKit v1            │
-                          │                                      │
-  3V3 ──[R_pullup]──┬─── GPIO4    GPIO2 ──[R_LED]──[LED]── GND │
-                    │                                            │
-                   [DHT22]                                       │
-                    │                                            │
-                   GND                                           │
-                          │                                      │
-  USB/5V ──[AMS1117]──── 3V3                              GND   │
-              │                                                  │
-             [C1=100µF]                                         │
-              │                                                  │
-             GND                                                 │
-                          └─────────────────────────────────────┘
-```
+![Schéma du circuit SONDE_E2_A3 : ESP32, DHT22 avec résistance de rappel, LED, alimentation AMS1117](images/schema-sonde-e2.png)
 
 **Valeurs nominales sur le circuit :**
 
