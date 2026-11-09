@@ -1,16 +1,17 @@
 # 🧪 Les Labs : simulateurs pour s'entraîner
 
-Un **Lab** est un simulateur qui fonctionne **dans un navigateur**, **sans installation** et sans risque pour le matériel. Chaque Lab propose des **TP corrigés automatiquement**. Pour le module E2 du Bac Pro CIEL, deux Labs sont à ta disposition.
+Un **Lab** est un simulateur qui fonctionne **dans un navigateur**, **sans installation** et sans risque pour le matériel. Chaque Lab propose des **TP corrigés automatiquement**. Pour le module E2 du Bac Pro CIEL, trois Labs sont à ta disposition.
 
 ## 🔌 Pour le Bac Pro CIEL (module E2)
 
 | Lab | À quoi il sert | Ouvrir | Mode d'emploi |
 |---|---|---|---|
 | **ElectroLab** | Câbler et simuler des circuits : lois fondamentales, composants, alimentations, dépannage, circuits intégrés, communication série. Multimètre, oscilloscope, analyseur logique intégrés. | [▶️ Ouvrir ElectroLab](https://yahnlp.github.io/ElectroLab/) | [Utiliser ElectroLab](electrolab.md) |
+| **LogicLab** | **Raisonner sur les circuits logiques** : portes, tables de vérité, équations, tableaux de Karnaugh, chronogrammes, conception de circuits. 12 TD guidés et 30 TP corrigés automatiquement. | [▶️ Ouvrir LogicLab](https://yahnlp.github.io/LogicLab/) | [Utiliser LogicLab](logiclab.md) |
 | **OscilloLab** | **Apprendre à régler les deux oscilloscopes du laboratoire** (OWON SDS5032E et RIGOL DS1054Z) : sonde, déclenchement, mesures, curseurs, déphasage. 20 TP avec pas à pas et bouton « Montre-moi ». | [▶️ Ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/) | [Utiliser OscilloLab](oscillolab.md) |
 
 > [!TIP] 🏁 Comment les utiliser ensemble
-> **ElectroLab** pour comprendre un montage et le mesurer dans un circuit ; **OscilloLab** pour savoir **régler l'oscilloscope** lui-même. Dans les deux cas : réussis d'abord le TP virtuel, puis refais la manipulation sur le **matériel réel**.
+> **ElectroLab** pour comprendre un montage et le mesurer dans un circuit ; **LogicLab** pour **raisonner sur la logique** (table de vérité, équation, Karnaugh) ; **OscilloLab** pour savoir **régler l'oscilloscope** lui-même. Dans les deux cas : réussis d'abord le TP virtuel, puis refais la manipulation sur le **matériel réel**.
 
 ## 🌐 Autres Labs du même auteur
 
@@ -24,4 +25,4 @@ Ces Labs ne concernent pas directement le module E2 mais ont le même fonctionne
 
 ## 📄 Droits
 
-Les Labs sont diffusés sous licence **CC BY-NC-SA 4.0** (voir le dépôt de chacun).
+Chaque Lab est diffusé avec sa propre licence (voir le dépôt de chacun) : **CC BY-NC-SA 4.0** pour ElectroLab et OscilloLab, **EUPL 1.2** pour LogicLab.

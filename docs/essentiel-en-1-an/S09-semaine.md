@@ -30,6 +30,10 @@ Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 - **Portes logiques : tables de vérité, alimentation, CMOS / TTL** (1 h 15)
 - **Dépannage d'un amplificateur inverseur à AOP** et **d'une platine logique** (pour consolider)
 
+## 🧮 TP virtuel dans LogicLab : les portes logiques
+
+Ouvre [LogicLab](https://yahnlp.github.io/LogicLab/), menu **TP ▾**, et fais dans l'ordre : **TD « Découvrir les niveaux logiques et la porte ET »** (45 min), **TD « ET et OU »** (45 min), puis **TD « NON, NON-ET, NON-OU et OU exclusif »** (1 h). Tu y vois le **0 ou le 1 derrière chaque porte** et la table de vérité se remplit en direct. Mode d'emploi : [Utiliser LogicLab](../ressources/logiclab.md).
+
 ---
 
 ## 📖 Le cours
@@ -107,6 +111,9 @@ Les circuits numériques ne connaissent que **0** (≈ 0 V) et **1** (≈ 5 V ou
 | 1 | 1 | 1 | 1 | 0 | 0 |
 
 **Exemple** : une machine démarre si le bouton **ET** le capot fermé sont actifs : $S = A \cdot B$.
+
+> [!TIP] 🧮 À toi d'essayer
+> Câble cet exemple dans [LogicLab](https://yahnlp.github.io/LogicLab/) (TD « Découvrir les niveaux logiques et la porte ET ») : deux interrupteurs, une porte **ET**, une LED. Laisse une entrée **en l'air** pour voir l'état indéterminé « ? ». Mode d'emploi : [Utiliser LogicLab](../ressources/logiclab.md).
 
 > [!WARNING] ⚠️ Erreurs fréquentes
 > - Confondre **fréquence de coupure** et fréquence à **−20 dB**.

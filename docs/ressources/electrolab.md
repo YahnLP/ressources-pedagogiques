@@ -1,6 +1,6 @@
 # 🖥️ Utiliser ElectroLab
 
-> [!NOTE] 🧪 Voir aussi : [tous les Labs](labs.md) · [🔬 OscilloLab](oscillolab.md) pour apprendre à régler les oscilloscopes.
+> [!NOTE] 🧪 Voir aussi : [tous les Labs](labs.md) · [🧮 LogicLab](logiclab.md) pour raisonner sur les circuits logiques · [🔬 OscilloLab](oscillolab.md) pour apprendre à régler les oscilloscopes.
 
 **ElectroLab** est un simulateur de circuits électroniques qui fonctionne **hors ligne** dans un navigateur (un seul fichier HTML).
 

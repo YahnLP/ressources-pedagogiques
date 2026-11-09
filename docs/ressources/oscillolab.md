@@ -1,6 +1,6 @@
 # 🔬 Utiliser OscilloLab
 
-> [!NOTE] 🧪 Voir aussi : [tous les Labs](labs.md) · [🖥️ ElectroLab](electrolab.md) pour câbler et simuler des circuits.
+> [!NOTE] 🧪 Voir aussi : [tous les Labs](labs.md) · [🖥️ ElectroLab](electrolab.md) pour câbler et simuler des circuits · [🧮 LogicLab](logiclab.md) pour les circuits logiques.
 
 **OscilloLab** est un simulateur des **deux oscilloscopes du laboratoire** : l'**OWON SDS5032E(V)** et le **RIGOL DS1054Z**. Il fonctionne **hors ligne** dans un navigateur. La face avant, les menus et les réactions de l'appareil sont reproduits : on apprend à **régler l'oscilloscope** sans risque pour le matériel.
 
