@@ -65,6 +65,9 @@ Les circuits numériques ne connaissent que **0** (≈ 0 V) et **1** (≈ 5 V ou
 
 La porte **NON** (NOT) inverse : $0 \to 1$ et $1 \to 0$.
 
+> [!TIP] 🧮 Manipule dans LogicLab
+> Dans [LogicLab](https://yahnlp.github.io/LogicLab/), câble ces portes et regarde le **0 ou le 1 derrière chaque broche**, avec la **table de vérité en direct** : TD « ET et OU », TD « NON, NON-ET, NON-OU et OU exclusif ». Mode d'emploi : [Utiliser LogicLab](../../ressources/logiclab.md).
+
 ### Vérifie
 
 Un système doit allumer un voyant d'alarme si **la température est trop élevée (T = 1) ET le capteur de porte indique « ouvert » (P = 1)**. Quelle porte utiliser ? Que vaut la sortie si T = 1 et P = 0 ?
@@ -76,3 +79,4 @@ Un système doit allumer un voyant d'alarme si **la température est trop élev�
 > - Non inverseur : $G = 1 + \dfrac{R_f}{R_g}$ ; la sortie est limitée par l'alimentation.
 > - Filtre RC : $f_{c} = \dfrac{1}{2\pi RC}$.
 > - Une porte logique se décrit par sa **table de vérité**.
+> - Pour aller plus loin : une équation logique se simplifie avec l'algèbre de Boole ou un **tableau de Karnaugh** (TD et TP « Karnaugh » de [LogicLab](https://yahnlp.github.io/LogicLab/)).

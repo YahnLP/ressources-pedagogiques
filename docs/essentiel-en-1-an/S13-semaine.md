@@ -32,6 +32,8 @@ Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 - **Dépannage d'un amplificateur inverseur à AOP (4 pannes)** (1 h 30)
 - **Dépannage d'une platine logique NAND + inverseur (5 pannes)** (1 h 30)
 
+Pour t'entraîner à **raisonner sur une table de vérité** avant de dépanner, ouvre [LogicLab](https://yahnlp.github.io/LogicLab/) : TP **« Dépannage : trouver la porte défectueuse »** (40 min) et TP **« Que se passe-t-il derrière chaque porte ? »** (30 min). Mode d'emploi : [Utiliser LogicLab](../ressources/logiclab.md).
+
 Puis, pour ta carte, ouvre ces sujets (bouton **Ouvrir**) :
 
 - [`clignoteur.json`](tp/clignoteur.json) : la carte saine de référence ;

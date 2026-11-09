@@ -9,6 +9,7 @@ On n'apprend pas l'électronique en la regardant : **on câble, on mesure, on so
 
 <a class="hero-btn" href="seconde/">🌱 Commencer en Seconde</a>
 <a class="hero-btn alt" href="ressources/electrolab/">🖥️ Simulateur ElectroLab</a>
+<a class="hero-btn alt" href="ressources/logiclab/">🧮 LogicLab</a>
 <a class="hero-btn alt" href="ressources/oscillolab/">🔬 OscilloLab</a>
 <a class="hero-btn alt" href="ressources/labs/">🧪 Tous les Labs</a>
 
@@ -55,6 +56,11 @@ On n'apprend pas l'électronique en la regardant : **on câble, on mesure, on so
 **Exercices et TP simulés** – Télécharge le fichier, ouvre-le dans [ElectroLab](https://yahnlp.github.io/ElectroLab/).
 
 [**Mode d'emploi →**](ressources/electrolab.md){ .go }
+
+### Simulateur LogicLab
+**Les circuits logiques** : portes, tables de vérité, équations, tableaux de Karnaugh, chronogrammes ; 12 TD guidés et 30 TP corrigés automatiquement. [▶️ Ouvrir LogicLab](https://yahnlp.github.io/LogicLab/)
+
+[**Mode d'emploi →**](ressources/logiclab.md){ .go }
 
 ### Simulateur OscilloLab
 **Les deux oscilloscopes du laboratoire (OWON et RIGOL)** : face avant fidèle, 20 TP corrigés automatiquement, pas à pas avec bouton « Montre-moi ». [▶️ Ouvrir OscilloLab](https://yahnlp.github.io/OscilloLab/)

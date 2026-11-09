@@ -9,6 +9,9 @@
 > 
 > Le simulateur corrige automatiquement et ne risque pas d'abîmer le matériel : **réussis d'abord le TP virtuel, puis refais la manipulation sur le matériel réel.** Mode d'emploi : [Utiliser ElectroLab](../../ressources/electrolab.md).
 
+> [!TIP] 🧮 LogicLab : les portes logiques, table de vérité et Karnaugh
+> Ouvre [LogicLab](https://yahnlp.github.io/LogicLab/), menu **TP ▾** : **TD « Découvrir les niveaux logiques et la porte ET »**, **TD « ET et OU »**, **TD « NON, NON-ET, NON-OU et OU exclusif »** (portes et tables de vérité), puis **TD « Lire un schéma : table de vérité et équation »**. Pour aller plus loin : **TD « Simplifier avec un tableau de Karnaugh (3 variables) »** et **TP « Alarme d'une maison »**. Mode d'emploi : [Utiliser LogicLab](../../ressources/logiclab.md).
+
 ## Prototypes Avancés : Intégration Mécanique, Boîtiers 3D, Tests en Conditions Réelles
 
 ---
