@@ -32,7 +32,7 @@ Ouvre [ElectroLab](https://yahnlp.github.io/ElectroLab/), menu **TP ▾** :
 
 ## 🧮 TP virtuel dans LogicLab : les portes logiques
 
-Ouvre [LogicLab](https://yahnlp.github.io/LogicLab/), menu **TP ▾**, et fais dans l'ordre : **TD « Découvrir les niveaux logiques et la porte ET »** (45 min), **TD « ET et OU »** (45 min), puis **TD « NON, NON-ET, NON-OU et OU exclusif »** (1 h). Tu y vois le **0 ou le 1 derrière chaque porte** et la table de vérité se remplit en direct. Mode d'emploi : [Utiliser LogicLab](../ressources/logiclab.md).
+Ouvre [LogicLab](https://yahnlp.github.io/LogicLab/), menu **TP ▾**, et fais le **TD « Découvrir les niveaux logiques et la porte ET »** (45 min). S'il reste du temps : **TD « ET et OU »** (45 min), puis **TD « NON, NON-ET, NON-OU et OU exclusif »** (1 h). Tu y vois le **0 ou le 1 derrière chaque porte** et la table de vérité se remplit en direct. Mode d'emploi : [Utiliser LogicLab](../ressources/logiclab.md).
 
 ---
 
